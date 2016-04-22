@@ -4,6 +4,24 @@
 <head>
     <meta charset="utf-8">
     <title>My Trip Around the USA on a Segway </title>
+    <!-- 將這個標記放在標頭中，或放在內文結尾標記前面。 -->
+    <script src="https://apis.google.com/js/platform.js" async defer>
+    {
+        lang: 'zh-TW'
+    }
+    </script>
+    <!-- Facebook 按讚 -->
+    <div id="fb-root"></div>
+    <script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.6&appId=1082270261848415";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
 </head>
 
 <body>
@@ -18,7 +36,6 @@
         <li>Last Chance,CO</li>
         <li>Truth or Consequences,NM</li>
         <li>Why,AZ</li>
-
     </oi>
     <h2>July 14, 2012</h2>
     <p>I saw some Burma Shave style signs on the side of the road today: "Passing cars, When you can't see, May get you, A glimpse, Of eternity." I definitely won't be passing any cars.</p>
@@ -33,6 +50,12 @@
     </ui>
     <p>
         Just the essentials. As Lao Tzu would have said, "A journey of a thousand miles begins with one Segway."</p>
+    <p>
+        <!-- Facebook在您要顯示「分享按鈕」的位置放上這個標記。 -->
+        <div class="fb-like" data-href="https://www.facebook.com/LegoKingShop/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+        <!-- Google在您要顯示「分享按鈕」的位置放上這個標記。 -->
+        <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    </p>
 </body>
 
 </html>
