@@ -1,1 +1,13 @@
-p {color: red}
+
+
+@font-face{
+	font-family: "Emblema One";
+	src:url("http://wickedlysmart.com/hfhtmlcss/chapter8/journal/EmblemaOne-Regular.woff");
+}
+
+
+p{
+	
+	font-family: "Emblema One";
+	color: green;
+}
