@@ -1,4 +1,25 @@
 @import url(https://fonts.googleapis.com/css?family=Frijole);
+<script src="//s3-ap-northeast-1.amazonaws.com/justfont-user-script/jf-41880.js"></script>
+<style type="text/css">
+.jf-loading body {
+    /*載入中不顯示*/
+    opacity: 0;
+    visibility: hidden;
+}
+
+.jf-active body {
+    /*如果處理成功，直接顯示*/
+    opacity: 1;
+    visibility: visible;
+}
+
+.jf-inactive body {
+    /*如果處理失敗，直接顯示*/
+    opacity: 1;
+    visibility: visible;
+}
+</style>
+
 
 .jay {
     font-family: 'Gentium Book Basic', cursive;
