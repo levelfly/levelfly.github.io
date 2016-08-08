@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>手機支架</title>
+    <!-- jQuery import -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <!-- jQuery.waypoint import for 偵測捲動到指定element後顯示 -->
+    <script src="./js/jquery.waypoints.min.js"></script>
+    <!-- fittext import -->
+    <script src="./js/jquery.fittext.js"></script>
+    <!-- CSS 樣式表 -->
+    <link rel=stylesheet type="text/css" href="./1.css">
+    <!-- Justfont -->
+    <script src="//s3-ap-northeast-1.amazonaws.com/justfont-user-script/jf-41880.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="section page1">
+            <div class="text_page1">剛出門，就開始擔心忘記鎖門不安全？</div>
+        </div>
+        <div class="section page2">
+            <div class="text_page2">剛出門，就開始擔心忘記鎖門不安全？</div>
+        </div>
+        <div class="section page3">
+        </div>
+        <div class="section page4">
+            <div class="text_page4">行車時無法接聽手機 總是錯過重要來電嗎？</div>
+        </div>
+        <div class="section page5">
+            <div class="title">
+                想放鬆的聽手機裡的音樂，但都找不到適合擺放的位置嗎？</p>
+                副駕駛想看影片卻只能一直用手拿著，手好酸喔。</p>
+            </div>
+        </div>
+        <div class="section page6">
+            <div class="text_page6">
+                <P>想在車上放肆的大唱一場KTV，</p>
+                <p>但又煩惱沒有支撐的地方嗎？</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<!--Java script 特效控制-->
+<script type="text/javascript">
+$(function() {
+
+    //$(".title").fitText().fitText(3);
+
+
+    // page2 卷軸觸發文字特效
+    $('.page2').waypoint(function() {
+        $('.text_page2').addClass('show');
+    }, {
+        offset: "20%"
+    }); //offset可以調整觸發時機{offset:"10%"});
+
+
+    // page4 卷軸觸發文字特效
+    $('.page4').waypoint(function() {
+        $('.text_page4').addClass('show');
+    }, {
+        offset: "20%"
+    }); //offset可以調整觸發時機{offset:"10%"});
+
+
+    // page6 卷軸觸發文字特效
+    $('.page6').waypoint(function() {
+        $('.text_page6').addClass('show');
+    }, {
+        offset: "20%"
+    }); //offset可以調整觸發時機{offset:"10%"});
+
+
+});
+</script>
+
+</html>
+<!---->
