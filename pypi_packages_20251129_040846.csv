@@ -1,0 +1,7 @@
+﻿name,version,summary,author,license,requires_python,version_count,size_mb,homepage
+requests,2.32.5,Python HTTP for Humans.,Kenneth Reitz,Apache-2.0,>=3.9,157,0.06,https://requests.readthedocs.io
+beautifulsoup4,4.14.2,Screen-scraping library,N/A,MIT License,>=3.7.0,52,0.1,https://pypi.org/project/beautifulsoup4/
+Scrapy,2.13.4,A high-level Web Crawling and Web Scraping framework,N/A,N/A,>=3.9,105,0.31,https://pypi.org/project/Scrapy/
+selenium,4.38.0,Official Python bindings for Selenium WebDriver,N/A,Apache-2.0,>=3.10,223,9.25,https://www.selenium.dev
+httpx,0.28.1,The next generation HTTP client.,N/A,BSD-3-Clause,>=3.8,74,0.07,https://pypi.org/project/httpx/
+lxml,6.0.2,Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.,lxml dev team,BSD-3-Clause,>=3.8,120,8.19,https://lxml.de/
