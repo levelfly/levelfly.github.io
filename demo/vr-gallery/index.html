@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Gallery - 虛擬藝廊</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        #canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        /* Loading Screen */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 1s;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 10px;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s linear infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% center; }
+            100% { background-position: 300% center; }
+        }
+
+        .loading-bar {
+            width: 200px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1px;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #48dbfb);
+            width: 0%;
+            animation: load 2s ease-out forwards;
+        }
+
+        @keyframes load {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* UI Overlay */
+        .ui-overlay {
+            position: fixed;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        /* Info Panel */
+        .info-panel {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 100;
+            opacity: 0;
+            transition: all 0.5s;
+            pointer-events: none;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-panel.visible {
+            opacity: 1;
+        }
+
+        .art-title {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .art-artist {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* VR Button */
+        .vr-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 200;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: none;
+        }
+
+        .vr-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .vr-button.visible {
+            display: block;
+        }
+
+        /* Controls Info */
+        .controls {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 100;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 200;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-btn:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Crosshair */
+        .crosshair {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .crosshair::before,
+        .crosshair::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .crosshair::before {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .crosshair::after {
+            width: 100%;
+            height: 2px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .crosshair.active::before,
+        .crosshair.active::after {
+            background: #48dbfb;
+        }
+
+        /* Movement indicator */
+        .movement-hint {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .key {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .key.active {
+            background: rgba(72, 219, 251, 0.3);
+            border-color: #48dbfb;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <h1>VR GALLERY</h1>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <!-- Crosshair -->
+    <div class="crosshair" id="crosshair"></div>
+
+    <!-- Controls Info -->
+    <div class="controls">
+        WASD 或 方向鍵移動 · 滑鼠控制視角 · 點擊畫作查看資訊
+    </div>
+
+    <!-- Movement Hint -->
+    <div class="movement-hint">
+        <div class="key" id="keyW">W</div>
+    </div>
+    <div class="movement-hint" style="bottom: 55px;">
+        <div class="key" id="keyA">A</div>
+        <div class="key" id="keyS">S</div>
+        <div class="key" id="keyD">D</div>
+    </div>
+
+    <!-- Info Panel -->
+    <div class="info-panel" id="infoPanel">
+        <div class="art-title" id="artTitle"></div>
+        <div class="art-artist" id="artArtist"></div>
+    </div>
+
+    <!-- VR Button -->
+    <button class="vr-button" id="vrButton">ENTER VR</button>
+
+    <!-- Back Button -->
+    <a href="../../index.html" class="back-btn">← BACK</a>
+
+    <!-- Three.js Canvas -->
+    <canvas id="canvas"></canvas>
+
+    <script>
+        // Scene Setup
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x0a0a0f);
+        scene.fog = new THREE.Fog(0x0a0a0f, 1, 50);
+
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById('canvas'),
+            antialias: true
+        });
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.xr.enabled = true;
+
+        // Check for WebXR support
+        if ('xr' in navigator) {
+            navigator.xr.isSessionSupported('immersive-vr').then((supported) => {
+                if (supported) {
+                    document.getElementById('vrButton').classList.add('visible');
+                }
+            });
+        }
+
+        // VR Button Handler
+        document.getElementById('vrButton').addEventListener('click', async () => {
+            const session = await navigator.xr.requestSession('immersive-vr', {
+                optionalFeatures: ['local-floor', 'bounded-floor']
+            });
+            renderer.xr.setSession(session);
+        });
+
+        // Artwork data
+        const artworks = [
+            { title: 'NEBULA DREAMS', artist: 'Digital Artist', color: 0xff6b6b, pattern: 'circles' },
+            { title: 'QUANTUM FIELD', artist: 'AI Generated', color: 0x48dbfb, pattern: 'lines' },
+            { title: 'ETERNAL FLOW', artist: 'Procedural Art', color: 0xfeca57, pattern: 'waves' },
+            { title: 'VOID ESSENCE', artist: 'Generative', color: 0xff9ff3, pattern: 'dots' },
+            { title: 'COSMIC PULSE', artist: 'Digital Dreams', color: 0x5f27cd, pattern: 'spiral' },
+            { title: 'NEON HORIZON', artist: 'Cyber Artist', color: 0x00d2d3, pattern: 'grid' },
+            { title: 'ABSTRACT SOUL', artist: 'Virtual Canvas', color: 0xff9f43, pattern: 'noise' },
+            { title: 'DIGITAL ZEN', artist: 'Code Artist', color: 0x10ac84, pattern: 'mandala' },
+        ];
+
+        const artMeshes = [];
+
+        // Create procedural texture
+        function createArtTexture(artwork) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 512;
+            canvas.height = 512;
+            const ctx = canvas.getContext('2d');
+
+            // Background
+            const gradient = ctx.createLinearGradient(0, 0, 512, 512);
+            const color = new THREE.Color(artwork.color);
+            gradient.addColorStop(0, `rgba(${color.r * 255}, ${color.g * 255}, ${color.b * 255}, 1)`);
+            gradient.addColorStop(1, `rgba(${color.r * 128}, ${color.g * 128}, ${color.b * 128}, 1)`);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 512, 512);
+
+            // Pattern
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+            ctx.lineWidth = 2;
+
+            switch(artwork.pattern) {
+                case 'circles':
+                    for (let i = 0; i < 10; i++) {
+                        ctx.beginPath();
+                        ctx.arc(256, 256, 30 + i * 25, 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                    break;
+                case 'lines':
+                    for (let i = 0; i < 20; i++) {
+                        ctx.beginPath();
+                        ctx.moveTo(0, i * 30);
+                        ctx.lineTo(512, i * 30 + 100);
+                        ctx.stroke();
+                    }
+                    break;
+                case 'waves':
+                    for (let y = 0; y < 512; y += 30) {
+                        ctx.beginPath();
+                        ctx.moveTo(0, y);
+                        for (let x = 0; x < 512; x += 10) {
+                            ctx.lineTo(x, y + Math.sin(x * 0.05) * 20);
+                        }
+                        ctx.stroke();
+                    }
+                    break;
+                case 'dots':
+                    for (let x = 20; x < 512; x += 40) {
+                        for (let y = 20; y < 512; y += 40) {
+                            ctx.beginPath();
+                            ctx.arc(x, y, 8, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                    }
+                    break;
+                case 'spiral':
+                    ctx.beginPath();
+                    for (let i = 0; i < 720; i++) {
+                        const angle = i * 0.1;
+                        const radius = i * 0.3;
+                        const x = 256 + Math.cos(angle) * radius;
+                        const y = 256 + Math.sin(angle) * radius;
+                        if (i === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    }
+                    ctx.stroke();
+                    break;
+                case 'grid':
+                    for (let x = 0; x < 512; x += 32) {
+                        ctx.beginPath();
+                        ctx.moveTo(x, 0);
+                        ctx.lineTo(x, 512);
+                        ctx.stroke();
+                    }
+                    for (let y = 0; y < 512; y += 32) {
+                        ctx.beginPath();
+                        ctx.moveTo(0, y);
+                        ctx.lineTo(512, y);
+                        ctx.stroke();
+                    }
+                    break;
+                case 'noise':
+                    for (let i = 0; i < 1000; i++) {
+                        ctx.beginPath();
+                        ctx.arc(Math.random() * 512, Math.random() * 512, Math.random() * 5, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    break;
+                case 'mandala':
+                    for (let i = 0; i < 12; i++) {
+                        ctx.save();
+                        ctx.translate(256, 256);
+                        ctx.rotate(i * Math.PI / 6);
+                        ctx.beginPath();
+                        ctx.moveTo(0, 0);
+                        ctx.lineTo(200, 0);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.arc(100, 0, 30, 0, Math.PI * 2);
+                        ctx.stroke();
+                        ctx.restore();
+                    }
+                    break;
+            }
+
+            return new THREE.CanvasTexture(canvas);
+        }
+
+        // Create gallery room
+        function createGallery() {
+            // Floor
+            const floorGeometry = new THREE.PlaneGeometry(30, 30);
+            const floorMaterial = new THREE.MeshStandardMaterial({
+                color: 0x1a1a1a,
+                roughness: 0.8,
+                metalness: 0.2
+            });
+            const floor = new THREE.Mesh(floorGeometry, floorMaterial);
+            floor.rotation.x = -Math.PI / 2;
+            floor.receiveShadow = true;
+            scene.add(floor);
+
+            // Ceiling
+            const ceiling = new THREE.Mesh(floorGeometry, new THREE.MeshStandardMaterial({
+                color: 0x0f0f0f,
+                roughness: 1
+            }));
+            ceiling.rotation.x = Math.PI / 2;
+            ceiling.position.y = 5;
+            scene.add(ceiling);
+
+            // Walls
+            const wallMaterial = new THREE.MeshStandardMaterial({
+                color: 0x151515,
+                roughness: 0.9
+            });
+
+            const wallGeometry = new THREE.PlaneGeometry(30, 5);
+
+            // Back wall
+            const backWall = new THREE.Mesh(wallGeometry, wallMaterial);
+            backWall.position.set(0, 2.5, -15);
+            scene.add(backWall);
+
+            // Front wall
+            const frontWall = new THREE.Mesh(wallGeometry, wallMaterial);
+            frontWall.position.set(0, 2.5, 15);
+            frontWall.rotation.y = Math.PI;
+            scene.add(frontWall);
+
+            // Left wall
+            const sideWallGeometry = new THREE.PlaneGeometry(30, 5);
+            const leftWall = new THREE.Mesh(sideWallGeometry, wallMaterial);
+            leftWall.position.set(-15, 2.5, 0);
+            leftWall.rotation.y = Math.PI / 2;
+            scene.add(leftWall);
+
+            // Right wall
+            const rightWall = new THREE.Mesh(sideWallGeometry, wallMaterial);
+            rightWall.position.set(15, 2.5, 0);
+            rightWall.rotation.y = -Math.PI / 2;
+            scene.add(rightWall);
+
+            // Artworks on walls
+            const positions = [
+                { x: -10, y: 2, z: -14.9, ry: 0 },
+                { x: 0, y: 2, z: -14.9, ry: 0 },
+                { x: 10, y: 2, z: -14.9, ry: 0 },
+                { x: -14.9, y: 2, z: -5, ry: Math.PI / 2 },
+                { x: -14.9, y: 2, z: 5, ry: Math.PI / 2 },
+                { x: 14.9, y: 2, z: -5, ry: -Math.PI / 2 },
+                { x: 14.9, y: 2, z: 5, ry: -Math.PI / 2 },
+                { x: 0, y: 2, z: 14.9, ry: Math.PI },
+            ];
+
+            positions.forEach((pos, i) => {
+                const artwork = artworks[i];
+
+                // Frame
+                const frameGeometry = new THREE.BoxGeometry(3.2, 2.4, 0.1);
+                const frameMaterial = new THREE.MeshStandardMaterial({
+                    color: 0x2a2a2a,
+                    roughness: 0.5,
+                    metalness: 0.5
+                });
+                const frame = new THREE.Mesh(frameGeometry, frameMaterial);
+                frame.position.set(pos.x, pos.y, pos.z);
+                frame.rotation.y = pos.ry;
+                scene.add(frame);
+
+                // Art canvas
+                const artGeometry = new THREE.PlaneGeometry(3, 2.2);
+                const artTexture = createArtTexture(artwork);
+                const artMaterial = new THREE.MeshBasicMaterial({
+                    map: artTexture
+                });
+                const art = new THREE.Mesh(artGeometry, artMaterial);
+                art.position.set(pos.x, pos.y, pos.z);
+                art.rotation.y = pos.ry;
+
+                // Offset slightly from wall
+                const offset = 0.06;
+                art.position.x += Math.sin(pos.ry) * offset;
+                art.position.z += Math.cos(pos.ry) * offset;
+
+                art.userData = artwork;
+                scene.add(art);
+                artMeshes.push(art);
+
+                // Spotlight for each artwork
+                const spotlight = new THREE.SpotLight(0xffffff, 0.8);
+                spotlight.position.set(
+                    pos.x - Math.sin(pos.ry) * 2,
+                    4,
+                    pos.z - Math.cos(pos.ry) * 2
+                );
+                spotlight.target = art;
+                spotlight.angle = 0.4;
+                spotlight.penumbra = 0.5;
+                scene.add(spotlight);
+            });
+
+            // Center sculpture
+            const sculptureGroup = new THREE.Group();
+
+            // Pedestal
+            const pedestalGeometry = new THREE.CylinderGeometry(0.8, 1, 1, 32);
+            const pedestalMaterial = new THREE.MeshStandardMaterial({
+                color: 0x1a1a1a,
+                roughness: 0.3,
+                metalness: 0.7
+            });
+            const pedestal = new THREE.Mesh(pedestalGeometry, pedestalMaterial);
+            pedestal.position.y = 0.5;
+            sculptureGroup.add(pedestal);
+
+            // Floating sculpture
+            const torusKnot = new THREE.Mesh(
+                new THREE.TorusKnotGeometry(0.5, 0.15, 100, 16),
+                new THREE.MeshStandardMaterial({
+                    color: 0x48dbfb,
+                    roughness: 0.2,
+                    metalness: 0.8,
+                    emissive: 0x48dbfb,
+                    emissiveIntensity: 0.2
+                })
+            );
+            torusKnot.position.y = 2;
+            sculptureGroup.add(torusKnot);
+
+            scene.add(sculptureGroup);
+
+            // Ambient particles
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particleCount = 500;
+            const positions2 = new Float32Array(particleCount * 3);
+
+            for (let i = 0; i < particleCount * 3; i += 3) {
+                positions2[i] = (Math.random() - 0.5) * 28;
+                positions2[i + 1] = Math.random() * 4.5 + 0.5;
+                positions2[i + 2] = (Math.random() - 0.5) * 28;
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions2, 3));
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.02,
+                color: 0x48dbfb,
+                transparent: true,
+                opacity: 0.6,
+                blending: THREE.AdditiveBlending
+            });
+
+            const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particles);
+
+            return { torusKnot, particles };
+        }
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
+        scene.add(ambientLight);
+
+        const mainLight = new THREE.PointLight(0xffffff, 0.5);
+        mainLight.position.set(0, 4, 0);
+        scene.add(mainLight);
+
+        // Create gallery
+        const { torusKnot, particles } = createGallery();
+
+        // Camera setup
+        camera.position.set(0, 1.6, 10);
+
+        // Controls
+        let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
+        let yaw = 0, pitch = 0;
+        const moveSpeed = 0.08;
+        const lookSpeed = 0.002;
+        let isPointerLocked = false;
+
+        // Pointer lock
+        document.addEventListener('click', () => {
+            if (!isPointerLocked) {
+                document.body.requestPointerLock();
+            }
+        });
+
+        document.addEventListener('pointerlockchange', () => {
+            isPointerLocked = document.pointerLockElement === document.body;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isPointerLocked) {
+                yaw -= e.movementX * lookSpeed;
+                pitch -= e.movementY * lookSpeed;
+                pitch = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, pitch));
+            }
+        });
+
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            switch(e.code) {
+                case 'KeyW': case 'ArrowUp':
+                    moveForward = true;
+                    document.getElementById('keyW').classList.add('active');
+                    break;
+                case 'KeyS': case 'ArrowDown':
+                    moveBackward = true;
+                    document.getElementById('keyS').classList.add('active');
+                    break;
+                case 'KeyA': case 'ArrowLeft':
+                    moveLeft = true;
+                    document.getElementById('keyA').classList.add('active');
+                    break;
+                case 'KeyD': case 'ArrowRight':
+                    moveRight = true;
+                    document.getElementById('keyD').classList.add('active');
+                    break;
+            }
+        });
+
+        document.addEventListener('keyup', (e) => {
+            switch(e.code) {
+                case 'KeyW': case 'ArrowUp':
+                    moveForward = false;
+                    document.getElementById('keyW').classList.remove('active');
+                    break;
+                case 'KeyS': case 'ArrowDown':
+                    moveBackward = false;
+                    document.getElementById('keyS').classList.remove('active');
+                    break;
+                case 'KeyA': case 'ArrowLeft':
+                    moveLeft = false;
+                    document.getElementById('keyA').classList.remove('active');
+                    break;
+                case 'KeyD': case 'ArrowRight':
+                    moveRight = false;
+                    document.getElementById('keyD').classList.remove('active');
+                    break;
+            }
+        });
+
+        // Raycaster for artwork interaction
+        const raycaster = new THREE.Raycaster();
+        const center = new THREE.Vector2(0, 0);
+
+        // Animation
+        const clock = new THREE.Clock();
+
+        function animate() {
+            const delta = clock.getDelta();
+            const elapsed = clock.getElapsedTime();
+
+            // Update camera rotation
+            camera.rotation.order = 'YXZ';
+            camera.rotation.y = yaw;
+            camera.rotation.x = pitch;
+
+            // Movement
+            const direction = new THREE.Vector3();
+            camera.getWorldDirection(direction);
+            direction.y = 0;
+            direction.normalize();
+
+            const right = new THREE.Vector3();
+            right.crossVectors(direction, new THREE.Vector3(0, 1, 0));
+
+            if (moveForward) {
+                camera.position.add(direction.multiplyScalar(moveSpeed));
+            }
+            if (moveBackward) {
+                camera.position.add(direction.multiplyScalar(-moveSpeed));
+            }
+            if (moveLeft) {
+                camera.position.add(right.multiplyScalar(-moveSpeed));
+            }
+            if (moveRight) {
+                camera.position.add(right.multiplyScalar(moveSpeed));
+            }
+
+            // Boundaries
+            camera.position.x = Math.max(-14, Math.min(14, camera.position.x));
+            camera.position.z = Math.max(-14, Math.min(14, camera.position.z));
+
+            // Animate sculpture
+            torusKnot.rotation.x = elapsed * 0.5;
+            torusKnot.rotation.y = elapsed * 0.3;
+            torusKnot.position.y = 2 + Math.sin(elapsed) * 0.2;
+
+            // Animate particles
+            particles.rotation.y = elapsed * 0.05;
+
+            // Raycaster for artwork detection
+            raycaster.setFromCamera(center, camera);
+            const intersects = raycaster.intersectObjects(artMeshes);
+
+            if (intersects.length > 0 && intersects[0].distance < 5) {
+                const artwork = intersects[0].object.userData;
+                document.getElementById('artTitle').textContent = artwork.title;
+                document.getElementById('artArtist').textContent = 'by ' + artwork.artist;
+                document.getElementById('infoPanel').classList.add('visible');
+                document.getElementById('crosshair').classList.add('active');
+            } else {
+                document.getElementById('infoPanel').classList.remove('visible');
+                document.getElementById('crosshair').classList.remove('active');
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        renderer.setAnimationLoop(animate);
+
+        // Loading
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 2500);
+        });
+
+        // Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
