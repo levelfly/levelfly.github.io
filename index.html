@@ -1,26 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Comet Example: Counter with Hidden Frame</title>
-    <link rel="stylesheet" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levelfly - 網頁設計作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-top: 12px;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+    </style>
 </head>
-<div>
-    <h1></h1>
-    <p></p>
-</div>
 
 <body>
-    <div>
-        <h1>Hello NTUHTML 265</h1>
-        <img src="http://static.blog.sina.com.tw/myimages/78/20814/images/20100621130854163.jpg" alt="git_pic">
-        <p>
-            If you see this </br>
-            Your github pages
-            <b>works!</b>
-        </p>
+    <div class="container">
+        <header>
+            <h1>Levelfly</h1>
+            <p>HTML / CSS / JavaScript 網頁設計練習作品集</p>
+        </header>
+
+        <div class="projects">
+            <a href="bootstrap.html" class="card">
+                <h2>Bootstrap 練習</h2>
+                <p>響應式網頁設計練習，包含導覽列、表格、新聞排版等 Bootstrap 元件應用。</p>
+                <span class="tag">Bootstrap</span>
+            </a>
+
+            <a href="legoking/index.html" class="card">
+                <h2>手機支架產品頁</h2>
+                <p>產品行銷頁面，使用 jQuery Waypoints 實現捲動觸發動畫效果。</p>
+                <span class="tag">jQuery</span>
+            </a>
+
+            <a href="pikachu_begin/index.html" class="card">
+                <h2>Pikachu 個人名片</h2>
+                <p>CSS 圓形設計的個人介紹頁面，展示聯絡資訊與自我介紹。</p>
+                <span class="tag">CSS</span>
+            </a>
+
+            <a href="2.html" class="card">
+                <h2>Segway 旅遊日記</h2>
+                <p>旅遊部落格頁面，整合 Facebook 與 Google+ 社群分享按鈕及網路字型。</p>
+                <span class="tag">Social Media</span>
+            </a>
+
+            <a href="lounge_basic/lounge.html" class="card">
+                <h2>Lounge 休息室</h2>
+                <p>多頁面網站結構練習，包含首頁、關於我們、飲料選單等頁面。</p>
+                <span class="tag">HTML</span>
+            </a>
+
+            <a href="book/index.html" class="card">
+                <h2>煤油暖爐說明書</h2>
+                <p>產品說明書圖片展示頁面，練習圖片排版與響應式圖片設定。</p>
+                <span class="tag">Images</span>
+            </a>
+
+            <a href="3.html" class="card">
+                <h2>網路字型測試</h2>
+                <p>Web Font 網路字型載入技術測試頁面。</p>
+                <span class="tag">Web Font</span>
+            </a>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Levelfly. Hosted on GitHub Pages.</p>
+        </footer>
     </div>
 </body>
 
