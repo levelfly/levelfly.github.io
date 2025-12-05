@@ -99,13 +99,14 @@
 
         .nav a {
             display: block;
-            padding: 15px 20px;
+            padding: 15px 15px;
             text-decoration: none;
             color: var(--gray);
             font-weight: 500;
             white-space: nowrap;
             border-bottom: 3px solid transparent;
             transition: all 0.3s;
+            font-size: 0.9rem;
         }
 
         .nav a:hover,
@@ -147,6 +148,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
         .section h2 {
@@ -160,6 +162,12 @@
             margin: 25px 0 15px;
             padding-left: 15px;
             border-left: 4px solid var(--primary-light);
+        }
+
+        .section h4 {
+            font-size: 1.05rem;
+            color: var(--dark);
+            margin: 20px 0 10px;
         }
 
         .section p {
@@ -207,6 +215,11 @@
             border-color: #fbd38d;
         }
 
+        .highlight-box.danger {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+            border-color: #fc8181;
+        }
+
         .highlight-box.success {
             background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
             border-color: #9ae6b4;
@@ -218,6 +231,14 @@
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+
+        .highlight-box.warning h4 {
+            color: #c05621;
+        }
+
+        .highlight-box.danger h4 {
+            color: #c53030;
         }
 
         /* List Styles */
@@ -243,6 +264,16 @@
             left: 0;
             color: var(--accent);
             font-weight: bold;
+        }
+
+        .checklist li::before {
+            content: '☐';
+            color: var(--primary);
+        }
+
+        .warning-list li::before {
+            content: '⚠';
+            color: #dd6b20;
         }
 
         /* Gem Cards */
@@ -316,6 +347,7 @@
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
+            font-size: 0.95rem;
         }
 
         .info-table th,
@@ -351,6 +383,32 @@
             font-weight: 600;
             color: var(--dark);
             margin-top: 10px;
+        }
+
+        /* Speaker Tag */
+        .speaker-tag {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        /* Number Badge */
+        .number-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-right: 10px;
         }
 
         /* Footer */
@@ -409,8 +467,17 @@
                 gap: 10px;
             }
 
+            .timeline-time {
+                min-width: auto;
+            }
+
             .info-table {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
+            }
+
+            .info-table th,
+            .info-table td {
+                padding: 10px 8px;
             }
         }
 
@@ -421,15 +488,86 @@
         .icon-purple { background: #faf5ff; color: #805ad5; }
         .icon-pink { background: #fff5f7; color: #d53f8c; }
         .icon-teal { background: #e6fffa; color: #319795; }
+        .icon-red { background: #fff5f5; color: #e53e3e; }
+        .icon-yellow { background: #fffff0; color: #d69e2e; }
+
+        /* Accordion */
+        .accordion {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .accordion summary {
+            padding: 15px 20px;
+            background: var(--light);
+            cursor: pointer;
+            font-weight: 500;
+            list-style: none;
+        }
+
+        .accordion summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .accordion summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 10px;
+            transition: transform 0.3s;
+        }
+
+        .accordion[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .accordion-content {
+            padding: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Step Cards */
+        .step-card {
+            display: flex;
+            gap: 15px;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin: 0 0 5px 0;
+            color: var(--dark);
+        }
+
+        .step-content p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
-            <h1>📚 靜心小學新生說明會</h1>
+            <h1>靜心小學新生說明會</h1>
             <p class="subtitle">臺北市私立靜心高級中學附設國小部｜114學年度</p>
-            <span class="date">🗓️ 重點整理懶人包</span>
+            <span class="date">完整重點整理懶人包</span>
         </div>
     </header>
 
@@ -438,11 +576,12 @@
         <div class="nav">
             <a href="#overview">學校簡介</a>
             <a href="#philosophy">教育理念</a>
+            <a href="#preparation">入學準備</a>
             <a href="#academics">課程規劃</a>
             <a href="#international">國際教育</a>
             <a href="#student-affairs">學務處</a>
             <a href="#music">音樂中心</a>
-            <a href="#practical">實用資訊</a>
+            <a href="#fees">費用資訊</a>
         </div>
     </nav>
 
@@ -457,25 +596,30 @@
                 <h2>學校簡介</h2>
             </div>
 
-            <p>臺北市私立靜心高級中學成立於1956年，是一所從幼兒園到高中<strong>15年一貫</strong>的完整學校。位於台北市文山區，提供優質的教育環境。</p>
+            <p>臺北市私立靜心高級中學成立於1956年，是一所從幼兒園到高中 <strong>15年一貫</strong> 的完整學校。學校以「人文科技、雙軌精英、夢想接軌」為辦學特色。</p>
 
             <div class="card-grid">
                 <div class="card">
-                    <h4>🎓 完整學制</h4>
-                    <p>幼兒園、國小、國中、高中一貫教育，學生可直升，免除升學壓力</p>
+                    <h4>👥 學生規模</h4>
+                    <p>小學部每班 <strong>42人</strong>，每年級 <strong>6班</strong>，共 36 班、1512 位學生</p>
                 </div>
                 <div class="card">
-                    <h4>🌍 雙語教育</h4>
-                    <p>提供普通班與雙語班，培養學生國際視野與英語能力</p>
+                    <h4>🎯 班級類型</h4>
+                    <p>普通班 2 班 + 雙語特色班 4 班（114學年度配置）</p>
                 </div>
                 <div class="card">
-                    <h4>🎵 音樂特色</h4>
-                    <p>設有音樂中心，管弦樂團屢獲佳績，提供專業音樂教育</p>
+                    <h4>👨‍🏫 師資特色</h4>
+                    <p><strong>專才專用</strong>：老師只教專業科目，非包班制。80%以上教師具碩士學歷</p>
                 </div>
                 <div class="card">
-                    <h4>📍 交通便利</h4>
-                    <p>位於文山區興隆路二段46號，鄰近捷運萬隆站</p>
+                    <h4>🏆 辦學認證</h4>
+                    <p>2024年獲「優質學校」課程發展、資源統整雙項認證，藝術團隊獲教育部藝術貢獻獎</p>
                 </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>💡 專才專用制度</h4>
+                <p>不同於一般國小的包班制，靜心採用<strong>專才專用</strong>：導師專教國語、數學（最多加綜合活動），其他科目皆由該領域專業背景的老師教授。高年級更有國語、數學分科教學。此制度已實施超過十年，連臺北市多所公立國小也開始跟進。</p>
             </div>
         </section>
 
@@ -486,7 +630,8 @@
                 <h2>教育理念 — 五顆寶石</h2>
             </div>
 
-            <p>副校長在說明會中以「五顆寶石」比喻學校最重視培養孩子的五大核心能力：</p>
+            <span class="speaker-tag">副校長分享</span>
+            <p>副校長以「五顆寶石」比喻學校最重視培養孩子的五大核心能力：</p>
 
             <div class="gem-grid">
                 <div class="gem-card">
@@ -512,16 +657,84 @@
             </div>
 
             <div class="quote">
-                「我們希望培養孩子成為有教養、會思考、多元展能，且具備國際視野的下一代。」
-                <div class="quote-author">— 靜心中學教育願景</div>
+                「石墨和鑽石都是由碳元素組成，不同的排列就會有不同的結果。讓我們幫孩子好好排練生活化的學習，就可以像鑽石一樣發光。」
+                <div class="quote-author">— 副校長</div>
             </div>
 
-            <h3>品格教育重點</h3>
+            <h3>品格教育核心</h3>
+            <p>學校強調「先成人，再成才」，品格與生活教育是一切的基礎：</p>
             <ul class="feature-list">
-                <li>培養孩子的生活自理能力，為未來做準備</li>
-                <li>重視禮儀教育，學會尊重他人</li>
-                <li>建立良好的學習態度與習慣</li>
-                <li>培養團隊合作精神與榮譽感</li>
+                <li><strong>利他行為</strong>：教會孩子擁有幫助別人的能力</li>
+                <li><strong>問題解決</strong>：教孩子如何「跌倒後站起來」，擁抱挑戰</li>
+                <li><strong>自我照顧</strong>：不只是給孩子，也給家長——大人面對挑戰的態度會影響孩子看世界的角度</li>
+            </ul>
+
+            <h3>SEL 社會情緒學習</h3>
+            <p>學校導入 <strong>SEL（Social Emotional Learning）社會情緒學習</strong>，從師資培訓、班級經營到教學課程都融入 SEL 精神，也開設親子講座，幫助孩子穩定情緒、建立心理韌性。</p>
+
+            <div class="highlight-box warning">
+                <h4>🥪 辣椒三明治溝通法</h4>
+                <p>副校長建議的親子溝通技巧：當需要給孩子建議時，把「辣椒」（建議/批評）包在中間，前後都要<strong>同理、鼓勵</strong>，最後別忘了<strong>抱抱他</strong>。這樣孩子才容易把建議「吃進肚子裡」。</p>
+            </div>
+
+            <div class="quote">
+                「各位家長，你們是孩子的一座大山。身為父母，我們可以做自己的主人，不必被外界太多的期待、比較或焦慮綁架。當我們站穩的那一天，孩子就有一座可以依靠的大山。」
+                <div class="quote-author">— 副校長</div>
+            </div>
+        </section>
+
+        <!-- Preparation Section -->
+        <section id="preparation" class="section">
+            <div class="section-header">
+                <div class="section-icon icon-orange">📝</div>
+                <h2>入學前準備 — 超重要！</h2>
+            </div>
+
+            <span class="speaker-tag">副校長提醒</span>
+            <p>這是說明會中反覆強調的重點！距離開學還有半年，請家長現在就開始準備：</p>
+
+            <h3>生活自理能力清單</h3>
+            <ul class="feature-list checklist">
+                <li><strong>會寫自己的名字</strong>（中文）</li>
+                <li><strong>會自己整理書包</strong>——養成每天整理的習慣，否則一週後會發現「上週的早餐」在書包裡</li>
+                <li><strong>會自己收拾東西</strong>——不要都幫孩子做，做慢沒關係、掉地上也沒關係</li>
+                <li><strong>有自己的書桌</strong>——建立專屬學習空間</li>
+                <li><strong>會使用湯匙、叉子、筷子</strong></li>
+                <li><strong>會自己穿脫衣服</strong>——包括分辨內外、正反面</li>
+                <li><strong>會自己穿襪子</strong>——知道哪一面在外面</li>
+                <li><strong>會自己上廁所</strong>——包括蹲式和坐式馬桶都要會</li>
+            </ul>
+
+            <div class="highlight-box danger">
+                <h4>⚠️ 冬季制服褲子預警！（男生家長必看）</h4>
+                <p>副校長特別提醒：一年級小男生最困難的是<strong>冬季制服褲子的皮帶</strong>！有孩子因為不會解皮帶，在廁所卡很久，或因此不敢喝水。請提前在家練習扣扣子、解皮帶！</p>
+            </div>
+
+            <h3>作息調整</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>⏰ 到校時間</h4>
+                    <p>一般學生 <strong>7:40</strong> 到校<br>校隊成員 <strong>7:20-7:30</strong> 到校</p>
+                </div>
+                <div class="card">
+                    <h4>😴 午休調整</h4>
+                    <p>幼兒園躺著睡 → 小學<strong>趴著睡</strong><br>暑期新生訓練會協助調整</p>
+                </div>
+            </div>
+
+            <h3>新生暑期訓練</h3>
+            <div class="highlight-box success">
+                <h4>📅 114學年度新生暑訓</h4>
+                <p><strong>時間：2025年 8月 3日 ~ 8月 10日</strong>（三週課程）</p>
+                <p>目的：讓孩子在開學前就能適應小學生活、調整作息，開學後即可上軌道。<strong>一定要參加！</strong></p>
+            </div>
+
+            <h3>家長心態準備</h3>
+            <p>副校長也提醒家長：</p>
+            <ul class="feature-list">
+                <li>開學第一天，孩子勇敢走進去時，<strong>不要把他叫回來</strong>！很多孩子很開心往前走，反而是後面的爸媽哭哭啼啼</li>
+                <li>孩子跌倒時，<strong>你不要比他還緊張</strong>。他發現你沒辦法擁抱挑戰時，會懷疑自己</li>
+                <li>校外教學、生活體驗營時，<strong>家長不準跟</strong>，也不要一直打電話——孩子其實不太想跟家長講電話，他們很開心！</li>
             </ul>
         </section>
 
@@ -532,60 +745,120 @@
                 <h2>課程規劃</h2>
             </div>
 
-            <h3>班級類型比較</h3>
+            <span class="speaker-tag">教務主任分享</span>
+
+            <h3>普通班 vs 雙語特色班</h3>
             <table class="info-table">
                 <thead>
                     <tr>
                         <th>項目</th>
                         <th>普通班</th>
-                        <th>雙語班</th>
+                        <th>雙語特色班</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>英語時數</td>
-                        <td>基礎英語課程</td>
-                        <td>加強英語時數</td>
+                        <td>班級數</td>
+                        <td>2 班</td>
+                        <td>4 班</td>
+                    </tr>
+                    <tr>
+                        <td>導師配置</td>
+                        <td>1 位中籍導師 + 1 位副導師（一年級）</td>
+                        <td>1 位中籍導師 + 1 位外籍導師 + 1 位英語助理老師</td>
+                    </tr>
+                    <tr>
+                        <td>英語學習</td>
+                        <td>聽說讀寫溝通應用，每週 6 節</td>
+                        <td>沉浸式環境，外師全天陪伴</td>
                     </tr>
                     <tr>
                         <td>教學語言</td>
                         <td>中文為主</td>
-                        <td>部分課程英語授課</td>
+                        <td>數學、生活、自然、健康融入英語</td>
                     </tr>
                     <tr>
-                        <td>數學課</td>
-                        <td>中文授課</td>
-                        <td>中英文皆有</td>
+                        <td>課程教材</td>
+                        <td>外版教材 + 校本教材</td>
+                        <td>美國課綱教材（Into Reading）</td>
                     </tr>
                     <tr>
-                        <td>社會/自然</td>
-                        <td>中文授課</td>
-                        <td>中英文皆有排課</td>
+                        <td>檢定目標</td>
+                        <td>兩年考一級（Cambridge）</td>
+                        <td>每年考一級（Cambridge）</td>
                     </tr>
                     <tr>
-                        <td>班級人數</td>
-                        <td>約40人</td>
-                        <td>約43人</td>
-                    </tr>
-                    <tr>
-                        <td>入學管道</td>
-                        <td>幼兒園直升</td>
-                        <td>幼兒園考試/對外招生</td>
+                        <td>學費/學期</td>
+                        <td>約 8 萬</td>
+                        <td>約 16 萬</td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="highlight-box">
-                <h4>💡 重要提醒</h4>
-                <p>雙語班1-3年級有三位外師，高年級英文課會減少，中文課會增加。雙語班用英文上課的課程不一定全是外國老師，像生活課和音樂等是中師授課。</p>
+                <h4>💡 如何選擇？</h4>
+                <p>不管選哪一種班別，都有卓越的升學表現與直升優勢。請依照<strong>孩子的語言天分、性向</strong>以及<strong>家庭的學習規劃</strong>來選擇適合的跑道。雙語班時間較緊湊，連上廁所都要掌握時間！</p>
+            </div>
+
+            <h3>一年級特別規定</h3>
+            <div class="highlight-box success">
+                <h4>📝 一年級沒有定期紙筆測驗！</h4>
+                <p>靜心是<strong>全臺北市唯一</strong>一年級全年沒有紙筆測驗的學校（公立學校是下學期才開始有）。一年級重點在養成<strong>生活習慣</strong>和<strong>學習習慣</strong>，採用多元評量方式。</p>
+                <p>注音符號前 10 週學完後會有小測驗，了解學習成效，需要補救的孩子會進行個別輔導。</p>
             </div>
 
             <h3>課程特色</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>🔬 STREAM 教育</h4>
+                    <p>Science + Technology + Research + Engineering + Art + Math，從三年級到十二年級完整規劃</p>
+                </div>
+                <div class="card">
+                    <h4>📚 閱讀教育</h4>
+                    <p>連續 11 年獲「兒童深耕閱讀」特優，每年「閱讀磐石學校」認證</p>
+                </div>
+                <div class="card">
+                    <h4>🔭 科展成就</h4>
+                    <p>臺北市科展 4 次團體第一名，全國科展 3 次第一名，曾獲總統召見</p>
+                </div>
+                <div class="card">
+                    <h4>📝 自主學習</h4>
+                    <p>五年級學研究方法，六年級完成專題研究小論文，每年產出 120 篇以上</p>
+                </div>
+            </div>
+
+            <h3>特色課程活動</h3>
+            <details class="accordion">
+                <summary>🌟 靜心五個夢</summary>
+                <div class="accordion-content">
+                    <p>結合自主學習的圓夢計畫，讓孩子透過自己的力量關懷社會、關懷世界。獲金子天下、關鍵日報等媒體報導，臺北市教育局也開始仿效此計畫。孩子會將圓夢基金獎金繼續投入，延續到中學。</p>
+                </div>
+            </details>
+            <details class="accordion">
+                <summary>🎁 禮物協會</summary>
+                <div class="accordion-content">
+                    <p>結合閱讀教育課程，從閱讀繪本引起動機，讓孩子挑選禮物、分送給需要的人，培養關懷、付出與服務的能量。</p>
+                </div>
+            </details>
+            <details class="accordion">
+                <summary>🧗 探索體驗課程</summary>
+                <div class="accordion-content">
+                    <p>從幼兒園到高中都有系統性規劃。一年級每學期有兩次探索體驗課，讓孩子走出舒適圈、挑戰恐懼、學習成長。</p>
+                </div>
+            </details>
+            <details class="accordion">
+                <summary>🎭 畢業展演課程</summary>
+                <div class="accordion-content">
+                    <p>六年級的大型課程，包含劇本選擇、配樂、服裝設計等，全由學生自己完成，並請專家指導。</p>
+                </div>
+            </details>
+
+            <h3>課後課程</h3>
+            <p>放學後（4:20）到 6:00 有豐富的課後課程選擇：</p>
             <ul class="feature-list">
-                <li>循序漸進的教學架構，從幼兒園延伸到高中</li>
-                <li>紮實的基礎學科訓練，重視讀書方法與習慣養成</li>
-                <li>豐富的選修課程與社團活動</li>
-                <li>定期舉辦各類學藝競賽與成果發表</li>
+                <li>學科類、才藝類、補救教學、精英培訓</li>
+                <li>校隊課程、暑期班（今年暑假開了 436 個班，近 6900 人次參加）</li>
+                <li><strong>全年無休</strong>，從開學第一天到學期結束，包含寒暑假</li>
             </ul>
         </section>
 
@@ -596,114 +869,183 @@
                 <h2>國際教育</h2>
             </div>
 
-            <p>靜心中學致力於培養具備國際視野的學生，提供多元的國際交流機會：</p>
+            <span class="speaker-tag">國際教育中心主任分享</span>
 
-            <div class="card-grid">
-                <div class="card">
-                    <h4>🇬🇧 英語課程</h4>
-                    <p>校內開設 TOEFL 及 SAT 檢測課程，提升學生英語競爭力</p>
+            <h3>升學路徑</h3>
+            <p>從小學畢業後，可依需求選擇不同路徑：</p>
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>小學 → 國中</h4>
+                    <p>普通班/雙語特色班 → 雙語精英班 或 國際組/國際班</p>
                 </div>
-                <div class="card">
-                    <h4>✈️ 海外交流</h4>
-                    <p>與多國學校建立交流合作，提供遊學與交換機會</p>
-                </div>
-                <div class="card">
-                    <h4>🎯 升學輔導</h4>
-                    <p>從十年級即開始一對一升學輔導，協助申請海外名校</p>
-                </div>
-                <div class="card">
-                    <h4>🏆 亮眼成績</h4>
-                    <p>國際班100%錄取全球百大，包含柏克萊、NYU等名校</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>國中 → 高中</h4>
+                    <p>可選擇國內升學（學測組）或海外升學（國際組）</p>
                 </div>
             </div>
 
-            <div class="highlight-box success">
-                <h4>🎉 升學成果</h4>
-                <p><strong>國際組</strong>：100%錄取全球前20名校，14%錄取美國長春藤名校<br>
-                <strong>學測組國外升學</strong>：60%錄取全球前50名校、40%錄取全球百大</p>
+            <div class="highlight-box">
+                <h4>💡 不是只有雙語班才能海外升學！</h4>
+                <p>即使小學讀普通班，國中時仍可選擇進入國際組/國際班，發展海外升學路線。</p>
+            </div>
+
+            <h3>升學成績</h3>
+            <table class="info-table">
+                <tbody>
+                    <tr>
+                        <td><strong>國際組</strong></td>
+                        <td>100% 錄取全球前 20 名校，14% 錄取美國常春藤</td>
+                    </tr>
+                    <tr>
+                        <td><strong>學測組國外升學</strong></td>
+                        <td>60% 錄取全球前 50 名校，40% 錄取全球百大</td>
+                    </tr>
+                    <tr>
+                        <td><strong>英文學測</strong></td>
+                        <td>全校平均高於全國頂標，英聽 A 級達 93%（裸考）</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>錄取學校包含：UC Berkeley、NYU、Purdue、多倫多大學、倫敦大學、Cornell、UCLA、墨爾本大學等世界名校。</p>
+
+            <h3>國際交流</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>🇺🇸 五年級｜美國交流</h4>
+                    <p>與舊金山 KQED 姐妹校互訪，雙方各去對方學校 <strong>2 週</strong></p>
+                </div>
+                <div class="card">
+                    <h4>🇬🇧 國中｜英國交流</h4>
+                    <p>七、八年級英國文化交流，體驗不同英語系國家文化</p>
+                </div>
+                <div class="card">
+                    <h4>🇨🇦 加拿大</h4>
+                    <p>加拿大公費計畫，提供不同國家體驗選擇</p>
+                </div>
+                <div class="card">
+                    <h4>✈️ 六年級境外學習</h4>
+                    <p>畢業前的境外學習之旅</p>
+                </div>
+            </div>
+
+            <h3>英語課程重點</h3>
+            <div class="highlight-box">
+                <h4>📖 閱讀與寫作是核心</h4>
+                <p>學校特別強調閱讀與寫作能力的培養，因為這是需要<strong>長期發展</strong>的能力。口說能力需要的是環境，但閱讀寫作到國高中才加強會來不及。學生在廁所用英文聊天已是日常！</p>
             </div>
         </section>
 
         <!-- Student Affairs Section -->
         <section id="student-affairs" class="section">
             <div class="section-header">
-                <div class="section-icon icon-orange">🎒</div>
+                <div class="section-icon icon-yellow">🎒</div>
                 <h2>學務處說明</h2>
+            </div>
+
+            <span class="speaker-tag">學務主任分享</span>
+
+            <div class="quote">
+                「學校再怎麼認真，大概只能佔 30%，剩下 70% 是各位家長。孩子是看著父母長大的，你們才是他們的 model。」
+                <div class="quote-author">— 學務主任</div>
             </div>
 
             <h3>校園安全</h3>
             <ul class="feature-list">
-                <li>完善的門禁管理系統，確保學生安全</li>
-                <li>專業護理師駐校，處理學生健康問題</li>
-                <li>定期舉辦防災演練，提升師生應變能力</li>
-                <li>校園監視系統全面覆蓋</li>
+                <li>全校分為 <strong>17 個區域</strong>，下課時間安排老師巡視</li>
+                <li>游泳課師生比：8 位教練 + 4 位救生員 + 2 位導師（1 班 42 人）</li>
+                <li>每學期至少 <strong>2 次防災演練</strong>——學生已養成地震時立刻躲桌下的反射動作！</li>
+                <li>學生可攜帶防身警報器</li>
             </ul>
 
-            <h3>作息時間</h3>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-time">07:30</div>
-                    <div class="timeline-content">
-                        <h4>到校</h4>
-                        <p>學生陸續到校，進行晨間活動</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">08:00</div>
-                    <div class="timeline-content">
-                        <h4>早自習</h4>
-                        <p>晨讀或班級活動時間</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">08:30-12:00</div>
-                    <div class="timeline-content">
-                        <h4>上午課程</h4>
-                        <p>主要學科課程</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">12:00-13:00</div>
-                    <div class="timeline-content">
-                        <h4>午餐與休息</h4>
-                        <p>營養午餐、午休時間</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">13:00-16:00</div>
-                    <div class="timeline-content">
-                        <h4>下午課程</h4>
-                        <p>學科課程、社團活動</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">16:00後</div>
-                    <div class="timeline-content">
-                        <h4>放學/課後班</h4>
-                        <p>可參加課後照顧班或安親服務</p>
-                    </div>
-                </div>
+            <div class="highlight-box warning">
+                <h4>🚗 上下學交通安全</h4>
+                <p>靜心上下學是臺北市的交通熱點！請家長配合：</p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>不要違規停車</li>
+                    <li>不要下車後繞過來開車門、拿書包、背書包⋯⋯這會讓興隆路塞到萬隆捷運站</li>
+                    <li>這些行為背後在教孩子：「只要我想做的，不管別人」</li>
+                </ul>
+            </div>
+
+            <h3>獎懲制度</h3>
+            <p>靜心是<strong>全臺北市私立小學唯一</strong>有開單制度的學校：</p>
+
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>類型</th>
+                        <th>說明</th>
+                        <th>影響</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>違規事件通知單</td>
+                        <td>口頭勸告後請家長協助改善</td>
+                        <td>無</td>
+                    </tr>
+                    <tr>
+                        <td>警告單</td>
+                        <td>情節較輕，提醒用</td>
+                        <td>無</td>
+                    </tr>
+                    <tr>
+                        <td>三級記過</td>
+                        <td>情節較重</td>
+                        <td>累積影響直升</td>
+                    </tr>
+                    <tr>
+                        <td>二級記過</td>
+                        <td>2 張不能直升中學</td>
+                        <td>影響直升</td>
+                    </tr>
+                    <tr>
+                        <td>一級記過</td>
+                        <td>性平事件、故意傷人等<br>1 張不能直升中學</td>
+                        <td>嚴重影響</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>💡 開單的目的</h4>
+                <p>一、二年級孩子還在學習人與人之間的界限，開單是<strong>通知家長一起協助</strong>，不是責備。「如果有犯錯，才有學習的機會。」請家長收到通知單時配合學校一起引導孩子。</p>
             </div>
 
             <h3>校園活動</h3>
             <div class="card-grid">
                 <div class="card">
-                    <h4>🏃 運動會</h4>
-                    <p>年度盛大體育活動，展現班級團結與運動精神</p>
+                    <h4>🎯 專長試探課程</h4>
+                    <p>一年級開設 <strong>12 種課程</strong>，讓孩子探索興趣：音樂、體育、美學、智力活動等</p>
                 </div>
                 <div class="card">
-                    <h4>🎪 園遊會</h4>
-                    <p>結合義賣與遊戲，培養學生創意與社交能力</p>
+                    <h4>🏊 游泳課</h4>
+                    <p>一年級起每學期有 <strong>5 週連續游泳課</strong>（兩節體育合併）</p>
                 </div>
                 <div class="card">
                     <h4>🏕️ 校外教學</h4>
-                    <p>配合課程安排參訪活動，拓展學習視野</p>
+                    <p>各年級主題不同：天文、法院參訪、生活體驗營等</p>
                 </div>
                 <div class="card">
-                    <h4>🎭 成果發表</h4>
-                    <p>音樂會、話劇表演等，展現學習成果</p>
+                    <h4>🍽️ 學生餐廳</h4>
+                    <p>六年級起每週一次到學生餐廳用餐，學習餐桌禮儀</p>
                 </div>
             </div>
+
+            <h3>生活教育重點</h3>
+            <ul class="feature-list">
+                <li><strong>掃地、拖地</strong>——在學校要自己做，代表「做家事」：只要是家的一份子就要做家事</li>
+                <li><strong>自己盛飯</strong>——幼兒園老師幫忙，小學要自己來</li>
+                <li><strong>整理服裝儀容</strong>——衣服紮好、鞋帶綁好、該黏的黏好</li>
+            </ul>
+
+            <h3>榮譽制度</h3>
+            <p>學校非常鼓勵正向行為，設有「榮譽護照」，上學期發出約 <strong>600 顆</strong>榮譽章，可依累積顏色兌換獎勵。</p>
         </section>
 
         <!-- Music Section -->
@@ -713,92 +1055,154 @@
                 <h2>音樂中心</h2>
             </div>
 
-            <p>靜心音樂中心成立於民國104年，在董事會支持下提供專業的音樂教育：</p>
+            <span class="speaker-tag">音樂中心主任分享</span>
 
-            <h3>管弦樂團</h3>
-            <p>靜心管弦樂團成立於民國95年，聘請國家交響樂團(NSO)及臺北市立交響樂團(TSO)等專業師資擔任教學工作。</p>
+            <p>音樂中心是靜心非常特別的單位，提供從一年級到十二年級系統性的音樂養成教育。</p>
 
-            <div class="highlight-box success">
-                <h4>🏆 傲人成績</h4>
-                <p>97、98、99學年度連續三年於臺北市學生音樂比賽榮獲<strong>管樂、弦樂、管弦樂合奏三冠王</strong>（三項第一名）的殊榮！108學年度國小部管弦樂團榮獲南區優等第一名，進軍全國賽。</p>
+            <div class="quote">
+                「我們從來沒有要把孩子培養成專業音樂家，而是希望他們有一樣可以陪伴自己一輩子的才能。」
+                <div class="quote-author">— 音樂中心主任</div>
             </div>
 
-            <h3>學習階段規劃</h3>
+            <h3>樂團發展階段</h3>
             <table class="info-table">
                 <thead>
                     <tr>
                         <th>階段</th>
-                        <th>課程內容</th>
+                        <th>年級</th>
+                        <th>內容</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>幼兒園</td>
-                        <td>音樂律動、太鼓小達人、小提琴團體課程</td>
+                        <td>C 團（預備）</td>
+                        <td>二年級</td>
+                        <td>一年時間評估適合的樂器</td>
                     </tr>
                     <tr>
-                        <td>小學預備</td>
-                        <td>打擊樂、鍵盤樂及弦樂合奏</td>
+                        <td>B 團</td>
+                        <td>三年級</td>
+                        <td>正式拿樂器，一對一課程</td>
                     </tr>
                     <tr>
-                        <td>小學</td>
-                        <td>管弦樂團及管樂、弦樂A、B團</td>
+                        <td>A 團 / 校隊</td>
+                        <td>五年級以上</td>
+                        <td>代表學校比賽、演出</td>
                     </tr>
                     <tr>
-                        <td>國中</td>
-                        <td>管弦樂團、管樂團、弦樂團</td>
+                        <td>國中團</td>
+                        <td>七~九年級</td>
+                        <td>進階發展</td>
                     </tr>
                 </tbody>
             </table>
 
+            <h3>樂器選擇</h3>
             <div class="highlight-box warning">
-                <h4>📌 注意事項</h4>
-                <p>音樂課程需額外報名參加，詳細資訊請洽音樂中心。樂團甄選通常在學期初進行，有興趣的同學請提早準備。</p>
+                <h4>⚠️ 不要看名字或外型選樂器！</h4>
+                <p>每種樂器需要不同的生理條件：</p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>男生 80% 想學小提琴，女生 100% 想學長笛——但不一定適合</li>
+                    <li>厚嘴唇不適合吹長笛</li>
+                    <li>小玉米牙齒不適合吹銅管（會漏氣）</li>
+                    <li>長號吹久了右手會比左手長！</li>
+                    <li>10-12 歲矯正牙齒期間不建議進樂團（會影響吹奏）</li>
+                </ul>
+                <p>學校會用一年時間評估孩子適合什麼樂器，有疑問可打電話到音樂中心諮詢。</p>
+            </div>
+
+            <h3>鋼琴學習提醒</h3>
+            <div class="highlight-box danger">
+                <h4>🎹 手型很重要！</h4>
+                <p>如果孩子學鋼琴，手型<strong>一定要正確</strong>。不要相信「小孩還小，手伸直彈沒關係」——這是錯的！錯誤的手型會影響長期發展。學校老師知道學習的終點在哪裡，會負責任地教；但外面的老師可能只管今天學、明天學，不管最終成果。</p>
+            </div>
+
+            <h3>國際交流與演出</h3>
+            <ul class="feature-list">
+                <li><strong>2024 維也納金色大廳</strong>——全團 70 位學生 + 70 位家長，獲得世界級優異成績</li>
+                <li>2023 日本、2024 新加坡、2025 維也納</li>
+                <li>臺北國家音樂廳、高雄衛武營都演出過兩次以上</li>
+                <li>紐西蘭交流時，對方學生說「七所學校中最喜歡靜心」——因為靜心學生大方、願意交流</li>
+            </ul>
+
+            <h3>慈善音樂會</h3>
+            <p>樂團學生最開心的是：「終於可以用自己的才華幫助需要的人」——不是爸媽捐的錢，是自己的能力。</p>
+
+            <div class="highlight-box success">
+                <h4>🎻 靜心盃音樂比賽</h4>
+                <p>學校門口常看到的布條！有學鋼琴、小提琴的孩子，一年級以上就可以報名參加。簡章已公告，比賽時間約在明年此時，請提早準備（約需一年練習）。</p>
+            </div>
+
+            <div class="quote">
+                「AI 時代，我們要讓孩子保留的不是 AI 能做的事，而是 AI 做不到的事——人的情感、人的感動。音樂就是能永遠滋養心靈的東西。」
+                <div class="quote-author">— 音樂中心主任</div>
             </div>
         </section>
 
-        <!-- Practical Info Section -->
-        <section id="practical" class="section">
+        <!-- Fees Section -->
+        <section id="fees" class="section">
             <div class="section-header">
-                <div class="section-icon icon-blue">📋</div>
-                <h2>實用資訊</h2>
+                <div class="section-icon icon-blue">💰</div>
+                <h2>費用資訊</h2>
             </div>
 
-            <h3>學費參考（雙語班）</h3>
+            <h3>學費（每學期）</h3>
             <table class="info-table">
                 <tbody>
                     <tr>
-                        <td>註冊費</td>
-                        <td>約 5.5 萬/期</td>
+                        <td><strong>普通班</strong></td>
+                        <td>約 <strong>8 萬</strong></td>
                     </tr>
                     <tr>
-                        <td>月費</td>
-                        <td>約 1.3 萬/月</td>
-                    </tr>
-                    <tr>
-                        <td>制服費</td>
-                        <td>約 1.6 萬（冬夏季）</td>
+                        <td><strong>雙語特色班</strong></td>
+                        <td>約 <strong>16 萬</strong></td>
                     </tr>
                 </tbody>
             </table>
-            <p style="font-size: 0.9rem; color: var(--gray);">* 以上為參考金額，實際費用請以學校公告為準</p>
 
-            <h3>114學年度招生時程</h3>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-time">3/22-4/6</div>
-                    <div class="timeline-content">
-                        <h4>招生活動報名</h4>
-                        <p>報名費用 600 元，可附上獎狀、證書等特殊優異表現證明</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">4/12(六)</div>
-                    <div class="timeline-content">
-                        <h4>招生活動日</h4>
-                        <p>於上午舉行，前一天 17:00 後會在官網公告到場時間</p>
-                    </div>
-                </div>
+            <h3>其他費用</h3>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>項目</th>
+                        <th>金額</th>
+                        <th>備註</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>午餐</td>
+                        <td>85 元/餐</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>制服（首次）</td>
+                        <td>約 19,000 元</td>
+                        <td>含冬夏季全套</td>
+                    </tr>
+                    <tr>
+                        <td>校車（遠程）</td>
+                        <td>20,000 元/學期</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>校車（超遠程）</td>
+                        <td>22,000 元/學期</td>
+                        <td>內湖、板橋</td>
+                    </tr>
+                    <tr>
+                        <td>課後才藝</td>
+                        <td>20,000~40,000 元</td>
+                        <td>依選擇課程而定</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>重要時程</h3>
+            <div class="highlight-box danger">
+                <h4>📋 直升小學意願調查表</h4>
+                <p><strong>下禮拜五之前要繳回！</strong></p>
+                <p>只調查這一次，請想清楚再填寫。繳回後請不要再更動，因為後續有很多安排要進行。</p>
             </div>
 
             <h3>聯絡資訊</h3>
@@ -816,24 +1220,71 @@
                     <p><a href="https://www.chjhs.tp.edu.tw/" target="_blank">www.chjhs.tp.edu.tw</a></p>
                 </div>
                 <div class="card">
-                    <h4>🚇 交通方式</h4>
-                    <p>捷運萬隆站步行約10分鐘</p>
+                    <h4>🎵 音樂中心</h4>
+                    <p>有樂器學習問題可來電諮詢</p>
                 </div>
             </div>
+        </section>
+
+        <!-- Summary Section -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon icon-purple">📌</div>
+                <h2>重點總整理</h2>
+            </div>
+
+            <h3>現在就要開始做的事</h3>
+            <ul class="feature-list checklist">
+                <li>練習早起（7:40 前到校）</li>
+                <li>練習寫自己的名字</li>
+                <li>練習自己整理書包、收拾東西</li>
+                <li>練習穿脫衣服（尤其是冬季制服褲子皮帶！）</li>
+                <li>練習使用各種馬桶</li>
+                <li>調整午休習慣（躺睡→趴睡）</li>
+                <li>讓孩子做家事</li>
+                <li>繳交直升意願調查表（下週五前）</li>
+            </ul>
+
+            <h3>記住的數字</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>42</h4>
+                    <p>每班學生人數</p>
+                </div>
+                <div class="card">
+                    <h4>7:40</h4>
+                    <p>到校時間</p>
+                </div>
+                <div class="card">
+                    <h4>8/3~8/10</h4>
+                    <p>新生暑訓時間</p>
+                </div>
+                <div class="card">
+                    <h4>15 年</h4>
+                    <p>一貫教育體系</p>
+                </div>
+            </div>
+
+            <h3>學校的核心理念</h3>
+            <ul class="feature-list">
+                <li><strong>先成人，再成才</strong>——品格教育是基礎</li>
+                <li><strong>不要贏在起跑點，不要掛在半途</strong>——細水長流的學習</li>
+                <li><strong>給孩子足夠的時間探索</strong>——每個階段都有目標</li>
+                <li><strong>家長是孩子的大山</strong>——安頓自己，孩子才有安全感</li>
+            </ul>
         </section>
 
         <!-- Sources Section -->
         <section class="section">
             <div class="section-header">
-                <div class="section-icon icon-gray" style="background: #edf2f7; color: #718096;">📚</div>
+                <div class="section-icon" style="background: #edf2f7; color: #718096;">📚</div>
                 <h2>資料來源</h2>
             </div>
-            <p>本頁面內容整理自新生說明會及以下資料：</p>
+            <p>本頁面內容整理自新生說明會逐字稿及以下資料：</p>
             <ul class="feature-list">
                 <li><a href="https://www.chjhs.tp.edu.tw/" target="_blank">臺北市私立靜心高級中學官方網站</a></li>
                 <li><a href="https://chuchu.tw/taipei-chjhs-tp-first-grade" target="_blank">靜心小學招生整理 - CHU CHU</a></li>
                 <li><a href="https://www.chjhs.tp.edu.tw/dispPageBox/MainCp.aspx?ddsPageID=MAINHPMUSICA" target="_blank">靜心音樂中心簡介</a></li>
-                <li><a href="https://school.parenting.com.tw/schools/3871" target="_blank">親子天下 - 私立靜心高級中學</a></li>
             </ul>
         </section>
     </main>
