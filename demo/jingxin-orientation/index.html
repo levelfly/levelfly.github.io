@@ -616,6 +616,27 @@
             border-radius: 4px;
         }
 
+        /* ===== Flowchart Container ===== */
+        .flowchart-container {
+            margin: 20px 0;
+            padding: 16px 8px;
+            background: var(--gray-lighter);
+            border-radius: var(--radius);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .flowchart-container .mermaid {
+            display: flex;
+            justify-content: center;
+            min-width: 300px;
+        }
+
+        .flowchart-container .mermaid svg {
+            max-width: 100%;
+            height: auto;
+        }
+
         /* ===== Pathway Visual ===== */
         .pathway-visual {
             margin: 24px 0;
@@ -1397,6 +1418,39 @@
 
             <h3 data-aos="fade-right">15 年一貫教育藍圖</h3>
 
+            <!-- Mermaid Flowchart -->
+            <div class="flowchart-container" data-aos="fade-up">
+                <div class="mermaid">
+flowchart TB
+    subgraph 小學["🏫 小學部（6年）"]
+        A1["普通班<br/>2班/年級"]
+        A2["雙語特色班<br/>4班/年級"]
+    end
+    subgraph 國中["🎓 國中部（3年）"]
+        B1["雙語精英班"]
+        B2["國際組/國際班"]
+    end
+    subgraph 高中["🎯 高中部（3年）"]
+        C1["學測組<br/>國內頂大"]
+        C2["國際組<br/>海外名校"]
+    end
+    A1 --> B1
+    A1 --> B2
+    A2 --> B1
+    A2 --> B2
+    B1 --> C1
+    B1 --> C2
+    B2 --> C2
+
+    style A1 fill:#eff6ff,stroke:#3b82f6
+    style A2 fill:#dbeafe,stroke:#2563eb
+    style B1 fill:#ecfdf5,stroke:#10b981
+    style B2 fill:#fef3c7,stroke:#f59e0b
+    style C1 fill:#f5f3ff,stroke:#8b5cf6
+    style C2 fill:#fdf2f8,stroke:#ec4899
+                </div>
+            </div>
+
             <div class="pathway-visual" data-aos="fade-up">
                 <div class="pathway-stage">
                     <div class="pathway-label elementary">
@@ -1741,11 +1795,33 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#eff6ff',
+                primaryTextColor: '#1e40af',
+                primaryBorderColor: '#3b82f6',
+                lineColor: '#94a3b8',
+                secondaryColor: '#ecfdf5',
+                tertiaryColor: '#f5f3ff',
+                fontSize: '14px'
+            },
+            flowchart: {
+                curve: 'basis',
+                padding: 15,
+                htmlLabels: true,
+                useMaxWidth: true
+            }
+        });
+
         // Initialize AOS
         AOS.init({
             duration: 600,
