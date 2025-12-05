@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Levelfly - 網頁設計作品集</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -18,9 +19,20 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: #0a0a0a;
+            background: #000;
             color: #fff;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Three.js Canvas */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
         }
 
         /* Navigation */
@@ -33,7 +45,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
         }
 
@@ -42,6 +54,7 @@
             font-weight: 700;
             color: #fff;
             text-decoration: none;
+            text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
         }
 
         .nav-links {
@@ -51,14 +64,21 @@
         }
 
         .nav-links a {
-            color: #888;
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             font-size: 0.9rem;
-            transition: color 0.3s;
+            transition: all 0.3s;
         }
 
         .nav-links a:hover {
             color: #fff;
+            text-shadow: 0 0 10px rgba(102, 126, 234, 0.8);
+        }
+
+        /* Content wrapper */
+        .content {
+            position: relative;
+            z-index: 1;
         }
 
         /* Hero Section */
@@ -70,36 +90,7 @@
             align-items: center;
             text-align: center;
             padding: 100px 20px;
-            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
-            top: 20%;
-            left: 10%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(118, 75, 162, 0.15) 0%, transparent 70%);
-            bottom: 20%;
-            right: 10%;
-            animation: float 8s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
         }
 
         .hero-content {
@@ -108,46 +99,92 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 5rem;
             font-weight: 700;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
+            }
+            to {
+                filter: drop-shadow(0 0 40px rgba(118, 75, 162, 0.8));
+            }
         }
 
         .hero .subtitle {
             font-size: 1.5rem;
-            color: #888;
+            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 30px;
+            letter-spacing: 3px;
         }
 
         .hero .description {
             max-width: 600px;
-            color: #666;
+            color: rgba(255, 255, 255, 0.5);
             margin-bottom: 40px;
         }
 
         .cta-button {
             display: inline-block;
             padding: 15px 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: transparent;
+            border: 2px solid rgba(102, 126, 234, 0.8);
             color: #fff;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: left 0.3s;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            border-color: transparent;
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.8rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
         }
 
         /* Section Styles */
         section {
             padding: 100px 50px;
+            position: relative;
         }
 
         .section-title {
@@ -165,7 +202,8 @@
 
         /* Skills Section */
         #skills {
-            background: #111;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
         }
 
         .skills-grid {
@@ -179,14 +217,17 @@
         .skill-item {
             text-align: center;
             padding: 30px 20px;
-            background: #1a1a1a;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            transition: transform 0.3s, background 0.3s;
+            transition: all 0.3s;
         }
 
         .skill-item:hover {
-            transform: translateY(-5px);
-            background: #222;
+            transform: translateY(-10px);
+            background: rgba(102, 126, 234, 0.1);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
         }
 
         .skill-icon {
@@ -196,12 +237,12 @@
 
         .skill-name {
             font-size: 0.9rem;
-            color: #888;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         /* Works Section */
         #works {
-            background: #0a0a0a;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .works-grid {
@@ -213,27 +254,54 @@
         }
 
         .work-card {
-            background: #151515;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.4s;
             text-decoration: none;
             color: inherit;
             display: block;
         }
 
         .work-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
         }
 
         .work-preview {
             height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-preview::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        .work-card:hover .work-preview::before {
+            opacity: 1;
+            animation: shine 0.5s;
+        }
+
+        @keyframes shine {
+            from { transform: rotate(45deg) translateX(-100%); }
+            to { transform: rotate(45deg) translateX(100%); }
         }
 
         .work-info {
@@ -246,7 +314,7 @@
         }
 
         .work-info p {
-            color: #666;
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.9rem;
             margin-bottom: 15px;
         }
@@ -259,20 +327,22 @@
 
         .work-tag {
             padding: 5px 12px;
-            background: #222;
+            background: rgba(102, 126, 234, 0.2);
+            border: 1px solid rgba(102, 126, 234, 0.3);
             border-radius: 20px;
             font-size: 0.75rem;
-            color: #888;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         /* Contact Section */
         #contact {
-            background: #111;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
             text-align: center;
         }
 
         .contact-text {
-            color: #666;
+            color: rgba(255, 255, 255, 0.5);
             margin-bottom: 30px;
             max-width: 500px;
             margin-left: auto;
@@ -290,23 +360,27 @@
             align-items: center;
             gap: 8px;
             padding: 12px 25px;
-            background: #1a1a1a;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
             text-decoration: none;
             border-radius: 10px;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
 
         .contact-link:hover {
-            background: #222;
+            background: rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
         }
 
         /* Footer */
         footer {
             padding: 30px;
             text-align: center;
-            color: #444;
+            color: rgba(255, 255, 255, 0.3);
             font-size: 0.85rem;
+            background: rgba(0, 0, 0, 0.8);
         }
 
         /* Responsive */
@@ -320,7 +394,7 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
 
             .hero .subtitle {
@@ -339,156 +413,329 @@
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav>
-        <a href="#" class="logo">Levelfly</a>
-        <ul class="nav-links">
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#works">Works</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- Three.js Background -->
+    <canvas id="bg-canvas"></canvas>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Levelfly</h1>
-            <p class="subtitle">Web Developer & Designer</p>
-            <p class="description">
-                熱愛創造美好的網頁體驗，專注於前端開發與使用者介面設計。
-                透過程式碼將創意轉化為現實。
+    <!-- Content -->
+    <div class="content">
+        <!-- Navigation -->
+        <nav>
+            <a href="#" class="logo">Levelfly</a>
+            <ul class="nav-links">
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#works">Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Levelfly</h1>
+                <p class="subtitle">Web Developer & Designer</p>
+                <p class="description">
+                    熱愛創造美好的網頁體驗，專注於前端開發與使用者介面設計。
+                    透過程式碼將創意轉化為現實。
+                </p>
+                <a href="#works" class="cta-button">View My Work</a>
+            </div>
+            <div class="scroll-hint">↓ Scroll to explore</div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title">My <span>Skills</span></h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon">&lt;/&gt;</div>
+                    <div class="skill-name">HTML5</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">#</div>
+                    <div class="skill-name">CSS3</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">JS</div>
+                    <div class="skill-name">JavaScript</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">B</div>
+                    <div class="skill-name">Bootstrap</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">$</div>
+                    <div class="skill-name">jQuery</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section id="works">
+            <h2 class="section-title">My <span>Works</span></h2>
+            <div class="works-grid">
+                <a href="archive/legoking/index.html" class="work-card">
+                    <div class="work-preview">📱</div>
+                    <div class="work-info">
+                        <h3>手機支架產品頁</h3>
+                        <p>產品行銷頁面，使用捲動觸發動畫效果打造沉浸式體驗。</p>
+                        <div class="work-tags">
+                            <span class="work-tag">jQuery</span>
+                            <span class="work-tag">Waypoints</span>
+                            <span class="work-tag">Animation</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="archive/bootstrap.html" class="work-card">
+                    <div class="work-preview">📰</div>
+                    <div class="work-info">
+                        <h3>Bootstrap 響應式網站</h3>
+                        <p>完整的響應式網頁設計，包含導覽列、表格、新聞排版。</p>
+                        <div class="work-tags">
+                            <span class="work-tag">Bootstrap</span>
+                            <span class="work-tag">RWD</span>
+                            <span class="work-tag">Grid</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="archive/pikachu_begin/index.html" class="work-card">
+                    <div class="work-preview">🎮</div>
+                    <div class="work-info">
+                        <h3>Pikachu 個人名片</h3>
+                        <p>創意 CSS 圓形設計的個人介紹頁面。</p>
+                        <div class="work-tags">
+                            <span class="work-tag">CSS</span>
+                            <span class="work-tag">Design</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="archive/lounge_basic/lounge.html" class="work-card">
+                    <div class="work-preview">🍺</div>
+                    <div class="work-info">
+                        <h3>Lounge 休息室</h3>
+                        <p>多頁面網站結構，包含完整的導航系統。</p>
+                        <div class="work-tags">
+                            <span class="work-tag">HTML</span>
+                            <span class="work-tag">Multi-page</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="archive/2.html" class="work-card">
+                    <div class="work-preview">🗺</div>
+                    <div class="work-info">
+                        <h3>Segway 旅遊日記</h3>
+                        <p>整合社群分享功能與網路字型的部落格頁面。</p>
+                        <div class="work-tags">
+                            <span class="work-tag">Social</span>
+                            <span class="work-tag">Web Font</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="archive/book/index.html" class="work-card">
+                    <div class="work-preview">📖</div>
+                    <div class="work-info">
+                        <h3>產品說明書</h3>
+                        <p>響應式圖片展示頁面設計。</p>
+                        <div class="work-tags">
+                            <span class="work-tag">Images</span>
+                            <span class="work-tag">Layout</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Get In <span>Touch</span></h2>
+            <p class="contact-text">
+                有任何合作想法或專案需求？歡迎與我聯繫！
             </p>
-            <a href="#works" class="cta-button">View My Work</a>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2 class="section-title">My <span>Skills</span></h2>
-        <div class="skills-grid">
-            <div class="skill-item">
-                <div class="skill-icon">&#60;/&#62;</div>
-                <div class="skill-name">HTML5</div>
+            <div class="contact-links">
+                <a href="https://github.com/levelfly" class="contact-link" target="_blank">
+                    GitHub
+                </a>
+                <a href="mailto:contact@levelfly.com" class="contact-link">
+                    Email
+                </a>
             </div>
-            <div class="skill-item">
-                <div class="skill-icon">#</div>
-                <div class="skill-name">CSS3</div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">JS</div>
-                <div class="skill-name">JavaScript</div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">B</div>
-                <div class="skill-name">Bootstrap</div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">$</div>
-                <div class="skill-name">jQuery</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Works Section -->
-    <section id="works">
-        <h2 class="section-title">My <span>Works</span></h2>
-        <div class="works-grid">
-            <a href="archive/legoking/index.html" class="work-card">
-                <div class="work-preview">&#128241;</div>
-                <div class="work-info">
-                    <h3>手機支架產品頁</h3>
-                    <p>產品行銷頁面，使用捲動觸發動畫效果打造沉浸式體驗。</p>
-                    <div class="work-tags">
-                        <span class="work-tag">jQuery</span>
-                        <span class="work-tag">Waypoints</span>
-                        <span class="work-tag">Animation</span>
-                    </div>
-                </div>
-            </a>
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Levelfly. Built with Three.js & passion.</p>
+        </footer>
+    </div>
 
-            <a href="archive/bootstrap.html" class="work-card">
-                <div class="work-preview">&#128240;</div>
-                <div class="work-info">
-                    <h3>Bootstrap 響應式網站</h3>
-                    <p>完整的響應式網頁設計，包含導覽列、表格、新聞排版。</p>
-                    <div class="work-tags">
-                        <span class="work-tag">Bootstrap</span>
-                        <span class="work-tag">RWD</span>
-                        <span class="work-tag">Grid</span>
-                    </div>
-                </div>
-            </a>
+    <!-- Three.js Script -->
+    <script>
+        // Scene setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById('bg-canvas'),
+            antialias: true,
+            alpha: true
+        });
 
-            <a href="archive/pikachu_begin/index.html" class="work-card">
-                <div class="work-preview">&#127917;</div>
-                <div class="work-info">
-                    <h3>Pikachu 個人名片</h3>
-                    <p>創意 CSS 圓形設計的個人介紹頁面。</p>
-                    <div class="work-tags">
-                        <span class="work-tag">CSS</span>
-                        <span class="work-tag">Design</span>
-                    </div>
-                </div>
-            </a>
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-            <a href="archive/lounge_basic/lounge.html" class="work-card">
-                <div class="work-preview">&#127866;</div>
-                <div class="work-info">
-                    <h3>Lounge 休息室</h3>
-                    <p>多頁面網站結構，包含完整的導航系統。</p>
-                    <div class="work-tags">
-                        <span class="work-tag">HTML</span>
-                        <span class="work-tag">Multi-page</span>
-                    </div>
-                </div>
-            </a>
+        // Particles
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 3000;
+        const posArray = new Float32Array(particlesCount * 3);
+        const colorsArray = new Float32Array(particlesCount * 3);
 
-            <a href="archive/2.html" class="work-card">
-                <div class="work-preview">&#128506;</div>
-                <div class="work-info">
-                    <h3>Segway 旅遊日記</h3>
-                    <p>整合社群分享功能與網路字型的部落格頁面。</p>
-                    <div class="work-tags">
-                        <span class="work-tag">Social</span>
-                        <span class="work-tag">Web Font</span>
-                    </div>
-                </div>
-            </a>
+        for (let i = 0; i < particlesCount * 3; i += 3) {
+            // Position
+            posArray[i] = (Math.random() - 0.5) * 10;
+            posArray[i + 1] = (Math.random() - 0.5) * 10;
+            posArray[i + 2] = (Math.random() - 0.5) * 10;
 
-            <a href="archive/book/index.html" class="work-card">
-                <div class="work-preview">&#128214;</div>
-                <div class="work-info">
-                    <h3>產品說明書</h3>
-                    <p>響應式圖片展示頁面設計。</p>
-                    <div class="work-tags">
-                        <span class="work-tag">Images</span>
-                        <span class="work-tag">Layout</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </section>
+            // Colors (purple to blue gradient)
+            const t = Math.random();
+            colorsArray[i] = 0.4 + t * 0.2;     // R
+            colorsArray[i + 1] = 0.3 + t * 0.2; // G
+            colorsArray[i + 2] = 0.8 + t * 0.2; // B
+        }
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Get In <span>Touch</span></h2>
-        <p class="contact-text">
-            有任何合作想法或專案需求？歡迎與我聯繫！
-        </p>
-        <div class="contact-links">
-            <a href="https://github.com/levelfly" class="contact-link" target="_blank">
-                GitHub
-            </a>
-            <a href="mailto:contact@levelfly.com" class="contact-link">
-                Email
-            </a>
-        </div>
-    </section>
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorsArray, 3));
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Levelfly. Built with passion.</p>
-    </footer>
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.02,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.8,
+            blending: THREE.AdditiveBlending
+        });
+
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+
+        // Floating geometries
+        const geometries = [];
+        const geometryCount = 15;
+
+        for (let i = 0; i < geometryCount; i++) {
+            let geometry;
+            const type = Math.floor(Math.random() * 4);
+
+            switch(type) {
+                case 0:
+                    geometry = new THREE.IcosahedronGeometry(0.1 + Math.random() * 0.2);
+                    break;
+                case 1:
+                    geometry = new THREE.OctahedronGeometry(0.1 + Math.random() * 0.2);
+                    break;
+                case 2:
+                    geometry = new THREE.TetrahedronGeometry(0.1 + Math.random() * 0.2);
+                    break;
+                default:
+                    geometry = new THREE.TorusGeometry(0.1 + Math.random() * 0.1, 0.02, 8, 16);
+            }
+
+            const material = new THREE.MeshBasicMaterial({
+                color: new THREE.Color(`hsl(${240 + Math.random() * 60}, 70%, 60%)`),
+                wireframe: true,
+                transparent: true,
+                opacity: 0.3
+            });
+
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.position.set(
+                (Math.random() - 0.5) * 8,
+                (Math.random() - 0.5) * 8,
+                (Math.random() - 0.5) * 5
+            );
+            mesh.rotation.set(
+                Math.random() * Math.PI,
+                Math.random() * Math.PI,
+                Math.random() * Math.PI
+            );
+
+            mesh.userData = {
+                rotationSpeed: {
+                    x: (Math.random() - 0.5) * 0.02,
+                    y: (Math.random() - 0.5) * 0.02,
+                    z: (Math.random() - 0.5) * 0.02
+                },
+                floatSpeed: Math.random() * 0.5 + 0.5,
+                floatOffset: Math.random() * Math.PI * 2
+            };
+
+            scene.add(mesh);
+            geometries.push(mesh);
+        }
+
+        camera.position.z = 3;
+
+        // Mouse interaction
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetX = 0;
+        let targetY = 0;
+
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        // Scroll interaction
+        let scrollY = 0;
+        document.addEventListener('scroll', () => {
+            scrollY = window.scrollY;
+        });
+
+        // Animation
+        const clock = new THREE.Clock();
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            const elapsedTime = clock.getElapsedTime();
+
+            // Smooth mouse following
+            targetX += (mouseX - targetX) * 0.05;
+            targetY += (mouseY - targetY) * 0.05;
+
+            // Rotate particles based on mouse
+            particlesMesh.rotation.x = targetY * 0.3;
+            particlesMesh.rotation.y = targetX * 0.3;
+
+            // Slow rotation
+            particlesMesh.rotation.z = elapsedTime * 0.05;
+
+            // Scroll effect
+            particlesMesh.position.y = scrollY * 0.001;
+
+            // Animate floating geometries
+            geometries.forEach((mesh, index) => {
+                mesh.rotation.x += mesh.userData.rotationSpeed.x;
+                mesh.rotation.y += mesh.userData.rotationSpeed.y;
+                mesh.rotation.z += mesh.userData.rotationSpeed.z;
+
+                // Float animation
+                mesh.position.y += Math.sin(elapsedTime * mesh.userData.floatSpeed + mesh.userData.floatOffset) * 0.002;
+            });
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
 </body>
 
 </html>
