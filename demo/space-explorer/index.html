@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Explorer - 宇宙探索</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+            cursor: none;
+        }
+
+        #canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s, border-color 0.3s;
+        }
+
+        .cursor.hover {
+            transform: translate(-50%, -50%) scale(2);
+            border-color: #00ffff;
+            background: rgba(0, 255, 255, 0.1);
+        }
+
+        .cursor-dot {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+
+        /* UI Overlay */
+        .ui-overlay {
+            position: fixed;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        /* Title */
+        .title {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 100;
+            transition: opacity 1s, transform 1s;
+        }
+
+        .title.hidden {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+            pointer-events: none;
+        }
+
+        .title h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 20px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s linear infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .title p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 5px;
+        }
+
+        .enter-btn {
+            margin-top: 40px;
+            padding: 15px 50px;
+            font-size: 1rem;
+            font-family: inherit;
+            letter-spacing: 3px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            cursor: none;
+            pointer-events: auto;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .enter-btn:hover::before {
+            left: 100%;
+        }
+
+        .enter-btn:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+        }
+
+        /* HUD */
+        .hud {
+            position: fixed;
+            padding: 30px;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .hud.visible {
+            opacity: 1;
+        }
+
+        .hud-top-left {
+            top: 0;
+            left: 0;
+        }
+
+        .hud-top-right {
+            top: 0;
+            right: 0;
+            text-align: right;
+        }
+
+        .hud-bottom-left {
+            bottom: 0;
+            left: 0;
+        }
+
+        .hud-bottom-right {
+            bottom: 0;
+            right: 0;
+            text-align: right;
+        }
+
+        .hud-label {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .hud-value {
+            font-size: 1.2rem;
+            color: #00ffff;
+        }
+
+        /* Planet Info Panel */
+        .planet-info {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 100;
+            opacity: 0;
+            transition: all 0.5s;
+            pointer-events: none;
+        }
+
+        .planet-info.visible {
+            opacity: 1;
+        }
+
+        .planet-name {
+            font-size: 2rem;
+            letter-spacing: 10px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .planet-desc {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 400px;
+        }
+
+        /* Instructions */
+        .instructions {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .instructions.visible {
+            opacity: 1;
+        }
+
+        /* Loading */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 1s;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-text {
+            font-size: 1rem;
+            letter-spacing: 5px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Scan lines effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 99;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.1),
+                rgba(0, 0, 0, 0.1) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            opacity: 0.3;
+        }
+
+        /* Corner decorations */
+        .corner {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .corner.visible { opacity: 1; }
+        .corner-tl { top: 20px; left: 20px; border-right: none; border-bottom: none; }
+        .corner-tr { top: 20px; right: 20px; border-left: none; border-bottom: none; }
+        .corner-bl { bottom: 20px; left: 20px; border-right: none; border-top: none; }
+        .corner-br { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+
+        /* Back button */
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 200;
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            cursor: none;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-text">INITIALIZING SPACE EXPLORER...</div>
+    </div>
+
+    <!-- Scan Lines -->
+    <div class="scanlines"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- Corner Decorations -->
+    <div class="corner corner-tl" id="cornerTL"></div>
+    <div class="corner corner-tr" id="cornerTR"></div>
+    <div class="corner corner-bl" id="cornerBL"></div>
+    <div class="corner corner-br" id="cornerBR"></div>
+
+    <!-- Title Screen -->
+    <div class="title" id="title">
+        <h1>Space Explorer</h1>
+        <p>探索無限宇宙的奧秘</p>
+        <button class="enter-btn" id="enterBtn">ENTER THE COSMOS</button>
+    </div>
+
+    <!-- HUD Elements -->
+    <div class="hud hud-top-left" id="hudTL">
+        <div class="hud-label">COORDINATES</div>
+        <div class="hud-value" id="coords">X: 0.00 Y: 0.00 Z: 0.00</div>
+    </div>
+
+    <div class="hud hud-top-right" id="hudTR">
+        <div class="hud-label">DISTANCE FROM ORIGIN</div>
+        <div class="hud-value" id="distance">0.00 AU</div>
+    </div>
+
+    <div class="hud hud-bottom-left" id="hudBL">
+        <div class="hud-label">VELOCITY</div>
+        <div class="hud-value" id="velocity">0.00 km/s</div>
+    </div>
+
+    <div class="hud hud-bottom-right" id="hudBR">
+        <div class="hud-label">TIME ELAPSED</div>
+        <div class="hud-value" id="time">00:00:00</div>
+    </div>
+
+    <!-- Planet Info -->
+    <div class="planet-info" id="planetInfo">
+        <div class="planet-name" id="planetName"></div>
+        <div class="planet-desc" id="planetDesc"></div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions" id="instructions">
+        MOVE MOUSE TO EXPLORE · CLICK ON PLANETS FOR INFO · SCROLL TO ZOOM
+    </div>
+
+    <!-- Back Button -->
+    <a href="../../index.html" class="back-btn">← BACK TO PORTFOLIO</a>
+
+    <!-- Three.js Canvas -->
+    <canvas id="canvas"></canvas>
+
+    <script>
+        // Scene Setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 2000);
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById('canvas'),
+            antialias: true
+        });
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // Variables
+        let isExploring = false;
+        let mouseX = 0, mouseY = 0;
+        let targetX = 0, targetY = 0;
+        let startTime = Date.now();
+        const planets = [];
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+
+        // Planet Data
+        const planetData = [
+            { name: 'AURORA', color: 0x00ffff, size: 1.5, distance: 8, speed: 0.002, desc: '一顆被永恆極光籠罩的神秘星球' },
+            { name: 'CRIMSON', color: 0xff4444, size: 1.2, distance: 12, speed: 0.0015, desc: '表面覆蓋著紅色晶體的熔岩星球' },
+            { name: 'NEBULA', color: 0xff00ff, size: 1.8, distance: 16, speed: 0.001, desc: '氣態巨行星，擁有壯觀的星環' },
+            { name: 'FROST', color: 0x88ccff, size: 1.0, distance: 20, speed: 0.0008, desc: '冰封世界，地下可能存在液態海洋' },
+            { name: 'TERRA', color: 0x44ff88, size: 1.3, distance: 24, speed: 0.0006, desc: '類地行星，可能適合生命存在' },
+        ];
+
+        // Create Stars
+        function createStars() {
+            const starsGeometry = new THREE.BufferGeometry();
+            const starCount = 15000;
+            const positions = new Float32Array(starCount * 3);
+            const colors = new Float32Array(starCount * 3);
+            const sizes = new Float32Array(starCount);
+
+            for (let i = 0; i < starCount; i++) {
+                const i3 = i * 3;
+                const radius = 500 + Math.random() * 1000;
+                const theta = Math.random() * Math.PI * 2;
+                const phi = Math.acos(2 * Math.random() - 1);
+
+                positions[i3] = radius * Math.sin(phi) * Math.cos(theta);
+                positions[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+                positions[i3 + 2] = radius * Math.cos(phi);
+
+                const colorChoice = Math.random();
+                if (colorChoice < 0.3) {
+                    colors[i3] = 0.8; colors[i3 + 1] = 0.9; colors[i3 + 2] = 1.0;
+                } else if (colorChoice < 0.6) {
+                    colors[i3] = 1.0; colors[i3 + 1] = 0.95; colors[i3 + 2] = 0.8;
+                } else {
+                    colors[i3] = 1.0; colors[i3 + 1] = 0.8; colors[i3 + 2] = 0.8;
+                }
+
+                sizes[i] = Math.random() * 2;
+            }
+
+            starsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            starsGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            starsGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+            const starsMaterial = new THREE.PointsMaterial({
+                size: 0.5,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8,
+                blending: THREE.AdditiveBlending
+            });
+
+            const stars = new THREE.Points(starsGeometry, starsMaterial);
+            scene.add(stars);
+            return stars;
+        }
+
+        // Create Sun
+        function createSun() {
+            const sunGeometry = new THREE.SphereGeometry(3, 64, 64);
+            const sunMaterial = new THREE.MeshBasicMaterial({
+                color: 0xffaa00,
+                transparent: true,
+                opacity: 0.9
+            });
+            const sun = new THREE.Mesh(sunGeometry, sunMaterial);
+
+            // Sun glow
+            const glowGeometry = new THREE.SphereGeometry(4, 32, 32);
+            const glowMaterial = new THREE.MeshBasicMaterial({
+                color: 0xffaa00,
+                transparent: true,
+                opacity: 0.3,
+                side: THREE.BackSide
+            });
+            const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+            sun.add(glow);
+
+            // Point light
+            const sunLight = new THREE.PointLight(0xffaa00, 2, 100);
+            sun.add(sunLight);
+
+            scene.add(sun);
+            return sun;
+        }
+
+        // Create Planet
+        function createPlanet(data) {
+            const group = new THREE.Group();
+
+            // Planet sphere
+            const geometry = new THREE.SphereGeometry(data.size, 32, 32);
+            const material = new THREE.MeshPhongMaterial({
+                color: data.color,
+                emissive: data.color,
+                emissiveIntensity: 0.2,
+                shininess: 30
+            });
+            const planet = new THREE.Mesh(geometry, material);
+            planet.userData = data;
+            group.add(planet);
+
+            // Glow effect
+            const glowGeometry = new THREE.SphereGeometry(data.size * 1.3, 32, 32);
+            const glowMaterial = new THREE.MeshBasicMaterial({
+                color: data.color,
+                transparent: true,
+                opacity: 0.15,
+                side: THREE.BackSide
+            });
+            const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+            group.add(glow);
+
+            // Ring for NEBULA
+            if (data.name === 'NEBULA') {
+                const ringGeometry = new THREE.RingGeometry(2.5, 4, 64);
+                const ringMaterial = new THREE.MeshBasicMaterial({
+                    color: data.color,
+                    transparent: true,
+                    opacity: 0.4,
+                    side: THREE.DoubleSide
+                });
+                const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+                ring.rotation.x = Math.PI / 2.5;
+                group.add(ring);
+            }
+
+            // Orbit line
+            const orbitGeometry = new THREE.RingGeometry(data.distance - 0.05, data.distance + 0.05, 128);
+            const orbitMaterial = new THREE.MeshBasicMaterial({
+                color: 0xffffff,
+                transparent: true,
+                opacity: 0.1,
+                side: THREE.DoubleSide
+            });
+            const orbit = new THREE.Mesh(orbitGeometry, orbitMaterial);
+            orbit.rotation.x = Math.PI / 2;
+            scene.add(orbit);
+
+            // Initial position
+            const angle = Math.random() * Math.PI * 2;
+            group.position.x = Math.cos(angle) * data.distance;
+            group.position.z = Math.sin(angle) * data.distance;
+            group.userData = { ...data, angle, planet };
+
+            scene.add(group);
+            planets.push(group);
+            return group;
+        }
+
+        // Create Nebula Background
+        function createNebula() {
+            const nebulaGeometry = new THREE.BufferGeometry();
+            const nebulaCount = 500;
+            const positions = new Float32Array(nebulaCount * 3);
+            const colors = new Float32Array(nebulaCount * 3);
+
+            for (let i = 0; i < nebulaCount; i++) {
+                const i3 = i * 3;
+                const radius = 200 + Math.random() * 300;
+                const theta = Math.random() * Math.PI * 2;
+                const phi = Math.acos(2 * Math.random() - 1);
+
+                positions[i3] = radius * Math.sin(phi) * Math.cos(theta);
+                positions[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+                positions[i3 + 2] = radius * Math.cos(phi);
+
+                const colorChoice = Math.random();
+                if (colorChoice < 0.5) {
+                    colors[i3] = 0.5; colors[i3 + 1] = 0.2; colors[i3 + 2] = 0.8;
+                } else {
+                    colors[i3] = 0.2; colors[i3 + 1] = 0.5; colors[i3 + 2] = 0.8;
+                }
+            }
+
+            nebulaGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            nebulaGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const nebulaMaterial = new THREE.PointsMaterial({
+                size: 5,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.3,
+                blending: THREE.AdditiveBlending
+            });
+
+            const nebula = new THREE.Points(nebulaGeometry, nebulaMaterial);
+            scene.add(nebula);
+            return nebula;
+        }
+
+        // Initialize Scene
+        const stars = createStars();
+        const sun = createSun();
+        const nebula = createNebula();
+        planetData.forEach(createPlanet);
+
+        // Ambient light
+        const ambientLight = new THREE.AmbientLight(0x222244, 0.5);
+        scene.add(ambientLight);
+
+        // Camera position
+        camera.position.set(0, 15, 40);
+        camera.lookAt(0, 0, 0);
+
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursorDot');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+
+            mouse.x = mouseX;
+            mouse.y = mouseY;
+        });
+
+        // Hover effects
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Enter Button
+        document.getElementById('enterBtn').addEventListener('click', () => {
+            isExploring = true;
+            startTime = Date.now();
+            document.getElementById('title').classList.add('hidden');
+
+            setTimeout(() => {
+                document.querySelectorAll('.hud').forEach(el => el.classList.add('visible'));
+                document.querySelectorAll('.corner').forEach(el => el.classList.add('visible'));
+                document.getElementById('instructions').classList.add('visible');
+            }, 500);
+        });
+
+        // Click Detection for Planets
+        document.addEventListener('click', () => {
+            if (!isExploring) return;
+
+            raycaster.setFromCamera(mouse, camera);
+
+            const planetMeshes = planets.map(p => p.userData.planet);
+            const intersects = raycaster.intersectObjects(planetMeshes);
+
+            if (intersects.length > 0) {
+                const data = intersects[0].object.userData;
+                document.getElementById('planetName').textContent = data.name;
+                document.getElementById('planetDesc').textContent = data.desc;
+                document.getElementById('planetInfo').classList.add('visible');
+
+                setTimeout(() => {
+                    document.getElementById('planetInfo').classList.remove('visible');
+                }, 3000);
+            }
+        });
+
+        // Scroll Zoom
+        let cameraDistance = 40;
+        document.addEventListener('wheel', (e) => {
+            if (!isExploring) return;
+            cameraDistance += e.deltaY * 0.05;
+            cameraDistance = Math.max(15, Math.min(80, cameraDistance));
+        });
+
+        // Update HUD
+        function updateHUD() {
+            const x = camera.position.x.toFixed(2);
+            const y = camera.position.y.toFixed(2);
+            const z = camera.position.z.toFixed(2);
+            document.getElementById('coords').textContent = `X: ${x} Y: ${y} Z: ${z}`;
+
+            const dist = Math.sqrt(camera.position.x ** 2 + camera.position.y ** 2 + camera.position.z ** 2);
+            document.getElementById('distance').textContent = (dist / 10).toFixed(2) + ' AU';
+
+            const vel = (Math.abs(targetX - mouseX) + Math.abs(targetY - mouseY)) * 1000;
+            document.getElementById('velocity').textContent = vel.toFixed(2) + ' km/s';
+
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            const hours = String(Math.floor(elapsed / 3600)).padStart(2, '0');
+            const mins = String(Math.floor((elapsed % 3600) / 60)).padStart(2, '0');
+            const secs = String(elapsed % 60).padStart(2, '0');
+            document.getElementById('time').textContent = `${hours}:${mins}:${secs}`;
+        }
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Smooth camera movement
+            targetX += (mouseX - targetX) * 0.02;
+            targetY += (mouseY - targetY) * 0.02;
+
+            if (isExploring) {
+                camera.position.x = Math.sin(targetX * Math.PI * 0.5) * cameraDistance;
+                camera.position.z = Math.cos(targetX * Math.PI * 0.5) * cameraDistance;
+                camera.position.y = 15 + targetY * 20;
+                camera.lookAt(0, 0, 0);
+            }
+
+            // Rotate stars slowly
+            stars.rotation.y += 0.0001;
+            nebula.rotation.y += 0.00005;
+
+            // Rotate sun
+            sun.rotation.y += 0.002;
+
+            // Orbit planets
+            planets.forEach(group => {
+                group.userData.angle += group.userData.speed;
+                group.position.x = Math.cos(group.userData.angle) * group.userData.distance;
+                group.position.z = Math.sin(group.userData.angle) * group.userData.distance;
+                group.children[0].rotation.y += 0.01;
+            });
+
+            // Raycaster for hover effect
+            if (isExploring) {
+                raycaster.setFromCamera(mouse, camera);
+                const planetMeshes = planets.map(p => p.userData.planet);
+                const intersects = raycaster.intersectObjects(planetMeshes);
+
+                if (intersects.length > 0) {
+                    cursor.classList.add('hover');
+                } else {
+                    cursor.classList.remove('hover');
+                }
+            }
+
+            updateHUD();
+            renderer.render(scene, camera);
+        }
+
+        // Loading
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 2000);
+        });
+
+        // Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        animate();
+    </script>
+</body>
+</html>
