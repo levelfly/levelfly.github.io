@@ -7,10 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <!-- Mermaid.js for flowcharts -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-    <!-- Chart.js for charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- AOS - Animate On Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
         :root {
             --primary: #1e40af;
@@ -54,6 +54,23 @@
             padding: 60px 20px 50px;
             text-align: center;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
         }
 
         .hero::after {
@@ -65,6 +82,11 @@
             height: 60px;
             background: var(--light);
             border-radius: 50% 50% 0 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -202,7 +224,48 @@
             margin-bottom: 16px;
         }
 
-        /* ===== Info Cards - Mobile Optimized ===== */
+        /* ===== Stats Grid with Counter Animation ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 16px;
+            padding: 20px 16px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+        }
+
+        .stat-card .stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 4px;
+            position: relative;
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            position: relative;
+        }
+
+        /* ===== Info Cards ===== */
         .info-cards {
             display: flex;
             flex-direction: column;
@@ -216,6 +279,11 @@
             display: flex;
             gap: 16px;
             align-items: flex-start;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .info-card:active {
+            transform: scale(0.98);
         }
 
         .info-card-icon {
@@ -307,6 +375,12 @@
             text-align: center;
             box-shadow: var(--card-shadow);
             border: 1px solid var(--gray-light);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gem-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
         .gem-card .gem-icon {
@@ -333,6 +407,19 @@
             border-radius: 0 16px 16px 0;
             padding: 20px;
             margin: 24px 0;
+            position: relative;
+        }
+
+        .quote::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 3rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+            line-height: 1;
         }
 
         .quote p {
@@ -341,6 +428,7 @@
             color: var(--dark);
             margin-bottom: 12px;
             line-height: 1.8;
+            padding-left: 20px;
         }
 
         .quote .author {
@@ -348,6 +436,7 @@
             font-weight: 600;
             color: var(--gray);
             font-style: normal;
+            padding-left: 20px;
         }
 
         /* ===== Checklist ===== */
@@ -382,36 +471,38 @@
             color: var(--accent);
         }
 
-        /* ===== Comparison Cards (Swipeable) ===== */
-        .compare-container {
+        /* ===== Swiper Comparison Cards ===== */
+        .swiper-container-wrapper {
             margin: 20px -20px;
-            padding: 0 20px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            display: flex;
-            gap: 16px;
-            scrollbar-width: none;
+            padding: 10px 0 40px;
         }
 
-        .compare-container::-webkit-scrollbar {
-            display: none;
+        .compare-swiper {
+            padding: 0 20px;
+        }
+
+        .compare-swiper .swiper-slide {
+            width: 85%;
+            max-width: 320px;
         }
 
         .compare-card {
-            flex-shrink: 0;
-            width: calc(100vw - 72px);
-            max-width: 320px;
-            scroll-snap-align: center;
             background: white;
             border-radius: 20px;
             padding: 24px 20px;
             box-shadow: var(--card-shadow);
             border: 2px solid var(--gray-light);
+            transition: transform 0.3s, border-color 0.3s;
+            height: 100%;
         }
 
         .compare-card.highlight-card {
             border-color: var(--primary-light);
             background: linear-gradient(135deg, #eff6ff 0%, white 100%);
+        }
+
+        .swiper-slide-active .compare-card {
+            transform: scale(1.02);
         }
 
         .compare-card-header {
@@ -460,21 +551,22 @@
             flex-shrink: 0;
         }
 
-        .swipe-hint {
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--gray);
-            margin-top: 12px;
+        .swiper-pagination {
+            position: relative;
+            margin-top: 16px;
         }
 
-        .swipe-hint::before {
-            content: '👈';
-            margin-right: 4px;
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            background: var(--gray-light);
+            opacity: 1;
         }
 
-        .swipe-hint::after {
-            content: '👉';
-            margin-left: 4px;
+        .swiper-pagination-bullet-active {
+            background: var(--primary);
+            width: 24px;
+            border-radius: 4px;
         }
 
         /* ===== Flowchart Container ===== */
@@ -551,33 +643,6 @@
             margin: 0;
         }
 
-        /* ===== Stats Grid ===== */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin: 20px 0;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: 16px;
-            padding: 20px 16px;
-            text-align: center;
-            color: white;
-        }
-
-        .stat-card .stat-value {
-            font-size: 1.8rem;
-            font-weight: 900;
-            margin-bottom: 4px;
-        }
-
-        .stat-card .stat-label {
-            font-size: 0.8rem;
-            opacity: 0.9;
-        }
-
         /* ===== Chart Container ===== */
         .chart-container {
             position: relative;
@@ -588,8 +653,8 @@
             border: 1px solid var(--gray-light);
         }
 
-        .chart-container canvas {
-            max-height: 300px;
+        #feeChart {
+            max-height: 280px;
         }
 
         /* ===== Discipline Pyramid ===== */
@@ -611,13 +676,18 @@
             font-weight: 600;
             text-align: center;
             color: white;
+            transition: transform 0.3s;
         }
 
-        .pyramid-level.level-1 { width: 60%; background: #dc2626; }
-        .pyramid-level.level-2 { width: 70%; background: #f97316; }
-        .pyramid-level.level-3 { width: 80%; background: #eab308; }
-        .pyramid-level.level-4 { width: 90%; background: #84cc16; }
-        .pyramid-level.level-5 { width: 100%; background: #22c55e; }
+        .pyramid-level:hover {
+            transform: scale(1.05);
+        }
+
+        .pyramid-level.level-1 { width: 60%; background: linear-gradient(135deg, #dc2626, #ef4444); }
+        .pyramid-level.level-2 { width: 70%; background: linear-gradient(135deg, #ea580c, #f97316); }
+        .pyramid-level.level-3 { width: 80%; background: linear-gradient(135deg, #ca8a04, #eab308); }
+        .pyramid-level.level-4 { width: 90%; background: linear-gradient(135deg, #65a30d, #84cc16); }
+        .pyramid-level.level-5 { width: 100%; background: linear-gradient(135deg, #16a34a, #22c55e); }
 
         /* ===== Accordion ===== */
         .accordion {
@@ -637,6 +707,11 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .accordion summary:hover {
+            background: #f0f0f0;
         }
 
         .accordion summary::-webkit-details-marker {
@@ -660,6 +735,60 @@
             font-size: 0.9rem;
             color: var(--gray);
             border-top: 1px solid var(--gray-light);
+        }
+
+        /* ===== Progress Circles ===== */
+        .progress-circles {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .progress-circle {
+            text-align: center;
+        }
+
+        .progress-circle svg {
+            width: 100px;
+            height: 100px;
+            transform: rotate(-90deg);
+        }
+
+        .progress-circle circle {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+        }
+
+        .progress-circle .bg {
+            stroke: var(--gray-light);
+        }
+
+        .progress-circle .progress {
+            stroke: var(--primary);
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 251.2;
+            transition: stroke-dashoffset 1.5s ease-out;
+        }
+
+        .progress-circle .progress.animated {
+            stroke-dashoffset: var(--offset);
+        }
+
+        .progress-circle .value {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--dark);
+            margin-top: -70px;
+            position: relative;
+        }
+
+        .progress-circle .label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: 8px;
         }
 
         /* ===== Footer ===== */
@@ -689,7 +818,15 @@
         .bg-pink { background: #fdf2f8; }
         .bg-teal { background: #f0fdfa; }
 
-        /* ===== Responsive - Tablet and up ===== */
+        /* ===== AOS Custom ===== */
+        [data-aos] {
+            pointer-events: none;
+        }
+        [data-aos].aos-animate {
+            pointer-events: auto;
+        }
+
+        /* ===== Responsive ===== */
         @media (min-width: 768px) {
             body {
                 font-size: 18px;
@@ -722,13 +859,13 @@
                 grid-template-columns: repeat(4, 1fr);
             }
 
-            .compare-card {
-                width: 300px;
-            }
-
             .info-cards {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .compare-swiper .swiper-slide {
+                width: 300px;
             }
         }
 
@@ -743,15 +880,22 @@
                 box-shadow: none;
                 border: 1px solid #ddd;
             }
+
+            [data-aos] {
+                opacity: 1 !important;
+                transform: none !important;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
     <header class="hero">
-        <h1>靜心小學新生說明會</h1>
-        <p class="subtitle">臺北市私立靜心高級中學附設國小部｜114學年度</p>
-        <span class="badge">📋 完整重點整理</span>
+        <div class="hero-content">
+            <h1 data-aos="fade-down" data-aos-duration="800">靜心小學新生說明會</h1>
+            <p class="subtitle" data-aos="fade-up" data-aos-delay="200">臺北市私立靜心高級中學附設國小部｜114學年度</p>
+            <span class="badge" data-aos="zoom-in" data-aos-delay="400">📋 完整重點整理</span>
+        </div>
     </header>
 
     <!-- Navigation -->
@@ -773,57 +917,57 @@
 
         <!-- ===== Overview Section ===== -->
         <section id="overview" class="section">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-right">
                 <div class="section-icon bg-blue">🏫</div>
                 <h2>學校簡介</h2>
             </div>
 
-            <p>臺北市私立靜心高級中學成立於1956年，是一所從幼兒園到高中 <strong>15年一貫</strong> 的完整學校。</p>
+            <p data-aos="fade-up">臺北市私立靜心高級中學成立於1956年，是一所從幼兒園到高中 <strong>15年一貫</strong> 的完整學校。</p>
 
-            <!-- Key Stats -->
+            <!-- Key Stats with Counter Animation -->
             <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value">42</div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="stat-value"><span class="counter" data-target="42">0</span></div>
                     <div class="stat-label">每班人數</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-value">6</div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-value"><span class="counter" data-target="6">0</span></div>
                     <div class="stat-label">每年級班數</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-value">15</div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-value"><span class="counter" data-target="15">0</span></div>
                     <div class="stat-label">一貫年數</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-value">80%+</div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-value"><span class="counter" data-target="80">0</span>%+</div>
                     <div class="stat-label">碩士師資</div>
                 </div>
             </div>
 
-            <h3>校園特色</h3>
+            <h3 data-aos="fade-right">校園特色</h3>
             <div class="info-cards">
-                <div class="info-card">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="info-card-icon">👨‍🏫</div>
                     <div class="info-card-content">
                         <h4>專才專用制度</h4>
                         <p>非包班制，老師只教專業科目</p>
                     </div>
                 </div>
-                <div class="info-card">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="info-card-icon">📚</div>
                     <div class="info-card-content">
                         <h4>四座圖書館</h4>
                         <p>繪本館、小學、英文、中學館</p>
                     </div>
                 </div>
-                <div class="info-card">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="info-card-icon">🏊</div>
                     <div class="info-card-content">
                         <h4>溫水游泳池</h4>
                         <p>每學期 5 週連續游泳課</p>
                     </div>
                 </div>
-                <div class="info-card">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="info-card-icon">🏆</div>
                     <div class="info-card-content">
                         <h4>優質學校認證</h4>
@@ -832,7 +976,7 @@
                 </div>
             </div>
 
-            <div class="highlight info">
+            <div class="highlight info" data-aos="fade-up">
                 <h4>👩‍🏫 教師研習時數</h4>
                 <p>教育部規定 <strong>50 小時</strong>，靜心教師平均達 <strong>76.8 小時</strong>，遠超標準！</p>
             </div>
@@ -840,54 +984,54 @@
 
         <!-- ===== Philosophy Section ===== -->
         <section id="philosophy" class="section">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-right">
                 <div class="section-icon bg-purple">💎</div>
                 <h2>教育理念</h2>
             </div>
 
-            <p>副校長以「寶石」比喻孩子成長過程中需要培養的核心能力：</p>
+            <p data-aos="fade-up">副校長以「寶石」比喻孩子成長過程中需要培養的核心能力：</p>
 
             <div class="gem-grid">
-                <div class="gem-card">
+                <div class="gem-card" data-aos="flip-left" data-aos-delay="0">
                     <div class="gem-icon">💎</div>
                     <div class="gem-title">鑽石</div>
                     <div class="gem-desc">生活準備能力</div>
                 </div>
-                <div class="gem-card">
+                <div class="gem-card" data-aos="flip-left" data-aos-delay="100">
                     <div class="gem-icon">💜</div>
                     <div class="gem-title">紫水晶</div>
                     <div class="gem-desc">態度與品格</div>
                 </div>
-                <div class="gem-card">
+                <div class="gem-card" data-aos="flip-left" data-aos-delay="200">
                     <div class="gem-icon">💙</div>
                     <div class="gem-title">藍寶石</div>
                     <div class="gem-desc">問題解決能力</div>
                 </div>
-                <div class="gem-card">
+                <div class="gem-card" data-aos="flip-left" data-aos-delay="300">
                     <div class="gem-icon">🤍</div>
                     <div class="gem-title">蛋白石</div>
                     <div class="gem-desc">自我照顧</div>
                 </div>
             </div>
 
-            <div class="quote">
+            <div class="quote" data-aos="fade-up">
                 <p>「石墨和鑽石都是由碳元素組成，不同的排列就會有不同的結果。讓我們幫孩子好好排練生活化的學習，就可以像鑽石一樣發光。」</p>
                 <div class="author">— 副校長</div>
             </div>
 
-            <h3>品格教育核心</h3>
-            <ul class="checklist checked">
+            <h3 data-aos="fade-right">品格教育核心</h3>
+            <ul class="checklist checked" data-aos="fade-up">
                 <li><strong>利他行為</strong>：教會孩子擁有幫助別人的能力</li>
                 <li><strong>問題解決</strong>：教孩子如何「跌倒後站起來」</li>
                 <li><strong>自我照顧</strong>：大人面對挑戰的態度會影響孩子</li>
             </ul>
 
-            <div class="highlight warning">
+            <div class="highlight warning" data-aos="fade-up">
                 <h4>🥪 辣椒三明治溝通法</h4>
                 <p>給建議時，把「辣椒」包在中間，前後都要<strong>同理、鼓勵</strong>，最後別忘了<strong>抱抱他</strong>。</p>
             </div>
 
-            <div class="quote">
+            <div class="quote" data-aos="fade-up">
                 <p>「各位家長，你們是孩子的一座大山。當我們站穩的那一天，孩子就有一座可以依靠的大山。」</p>
                 <div class="author">— 副校長</div>
             </div>
@@ -895,18 +1039,18 @@
 
         <!-- ===== Preparation Section ===== -->
         <section id="preparation" class="section">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-right">
                 <div class="section-icon bg-orange">📝</div>
                 <h2>入學前準備</h2>
             </div>
 
-            <div class="highlight danger">
+            <div class="highlight danger" data-aos="fade-up">
                 <h4>⚠️ 超重要！現在就開始</h4>
                 <p>距離開學還有半年，以下事項請家長<strong>現在就開始準備</strong>！</p>
             </div>
 
-            <h3>生活自理能力清單</h3>
-            <ul class="checklist">
+            <h3 data-aos="fade-right">生活自理能力清單</h3>
+            <ul class="checklist" data-aos="fade-up">
                 <li><strong>會寫自己的名字</strong>（中文）</li>
                 <li><strong>會自己整理書包</strong>——否則一週後會發現「上週的早餐」在書包裡</li>
                 <li><strong>會自己收拾東西</strong>——做慢沒關係、掉地上也沒關係</li>
@@ -916,21 +1060,21 @@
                 <li><strong>會自己上廁所</strong>——蹲式和坐式馬桶都要會</li>
             </ul>
 
-            <div class="highlight danger">
+            <div class="highlight danger" data-aos="fade-up">
                 <h4>👖 冬季制服褲子預警！</h4>
                 <p>男生家長必看：一年級小男生最困難的是<strong>冬季制服褲子的皮帶</strong>！有孩子因為不會解皮帶，在廁所卡很久。請提前在家練習！</p>
             </div>
 
-            <h3>作息調整</h3>
+            <h3 data-aos="fade-right">作息調整</h3>
             <div class="info-cards">
-                <div class="info-card">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="info-card-icon">⏰</div>
                     <div class="info-card-content">
                         <h4>到校時間</h4>
                         <p>一般學生 7:40<br>校隊成員 7:20-7:30</p>
                     </div>
                 </div>
-                <div class="info-card">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="info-card-icon">😴</div>
                     <div class="info-card-content">
                         <h4>午休調整</h4>
@@ -939,7 +1083,7 @@
                 </div>
             </div>
 
-            <div class="highlight success">
+            <div class="highlight success" data-aos="fade-up">
                 <h4>📅 新生暑訓</h4>
                 <p><strong>2025年 8月初</strong>（確切日期依學校公告）<br>一定要參加！讓孩子開學前適應小學生活。</p>
             </div>
@@ -947,75 +1091,84 @@
 
         <!-- ===== Academics Section ===== -->
         <section id="academics" class="section">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-right">
                 <div class="section-icon bg-green">📖</div>
                 <h2>課程規劃</h2>
             </div>
 
-            <h3>普通班 vs 雙語班</h3>
-            <p class="swipe-hint">左右滑動比較</p>
+            <h3 data-aos="fade-right">普通班 vs 雙語班</h3>
 
-            <div class="compare-container">
-                <div class="compare-card">
-                    <div class="compare-card-header">
-                        <h4>普通班</h4>
-                        <div class="price">~8萬 <span>/學期</span></div>
+            <!-- Swiper Comparison Cards -->
+            <div class="swiper-container-wrapper" data-aos="fade-up">
+                <div class="swiper compare-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="compare-card">
+                                <div class="compare-card-header">
+                                    <h4>普通班</h4>
+                                    <div class="price">~8萬 <span>/學期</span></div>
+                                </div>
+                                <ul class="compare-list">
+                                    <li>每年級 2 班</li>
+                                    <li>1 中籍導師 + 1 副導師</li>
+                                    <li>每週 6 節英語課</li>
+                                    <li>中文為主要教學語言</li>
+                                    <li>外版 + 校本教材</li>
+                                    <li>兩年考一級 Cambridge</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="compare-card highlight-card">
+                                <div class="compare-card-header">
+                                    <h4>雙語特色班</h4>
+                                    <div class="price">~16萬 <span>/學期</span></div>
+                                </div>
+                                <ul class="compare-list">
+                                    <li>每年級 4 班</li>
+                                    <li>中籍 + 外籍導師 + 英語助理</li>
+                                    <li>沉浸式環境，外師全天陪伴</li>
+                                    <li>數學、自然等融入英語</li>
+                                    <li>美國課綱教材 Into Reading</li>
+                                    <li>每年考一級 Cambridge</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="compare-list">
-                        <li>每年級 2 班</li>
-                        <li>1 中籍導師 + 1 副導師</li>
-                        <li>每週 6 節英語課</li>
-                        <li>中文為主要教學語言</li>
-                        <li>外版 + 校本教材</li>
-                        <li>兩年考一級 Cambridge</li>
-                    </ul>
-                </div>
-                <div class="compare-card highlight-card">
-                    <div class="compare-card-header">
-                        <h4>雙語特色班</h4>
-                        <div class="price">~16萬 <span>/學期</span></div>
-                    </div>
-                    <ul class="compare-list">
-                        <li>每年級 4 班</li>
-                        <li>中籍 + 外籍導師 + 英語助理</li>
-                        <li>沉浸式環境，外師全天陪伴</li>
-                        <li>數學、自然等融入英語</li>
-                        <li>美國課綱教材 Into Reading</li>
-                        <li>每年考一級 Cambridge</li>
-                    </ul>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
 
-            <div class="highlight info">
+            <div class="highlight info" data-aos="fade-up">
                 <h4>💡 如何選擇？</h4>
                 <p>不管選哪一種，都有卓越升學表現。請依照<strong>孩子性向</strong>和<strong>家庭規劃</strong>選擇。雙語班時間較緊湊！</p>
             </div>
 
-            <div class="highlight success">
+            <div class="highlight success" data-aos="fade-up">
                 <h4>📝 一年級沒有定期紙筆測驗！</h4>
                 <p>靜心是<strong>全臺北市唯一</strong>一年級全年沒有紙筆測驗的學校。重點在養成<strong>生活習慣</strong>和<strong>學習習慣</strong>。</p>
             </div>
 
-            <h3>STREAM 教育</h3>
-            <div class="highlight info">
+            <h3 data-aos="fade-right">STREAM 教育</h3>
+            <div class="highlight info" data-aos="fade-up">
                 <h4>🔬 R 代表 Research！</h4>
                 <p><strong>S</strong>cience + <strong>T</strong>echnology + <strong style="color: var(--danger);">R</strong>esearch + <strong>E</strong>ngineering + <strong>A</strong>rt + <strong>M</strong>ath<br>「R」代表研究，是<strong>靜心獨有</strong>的設計！</p>
             </div>
 
-            <h3>特色課程</h3>
-            <details class="accordion">
+            <h3 data-aos="fade-right">特色課程</h3>
+            <details class="accordion" data-aos="fade-up" data-aos-delay="0">
                 <summary>🌟 靜心五個夢</summary>
                 <div class="accordion-content">
                     結合自主學習的圓夢計畫，讓孩子透過自己的力量關懷社會。獲媒體報導，臺北市教育局也開始仿效！
                 </div>
             </details>
-            <details class="accordion">
+            <details class="accordion" data-aos="fade-up" data-aos-delay="100">
                 <summary>🎁 禮物協會</summary>
                 <div class="accordion-content">
                     結合閱讀教育，讓孩子挑選禮物分送給需要的人，培養關懷與付出的能量。
                 </div>
             </details>
-            <details class="accordion">
+            <details class="accordion" data-aos="fade-up" data-aos-delay="200">
                 <summary>🧗 探索體驗課程</summary>
                 <div class="accordion-content">
                     從幼兒園到高中系統性規劃。一年級每學期兩次探索體驗課，讓孩子走出舒適圈。
@@ -1025,13 +1178,13 @@
 
         <!-- ===== Pathway Section ===== -->
         <section id="pathway" class="section">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-right">
                 <div class="section-icon bg-teal">🎯</div>
                 <h2>升學路徑</h2>
             </div>
 
-            <h3>15年一貫教育藍圖</h3>
-            <div class="flowchart-container">
+            <h3 data-aos="fade-right">15年一貫教育藍圖</h3>
+            <div class="flowchart-container" data-aos="zoom-in">
                 <div class="mermaid">
                 flowchart TB
                     subgraph 小學["🏫 小學部"]
@@ -1061,31 +1214,35 @@
                 </div>
             </div>
 
-            <div class="highlight info">
+            <div class="highlight info" data-aos="fade-up">
                 <h4>💡 重要提醒</h4>
                 <p>不是只有雙語班才能海外升學！小學讀普通班，國中時仍可選擇國際組。</p>
             </div>
 
-            <h3>升學成績</h3>
-            <div class="info-cards">
-                <div class="info-card">
-                    <div class="info-card-icon">🌟</div>
-                    <div class="info-card-content">
-                        <h4>國際組</h4>
-                        <p>100% 錄取全球前 20 名校<br>14% 錄取美國常春藤</p>
-                    </div>
+            <h3 data-aos="fade-right">升學成績</h3>
+
+            <!-- Progress Circles -->
+            <div class="progress-circles" data-aos="fade-up">
+                <div class="progress-circle">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="bg" cx="50" cy="50" r="40"></circle>
+                        <circle class="progress" cx="50" cy="50" r="40" style="--offset: 0;"></circle>
+                    </svg>
+                    <div class="value">100%</div>
+                    <div class="label">前20名校錄取率</div>
                 </div>
-                <div class="info-card">
-                    <div class="info-card-icon">📊</div>
-                    <div class="info-card-content">
-                        <h4>英文學測</h4>
-                        <p>全校平均高於全國頂標<br>英聽 A 級達 93%</p>
-                    </div>
+                <div class="progress-circle">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="bg" cx="50" cy="50" r="40"></circle>
+                        <circle class="progress" cx="50" cy="50" r="40" style="--offset: 216;"></circle>
+                    </svg>
+                    <div class="value">93%</div>
+                    <div class="label">英聽A級</div>
                 </div>
             </div>
 
-            <h3>國際交流</h3>
-            <div class="timeline">
+            <h3 data-aos="fade-right">國際交流</h3>
+            <div class="timeline" data-aos="fade-up">
                 <div class="timeline-item">
                     <div class="timeline-grade">五年級</div>
                     <h4>🇺🇸 美國交流</h4>
@@ -1106,40 +1263,40 @@
 
         <!-- ===== Student Affairs Section ===== -->
         <section id="student-affairs" class="section">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-right">
                 <div class="section-icon bg-orange">🎒</div>
                 <h2>學務處說明</h2>
             </div>
 
-            <div class="quote">
+            <div class="quote" data-aos="fade-up">
                 <p>「學校再怎麼認真，大概只能佔 30%，剩下 70% 是各位家長。孩子是看著父母長大的，你們才是他們的 model。」</p>
                 <div class="author">— 學務主任</div>
             </div>
 
-            <h3>獎懲制度</h3>
-            <p>靜心是<strong>全臺北市私立小學唯一</strong>有開單制度的學校：</p>
+            <h3 data-aos="fade-right">獎懲制度</h3>
+            <p data-aos="fade-up">靜心是<strong>全臺北市私立小學唯一</strong>有開單制度的學校：</p>
 
-            <div class="pyramid">
-                <div class="pyramid-level level-1">一級記過<br><small>1張不能直升</small></div>
-                <div class="pyramid-level level-2">二級記過<br><small>2張不能直升</small></div>
-                <div class="pyramid-level level-3">三級記過<br><small>累積影響直升</small></div>
-                <div class="pyramid-level level-4">警告單<br><small>提醒用，無影響</small></div>
-                <div class="pyramid-level level-5">違規事件通知單<br><small>請家長協助改善</small></div>
+            <div class="pyramid" data-aos="fade-up">
+                <div class="pyramid-level level-1" data-aos="zoom-in" data-aos-delay="0">一級記過<br><small>1張不能直升</small></div>
+                <div class="pyramid-level level-2" data-aos="zoom-in" data-aos-delay="100">二級記過<br><small>2張不能直升</small></div>
+                <div class="pyramid-level level-3" data-aos="zoom-in" data-aos-delay="200">三級記過<br><small>累積影響直升</small></div>
+                <div class="pyramid-level level-4" data-aos="zoom-in" data-aos-delay="300">警告單<br><small>提醒用，無影響</small></div>
+                <div class="pyramid-level level-5" data-aos="zoom-in" data-aos-delay="400">違規事件通知單<br><small>請家長協助改善</small></div>
             </div>
 
-            <div class="highlight info">
+            <div class="highlight info" data-aos="fade-up">
                 <h4>💡 開單的目的</h4>
                 <p>一、二年級孩子還在學習界限，開單是<strong>通知家長一起協助</strong>，不是責備。「如果有犯錯，才有學習的機會。」</p>
             </div>
 
-            <h3>校園安全</h3>
-            <ul class="checklist checked">
+            <h3 data-aos="fade-right">校園安全</h3>
+            <ul class="checklist checked" data-aos="fade-up">
                 <li>全校分為 <strong>17 個區域</strong>，下課時間安排老師巡視</li>
                 <li>游泳課：8 教練 + 4 救生員 + 2 導師（1班42人）</li>
                 <li>每學期至少 <strong>2 次防災演練</strong></li>
             </ul>
 
-            <div class="highlight warning">
+            <div class="highlight warning" data-aos="fade-up">
                 <h4>🚗 交通安全提醒</h4>
                 <p>靜心上下學是臺北市交通熱點！請勿違規停車、不要下車繞過來開車門拿書包——這會塞到萬隆捷運站！</p>
             </div>
@@ -1147,18 +1304,18 @@
 
         <!-- ===== Music Section ===== -->
         <section id="music" class="section">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-right">
                 <div class="section-icon bg-pink">🎵</div>
                 <h2>音樂中心</h2>
             </div>
 
-            <div class="quote">
+            <div class="quote" data-aos="fade-up">
                 <p>「我們從來沒有要把孩子培養成專業音樂家，而是希望他們有一樣可以陪伴自己一輩子的才能。」</p>
                 <div class="author">— 音樂中心主任</div>
             </div>
 
-            <h3>樂團發展階段</h3>
-            <div class="timeline">
+            <h3 data-aos="fade-right">樂團發展階段</h3>
+            <div class="timeline" data-aos="fade-up">
                 <div class="timeline-item">
                     <div class="timeline-grade">二年級</div>
                     <h4>C 團（預備）</h4>
@@ -1181,7 +1338,7 @@
                 </div>
             </div>
 
-            <div class="highlight warning">
+            <div class="highlight warning" data-aos="fade-up">
                 <h4>⚠️ 不要看名字或外型選樂器！</h4>
                 <p>每種樂器需要不同的生理條件：<br>
                 • 厚嘴唇不適合吹長笛<br>
@@ -1189,19 +1346,19 @@
                 • 10-12 歲矯正牙齒期間不建議進樂團</p>
             </div>
 
-            <div class="highlight success">
+            <div class="highlight success" data-aos="fade-up">
                 <h4>🎄 近期重要演出</h4>
                 <p><strong>12 月 23 日</strong>將於臺北市中山堂舉辦年度音樂會！</p>
             </div>
 
-            <h3>國際演出經歷</h3>
-            <ul class="checklist checked">
+            <h3 data-aos="fade-right">國際演出經歷</h3>
+            <ul class="checklist checked" data-aos="fade-up">
                 <li><strong>2024 維也納金色大廳</strong>——世界級優異成績</li>
                 <li>臺北國家音樂廳、高雄衛武營演出</li>
                 <li>2023 日本、2024 新加坡、2025 維也納</li>
             </ul>
 
-            <div class="quote">
+            <div class="quote" data-aos="fade-up">
                 <p>「AI 時代，我們要讓孩子保留的不是 AI 能做的事，而是 AI 做不到的事——人的情感、人的感動。」</p>
                 <div class="author">— 音樂中心主任</div>
             </div>
@@ -1209,40 +1366,40 @@
 
         <!-- ===== Fees Section ===== -->
         <section id="fees" class="section">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-right">
                 <div class="section-icon bg-blue">💰</div>
                 <h2>費用資訊</h2>
             </div>
 
-            <h3>學費比較</h3>
-            <div class="chart-container">
-                <canvas id="feeChart"></canvas>
+            <h3 data-aos="fade-right">學費比較</h3>
+            <div class="chart-container" data-aos="fade-up">
+                <div id="feeChart"></div>
             </div>
 
-            <h3>其他費用</h3>
+            <h3 data-aos="fade-right">其他費用</h3>
             <div class="info-cards">
-                <div class="info-card">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="info-card-icon">🍱</div>
                     <div class="info-card-content">
                         <h4>午餐</h4>
                         <p>85 元/餐</p>
                     </div>
                 </div>
-                <div class="info-card">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="info-card-icon">👔</div>
                     <div class="info-card-content">
                         <h4>制服（首次）</h4>
                         <p>約 19,000 元</p>
                     </div>
                 </div>
-                <div class="info-card">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="info-card-icon">🚌</div>
                     <div class="info-card-content">
                         <h4>校車</h4>
                         <p>20,000~22,000 元/學期</p>
                     </div>
                 </div>
-                <div class="info-card">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="info-card-icon">🎨</div>
                     <div class="info-card-content">
                         <h4>課後才藝</h4>
@@ -1251,21 +1408,21 @@
                 </div>
             </div>
 
-            <div class="highlight danger">
+            <div class="highlight danger" data-aos="fade-up">
                 <h4>📋 直升意願調查表</h4>
                 <p><strong>下禮拜五之前要繳回！</strong><br>只調查這一次，請想清楚再填寫。</p>
             </div>
 
-            <h3>聯絡資訊</h3>
+            <h3 data-aos="fade-right">聯絡資訊</h3>
             <div class="info-cards">
-                <div class="info-card">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="info-card-icon">📍</div>
                     <div class="info-card-content">
                         <h4>學校地址</h4>
                         <p>台北市文山區興隆路二段46號</p>
                     </div>
                 </div>
-                <div class="info-card">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="info-card-icon">📞</div>
                     <div class="info-card-content">
                         <h4>招生專線</h4>
@@ -1277,13 +1434,13 @@
 
         <!-- ===== Summary Section ===== -->
         <section class="section">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-right">
                 <div class="section-icon bg-purple">📌</div>
                 <h2>重點總整理</h2>
             </div>
 
-            <h3>現在就要開始做的事</h3>
-            <ul class="checklist">
+            <h3 data-aos="fade-right">現在就要開始做的事</h3>
+            <ul class="checklist" data-aos="fade-up">
                 <li>練習早起（7:40 前到校）</li>
                 <li>練習寫自己的名字</li>
                 <li>練習自己整理書包、收拾東西</li>
@@ -1294,15 +1451,15 @@
                 <li><strong>繳交直升意願調查表（下週五前）</strong></li>
             </ul>
 
-            <h3>學校的核心理念</h3>
-            <div class="quote">
+            <h3 data-aos="fade-right">學校的核心理念</h3>
+            <div class="quote" data-aos="fade-up">
                 <p>「<strong>先成人，再成才</strong>」——品格教育是基礎<br>
                 「<strong>不要贏在起跑點，不要掛在半途</strong>」——細水長流的學習</p>
             </div>
         </section>
 
         <!-- ===== Sources Section ===== -->
-        <section class="section" style="background: #f8fafc;">
+        <section class="section" style="background: #f8fafc;" data-aos="fade-up">
             <div class="section-header">
                 <div class="section-icon" style="background: #e5e7eb;">📚</div>
                 <h2>資料來源</h2>
@@ -1322,7 +1479,25 @@
         <p>最新資訊請以 <a href="https://www.chjhs.tp.edu.tw/" target="_blank">靜心中學官網</a> 公告為準</p>
     </footer>
 
+    <!-- Scripts -->
+    <!-- Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <!-- ApexCharts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- Swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+
         // Initialize Mermaid
         mermaid.initialize({
             startOnLoad: true,
@@ -1341,56 +1516,128 @@
             }
         });
 
-        // Fee Chart
-        const ctx = document.getElementById('feeChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['普通班', '雙語特色班'],
-                datasets: [{
-                    label: '每學期學費（萬元）',
-                    data: [8, 16],
-                    backgroundColor: ['#3b82f6', '#8b5cf6'],
-                    borderRadius: 8,
-                    borderSkipped: false,
-                }]
+        // Initialize Swiper
+        const swiper = new Swiper('.compare-swiper', {
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            spaceBetween: 16,
+            grabCursor: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            }
+        });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.dataset.target);
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += step;
+                        if (current < target) {
+                            counter.textContent = Math.floor(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+
+                    updateCounter();
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // Progress Circle Animation
+        const progressCircles = document.querySelectorAll('.progress-circle .progress');
+        const circleObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    circleObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        progressCircles.forEach(circle => circleObserver.observe(circle));
+
+        // ApexCharts - Fee Comparison
+        const feeChartOptions = {
+            series: [{
+                name: '學費',
+                data: [8, 16]
+            }],
+            chart: {
+                type: 'bar',
+                height: 250,
+                toolbar: { show: false },
+                fontFamily: 'Noto Sans TC, sans-serif'
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return '約 ' + context.raw + ' 萬元';
-                            }
-                        }
-                    }
+            plotOptions: {
+                bar: {
+                    borderRadius: 8,
+                    horizontal: false,
+                    columnWidth: '50%',
+                    distributed: true
+                }
+            },
+            colors: ['#3b82f6', '#8b5cf6'],
+            dataLabels: {
+                enabled: true,
+                formatter: function(val) {
+                    return '~' + val + '萬';
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 20,
-                        ticks: {
-                            callback: function(value) {
-                                return value + '萬';
-                            }
-                        },
-                        grid: {
-                            display: false
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        }
+                style: {
+                    fontSize: '14px',
+                    fontWeight: 'bold'
+                }
+            },
+            legend: { show: false },
+            xaxis: {
+                categories: ['普通班', '雙語特色班'],
+                labels: {
+                    style: {
+                        fontSize: '14px',
+                        fontWeight: 600
+                    }
+                }
+            },
+            yaxis: {
+                max: 20,
+                labels: {
+                    formatter: function(val) {
+                        return val + '萬';
+                    }
+                }
+            },
+            grid: {
+                borderColor: '#e5e7eb',
+                strokeDashArray: 4
+            },
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return '約 ' + val + ' 萬元/學期';
                     }
                 }
             }
-        });
+        };
+
+        const feeChart = new ApexCharts(document.querySelector("#feeChart"), feeChartOptions);
+        feeChart.render();
 
         // Navigation highlight on scroll
         const sections = document.querySelectorAll('section[id]');
