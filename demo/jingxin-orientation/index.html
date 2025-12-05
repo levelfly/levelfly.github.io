@@ -2,8 +2,9 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>靜心小學新生說明會重點整理</title>
+    <meta name="description" content="臺北市私立靜心高級中學附設國小部 114 學年度新生說明會完整重點整理">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -16,15 +17,29 @@
             --primary: #1e40af;
             --primary-light: #3b82f6;
             --primary-dark: #1e3a8a;
+            --primary-50: #eff6ff;
             --secondary: #f59e0b;
+            --secondary-50: #fffbeb;
             --accent: #10b981;
+            --accent-50: #ecfdf5;
             --danger: #ef4444;
-            --dark: #111827;
+            --danger-50: #fef2f2;
+            --purple: #8b5cf6;
+            --purple-50: #f5f3ff;
+            --dark: #0f172a;
+            --dark-secondary: #334155;
             --light: #f8fafc;
-            --gray: #6b7280;
-            --gray-light: #e5e7eb;
-            --border: #e5e7eb;
-            --card-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --gray-lighter: #f1f5f9;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
+            --shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+            --radius: 16px;
+            --radius-sm: 12px;
+            --radius-lg: 24px;
         }
 
         * {
@@ -36,22 +51,24 @@
 
         html {
             scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
-            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--light);
             color: var(--dark);
-            font-size: 17px;
-            line-height: 1.7;
+            font-size: 16px;
+            line-height: 1.75;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* ===== Hero Section ===== */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
             color: white;
-            padding: 60px 20px 50px;
+            padding: 48px 20px 56px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -60,65 +77,57 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30px;
+            top: 0;
             left: 0;
             right: 0;
-            height: 60px;
-            background: var(--light);
-            border-radius: 50% 50% 0 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .hero h1 {
             font-size: 1.75rem;
             font-weight: 900;
             margin-bottom: 8px;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .hero .subtitle {
             font-size: 0.9rem;
             opacity: 0.9;
-            margin-bottom: 16px;
-        }
-
-        .hero .badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 400;
         }
 
         /* ===== Navigation ===== */
         .nav-container {
-            background: white;
+            background: var(--white);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
+            border-bottom: 1px solid var(--gray-light);
         }
 
         .nav {
@@ -127,7 +136,7 @@
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
-            padding: 0 10px;
+            padding: 0 8px;
         }
 
         .nav::-webkit-scrollbar {
@@ -140,91 +149,101 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 12px 16px;
+            padding: 10px 14px;
             text-decoration: none;
             color: var(--gray);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 500;
-            transition: all 0.2s;
-            border-bottom: 3px solid transparent;
-            min-width: 70px;
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+            min-width: 64px;
         }
 
         .nav a .nav-icon {
-            font-size: 1.3rem;
-            margin-bottom: 4px;
+            font-size: 1.25rem;
+            margin-bottom: 2px;
         }
 
         .nav a.active,
-        .nav a:active {
+        .nav a:hover {
             color: var(--primary);
             border-bottom-color: var(--primary);
-            background: rgba(59, 130, 246, 0.05);
+            background: var(--primary-50);
         }
 
         /* ===== Main Container ===== */
         .container {
-            padding: 20px 16px 40px;
+            padding: 16px;
             max-width: 100%;
         }
 
         /* ===== Section Styles ===== */
         .section {
-            background: white;
-            border-radius: 20px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
             padding: 24px 20px;
-            margin-bottom: 20px;
-            box-shadow: var(--card-shadow);
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-light);
         }
 
         .section-header {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             margin-bottom: 20px;
         }
 
         .section-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             flex-shrink: 0;
         }
 
+        .section-icon.blue { background: var(--primary-50); }
+        .section-icon.green { background: var(--accent-50); }
+        .section-icon.orange { background: var(--secondary-50); }
+        .section-icon.purple { background: var(--purple-50); }
+        .section-icon.pink { background: #fdf2f8; }
+        .section-icon.teal { background: #f0fdfa; }
+
         .section h2 {
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-weight: 800;
             color: var(--dark);
+            letter-spacing: -0.01em;
         }
 
         .section h3 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--dark);
             margin: 28px 0 16px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .section h3::before {
             content: '';
             width: 4px;
-            height: 20px;
-            background: var(--primary-light);
+            height: 18px;
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
             border-radius: 2px;
         }
 
         .section p {
-            color: var(--gray);
+            color: var(--dark-secondary);
             margin-bottom: 16px;
+            font-size: 0.95rem;
         }
 
-        /* ===== Stats Grid with Counter Animation ===== */
+        /* ===== Stats Grid ===== */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -234,7 +253,7 @@
 
         .stat-card {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: 16px;
+            border-radius: var(--radius);
             padding: 20px 16px;
             text-align: center;
             color: white;
@@ -242,44 +261,49 @@
             overflow: hidden;
         }
 
-        .stat-card::before {
+        .stat-card::after {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            top: -30%;
+            right: -30%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .stat-card .stat-value {
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 900;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
             position: relative;
+            z-index: 1;
         }
 
         .stat-card .stat-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             opacity: 0.9;
             position: relative;
+            z-index: 1;
+            font-weight: 500;
         }
 
         /* ===== Info Cards ===== */
-        .info-cards {
+        .info-grid {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .info-card {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            border-radius: 16px;
-            padding: 20px;
+            background: var(--gray-lighter);
+            border-radius: var(--radius);
+            padding: 16px;
             display: flex;
-            gap: 16px;
+            gap: 14px;
             align-items: flex-start;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid transparent;
         }
 
         .info-card:active {
@@ -287,77 +311,78 @@
         }
 
         .info-card-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             flex-shrink: 0;
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
         }
 
         .info-card-content h4 {
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 0.95rem;
+            font-weight: 700;
             color: var(--dark);
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .info-card-content p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--gray);
             margin: 0;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
-        /* ===== Highlight Boxes ===== */
-        .highlight {
-            border-radius: 16px;
-            padding: 20px;
-            margin: 20px 0;
+        /* ===== Alert Boxes ===== */
+        .alert {
+            border-radius: var(--radius);
+            padding: 16px 18px;
+            margin: 16px 0;
+            border-left: 4px solid;
         }
 
-        .highlight.info {
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            border-left: 4px solid var(--primary-light);
+        .alert.info {
+            background: var(--primary-50);
+            border-left-color: var(--primary-light);
         }
 
-        .highlight.warning {
-            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            border-left: 4px solid var(--secondary);
+        .alert.warning {
+            background: var(--secondary-50);
+            border-left-color: var(--secondary);
         }
 
-        .highlight.danger {
-            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-            border-left: 4px solid var(--danger);
+        .alert.danger {
+            background: var(--danger-50);
+            border-left-color: var(--danger);
         }
 
-        .highlight.success {
-            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-            border-left: 4px solid var(--accent);
+        .alert.success {
+            background: var(--accent-50);
+            border-left-color: var(--accent);
         }
 
-        .highlight h4 {
-            font-size: 1rem;
+        .alert-title {
+            font-size: 0.9rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .highlight.info h4 { color: var(--primary); }
-        .highlight.warning h4 { color: #b45309; }
-        .highlight.danger h4 { color: #dc2626; }
-        .highlight.success h4 { color: #059669; }
+        .alert.info .alert-title { color: var(--primary); }
+        .alert.warning .alert-title { color: #b45309; }
+        .alert.danger .alert-title { color: #dc2626; }
+        .alert.success .alert-title { color: #059669; }
 
-        .highlight p {
-            font-size: 0.95rem;
+        .alert p {
+            font-size: 0.9rem;
             margin: 0;
-            color: var(--dark);
+            color: var(--dark-secondary);
         }
 
         /* ===== Gem Cards ===== */
@@ -369,27 +394,27 @@
         }
 
         .gem-card {
-            background: white;
-            border-radius: 16px;
-            padding: 20px 16px;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 20px 14px;
             text-align: center;
-            box-shadow: var(--card-shadow);
+            box-shadow: var(--shadow);
             border: 1px solid var(--gray-light);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .gem-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        .gem-card:active {
+            transform: scale(0.96);
         }
 
         .gem-card .gem-icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 8px;
+            display: block;
         }
 
         .gem-card .gem-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--dark);
             margin-bottom: 4px;
@@ -402,19 +427,19 @@
 
         /* ===== Quote ===== */
         .quote {
-            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-            border-left: 4px solid var(--secondary);
-            border-radius: 0 16px 16px 0;
+            background: linear-gradient(135deg, var(--gray-lighter) 0%, var(--white) 100%);
+            border-radius: var(--radius);
             padding: 20px;
-            margin: 24px 0;
+            margin: 20px 0;
             position: relative;
+            border: 1px solid var(--gray-light);
         }
 
         .quote::before {
             content: '"';
             position: absolute;
-            top: 10px;
-            left: 15px;
+            top: 8px;
+            left: 16px;
             font-size: 3rem;
             color: var(--secondary);
             opacity: 0.3;
@@ -422,21 +447,21 @@
             line-height: 1;
         }
 
-        .quote p {
-            font-size: 1rem;
+        .quote-text {
+            font-size: 0.95rem;
             font-style: italic;
             color: var(--dark);
             margin-bottom: 12px;
             line-height: 1.8;
-            padding-left: 20px;
+            padding-left: 24px;
         }
 
-        .quote .author {
-            font-size: 0.85rem;
+        .quote-author {
+            font-size: 0.8rem;
             font-weight: 600;
             color: var(--gray);
             font-style: normal;
-            padding-left: 20px;
+            padding-left: 24px;
         }
 
         /* ===== Checklist ===== */
@@ -449,32 +474,43 @@
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            padding: 14px 0;
+            padding: 12px 0;
             border-bottom: 1px solid var(--gray-light);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            color: var(--dark-secondary);
         }
 
         .checklist li:last-child {
             border-bottom: none;
         }
 
-        .checklist li::before {
-            content: '☐';
-            font-size: 1.2rem;
-            color: var(--primary);
+        .check-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
-            margin-top: -2px;
+            font-size: 0.75rem;
+            margin-top: 1px;
         }
 
-        .checklist.checked li::before {
-            content: '✓';
-            color: var(--accent);
+        .check-icon.todo {
+            background: var(--primary-50);
+            color: var(--primary);
+            border: 2px solid var(--primary-light);
         }
 
-        /* ===== Swiper Comparison Cards ===== */
-        .swiper-container-wrapper {
+        .check-icon.done {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* ===== Comparison Cards (Swiper) ===== */
+        .swiper-wrapper-outer {
             margin: 20px -20px;
-            padding: 10px 0 40px;
+            padding: 8px 0 36px;
         }
 
         .compare-swiper {
@@ -482,27 +518,35 @@
         }
 
         .compare-swiper .swiper-slide {
-            width: 85%;
-            max-width: 320px;
+            width: 280px;
+            height: auto;
         }
 
         .compare-card {
-            background: white;
-            border-radius: 20px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
             padding: 24px 20px;
-            box-shadow: var(--card-shadow);
+            box-shadow: var(--shadow-md);
             border: 2px solid var(--gray-light);
-            transition: transform 0.3s, border-color 0.3s;
             height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
-        .compare-card.highlight-card {
+        .compare-card.featured {
             border-color: var(--primary-light);
-            background: linear-gradient(135deg, #eff6ff 0%, white 100%);
+            background: linear-gradient(180deg, var(--primary-50) 0%, var(--white) 30%);
         }
 
-        .swiper-slide-active .compare-card {
-            transform: scale(1.02);
+        .compare-card-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 100px;
+            margin-bottom: 12px;
         }
 
         .compare-card-header {
@@ -513,35 +557,36 @@
         }
 
         .compare-card-header h4 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--dark);
-            margin-bottom: 4px;
+            margin-bottom: 8px;
         }
 
-        .compare-card-header .price {
+        .compare-card-price {
             font-size: 1.5rem;
             font-weight: 900;
             color: var(--primary);
         }
 
-        .compare-card-header .price span {
-            font-size: 0.9rem;
+        .compare-card-price span {
+            font-size: 0.85rem;
             font-weight: 400;
             color: var(--gray);
         }
 
         .compare-list {
             list-style: none;
+            flex: 1;
         }
 
         .compare-list li {
             display: flex;
             align-items: flex-start;
             gap: 10px;
-            padding: 10px 0;
-            font-size: 0.9rem;
-            color: var(--dark);
+            padding: 8px 0;
+            font-size: 0.85rem;
+            color: var(--dark-secondary);
         }
 
         .compare-list li::before {
@@ -549,11 +594,12 @@
             color: var(--accent);
             font-weight: bold;
             flex-shrink: 0;
+            font-size: 0.9rem;
         }
 
         .swiper-pagination {
             position: relative;
-            margin-top: 16px;
+            margin-top: 20px;
         }
 
         .swiper-pagination-bullet {
@@ -561,6 +607,7 @@
             height: 8px;
             background: var(--gray-light);
             opacity: 1;
+            transition: all 0.3s ease;
         }
 
         .swiper-pagination-bullet-active {
@@ -569,33 +616,147 @@
             border-radius: 4px;
         }
 
-        /* ===== Flowchart Container ===== */
-        .flowchart-container {
-            margin: 20px 0;
-            padding: 16px;
-            background: #fafafa;
-            border-radius: 16px;
-            overflow-x: auto;
+        /* ===== Pathway Visual ===== */
+        .pathway-visual {
+            margin: 24px 0;
         }
 
-        .mermaid {
+        .pathway-stage {
             display: flex;
+            align-items: stretch;
+            margin-bottom: 12px;
+        }
+
+        .pathway-label {
+            width: 72px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            padding: 12px 8px;
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .pathway-label.elementary { background: var(--primary-50); color: var(--primary); }
+        .pathway-label.junior { background: var(--accent-50); color: #059669; }
+        .pathway-label.senior { background: var(--purple-50); color: var(--purple); }
+
+        .pathway-label .emoji {
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+
+        .pathway-options {
+            flex: 1;
+            display: flex;
+            gap: 8px;
+            padding: 8px;
+            background: var(--gray-lighter);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        .pathway-option {
+            flex: 1;
+            background: var(--white);
+            border-radius: 8px;
+            padding: 10px 12px;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--dark-secondary);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-light);
+        }
+
+        .pathway-option small {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--gray);
+            margin-top: 2px;
+        }
+
+        /* ===== Progress Indicators ===== */
+        .progress-stats {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin: 24px 0;
+            flex-wrap: wrap;
+        }
+
+        .progress-stat {
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .progress-ring {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 8px;
+            position: relative;
+        }
+
+        .progress-ring svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .progress-ring circle {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+        }
+
+        .progress-ring .bg {
+            stroke: var(--gray-light);
+        }
+
+        .progress-ring .fill {
+            stroke: var(--primary);
+            stroke-dasharray: 226.2;
+            stroke-dashoffset: 226.2;
+            transition: stroke-dashoffset 1.5s ease-out;
+        }
+
+        .progress-ring .fill.animated {
+            stroke-dashoffset: var(--offset, 0);
+        }
+
+        .progress-ring .value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: var(--dark);
+        }
+
+        .progress-stat .label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-weight: 500;
         }
 
         /* ===== Timeline ===== */
         .timeline {
             position: relative;
-            padding-left: 28px;
+            padding-left: 24px;
             margin: 20px 0;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 8px;
-            top: 0;
-            bottom: 0;
+            left: 6px;
+            top: 4px;
+            bottom: 4px;
             width: 3px;
             background: linear-gradient(to bottom, var(--primary-light), var(--accent));
             border-radius: 2px;
@@ -603,7 +764,8 @@
 
         .timeline-item {
             position: relative;
-            padding-bottom: 24px;
+            padding-bottom: 20px;
+            padding-left: 8px;
         }
 
         .timeline-item:last-child {
@@ -613,105 +775,104 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -24px;
+            left: -22px;
             top: 4px;
-            width: 14px;
-            height: 14px;
-            background: var(--primary);
+            width: 12px;
+            height: 12px;
+            background: var(--white);
+            border: 3px solid var(--primary);
             border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+
+        .timeline-item .grade {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 2px;
         }
 
         .timeline-item h4 {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--dark);
-            margin-bottom: 4px;
-        }
-
-        .timeline-item .timeline-grade {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .timeline-item p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--gray);
             margin: 0;
         }
 
-        /* ===== Chart Container ===== */
-        .chart-container {
-            position: relative;
+        /* ===== Discipline Pyramid ===== */
+        .pyramid-container {
             margin: 20px 0;
             padding: 16px;
-            background: white;
-            border-radius: 16px;
-            border: 1px solid var(--gray-light);
-        }
-
-        #feeChart {
-            max-height: 280px;
-        }
-
-        /* ===== Discipline Pyramid ===== */
-        .pyramid {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            margin: 20px 0;
+            background: var(--gray-lighter);
+            border-radius: var(--radius);
         }
 
         .pyramid-level {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 20px;
+            padding: 10px 16px;
+            margin: 6px auto;
             border-radius: 8px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            text-align: center;
             color: white;
-            transition: transform 0.3s;
+            text-align: center;
+            transition: transform 0.2s ease;
         }
 
-        .pyramid-level:hover {
-            transform: scale(1.05);
+        .pyramid-level:active {
+            transform: scale(0.98);
         }
 
-        .pyramid-level.level-1 { width: 60%; background: linear-gradient(135deg, #dc2626, #ef4444); }
-        .pyramid-level.level-2 { width: 70%; background: linear-gradient(135deg, #ea580c, #f97316); }
-        .pyramid-level.level-3 { width: 80%; background: linear-gradient(135deg, #ca8a04, #eab308); }
-        .pyramid-level.level-4 { width: 90%; background: linear-gradient(135deg, #65a30d, #84cc16); }
-        .pyramid-level.level-5 { width: 100%; background: linear-gradient(135deg, #16a34a, #22c55e); }
+        .pyramid-level.l1 { width: 55%; background: linear-gradient(135deg, #dc2626, #ef4444); }
+        .pyramid-level.l2 { width: 65%; background: linear-gradient(135deg, #ea580c, #f97316); }
+        .pyramid-level.l3 { width: 75%; background: linear-gradient(135deg, #ca8a04, #eab308); }
+        .pyramid-level.l4 { width: 85%; background: linear-gradient(135deg, #65a30d, #84cc16); }
+        .pyramid-level.l5 { width: 95%; background: linear-gradient(135deg, #16a34a, #22c55e); }
+
+        .pyramid-level small {
+            display: block;
+            font-weight: 400;
+            font-size: 0.7rem;
+            opacity: 0.9;
+        }
 
         /* ===== Accordion ===== */
+        .accordion-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
         .accordion {
             border: 1px solid var(--gray-light);
-            border-radius: 12px;
-            margin: 12px 0;
+            border-radius: var(--radius-sm);
             overflow: hidden;
+            background: var(--white);
         }
 
         .accordion summary {
-            padding: 16px 20px;
-            background: #fafafa;
+            padding: 14px 16px;
+            background: var(--gray-lighter);
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             list-style: none;
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: background 0.3s;
+            transition: background 0.2s ease;
+            color: var(--dark);
         }
 
         .accordion summary:hover {
-            background: #f0f0f0;
+            background: var(--gray-light);
         }
 
         .accordion summary::-webkit-details-marker {
@@ -719,90 +880,81 @@
         }
 
         .accordion summary::after {
-            content: '▼';
+            content: '+';
             margin-left: auto;
-            font-size: 0.7rem;
-            transition: transform 0.3s;
+            font-size: 1.1rem;
+            font-weight: 400;
             color: var(--gray);
+            transition: transform 0.2s ease;
         }
 
         .accordion[open] summary::after {
-            transform: rotate(180deg);
+            content: '−';
         }
 
         .accordion-content {
-            padding: 16px 20px;
+            padding: 14px 16px;
             font-size: 0.9rem;
-            color: var(--gray);
+            color: var(--dark-secondary);
             border-top: 1px solid var(--gray-light);
+            line-height: 1.7;
         }
 
-        /* ===== Progress Circles ===== */
-        .progress-circles {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .progress-circle {
-            text-align: center;
-        }
-
-        .progress-circle svg {
-            width: 100px;
-            height: 100px;
-            transform: rotate(-90deg);
-        }
-
-        .progress-circle circle {
-            fill: none;
-            stroke-width: 8;
-            stroke-linecap: round;
-        }
-
-        .progress-circle .bg {
-            stroke: var(--gray-light);
-        }
-
-        .progress-circle .progress {
-            stroke: var(--primary);
-            stroke-dasharray: 251.2;
-            stroke-dashoffset: 251.2;
-            transition: stroke-dashoffset 1.5s ease-out;
-        }
-
-        .progress-circle .progress.animated {
-            stroke-dashoffset: var(--offset);
-        }
-
-        .progress-circle .value {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--dark);
-            margin-top: -70px;
+        /* ===== Chart Container ===== */
+        .chart-container {
             position: relative;
+            margin: 20px 0;
+            padding: 16px 8px;
+            background: var(--white);
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-light);
         }
 
-        .progress-circle .label {
+        /* ===== Small Info Grid ===== */
+        .small-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        .small-info-card {
+            background: var(--gray-lighter);
+            border-radius: var(--radius-sm);
+            padding: 14px;
+            text-align: center;
+            border: 1px solid var(--gray-light);
+        }
+
+        .small-info-card .icon {
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+        }
+
+        .small-info-card .title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 2px;
+        }
+
+        .small-info-card .desc {
             font-size: 0.8rem;
             color: var(--gray);
-            margin-top: 8px;
         }
 
         /* ===== Footer ===== */
         .footer {
             background: var(--dark);
             color: white;
-            padding: 32px 20px;
+            padding: 28px 20px;
             text-align: center;
         }
 
         .footer p {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 8px;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 6px;
         }
 
         .footer a {
@@ -810,15 +962,22 @@
             text-decoration: none;
         }
 
-        /* ===== Color Utilities ===== */
-        .bg-blue { background: #eff6ff; }
-        .bg-green { background: #ecfdf5; }
-        .bg-orange { background: #fffbeb; }
-        .bg-purple { background: #faf5ff; }
-        .bg-pink { background: #fdf2f8; }
-        .bg-teal { background: #f0fdfa; }
+        /* ===== Sources Section ===== */
+        .sources-section {
+            background: var(--gray-lighter);
+            border: 1px solid var(--gray-light);
+        }
 
-        /* ===== AOS Custom ===== */
+        .sources-section a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .sources-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== AOS Override ===== */
         [data-aos] {
             pointer-events: none;
         }
@@ -827,49 +986,55 @@
         }
 
         /* ===== Responsive ===== */
-        @media (min-width: 768px) {
-            body {
-                font-size: 18px;
-            }
-
-            .hero {
-                padding: 80px 40px 60px;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .container {
-                max-width: 720px;
-                margin: 0 auto;
-                padding: 30px 24px 50px;
-            }
-
-            .section {
-                padding: 32px;
-                border-radius: 24px;
+        @media (min-width: 480px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
 
             .gem-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
+        }
 
-            .stats-grid {
-                grid-template-columns: repeat(4, 1fr);
+        @media (min-width: 768px) {
+            body {
+                font-size: 17px;
             }
 
-            .info-cards {
+            .hero {
+                padding: 64px 40px 72px;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .container {
+                max-width: 680px;
+                margin: 0 auto;
+                padding: 24px 20px;
+            }
+
+            .section {
+                padding: 32px;
+                margin-bottom: 20px;
+            }
+
+            .info-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
             }
 
             .compare-swiper .swiper-slide {
-                width: 300px;
+                width: 320px;
+            }
+
+            .small-info-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
 
-        /* ===== Print Styles ===== */
+        /* ===== Print ===== */
         @media print {
             .nav-container {
                 display: none;
@@ -892,9 +1057,12 @@
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
-            <h1 data-aos="fade-down" data-aos-duration="800">靜心小學新生說明會</h1>
-            <p class="subtitle" data-aos="fade-up" data-aos-delay="200">臺北市私立靜心高級中學附設國小部｜114學年度</p>
-            <span class="badge" data-aos="zoom-in" data-aos-delay="400">📋 完整重點整理</span>
+            <div class="hero-badge" data-aos="fade-down">
+                <span>📋</span>
+                <span>114 學年度</span>
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100">靜心小學新生說明會</h1>
+            <p class="subtitle" data-aos="fade-up" data-aos-delay="200">臺北市私立靜心高級中學附設國小部</p>
         </div>
     </header>
 
@@ -906,7 +1074,7 @@
             <a href="#preparation"><span class="nav-icon">📝</span>準備</a>
             <a href="#academics"><span class="nav-icon">📖</span>課程</a>
             <a href="#pathway"><span class="nav-icon">🎯</span>升學</a>
-            <a href="#student-affairs"><span class="nav-icon">🎒</span>學務</a>
+            <a href="#affairs"><span class="nav-icon">🎒</span>學務</a>
             <a href="#music"><span class="nav-icon">🎵</span>音樂</a>
             <a href="#fees"><span class="nav-icon">💰</span>費用</a>
         </div>
@@ -915,37 +1083,36 @@
     <!-- Main Content -->
     <main class="container">
 
-        <!-- ===== Overview Section ===== -->
+        <!-- ===== Overview ===== -->
         <section id="overview" class="section">
             <div class="section-header" data-aos="fade-right">
-                <div class="section-icon bg-blue">🏫</div>
+                <div class="section-icon blue">🏫</div>
                 <h2>學校簡介</h2>
             </div>
 
-            <p data-aos="fade-up">臺北市私立靜心高級中學成立於1956年，是一所從幼兒園到高中 <strong>15年一貫</strong> 的完整學校。</p>
+            <p data-aos="fade-up">臺北市私立靜心高級中學成立於 1956 年，是一所從幼兒園到高中 <strong>15 年一貫</strong>的完整學校。</p>
 
-            <!-- Key Stats with Counter Animation -->
             <div class="stats-grid">
                 <div class="stat-card" data-aos="zoom-in" data-aos-delay="0">
                     <div class="stat-value"><span class="counter" data-target="42">0</span></div>
                     <div class="stat-label">每班人數</div>
                 </div>
-                <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="50">
                     <div class="stat-value"><span class="counter" data-target="6">0</span></div>
                     <div class="stat-label">每年級班數</div>
                 </div>
-                <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="stat-value"><span class="counter" data-target="15">0</span></div>
                     <div class="stat-label">一貫年數</div>
                 </div>
-                <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="150">
                     <div class="stat-value"><span class="counter" data-target="80">0</span>%+</div>
                     <div class="stat-label">碩士師資</div>
                 </div>
             </div>
 
             <h3 data-aos="fade-right">校園特色</h3>
-            <div class="info-cards">
+            <div class="info-grid">
                 <div class="info-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="info-card-icon">👨‍🏫</div>
                     <div class="info-card-content">
@@ -953,39 +1120,39 @@
                         <p>非包班制，老師只教專業科目</p>
                     </div>
                 </div>
-                <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="50">
                     <div class="info-card-icon">📚</div>
                     <div class="info-card-content">
                         <h4>四座圖書館</h4>
                         <p>繪本館、小學、英文、中學館</p>
                     </div>
                 </div>
-                <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="info-card-icon">🏊</div>
                     <div class="info-card-content">
                         <h4>溫水游泳池</h4>
                         <p>每學期 5 週連續游泳課</p>
                     </div>
                 </div>
-                <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="150">
                     <div class="info-card-icon">🏆</div>
                     <div class="info-card-content">
                         <h4>優質學校認證</h4>
-                        <p>2024年獲雙項認證肯定</p>
+                        <p>2024 年獲雙項認證肯定</p>
                     </div>
                 </div>
             </div>
 
-            <div class="highlight info" data-aos="fade-up">
-                <h4>👩‍🏫 教師研習時數</h4>
+            <div class="alert info" data-aos="fade-up">
+                <div class="alert-title">👩‍🏫 教師研習時數</div>
                 <p>教育部規定 <strong>50 小時</strong>，靜心教師平均達 <strong>76.8 小時</strong>，遠超標準！</p>
             </div>
         </section>
 
-        <!-- ===== Philosophy Section ===== -->
+        <!-- ===== Philosophy ===== -->
         <section id="philosophy" class="section">
             <div class="section-header" data-aos="fade-right">
-                <div class="section-icon bg-purple">💎</div>
+                <div class="section-icon purple">💎</div>
                 <h2>教育理念</h2>
             </div>
 
@@ -993,120 +1160,150 @@
 
             <div class="gem-grid">
                 <div class="gem-card" data-aos="flip-left" data-aos-delay="0">
-                    <div class="gem-icon">💎</div>
+                    <span class="gem-icon">💎</span>
                     <div class="gem-title">鑽石</div>
                     <div class="gem-desc">生活準備能力</div>
                 </div>
-                <div class="gem-card" data-aos="flip-left" data-aos-delay="100">
-                    <div class="gem-icon">💜</div>
+                <div class="gem-card" data-aos="flip-left" data-aos-delay="50">
+                    <span class="gem-icon">💜</span>
                     <div class="gem-title">紫水晶</div>
                     <div class="gem-desc">態度與品格</div>
                 </div>
-                <div class="gem-card" data-aos="flip-left" data-aos-delay="200">
-                    <div class="gem-icon">💙</div>
+                <div class="gem-card" data-aos="flip-left" data-aos-delay="100">
+                    <span class="gem-icon">💙</span>
                     <div class="gem-title">藍寶石</div>
                     <div class="gem-desc">問題解決能力</div>
                 </div>
-                <div class="gem-card" data-aos="flip-left" data-aos-delay="300">
-                    <div class="gem-icon">🤍</div>
+                <div class="gem-card" data-aos="flip-left" data-aos-delay="150">
+                    <span class="gem-icon">🤍</span>
                     <div class="gem-title">蛋白石</div>
                     <div class="gem-desc">自我照顧</div>
                 </div>
             </div>
 
             <div class="quote" data-aos="fade-up">
-                <p>「石墨和鑽石都是由碳元素組成，不同的排列就會有不同的結果。讓我們幫孩子好好排練生活化的學習，就可以像鑽石一樣發光。」</p>
-                <div class="author">— 副校長</div>
+                <p class="quote-text">「石墨和鑽石都是由碳元素組成，不同的排列就會有不同的結果。讓我們幫孩子好好排練生活化的學習，就可以像鑽石一樣發光。」</p>
+                <div class="quote-author">— 副校長</div>
             </div>
 
             <h3 data-aos="fade-right">品格教育核心</h3>
-            <ul class="checklist checked" data-aos="fade-up">
-                <li><strong>利他行為</strong>：教會孩子擁有幫助別人的能力</li>
-                <li><strong>問題解決</strong>：教孩子如何「跌倒後站起來」</li>
-                <li><strong>自我照顧</strong>：大人面對挑戰的態度會影響孩子</li>
+            <ul class="checklist" data-aos="fade-up">
+                <li>
+                    <span class="check-icon done">✓</span>
+                    <span><strong>利他行為</strong>：教會孩子擁有幫助別人的能力</span>
+                </li>
+                <li>
+                    <span class="check-icon done">✓</span>
+                    <span><strong>問題解決</strong>：教孩子如何「跌倒後站起來」</span>
+                </li>
+                <li>
+                    <span class="check-icon done">✓</span>
+                    <span><strong>自我照顧</strong>：大人面對挑戰的態度會影響孩子</span>
+                </li>
             </ul>
 
-            <div class="highlight warning" data-aos="fade-up">
-                <h4>🥪 辣椒三明治溝通法</h4>
+            <div class="alert warning" data-aos="fade-up">
+                <div class="alert-title">🥪 辣椒三明治溝通法</div>
                 <p>給建議時，把「辣椒」包在中間，前後都要<strong>同理、鼓勵</strong>，最後別忘了<strong>抱抱他</strong>。</p>
             </div>
 
             <div class="quote" data-aos="fade-up">
-                <p>「各位家長，你們是孩子的一座大山。當我們站穩的那一天，孩子就有一座可以依靠的大山。」</p>
-                <div class="author">— 副校長</div>
+                <p class="quote-text">「各位家長，你們是孩子的一座大山。當我們站穩的那一天，孩子就有一座可以依靠的大山。」</p>
+                <div class="quote-author">— 副校長</div>
             </div>
         </section>
 
-        <!-- ===== Preparation Section ===== -->
+        <!-- ===== Preparation ===== -->
         <section id="preparation" class="section">
             <div class="section-header" data-aos="fade-right">
-                <div class="section-icon bg-orange">📝</div>
+                <div class="section-icon orange">📝</div>
                 <h2>入學前準備</h2>
             </div>
 
-            <div class="highlight danger" data-aos="fade-up">
-                <h4>⚠️ 超重要！現在就開始</h4>
+            <div class="alert danger" data-aos="fade-up">
+                <div class="alert-title">⚠️ 超重要！現在就開始</div>
                 <p>距離開學還有半年，以下事項請家長<strong>現在就開始準備</strong>！</p>
             </div>
 
             <h3 data-aos="fade-right">生活自理能力清單</h3>
             <ul class="checklist" data-aos="fade-up">
-                <li><strong>會寫自己的名字</strong>（中文）</li>
-                <li><strong>會自己整理書包</strong>——否則一週後會發現「上週的早餐」在書包裡</li>
-                <li><strong>會自己收拾東西</strong>——做慢沒關係、掉地上也沒關係</li>
-                <li><strong>有自己的書桌</strong>——建立專屬學習空間</li>
-                <li><strong>會使用湯匙、叉子、筷子</strong></li>
-                <li><strong>會自己穿脫衣服</strong>——包括分辨內外、正反面</li>
-                <li><strong>會自己上廁所</strong>——蹲式和坐式馬桶都要會</li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span><strong>會寫自己的名字</strong>（中文）</span>
+                </li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span><strong>會自己整理書包</strong>——否則一週後會發現「上週的早餐」在書包裡</span>
+                </li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span><strong>會自己收拾東西</strong>——做慢沒關係、掉地上也沒關係</span>
+                </li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span><strong>有自己的書桌</strong>——建立專屬學習空間</span>
+                </li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span><strong>會使用湯匙、叉子、筷子</strong></span>
+                </li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span><strong>會自己穿脫衣服</strong>——包括分辨內外、正反面</span>
+                </li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span><strong>會自己上廁所</strong>——蹲式和坐式馬桶都要會</span>
+                </li>
             </ul>
 
-            <div class="highlight danger" data-aos="fade-up">
-                <h4>👖 冬季制服褲子預警！</h4>
+            <div class="alert danger" data-aos="fade-up">
+                <div class="alert-title">👖 冬季制服褲子預警！</div>
                 <p>男生家長必看：一年級小男生最困難的是<strong>冬季制服褲子的皮帶</strong>！有孩子因為不會解皮帶，在廁所卡很久。請提前在家練習！</p>
             </div>
 
             <h3 data-aos="fade-right">作息調整</h3>
-            <div class="info-cards">
-                <div class="info-card" data-aos="fade-up" data-aos-delay="0">
-                    <div class="info-card-icon">⏰</div>
-                    <div class="info-card-content">
-                        <h4>到校時間</h4>
-                        <p>一般學生 7:40<br>校隊成員 7:20-7:30</p>
-                    </div>
+            <div class="small-info-grid">
+                <div class="small-info-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="icon">⏰</div>
+                    <div class="title">到校時間</div>
+                    <div class="desc">一般 7:40<br>校隊 7:20</div>
                 </div>
-                <div class="info-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="info-card-icon">😴</div>
-                    <div class="info-card-content">
-                        <h4>午休調整</h4>
-                        <p>幼兒園躺著睡<br>→ 小學<strong>趴著睡</strong></p>
-                    </div>
+                <div class="small-info-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="icon">😴</div>
+                    <div class="title">午休調整</div>
+                    <div class="desc">躺睡→趴睡</div>
                 </div>
-            </div>
-
-            <div class="highlight success" data-aos="fade-up">
-                <h4>📅 新生暑訓</h4>
-                <p><strong>2025年 8月初</strong>（確切日期依學校公告）<br>一定要參加！讓孩子開學前適應小學生活。</p>
+                <div class="small-info-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon">📅</div>
+                    <div class="title">新生暑訓</div>
+                    <div class="desc">8月初（必參加）</div>
+                </div>
+                <div class="small-info-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="icon">🏠</div>
+                    <div class="title">放學時間</div>
+                    <div class="desc">16:00 或課後班</div>
+                </div>
             </div>
         </section>
 
-        <!-- ===== Academics Section ===== -->
+        <!-- ===== Academics ===== -->
         <section id="academics" class="section">
             <div class="section-header" data-aos="fade-right">
-                <div class="section-icon bg-green">📖</div>
+                <div class="section-icon green">📖</div>
                 <h2>課程規劃</h2>
             </div>
 
             <h3 data-aos="fade-right">普通班 vs 雙語班</h3>
 
-            <!-- Swiper Comparison Cards -->
-            <div class="swiper-container-wrapper" data-aos="fade-up">
+            <div class="swiper-wrapper-outer" data-aos="fade-up">
                 <div class="swiper compare-swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="compare-card">
                                 <div class="compare-card-header">
                                     <h4>普通班</h4>
-                                    <div class="price">~8萬 <span>/學期</span></div>
+                                    <div class="compare-card-price">~8萬 <span>/學期</span></div>
                                 </div>
                                 <ul class="compare-list">
                                     <li>每年級 2 班</li>
@@ -1119,10 +1316,11 @@
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="compare-card highlight-card">
+                            <div class="compare-card featured">
+                                <span class="compare-card-badge">熱門選擇</span>
                                 <div class="compare-card-header">
                                     <h4>雙語特色班</h4>
-                                    <div class="price">~16萬 <span>/學期</span></div>
+                                    <div class="compare-card-price">~16萬 <span>/學期</span></div>
                                 </div>
                                 <ul class="compare-list">
                                     <li>每年級 4 班</li>
@@ -1139,235 +1337,259 @@
                 </div>
             </div>
 
-            <div class="highlight info" data-aos="fade-up">
-                <h4>💡 如何選擇？</h4>
+            <div class="alert info" data-aos="fade-up">
+                <div class="alert-title">💡 如何選擇？</div>
                 <p>不管選哪一種，都有卓越升學表現。請依照<strong>孩子性向</strong>和<strong>家庭規劃</strong>選擇。雙語班時間較緊湊！</p>
             </div>
 
-            <div class="highlight success" data-aos="fade-up">
-                <h4>📝 一年級沒有定期紙筆測驗！</h4>
+            <div class="alert success" data-aos="fade-up">
+                <div class="alert-title">📝 一年級沒有定期紙筆測驗！</div>
                 <p>靜心是<strong>全臺北市唯一</strong>一年級全年沒有紙筆測驗的學校。重點在養成<strong>生活習慣</strong>和<strong>學習習慣</strong>。</p>
             </div>
 
             <h3 data-aos="fade-right">STREAM 教育</h3>
-            <div class="highlight info" data-aos="fade-up">
-                <h4>🔬 R 代表 Research！</h4>
-                <p><strong>S</strong>cience + <strong>T</strong>echnology + <strong style="color: var(--danger);">R</strong>esearch + <strong>E</strong>ngineering + <strong>A</strong>rt + <strong>M</strong>ath<br>「R」代表研究，是<strong>靜心獨有</strong>的設計！</p>
+            <div class="alert info" data-aos="fade-up">
+                <div class="alert-title">🔬 R 代表 Research！</div>
+                <p><strong>S</strong>cience・<strong>T</strong>echnology・<strong style="color: var(--danger);">R</strong>esearch・<strong>E</strong>ngineering・<strong>A</strong>rt・<strong>M</strong>ath<br>「R」代表研究，是<strong>靜心獨有</strong>的設計！</p>
             </div>
 
             <h3 data-aos="fade-right">特色課程</h3>
-            <details class="accordion" data-aos="fade-up" data-aos-delay="0">
-                <summary>🌟 靜心五個夢</summary>
-                <div class="accordion-content">
-                    結合自主學習的圓夢計畫，讓孩子透過自己的力量關懷社會。獲媒體報導，臺北市教育局也開始仿效！
-                </div>
-            </details>
-            <details class="accordion" data-aos="fade-up" data-aos-delay="100">
-                <summary>🎁 禮物協會</summary>
-                <div class="accordion-content">
-                    結合閱讀教育，讓孩子挑選禮物分送給需要的人，培養關懷與付出的能量。
-                </div>
-            </details>
-            <details class="accordion" data-aos="fade-up" data-aos-delay="200">
-                <summary>🧗 探索體驗課程</summary>
-                <div class="accordion-content">
-                    從幼兒園到高中系統性規劃。一年級每學期兩次探索體驗課，讓孩子走出舒適圈。
-                </div>
-            </details>
+            <div class="accordion-group">
+                <details class="accordion" data-aos="fade-up" data-aos-delay="0">
+                    <summary>🌟 靜心五個夢</summary>
+                    <div class="accordion-content">
+                        結合自主學習的圓夢計畫，讓孩子透過自己的力量關懷社會。獲媒體報導，臺北市教育局也開始仿效！
+                    </div>
+                </details>
+                <details class="accordion" data-aos="fade-up" data-aos-delay="50">
+                    <summary>🎁 禮物協會</summary>
+                    <div class="accordion-content">
+                        結合閱讀教育，讓孩子挑選禮物分送給需要的人，培養關懷與付出的能量。
+                    </div>
+                </details>
+                <details class="accordion" data-aos="fade-up" data-aos-delay="100">
+                    <summary>🧗 探索體驗課程</summary>
+                    <div class="accordion-content">
+                        從幼兒園到高中系統性規劃。一年級每學期兩次探索體驗課，讓孩子走出舒適圈。
+                    </div>
+                </details>
+            </div>
         </section>
 
-        <!-- ===== Pathway Section ===== -->
+        <!-- ===== Pathway ===== -->
         <section id="pathway" class="section">
             <div class="section-header" data-aos="fade-right">
-                <div class="section-icon bg-teal">🎯</div>
+                <div class="section-icon teal">🎯</div>
                 <h2>升學路徑</h2>
             </div>
 
-            <h3 data-aos="fade-right">15年一貫教育藍圖</h3>
-            <div class="flowchart-container" data-aos="zoom-in">
-                <div class="mermaid">
-                flowchart TB
-                    subgraph 小學["🏫 小學部"]
-                        A1[普通班] --> B1
-                        A2[雙語特色班] --> B1
-                    end
-                    subgraph 國中["🎓 國中部"]
-                        B1[雙語精英班]
-                        B2[國際組/國際班]
-                        A1 --> B2
-                        A2 --> B2
-                    end
-                    subgraph 高中["🎯 高中部"]
-                        C1[學測組<br>國內升學]
-                        C2[國際組<br>海外升學]
-                    end
-                    B1 --> C1
-                    B1 --> C2
-                    B2 --> C2
+            <h3 data-aos="fade-right">15 年一貫教育藍圖</h3>
 
-                    style A1 fill:#e0f2fe
-                    style A2 fill:#dbeafe
-                    style B1 fill:#d1fae5
-                    style B2 fill:#fef3c7
-                    style C1 fill:#ede9fe
-                    style C2 fill:#fce7f3
+            <div class="pathway-visual" data-aos="fade-up">
+                <div class="pathway-stage">
+                    <div class="pathway-label elementary">
+                        <span class="emoji">🏫</span>
+                        <span>小學部</span>
+                    </div>
+                    <div class="pathway-options">
+                        <div class="pathway-option">普通班<small>2班/年級</small></div>
+                        <div class="pathway-option">雙語特色班<small>4班/年級</small></div>
+                    </div>
+                </div>
+                <div class="pathway-stage">
+                    <div class="pathway-label junior">
+                        <span class="emoji">🎓</span>
+                        <span>國中部</span>
+                    </div>
+                    <div class="pathway-options">
+                        <div class="pathway-option">雙語精英班<small>國內升學</small></div>
+                        <div class="pathway-option">國際組<small>海外升學</small></div>
+                    </div>
+                </div>
+                <div class="pathway-stage">
+                    <div class="pathway-label senior">
+                        <span class="emoji">🎯</span>
+                        <span>高中部</span>
+                    </div>
+                    <div class="pathway-options">
+                        <div class="pathway-option">學測組<small>國內頂大</small></div>
+                        <div class="pathway-option">國際組<small>海外名校</small></div>
+                    </div>
                 </div>
             </div>
 
-            <div class="highlight info" data-aos="fade-up">
-                <h4>💡 重要提醒</h4>
+            <div class="alert info" data-aos="fade-up">
+                <div class="alert-title">💡 重要提醒</div>
                 <p>不是只有雙語班才能海外升學！小學讀普通班，國中時仍可選擇國際組。</p>
             </div>
 
             <h3 data-aos="fade-right">升學成績</h3>
 
-            <!-- Progress Circles -->
-            <div class="progress-circles" data-aos="fade-up">
-                <div class="progress-circle">
-                    <svg viewBox="0 0 100 100">
-                        <circle class="bg" cx="50" cy="50" r="40"></circle>
-                        <circle class="progress" cx="50" cy="50" r="40" style="--offset: 0;"></circle>
-                    </svg>
-                    <div class="value">100%</div>
+            <div class="progress-stats" data-aos="fade-up">
+                <div class="progress-stat">
+                    <div class="progress-ring">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="bg" cx="50" cy="50" r="36"></circle>
+                            <circle class="fill" cx="50" cy="50" r="36" style="--offset: 0;"></circle>
+                        </svg>
+                        <div class="value">100%</div>
+                    </div>
                     <div class="label">前20名校錄取率</div>
                 </div>
-                <div class="progress-circle">
-                    <svg viewBox="0 0 100 100">
-                        <circle class="bg" cx="50" cy="50" r="40"></circle>
-                        <circle class="progress" cx="50" cy="50" r="40" style="--offset: 216;"></circle>
-                    </svg>
-                    <div class="value">93%</div>
-                    <div class="label">英聽A級</div>
+                <div class="progress-stat">
+                    <div class="progress-ring">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="bg" cx="50" cy="50" r="36"></circle>
+                            <circle class="fill" cx="50" cy="50" r="36" style="--offset: 15.8;"></circle>
+                        </svg>
+                        <div class="value">93%</div>
+                    </div>
+                    <div class="label">英聽 A 級</div>
                 </div>
             </div>
 
             <h3 data-aos="fade-right">國際交流</h3>
             <div class="timeline" data-aos="fade-up">
                 <div class="timeline-item">
-                    <div class="timeline-grade">五年級</div>
+                    <div class="grade">五年級</div>
                     <h4>🇺🇸 美國交流</h4>
                     <p>與舊金山姐妹校互訪 2 週</p>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-grade">六年級</div>
+                    <div class="grade">六年級</div>
                     <h4>✈️ 山東境外學習</h4>
                     <p>孔孟故里文化體驗</p>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-grade">七~八年級</div>
+                    <div class="grade">七~八年級</div>
                     <h4>🇬🇧 英國交流</h4>
                     <p>體驗英語系國家文化</p>
                 </div>
             </div>
         </section>
 
-        <!-- ===== Student Affairs Section ===== -->
-        <section id="student-affairs" class="section">
+        <!-- ===== Student Affairs ===== -->
+        <section id="affairs" class="section">
             <div class="section-header" data-aos="fade-right">
-                <div class="section-icon bg-orange">🎒</div>
+                <div class="section-icon orange">🎒</div>
                 <h2>學務處說明</h2>
             </div>
 
             <div class="quote" data-aos="fade-up">
-                <p>「學校再怎麼認真，大概只能佔 30%，剩下 70% 是各位家長。孩子是看著父母長大的，你們才是他們的 model。」</p>
-                <div class="author">— 學務主任</div>
+                <p class="quote-text">「學校再怎麼認真，大概只能佔 30%，剩下 70% 是各位家長。孩子是看著父母長大的，你們才是他們的 model。」</p>
+                <div class="quote-author">— 學務主任</div>
             </div>
 
             <h3 data-aos="fade-right">獎懲制度</h3>
             <p data-aos="fade-up">靜心是<strong>全臺北市私立小學唯一</strong>有開單制度的學校：</p>
 
-            <div class="pyramid" data-aos="fade-up">
-                <div class="pyramid-level level-1" data-aos="zoom-in" data-aos-delay="0">一級記過<br><small>1張不能直升</small></div>
-                <div class="pyramid-level level-2" data-aos="zoom-in" data-aos-delay="100">二級記過<br><small>2張不能直升</small></div>
-                <div class="pyramid-level level-3" data-aos="zoom-in" data-aos-delay="200">三級記過<br><small>累積影響直升</small></div>
-                <div class="pyramid-level level-4" data-aos="zoom-in" data-aos-delay="300">警告單<br><small>提醒用，無影響</small></div>
-                <div class="pyramid-level level-5" data-aos="zoom-in" data-aos-delay="400">違規事件通知單<br><small>請家長協助改善</small></div>
+            <div class="pyramid-container" data-aos="fade-up">
+                <div class="pyramid-level l1" data-aos="zoom-in" data-aos-delay="0">一級記過<small>1張不能直升</small></div>
+                <div class="pyramid-level l2" data-aos="zoom-in" data-aos-delay="50">二級記過<small>2張不能直升</small></div>
+                <div class="pyramid-level l3" data-aos="zoom-in" data-aos-delay="100">三級記過<small>累積影響直升</small></div>
+                <div class="pyramid-level l4" data-aos="zoom-in" data-aos-delay="150">警告單<small>提醒用，無影響</small></div>
+                <div class="pyramid-level l5" data-aos="zoom-in" data-aos-delay="200">違規事件通知單<small>請家長協助改善</small></div>
             </div>
 
-            <div class="highlight info" data-aos="fade-up">
-                <h4>💡 開單的目的</h4>
+            <div class="alert info" data-aos="fade-up">
+                <div class="alert-title">💡 開單的目的</div>
                 <p>一、二年級孩子還在學習界限，開單是<strong>通知家長一起協助</strong>，不是責備。「如果有犯錯，才有學習的機會。」</p>
             </div>
 
             <h3 data-aos="fade-right">校園安全</h3>
-            <ul class="checklist checked" data-aos="fade-up">
-                <li>全校分為 <strong>17 個區域</strong>，下課時間安排老師巡視</li>
-                <li>游泳課：8 教練 + 4 救生員 + 2 導師（1班42人）</li>
-                <li>每學期至少 <strong>2 次防災演練</strong></li>
+            <ul class="checklist" data-aos="fade-up">
+                <li>
+                    <span class="check-icon done">✓</span>
+                    <span>全校分為 <strong>17 個區域</strong>，下課時間安排老師巡視</span>
+                </li>
+                <li>
+                    <span class="check-icon done">✓</span>
+                    <span>游泳課：8 教練 + 4 救生員 + 2 導師（1班42人）</span>
+                </li>
+                <li>
+                    <span class="check-icon done">✓</span>
+                    <span>每學期至少 <strong>2 次防災演練</strong></span>
+                </li>
             </ul>
 
-            <div class="highlight warning" data-aos="fade-up">
-                <h4>🚗 交通安全提醒</h4>
+            <div class="alert warning" data-aos="fade-up">
+                <div class="alert-title">🚗 交通安全提醒</div>
                 <p>靜心上下學是臺北市交通熱點！請勿違規停車、不要下車繞過來開車門拿書包——這會塞到萬隆捷運站！</p>
             </div>
         </section>
 
-        <!-- ===== Music Section ===== -->
+        <!-- ===== Music ===== -->
         <section id="music" class="section">
             <div class="section-header" data-aos="fade-right">
-                <div class="section-icon bg-pink">🎵</div>
+                <div class="section-icon pink">🎵</div>
                 <h2>音樂中心</h2>
             </div>
 
             <div class="quote" data-aos="fade-up">
-                <p>「我們從來沒有要把孩子培養成專業音樂家，而是希望他們有一樣可以陪伴自己一輩子的才能。」</p>
-                <div class="author">— 音樂中心主任</div>
+                <p class="quote-text">「我們從來沒有要把孩子培養成專業音樂家，而是希望他們有一樣可以陪伴自己一輩子的才能。」</p>
+                <div class="quote-author">— 音樂中心主任</div>
             </div>
 
             <h3 data-aos="fade-right">樂團發展階段</h3>
             <div class="timeline" data-aos="fade-up">
                 <div class="timeline-item">
-                    <div class="timeline-grade">二年級</div>
+                    <div class="grade">二年級</div>
                     <h4>C 團（預備）</h4>
                     <p>一年時間評估適合的樂器</p>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-grade">三年級</div>
+                    <div class="grade">三年級</div>
                     <h4>B 團</h4>
                     <p>正式拿樂器，一對一課程</p>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-grade">五年級以上</div>
+                    <div class="grade">五年級以上</div>
                     <h4>A 團 / 校隊</h4>
                     <p>代表學校比賽、演出</p>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-grade">七~九年級</div>
+                    <div class="grade">七~九年級</div>
                     <h4>國中團</h4>
                     <p>進階發展</p>
                 </div>
             </div>
 
-            <div class="highlight warning" data-aos="fade-up">
-                <h4>⚠️ 不要看名字或外型選樂器！</h4>
-                <p>每種樂器需要不同的生理條件：<br>
-                • 厚嘴唇不適合吹長笛<br>
-                • 小玉米牙齒不適合吹銅管<br>
-                • 10-12 歲矯正牙齒期間不建議進樂團</p>
+            <div class="alert warning" data-aos="fade-up">
+                <div class="alert-title">⚠️ 不要看名字或外型選樂器！</div>
+                <p>每種樂器需要不同的生理條件：厚嘴唇不適合吹長笛、小玉米牙齒不適合吹銅管、10-12 歲矯正牙齒期間不建議進樂團。</p>
             </div>
 
-            <div class="highlight success" data-aos="fade-up">
-                <h4>🎄 近期重要演出</h4>
+            <div class="alert success" data-aos="fade-up">
+                <div class="alert-title">🎄 近期重要演出</div>
                 <p><strong>12 月 23 日</strong>將於臺北市中山堂舉辦年度音樂會！</p>
             </div>
 
             <h3 data-aos="fade-right">國際演出經歷</h3>
-            <ul class="checklist checked" data-aos="fade-up">
-                <li><strong>2024 維也納金色大廳</strong>——世界級優異成績</li>
-                <li>臺北國家音樂廳、高雄衛武營演出</li>
-                <li>2023 日本、2024 新加坡、2025 維也納</li>
+            <ul class="checklist" data-aos="fade-up">
+                <li>
+                    <span class="check-icon done">✓</span>
+                    <span><strong>2024 維也納金色大廳</strong>——世界級優異成績</span>
+                </li>
+                <li>
+                    <span class="check-icon done">✓</span>
+                    <span>臺北國家音樂廳、高雄衛武營演出</span>
+                </li>
+                <li>
+                    <span class="check-icon done">✓</span>
+                    <span>2023 日本、2024 新加坡、2025 維也納</span>
+                </li>
             </ul>
 
             <div class="quote" data-aos="fade-up">
-                <p>「AI 時代，我們要讓孩子保留的不是 AI 能做的事，而是 AI 做不到的事——人的情感、人的感動。」</p>
-                <div class="author">— 音樂中心主任</div>
+                <p class="quote-text">「AI 時代，我們要讓孩子保留的不是 AI 能做的事，而是 AI 做不到的事——人的情感、人的感動。」</p>
+                <div class="quote-author">— 音樂中心主任</div>
             </div>
         </section>
 
-        <!-- ===== Fees Section ===== -->
+        <!-- ===== Fees ===== -->
         <section id="fees" class="section">
             <div class="section-header" data-aos="fade-right">
-                <div class="section-icon bg-blue">💰</div>
+                <div class="section-icon blue">💰</div>
                 <h2>費用資訊</h2>
             </div>
 
@@ -1377,44 +1599,36 @@
             </div>
 
             <h3 data-aos="fade-right">其他費用</h3>
-            <div class="info-cards">
-                <div class="info-card" data-aos="fade-up" data-aos-delay="0">
-                    <div class="info-card-icon">🍱</div>
-                    <div class="info-card-content">
-                        <h4>午餐</h4>
-                        <p>85 元/餐</p>
-                    </div>
+            <div class="small-info-grid">
+                <div class="small-info-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="icon">🍱</div>
+                    <div class="title">午餐</div>
+                    <div class="desc">85 元/餐</div>
                 </div>
-                <div class="info-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="info-card-icon">👔</div>
-                    <div class="info-card-content">
-                        <h4>制服（首次）</h4>
-                        <p>約 19,000 元</p>
-                    </div>
+                <div class="small-info-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="icon">👔</div>
+                    <div class="title">制服（首次）</div>
+                    <div class="desc">約 19,000 元</div>
                 </div>
-                <div class="info-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="info-card-icon">🚌</div>
-                    <div class="info-card-content">
-                        <h4>校車</h4>
-                        <p>20,000~22,000 元/學期</p>
-                    </div>
+                <div class="small-info-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon">🚌</div>
+                    <div class="title">校車</div>
+                    <div class="desc">2~2.2萬/學期</div>
                 </div>
-                <div class="info-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="info-card-icon">🎨</div>
-                    <div class="info-card-content">
-                        <h4>課後才藝</h4>
-                        <p>20,000~40,000 元</p>
-                    </div>
+                <div class="small-info-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="icon">🎨</div>
+                    <div class="title">課後才藝</div>
+                    <div class="desc">2~4萬/學期</div>
                 </div>
             </div>
 
-            <div class="highlight danger" data-aos="fade-up">
-                <h4>📋 直升意願調查表</h4>
-                <p><strong>下禮拜五之前要繳回！</strong><br>只調查這一次，請想清楚再填寫。</p>
+            <div class="alert danger" data-aos="fade-up">
+                <div class="alert-title">📋 直升意願調查表</div>
+                <p><strong>下禮拜五之前要繳回！</strong>只調查這一次，請想清楚再填寫。</p>
             </div>
 
             <h3 data-aos="fade-right">聯絡資訊</h3>
-            <div class="info-cards">
+            <div class="info-grid">
                 <div class="info-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="info-card-icon">📍</div>
                     <div class="info-card-content">
@@ -1422,7 +1636,7 @@
                         <p>台北市文山區興隆路二段46號</p>
                     </div>
                 </div>
-                <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="50">
                     <div class="info-card-icon">📞</div>
                     <div class="info-card-content">
                         <h4>招生專線</h4>
@@ -1432,42 +1646,71 @@
             </div>
         </section>
 
-        <!-- ===== Summary Section ===== -->
+        <!-- ===== Summary ===== -->
         <section class="section">
             <div class="section-header" data-aos="fade-right">
-                <div class="section-icon bg-purple">📌</div>
+                <div class="section-icon purple">📌</div>
                 <h2>重點總整理</h2>
             </div>
 
             <h3 data-aos="fade-right">現在就要開始做的事</h3>
             <ul class="checklist" data-aos="fade-up">
-                <li>練習早起（7:40 前到校）</li>
-                <li>練習寫自己的名字</li>
-                <li>練習自己整理書包、收拾東西</li>
-                <li>練習穿脫衣服（尤其是冬季制服皮帶！）</li>
-                <li>練習使用各種馬桶</li>
-                <li>調整午休習慣（躺睡→趴睡）</li>
-                <li>讓孩子做家事</li>
-                <li><strong>繳交直升意願調查表（下週五前）</strong></li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span>練習早起（7:40 前到校）</span>
+                </li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span>練習寫自己的名字</span>
+                </li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span>練習自己整理書包、收拾東西</span>
+                </li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span>練習穿脫衣服（尤其是冬季制服皮帶！）</span>
+                </li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span>練習使用各種馬桶</span>
+                </li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span>調整午休習慣（躺睡→趴睡）</span>
+                </li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span>讓孩子做家事</span>
+                </li>
+                <li>
+                    <span class="check-icon todo">☐</span>
+                    <span><strong>繳交直升意願調查表（下週五前）</strong></span>
+                </li>
             </ul>
 
             <h3 data-aos="fade-right">學校的核心理念</h3>
             <div class="quote" data-aos="fade-up">
-                <p>「<strong>先成人，再成才</strong>」——品格教育是基礎<br>
-                「<strong>不要贏在起跑點，不要掛在半途</strong>」——細水長流的學習</p>
+                <p class="quote-text">「<strong>先成人，再成才</strong>」——品格教育是基礎<br>「<strong>不要贏在起跑點，不要掛在半途</strong>」——細水長流的學習</p>
             </div>
         </section>
 
-        <!-- ===== Sources Section ===== -->
-        <section class="section" style="background: #f8fafc;" data-aos="fade-up">
+        <!-- ===== Sources ===== -->
+        <section class="section sources-section" data-aos="fade-up">
             <div class="section-header">
-                <div class="section-icon" style="background: #e5e7eb;">📚</div>
+                <div class="section-icon" style="background: var(--gray-light);">📚</div>
                 <h2>資料來源</h2>
             </div>
-            <p style="font-size: 0.9rem;">本頁面內容整理自新生說明會逐字稿及以下資料：</p>
-            <ul class="checklist checked" style="font-size: 0.9rem;">
-                <li><a href="https://www.chjhs.tp.edu.tw/" target="_blank">臺北市私立靜心高級中學官方網站</a></li>
-                <li><a href="https://chuchu.tw/taipei-chjhs-tp-first-grade" target="_blank">靜心小學招生整理 - CHU CHU</a></li>
+            <p style="font-size: 0.85rem; margin-bottom: 12px;">本頁面內容整理自新生說明會逐字稿及以下資料：</p>
+            <ul class="checklist" style="margin-top: 0;">
+                <li>
+                    <span class="check-icon done">✓</span>
+                    <span><a href="https://www.chjhs.tp.edu.tw/" target="_blank">臺北市私立靜心高級中學官方網站</a></span>
+                </li>
+                <li>
+                    <span class="check-icon done">✓</span>
+                    <span><a href="https://chuchu.tw/taipei-chjhs-tp-first-grade" target="_blank">靜心小學招生整理 - CHU CHU</a></span>
+                </li>
             </ul>
         </section>
 
@@ -1480,40 +1723,17 @@
     </footer>
 
     <!-- Scripts -->
-    <!-- Mermaid.js -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-    <!-- ApexCharts -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <!-- Swiper.js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
         // Initialize AOS
         AOS.init({
-            duration: 800,
+            duration: 600,
             easing: 'ease-out-cubic',
             once: true,
-            offset: 50
-        });
-
-        // Initialize Mermaid
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'base',
-            themeVariables: {
-                primaryColor: '#eff6ff',
-                primaryTextColor: '#1e40af',
-                primaryBorderColor: '#3b82f6',
-                lineColor: '#94a3b8',
-                secondaryColor: '#f0fdf4',
-                tertiaryColor: '#fefce8'
-            },
-            flowchart: {
-                curve: 'basis',
-                padding: 20
-            }
+            offset: 30
         });
 
         // Initialize Swiper
@@ -1530,16 +1750,14 @@
 
         // Counter Animation
         const counters = document.querySelectorAll('.counter');
-        const observerOptions = {
-            threshold: 0.5
-        };
+        const observerOptions = { threshold: 0.5 };
 
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const counter = entry.target;
                     const target = parseInt(counter.dataset.target);
-                    const duration = 2000;
+                    const duration = 1500;
                     const step = target / (duration / 16);
                     let current = 0;
 
@@ -1561,18 +1779,18 @@
 
         counters.forEach(counter => counterObserver.observe(counter));
 
-        // Progress Circle Animation
-        const progressCircles = document.querySelectorAll('.progress-circle .progress');
-        const circleObserver = new IntersectionObserver((entries) => {
+        // Progress Ring Animation
+        const progressRings = document.querySelectorAll('.progress-ring .fill');
+        const ringObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animated');
-                    circleObserver.unobserve(entry.target);
+                    ringObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.5 });
 
-        progressCircles.forEach(circle => circleObserver.observe(circle));
+        progressRings.forEach(ring => ringObserver.observe(ring));
 
         // ApexCharts - Fee Comparison
         const feeChartOptions = {
@@ -1582,7 +1800,7 @@
             }],
             chart: {
                 type: 'bar',
-                height: 250,
+                height: 220,
                 toolbar: { show: false },
                 fontFamily: 'Noto Sans TC, sans-serif'
             },
@@ -1590,7 +1808,7 @@
                 bar: {
                     borderRadius: 8,
                     horizontal: false,
-                    columnWidth: '50%',
+                    columnWidth: '60%',
                     distributed: true
                 }
             },
@@ -1602,30 +1820,40 @@
                 },
                 style: {
                     fontSize: '14px',
-                    fontWeight: 'bold'
-                }
+                    fontWeight: 'bold',
+                    colors: ['#fff']
+                },
+                offsetY: -20
             },
             legend: { show: false },
             xaxis: {
                 categories: ['普通班', '雙語特色班'],
                 labels: {
                     style: {
-                        fontSize: '14px',
-                        fontWeight: 600
+                        fontSize: '13px',
+                        fontWeight: 600,
+                        colors: ['#334155', '#334155']
                     }
-                }
+                },
+                axisBorder: { show: false },
+                axisTicks: { show: false }
             },
             yaxis: {
                 max: 20,
                 labels: {
                     formatter: function(val) {
                         return val + '萬';
+                    },
+                    style: {
+                        fontSize: '12px',
+                        colors: ['#64748b']
                     }
                 }
             },
             grid: {
-                borderColor: '#e5e7eb',
-                strokeDashArray: 4
+                borderColor: '#e2e8f0',
+                strokeDashArray: 4,
+                xaxis: { lines: { show: false } }
             },
             tooltip: {
                 y: {
@@ -1644,7 +1872,7 @@
         const navLinks = document.querySelectorAll('.nav a');
 
         function highlightNav() {
-            const scrollPos = window.scrollY + 100;
+            const scrollPos = window.scrollY + 80;
 
             sections.forEach(section => {
                 const top = section.offsetTop;
@@ -1662,7 +1890,7 @@
             });
         }
 
-        window.addEventListener('scroll', highlightNav);
+        window.addEventListener('scroll', highlightNav, { passive: true });
         highlightNav();
 
         // Smooth scroll for nav links
