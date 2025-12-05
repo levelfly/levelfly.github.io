@@ -1,27 +1,494 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Comet Example: Counter with Hidden Frame</title>
-    <link rel="stylesheet" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levelfly - 網頁設計作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
+            top: 20%;
+            left: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(118, 75, 162, 0.15) 0%, transparent 70%);
+            bottom: 20%;
+            right: 10%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .hero .description {
+            max-width: 600px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 50px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-title span {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: #111;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: #1a1a1a;
+            border-radius: 15px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            background: #222;
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Works Section */
+        #works {
+            background: #0a0a0a;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .work-card {
+            background: #151515;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .work-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .work-preview {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .work-info {
+            padding: 25px;
+        }
+
+        .work-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .work-info p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .work-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .work-tag {
+            padding: 5px 12px;
+            background: #222;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: #111;
+            text-align: center;
+        }
+
+        .contact-text {
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background: #1a1a1a;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+
+        .contact-link:hover {
+            background: #222;
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px;
+            text-align: center;
+            color: #444;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<div>
-    <h1></h1>
-    <p></p>
-</div>
 
 <body>
-    <div>
-        <h1>Hello NTUHTML 265</h1>
-        <img src="http://static.blog.sina.com.tw/myimages/78/20814/images/20100621130854163.jpg" alt="git_pic">
-        <p>
-            If you see this </br>
-            Your github pages
-            <b>works!</b>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">Levelfly</a>
+        <ul class="nav-links">
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#works">Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Levelfly</h1>
+            <p class="subtitle">Web Developer & Designer</p>
+            <p class="description">
+                熱愛創造美好的網頁體驗，專注於前端開發與使用者介面設計。
+                透過程式碼將創意轉化為現實。
+            </p>
+            <a href="#works" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">My <span>Skills</span></h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <div class="skill-icon">&#60;/&#62;</div>
+                <div class="skill-name">HTML5</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">#</div>
+                <div class="skill-name">CSS3</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">JS</div>
+                <div class="skill-name">JavaScript</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">B</div>
+                <div class="skill-name">Bootstrap</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">$</div>
+                <div class="skill-name">jQuery</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works">
+        <h2 class="section-title">My <span>Works</span></h2>
+        <div class="works-grid">
+            <a href="archive/legoking/index.html" class="work-card">
+                <div class="work-preview">&#128241;</div>
+                <div class="work-info">
+                    <h3>手機支架產品頁</h3>
+                    <p>產品行銷頁面，使用捲動觸發動畫效果打造沉浸式體驗。</p>
+                    <div class="work-tags">
+                        <span class="work-tag">jQuery</span>
+                        <span class="work-tag">Waypoints</span>
+                        <span class="work-tag">Animation</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="archive/bootstrap.html" class="work-card">
+                <div class="work-preview">&#128240;</div>
+                <div class="work-info">
+                    <h3>Bootstrap 響應式網站</h3>
+                    <p>完整的響應式網頁設計，包含導覽列、表格、新聞排版。</p>
+                    <div class="work-tags">
+                        <span class="work-tag">Bootstrap</span>
+                        <span class="work-tag">RWD</span>
+                        <span class="work-tag">Grid</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="archive/pikachu_begin/index.html" class="work-card">
+                <div class="work-preview">&#127917;</div>
+                <div class="work-info">
+                    <h3>Pikachu 個人名片</h3>
+                    <p>創意 CSS 圓形設計的個人介紹頁面。</p>
+                    <div class="work-tags">
+                        <span class="work-tag">CSS</span>
+                        <span class="work-tag">Design</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="archive/lounge_basic/lounge.html" class="work-card">
+                <div class="work-preview">&#127866;</div>
+                <div class="work-info">
+                    <h3>Lounge 休息室</h3>
+                    <p>多頁面網站結構，包含完整的導航系統。</p>
+                    <div class="work-tags">
+                        <span class="work-tag">HTML</span>
+                        <span class="work-tag">Multi-page</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="archive/2.html" class="work-card">
+                <div class="work-preview">&#128506;</div>
+                <div class="work-info">
+                    <h3>Segway 旅遊日記</h3>
+                    <p>整合社群分享功能與網路字型的部落格頁面。</p>
+                    <div class="work-tags">
+                        <span class="work-tag">Social</span>
+                        <span class="work-tag">Web Font</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="archive/book/index.html" class="work-card">
+                <div class="work-preview">&#128214;</div>
+                <div class="work-info">
+                    <h3>產品說明書</h3>
+                    <p>響應式圖片展示頁面設計。</p>
+                    <div class="work-tags">
+                        <span class="work-tag">Images</span>
+                        <span class="work-tag">Layout</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In <span>Touch</span></h2>
+        <p class="contact-text">
+            有任何合作想法或專案需求？歡迎與我聯繫！
         </p>
-    </div>
+        <div class="contact-links">
+            <a href="https://github.com/levelfly" class="contact-link" target="_blank">
+                GitHub
+            </a>
+            <a href="mailto:contact@levelfly.com" class="contact-link">
+                Email
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Levelfly. Built with passion.</p>
+    </footer>
 </body>
 
 </html>
