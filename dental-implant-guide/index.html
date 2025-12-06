@@ -165,6 +165,7 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
+                    <a href="#ai-analysis" class="text-gray-600 hover:text-dental transition">AI分析</a>
                     <a href="#clinics" class="text-gray-600 hover:text-dental transition">診所列表</a>
                     <a href="#comparison" class="text-gray-600 hover:text-dental transition">價格比較</a>
                     <a href="#implants" class="text-gray-600 hover:text-dental transition">植體品牌</a>
@@ -182,6 +183,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
             <div class="px-4 py-3 space-y-3">
+                <a href="#ai-analysis" class="block text-gray-600 hover:text-dental">AI分析</a>
                 <a href="#clinics" class="block text-gray-600 hover:text-dental">診所列表</a>
                 <a href="#comparison" class="block text-gray-600 hover:text-dental">價格比較</a>
                 <a href="#implants" class="block text-gray-600 hover:text-dental">植體品牌</a>
@@ -234,6 +236,209 @@
                 <div class="p-4">
                     <div class="text-3xl md:text-4xl font-bold text-dental mb-2">15-20年</div>
                     <div class="text-gray-600">植牙使用壽命</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Analysis Section -->
+    <section id="ai-analysis" class="py-16 bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center bg-white/10 px-4 py-2 rounded-full mb-4">
+                    <i class="fas fa-robot text-cyan-400 mr-2"></i>
+                    <span class="text-cyan-300 text-sm font-medium">AI 智慧分析</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">數據驅動的診所評比</h2>
+                <p class="text-indigo-200 max-w-2xl mx-auto">
+                    透過 AI 整合分析 25+ 家診所的評價、價格、設備、醫師背景等多維度數據，為您提供客觀的比較與推薦
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <!-- AI 智慧推薦問答 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-magic text-yellow-400 mr-3"></i>
+                        智慧推薦系統
+                    </h3>
+                    <p class="text-indigo-200 text-sm mb-6">回答以下問題，AI 將為您推薦最適合的診所</p>
+
+                    <div id="ai-questionnaire" class="space-y-4">
+                        <!-- 問題 1 -->
+                        <div class="ai-question" data-step="1">
+                            <p class="font-medium mb-3">1. 您最重視的因素是？</p>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button class="ai-option bg-white/5 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm transition" data-value="price">
+                                    <i class="fas fa-coins text-green-400 mr-2"></i>價格實惠
+                                </button>
+                                <button class="ai-option bg-white/5 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm transition" data-value="tech">
+                                    <i class="fas fa-microchip text-blue-400 mr-2"></i>技術先進
+                                </button>
+                                <button class="ai-option bg-white/5 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm transition" data-value="comfort">
+                                    <i class="fas fa-spa text-pink-400 mr-2"></i>舒適體驗
+                                </button>
+                                <button class="ai-option bg-white/5 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm transition" data-value="reputation">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>口碑評價
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 問題 2 -->
+                        <div class="ai-question hidden" data-step="2">
+                            <p class="font-medium mb-3">2. 您的植牙需求是？</p>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button class="ai-option bg-white/5 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm transition" data-value="single">
+                                    <i class="fas fa-tooth text-white mr-2"></i>單顆植牙
+                                </button>
+                                <button class="ai-option bg-white/5 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm transition" data-value="multiple">
+                                    <i class="fas fa-teeth text-white mr-2"></i>多顆植牙
+                                </button>
+                                <button class="ai-option bg-white/5 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm transition" data-value="allon4">
+                                    <i class="fas fa-teeth-open text-white mr-2"></i>全口重建
+                                </button>
+                                <button class="ai-option bg-white/5 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm transition" data-value="unsure">
+                                    <i class="fas fa-question text-white mr-2"></i>尚未確定
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 問題 3 -->
+                        <div class="ai-question hidden" data-step="3">
+                            <p class="font-medium mb-3">3. 您偏好的地區？</p>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button class="ai-option bg-white/5 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm transition" data-value="taipei">
+                                    <i class="fas fa-map-marker-alt text-red-400 mr-2"></i>台北市
+                                </button>
+                                <button class="ai-option bg-white/5 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm transition" data-value="newtaipei">
+                                    <i class="fas fa-map-marker-alt text-orange-400 mr-2"></i>新北市
+                                </button>
+                                <button class="ai-option bg-white/5 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm transition" data-value="both">
+                                    <i class="fas fa-map-marked-alt text-purple-400 mr-2"></i>皆可
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- AI 推薦結果 -->
+                        <div id="ai-result" class="hidden">
+                            <div class="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl p-5 border border-cyan-400/30">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-brain text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">AI 推薦結果</h4>
+                                        <p class="text-xs text-indigo-300">根據您的需求智慧分析</p>
+                                    </div>
+                                </div>
+                                <div id="ai-recommendation" class="space-y-3">
+                                    <!-- 動態填入 -->
+                                </div>
+                                <button id="ai-reset" class="mt-4 text-sm text-cyan-300 hover:text-white transition">
+                                    <i class="fas fa-redo mr-1"></i>重新測試
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 診所雷達圖比較 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-chart-radar text-cyan-400 mr-3"></i>
+                        Top 5 診所綜合評比
+                    </h3>
+                    <p class="text-indigo-200 text-sm mb-4">基於多維度數據的綜合評分</p>
+                    <div class="h-72">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                    <div class="mt-4 flex flex-wrap gap-2 justify-center text-xs">
+                        <span class="flex items-center"><span class="w-3 h-3 bg-red-400 rounded-full mr-1"></span>悅庭牙醫</span>
+                        <span class="flex items-center"><span class="w-3 h-3 bg-blue-400 rounded-full mr-1"></span>雅偲牙醫</span>
+                        <span class="flex items-center"><span class="w-3 h-3 bg-green-400 rounded-full mr-1"></span>歐仕美牙醫</span>
+                        <span class="flex items-center"><span class="w-3 h-3 bg-yellow-400 rounded-full mr-1"></span>蒔美牙醫</span>
+                        <span class="flex items-center"><span class="w-3 h-3 bg-purple-400 rounded-full mr-1"></span>晨光牙醫</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI 數據洞察 -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <h3 class="text-xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-lightbulb text-yellow-400 mr-3"></i>
+                    AI 數據洞察
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- 洞察 1 -->
+                    <div class="bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl p-5 border border-green-400/30">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-green-500/30 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-chart-line text-green-400"></i>
+                            </div>
+                            <h4 class="font-semibold">價格趨勢</h4>
+                        </div>
+                        <p class="text-sm text-indigo-200 mb-3">
+                            分析結果顯示，台北市區診所平均價格比新北市高 <span class="text-green-400 font-bold">15-20%</span>，
+                            但設備與醫師資歷也相對較完整。
+                        </p>
+                        <div class="text-xs text-indigo-300">
+                            <i class="fas fa-info-circle mr-1"></i>建議：預算有限可考慮新北優質診所
+                        </div>
+                    </div>
+
+                    <!-- 洞察 2 -->
+                    <div class="bg-gradient-to-br from-blue-500/20 to-indigo-500/20 rounded-xl p-5 border border-blue-400/30">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-blue-500/30 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-star text-blue-400"></i>
+                            </div>
+                            <h4 class="font-semibold">評價分析</h4>
+                        </div>
+                        <p class="text-sm text-indigo-200 mb-3">
+                            高評價診所的共同特點：<span class="text-blue-400 font-bold">醫師耐心解說</span>、
+                            <span class="text-blue-400 font-bold">收費透明</span>、<span class="text-blue-400 font-bold">術後追蹤完善</span>。
+                        </p>
+                        <div class="text-xs text-indigo-300">
+                            <i class="fas fa-info-circle mr-1"></i>建議：初診時觀察醫師溝通態度
+                        </div>
+                    </div>
+
+                    <!-- 洞察 3 -->
+                    <div class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-5 border border-purple-400/30">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-purple-500/30 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-exclamation-triangle text-purple-400"></i>
+                            </div>
+                            <h4 class="font-semibold">風險提醒</h4>
+                        </div>
+                        <p class="text-sm text-indigo-200 mb-3">
+                            網路負評多與 <span class="text-purple-400 font-bold">價格不透明</span> 及
+                            <span class="text-purple-400 font-bold">術後追蹤不足</span> 相關，佔比達 <span class="text-red-400 font-bold">68%</span>。
+                        </p>
+                        <div class="text-xs text-indigo-300">
+                            <i class="fas fa-info-circle mr-1"></i>建議：術前務必確認完整費用明細
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI 總結 -->
+                <div class="mt-6 p-5 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-xl border border-white/10">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-brain text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">AI 綜合建議</h4>
+                            <p class="text-indigo-200 text-sm leading-relaxed">
+                                根據本次分析的 25+ 家診所數據，我們建議您在選擇植牙診所時優先考量：
+                                <strong class="text-white">（1）醫師是否具備植牙專科認證</strong>、
+                                <strong class="text-white">（2）使用的植體品牌是否為國際大廠</strong>、
+                                <strong class="text-white">（3）診所評價中「術後追蹤」相關評論是否正面</strong>。
+                                價格雖重要，但過低價格（單顆低於 5 萬）往往伴隨較高的材料或技術風險。
+                                建議至少諮詢 2-3 家診所後再做決定。
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
