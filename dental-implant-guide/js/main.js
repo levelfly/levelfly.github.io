@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCharts();
     initFAQ();
     initSmoothScroll();
+    initAIRecommendation();
 });
 
 // ===== 手機選單 =====
@@ -283,6 +284,7 @@ function initCharts() {
     initPriceChart();
     initMarketShareChart();
     initRiskChart();
+    initRadarChart();
 }
 
 function initPriceChart() {
@@ -475,6 +477,261 @@ function initSmoothScroll() {
             }
         });
     });
+}
+
+// ===== 雷達圖 =====
+function initRadarChart() {
+    const ctx = document.getElementById('radarChart');
+    if (!ctx) return;
+
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['技術設備', '醫師資歷', '價格競爭力', '環境舒適', '口碑評價', '術後服務'],
+            datasets: [
+                {
+                    label: '悅庭牙醫',
+                    data: [95, 88, 75, 92, 90, 88],
+                    backgroundColor: 'rgba(248, 113, 113, 0.2)',
+                    borderColor: 'rgba(248, 113, 113, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(248, 113, 113, 1)'
+                },
+                {
+                    label: '雅偲牙醫',
+                    data: [90, 95, 70, 85, 88, 90],
+                    backgroundColor: 'rgba(96, 165, 250, 0.2)',
+                    borderColor: 'rgba(96, 165, 250, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(96, 165, 250, 1)'
+                },
+                {
+                    label: '歐仕美牙醫',
+                    data: [85, 90, 88, 82, 92, 85],
+                    backgroundColor: 'rgba(74, 222, 128, 0.2)',
+                    borderColor: 'rgba(74, 222, 128, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(74, 222, 128, 1)'
+                },
+                {
+                    label: '蒔美牙醫',
+                    data: [92, 88, 80, 85, 85, 90],
+                    backgroundColor: 'rgba(250, 204, 21, 0.2)',
+                    borderColor: 'rgba(250, 204, 21, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(250, 204, 21, 1)'
+                },
+                {
+                    label: '晨光牙醫',
+                    data: [88, 92, 72, 80, 85, 88],
+                    backgroundColor: 'rgba(192, 132, 252, 0.2)',
+                    borderColor: 'rgba(192, 132, 252, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(192, 132, 252, 1)'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                r: {
+                    angleLines: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    pointLabels: {
+                        color: 'rgba(255, 255, 255, 0.8)',
+                        font: {
+                            size: 11
+                        }
+                    },
+                    ticks: {
+                        display: false,
+                        stepSize: 20
+                    },
+                    suggestedMin: 50,
+                    suggestedMax: 100
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.label + ': ' + context.raw + '分';
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// ===== AI 智慧推薦系統 =====
+function initAIRecommendation() {
+    const questionnaire = document.getElementById('ai-questionnaire');
+    if (!questionnaire) return;
+
+    let answers = {};
+    let currentStep = 1;
+
+    // 綁定選項點擊事件
+    questionnaire.querySelectorAll('.ai-option').forEach(option => {
+        option.addEventListener('click', function() {
+            const question = this.closest('.ai-question');
+            const step = parseInt(question.dataset.step);
+
+            // 標記已選擇
+            question.querySelectorAll('.ai-option').forEach(opt => {
+                opt.classList.remove('bg-cyan-500/30', 'border-cyan-400');
+            });
+            this.classList.add('bg-cyan-500/30', 'border-cyan-400');
+
+            // 記錄答案
+            answers[step] = this.dataset.value;
+
+            // 延遲後進入下一步
+            setTimeout(() => {
+                if (step < 3) {
+                    // 隱藏當前問題，顯示下一題
+                    question.classList.add('hidden');
+                    const nextQuestion = questionnaire.querySelector(`[data-step="${step + 1}"]`);
+                    if (nextQuestion) {
+                        nextQuestion.classList.remove('hidden');
+                    }
+                } else {
+                    // 顯示結果
+                    showAIResult(answers);
+                }
+            }, 300);
+        });
+    });
+
+    // 重新測試按鈕
+    const resetBtn = document.getElementById('ai-reset');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+            answers = {};
+            document.getElementById('ai-result').classList.add('hidden');
+            questionnaire.querySelectorAll('.ai-question').forEach((q, i) => {
+                if (i === 0) {
+                    q.classList.remove('hidden');
+                } else {
+                    q.classList.add('hidden');
+                }
+                q.querySelectorAll('.ai-option').forEach(opt => {
+                    opt.classList.remove('bg-cyan-500/30', 'border-cyan-400');
+                });
+            });
+        });
+    }
+}
+
+function showAIResult(answers) {
+    const resultContainer = document.getElementById('ai-result');
+    const recommendation = document.getElementById('ai-recommendation');
+
+    if (!resultContainer || !recommendation) return;
+
+    // 根據答案生成推薦
+    const recommendations = generateRecommendations(answers);
+
+    // 渲染推薦結果
+    recommendation.innerHTML = recommendations.map((rec, i) => `
+        <div class="flex items-center justify-between bg-white/5 rounded-lg p-3">
+            <div class="flex items-center">
+                <span class="w-6 h-6 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full flex items-center justify-center text-xs font-bold mr-3">${i + 1}</span>
+                <div>
+                    <p class="font-medium">${rec.name}</p>
+                    <p class="text-xs text-indigo-300">${rec.reason}</p>
+                </div>
+            </div>
+            <div class="text-right">
+                <div class="text-cyan-400 font-bold">${rec.score}%</div>
+                <div class="text-xs text-indigo-300">匹配度</div>
+            </div>
+        </div>
+    `).join('');
+
+    // 隱藏問題，顯示結果
+    document.querySelectorAll('.ai-question').forEach(q => q.classList.add('hidden'));
+    resultContainer.classList.remove('hidden');
+}
+
+function generateRecommendations(answers) {
+    // AI 推薦邏輯
+    const clinicScores = [
+        { id: 1, name: '悅庭牙醫', city: 'taipei', scores: { price: 75, tech: 95, comfort: 92, reputation: 90 }, features: ['tech', 'sedation', 'allon4'] },
+        { id: 2, name: '雅偲牙醫', city: 'taipei', scores: { price: 70, tech: 90, comfort: 85, reputation: 88 }, features: ['tech', 'allon4'] },
+        { id: 15, name: '歐仕美牙醫', city: 'newtaipei', scores: { price: 88, tech: 85, comfort: 82, reputation: 92 }, features: ['allon4', 'sedation', 'value'] },
+        { id: 16, name: '蒔美牙醫', city: 'newtaipei', scores: { price: 80, tech: 92, comfort: 85, reputation: 85 }, features: ['allon4', 'tech', 'sedation'] },
+        { id: 3, name: '晨光牙醫', city: 'taipei', scores: { price: 72, tech: 88, comfort: 80, reputation: 85 }, features: ['tech', 'premium'] },
+        { id: 7, name: '敦南麗緻牙醫', city: 'taipei', scores: { price: 65, tech: 85, comfort: 95, reputation: 88 }, features: ['sedation', 'premium', 'comfort'] },
+        { id: 21, name: '雲天牙醫', city: 'newtaipei', scores: { price: 92, tech: 82, comfort: 78, reputation: 82 }, features: ['allon4', 'value', 'tech'] },
+        { id: 5, name: '禾玥牙醫', city: 'taipei', scores: { price: 78, tech: 88, comfort: 85, reputation: 85 }, features: ['allon4', 'tech'] }
+    ];
+
+    // 計算匹配分數
+    const results = clinicScores.map(clinic => {
+        let score = 0;
+        let weights = { price: 25, tech: 25, comfort: 25, reputation: 25 };
+
+        // 根據重視因素調整權重
+        switch (answers[1]) {
+            case 'price':
+                weights = { price: 50, tech: 15, comfort: 15, reputation: 20 };
+                break;
+            case 'tech':
+                weights = { price: 15, tech: 50, comfort: 15, reputation: 20 };
+                break;
+            case 'comfort':
+                weights = { price: 15, tech: 15, comfort: 50, reputation: 20 };
+                break;
+            case 'reputation':
+                weights = { price: 15, tech: 20, comfort: 15, reputation: 50 };
+                break;
+        }
+
+        // 計算加權分數
+        score = (clinic.scores.price * weights.price +
+                 clinic.scores.tech * weights.tech +
+                 clinic.scores.comfort * weights.comfort +
+                 clinic.scores.reputation * weights.reputation) / 100;
+
+        // 根據需求加分
+        if (answers[2] === 'allon4' && clinic.features.includes('allon4')) score += 5;
+        if (answers[2] === 'single' && !clinic.features.includes('allon4')) score += 3;
+
+        // 根據地區篩選
+        if (answers[3] === 'taipei' && clinic.city !== 'taipei') score -= 10;
+        if (answers[3] === 'newtaipei' && clinic.city !== 'newtaipei') score -= 10;
+
+        return {
+            ...clinic,
+            finalScore: Math.min(Math.round(score), 98)
+        };
+    });
+
+    // 排序並取前三名
+    results.sort((a, b) => b.finalScore - a.finalScore);
+
+    const reasonMap = {
+        price: '價格實惠',
+        tech: '技術先進',
+        comfort: '環境舒適',
+        reputation: '口碑優良'
+    };
+
+    return results.slice(0, 3).map(r => ({
+        name: r.name,
+        score: r.finalScore,
+        reason: `${reasonMap[answers[1]]}需求的最佳選擇`
+    }));
 }
 
 // ===== 全局函數（供 HTML 調用）=====
