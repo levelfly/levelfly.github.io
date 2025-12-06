@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大台北地區婦產科診所指南 | 人工流產服務資訊整理</title>
+    <meta name="description" content="大台北地區婦產科診所完整資訊，包含人工流產服務、費用、評價、週六看診等資訊整理">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Noto Sans TC', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#EC4899',
+                        'secondary': '#8B5CF6',
+                        'accent': '#F472B6',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #fce7f3 0%, #f3e8ff 50%, #e0e7ff 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .sticky-nav {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, #EC4899, #8B5CF6, #3B82F6);
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: none;
+            }
+            .mobile-menu.active {
+                display: flex;
+            }
+        }
+
+        .filter-btn.active {
+            background-color: #EC4899;
+            color: white;
+        }
+
+        .clinic-card {
+            display: block;
+        }
+
+        .clinic-card.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 sticky-nav shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i data-lucide="heart" class="w-8 h-8 text-primary"></i>
+                    <span class="ml-2 text-xl font-bold text-gray-800">婦產科指南</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="#overview" class="text-gray-600 hover:text-primary transition">總覽</a>
+                    <a href="#hospitals" class="text-gray-600 hover:text-primary transition">大型醫院</a>
+                    <a href="#taipei-clinics" class="text-gray-600 hover:text-primary transition">台北市診所</a>
+                    <a href="#newtaipei-clinics" class="text-gray-600 hover:text-primary transition">新北市診所</a>
+                    <a href="#cost" class="text-gray-600 hover:text-primary transition">費用資訊</a>
+                    <a href="#law" class="text-gray-600 hover:text-primary transition">法規須知</a>
+                    <a href="#recommend" class="text-gray-600 hover:text-primary transition">推薦清單</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="md:hidden p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="mobile-menu md:hidden flex-col pb-4 space-y-2">
+                <a href="#overview" class="block px-4 py-2 text-gray-600 hover:bg-pink-50 rounded">總覽</a>
+                <a href="#hospitals" class="block px-4 py-2 text-gray-600 hover:bg-pink-50 rounded">大型醫院</a>
+                <a href="#taipei-clinics" class="block px-4 py-2 text-gray-600 hover:bg-pink-50 rounded">台北市診所</a>
+                <a href="#newtaipei-clinics" class="block px-4 py-2 text-gray-600 hover:bg-pink-50 rounded">新北市診所</a>
+                <a href="#cost" class="block px-4 py-2 text-gray-600 hover:bg-pink-50 rounded">費用資訊</a>
+                <a href="#law" class="block px-4 py-2 text-gray-600 hover:bg-pink-50 rounded">法規須知</a>
+                <a href="#recommend" class="block px-4 py-2 text-gray-600 hover:bg-pink-50 rounded">推薦清單</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="gradient-bg py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div data-aos="fade-up">
+                <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+                    大台北地區<span class="text-primary">婦產科診所</span>指南
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    完整收錄台北市、新北市優質婦產科診所資訊<br>
+                    包含人工流產服務、費用參考、評價整理與週六看診資訊
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#recommend" class="bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-pink-600 transition shadow-lg">
+                        <i data-lucide="star" class="w-5 h-5 inline mr-2"></i>查看推薦清單
+                    </a>
+                    <a href="#cost" class="bg-white text-primary px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition shadow-lg">
+                        <i data-lucide="calculator" class="w-5 h-5 inline mr-2"></i>費用參考
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white/80 rounded-2xl p-4 shadow-sm">
+                    <div class="text-3xl font-bold text-primary">30+</div>
+                    <div class="text-gray-600 text-sm">收錄診所數</div>
+                </div>
+                <div class="bg-white/80 rounded-2xl p-4 shadow-sm">
+                    <div class="text-3xl font-bold text-secondary">6</div>
+                    <div class="text-gray-600 text-sm">大型醫院</div>
+                </div>
+                <div class="bg-white/80 rounded-2xl p-4 shadow-sm">
+                    <div class="text-3xl font-bold text-blue-500">15+</div>
+                    <div class="text-gray-600 text-sm">週六看診</div>
+                </div>
+                <div class="bg-white/80 rounded-2xl p-4 shadow-sm">
+                    <div class="text-3xl font-bold text-green-500">10+</div>
+                    <div class="text-gray-600 text-sm">女醫師看診</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">重要須知</h2>
+                <div class="section-divider w-24 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="100">
+                <!-- 黃金時機 -->
+                <div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-6 card-hover">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="clock" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">最佳時機</h3>
+                    <p class="text-gray-600 text-sm">
+                        人工流產黃金時機為<strong>懷孕 6-10 週</strong>，此時胎囊較小、風險相對較低。
+                        <br><br>
+                        <span class="text-primary">• 藥物流產：</span>適用 7 週內<br>
+                        <span class="text-primary">• 手術流產：</span>適用 6-10 週
+                    </p>
+                </div>
+
+                <!-- 流產方式 -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 card-hover">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="stethoscope" class="w-6 h-6 text-blue-500"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">兩種方式</h3>
+                    <p class="text-gray-600 text-sm">
+                        <strong>藥物流產 (RU486)</strong><br>
+                        服用兩劑藥物，間隔36-48小時，門診處理。<br><br>
+                        <strong>手術流產</strong><br>
+                        真空吸引術，全程約15分鐘，需麻醉。
+                    </p>
+                </div>
+
+                <!-- 注意事項 -->
+                <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-6 card-hover">
+                    <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="alert-circle" class="w-6 h-6 text-green-500"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">術後照護</h3>
+                    <p class="text-gray-600 text-sm">
+                        • 術後觀察 1-2 小時方可離開<br>
+                        • 當天不宜開車<br>
+                        • 可淋浴但建議多休息<br>
+                        • 依醫師指示回診追蹤<br>
+                        • 注意出血量與身體狀況
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hospitals Section -->
+    <section id="hospitals" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">大型醫院婦產科</h2>
+                <p class="text-gray-600">設備完善、醫療團隊齊全，適合需要更完整醫療支援的情況</p>
+                <div class="section-divider w-24 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 馬偕醫院 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">馬偕紀念醫院</h3>
+                            <p class="text-sm text-gray-500">台北院區</p>
+                        </div>
+                        <span class="tag bg-blue-100 text-blue-700">醫學中心</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="users" class="w-4 h-4 inline mr-2 text-primary"></i>22位主治醫師</p>
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>台北市中山區中山北路二段92號</p>
+                        <p><i data-lucide="phone" class="w-4 h-4 inline mr-2 text-primary"></i>02-2543-3535 分機2578</p>
+                        <p><i data-lucide="calendar" class="w-4 h-4 inline mr-2 text-green-500"></i>週六 09:00-11:30</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-pink-100 text-pink-700">生育保健</span>
+                        <span class="tag bg-purple-100 text-purple-700">高危險妊娠</span>
+                    </div>
+                </div>
+
+                <!-- 台大醫院 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="150">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">台大醫院婦產部</h3>
+                            <p class="text-sm text-gray-500">國家級教學醫院</p>
+                        </div>
+                        <span class="tag bg-blue-100 text-blue-700">醫學中心</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>台北市中正區中山南路7號</p>
+                        <p><i data-lucide="star" class="w-4 h-4 inline mr-2 text-yellow-500"></i>推薦：康巧鈺、戴怡芸、華筱玲醫師</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-yellow-100 text-yellow-700">PTT推薦</span>
+                        <span class="tag bg-purple-100 text-purple-700">教學醫院</span>
+                    </div>
+                </div>
+
+                <!-- 台北長庚 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">台北長庚醫院</h3>
+                            <p class="text-sm text-gray-500">婦產科</p>
+                        </div>
+                        <span class="tag bg-blue-100 text-blue-700">醫學中心</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>台北市松山區敦化北路199號</p>
+                        <p><i data-lucide="star" class="w-4 h-4 inline mr-2 text-yellow-500"></i>推薦：初福傑醫師</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-yellow-100 text-yellow-700">PTT推薦</span>
+                        <span class="tag bg-green-100 text-green-700">團隊溫暖</span>
+                    </div>
+                </div>
+
+                <!-- 國泰醫院 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="250">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">國泰綜合醫院</h3>
+                            <p class="text-sm text-gray-500">婦產科</p>
+                        </div>
+                        <span class="tag bg-blue-100 text-blue-700">區域醫院</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>台北市大安區仁愛路四段280號</p>
+                        <p><i data-lucide="phone" class="w-4 h-4 inline mr-2 text-primary"></i>02-2708-2121</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-green-100 text-green-700">人工生殖優良</span>
+                    </div>
+                </div>
+
+                <!-- 聯合醫院仁愛 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">聯合醫院仁愛院區</h3>
+                            <p class="text-sm text-gray-500">婦產科</p>
+                        </div>
+                        <span class="tag bg-teal-100 text-teal-700">市立醫院</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>台北市大安區仁愛路四段10號</p>
+                        <p><i data-lucide="phone" class="w-4 h-4 inline mr-2 text-primary"></i>02-2709-3600</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-blue-100 text-blue-700">健保</span>
+                    </div>
+                </div>
+
+                <!-- 聯合醫院婦幼 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="350">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">聯合醫院和平婦幼院區</h3>
+                            <p class="text-sm text-gray-500">婦產科專門院區</p>
+                        </div>
+                        <span class="tag bg-teal-100 text-teal-700">市立醫院</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>台北市中正區福州街12號</p>
+                        <p><i data-lucide="phone" class="w-4 h-4 inline mr-2 text-primary"></i>02-2391-6470</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-pink-100 text-pink-700">婦幼專門</span>
+                        <span class="tag bg-blue-100 text-blue-700">健保</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Taipei Clinics Section -->
+    <section id="taipei-clinics" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">台北市婦產科診所</h2>
+                <p class="text-gray-600">專業診所，環境舒適，等候時間較短</p>
+                <div class="section-divider w-24 mx-auto mt-4"></div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8" data-aos="fade-up">
+                <button class="filter-btn active px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-primary hover:text-white transition" data-filter="all">全部</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-primary hover:text-white transition" data-filter="saturday">週六看診</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-primary hover:text-white transition" data-filter="female">女醫師</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-primary hover:text-white transition" data-filter="daan">大安區</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-primary hover:text-white transition" data-filter="neihu">內湖區</button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="taipeiClinicsGrid">
+                <!-- 許世賓婦產科 -->
+                <div class="clinic-card bg-gradient-to-br from-white to-pink-50 rounded-2xl p-6 shadow-sm card-hover" data-tags="daan saturday" data-aos="fade-up">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">許世賓婦產科</h3>
+                            <p class="text-sm text-gray-500">忠孝世賓婦產科</p>
+                        </div>
+                        <span class="tag bg-yellow-100 text-yellow-700">熱門推薦</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>大安區忠孝東路四段176號4樓</p>
+                        <p><i data-lucide="user" class="w-4 h-4 inline mr-2 text-primary"></i>許世賓院長（前馬偕、市立婦幼主任）</p>
+                        <p><i data-lucide="star" class="w-4 h-4 inline mr-2 text-yellow-500"></i>推薦：董德明、程劭佩、黃鈺慧醫師</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-pink-100 text-pink-700">人工流產</span>
+                        <span class="tag bg-purple-100 text-purple-700">藥物流產</span>
+                        <span class="tag bg-green-100 text-green-700">經驗豐富</span>
+                    </div>
+                </div>
+
+                <!-- 安媞婦產科 -->
+                <div class="clinic-card bg-gradient-to-br from-white to-purple-50 rounded-2xl p-6 shadow-sm card-hover" data-tags="daan female" data-aos="fade-up" data-aos-delay="50">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">安媞婦產科診所</h3>
+                            <p class="text-sm text-gray-500">忠孝分院</p>
+                        </div>
+                        <span class="tag bg-pink-100 text-pink-700">女醫師</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>台北市大安區</p>
+                        <p><i data-lucide="user" class="w-4 h-4 inline mr-2 text-primary"></i>蕭倩如醫師、吳佳芳醫師</p>
+                        <p><i data-lucide="shield" class="w-4 h-4 inline mr-2 text-green-500"></i>高隱私診療環境</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-pink-100 text-pink-700">手術流產</span>
+                        <span class="tag bg-purple-100 text-purple-700">RU486</span>
+                        <span class="tag bg-blue-100 text-blue-700">女性團隊</span>
+                    </div>
+                </div>
+
+                <!-- 康心美婦診所 -->
+                <div class="clinic-card bg-gradient-to-br from-white to-green-50 rounded-2xl p-6 shadow-sm card-hover" data-tags="saturday" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">康心美婦診所</h3>
+                            <p class="text-sm text-gray-500">假日婦產科</p>
+                        </div>
+                        <span class="tag bg-green-100 text-green-700">週末看診</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="globe" class="w-4 h-4 inline mr-2 text-primary"></i>kanshin.com.tw</p>
+                        <p><i data-lucide="calendar" class="w-4 h-4 inline mr-2 text-green-500"></i>週六、週日皆有看診</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-pink-100 text-pink-700">真空吸引</span>
+                        <span class="tag bg-purple-100 text-purple-700">RU486</span>
+                        <span class="tag bg-green-100 text-green-700">假日門診</span>
+                    </div>
+                </div>
+
+                <!-- 禾馨婦產科 -->
+                <div class="clinic-card bg-gradient-to-br from-white to-blue-50 rounded-2xl p-6 shadow-sm card-hover" data-tags="daan neihu" data-aos="fade-up" data-aos-delay="150">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">禾馨婦產科</h3>
+                            <p class="text-sm text-gray-500">多據點連鎖</p>
+                        </div>
+                        <span class="tag bg-blue-100 text-blue-700">設備優良</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>新生：大安區新生南路3段2號</p>
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>民權：內湖區民權東路六段42號</p>
+                        <p><i data-lucide="phone" class="w-4 h-4 inline mr-2 text-primary"></i>新生：02-2368-2333</p>
+                        <p><i data-lucide="star" class="w-4 h-4 inline mr-2 text-yellow-500"></i>推薦：楊濬光、黃禮緯、沈可欣醫師</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-blue-100 text-blue-700">超音波清楚</span>
+                        <span class="tag bg-yellow-100 text-yellow-700">PTT熱議</span>
+                    </div>
+                </div>
+
+                <!-- 謝婦產科 -->
+                <div class="clinic-card bg-gradient-to-br from-white to-pink-50 rounded-2xl p-6 shadow-sm card-hover" data-tags="female" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">謝婦產科</h3>
+                            <p class="text-sm text-gray-500">女醫師主治</p>
+                        </div>
+                        <span class="tag bg-pink-100 text-pink-700">女醫師</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="globe" class="w-4 h-4 inline mr-2 text-primary"></i>womenicare.com</p>
+                        <p><i data-lucide="award" class="w-4 h-4 inline mr-2 text-yellow-500"></i>前馬偕婦產部女主治醫師</p>
+                        <p><i data-lucide="briefcase" class="w-4 h-4 inline mr-2 text-primary"></i>20年經驗</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-pink-100 text-pink-700">高隱私</span>
+                        <span class="tag bg-purple-100 text-purple-700">女性友善</span>
+                    </div>
+                </div>
+
+                <!-- 吳坤光婦產科 -->
+                <div class="clinic-card bg-gradient-to-br from-white to-yellow-50 rounded-2xl p-6 shadow-sm card-hover" data-tags="daan saturday" data-aos="fade-up" data-aos-delay="250">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">吳坤光婦產科</h3>
+                            <p class="text-sm text-gray-500">附設產後護理之家</p>
+                        </div>
+                        <span class="tag bg-green-100 text-green-700">週六看診</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>大安區信義路四段59號</p>
+                        <p><i data-lucide="calendar" class="w-4 h-4 inline mr-2 text-green-500"></i>週六 9:00-12:00、15:00-18:00</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-pink-100 text-pink-700">藥物流產</span>
+                        <span class="tag bg-purple-100 text-purple-700">真空吸引</span>
+                        <span class="tag bg-yellow-100 text-yellow-700">PTT好評</span>
+                    </div>
+                </div>
+
+                <!-- 幸福婦產科 -->
+                <div class="clinic-card bg-gradient-to-br from-white to-indigo-50 rounded-2xl p-6 shadow-sm card-hover" data-tags="daan female" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">幸福婦產科</h3>
+                            <p class="text-sm text-gray-500">王伊蕾醫師</p>
+                        </div>
+                        <span class="tag bg-pink-100 text-pink-700">女醫師</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>忠孝東路四段235號12樓</p>
+                        <p><i data-lucide="globe" class="w-4 h-4 inline mr-2 text-primary"></i>obsgyn.net</p>
+                        <p><i data-lucide="x-circle" class="w-4 h-4 inline mr-2 text-red-400"></i>週六日休診</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-purple-100 text-purple-700">試管嬰兒專科</span>
+                    </div>
+                </div>
+
+                <!-- 林正宗婦產科 -->
+                <div class="clinic-card bg-gradient-to-br from-white to-teal-50 rounded-2xl p-6 shadow-sm card-hover" data-tags="daan" data-aos="fade-up" data-aos-delay="350">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">林正宗婦產科</h3>
+                            <p class="text-sm text-gray-500">和平東路</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>大安區和平東路3段100號2樓</p>
+                        <p><i data-lucide="user" class="w-4 h-4 inline mr-2 text-primary"></i>林正宗、簡維新醫師</p>
+                        <p><i data-lucide="smartphone" class="w-4 h-4 inline mr-2 text-blue-500"></i>提供手機APP掛號</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-blue-100 text-blue-700">線上掛號</span>
+                    </div>
+                </div>
+
+                <!-- 內湖陳德駿 -->
+                <div class="clinic-card bg-gradient-to-br from-white to-cyan-50 rounded-2xl p-6 shadow-sm card-hover" data-tags="neihu" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">陳德駿婦產科</h3>
+                            <p class="text-sm text-gray-500">內湖婦產科</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>台北市內湖區</p>
+                        <p><i data-lucide="globe" class="w-4 h-4 inline mr-2 text-primary"></i>tcchenmd.com</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-pink-100 text-pink-700">真空吸引</span>
+                        <span class="tag bg-purple-100 text-purple-700">藥物流產</span>
+                    </div>
+                </div>
+
+                <!-- 佩佩婦幼 -->
+                <div class="clinic-card bg-gradient-to-br from-white to-rose-50 rounded-2xl p-6 shadow-sm card-hover" data-tags="saturday" data-aos="fade-up" data-aos-delay="450">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">佩佩婦幼診所</h3>
+                            <p class="text-sm text-gray-500">士林區</p>
+                        </div>
+                        <span class="tag bg-green-100 text-green-700">週六看診</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>士林區中山北路六段182號</p>
+                        <p><i data-lucide="calendar" class="w-4 h-4 inline mr-2 text-green-500"></i>週六 8:30-12:00、14:00-17:00</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-pink-100 text-pink-700">婦產女醫</span>
+                    </div>
+                </div>
+
+                <!-- 內湖國泰 -->
+                <div class="clinic-card bg-gradient-to-br from-white to-blue-50 rounded-2xl p-6 shadow-sm card-hover" data-tags="neihu" data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">內湖國泰診所</h3>
+                            <p class="text-sm text-gray-500">婦產科</p>
+                        </div>
+                        <span class="tag bg-blue-100 text-blue-700">國泰體系</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>內湖區瑞光路337號</p>
+                        <p><i data-lucide="phone" class="w-4 h-4 inline mr-2 text-primary"></i>02-8797-2121</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-blue-100 text-blue-700">設備新穎</span>
+                    </div>
+                </div>
+
+                <!-- 瑪麗安婦產科 -->
+                <div class="clinic-card bg-gradient-to-br from-white to-pink-50 rounded-2xl p-6 shadow-sm card-hover" data-tags="female" data-aos="fade-up" data-aos-delay="550">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">瑪麗安婦產科</h3>
+                            <p class="text-sm text-gray-500">全女醫師團隊</p>
+                        </div>
+                        <span class="tag bg-pink-100 text-pink-700">女醫師</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="user" class="w-4 h-4 inline mr-2 text-primary"></i>陳麗敏、曾美齡、張仁姬醫師</p>
+                        <p><i data-lucide="globe" class="w-4 h-4 inline mr-2 text-primary"></i>marianswoman.tw</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-pink-100 text-pink-700">全女性團隊</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Taipei Clinics Section -->
+    <section id="newtaipei-clinics" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">新北市婦產科診所</h2>
+                <p class="text-gray-600">板橋、中和、永和、三重、蘆洲、新莊等區域</p>
+                <div class="section-divider w-24 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 天給婦產科 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">天給婦產科</h3>
+                            <p class="text-sm text-gray-500">新莊區</p>
+                        </div>
+                        <span class="tag bg-green-100 text-green-700">24小時</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>新莊區幸福路670巷2弄23號</p>
+                        <p><i data-lucide="phone" class="w-4 h-4 inline mr-2 text-primary"></i>02-2992-2419</p>
+                        <p><i data-lucide="clock" class="w-4 h-4 inline mr-2 text-green-500"></i>24小時醫師接生</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-green-100 text-green-700">全天候服務</span>
+                    </div>
+                </div>
+
+                <!-- 板橋安媞 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="50">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">安媞婦產科</h3>
+                            <p class="text-sm text-gray-500">板橋分院</p>
+                        </div>
+                        <span class="tag bg-pink-100 text-pink-700">女醫師</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>新北市板橋區</p>
+                        <p><i data-lucide="user" class="w-4 h-4 inline mr-2 text-primary"></i>蕭倩如醫師、吳佳芳醫師</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-pink-100 text-pink-700">手術流產</span>
+                        <span class="tag bg-purple-100 text-purple-700">藥物流產</span>
+                    </div>
+                </div>
+
+                <!-- 豐禾婦產科 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">豐禾婦產科</h3>
+                            <p class="text-sm text-gray-500">板橋區</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>板橋區中山路一段279號3樓</p>
+                        <p><i data-lucide="phone" class="w-4 h-4 inline mr-2 text-primary"></i>02-8951-6666</p>
+                    </div>
+                </div>
+
+                <!-- 蕙生婦幼 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="150">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">蕙生婦幼醫院</h3>
+                            <p class="text-sm text-gray-500">永和/中和</p>
+                        </div>
+                        <span class="tag bg-blue-100 text-blue-700">專科醫院</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="award" class="w-4 h-4 inline mr-2 text-yellow-500"></i>新北市唯一婦幼專科醫院</p>
+                        <p><i data-lucide="shield-check" class="w-4 h-4 inline mr-2 text-green-500"></i>優生保健專科醫師</p>
+                        <p><i data-lucide="globe" class="w-4 h-4 inline mr-2 text-primary"></i>fsobs.com.tw</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-blue-100 text-blue-700">婦幼專科</span>
+                        <span class="tag bg-green-100 text-green-700">優生保健</span>
+                    </div>
+                </div>
+
+                <!-- 鍾婦產科 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">鍾婦產科</h3>
+                            <p class="text-sm text-gray-500">在地深耕30年</p>
+                        </div>
+                        <span class="tag bg-green-100 text-green-700">24小時</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="clock" class="w-4 h-4 inline mr-2 text-green-500"></i>24小時全年無休</p>
+                        <p><i data-lucide="globe" class="w-4 h-4 inline mr-2 text-primary"></i>dr-jong.com.tw</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-yellow-100 text-yellow-700">30年經驗</span>
+                        <span class="tag bg-green-100 text-green-700">全天候</span>
+                    </div>
+                </div>
+
+                <!-- 御生婦產科 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="250">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">御生婦產科</h3>
+                            <p class="text-sm text-gray-500">永和區</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>永和區中山路1段277號</p>
+                        <p><i data-lucide="phone" class="w-4 h-4 inline mr-2 text-primary"></i>02-2923-1818</p>
+                    </div>
+                </div>
+
+                <!-- 宥宥婦幼 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">宥宥婦幼診所</h3>
+                            <p class="text-sm text-gray-500">蘆洲區</p>
+                        </div>
+                        <span class="tag bg-yellow-100 text-yellow-700">人氣診所</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>蘆洲區長榮路58號</p>
+                        <p><i data-lucide="phone" class="w-4 h-4 inline mr-2 text-primary"></i>02-8283-9090</p>
+                        <p><i data-lucide="alert-circle" class="w-4 h-4 inline mr-2 text-orange-400"></i>等待時間較長</p>
+                    </div>
+                </div>
+
+                <!-- 安馨婦產科 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="350">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">安馨婦產科</h3>
+                            <p class="text-sm text-gray-500">蘆洲區</p>
+                        </div>
+                        <span class="tag bg-pink-100 text-pink-700">女醫師</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>蘆洲區民族路203號</p>
+                        <p><i data-lucide="phone" class="w-4 h-4 inline mr-2 text-primary"></i>02-2282-7458</p>
+                        <p><i data-lucide="heart" class="w-4 h-4 inline mr-2 text-pink-500"></i>女醫師溫柔親切</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-pink-100 text-pink-700">女醫師</span>
+                        <span class="tag bg-green-100 text-green-700">親切有耐心</span>
+                    </div>
+                </div>
+
+                <!-- 真善美婦產科 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">真善美婦產科</h3>
+                            <p class="text-sm text-gray-500">蘆洲區</p>
+                        </div>
+                        <span class="tag bg-pink-100 text-pink-700">女醫師</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="heart" class="w-4 h-4 inline mr-2 text-pink-500"></i>溫柔細心的女醫生</p>
+                        <p><i data-lucide="star" class="w-4 h-4 inline mr-2 text-yellow-500"></i>網友推薦解釋清楚</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-pink-100 text-pink-700">溫柔細心</span>
+                        <span class="tag bg-purple-100 text-purple-700">解說詳細</span>
+                    </div>
+                </div>
+
+                <!-- 惠心婦幼 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="450">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">惠心婦幼診所</h3>
+                            <p class="text-sm text-gray-500">三重區</p>
+                        </div>
+                        <span class="tag bg-yellow-100 text-yellow-700">網友推薦</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="star" class="w-4 h-4 inline mr-2 text-yellow-500"></i>推薦：陳志忠醫師</p>
+                        <p><i data-lucide="globe" class="w-4 h-4 inline mr-2 text-primary"></i>eugeneclinic.com.tw</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-yellow-100 text-yellow-700">PTT推薦</span>
+                    </div>
+                </div>
+
+                <!-- 采新婦幼 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">采新婦幼</h3>
+                            <p class="text-sm text-gray-500">三重區</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="globe" class="w-4 h-4 inline mr-2 text-primary"></i>neogene.com.tw</p>
+                        <p><i data-lucide="star" class="w-4 h-4 inline mr-2 text-yellow-500"></i>房間舒適寬敞</p>
+                    </div>
+                </div>
+
+                <!-- 新北聯合醫院 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover" data-aos="fade-up" data-aos-delay="550">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">新北市立聯合醫院</h3>
+                            <p class="text-sm text-gray-500">婦產科</p>
+                        </div>
+                        <span class="tag bg-teal-100 text-teal-700">市立醫院</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>三重：新北大道一段3號</p>
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2 text-primary"></i>板橋：英士路198號</p>
+                        <p><i data-lucide="phone" class="w-4 h-4 inline mr-2 text-primary"></i>02-2982-9111</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-blue-100 text-blue-700">健保</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Section -->
+    <section id="cost" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">費用參考資訊</h2>
+                <p class="text-gray-600">費用會因診所、週數、方式而有所不同，以下為網路蒐集之參考資訊</p>
+                <div class="section-divider w-24 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Cost Comparison Chart -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg" data-aos="fade-right">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">費用比較圖表</h3>
+                    <canvas id="costChart" height="300"></canvas>
+                </div>
+
+                <!-- Cost Details -->
+                <div class="space-y-6" data-aos="fade-left">
+                    <div class="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i data-lucide="pill" class="w-5 h-5 mr-2 text-primary"></i>
+                            藥物流產 (RU486)
+                        </h3>
+                        <div class="text-3xl font-bold text-primary mb-2">$5,500 - $7,000</div>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• 適用週數：7週內</li>
+                            <li>• 台北診所參考：約 $6,500</li>
+                            <li>• 若不完全需手術：另加 $1,000-$5,000</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i data-lucide="scissors" class="w-5 h-5 mr-2 text-blue-500"></i>
+                            手術流產
+                        </h3>
+                        <div class="text-3xl font-bold text-blue-500 mb-2">$7,000 - $12,000</div>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• 適用週數：6-12週</li>
+                            <li>• 真空吸引術參考：約 $9,000</li>
+                            <li>• 全身麻醉費用另計（約 $7,000）</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-green-50 to-teal-50 rounded-2xl p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i data-lucide="credit-card" class="w-5 h-5 mr-2 text-green-500"></i>
+                            健保給付說明
+                        </h3>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• 非自願流產有健保給付</li>
+                            <li>• 自願性流產為自費</li>
+                            <li>• 病態性流產可申請健保</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-xl p-4" data-aos="fade-up">
+                <div class="flex items-start">
+                    <i data-lucide="alert-triangle" class="w-5 h-5 text-yellow-600 mr-3 mt-0.5"></i>
+                    <div>
+                        <h4 class="font-bold text-yellow-800">費用免責聲明</h4>
+                        <p class="text-sm text-yellow-700">以上費用僅供參考，實際費用請向各診所確認。費用可能因週數、個人狀況、麻醉方式等因素而有所不同。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Law Section -->
+    <section id="law" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">法規須知</h2>
+                <p class="text-gray-600">依據台灣優生保健法相關規定</p>
+                <div class="section-divider w-24 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl p-6 shadow-sm" data-aos="fade-right">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i data-lucide="scale" class="w-5 h-5 mr-2 text-primary"></i>
+                        優生保健法第九條
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">可施行人工流產之情形：</p>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <span class="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">1</span>
+                            患有影響生育健康之遺傳性疾病
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">2</span>
+                            懷孕或分娩會導致生命危險或危害健康
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">3</span>
+                            醫學認定胎兒有畸形發育之虞
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">4</span>
+                            因強制性交、誘姦而懷孕
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">5</span>
+                            因懷孕或生產將影響其心理健康或家庭生活
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm" data-aos="fade-left">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i data-lucide="file-signature" class="w-5 h-5 mr-2 text-primary"></i>
+                        同意書簽署規定
+                    </h3>
+
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 rounded-xl p-4">
+                            <h4 class="font-bold text-blue-800 mb-2">已婚者</h4>
+                            <p class="text-sm text-blue-700">依「因懷孕或生產將影響其心理健康或家庭生活」之事由施行人工流產，<strong>需經配偶同意</strong></p>
+                        </div>
+
+                        <div class="bg-green-50 rounded-xl p-4">
+                            <h4 class="font-bold text-green-800 mb-2">成年未婚者</h4>
+                            <p class="text-sm text-green-700">可<strong>自行簽署</strong>人工流產同意書</p>
+                        </div>
+
+                        <div class="bg-orange-50 rounded-xl p-4">
+                            <h4 class="font-bold text-orange-800 mb-2">未滿18歲未婚者</h4>
+                            <p class="text-sm text-orange-700">應得<strong>法定代理人同意</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommend Section -->
+    <section id="recommend" class="py-16 bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">綜合推薦清單</h2>
+                <p class="text-gray-600">根據搜尋結果、網友評價、服務項目等綜合整理</p>
+                <div class="section-divider w-24 mx-auto mt-4"></div>
+            </div>
+
+            <!-- 週六看診推薦 -->
+            <div class="mb-12" data-aos="fade-up">
+                <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i data-lucide="calendar-check" class="w-6 h-6 mr-2 text-green-500"></i>
+                    週六有看診 - 適合假日就醫
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-white rounded-xl p-4 shadow-sm flex items-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">1</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">康心美婦診所</h4>
+                            <p class="text-sm text-gray-500">週六、週日皆有看診</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm flex items-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">2</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">吳坤光婦產科</h4>
+                            <p class="text-sm text-gray-500">週六 9:00-12:00、15:00-18:00</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm flex items-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">3</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">馬偕紀念醫院</h4>
+                            <p class="text-sm text-gray-500">週六 9:00-11:30</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm flex items-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">4</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">佩佩婦幼診所</h4>
+                            <p class="text-sm text-gray-500">週六 8:30-17:00 (士林)</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm flex items-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">5</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">天給婦產科</h4>
+                            <p class="text-sm text-gray-500">24小時 (新莊)</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm flex items-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">6</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">鍾婦產科</h4>
+                            <p class="text-sm text-gray-500">24小時全年無休</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 女醫師推薦 -->
+            <div class="mb-12" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i data-lucide="heart" class="w-6 h-6 mr-2 text-pink-500"></i>
+                    女醫師看診 - 更安心自在
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-white rounded-xl p-4 shadow-sm flex items-center">
+                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+                            <i data-lucide="user" class="w-6 h-6 text-pink-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">安媞婦產科</h4>
+                            <p class="text-sm text-gray-500">蕭倩如、吳佳芳醫師</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm flex items-center">
+                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+                            <i data-lucide="user" class="w-6 h-6 text-pink-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">謝婦產科</h4>
+                            <p class="text-sm text-gray-500">女醫師、20年經驗</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm flex items-center">
+                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+                            <i data-lucide="user" class="w-6 h-6 text-pink-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">瑪麗安婦產科</h4>
+                            <p class="text-sm text-gray-500">全女醫師團隊</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm flex items-center">
+                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+                            <i data-lucide="user" class="w-6 h-6 text-pink-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">幸福婦產科</h4>
+                            <p class="text-sm text-gray-500">王伊蕾醫師</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm flex items-center">
+                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+                            <i data-lucide="user" class="w-6 h-6 text-pink-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">安馨婦產科</h4>
+                            <p class="text-sm text-gray-500">女醫師溫柔親切 (蘆洲)</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm flex items-center">
+                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+                            <i data-lucide="user" class="w-6 h-6 text-pink-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">真善美婦產科</h4>
+                            <p class="text-sm text-gray-500">溫柔細心女醫師 (蘆洲)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PTT/Dcard 熱門推薦 -->
+            <div class="mb-12" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i data-lucide="message-circle" class="w-6 h-6 mr-2 text-blue-500"></i>
+                    PTT / Dcard 熱門推薦
+                </h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-white rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-gray-800 mb-3">禾馨婦產科</h4>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="tag bg-green-100 text-green-700">設備好</span>
+                            <span class="tag bg-blue-100 text-blue-700">超音波清楚</span>
+                        </div>
+                        <p class="text-sm text-gray-600">推薦醫師：楊濬光、黃禮緯、沈可欣、溫醫生</p>
+                        <p class="text-xs text-gray-400 mt-2">*評價兩極，建議多方參考</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-gray-800 mb-3">許世賓婦產科</h4>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="tag bg-yellow-100 text-yellow-700">經驗豐富</span>
+                            <span class="tag bg-purple-100 text-purple-700">專業團隊</span>
+                        </div>
+                        <p class="text-sm text-gray-600">推薦醫師：董德明、程劭佩、黃鈺慧</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-gray-800 mb-3">台大醫院婦產部</h4>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="tag bg-blue-100 text-blue-700">醫學中心</span>
+                        </div>
+                        <p class="text-sm text-gray-600">推薦醫師：康巧鈺、戴怡芸、華筱玲</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-gray-800 mb-3">台北長庚婦產科</h4>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="tag bg-green-100 text-green-700">團隊溫暖</span>
+                        </div>
+                        <p class="text-sm text-gray-600">推薦醫師：初福傑醫師</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 行動建議 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i data-lucide="lightbulb" class="w-6 h-6 mr-2 text-yellow-500"></i>
+                    建議行動步驟
+                </h3>
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-pink-600 font-bold text-lg">1</span>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">確認週數</h4>
+                        <p class="text-sm text-gray-600">先以驗孕棒確認，並估算懷孕週數</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-purple-600 font-bold text-lg">2</span>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">電話諮詢</h4>
+                        <p class="text-sm text-gray-600">致電診所確認服務項目與費用</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-blue-600 font-bold text-lg">3</span>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">預約門診</h4>
+                        <p class="text-sm text-gray-600">攜帶健保卡與身份證就診</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-green-600 font-bold text-lg">4</span>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">醫師評估</h4>
+                        <p class="text-sm text-gray-600">由醫師評估適合的處理方式</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="heart" class="w-6 h-6 text-primary"></i>
+                        <span class="ml-2 text-lg font-bold">婦產科指南</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        提供大台北地區婦產科診所資訊整理，幫助您快速找到適合的醫療院所。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">快速連結</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#hospitals" class="hover:text-white transition">大型醫院</a></li>
+                        <li><a href="#taipei-clinics" class="hover:text-white transition">台北市診所</a></li>
+                        <li><a href="#newtaipei-clinics" class="hover:text-white transition">新北市診所</a></li>
+                        <li><a href="#cost" class="hover:text-white transition">費用資訊</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">重要提醒</h4>
+                    <p class="text-gray-400 text-sm">
+                        本網站資訊僅供參考，實際服務內容、費用及門診時間請向各醫療院所確認。如有任何醫療問題，請諮詢專業醫師。
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
+                <p>資料整理時間：2025年12月 | 資料來源：網路公開資訊、PTT、Dcard</p>
+                <p class="mt-2">本網站僅提供資訊整理，不代表任何醫療建議</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 600,
+            once: true,
+            offset: 50
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Filter functionality for Taipei clinics
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const clinicCards = document.querySelectorAll('.clinic-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                clinicCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.classList.remove('hidden');
+                    } else {
+                        const tags = card.dataset.tags || '';
+                        if (tags.includes(filter)) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+
+        // Cost Comparison Chart
+        const ctx = document.getElementById('costChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['藥物流產\n(最低)', '藥物流產\n(最高)', '手術流產\n(最低)', '手術流產\n(最高)', '全身麻醉\n(參考)'],
+                datasets: [{
+                    label: '費用 (新台幣)',
+                    data: [5500, 7000, 7000, 12000, 7000],
+                    backgroundColor: [
+                        'rgba(236, 72, 153, 0.7)',
+                        'rgba(236, 72, 153, 0.9)',
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(59, 130, 246, 0.9)',
+                        'rgba(34, 197, 94, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(236, 72, 153, 1)',
+                        'rgba(236, 72, 153, 1)',
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(34, 197, 94, 1)'
+                    ],
+                    borderWidth: 2,
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'NT$ ' + context.raw.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return 'NT$ ' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
