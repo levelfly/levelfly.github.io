@@ -7,9 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
     renderComparisonTable();
     renderVehicles();
     renderFAQs();
+    renderInsurance();
+    renderCoupons();
+    renderCreditCards();
     initFilterButtons();
     initPriceChart();
     initSmoothScroll();
+    initCalculator();
+    initBackToTop();
 });
 
 // Mobile Menu
@@ -329,5 +334,210 @@ function initSmoothScroll() {
                 });
             }
         });
+    });
+}
+
+// Render Insurance Comparison Table
+function renderInsurance() {
+    const tableBody = document.getElementById('insuranceTable');
+    if (!tableBody || typeof insuranceComparison === 'undefined') return;
+
+    tableBody.innerHTML = insuranceComparison.map(item => {
+        const formatCell = (value) => {
+            if (value === true) return '<span class="text-green-600 font-bold"><i class="fas fa-check-circle"></i></span>';
+            if (value === false) return '<span class="text-red-400"><i class="fas fa-times-circle"></i></span>';
+            if (value === '需確認' || value === '需另購') return `<span class="text-amber-500 text-xs">${value}</span>`;
+            return `<span class="text-slate-700 text-xs">${value}</span>`;
+        };
+
+        return `
+            <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-4 font-medium text-slate-800">${item.company}</td>
+                <td class="p-4 text-center">${formatCell(item.compulsory)}</td>
+                <td class="p-4 text-center">${formatCell(item.thirdParty)}</td>
+                <td class="p-4 text-center">${formatCell(item.driver)}</td>
+                <td class="p-4 text-center">${formatCell(item.deductible)}</td>
+                <td class="p-4 text-center">${formatCell(item.addon)}</td>
+            </tr>
+        `;
+    }).join('');
+}
+
+// Render Coupons
+function renderCoupons() {
+    const container = document.getElementById('couponList');
+    if (!container || typeof coupons === 'undefined') return;
+
+    container.innerHTML = coupons.map(coupon => `
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20 hover:bg-white/20 transition">
+            <div class="flex justify-between items-start mb-2">
+                <div class="text-sm text-purple-200">${coupon.platform}</div>
+                ${coupon.expiry !== '持續進行' ? `<span class="text-xs text-purple-300 bg-white/10 px-2 py-0.5 rounded-full">至 ${coupon.expiry}</span>` : ''}
+            </div>
+            <div class="text-lg font-bold mb-1 ${coupon.code.length < 10 ? '' : 'font-mono text-base'}">${coupon.code}</div>
+            <div class="text-xl font-bold text-yellow-300 mb-2">${coupon.discount}</div>
+            <p class="text-purple-200 text-xs">${coupon.note}</p>
+        </div>
+    `).join('');
+}
+
+// Render Credit Card Deals
+function renderCreditCards() {
+    const container = document.getElementById('creditCardList');
+    if (!container || typeof creditCardDeals === 'undefined') return;
+
+    container.innerHTML = creditCardDeals.map(card => `
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
+            <div class="font-bold text-white mb-2">${card.bank}</div>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+                <div>
+                    <div class="text-purple-300">平日</div>
+                    <div class="text-yellow-300 font-bold">${card.weekday}</div>
+                </div>
+                <div>
+                    <div class="text-purple-300">假日</div>
+                    <div class="text-yellow-300 font-bold">${card.weekend}</div>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Initialize Calculator
+function initCalculator() {
+    const select = document.getElementById('calcCompany');
+    if (!select) return;
+
+    // Populate company select
+    const validCompanies = companies.filter(c => c.dailyPrice > 0);
+    select.innerHTML = validCompanies.map(c =>
+        `<option value="${c.id}" ${c.recommended ? 'selected' : ''}>${c.name} - $${c.dailyPrice.toLocaleString()}/日</option>`
+    ).join('');
+
+    // Set default to recommended company
+    const recommended = validCompanies.find(c => c.recommended);
+    if (recommended) {
+        select.value = recommended.id;
+    }
+
+    // Add event listeners
+    select.addEventListener('change', calculateCost);
+    document.getElementById('calcDays').addEventListener('change', calculateCost);
+    document.getElementById('calcInsurance').addEventListener('change', calculateCost);
+    document.getElementById('calcMileage').addEventListener('input', calculateCost);
+
+    // Initial calculation
+    calculateCost();
+}
+
+// Adjust Days
+function adjustDays(delta) {
+    const input = document.getElementById('calcDays');
+    if (!input) return;
+
+    let value = parseInt(input.value) + delta;
+    value = Math.max(1, Math.min(30, value));
+    input.value = value;
+    calculateCost();
+}
+
+// Update Mileage Display
+function updateMileageDisplay() {
+    const slider = document.getElementById('calcMileage');
+    const display = document.getElementById('mileageDisplay');
+    if (slider && display) {
+        display.textContent = slider.value + 'km';
+    }
+}
+
+// Calculate Cost
+function calculateCost() {
+    const companyId = parseInt(document.getElementById('calcCompany')?.value);
+    const days = parseInt(document.getElementById('calcDays')?.value) || 2;
+    const mileage = parseInt(document.getElementById('calcMileage')?.value) || 100;
+    const addInsurance = document.getElementById('calcInsurance')?.checked || false;
+
+    const company = companies.find(c => c.id === companyId);
+    if (!company) return;
+
+    // Base rental cost
+    let baseCost = company.dailyPrice * days;
+
+    // Apply discount for 3+ days if applicable (中租 6折優惠)
+    if (company.name === '中租租車' && days >= 3) {
+        baseCost = Math.round(baseCost * 0.6);
+    }
+
+    // Insurance cost
+    const insuranceCost = addInsurance ? (600 * days) : 0;
+
+    // Mileage overage cost (simplified calculation)
+    let mileageLimit = 0;
+    let overageRate = 0;
+
+    if (company.mileageLimit && company.mileageLimit !== '依方案' && company.mileageLimit !== '依車行') {
+        const match = company.mileageLimit.match(/(\d+)/);
+        if (match) {
+            mileageLimit = parseInt(match[1]) * days;
+        }
+    }
+
+    if (company.mileageOvercharge) {
+        const rateMatch = company.mileageOvercharge.match(/(\d+)/);
+        if (rateMatch) {
+            overageRate = parseInt(rateMatch[1]);
+        }
+    }
+
+    let mileageCost = 0;
+    if (mileageLimit > 0 && mileage > mileageLimit && overageRate > 0) {
+        mileageCost = (mileage - mileageLimit) * overageRate;
+    }
+
+    // Total
+    const total = baseCost + insuranceCost + mileageCost;
+
+    // Update display
+    document.getElementById('calcResult').textContent = total.toLocaleString();
+
+    // Build breakdown text
+    let breakdown = `基本租金 $${baseCost.toLocaleString()}`;
+    if (company.name === '中租租車' && days >= 3) {
+        breakdown += ' (6折優惠)';
+    }
+    if (insuranceCost > 0) {
+        breakdown += ` + 安心免責 $${insuranceCost.toLocaleString()}`;
+    }
+    if (mileageCost > 0) {
+        breakdown += ` + 超里程費 $${mileageCost.toLocaleString()}`;
+    }
+
+    document.getElementById('calcBreakdown').textContent = breakdown;
+
+    // Update mileage display
+    updateMileageDisplay();
+}
+
+// Back to Top Button
+function initBackToTop() {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            btn.classList.remove('translate-y-20', 'opacity-0');
+            btn.classList.add('translate-y-0', 'opacity-100');
+        } else {
+            btn.classList.add('translate-y-20', 'opacity-0');
+            btn.classList.remove('translate-y-0', 'opacity-100');
+        }
+    });
+}
+
+// Scroll to Top
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
 }
