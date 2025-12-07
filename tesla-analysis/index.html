@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特斯拉 TSLA 深度投資分析報告 | 2025年12月</title>
+    <meta name="description" content="2025年12月特斯拉(TSLA)股票深度分析報告，包含財務數據、成長動能、風險評估、分析師評級與估值分析。">
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tesla: '#e82127',
+                        dark: '#171a20',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+        }
+
+        .glass {
+            background: rgba(23, 26, 32, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #e82127 0%, #ff6b6b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card {
+            background: rgba(23, 26, 32, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(232, 33, 39, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(232, 33, 39, 0.1) 0%, rgba(23, 26, 32, 0.8) 100%);
+        }
+
+        .risk-high { border-left: 4px solid #ef4444; }
+        .risk-medium { border-left: 4px solid #f59e0b; }
+        .risk-low { border-left: 4px solid #22c55e; }
+
+        .bull { background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, transparent 100%); border-left: 4px solid #22c55e; }
+        .bear { background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, transparent 100%); border-left: 4px solid #ef4444; }
+
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+
+        .disclaimer {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(23, 26, 32, 0.8) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-lg bg-tesla flex items-center justify-center text-white font-bold text-xl">T</div>
+                    <span class="font-bold text-xl text-white">TSLA 深度分析</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-6 text-sm">
+                    <a href="#overview" class="text-gray-400 hover:text-white transition">概覽</a>
+                    <a href="#financials" class="text-gray-400 hover:text-white transition">財務數據</a>
+                    <a href="#growth" class="text-gray-400 hover:text-white transition">成長動能</a>
+                    <a href="#risks" class="text-gray-400 hover:text-white transition">風險分析</a>
+                    <a href="#valuation" class="text-gray-400 hover:text-white transition">估值分析</a>
+                    <a href="#verdict" class="text-gray-400 hover:text-white transition">投資結論</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-24 pb-16 overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-tesla/10 rounded-full blur-[150px]"></div>
+            <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-red-900/20 rounded-full blur-[100px]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Disclaimer Banner -->
+            <div class="disclaimer rounded-xl p-4 mb-8">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-exclamation-triangle text-amber-500 text-xl mt-0.5"></i>
+                    <div>
+                        <p class="text-amber-200 font-bold mb-1">投資風險警告</p>
+                        <p class="text-amber-100/80 text-sm">本報告僅供參考，不構成任何投資建議。股票投資具有風險，過去表現不代表未來結果。在做出任何投資決策前，請諮詢專業財務顧問。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-tesla/20 border border-tesla/30 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse-slow"></span>
+                    <span class="text-sm text-gray-300">最後更新：2025年12月7日</span>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-black text-white mb-4">
+                    Tesla Inc. <span class="text-gradient">TSLA</span>
+                </h1>
+                <p class="text-xl text-gray-400 mb-8">深度投資分析報告</p>
+
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                    <div class="stat-card rounded-2xl p-5">
+                        <div class="text-3xl font-black text-white mb-1">$451.19</div>
+                        <div class="text-gray-400 text-sm">當前股價</div>
+                        <div class="text-green-500 text-sm mt-1"><i class="fas fa-arrow-up"></i> +25.83% YTD</div>
+                    </div>
+                    <div class="stat-card rounded-2xl p-5">
+                        <div class="text-3xl font-black text-white mb-1">$1.43T</div>
+                        <div class="text-gray-400 text-sm">市值</div>
+                        <div class="text-gray-500 text-sm mt-1">Mega Cap</div>
+                    </div>
+                    <div class="stat-card rounded-2xl p-5">
+                        <div class="text-3xl font-black text-tesla mb-1">303.7x</div>
+                        <div class="text-gray-400 text-sm">本益比 P/E</div>
+                        <div class="text-amber-500 text-sm mt-1"><i class="fas fa-exclamation-circle"></i> 歷史高位</div>
+                    </div>
+                    <div class="stat-card rounded-2xl p-5">
+                        <div class="text-3xl font-black text-white mb-1">Hold</div>
+                        <div class="text-gray-400 text-sm">分析師共識</div>
+                        <div class="text-gray-500 text-sm mt-1">26位分析師</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <i class="fas fa-chart-line text-tesla"></i>
+                公司概覽
+            </h2>
+
+            <div class="grid lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2 card rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">關於 Tesla</h3>
+                    <p class="text-gray-400 leading-relaxed mb-4">
+                        Tesla Inc. 是全球領先的電動車製造商與清潔能源公司，由 Elon Musk 領導。公司正在從傳統電動車製造商轉型為 AI 與機器人公司，主要業務包括：
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-white/5 rounded-xl p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fas fa-car text-tesla"></i>
+                                <span class="font-bold text-white">電動車業務</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">Model 3/Y/S/X、Cybertruck，2024年交付約180萬輛</p>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fas fa-battery-full text-green-500"></i>
+                                <span class="font-bold text-white">能源儲存</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">Megapack、Powerwall，2024年營收超過$100億</p>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fas fa-robot text-purple-500"></i>
+                                <span class="font-bold text-white">AI 與機器人</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">FSD自動駕駛、Optimus人形機器人、Robotaxi</p>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fas fa-charging-station text-blue-500"></i>
+                                <span class="font-bold text-white">充電網路</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">全球最大超級充電站網路，NACS標準被廣泛採用</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">關鍵數據</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">52週範圍</span>
+                            <span class="text-white font-medium">$214 - $489</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">平均成交量</span>
+                            <span class="text-white font-medium">56.4M</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">2024營收</span>
+                            <span class="text-white font-medium">$97.1B</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">2025E營收</span>
+                            <span class="text-white font-medium">$109.2B</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">現金部位</span>
+                            <span class="text-white font-medium">$33.6B</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-400">員工數</span>
+                            <span class="text-white font-medium">~140,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Section -->
+    <section id="financials" class="py-16 bg-gradient-to-b from-transparent to-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <i class="fas fa-dollar-sign text-tesla"></i>
+                財務數據分析
+            </h2>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Q3 2024 Results -->
+                <div class="card rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-6">Q3 2024 財報重點</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-white/5 rounded-xl p-4 text-center">
+                            <div class="text-2xl font-bold text-white">$25.2B</div>
+                            <div class="text-gray-400 text-sm">總營收</div>
+                            <div class="text-green-500 text-xs mt-1">YoY +8%</div>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-4 text-center">
+                            <div class="text-2xl font-bold text-white">$0.72</div>
+                            <div class="text-gray-400 text-sm">EPS (Non-GAAP)</div>
+                            <div class="text-green-500 text-xs mt-1">超預期 25%</div>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-4 text-center">
+                            <div class="text-2xl font-bold text-white">19.8%</div>
+                            <div class="text-gray-400 text-sm">毛利率</div>
+                            <div class="text-green-500 text-xs mt-1">YoY +195bps</div>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-4 text-center">
+                            <div class="text-2xl font-bold text-white">$2.7B</div>
+                            <div class="text-gray-400 text-sm">自由現金流</div>
+                            <div class="text-green-500 text-xs mt-1">強勁</div>
+                        </div>
+                    </div>
+                    <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-4">
+                        <p class="text-green-400 text-sm"><i class="fas fa-check-circle mr-2"></i>每輛車成本降至歷史新低 $35,100</p>
+                    </div>
+                </div>
+
+                <!-- Revenue Chart -->
+                <div class="card rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-6">營收結構 (2024)</h3>
+                    <div class="relative h-64">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Margin Concerns -->
+                <div class="card rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">利潤率趨勢 <span class="text-amber-500 text-sm font-normal ml-2"><i class="fas fa-exclamation-triangle"></i> 值得關注</span></h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">汽車毛利率 (2022)</span>
+                                <span class="text-white">28.5%</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-3">
+                                <div class="bg-green-500 h-3 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">汽車毛利率 (Q3 2024)</span>
+                                <span class="text-white">16.4%</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-3">
+                                <div class="bg-amber-500 h-3 rounded-full" style="width: 49%"></div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm mt-4">
+                            <i class="fas fa-info-circle text-amber-500 mr-2"></i>
+                            汽車業務利潤率持續承壓，主要受降價策略和競爭加劇影響。Q3毛利率回升主要靠碳權收入($7.39億)支撐。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Energy Business -->
+                <div class="card rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">能源業務亮點 <span class="text-green-500 text-sm font-normal ml-2"><i class="fas fa-star"></i> 成長明星</span></h3>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="bg-green-500/10 rounded-xl p-4 text-center">
+                            <div class="text-2xl font-bold text-green-400">31.4 GWh</div>
+                            <div class="text-gray-400 text-sm">2024部署量</div>
+                            <div class="text-green-500 text-xs mt-1">YoY +114%</div>
+                        </div>
+                        <div class="bg-green-500/10 rounded-xl p-4 text-center">
+                            <div class="text-2xl font-bold text-green-400">$10.1B</div>
+                            <div class="text-gray-400 text-sm">2024能源營收</div>
+                            <div class="text-green-500 text-xs mt-1">YoY +67%</div>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 rounded-xl p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-gray-400">能源業務毛利率</span>
+                            <span class="text-green-400 font-bold">30.5%</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">能源儲存業務已成為 Tesla 最賺錢的部門，2025年預計成長50%+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Growth Drivers Section -->
+    <section id="growth" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <i class="fas fa-rocket text-tesla"></i>
+                成長動能分析
+            </h2>
+
+            <div class="grid lg:grid-cols-2 gap-6">
+                <!-- Robotaxi -->
+                <div class="card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                            <i class="fas fa-taxi text-purple-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Robotaxi 自駕計程車</h3>
+                            <span class="text-purple-400 text-sm">潛在營收：2030年 $750億</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>2025年6月在德州奧斯汀啟動服務，使用 Model Y</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>Musk 目標：2025年底覆蓋美國一半人口</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-clock text-amber-500 mt-1"></i>
+                            <span>FSD V14 延至年底，仍需人類監督</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-exclamation-triangle text-red-500 mt-1"></i>
+                            <span>NHTSA 調查中，發現80+次違規</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Optimus Robot -->
+                <div class="card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                            <i class="fas fa-robot text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Optimus 人形機器人</h3>
+                            <span class="text-blue-400 text-sm">Musk：可能佔 Tesla 80% 價值</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>2025年目標生產 5,000-10,000 台</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>2026年開始對外銷售</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>生產成本目標：低於 $20,000/台</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-clock text-amber-500 mt-1"></i>
+                            <span>仍處早期階段，商業化時程不確定</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- FSD -->
+                <div class="card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center">
+                            <i class="fas fa-brain text-green-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">FSD 全自動駕駛</h3>
+                            <span class="text-green-400 text-sm">高毛利軟體訂閱收入</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>累計行駛超過數十億英里</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>訂閱制 $99-199/月，一次付清 $8,000</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-clock text-amber-500 mt-1"></i>
+                            <span>V14 強調 10x 參數量提升</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-exclamation-triangle text-red-500 mt-1"></i>
+                            <span>「全自動駕駛」名稱遭批誤導</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Energy -->
+                <div class="card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center">
+                            <i class="fas fa-bolt text-yellow-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">能源儲存業務</h3>
+                            <span class="text-yellow-400 text-sm">最穩定的成長引擎</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>Megapack 需求強勁，訂單排到2026年</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>上海 Megafactory 已投產</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>休士頓新廠規劃中 (40 GWh/年)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>毛利率 30%+，高於汽車業務</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Section -->
+    <section id="risks" class="py-16 bg-gradient-to-b from-transparent to-red-950/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <i class="fas fa-shield-alt text-tesla"></i>
+                風險因素分析
+            </h2>
+
+            <div class="grid lg:grid-cols-2 gap-6">
+                <!-- Competition Risk -->
+                <div class="card rounded-2xl p-6 risk-high">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-sm font-bold">高風險</span>
+                        <h3 class="text-xl font-bold text-white">中國市場競爭</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><i class="fas fa-times text-red-500 mr-2"></i>中國市佔率從 16% (2020) 跌至 3.2% (2025)</li>
+                        <li><i class="fas fa-times text-red-500 mr-2"></i>BYD 以 23% 市佔率稱霸，新車型審批速度是 Tesla 的 12 倍</li>
+                        <li><i class="fas fa-times text-red-500 mr-2"></i>BYD Seagull 售價僅 $9,900，價格優勢懸殊</li>
+                        <li><i class="fas fa-times text-red-500 mr-2"></i>2025年4月 BYD 在歐洲銷量首次超越 Tesla</li>
+                    </ul>
+                </div>
+
+                <!-- Political Risk -->
+                <div class="card rounded-2xl p-6 risk-high">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-sm font-bold">高風險</span>
+                        <h3 class="text-xl font-bold text-white">Musk 政治爭議</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><i class="fas fa-times text-red-500 mr-2"></i>耶魯研究：Musk 政治立場使 Tesla 損失 100-126 萬輛銷量</li>
+                        <li><i class="fas fa-times text-red-500 mr-2"></i>DOGE 任務失敗後與 Trump 公開決裂</li>
+                        <li><i class="fas fa-times text-red-500 mr-2"></i>#TeslaTakedown 抗議運動影響品牌形象</li>
+                        <li><i class="fas fa-times text-red-500 mr-2"></i>Q1 2025 利潤暴跌 71%，部分歸因於抵制</li>
+                    </ul>
+                </div>
+
+                <!-- Valuation Risk -->
+                <div class="card rounded-2xl p-6 risk-high">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-sm font-bold">高風險</span>
+                        <h3 class="text-xl font-bold text-white">估值風險</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><i class="fas fa-times text-red-500 mr-2"></i>P/E 303x，遠高於 Mag 7 平均的 30x</li>
+                        <li><i class="fas fa-times text-red-500 mr-2"></i>Michael Burry：「市值被荒謬高估」</li>
+                        <li><i class="fas fa-times text-red-500 mr-2"></i>內在價值分析顯示高估約 90%</li>
+                        <li><i class="fas fa-times text-red-500 mr-2"></i>每年 3.6% 股權稀釋，無回購計畫</li>
+                    </ul>
+                </div>
+
+                <!-- Execution Risk -->
+                <div class="card rounded-2xl p-6 risk-medium">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold">中風險</span>
+                        <h3 class="text-xl font-bold text-white">執行風險</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><i class="fas fa-exclamation text-amber-500 mr-2"></i>Musk 過去多次延遲承諾（FSD、Cybertruck 等）</li>
+                        <li><i class="fas fa-exclamation text-amber-500 mr-2"></i>Robotaxi 監管審批不確定</li>
+                        <li><i class="fas fa-exclamation text-amber-500 mr-2"></i>Optimus 商業化時程存疑</li>
+                        <li><i class="fas fa-exclamation text-amber-500 mr-2"></i>FSD V14 已多次延期</li>
+                    </ul>
+                </div>
+
+                <!-- Trade Risk -->
+                <div class="card rounded-2xl p-6 risk-medium">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold">中風險</span>
+                        <h3 class="text-xl font-bold text-white">貿易戰風險</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><i class="fas fa-exclamation text-amber-500 mr-2"></i>中國對美國進口車徵收 125% 關稅</li>
+                        <li><i class="fas fa-exclamation text-amber-500 mr-2"></i>Model S/X 暫停在中國接單</li>
+                        <li><i class="fas fa-exclamation text-amber-500 mr-2"></i>歐盟對中國製 Tesla 加徵關稅</li>
+                    </ul>
+                </div>
+
+                <!-- Regulatory Risk -->
+                <div class="card rounded-2xl p-6 risk-medium">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold">中風險</span>
+                        <h3 class="text-xl font-bold text-white">監管風險</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><i class="fas fa-exclamation text-amber-500 mr-2"></i>NHTSA 持續調查 FSD 安全問題</li>
+                        <li><i class="fas fa-exclamation text-amber-500 mr-2"></i>Robotaxi 各州監管標準不一</li>
+                        <li><i class="fas fa-exclamation text-amber-500 mr-2"></i>自動駕駛責任歸屬法規待定</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valuation Section -->
+    <section id="valuation" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <i class="fas fa-calculator text-tesla"></i>
+                估值分析
+            </h2>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Analyst Targets -->
+                <div class="card rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-6">分析師目標價</h3>
+                    <div class="space-y-4 mb-6">
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-400">最高目標價 (Wedbush)</span>
+                                <span class="text-green-400 font-bold">$600</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-400">平均目標價</span>
+                                <span class="text-amber-400 font-bold">$384</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="bg-amber-500 h-2 rounded-full" style="width: 64%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-400">當前價格</span>
+                                <span class="text-white font-bold">$451</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="bg-white h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-400">最低目標價 (GLJ Research)</span>
+                                <span class="text-red-400 font-bold">$19</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="bg-red-500 h-2 rounded-full" style="width: 3%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 rounded-xl p-4">
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <div class="text-2xl font-bold text-green-400">13</div>
+                                <div class="text-gray-400 text-xs">買入</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-amber-400">11</div>
+                                <div class="text-gray-400 text-xs">持有</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-red-400">10</div>
+                                <div class="text-gray-400 text-xs">賣出</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Valuation Metrics -->
+                <div class="card rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-6">估值指標比較</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-white/10">
+                                    <th class="text-left text-gray-400 py-3">指標</th>
+                                    <th class="text-right text-gray-400 py-3">TSLA</th>
+                                    <th class="text-right text-gray-400 py-3">行業平均</th>
+                                    <th class="text-right text-gray-400 py-3">Mag 7</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-white/10">
+                                    <td class="py-3 text-white">P/E Ratio</td>
+                                    <td class="py-3 text-right text-red-400 font-bold">303.7x</td>
+                                    <td class="py-3 text-right text-gray-400">15-25x</td>
+                                    <td class="py-3 text-right text-gray-400">~30x</td>
+                                </tr>
+                                <tr class="border-b border-white/10">
+                                    <td class="py-3 text-white">Forward P/E</td>
+                                    <td class="py-3 text-right text-red-400 font-bold">206.8x</td>
+                                    <td class="py-3 text-right text-gray-400">12-20x</td>
+                                    <td class="py-3 text-right text-gray-400">~25x</td>
+                                </tr>
+                                <tr class="border-b border-white/10">
+                                    <td class="py-3 text-white">EV/EBITDA</td>
+                                    <td class="py-3 text-right text-red-400 font-bold">89.5x</td>
+                                    <td class="py-3 text-right text-gray-400">8-12x</td>
+                                    <td class="py-3 text-right text-gray-400">~20x</td>
+                                </tr>
+                                <tr class="border-b border-white/10">
+                                    <td class="py-3 text-white">P/S Ratio</td>
+                                    <td class="py-3 text-right text-red-400 font-bold">14.7x</td>
+                                    <td class="py-3 text-right text-gray-400">1-3x</td>
+                                    <td class="py-3 text-right text-gray-400">~8x</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 text-white">營收成長 (YoY)</td>
+                                    <td class="py-3 text-right text-amber-400">-0.6%</td>
+                                    <td class="py-3 text-right text-gray-400">5-10%</td>
+                                    <td class="py-3 text-right text-gray-400">15-25%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-4 bg-red-500/10 border border-red-500/30 rounded-xl p-4">
+                        <p class="text-red-400 text-sm">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>
+                            Morningstar 分析：TSLA 目前溢價 588%。Alpha Spread 估算內在價值約 $44，當前價格高估約 90%。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bull vs Bear Section -->
+    <section class="py-16 bg-gradient-to-b from-transparent to-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">多空觀點對決</h2>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Bull Case -->
+                <div class="bull rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                            <i class="fas fa-arrow-up text-green-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-400">看多論點 (Bull Case)</h3>
+                    </div>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-white">AI/機器人轉型</span>
+                                <p class="text-sm text-gray-400">Robotaxi 和 Optimus 可能帶來數兆美元市場機會</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-white">FSD 領先優勢</span>
+                                <p class="text-sm text-gray-400">數十億英里真實駕駛數據，傳統車廠難以追趕</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-white">能源業務爆發</span>
+                                <p class="text-sm text-gray-400">30%+ 毛利率，穩定高成長，成為新獲利引擎</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-white">垂直整合優勢</span>
+                                <p class="text-sm text-gray-400">從電池到軟體全掌控，成本持續下降</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-white">強勁財務體質</span>
+                                <p class="text-sm text-gray-400">$336億現金，無淨負債，研發投資無虞</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-6 bg-green-500/10 rounded-xl p-4">
+                        <p class="text-green-400 text-sm font-bold">Wedbush 目標價：$600</p>
+                        <p class="text-gray-400 text-sm">「Tesla 在自動駕駛技術上的領先優勢將讓傳統車廠望塵莫及」</p>
+                    </div>
+                </div>
+
+                <!-- Bear Case -->
+                <div class="bear rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
+                            <i class="fas fa-arrow-down text-red-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-red-400">看空論點 (Bear Case)</h3>
+                    </div>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-times-circle text-red-500 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-white">估值極度高估</span>
+                                <p class="text-sm text-gray-400">P/E 303x，即使未來兌現也已 Price In</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-times-circle text-red-500 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-white">核心業務衰退</span>
+                                <p class="text-sm text-gray-400">汽車銷量停滯，利潤率持續下滑</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-times-circle text-red-500 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-white">中國市場失守</span>
+                                <p class="text-sm text-gray-400">BYD 主導，市佔率跌至 3%，價格戰難贏</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-times-circle text-red-500 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-white">Musk 風險</span>
+                                <p class="text-sm text-gray-400">政治爭議損害品牌，分心於 X 和政治事務</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-times-circle text-red-500 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-white">承諾屢次跳票</span>
+                                <p class="text-sm text-gray-400">FSD、Robotaxi 時程一再延後</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-6 bg-red-500/10 rounded-xl p-4">
+                        <p class="text-red-400 text-sm font-bold">Michael Burry：「荒謬高估」</p>
+                        <p class="text-gray-400 text-sm">「Tesla 每年稀釋股東 3.6%，沒有回購，市值被嚴重高估」</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verdict Section -->
+    <section id="verdict" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <i class="fas fa-gavel text-tesla"></i>
+                投資結論
+            </h2>
+
+            <div class="card rounded-2xl p-8 mb-8">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-2xl bg-amber-500/20 flex items-center justify-center">
+                        <i class="fas fa-balance-scale text-amber-400 text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">整體評估：審慎觀望</h3>
+                        <p class="text-amber-400">高風險高報酬，不適合重倉</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white/5 rounded-xl p-5">
+                        <h4 class="font-bold text-white mb-3"><i class="fas fa-plus text-green-500 mr-2"></i>潛在機會</h4>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                            <li>• AI/機器人領域的先行者優勢</li>
+                            <li>• 能源儲存業務高速成長</li>
+                            <li>• FSD 技術持續進步</li>
+                            <li>• 強勁的現金流和財務狀況</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/5 rounded-xl p-5">
+                        <h4 class="font-bold text-white mb-3"><i class="fas fa-minus text-red-500 mr-2"></i>主要顧慮</h4>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                            <li>• 估值處於歷史極端水平</li>
+                            <li>• 核心汽車業務面臨嚴峻挑戰</li>
+                            <li>• Musk 政治爭議影響品牌</li>
+                            <li>• 承諾兌現紀錄不佳</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+                    <h4 class="font-bold text-amber-400 mb-3"><i class="fas fa-lightbulb mr-2"></i>給考慮重倉投資者的建議</h4>
+                    <ul class="text-gray-300 space-y-2">
+                        <li><i class="fas fa-check text-amber-500 mr-2"></i><strong>分批建倉</strong>：考慮分 6-12 個月逐步建立部位，避免一次性高點買入</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2"></i><strong>設定停損</strong>：考慮設定 15-20% 停損點保護資本</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2"></i><strong>分散風險</strong>：即使看好 Tesla，也不建議超過投資組合 10-15%</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2"></i><strong>長期視角</strong>：若相信 AI/機器人故事，需有 5-10 年投資視野</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2"></i><strong>持續追蹤</strong>：密切關注 FSD 進展、Robotaxi 監管、中國市場動態</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Key Dates -->
+            <div class="card rounded-2xl p-6">
+                <h3 class="text-xl font-bold text-white mb-4"><i class="fas fa-calendar-alt text-tesla mr-2"></i>重要觀察時點</h3>
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div class="bg-white/5 rounded-xl p-4 text-center">
+                        <div class="text-tesla font-bold">2025 Q4</div>
+                        <div class="text-gray-400 text-sm">FSD V14 發布</div>
+                    </div>
+                    <div class="bg-white/5 rounded-xl p-4 text-center">
+                        <div class="text-tesla font-bold">2025 年底</div>
+                        <div class="text-gray-400 text-sm">Robotaxi 擴展目標</div>
+                    </div>
+                    <div class="bg-white/5 rounded-xl p-4 text-center">
+                        <div class="text-tesla font-bold">2026 年</div>
+                        <div class="text-gray-400 text-sm">Optimus 開始對外銷售</div>
+                    </div>
+                    <div class="bg-white/5 rounded-xl p-4 text-center">
+                        <div class="text-tesla font-bold">每季財報</div>
+                        <div class="text-gray-400 text-sm">交付量與利潤率</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sources Section -->
+    <section class="py-16 bg-gradient-to-b from-transparent to-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-xl font-bold text-white mb-6">資料來源</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-sm">
+                <div class="bg-white/5 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-300 mb-2">財務數據</h4>
+                    <ul class="text-gray-500 space-y-1">
+                        <li><a href="https://ir.tesla.com/" target="_blank" class="hover:text-white">Tesla Investor Relations</a></li>
+                        <li><a href="https://www.cnbc.com/quotes/TSLA" target="_blank" class="hover:text-white">CNBC</a></li>
+                        <li><a href="https://finance.yahoo.com/quote/TSLA/" target="_blank" class="hover:text-white">Yahoo Finance</a></li>
+                    </ul>
+                </div>
+                <div class="bg-white/5 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-300 mb-2">分析師評級</h4>
+                    <ul class="text-gray-500 space-y-1">
+                        <li><a href="https://stockanalysis.com/stocks/tsla/forecast/" target="_blank" class="hover:text-white">Stock Analysis</a></li>
+                        <li><a href="https://www.marketbeat.com/stocks/NASDAQ/TSLA/forecast/" target="_blank" class="hover:text-white">MarketBeat</a></li>
+                        <li><a href="https://www.benzinga.com/quote/TSLA/analyst-ratings" target="_blank" class="hover:text-white">Benzinga</a></li>
+                    </ul>
+                </div>
+                <div class="bg-white/5 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-300 mb-2">新聞與研究</h4>
+                    <ul class="text-gray-500 space-y-1">
+                        <li><a href="https://electrek.co/" target="_blank" class="hover:text-white">Electrek</a></li>
+                        <li><a href="https://insideevs.com/" target="_blank" class="hover:text-white">InsideEVs</a></li>
+                        <li><a href="https://www.morningstar.com/stocks/xnas/tsla/quote" target="_blank" class="hover:text-white">Morningstar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-500 text-sm mb-2">
+                本報告僅供資訊參考，不構成投資建議。投資有風險，請謹慎評估。
+            </p>
+            <p class="text-gray-600 text-xs">
+                &copy; 2025 TSLA 深度分析報告 | 最後更新：2025年12月7日
+            </p>
+        </div>
+    </footer>
+
+    <!-- Chart Scripts -->
+    <script>
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['汽車銷售', '能源業務', '服務與其他', '碳權收入'],
+                datasets: [{
+                    data: [77, 10, 11, 2],
+                    backgroundColor: [
+                        '#e82127',
+                        '#22c55e',
+                        '#6366f1',
+                        '#f59e0b'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#9ca3af',
+                            padding: 15,
+                            font: { size: 11 }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
