@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initVehicleSwiper();
     initTooltips();
     initRentalMap();
+    initMobileFixedCTA();
+    renderChecklist();
 });
 
 // Mobile Menu
@@ -749,4 +751,155 @@ function initRentalMap() {
     // Fit bounds to show all markers
     const group = L.featureGroup(locations.map(loc => L.marker([loc.lat, loc.lng])));
     map.fitBounds(group.getBounds().pad(0.1));
+}
+
+// Mobile Fixed CTA Button
+function initMobileFixedCTA() {
+    const ctaButton = document.getElementById('mobileFixedCTA');
+    if (!ctaButton) return;
+
+    let lastScrollY = 0;
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        lastScrollY = window.scrollY;
+
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                // Show CTA when scrolled past hero section
+                if (lastScrollY > 600) {
+                    ctaButton.classList.add('visible');
+                } else {
+                    ctaButton.classList.remove('visible');
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
+
+// Checklist Data
+const checklistData = {
+    documents: [
+        { id: 'doc1', text: '身分證正本' },
+        { id: 'doc2', text: '駕照正本（需滿1年以上）' },
+        { id: 'doc3', text: '信用卡（部分車行要求）' },
+        { id: 'doc4', text: '第二證件（健保卡/護照）' },
+        { id: 'doc5', text: '租車確認單/訂單編號' }
+    ],
+    pickup: [
+        { id: 'pick1', text: '確認車身外觀刮痕並拍照' },
+        { id: 'pick2', text: '檢查油量錶位置' },
+        { id: 'pick3', text: '確認輪胎狀況' },
+        { id: 'pick4', text: '測試車燈、方向燈' },
+        { id: 'pick5', text: '確認備胎與工具' },
+        { id: 'pick6', text: '了解車內功能操作' }
+    ],
+    return: [
+        { id: 'ret1', text: '加滿油（滿油取還）' },
+        { id: 'ret2', text: '清理車內垃圾' },
+        { id: 'ret3', text: '檢查有無遺留物品' },
+        { id: 'ret4', text: '確認還車時間避免逾時' },
+        { id: 'ret5', text: '索取還車證明' }
+    ],
+    items: [
+        { id: 'item1', text: '手機車架' },
+        { id: 'item2', text: '行車記錄器（自備更安心）' },
+        { id: 'item3', text: '兒童安全座椅（如需要）' },
+        { id: 'item4', text: '遮陽板' },
+        { id: 'item5', text: '濕紙巾/面紙' },
+        { id: 'item6', text: '雨傘' }
+    ]
+};
+
+// Render Checklist
+function renderChecklist() {
+    const containers = {
+        documents: document.getElementById('checklistDocuments'),
+        pickup: document.getElementById('checklistPickup'),
+        return: document.getElementById('checklistReturn'),
+        items: document.getElementById('checklistItems')
+    };
+
+    // Load saved state from localStorage
+    const savedState = JSON.parse(localStorage.getItem('rentalChecklist') || '{}');
+
+    Object.keys(checklistData).forEach(category => {
+        const container = containers[category];
+        if (!container) return;
+
+        container.innerHTML = checklistData[category].map(item => {
+            const isChecked = savedState[item.id] || false;
+            return `
+                <div class="checklist-item ${isChecked ? 'completed' : ''}" data-id="${item.id}">
+                    <div class="checklist-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleChecklistItem('${item.id}', this)"></div>
+                    <span class="checklist-text text-sm text-slate-700">${item.text}</span>
+                </div>
+            `;
+        }).join('');
+    });
+}
+
+// Toggle Checklist Item
+function toggleChecklistItem(id, element) {
+    const item = element.closest('.checklist-item');
+    const isNowChecked = !element.classList.contains('checked');
+
+    element.classList.toggle('checked');
+    item.classList.toggle('completed');
+
+    // Save to localStorage
+    const savedState = JSON.parse(localStorage.getItem('rentalChecklist') || '{}');
+    savedState[id] = isNowChecked;
+    localStorage.setItem('rentalChecklist', JSON.stringify(savedState));
+}
+
+// Reset Checklist
+function resetChecklist() {
+    localStorage.removeItem('rentalChecklist');
+    renderChecklist();
+}
+
+// Social Share Functions
+function shareToFacebook() {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`, '_blank', 'width=600,height=400');
+}
+
+function shareToLine() {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    window.open(`https://social-plugins.line.me/lineit/share?url=${url}&text=${title}`, '_blank', 'width=600,height=400');
+}
+
+function shareToTwitter() {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank', 'width=600,height=400');
+}
+
+function copyToClipboard() {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+        const btn = document.getElementById('copyBtn');
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i>';
+        btn.style.background = '#22c55e';
+
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.background = '#64748b';
+        }, 2000);
+    }).catch(err => {
+        // Fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = url;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        alert('連結已複製！');
+    });
 }
