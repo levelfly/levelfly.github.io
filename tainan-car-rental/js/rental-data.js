@@ -1,4 +1,5 @@
 // 台南租車公司完整資料（基於2024-2025調查報告）
+// 注意：價格僅供參考，實際費用請以各租車公司官網公告為準
 const companies = [
     // 連鎖租車公司
     {
@@ -10,7 +11,7 @@ const companies = [
         phone: '0800-024-680',
         location: '高鐵站附近',
         vehicle: 'Hyundai Custin (7人)',
-        dailyPrice: 2799,
+        dailyPrice: 2800,
         twoDayPrice: 5600,
         mileageLimit: '部分不限里程',
         rating: 4.7,
@@ -18,7 +19,8 @@ const companies = [
         icon: 'fa-building',
         color: 'text-green-600',
         recommended: true,
-        badge: 'CP值最高'
+        badge: 'CP值最高',
+        priceSource: 'Klook/官網估算'
     },
     {
         id: 2,
@@ -28,7 +30,7 @@ const companies = [
         website: 'https://www.car-plus.com.tw/',
         phone: '06-600-0006',
         location: '高鐵站內櫃檯',
-        vehicle: 'LUXGEN M7 (8人)',
+        vehicle: 'LUXGEN M7 (7人)',
         dailyPrice: 3120,
         twoDayPrice: 6240,
         mileageLimit: '400km/日',
@@ -38,7 +40,8 @@ const companies = [
         icon: 'fa-train',
         color: 'text-blue-600',
         recommended: true,
-        badge: '高鐵最方便'
+        badge: '高鐵最方便',
+        priceSource: '官網假日6折價'
     },
     {
         id: 3,
@@ -49,8 +52,8 @@ const companies = [
         phone: '06-236-5788',
         location: '火車站/高鐵站',
         vehicle: 'Toyota SIENTA (7人)',
-        dailyPrice: 3120,
-        twoDayPrice: 6240,
+        dailyPrice: 3000,
+        twoDayPrice: 6000,
         mileageLimit: '300km/日',
         mileageOvercharge: 'NT$5/km',
         rating: 4.9,
@@ -58,7 +61,8 @@ const companies = [
         icon: 'fa-horse',
         color: 'text-purple-600',
         recommended: false,
-        badge: '評價最高'
+        badge: '評價最高',
+        priceSource: '請洽官網確認'
     },
     {
         id: 4,
@@ -69,8 +73,8 @@ const companies = [
         phone: '0800-288-568',
         location: '高鐵站(免費接送)',
         vehicle: 'MPV經濟7人座',
-        dailyPrice: 3000,
-        twoDayPrice: 6000,
+        dailyPrice: 3375,
+        twoDayPrice: 6750,
         mileageLimit: '依方案',
         mileageOvercharge: 'NT$5/km',
         rating: 4.8,
@@ -78,7 +82,8 @@ const companies = [
         icon: 'fa-shuttle-van',
         color: 'text-orange-500',
         recommended: false,
-        badge: ''
+        badge: '',
+        priceSource: 'PChome票券價'
     },
     {
         id: 5,
@@ -88,9 +93,9 @@ const companies = [
         website: 'https://www.avis-taiwan.com/',
         phone: '0800-600-601',
         location: '府城站/高鐵站',
-        vehicle: 'VW Sharan (7人)',
-        dailyPrice: 4000,
-        twoDayPrice: 8000,
+        vehicle: '7人座MPV',
+        dailyPrice: 3500,
+        twoDayPrice: 7000,
         mileageLimit: '400km/日',
         mileageOvercharge: 'NT$2/km',
         rating: 4.5,
@@ -98,7 +103,8 @@ const companies = [
         icon: 'fa-gem',
         color: 'text-red-600',
         recommended: false,
-        badge: ''
+        badge: '',
+        priceSource: '請洽官網確認'
     },
     {
         id: 6,
@@ -109,8 +115,8 @@ const companies = [
         phone: '0800-024-550',
         location: '火車站/高鐵站',
         vehicle: 'Toyota SIENTA (7人)',
-        dailyPrice: 2500,
-        twoDayPrice: 5000,
+        dailyPrice: 2800,
+        twoDayPrice: 5600,
         mileageLimit: '依方案',
         mileageOvercharge: 'NT$3.1/km',
         rating: 4.4,
@@ -118,7 +124,8 @@ const companies = [
         icon: 'fa-car',
         color: 'text-teal-600',
         recommended: false,
-        badge: ''
+        badge: '',
+        priceSource: '雄獅旅遊票券估算'
     },
     // 本地租車行
     {
@@ -129,17 +136,18 @@ const companies = [
         website: 'https://www.any-car.com.tw/',
         phone: '線上預約',
         location: '火車站/高鐵站',
-        vehicle: '7人座休旅車',
-        dailyPrice: 1370,
-        twoDayPrice: 2740,
-        mileageLimit: '依方案',
+        vehicle: 'Hyundai Custin (7人)',
+        dailyPrice: 3150,
+        twoDayPrice: 6300,
+        mileageLimit: '400km/日',
         mileageOvercharge: 'NT$5/km',
         rating: 4.5,
-        features: ['本地最便宜', '雙據點', '保險完整'],
+        features: ['雙據點', '保險完整', '高鐵接送'],
         icon: 'fa-plane',
         color: 'text-sky-500',
         recommended: true,
-        badge: '最便宜'
+        badge: '在地推薦',
+        priceSource: '官網優惠價'
     },
     {
         id: 8,
@@ -147,11 +155,11 @@ const companies = [
         englishName: 'Tainan Car',
         type: 'local',
         website: 'http://www.tainan-car.com.tw/',
-        phone: '線上預約',
+        phone: '06-2006302',
         location: '火車站旁步行可達',
         vehicle: '7人座休旅車',
-        dailyPrice: 1600,
-        twoDayPrice: 3200,
+        dailyPrice: 0,
+        twoDayPrice: 0,
         mileageLimit: '依方案',
         mileageOvercharge: 'NT$3/km',
         rating: 4.9,
@@ -159,7 +167,9 @@ const companies = [
         icon: 'fa-store',
         color: 'text-amber-600',
         recommended: false,
-        badge: ''
+        badge: '',
+        priceNote: '以排氣量計價，請電洽',
+        priceSource: '需電話詢價'
     },
     {
         id: 9,
