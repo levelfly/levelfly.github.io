@@ -25,6 +25,78 @@
     <meta property="twitter:title" content="台南7人座租車完整比較指南 | 2025 最新版">
     <meta property="twitter:description" content="2025年台南7人座租車公司完整比較，收錄12家租車公司價格、保險、評價與行程推薦。">
 
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "台南7人座租車完整比較指南",
+        "description": "2025年台南7人座租車公司完整比較，收錄12家租車公司價格、保險、評價與行程推薦。",
+        "url": "https://levelfly.github.io/tainan-car-rental/",
+        "dateModified": "2025-12-07",
+        "inLanguage": "zh-TW",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "台南租車指南",
+            "url": "https://levelfly.github.io/"
+        },
+        "about": {
+            "@type": "Service",
+            "serviceType": "Car Rental Comparison",
+            "areaServed": {
+                "@type": "City",
+                "name": "Tainan",
+                "containedInPlace": {
+                    "@type": "Country",
+                    "name": "Taiwan"
+                }
+            }
+        },
+        "mainEntity": {
+            "@type": "ItemList",
+            "name": "台南租車公司列表",
+            "numberOfItems": 12,
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@type": "AutoRental",
+                        "name": "中租租車",
+                        "url": "https://www.rentalcar.com.tw/",
+                        "priceRange": "$$",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "台南市",
+                            "addressCountry": "TW"
+                        }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@type": "AutoRental",
+                        "name": "格上租車",
+                        "url": "https://www.car-plus.com.tw/",
+                        "priceRange": "$$"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                        "@type": "AutoRental",
+                        "name": "直航租車",
+                        "url": "https://www.any-car.com.tw/",
+                        "priceRange": "$"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+
     <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -52,6 +124,22 @@
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Swiper.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Tippy.js -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+    <!-- Leaflet.js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <style>
         body {
@@ -144,6 +232,65 @@
 
         .float-animation {
             animation: float 3s ease-in-out infinite;
+        }
+
+        /* Swiper Custom Styles */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #0ea5e9;
+            background: rgba(255,255,255,0.9);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .swiper-pagination-bullet-active {
+            background: #0ea5e9;
+        }
+
+        /* Leaflet Map Styles */
+        #rentalMap {
+            height: 400px;
+            border-radius: 1.5rem;
+            z-index: 1;
+        }
+        .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+        }
+        .map-popup {
+            text-align: center;
+            padding: 4px;
+        }
+        .map-popup h4 {
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: #0f172a;
+        }
+        .map-popup p {
+            font-size: 12px;
+            color: #64748b;
+            margin: 2px 0;
+        }
+        .map-popup .price {
+            color: #0ea5e9;
+            font-weight: bold;
+        }
+
+        /* Tippy Custom Theme */
+        .tippy-box[data-theme~='rental'] {
+            background-color: #0f172a;
+            color: white;
+            font-size: 13px;
+            border-radius: 8px;
+            padding: 4px 8px;
+        }
+        .tippy-box[data-theme~='rental'] .tippy-arrow {
+            color: #0f172a;
         }
     </style>
 </head>
@@ -273,14 +420,14 @@
     <!-- AI Recommendation -->
     <section class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col items-center mb-12">
+            <div class="flex flex-col items-center mb-12" data-aos="fade-up">
                 <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-600 text-sm font-bold mb-3">AI 智慧分析</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900">您的最佳租車推薦</h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Option 1: 最便宜 -->
-                <div class="group relative bg-white rounded-3xl p-8 shadow-xl border border-slate-100 card-hover overflow-hidden">
+                <div class="group relative bg-white rounded-3xl p-8 shadow-xl border border-slate-100 card-hover overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150"></div>
                     <div class="relative">
                         <div class="flex items-center gap-3 mb-6">
@@ -315,7 +462,7 @@
                 </div>
 
                 <!-- Option 2 (Featured): 推薦首選 -->
-                <div class="group relative bg-slate-900 rounded-3xl p-8 shadow-2xl card-hover transform md:-translate-y-4 border border-slate-800">
+                <div class="group relative bg-slate-900 rounded-3xl p-8 shadow-2xl card-hover transform md:-translate-y-4 border border-slate-800" data-aos="fade-up" data-aos-delay="200">
                     <div class="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                         推薦首選
                     </div>
@@ -352,7 +499,7 @@
                 </div>
 
                 <!-- Option 3: 高鐵最方便 -->
-                <div class="group relative bg-white rounded-3xl p-8 shadow-xl border border-slate-100 card-hover overflow-hidden">
+                <div class="group relative bg-white rounded-3xl p-8 shadow-xl border border-slate-100 card-hover overflow-hidden" data-aos="fade-up" data-aos-delay="300">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150"></div>
                     <div class="relative">
                         <div class="flex items-center gap-3 mb-6">
@@ -392,7 +539,7 @@
     <!-- Companies Section -->
     <section id="companies" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">台南7人座租車公司總覽</h2>
                 <p class="text-slate-600 max-w-2xl mx-auto">點擊標籤篩選您偏好的租車模式</p>
             </div>
@@ -415,7 +562,7 @@
     <!-- Price Comparison -->
     <section id="comparison" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">價格比較表</h2>
                 <p class="text-slate-600">兩天一夜7人座車款費用預估（假日價格）</p>
             </div>
@@ -466,13 +613,19 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">嚴選 7-9 人座車款</h2>
-                <p class="text-slate-400">依據您的行李數量與舒適度需求選擇</p>
+                <p class="text-slate-400">依據您的行李數量與舒適度需求選擇，左右滑動查看更多</p>
             </div>
 
-            <div id="vehicleList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Javascript will populate this -->
+            <!-- Swiper Container -->
+            <div class="swiper vehicleSwiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper" id="vehicleList">
+                    <!-- Javascript will populate this -->
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination mt-8"></div>
             </div>
 
             <!-- Vehicle Tips -->
@@ -506,7 +659,7 @@
     <!-- Tips Section -->
     <section id="tips" class="py-20 bg-gradient-to-br from-amber-50 to-orange-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">租車注意事項</h2>
                 <p class="text-slate-600">台南開車必看的重要提醒</p>
             </div>
@@ -566,14 +719,14 @@
     <!-- Itinerary Section -->
     <section id="itinerary" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">台南自駕推薦行程</h2>
                 <p class="text-slate-600">專為開車族群設計的路線，輕鬆停車好走</p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-10">
                 <!-- Route 1 -->
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100" data-aos="fade-right">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-blue-500/30">
                             <i class="fas fa-landmark"></i>
@@ -638,7 +791,7 @@
                 </div>
 
                 <!-- Route 2 -->
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100" data-aos="fade-left">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-green-500/30">
                             <i class="fas fa-tree"></i>
@@ -836,13 +989,43 @@
     <!-- FAQ Section -->
     <section id="faq" class="py-20 bg-slate-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">常見問題</h2>
                 <p class="text-slate-600">解決您對台南租車的所有疑問</p>
             </div>
 
             <div id="faqList" class="space-y-4">
                 <!-- Javascript will populate this -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Rental Locations Map -->
+    <section id="map" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-600 text-sm font-bold mb-3 inline-block">📍 據點地圖</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">台南租車據點分佈</h2>
+                <p class="text-slate-600">點擊標記查看各據點詳細資訊</p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden p-4" data-aos="fade-up" data-aos-delay="100">
+                <div id="rentalMap"></div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded-full bg-green-500"></span>
+                    <span class="text-slate-600">高鐵站據點</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded-full bg-blue-500"></span>
+                    <span class="text-slate-600">火車站據點</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded-full bg-orange-500"></span>
+                    <span class="text-slate-600">其他據點</span>
+                </div>
             </div>
         </div>
     </section>
