@@ -1,403 +1,380 @@
-// 台南租車公司資料
-const rentalCompanies = [
+// 台南租車公司完整資料（基於2024-2025調查報告）
+const companies = [
+    // 連鎖租車公司
     {
         id: 1,
-        name: "和運租車",
-        englishName: "Easyrent",
-        type: "chain",
-        website: "https://www.easyrent.com.tw/",
-        phone: "0800-024-550",
-        locations: [
-            { name: "台南高鐵站", address: "台南市歸仁區歸仁大道", hours: "08:00-20:00" },
-            { name: "台南火車站", address: "台南市東區", hours: "08:00-20:00" }
-        ],
-        sevenSeaterModels: [
-            { model: "Toyota SIENTA", price: 3700, priceType: "day" },
-            { model: "Hyundai STAREX", price: 5000, priceType: "day" },
-            { model: "Toyota 旅行家", price: 5000, priceType: "day" },
-            { model: "Toyota GRANVIA 9人座", price: 7000, priceType: "day" },
-            { model: "Toyota SIENNA", price: 9000, priceType: "day" },
-            { model: "Toyota ALPHARD", price: 10000, priceType: "day" }
-        ],
-        mileageLimit: "依車款",
-        mileageOvercharge: "依車款",
-        rating: 4.3,
-        reviewCount: 850,
-        features: ["高鐵站接駁", "APP預約", "iRent自助租還", "全台據點"],
-        insurance: ["強制險", "第三人責任險", "乘客險", "車損險"],
-        pros: ["全台據點多", "車況新", "APP操作便利", "品牌信譽佳"],
-        cons: ["價格較高", "熱門車款需提早預約"],
-        bestFor: "重視品牌與服務品質的家庭出遊",
-        twoDayEstimate: 7400
+        name: '中租租車',
+        englishName: 'Chailease',
+        type: 'chain',
+        website: 'https://www.rentalcar.com.tw/',
+        phone: '0800-024-680',
+        location: '高鐵站附近',
+        vehicle: 'Hyundai Custin (7人)',
+        dailyPrice: 2799,
+        twoDayPrice: 5600,
+        mileageLimit: '部分不限里程',
+        rating: 4.7,
+        features: ['連租3天6折', '不限里程方案', '新車款'],
+        icon: 'fa-building',
+        color: 'text-green-600',
+        recommended: true,
+        badge: 'CP值最高'
     },
     {
         id: 2,
-        name: "格上租車",
-        englishName: "Car-Plus",
-        type: "chain",
-        website: "https://www.car-plus.com.tw/",
-        phone: "0800-222-568",
-        locations: [
-            { name: "台南北門站", address: "台南市北區北門路二段111號", phone: "06-223-5566", hours: "08:00-20:00" },
-            { name: "台南高鐵站", address: "台南市歸仁區沙崙里9鄰歸仁大道100號", phone: "06-600-0006", hours: "07:30-21:00" }
-        ],
-        sevenSeaterModels: [
-            { model: "Toyota SIENTA", price: 3500, priceType: "day" },
-            { model: "Hyundai CUSTIN", price: 4500, priceType: "day" },
-            { model: "九人座商旅車", price: 5500, priceType: "day" }
-        ],
-        mileageLimit: "300km/日",
-        mileageOvercharge: "3-5元/km",
-        rating: 4.2,
-        reviewCount: 720,
-        features: ["Go Smart APP", "高鐵站據點", "會員優惠", "多元車款"],
-        insurance: ["強制險", "第三人責任險", "乘客險", "車體損失險"],
-        pros: ["加入會員送租車金$390", "高鐵站營業時間長", "線上預約便利"],
-        cons: ["假日需加價", "熱門時段車輛較搶手"],
-        bestFor: "搭高鐵到台南的旅客",
-        twoDayEstimate: 7000
+        name: '格上租車',
+        englishName: 'Car Plus',
+        type: 'chain',
+        website: 'https://www.car-plus.com.tw/',
+        phone: '06-600-0006',
+        location: '高鐵站內櫃檯',
+        vehicle: 'LUXGEN M7 (8人)',
+        dailyPrice: 3120,
+        twoDayPrice: 6240,
+        mileageLimit: '400km/日',
+        mileageOvercharge: 'NT$2/km',
+        rating: 4.6,
+        features: ['高鐵站內取車', '營業至21:30', '新戶送$390'],
+        icon: 'fa-train',
+        color: 'text-blue-600',
+        recommended: true,
+        badge: '高鐵最方便'
     },
     {
         id: 3,
-        name: "直航租車",
-        englishName: "Any-Car",
-        type: "chain",
-        website: "https://www.any-car.com.tw/",
-        phone: "0800-568-568",
-        locations: [
-            { name: "台南火車站", address: "台南市東區", hours: "08:00-20:00" },
-            { name: "台南高鐵站", address: "台南市歸仁區中正南路二段13號", phone: "06-330-5757", hours: "週一~五 08:00-18:00, 週六日 08:00-20:00" }
-        ],
-        sevenSeaterModels: [
-            { model: "七人座商旅車", price: 3150, priceType: "day" },
-            { model: "Hyundai CUSTIN GLT-B", price: 6500, priceType: "day" }
-        ],
-        mileageLimit: "400km/日",
-        mileageOvercharge: "汽油車3元/km，柴油車5元/km",
-        rating: 4.5,
-        reviewCount: 560,
-        features: ["高鐵站免費接駁", "客運站免費接駁", "免押證件", "24小時道路救援"],
-        insurance: ["強制險", "第三人責任險", "乘客險", "竊盜險", "車損險"],
-        pros: ["價格透明", "免押證件免保證金", "接駁服務完善", "評價優良"],
-        cons: ["三日前預約才享優惠價", "2000cc以上車款臨時租需加300元/日"],
-        bestFor: "追求性價比的旅客",
-        twoDayEstimate: 6300
+        name: '小馬租車',
+        englishName: 'Pony Rent',
+        type: 'chain',
+        website: 'https://www.ponyrent.com.tw/',
+        phone: '06-236-5788',
+        location: '火車站/高鐵站',
+        vehicle: 'Toyota SIENTA (7人)',
+        dailyPrice: 3120,
+        twoDayPrice: 6240,
+        mileageLimit: '300km/日',
+        mileageOvercharge: 'NT$5/km',
+        rating: 4.9,
+        features: ['車款最多', '38年經驗', '服務專業'],
+        icon: 'fa-horse',
+        color: 'text-purple-600',
+        recommended: false,
+        badge: '評價最高'
     },
     {
         id: 4,
-        name: "iRent 自助租車",
-        englishName: "iRent",
-        type: "self-service",
-        website: "https://www.irentcar.com.tw/",
-        phone: "0800-024-550",
-        locations: [
-            { name: "台南市區多點", address: "路邊租還點遍布台南市區", hours: "24小時" }
-        ],
-        sevenSeaterModels: [
-            { model: "Toyota SIENTA 7人座", price: 2450, priceType: "10hr", note: "10小時方案可用24小時" }
-        ],
-        mileageLimit: "無限制",
-        mileageOvercharge: "里程費另計（約3-4元/km）",
-        rating: 4.0,
-        reviewCount: 1200,
-        features: ["24小時自助租還", "APP操作", "路邊租還", "以時計費"],
-        insurance: ["強制險", "第三人責任險", "乘客險"],
-        pros: ["24小時可租還", "彈性時間計費", "免接觸取還車", "同站租還方便"],
-        cons: ["七人座車較難找到", "需加油卡加油", "里程費另計"],
-        bestFor: "短程短時間用車或臨時租車需求",
-        twoDayEstimate: 5500
+        name: 'IWS愛旺租車',
+        englishName: 'IWS',
+        type: 'chain',
+        website: 'https://www.iws.com.tw/',
+        phone: '0800-288-568',
+        location: '高鐵站(免費接送)',
+        vehicle: 'MPV經濟7人座',
+        dailyPrice: 3000,
+        twoDayPrice: 6000,
+        mileageLimit: '依方案',
+        mileageOvercharge: 'NT$5/km',
+        rating: 4.8,
+        features: ['高鐵免費接送', '車輛新穎', '全台可甲租乙還'],
+        icon: 'fa-shuttle-van',
+        color: 'text-orange-500',
+        recommended: false,
+        badge: ''
     },
     {
         id: 5,
-        name: "AVIS 艾維士租車",
-        englishName: "AVIS",
-        type: "international",
-        website: "https://www.avis-taiwan.com/",
-        phone: "02-2718-0123",
-        locations: [
-            { name: "台南高鐵站", address: "台南市歸仁區", hours: "08:00-20:00" }
-        ],
-        sevenSeaterModels: [
-            { model: "七人座休旅車", price: 4500, priceType: "day" }
-        ],
-        mileageLimit: "依方案",
-        mileageOvercharge: "4元/km",
-        rating: 4.4,
-        reviewCount: 380,
-        features: ["國際品牌", "Costco會員優惠", "保險完善", "高鐵接駁"],
-        insurance: ["強制險", "第三人責任險", "乘客險", "駕駛險", "竊盜險", "車損險"],
-        pros: ["國際品牌信譽", "Costco會員享4折", "保險最完善", "車況佳"],
-        cons: ["價格較高", "需提前預約"],
-        bestFor: "重視保險與品牌的旅客、Costco會員",
-        twoDayEstimate: 9000
+        name: 'AVIS安維斯',
+        englishName: 'AVIS',
+        type: 'chain',
+        website: 'https://www.avis-taiwan.com/',
+        phone: '0800-600-601',
+        location: '府城站/高鐵站',
+        vehicle: 'VW Sharan (7人)',
+        dailyPrice: 4000,
+        twoDayPrice: 8000,
+        mileageLimit: '400km/日',
+        mileageOvercharge: 'NT$2/km',
+        rating: 4.5,
+        features: ['進口豪華車', '保險完善', '國際品牌'],
+        icon: 'fa-gem',
+        color: 'text-red-600',
+        recommended: false,
+        badge: ''
     },
     {
         id: 6,
-        name: "中租租車",
-        englishName: "Chailease",
-        type: "chain",
-        website: "https://www.rentalcar.com.tw/",
-        phone: "0800-024-680",
-        locations: [
-            { name: "台南站", address: "台南市", hours: "08:30-20:30" }
-        ],
-        sevenSeaterModels: [
-            { model: "Hyundai CUSTIN 1.5 七人座", price: 3500, priceType: "day" }
-        ],
-        mileageLimit: "連租2天以上享100km免費",
-        mileageOvercharge: "依車款",
-        rating: 4.1,
-        reviewCount: 450,
-        features: ["連租優惠", "二站互還免費", "全台據點", "線上預約"],
-        insurance: ["強制險", "第三人責任險", "乘客險"],
-        pros: ["連租2天享里程優惠", "異地還車免手續費", "車款選擇多"],
-        cons: ["據點較少", "熱門時段需提早預約"],
-        bestFor: "多日租車或需要甲租乙還的旅客",
-        twoDayEstimate: 7000
+        name: '和運租車',
+        englishName: 'Easyrent',
+        type: 'chain',
+        website: 'https://www.easyrent.com.tw/',
+        phone: '0800-024-550',
+        location: '火車站/高鐵站',
+        vehicle: 'Toyota SIENTA (7人)',
+        dailyPrice: 2500,
+        twoDayPrice: 5000,
+        mileageLimit: '依方案',
+        mileageOvercharge: 'NT$3.1/km',
+        rating: 4.4,
+        features: ['iRent彈性租', '甲租乙還免費', '信用卡優惠'],
+        icon: 'fa-car',
+        color: 'text-teal-600',
+        recommended: false,
+        badge: ''
     },
+    // 本地租車行
     {
         id: 7,
-        name: "小馬租車",
-        englishName: "Pony Rent-a-Car",
-        type: "local-chain",
-        website: "https://www.ponyrent.com.tw/",
-        phone: "06-236-5788",
-        locations: [
-            { name: "台南小馬", address: "台南市東區小東路382號", phone: "06-236-5788", hours: "08:00-20:00" },
-            { name: "台南高鐵", address: "台南市歸仁區歸仁大道98號", phone: "06-303-2988", hours: "08:00-18:00" }
-        ],
-        sevenSeaterModels: [
-            { model: "七人座休旅車", price: 3200, priceType: "day" }
-        ],
-        mileageLimit: "依車款",
-        mileageOvercharge: "依車款",
-        rating: 4.0,
-        reviewCount: 320,
-        features: ["38年經驗", "高鐵站步行可達", "多種車款", "機車也可租"],
-        insurance: ["強制險", "第三人責任險", "乘客險"],
-        pros: ["老字號信譽", "高鐵站方便", "服務態度佳"],
-        cons: ["保險自付額較高", "需事先確認車況"],
-        bestFor: "想在高鐵站附近快速取車的旅客",
-        twoDayEstimate: 6400
+        name: '直航租車',
+        englishName: 'Anycar',
+        type: 'local',
+        website: 'https://www.any-car.com.tw/',
+        phone: '線上預約',
+        location: '火車站/高鐵站',
+        vehicle: '7人座休旅車',
+        dailyPrice: 1370,
+        twoDayPrice: 2740,
+        mileageLimit: '依方案',
+        mileageOvercharge: 'NT$5/km',
+        rating: 4.5,
+        features: ['本地最便宜', '雙據點', '保險完整'],
+        icon: 'fa-plane',
+        color: 'text-sky-500',
+        recommended: true,
+        badge: '最便宜'
     },
     {
         id: 8,
-        name: "松興租車",
-        englishName: "Tainan-Car",
-        type: "local",
-        website: "http://www.tainan-car.com.tw/",
-        phone: "06-200-6302",
-        locations: [
-            { name: "前站店", address: "台南市東區前鋒路192號", phone: "06-200-6302", hours: "08:00-21:30" },
-            { name: "後站店", address: "台南火車站後站出口", hours: "08:00-21:30" }
-        ],
-        sevenSeaterModels: [
-            { model: "Toyota SIENTA 1.8", price: 2500, priceType: "day" }
-        ],
-        mileageLimit: "依車款",
-        mileageOvercharge: "依車款",
-        rating: 3.5,
-        reviewCount: 280,
-        features: ["火車站旁", "10年在地經驗", "價格實惠"],
-        insurance: ["強制險", "第三人責任險"],
-        pros: ["位置便利", "價格親民", "在地老店"],
-        cons: ["評價較兩極", "車況需確認", "服務品質不穩定"],
-        bestFor: "預算有限、搭火車抵達的旅客",
-        twoDayEstimate: 5000
+        name: '松興租車',
+        englishName: 'Tainan Car',
+        type: 'local',
+        website: 'http://www.tainan-car.com.tw/',
+        phone: '線上預約',
+        location: '火車站旁步行可達',
+        vehicle: '7人座休旅車',
+        dailyPrice: 1600,
+        twoDayPrice: 3200,
+        mileageLimit: '依方案',
+        mileageOvercharge: 'NT$3/km',
+        rating: 4.9,
+        features: ['火車站最近', '免費行車記錄器', '評價極高'],
+        icon: 'fa-store',
+        color: 'text-amber-600',
+        recommended: false,
+        badge: ''
     },
     {
         id: 9,
-        name: "固得租車",
-        englishName: "GoodCars",
-        type: "chain",
-        website: "https://www.goodcars.tw/",
-        phone: "線上預約",
-        locations: [
-            { name: "台南站", address: "台南市", hours: "依預約" }
-        ],
-        sevenSeaterModels: [
-            { model: "七人座車款", price: 3000, priceType: "day" }
-        ],
-        mileageLimit: "依車款",
-        mileageOvercharge: "依車款",
-        rating: 4.0,
-        reviewCount: 200,
-        features: ["線上預約", "多城市服務", "外籍旅客友善"],
-        insurance: ["基礎保險", "可加購安心保險"],
-        pros: ["線上預約便利", "價格透明", "提供外籍服務"],
-        cons: ["需綁定信用卡保證金$10,000", "據點較少"],
-        bestFor: "習慣線上預約的旅客",
-        twoDayEstimate: 6000
+        name: '裕昌租車',
+        englishName: 'Yuchange',
+        type: 'local',
+        website: 'https://tn-yc-carrental.com.tw/',
+        phone: '電洽詢價',
+        location: '監理站旁(可代駕接送)',
+        vehicle: '7-9人座休旅車',
+        dailyPrice: 0,
+        twoDayPrice: 0,
+        mileageLimit: '需確認',
+        rating: 4.3,
+        features: ['30年老店', '代駕接送', '企業長租'],
+        icon: 'fa-building',
+        color: 'text-gray-600',
+        recommended: false,
+        badge: '',
+        priceNote: '需電洽詢價'
     },
+    // 線上平台
     {
         id: 10,
-        name: "LINE GO 租車",
-        englishName: "LINE GO",
-        type: "platform",
-        website: "https://www.linego.me/",
-        phone: "APP內客服",
-        locations: [
-            { name: "台南市區多點", address: "超過30個站點", hours: "24小時" }
-        ],
-        sevenSeaterModels: [
-            { model: "七人座車款", price: 2800, priceType: "day", note: "時租$180起/hr" }
-        ],
-        mileageLimit: "里程費另計",
-        mileageOvercharge: "依車款",
-        rating: 4.2,
-        reviewCount: 580,
-        features: ["LINE APP整合", "聰明租還", "新會員禮包", "多品牌車款"],
-        insurance: ["第三人責任險", "駕駛人傷害險", "乘客責任險", "車體損失險", "竊盜險"],
-        pros: ["新會員送$1000禮包", "60分鐘免費", "LINE操作便利", "站點多"],
-        cons: ["里程費另計", "熱門車款需碰運氣"],
-        bestFor: "習慣用LINE的年輕旅客",
-        twoDayEstimate: 5600
+        name: 'gogoout',
+        englishName: 'gogoout',
+        type: 'platform',
+        website: 'https://gogoout.com/suggestion/tainan-car-rental',
+        phone: '線上客服',
+        location: '整合9家車行',
+        vehicle: '多種7人座可選',
+        dailyPrice: 2800,
+        twoDayPrice: 5600,
+        mileageLimit: '依車行',
+        rating: 4.5,
+        features: ['一站比價', '最高40%折扣', '6天前免費取消'],
+        icon: 'fa-search',
+        color: 'text-indigo-600',
+        recommended: false,
+        badge: '比價平台'
+    },
+    {
+        id: 11,
+        name: 'Klook',
+        englishName: 'Klook',
+        type: 'platform',
+        website: 'https://www.klook.com/zh-TW/car-rentals/',
+        phone: 'App客服',
+        location: '多家連鎖+本地',
+        vehicle: '多種7人座可選',
+        dailyPrice: 2500,
+        twoDayPrice: 5000,
+        mileageLimit: '依車行',
+        rating: 4.6,
+        features: ['App方便', '酷幣回饋', '部分免費取消'],
+        icon: 'fa-mobile-alt',
+        color: 'text-orange-500',
+        recommended: false,
+        badge: ''
+    },
+    {
+        id: 12,
+        name: 'KKday',
+        englishName: 'KKday',
+        type: 'platform',
+        website: 'https://www.kkday.com/',
+        phone: 'App客服',
+        location: '直航租車等',
+        vehicle: '多種7人座可選',
+        dailyPrice: 2800,
+        twoDayPrice: 5600,
+        mileageLimit: '依車行',
+        rating: 4.5,
+        features: ['整合行程', '優惠碼多', '方便預訂'],
+        icon: 'fa-globe',
+        color: 'text-red-500',
+        recommended: false,
+        badge: ''
     }
 ];
 
 // 車款資訊
-const vehicleModels = [
+const vehicles = [
     {
-        name: "Toyota SIENTA",
+        name: 'Toyota SIENTA',
         seats: 7,
-        engine: "1.8L",
-        features: ["雙側滑門", "低地板設計", "省油"],
-        luggage: "2個登機箱（第三排收折可放更多）",
-        pros: "滑門設計適合窄小停車位，上下車方便",
-        cons: "滿載7人時行李空間受限",
-        avgPrice: 3200,
-        image: "sienta"
+        engine: '1.8L',
+        bags: '2大1小',
+        price: '2,500',
+        tag: '經濟實惠',
+        desc: '市區靈活好鑽，滑門設計適合窄停車位。適合行李不多的家庭。',
+        pros: '省油、好操控、滑門設計',
+        cons: '7人滿座時行李空間受限'
     },
     {
-        name: "Toyota Wish",
+        name: 'Hyundai Custin',
         seats: 7,
-        engine: "2.0L",
-        features: ["空間寬敞", "傳統車門"],
-        luggage: "3個登機箱",
-        pros: "車內空間比SIENTA大，適合6人以上",
-        cons: "已停產，車齡較高",
-        avgPrice: 3000,
-        image: "wish"
+        engine: '1.5L Turbo',
+        bags: '3大2小',
+        price: '3,500',
+        tag: '科技舒適',
+        desc: '第二排獨立座椅，電動滑門，長輩乘坐最舒適。',
+        pros: '配備新穎、空間大、舒適度高',
+        cons: '價格較高'
     },
     {
-        name: "Hyundai CUSTIN",
-        seats: 7,
-        engine: "1.5L Turbo",
-        features: ["電動滑門", "感應尾門", "新車款"],
-        luggage: "2個28吋+2個24吋",
-        pros: "配備新穎，空間大，舒適度高",
-        cons: "價格較高",
-        avgPrice: 4500,
-        image: "custin"
-    },
-    {
-        name: "Hyundai STAREX",
+        name: 'Hyundai Staria',
         seats: 9,
-        engine: "2.5L 柴油",
-        features: ["超大空間", "適合團體"],
-        luggage: "多個大型行李箱",
-        pros: "空間超大，適合多人多行李",
-        cons: "車身較大不易操控",
-        avgPrice: 5000,
-        image: "starex"
+        engine: '2.2L 柴油',
+        bags: '4大3小',
+        price: '4,200',
+        tag: '未來科技',
+        desc: '外型前衛，空間超大，適合多人多行李出遊。',
+        pros: '造型獨特、空間大、柴油省油',
+        cons: '車身較大、價格較高'
     },
     {
-        name: "Toyota GRANVIA",
+        name: 'Hyundai Starex',
         seats: 9,
-        engine: "2.8L 柴油",
-        features: ["豪華內裝", "大空間", "舒適乘坐"],
-        luggage: "超大行李空間",
-        pros: "舒適度極高，適合長途",
-        cons: "價格較高，車身大",
-        avgPrice: 7000,
-        image: "granvia"
+        engine: '2.5L 柴油',
+        bags: '5大4小',
+        price: '5,200',
+        tag: '超大空間',
+        desc: '經典廂型車，行李空間最大，適合團體旅遊。',
+        pros: '空間最大、載物量驚人',
+        cons: '車身大不易操控'
+    },
+    {
+        name: 'Toyota Granvia',
+        seats: 9,
+        engine: '2.8L 柴油',
+        bags: '5大3小',
+        price: '5,500',
+        tag: '豪華商務',
+        desc: '極致寬敞空間，適合長途與多行李。乘坐舒適度極高。',
+        pros: '舒適度極高、適合長途',
+        cons: '價格最高'
+    },
+    {
+        name: 'Toyota Alphard',
+        seats: 7,
+        engine: '2.5L Hybrid',
+        bags: '3大2小',
+        price: '8,000',
+        tag: '頂級豪華',
+        desc: '頂級商務MPV，VIP級乘坐體驗，適合重要場合。',
+        pros: '豪華內裝、VIP級享受',
+        cons: '價格非常高'
     }
 ];
 
 // 常見問題
-const faqData = [
+const faqs = [
     {
-        question: "台南租7人座車需要準備什麼文件？",
-        answer: "需準備有效駕照（持照滿1年以上）、身分證、信用卡（部分公司需要）。外籍旅客需準備護照、有效國際駕照（IDP）、原國駕照及簽證。"
+        q: '請問需要準備什麼證件？',
+        a: '本國國民需攜帶<strong>身分證</strong>及<strong>有效駕照</strong>（持照滿1年以上）；外籍旅客需備妥護照、國際駕照（IDP）及原國籍駕照。部分車款需年滿26歲。'
     },
     {
-        question: "12月13日是假日還是平日？價格會有差嗎？",
-        answer: "12月13日是星期六，屬於假日。假日價格通常比平日高約$200-500元/天，建議提早預約以確保有車可租。"
+        q: '租金是否包含保險？',
+        a: '大部分連鎖車行租金已含<strong>強制險</strong>，但建議加購「<strong>安心免責</strong>」方案（約$30-100/時或$600/日），發生擦撞時可免除自負額與營業損失。松興租車需另購第三責任險。'
     },
     {
-        question: "7人座車可以放幾件行李？",
-        answer: "以SIENTA為例，7人滿座時行李空間有限（約1-2個登機箱）。建議將第三排一側收折，可放3-4個大型行李箱。如果7人都帶大型行李，建議考慮9人座車款。"
+        q: '高鐵站取車方便嗎？',
+        a: '非常方便！<strong>格上租車</strong>櫃檯就在高鐵站內，下車即可取車；<strong>IWS愛旺</strong>提供免費接送（約5分鐘車程）；直航、中租也有高鐵站附近據點。'
     },
     {
-        question: "台南高鐵站取車方便嗎？",
-        answer: "大多數租車公司在高鐵站附近都有據點，且多提供免費接駁服務。直航租車、格上租車、和運租車等都有高鐵站門市，步行約5-10分鐘可達。"
+        q: '可以甲地租乙地還嗎？',
+        a: '可以！<strong>和運租車</strong>預約時申請可免費；格上租車租3天以上免費；中租、小馬等需收$300-1,500手續費。建議提前確認。'
     },
     {
-        question: "租車需要加什麼保險？",
-        answer: "基本保險（強制險、第三人責任險）通常已包含在租金中。建議加購車體損失險（CDW）和竊盜險，以降低意外時的自付額。部分公司如AVIS保險較完善。"
+        q: '12月13日是假日嗎？價格會貴多少？',
+        a: '12月13日是<strong>週六（假日）</strong>，價格通常比平日高約$200-500元/天。7人座車款較搶手，建議提前3-7天預約。'
     },
     {
-        question: "兩天一夜租車費用大概多少？",
-        answer: "7人座車款兩天一夜約$5,000-9,000元，視車款和租車公司而定。SIENTA約$6,000-7,000元，CUSTIN約$7,000-9,000元。建議比較多家取得最優惠價格。"
+        q: '7人座車可以放幾件行李？',
+        a: '以SIENTA為例，7人滿座時約放1-2個登機箱。建議收折第三排一側，可放3-4個大行李箱。若7人都帶大行李，建議選9人座車款。'
     },
     {
-        question: "里程費怎麼計算？",
-        answer: "部分公司有里程限制（如每日300-400km），超過需另外收費（約$3-5/km）。iRent和LINE GO是里程費另計。建議選擇里程限制足夠或連租優惠的方案。"
+        q: '里程費怎麼計算？',
+        a: '部分公司有里程限制（每日300-400km），超過需另收$2-5/km。<strong>中租部分方案不限里程</strong>。iRent、LINE GO是里程費另計（約$3-4/km）。台南兩天一夜約跑80-150km。'
     },
     {
-        question: "可以甲地租乙地還嗎？",
-        answer: "大多數連鎖租車公司都提供甲租乙還服務，但可能收取$500-1,500元手續費。中租租車提供二站互還免手續費優惠。"
+        q: '還車超時怎麼計算？',
+        a: '逾時1-6小時：通常以<strong>每小時日租金的1/10</strong>計費；逾時超過6小時：以<strong>一日租金</strong>計算。建議預留緩衝時間。'
     }
 ];
 
-// 租車注意事項
-const rentalTips = [
-    {
-        title: "提早預約",
-        icon: "📅",
-        content: "12月是旅遊旺季，7人座車款較搶手，建議至少提前一週預約。"
-    },
-    {
-        title: "確認車況",
-        icon: "🔍",
-        content: "取車時務必仔細檢查車身外觀，有任何刮痕或凹陷都要拍照存證並告知租車公司。"
-    },
-    {
-        title: "了解保險",
-        icon: "🛡️",
-        content: "確認租金是否包含保險，了解自付額金額，必要時加購車體損失險。"
-    },
-    {
-        title: "注意里程",
-        icon: "📏",
-        content: "確認每日里程限制，台南市區至七股、關子嶺等郊區來回約80-100km，規劃好行程避免超額。"
-    },
-    {
-        title: "油費計算",
-        icon: "⛽",
-        content: "了解油費計算方式：滿油取車滿油還、或依里程數計費。使用指定加油卡可能有優惠。"
-    },
-    {
-        title: "還車時間",
-        icon: "⏰",
-        content: "注意還車時間，逾時通常以每小時1/10日租金計費，超過6小時算一天。"
-    }
+// 保險比較表
+const insuranceComparison = [
+    { company: '格上租車', compulsory: true, thirdParty: true, driver: true, deductible: '依認定', addon: '安心免責' },
+    { company: '中租租車', compulsory: true, thirdParty: true, driver: '需確認', deductible: '需確認', addon: '需確認' },
+    { company: '小馬租車', compulsory: true, thirdParty: 'NT$200萬', driver: true, deductible: '需確認', addon: 'NT$600/日' },
+    { company: 'IWS愛旺', compulsory: true, thirdParty: true, driver: true, deductible: '需確認', addon: '有' },
+    { company: 'AVIS', compulsory: true, thirdParty: true, driver: true, deductible: '最高NT$50,000', addon: '有' },
+    { company: '和運租車', compulsory: true, thirdParty: 'NT$200萬', driver: true, deductible: '最高NT$10,000', addon: 'NT$30/時' },
+    { company: '直航租車', compulsory: true, thirdParty: true, driver: true, deductible: '需確認', addon: '需確認' },
+    { company: '松興租車', compulsory: true, thirdParty: '需另購', driver: '需另購', deductible: '需確認', addon: '需確認' }
 ];
 
-// 推薦行程
-const suggestedItineraries = [
-    {
-        title: "台南經典兩天一夜",
-        day1: ["台南高鐵站取車", "安平古堡", "安平老街午餐", "四草綠色隧道", "神農街", "海安路晚餐"],
-        day2: ["奇美博物館", "十鼓仁糖文創園區", "台南高鐵站還車"],
-        totalDistance: "約80km",
-        suitable: "適合7人座"
-    },
-    {
-        title: "台南自然生態之旅",
-        day1: ["台南高鐵站取車", "七股鹽山", "七股潟湖遊船", "北門水晶教堂", "井仔腳瓦盤鹽田夕陽"],
-        day2: ["關子嶺溫泉", "白河蓮花公園", "台南高鐵站還車"],
-        totalDistance: "約150km",
-        suitable: "需注意里程限制"
-    }
+// 優惠碼資訊
+const coupons = [
+    { platform: '格上租車', code: '新戶註冊', discount: '送NT$390', note: '日租$250+共享車$140', expiry: '2025/12/31' },
+    { platform: '中租租車', code: '連租3-5天', discount: '6折優惠', note: '不分平假日', expiry: '持續進行' },
+    { platform: 'Klook', code: 'APP10TW', discount: 'App首購9折', note: '新用戶限定', expiry: '持續進行' },
+    { platform: 'Klook', code: 'Q9WHF', discount: '滿1000折100', note: '新用戶限定', expiry: '持續進行' },
+    { platform: 'KKday', code: '2025ITF94', discount: '全站94折', note: '持續進行', expiry: '持續進行' },
+    { platform: 'KKday', code: 'KKWSA', discount: '全站96折', note: '最高折$120', expiry: '持續進行' }
+];
+
+// 信用卡優惠
+const creditCardDeals = [
+    { bank: '中國信託', weekday: '75折', weekend: '85折', company: '和運租車' },
+    { bank: '玉山銀行', weekday: '75折', weekend: '85折', company: '和運租車' },
+    { bank: '台新銀行', weekday: '75折', weekend: '85折', company: '和運租車' },
+    { bank: '富邦銀行', weekday: '75折', weekend: '85折', company: '和運租車' },
+    { bank: '聯邦銀行', weekday: '75折', weekend: '85折', company: '和運租車' },
+    { bank: '和泰聯名卡(壽星)', weekday: '50折', weekend: '70折', company: '和運租車' }
 ];
