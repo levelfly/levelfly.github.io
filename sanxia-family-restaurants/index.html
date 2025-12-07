@@ -373,6 +373,109 @@
             margin-bottom: 5px;
         }
 
+        /* Map Link Button */
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
+            color: white;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(66, 133, 244, 0.3);
+        }
+
+        .map-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.4);
+        }
+
+        .map-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Embedded Map Section */
+        .map-embed-section {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .map-embed-section h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .map-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.highly-rec { background: var(--primary); }
+        .legend-dot.recommended { background: var(--secondary); }
+        .legend-dot.good { background: #667eea; }
+
+        .open-fullmap {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #4285F4;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+
+        .open-fullmap:hover {
+            background: #3367D6;
+            transform: translateY(-2px);
+        }
+
         /* Selection Guide */
         .selection-guide {
             background: white;
@@ -702,6 +805,10 @@
                             <li>寵物友善（需有推車或寵物包）</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/藍爵+Blue+Jazz+三峽+大學路200號" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
 
@@ -764,6 +871,10 @@
                             <li>座位寬敞舒適</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/牛好吃+三峽+國際二街19號" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
 
@@ -819,6 +930,10 @@
                             <li>日式風格裝潢，環境舒適</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/上水樸石+三峽+國際一街22號" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
 
@@ -873,6 +988,10 @@
                             <li>有部落客6大4小家庭聚餐經驗分享</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/甘樂食堂+三峽+清水街317號" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
         </div>
@@ -918,6 +1037,10 @@
                             <li>營業到22:00，時間更充裕</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/半扮鍋苑+三峽+國際一街66" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
 
@@ -959,6 +1082,10 @@
                             <li>小孩通常愛吃義大利麵</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/house+家+pasta+三峽+中華路46" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
 
@@ -1000,6 +1127,10 @@
                             <li>價格實惠</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/阿爸的客家菜+三峽+中山路118號" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
 
@@ -1041,6 +1172,10 @@
                             <li>青菜新鮮</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/錢都日式涮涮鍋+三峽+大學路" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
         </div>
@@ -1101,6 +1236,10 @@
                             <li>用餐時間2.5小時</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/村日式料理+三峽+民生街108號" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
 
@@ -1148,6 +1287,10 @@
                             <li>招牌生魚片必點</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/八條壽司+三峽+介壽路一段198號" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
 
@@ -1196,6 +1339,10 @@
                             <li>隱身住宅區的低調美食</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/澤料理+三峽+國際一街37號" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
         </div>
@@ -1242,6 +1389,10 @@
                             <li>平日可訂位，假日需現場排隊</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/BLUE+HOUSE+北大店+三峽" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
 
@@ -1282,6 +1433,10 @@
                             <li>小孩愛吃披薩</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/貝里義大利麵薄餅披薩+三峽" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
 
@@ -1322,6 +1477,10 @@
                             <li>價格親民，適合學生與家庭</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/魔法義大利+三峽+國際二街" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
         </div>
@@ -1373,6 +1532,10 @@
                             <li>各種新鮮肉品任選</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/韓燒銅盤烤肉+三峽+大學路86" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
 
@@ -1429,6 +1592,10 @@
                             <li>不提供訂位，建議提早候位</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/泰貳泰式風味料理+三峽+大觀路96" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
 
@@ -1476,6 +1643,10 @@
                             <li>精緻用餐空間</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/西貢廚房+三峽+大學路192號" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
         </div>
@@ -1529,6 +1700,10 @@
                             <li>三峽隱藏版夜景餐廳</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/紫微森林景觀餐廳+三峽+紫微南路97" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
 
@@ -1564,6 +1739,10 @@
                             <li>適合家族聚餐、親子同遊</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/花岩山林景觀餐廳+三峽" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
 
@@ -1606,6 +1785,10 @@
                             <li>適合5歲小孩玩拼圖</li>
                         </ul>
                     </div>
+                    <a href="https://www.google.com/maps/search/一片一頁+三峽+信義街27號" target="_blank" class="map-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        在 Google Maps 中開啟
+                    </a>
                 </div>
             </article>
         </div>
@@ -1773,6 +1956,59 @@
                 <div class="tip-card">
                     <h3>停車便利性</h3>
                     <p>帶小孩開車較方便，選擇有附近停車場的餐廳。北大特區多數餐廳附近都有付費停車場。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Embedded Map Section -->
+        <section class="map-embed-section animate-on-scroll">
+            <h2>餐廳地圖導覽</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">
+                點擊下方地圖可以瀏覽三峽區所有推薦餐廳的位置，方便規劃行程
+            </p>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d28952.43687!2d121.35!3d24.93!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z5LiJ5bOh5Y2A6aaQ5bu7!5e0!3m2!1szh-TW!2stw!4v1702000000000!5m2!1szh-TW!2stw"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="map-legend">
+                <div class="legend-item">
+                    <div class="legend-dot highly-rec"></div>
+                    <span>強力推薦</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot recommended"></div>
+                    <span>推薦餐廳</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot good"></div>
+                    <span>其他好選擇</span>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="https://www.google.com/maps/search/三峽區+親子餐廳" target="_blank" class="open-fullmap">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    在 Google Maps 中搜尋更多三峽餐廳
+                </a>
+            </div>
+            <div style="background: #f8f9fa; border-radius: 12px; padding: 20px; margin-top: 25px;">
+                <h4 style="color: var(--primary); margin-bottom: 12px; font-size: 1rem;">快速導航清單</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; font-size: 0.9rem;">
+                    <a href="https://www.google.com/maps/search/藍爵+Blue+Jazz+三峽" target="_blank" style="color: #4285F4; text-decoration: none;">📍 藍爵 Blue Jazz</a>
+                    <a href="https://www.google.com/maps/search/牛好吃+三峽" target="_blank" style="color: #4285F4; text-decoration: none;">📍 牛好吃</a>
+                    <a href="https://www.google.com/maps/search/上水樸石+三峽" target="_blank" style="color: #4285F4; text-decoration: none;">📍 上水樸石</a>
+                    <a href="https://www.google.com/maps/search/甘樂食堂+三峽" target="_blank" style="color: #4285F4; text-decoration: none;">📍 甘樂食堂</a>
+                    <a href="https://www.google.com/maps/search/紫微森林+三峽" target="_blank" style="color: #4285F4; text-decoration: none;">📍 紫微森林</a>
+                    <a href="https://www.google.com/maps/search/村日式料理+三峽" target="_blank" style="color: #4285F4; text-decoration: none;">📍 村日式料理</a>
+                    <a href="https://www.google.com/maps/search/韓燒銅盤烤肉+三峽" target="_blank" style="color: #4285F4; text-decoration: none;">📍 韓燒銅盤烤肉</a>
+                    <a href="https://www.google.com/maps/search/BLUE+HOUSE+北大店+三峽" target="_blank" style="color: #4285F4; text-decoration: none;">📍 BLUE HOUSE</a>
+                    <a href="https://www.google.com/maps/search/花岩山林+三峽" target="_blank" style="color: #4285F4; text-decoration: none;">📍 花岩山林</a>
+                    <a href="https://www.google.com/maps/search/泰貳+三峽" target="_blank" style="color: #4285F4; text-decoration: none;">📍 泰貳泰式</a>
                 </div>
             </div>
         </section>
