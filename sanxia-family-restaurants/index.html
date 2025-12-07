@@ -185,6 +185,35 @@
             box-shadow: 0 25px 60px rgba(0,0,0,0.2);
         }
 
+        .restaurant-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            font-size: 0.85rem;
+        }
+
         .card-header {
             padding: 25px;
             position: relative;
@@ -615,6 +644,10 @@
         <div class="restaurants-grid">
             <!-- 藍爵 Blue Jazz -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop" alt="藍爵 Blue Jazz 餐廳氛圍">
+                    <div class="card-image-overlay">歐陸料理 · 親子餐廳</div>
+                </div>
                 <div class="card-header highly-recommended">
                     <span class="recommendation-badge">最適合親子</span>
                     <h3 class="restaurant-name">藍爵 Blue Jazz 歐陸料理</h3>
@@ -674,6 +707,10 @@
 
             <!-- 牛好吃 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&h=400&fit=crop" alt="牛排餐點">
+                    <div class="card-image-overlay">西式排餐 · 自助吧吃到飽</div>
+                </div>
                 <div class="card-header highly-recommended">
                     <span class="recommendation-badge">高CP值</span>
                     <h3 class="restaurant-name">牛好吃（三峽旗艦店）</h3>
@@ -732,6 +769,10 @@
 
             <!-- 上水樸石 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&h=400&fit=crop" alt="日式火鍋">
+                    <div class="card-image-overlay">日式火鍋 · 吃到飽</div>
+                </div>
                 <div class="card-header recommended">
                     <span class="recommendation-badge">火鍋首選</span>
                     <h3 class="restaurant-name">上水樸石（三峽店）</h3>
@@ -783,6 +824,10 @@
 
             <!-- 甘樂食堂 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600&h=400&fit=crop" alt="古厝庭院餐廳">
+                    <div class="card-image-overlay">大地料理 · 在地食材</div>
+                </div>
                 <div class="card-header recommended">
                     <span class="recommendation-badge">特色餐廳</span>
                     <h3 class="restaurant-name">甘樂食堂</h3>
@@ -837,6 +882,10 @@
         <div class="restaurants-grid">
             <!-- 半扮鍋苑 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&h=400&fit=crop" alt="麻辣火鍋">
+                    <div class="card-image-overlay">鴛鴦麻辣火鍋</div>
+                </div>
                 <div class="card-header good-choice">
                     <span class="recommendation-badge">營業較晚</span>
                     <h3 class="restaurant-name">半扮鍋苑</h3>
@@ -874,6 +923,10 @@
 
             <!-- house 家 pasta -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600&h=400&fit=crop" alt="義大利麵">
+                    <div class="card-image-overlay">義式料理 · 超平價</div>
+                </div>
                 <div class="card-header good-choice">
                     <span class="recommendation-badge">平價美味</span>
                     <h3 class="restaurant-name">house 家 pasta</h3>
@@ -911,6 +964,10 @@
 
             <!-- 阿爸的客家菜 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1547573854-74d2a71d0826?w=600&h=400&fit=crop" alt="客家料理">
+                    <div class="card-image-overlay">客家料理 · 家常風味</div>
+                </div>
                 <div class="card-header good-choice">
                     <span class="recommendation-badge">合菜推薦</span>
                     <h3 class="restaurant-name">阿爸的客家菜</h3>
@@ -948,6 +1005,10 @@
 
             <!-- 錢都 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&h=400&fit=crop" alt="涮涮鍋">
+                    <div class="card-image-overlay">平價火鍋 · 營業到凌晨</div>
+                </div>
                 <div class="card-header good-choice">
                     <span class="recommendation-badge">深夜可用</span>
                     <h3 class="restaurant-name">錢都日式涮涮鍋（北大旗艦店）</h3>
@@ -989,6 +1050,10 @@
         <div class="restaurants-grid">
             <!-- 村日式料理 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=600&h=400&fit=crop" alt="日式料理">
+                    <div class="card-image-overlay">日式料理 · 吃到飽</div>
+                </div>
                 <div class="card-header recommended">
                     <span class="recommendation-badge">吃到飽</span>
                     <h3 class="restaurant-name">村 日式料理</h3>
@@ -1041,6 +1106,10 @@
 
             <!-- 八條壽司 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=600&h=400&fit=crop" alt="壽司生魚片">
+                    <div class="card-image-overlay">沖繩風日式料理</div>
+                </div>
                 <div class="card-header good-choice">
                     <span class="recommendation-badge">高人氣</span>
                     <h3 class="restaurant-name">八條壽司（三峽旗艦店）</h3>
@@ -1084,6 +1153,10 @@
 
             <!-- 澤料理 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1540648639573-8c848de23f0a?w=600&h=400&fit=crop" alt="日式定食">
+                    <div class="card-image-overlay">日式定食 · CP值高</div>
+                </div>
                 <div class="card-header good-choice">
                     <span class="recommendation-badge">定食推薦</span>
                     <h3 class="restaurant-name">澤料理</h3>
@@ -1132,6 +1205,10 @@
         <div class="restaurants-grid">
             <!-- BLUE HOUSE -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop" alt="義式披薩">
+                    <div class="card-image-overlay">義式披薩 · 義大利麵</div>
+                </div>
                 <div class="card-header recommended">
                     <span class="recommendation-badge">10歲以下優惠</span>
                     <h3 class="restaurant-name">BLUE HOUSE 北大店</h3>
@@ -1170,6 +1247,10 @@
 
             <!-- 貝里義大利麵 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&h=400&fit=crop" alt="薄餅披薩">
+                    <div class="card-image-overlay">披薩專賣 · 近40種口味</div>
+                </div>
                 <div class="card-header good-choice">
                     <span class="recommendation-badge">披薩專賣</span>
                     <h3 class="restaurant-name">貝里義大利麵薄餅披薩</h3>
@@ -1206,6 +1287,10 @@
 
             <!-- 魔法義大利 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=600&h=400&fit=crop" alt="義式料理">
+                    <div class="card-image-overlay">義式料理 · 平價美味</div>
+                </div>
                 <div class="card-header good-choice">
                     <span class="recommendation-badge">平價選擇</span>
                     <h3 class="restaurant-name">魔法義大利（三峽店）</h3>
@@ -1246,6 +1331,10 @@
         <div class="restaurants-grid">
             <!-- 韓燒銅盤烤肉 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&h=400&fit=crop" alt="韓式烤肉">
+                    <div class="card-image-overlay">韓式銅盤烤肉 · 吃到飽</div>
+                </div>
                 <div class="card-header recommended">
                     <span class="recommendation-badge">烤肉吃到飽</span>
                     <h3 class="restaurant-name">韓燒 銅盤烤肉</h3>
@@ -1289,6 +1378,10 @@
 
             <!-- 泰貳 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?w=600&h=400&fit=crop" alt="泰式料理">
+                    <div class="card-image-overlay">泰式料理 · 月亮蝦餅必點</div>
+                </div>
                 <div class="card-header recommended">
                     <span class="recommendation-badge">泰式推薦</span>
                     <h3 class="restaurant-name">泰貳泰式風味料理</h3>
@@ -1341,6 +1434,10 @@
 
             <!-- 西貢廚房 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&h=400&fit=crop" alt="越南料理">
+                    <div class="card-image-overlay">越南料理 · 時髦風格</div>
+                </div>
                 <div class="card-header good-choice">
                     <span class="recommendation-badge">越式料理</span>
                     <h3 class="restaurant-name">西貢廚房</h3>
@@ -1388,6 +1485,10 @@
         <div class="restaurants-grid">
             <!-- 紫微森林 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop" alt="景觀餐廳">
+                    <div class="card-image-overlay">玻璃屋景觀 · 大台北夜景</div>
+                </div>
                 <div class="card-header recommended">
                     <span class="recommendation-badge">有兒童遊戲室</span>
                     <h3 class="restaurant-name">紫微森林景觀餐廳</h3>
@@ -1433,6 +1534,10 @@
 
             <!-- 花岩山林 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1432889490240-84df33d47091?w=600&h=400&fit=crop" alt="山林瀑布">
+                    <div class="card-image-overlay">山林景色 · 戲水池</div>
+                </div>
                 <div class="card-header recommended">
                     <span class="recommendation-badge">可戲水</span>
                     <h3 class="restaurant-name">花岩山林景觀餐廳</h3>
@@ -1464,6 +1569,10 @@
 
             <!-- 一片一頁 -->
             <article class="restaurant-card animate-on-scroll">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=600&h=400&fit=crop" alt="咖啡廳">
+                    <div class="card-image-overlay">拼圖咖啡 · 不限時</div>
+                </div>
                 <div class="card-header good-choice">
                     <span class="recommendation-badge">拼圖咖啡</span>
                     <h3 class="restaurant-name">一片一頁</h3>
