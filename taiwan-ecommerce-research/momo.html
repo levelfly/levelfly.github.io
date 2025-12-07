@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>momo購物網研究報告 | 富邦媒 8454 深度分析</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(234, 88, 12, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ea580c;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ea580c 0%, #f97316 50%, #fb923c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #a0a0a0;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(234, 88, 12, 0.3);
+            background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fb923c;
+            margin: 2rem 0 1rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ea580c;
+            margin: 1.5rem 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #c0c0c0;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(234, 88, 12, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(234, 88, 12, 0.15);
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(234, 88, 12, 0.15);
+        }
+
+        th {
+            background: rgba(234, 88, 12, 0.15);
+            color: #ea580c;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        tr:hover {
+            background: rgba(234, 88, 12, 0.05);
+        }
+
+        td:first-child {
+            font-weight: 500;
+            color: #e0e0e0;
+        }
+
+        /* Key Findings Grid */
+        .key-findings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .finding-card {
+            background: linear-gradient(135deg, rgba(234, 88, 12, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
+            border: 1px solid rgba(234, 88, 12, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .finding-card .label {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .finding-card .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ea580c 0%, #fb923c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .finding-card .desc {
+            font-size: 0.85rem;
+            color: #a0a0a0;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box h4 {
+            color: #ef4444;
+            margin-bottom: 1rem;
+        }
+
+        /* Success Box */
+        .success-box {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.1) 100%);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .success-box h4 {
+            color: #22c55e;
+            margin-bottom: 1rem;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box h4 {
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+
+        /* Strategy Timeline */
+        .strategy-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .strategy-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #ea580c 0%, #f97316 50%, #fb923c 100%);
+            border-radius: 2px;
+        }
+
+        .strategy-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+
+        .strategy-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #ea580c;
+            border-radius: 50%;
+            border: 3px solid #0a0a1a;
+        }
+
+        .strategy-item.short::before { background: #22c55e; }
+        .strategy-item.mid::before { background: #3b82f6; }
+        .strategy-item.long::before { background: #a855f7; }
+
+        /* Chart Container */
+        .chart-container {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        /* List Styles */
+        ul, ol {
+            margin: 1rem 0 1rem 1.5rem;
+            color: #c0c0c0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .badge-danger {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .badge-warning {
+            background: rgba(234, 179, 8, 0.2);
+            color: #eab308;
+        }
+
+        .badge-success {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+
+        .badge-info {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(234, 88, 12, 0.2);
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #ea580c;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">momo 研究報告</div>
+            <ul class="nav-links">
+                <li><a href="#overview">公司概況</a></li>
+                <li><a href="#finance">財務表現</a></li>
+                <li><a href="#competition">競爭態勢</a></li>
+                <li><a href="#strategy">商業策略</a></li>
+                <li><a href="#tech">技術發展</a></li>
+                <li><a href="#logistics">物流體系</a></li>
+                <li><a href="#risk">風險評估</a></li>
+                <li><a href="index.html">返回總覽</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>momo購物網深度研究</h1>
+            <p class="subtitle">富邦媒體科技（8454）全方位情報分析 — 台灣最大 B2C 電商平台的機遇與挑戰</p>
+            <div class="hero-meta">
+                <span>調查日期：2025年12月8日</span>
+                <span>資料來源：網路搜尋 + YouTube 輿情</span>
+                <span>股票代號：8454.TW</span>
+            </div>
+        </div>
+
+        <!-- Key Findings -->
+        <section>
+            <h2>關鍵數據速覽</h2>
+            <div class="key-findings">
+                <div class="finding-card">
+                    <div class="label">2024年營收</div>
+                    <div class="value">1,125.6 億</div>
+                    <div class="desc">創歷史新高，年增 3%</div>
+                </div>
+                <div class="finding-card">
+                    <div class="label">市占率</div>
+                    <div class="value">22-33%</div>
+                    <div class="desc">台灣本土最大 B2C 電商</div>
+                </div>
+                <div class="finding-card">
+                    <div class="label">2024年 EPS</div>
+                    <div class="value">13.69 元</div>
+                    <div class="desc">稅後純益年減 4.79%</div>
+                </div>
+                <div class="finding-card">
+                    <div class="label">物流投資</div>
+                    <div class="value">140 億</div>
+                    <div class="desc">打造全台短鏈物流網絡</div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h4>2025年警訊</h4>
+                <p>2025年1月營收 91.5 億元，<strong>首見 8 年來單月年衰退（-5.3%）</strong>。被 YouTube 財經頻道比喻為「宏達電 2.0」，股價曾從高點大跌 80%。</p>
+            </div>
+        </section>
+
+        <!-- Company Overview -->
+        <section id="overview">
+            <h2>一、公司基本資訊</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>公司概況</h3>
+                    <div class="table-container">
+                        <table>
+                            <tr><td>公司名稱</td><td>富邦媒體科技股份有限公司</td></tr>
+                            <tr><td>股票代號</td><td>8454（上市）</td></tr>
+                            <tr><td>成立時間</td><td>2004年</td></tr>
+                            <tr><td>所屬集團</td><td>富邦集團</td></tr>
+                            <tr><td>董事長</td><td>蔡明忠（2022年接任）</td></tr>
+                            <tr><td>市場地位</td><td>台灣最大 B2C 電商平台</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>核心業務</h3>
+                    <div class="table-container">
+                        <table>
+                            <tr><th>業務</th><th>說明</th></tr>
+                            <tr><td>momo購物網</td><td>綜合百貨型 B2C 電商</td></tr>
+                            <tr><td>momo購物台</td><td>24小時電視購物頻道</td></tr>
+                            <tr><td>mo店+</td><td>開放式商城，商品超過百萬件</td></tr>
+                            <tr><td>momo Ads</td><td>零售媒體網路（RMN）</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Financial Performance -->
+        <section id="finance">
+            <h2>二、財務表現與營收數據</h2>
+
+            <h3>2024年全年績效</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>指標</th>
+                        <th>數據</th>
+                        <th>年增率</th>
+                        <th>備註</th>
+                    </tr>
+                    <tr>
+                        <td>營收</td>
+                        <td>1,125.6 億元</td>
+                        <td><span class="badge badge-success">+3%</span></td>
+                        <td>創歷史新高</td>
+                    </tr>
+                    <tr>
+                        <td>營業利益</td>
+                        <td>43 億元</td>
+                        <td>-</td>
+                        <td>營業利益率 3.8%</td>
+                    </tr>
+                    <tr>
+                        <td>稅後純益</td>
+                        <td>34.5 億元</td>
+                        <td><span class="badge badge-danger">-4.79%</span></td>
+                        <td>近6年首見衰退</td>
+                    </tr>
+                    <tr>
+                        <td>EPS</td>
+                        <td>13.69 元</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>股利</td>
+                        <td>13.3 元</td>
+                        <td>-</td>
+                        <td>現金 12.8 + 股票 0.5</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>2024年各季表現</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>季度</th>
+                        <th>營收</th>
+                        <th>稅後淨利</th>
+                        <th>EPS</th>
+                        <th>備註</th>
+                    </tr>
+                    <tr>
+                        <td>Q2</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>2.58 元</td>
+                        <td><span class="badge badge-danger">年減 19%</span></td>
+                    </tr>
+                    <tr>
+                        <td>Q3</td>
+                        <td>245.5 億</td>
+                        <td>5.59 億</td>
+                        <td>2.11 元</td>
+                        <td><span class="badge badge-danger">年減 3.9%</span></td>
+                    </tr>
+                    <tr>
+                        <td>Q4</td>
+                        <td>334.8 億</td>
+                        <td>11.1 億</td>
+                        <td>4.40 元</td>
+                        <td><span class="badge badge-success">創歷史新高</span></td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>2025年營收警訊</h3>
+            <div class="warning-box">
+                <h4>營收持續下滑</h4>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>時間</th>
+                            <th>營收</th>
+                            <th>年增率</th>
+                            <th>說明</th>
+                        </tr>
+                        <tr>
+                            <td>1月</td>
+                            <td>91.5 億</td>
+                            <td><span class="badge badge-danger">-5.3%</span></td>
+                            <td>首見 8 年來單月年衰退</td>
+                        </tr>
+                        <tr>
+                            <td>10月</td>
+                            <td>78 億</td>
+                            <td><span class="badge badge-danger">-4.3%</span></td>
+                            <td>創近三年單月低點</td>
+                        </tr>
+                        <tr>
+                            <td>前10月累計</td>
+                            <td>848 億</td>
+                            <td><span class="badge badge-danger">-2.8%</span></td>
+                            <td>營收持續下滑</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Chart -->
+            <div class="chart-container">
+                <canvas id="revenueChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Stock Analysis -->
+        <section id="stock">
+            <h2>三、股價與投資分析</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>分析師評級</h3>
+                    <div class="table-container">
+                        <table>
+                            <tr><td>12個月平均目標價</td><td>TWD 262.99</td></tr>
+                            <tr><td>最高目標價</td><td>TWD 409.52</td></tr>
+                            <tr><td>最低目標價</td><td>TWD 180.00</td></tr>
+                            <tr><td>整體評級</td><td>中性，+24% 看漲潛力</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>估值分析</h3>
+                    <div class="table-container">
+                        <table>
+                            <tr><td>本益比河流圖</td><td>藍色區間（偏低位階）</td></tr>
+                            <tr><td>股價淨值比</td><td>藍色區間（偏低位階）</td></tr>
+                            <tr><td>現金殖利率</td><td>約 2.41%</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h4>投資風險警示</h4>
+                <ul>
+                    <li>股價曾從高點<strong>大跌 80%</strong></li>
+                    <li>被 YouTube 財經頻道比喻為「宏達電 2.0」</li>
+                    <li>營收與獲利雙減趨勢持續</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Competition -->
+        <section id="competition">
+            <h2>四、市場競爭態勢</h2>
+
+            <h3>2024年台灣電商市占率排名</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>排名</th>
+                        <th>平台</th>
+                        <th>市占率</th>
+                        <th>估計營收</th>
+                        <th>特色優勢</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>蝦皮購物</td>
+                        <td>20-45%</td>
+                        <td>1,000-1,400 億</td>
+                        <td>社群導購、聲量第一</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>momo購物網</strong></td>
+                        <td>24-33%</td>
+                        <td>1,125.6 億</td>
+                        <td>本土最大 B2C、物流完善</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>PChome 24h</td>
+                        <td>6-12%</td>
+                        <td>375-650 億</td>
+                        <td>24h 到貨、3C 強項</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>酷澎（Coupang）</td>
+                        <td>4.8%</td>
+                        <td>200-300 億</td>
+                        <td>快速配送、價格補貼</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>競爭對手分析</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>蝦皮購物</h4>
+                    <p><strong>優勢：</strong>網路聲量第一、社群導購強勁</p>
+                    <p><strong>策略：</strong>月付 59 元不限次免運</p>
+                    <p><strong>隱憂：</strong>母公司 Sea 裁員、燒錢模式難持續</p>
+                </div>
+                <div class="card">
+                    <h4>PChome 24h</h4>
+                    <p><strong>劣勢：</strong>市占率從 25% 跌至 8%，品牌老化</p>
+                    <p><strong>策略：</strong>與統一集團合作「超速配」</p>
+                    <p><strong>現況：</strong>持續虧損、存亡危機</p>
+                </div>
+                <div class="card">
+                    <h4>酷澎（Coupang）</h4>
+                    <p><strong>優勢：</strong>會員訂閱制（仿 Amazon Prime）</p>
+                    <p><strong>策略：</strong>「負毛利戰術」搶市</p>
+                    <p><strong>現況：</strong>2024年轉虧為盈，快速成長</p>
+                </div>
+                <div class="card">
+                    <h4>中國電商威脅</h4>
+                    <p><strong>進攻者：</strong>拚多多、淘寶</p>
+                    <p><strong>優勢：</strong>2,000 元以下免關稅</p>
+                    <p><strong>蔡明忠警告：</strong>「狼真的來了」</p>
+                </div>
+            </div>
+
+            <!-- Competition Chart -->
+            <div class="chart-container">
+                <canvas id="marketShareChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Strategy -->
+        <section id="strategy">
+            <h2>五、商業策略與重大投資</h2>
+
+            <h3>物流布局（總投資 140 億元）</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>物流中心</th>
+                        <th>地點</th>
+                        <th>狀態</th>
+                        <th>投資金額</th>
+                        <th>規模/特色</th>
+                    </tr>
+                    <tr>
+                        <td>北區</td>
+                        <td>桃園</td>
+                        <td><span class="badge badge-success">已營運</span></td>
+                        <td>-</td>
+                        <td>自動化物流、太陽能屋頂</td>
+                    </tr>
+                    <tr>
+                        <td>南區</td>
+                        <td>台南新市區</td>
+                        <td><span class="badge badge-success">2024/11 啟用</span></td>
+                        <td>30 億</td>
+                        <td>南臺灣最大，每日 16 萬件</td>
+                    </tr>
+                    <tr>
+                        <td>中區</td>
+                        <td>彰化和美</td>
+                        <td><span class="badge badge-info">2027年完工</span></td>
+                        <td>76 億</td>
+                        <td>史上最大智慧綠建築</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>新業務拓展（第二曲線）</h3>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>mo店+</h4>
+                    <p>長尾商品生態，上架數破百萬件，免運門檻降至 390 元</p>
+                </div>
+                <div class="card">
+                    <h4>momo Ads</h4>
+                    <p>零售媒體網路 RMN，整合 Google/Meta 廣告投放</p>
+                </div>
+                <div class="card">
+                    <h4>跨境電商</h4>
+                    <p>邀請日本、中國商店進駐，試營運中</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology -->
+        <section id="tech">
+            <h2>六、技術發展與 AI 應用</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>AI 客服進化</h3>
+                    <p><strong>合作夥伴：</strong>台灣微軟 Azure OpenAI</p>
+                    <p><strong>成效：</strong>回覆正確率超過 90%</p>
+                    <p><strong>未來規劃：</strong>升級為「AI 購物顧問」、導入情緒辨識</p>
+                </div>
+                <div class="card">
+                    <h3>Google Cloud 合作</h3>
+                    <div class="table-container">
+                        <table>
+                            <tr><th>功能</th><th>成效</th></tr>
+                            <tr><td>猜你想搜</td><td>點擊率 +40%、轉換率 +30%</td></tr>
+                            <tr><td>智慧人群圈選</td><td>CTR 提升 2-3.5 倍</td></tr>
+                            <tr><td>商品分類</td><td>準確率 99%</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <h3>RMN 與 Meta 合作（2025年5月）</h3>
+            <div class="success-box">
+                <h4>momo 聯播網封測成效</h4>
+                <ul>
+                    <li>訂單成長 <strong>+29%</strong></li>
+                    <li>曝光與點擊成本降低近 <strong>50%</strong></li>
+                    <li>操作時間縮短 <strong>2-4 倍</strong></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Logistics -->
+        <section id="logistics">
+            <h2>七、物流體系</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>富昇物流</h3>
+                    <div class="table-container">
+                        <table>
+                            <tr><td>成立時間</td><td>2020年5月</td></tr>
+                            <tr><td>股權結構</td><td>富邦媒 100% 投資</td></tr>
+                            <tr><td>定位</td><td>解決「最後一哩路」</td></tr>
+                            <tr><td>出貨占比</td><td>約 30%</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>配送服務</h3>
+                    <div class="table-container">
+                        <table>
+                            <tr><td>當日配送</td><td>六都（北、新北、桃、中、南、高）</td></tr>
+                            <tr><td>特殊配送</td><td>冷凍冷藏、大家電安裝</td></tr>
+                            <tr><td>目標</td><td>全台 3 小時到貨</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <h3>綠色物流</h3>
+            <div class="info-box">
+                <h4>永續發展</h4>
+                <ul>
+                    <li>與蓋亞汽車合作推出「momo 電動三輪車」</li>
+                    <li>投入六都綠色車隊</li>
+                    <li>逐步汰換燃油車朝向淨零碳排</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Member Economy -->
+        <section id="member">
+            <h2>八、會員經濟與金融服務</h2>
+
+            <h3>moPlus 訂閱制會員（2024年9月推出）</h3>
+            <div class="key-findings">
+                <div class="finding-card">
+                    <div class="label">消費力</div>
+                    <div class="value">5 倍</div>
+                    <div class="desc">是一般會員的 5 倍</div>
+                </div>
+                <div class="finding-card">
+                    <div class="label">購買頻率</div>
+                    <div class="value">3-4 倍</div>
+                    <div class="desc">是一般會員的 3-4 倍</div>
+                </div>
+                <div class="finding-card">
+                    <div class="label">官方宣稱價值</div>
+                    <div class="value">20,000 元</div>
+                    <div class="desc">四大專屬權益總價值</div>
+                </div>
+            </div>
+
+            <h4>四大專屬權益</h4>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>權益</th>
+                        <th>內容</th>
+                    </tr>
+                    <tr>
+                        <td>筆筆消費回饋</td>
+                        <td>4% 回饋，年上限 6,000 元</td>
+                    </tr>
+                    <tr>
+                        <td>百大品牌加碼</td>
+                        <td>4% 回饋無上限</td>
+                    </tr>
+                    <tr>
+                        <td>會員神券</td>
+                        <td>每月 2 張 mo店+ 免運券、折價券</td>
+                    </tr>
+                    <tr>
+                        <td>跨界禮遇</td>
+                        <td>Uber One、LINE GO、摩曼頓等（價值 6,700 元）</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="info-box">
+                <h4>2025年12月新方案</h4>
+                <p>推出「輕量級訂閱方案」（價格低於 1,000 元），擴大會員滲透率</p>
+            </div>
+
+            <h3>momo 卡回饋</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>消費類型</th>
+                        <th>回饋比例</th>
+                    </tr>
+                    <tr>
+                        <td>momo 通路消費</td>
+                        <td>最高 3%</td>
+                    </tr>
+                    <tr>
+                        <td>一般/海外消費</td>
+                        <td>1% 無上限</td>
+                    </tr>
+                    <tr>
+                        <td>搭配 moPlus</td>
+                        <td><strong>最高可達 25%</strong></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Consumer Reviews -->
+        <section id="reviews">
+            <h2>九、消費者評價與爭議事件</h2>
+
+            <h3>2024年台北市消費申訴排名</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>排名</th>
+                        <th>平台</th>
+                        <th>申訴件數</th>
+                        <th>主要爭議</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>蝦皮</td>
+                        <td>731 件</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>momo</strong></td>
+                        <td><strong>397 件</strong></td>
+                        <td>商品瑕疵、退換貨問題</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>主要爭議事件</h3>
+            <div class="warning-box">
+                <h4>快速到貨爭議</h4>
+                <ul>
+                    <li><strong>廣告不實：</strong>網頁標示「快速到貨」但實際需 4 天以上</li>
+                    <li><strong>計算方式：</strong>每天僅計算 10:00-22:00（12小時），週日自動加一天</li>
+                    <li><strong>雙11崩盤：</strong>下單兩天後仍未開始撿貨，賠償流程繁瑣</li>
+                </ul>
+            </div>
+
+            <h3>與競爭對手比較（PTT 網友共識）</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>項目</th>
+                        <th>momo</th>
+                        <th>PChome</th>
+                    </tr>
+                    <tr>
+                        <td>快速到貨穩定性</td>
+                        <td>⭐⭐ 不穩定</td>
+                        <td>⭐⭐⭐⭐ 較穩定</td>
+                    </tr>
+                    <tr>
+                        <td>遲到補償</td>
+                        <td>⭐⭐ 流程繁瑣</td>
+                        <td>⭐⭐⭐⭐⭐ 100元直接補償</td>
+                    </tr>
+                    <tr>
+                        <td>價格競爭力</td>
+                        <td>⭐⭐⭐⭐ 較便宜</td>
+                        <td>⭐⭐⭐ 較貴</td>
+                    </tr>
+                    <tr>
+                        <td>客服評價</td>
+                        <td>⭐⭐ 推託</td>
+                        <td>⭐⭐⭐ 普通</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- YouTube Analysis -->
+        <section id="youtube">
+            <h2>十、YouTube 輿情分析</h2>
+
+            <h3>必看影片推薦</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>優先序</th>
+                        <th>影片標題</th>
+                        <th>頻道</th>
+                        <th>時長</th>
+                        <th>觀看數</th>
+                    </tr>
+                    <tr>
+                        <td>⭐⭐⭐</td>
+                        <td>momo慘變宏達電2.0？台灣電商血戰誰會先倒？</td>
+                        <td>Emmy追劇時間</td>
+                        <td>19分</td>
+                        <td>235,484</td>
+                    </tr>
+                    <tr>
+                        <td>⭐⭐⭐</td>
+                        <td>電商情報戰 MOMO 2025戰略揭密</td>
+                        <td>電商Tony陳</td>
+                        <td>26分</td>
+                        <td>15,163</td>
+                    </tr>
+                    <tr>
+                        <td>⭐⭐</td>
+                        <td>酷澎砸百億攻台灣</td>
+                        <td>商業周刊</td>
+                        <td>12分</td>
+                        <td>645,438</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>高層發言整理</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>時間</th>
+                        <th>蔡明忠發言重點</th>
+                    </tr>
+                    <tr>
+                        <td>2024 Q1</td>
+                        <td>「壓力大」- 上市來首見衰退</td>
+                    </tr>
+                    <tr>
+                        <td>2023 股東會</td>
+                        <td>維持雙位數成長「具挑戰」</td>
+                    </tr>
+                    <tr>
+                        <td>2024 股東會</td>
+                        <td>警告跨境電商（酷澎、淘寶）衝擊本土業者</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Risk Assessment -->
+        <section id="risk">
+            <h2>十一、風險評估與未來展望</h2>
+
+            <div class="grid-2">
+                <div class="success-box">
+                    <h4>核心競爭力</h4>
+                    <ul>
+                        <li><strong>物流基礎設施：</strong>140 億元打造全台短鏈物流網絡</li>
+                        <li><strong>會員經濟：</strong>moPlus 會員消費力是一般會員 5 倍</li>
+                        <li><strong>品牌信任度：</strong>本土最大 B2C 平台</li>
+                        <li><strong>技術應用：</strong>AI 智慧物流、自動化倉儲</li>
+                    </ul>
+                </div>
+                <div class="warning-box">
+                    <h4>主要挑戰</h4>
+                    <ul>
+                        <li><strong>營收成長趨緩：</strong>2025年首見 8 年來單月年衰退</li>
+                        <li><strong>獲利下滑：</strong>2024年稅後純益年減 4.79%</li>
+                        <li><strong>新業務侵蝕獲利：</strong>mo店+、momo Ads 短期拖累 EPS</li>
+                        <li><strong>競爭加劇：</strong>蝦皮、酷澎、中國電商夾擊</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>未來展望</h3>
+            <div class="strategy-timeline">
+                <div class="strategy-item short">
+                    <h4>短期（2025 Q4）</h4>
+                    <ul>
+                        <li>雙11/雙12 是關鍵（2024年 Q4 創營收新高）</li>
+                        <li>moPlus 輕量方案推出（12月）</li>
+                        <li>普發現金政策可望刺激消費</li>
+                    </ul>
+                </div>
+                <div class="strategy-item mid">
+                    <h4>中期（2026）</h4>
+                    <ul>
+                        <li>3P 業務持續爆發（Q3 訂單數年增 114%）</li>
+                        <li>momo Ads 與 Google/Meta 整合深化</li>
+                        <li>跨境電商擴大規模</li>
+                    </ul>
+                </div>
+                <div class="strategy-item long">
+                    <h4>長期（2027）</h4>
+                    <ul>
+                        <li>中區物流中心完工，完成全台短鏈物流網絡</li>
+                        <li>「當日配達」覆蓋全台西半部主要都會區</li>
+                        <li>鞏固「台版亞馬遜」地位</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>投資建議</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>投資者類型</th>
+                        <th>建議</th>
+                    </tr>
+                    <tr>
+                        <td>價值型投資者</td>
+                        <td>目前估值偏低，適合長期布局</td>
+                    </tr>
+                    <tr>
+                        <td>成長型投資者</td>
+                        <td>需觀察 2025 Q4 與 2026 年新業務轉虧為盈進度</td>
+                    </tr>
+                    <tr>
+                        <td>短線交易者</td>
+                        <td>關注雙11/雙12 營收公告、法說會指引</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="info-box">
+                <h4>風險評估</h4>
+                <p><strong>整體風險等級：中度風險</strong>（市場競爭激烈，但基本面穩健）</p>
+            </div>
+        </section>
+
+        <!-- Sources -->
+        <section id="sources">
+            <h2>十二、資料來源</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>官方來源</h4>
+                    <ul>
+                        <li>momo 企業官網</li>
+                        <li>富邦媒投資人關係網站</li>
+                        <li>富邦媒法說會資料（2025/11/28）</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>財經媒體</h4>
+                    <ul>
+                        <li>經濟日報、聯合新聞網、工商時報</li>
+                        <li>科技新報、INSIDE、iThome</li>
+                        <li>未來商務、經理人月刊</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>投資分析</h4>
+                    <ul>
+                        <li>Yahoo 財經、英為財情</li>
+                        <li>CMoney 投資網誌、Win 投資</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>YouTube 影片</h4>
+                    <ul>
+                        <li>Emmy追劇時間：台灣電商血戰系列</li>
+                        <li>電商Tony陳：MOMO 2025戰略揭密</li>
+                        <li>商業周刊：酷澎 vs momo</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>免責聲明：本報告僅供資訊參考，不構成投資建議。投資有風險，請務必諮詢專業投資顧問。</p>
+        <p>報告製作完成：2025年12月8日 | <a href="index.html">返回台灣電商研究總覽</a></p>
+    </footer>
+
+    <script>
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2024 Q2', '2024 Q3', '2024 Q4', '2025 前三季'],
+                datasets: [{
+                    label: 'EPS（元）',
+                    data: [2.58, 2.11, 4.40, 7.81],
+                    backgroundColor: [
+                        'rgba(234, 88, 12, 0.6)',
+                        'rgba(234, 88, 12, 0.6)',
+                        'rgba(34, 197, 94, 0.6)',
+                        'rgba(239, 68, 68, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(234, 88, 12, 1)',
+                        'rgba(234, 88, 12, 1)',
+                        'rgba(34, 197, 94, 1)',
+                        'rgba(239, 68, 68, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'momo 各季 EPS 表現',
+                        color: '#e0e0e0',
+                        font: { size: 16 }
+                    },
+                    legend: {
+                        labels: { color: '#a0a0a0' }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { color: '#a0a0a0' }
+                    },
+                    x: {
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { color: '#a0a0a0' }
+                    }
+                }
+            }
+        });
+
+        // Market Share Chart
+        const marketCtx = document.getElementById('marketShareChart').getContext('2d');
+        new Chart(marketCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['蝦皮 (32%)', 'momo (28%)', 'PChome (9%)', '酷澎 (5%)', '其他 (26%)'],
+                datasets: [{
+                    data: [32, 28, 9, 5, 26],
+                    backgroundColor: [
+                        'rgba(249, 115, 22, 0.8)',
+                        'rgba(234, 88, 12, 0.8)',
+                        'rgba(59, 130, 246, 0.8)',
+                        'rgba(168, 85, 247, 0.8)',
+                        'rgba(107, 114, 128, 0.8)'
+                    ],
+                    borderColor: '#0a0a1a',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '2024年台灣電商市占率估算',
+                        color: '#e0e0e0',
+                        font: { size: 16 }
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#a0a0a0' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
