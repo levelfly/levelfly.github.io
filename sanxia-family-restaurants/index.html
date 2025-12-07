@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三峽親子家庭餐廳推薦 - 晚上九點還營業的好選擇</title>
+    <meta name="description" content="精選三峽區適合帶小孩的親子友善餐廳，包含營業時間、兒童設施、停車資訊等完整指南">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #2C3E50;
+            --light: #F8F9FA;
+            --success: #27AE60;
+            --warning: #F39C12;
+            --danger: #E74C3C;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #FF8C61 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .header .context-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.2);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .family-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .family-badge {
+            background: rgba(255,255,255,0.25);
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Quick Summary */
+        .quick-summary {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .quick-summary h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .summary-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .summary-item h3 {
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .summary-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Restaurant Cards */
+        .section-title {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .restaurants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .restaurant-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .restaurant-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+        }
+
+        .card-header {
+            padding: 25px;
+            position: relative;
+        }
+
+        .card-header.highly-recommended {
+            background: linear-gradient(135deg, var(--primary) 0%, #FF8C61 100%);
+            color: white;
+        }
+
+        .card-header.recommended {
+            background: linear-gradient(135deg, var(--secondary) 0%, #45B7AA 100%);
+            color: white;
+        }
+
+        .card-header.good-choice {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .recommendation-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.25);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .restaurant-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .restaurant-type {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .stars {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .rating-text {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .info-icon {
+            font-size: 1.2rem;
+            min-width: 25px;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-label {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .info-value {
+            color: #666;
+        }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .tag {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tag-kids {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .tag-parking {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .tag-late {
+            background: #FFF3E0;
+            color: #E65100;
+        }
+
+        .tag-price {
+            background: #FCE4EC;
+            color: #C2185B;
+        }
+
+        .tag-game {
+            background: #F3E5F5;
+            color: #7B1FA2;
+        }
+
+        /* Highlights */
+        .highlights {
+            background: #FFF9E6;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .highlights h4 {
+            color: var(--warning);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .highlights ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .highlights li {
+            margin-bottom: 5px;
+        }
+
+        /* Selection Guide */
+        .selection-guide {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .selection-guide h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .guide-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .guide-table th,
+        .guide-table td {
+            padding: 15px 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .guide-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .guide-table tr:hover {
+            background: #fafafa;
+        }
+
+        .check {
+            color: var(--success);
+            font-size: 1.2rem;
+        }
+
+        .partial {
+            color: var(--warning);
+            font-size: 1.2rem;
+        }
+
+        .no {
+            color: #ccc;
+            font-size: 1.2rem;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+            border-radius: 20px;
+            padding: 35px;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .tips-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tip-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .tip-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .tip-card p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Map Section */
+        .map-section {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .map-section h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .area-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .area-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .area-card h3 {
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .area-card ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .area-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0,0,0,0.3);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .footer .disclaimer {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .restaurants-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-table {
+                font-size: 0.8rem;
+            }
+
+            .guide-table th,
+            .guide-table td {
+                padding: 10px 8px;
+            }
+
+            .family-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Scroll Animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1>三峽區親子家庭餐廳推薦</h1>
+            <p class="subtitle">晚上九點還在營業的好選擇</p>
+            <div class="context-badge">
+                <span>新北市三峽區</span>
+                <span>|</span>
+                <span>家庭聚餐</span>
+                <span>|</span>
+                <span>2024年12月更新</span>
+            </div>
+            <div class="family-info">
+                <span class="family-badge">5人用餐</span>
+                <span class="family-badge">3位小孩（1歲、3歲、5歲）</span>
+                <span class="family-badge">晚上九點用餐</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Quick Summary -->
+        <section class="quick-summary animate-on-scroll">
+            <h2>快速摘要</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <h3>最推薦首選</h3>
+                    <p>藍爵 Blue Jazz - 有兒童遊戲室，營業到21:00，Google 4.7星好評</p>
+                </div>
+                <div class="summary-item">
+                    <h3>高CP值選擇</h3>
+                    <p>牛好吃三峽旗艦店 - 有兒童餐、自助吧吃到飽，價格親民</p>
+                </div>
+                <div class="summary-item">
+                    <h3>火鍋首選</h3>
+                    <p>上水樸石 - 120公分以下兒童不收費，營業到21:30</p>
+                </div>
+                <div class="summary-item">
+                    <h3>營業最晚</h3>
+                    <p>半扮鍋苑營業到22:00，錢都更營業到凌晨2點</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highly Recommended -->
+        <h2 class="section-title">強力推薦餐廳</h2>
+        <div class="restaurants-grid">
+            <!-- 藍爵 Blue Jazz -->
+            <article class="restaurant-card animate-on-scroll">
+                <div class="card-header highly-recommended">
+                    <span class="recommendation-badge">最適合親子</span>
+                    <h3 class="restaurant-name">藍爵 Blue Jazz 歐陸料理</h3>
+                    <p class="restaurant-type">歐陸料理 / 親子餐廳</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">Google 4.7分（近4千則評論）</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <span class="info-icon">📍</span>
+                        <div class="info-content">
+                            <span class="info-label">地址：</span>
+                            <span class="info-value">新北市三峽區大學路200號</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">📞</span>
+                        <div class="info-content">
+                            <span class="info-label">電話：</span>
+                            <span class="info-value">02-8672-5238</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">🕐</span>
+                        <div class="info-content">
+                            <span class="info-label">營業時間：</span>
+                            <span class="info-value">平日 11:30-14:00、17:00-21:00<br>假日 11:30-21:00</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">💰</span>
+                        <div class="info-content">
+                            <span class="info-label">消費：</span>
+                            <span class="info-value">低消 $130/人，另收10%服務費</span>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-game">兒童遊戲室</span>
+                        <span class="tag tag-kids">親子友善</span>
+                        <span class="tag tag-parking">附近好停車</span>
+                        <span class="tag tag-late">營業到21:00</span>
+                    </div>
+                    <div class="highlights">
+                        <h4>為什麼適合您的家庭</h4>
+                        <ul>
+                            <li>獨立兒童遊戲室，有積木牆、廚具組、車車、繪本</li>
+                            <li>遊戲室與用餐區有透明窗連通，可看顧小孩</li>
+                            <li>小孩吃飽可先去遊戲室，大人慢慢享用餐點</li>
+                            <li>不限用餐時間</li>
+                            <li>寵物友善（需有推車或寵物包）</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 牛好吃 -->
+            <article class="restaurant-card animate-on-scroll">
+                <div class="card-header highly-recommended">
+                    <span class="recommendation-badge">高CP值</span>
+                    <h3 class="restaurant-name">牛好吃（三峽旗艦店）</h3>
+                    <p class="restaurant-type">西式排餐 / 自助吧</p>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-text">Google 4.5分（數千則評論）</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <span class="info-icon">📍</span>
+                        <div class="info-content">
+                            <span class="info-label">地址：</span>
+                            <span class="info-value">新北市三峽區國際二街19號</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">📞</span>
+                        <div class="info-content">
+                            <span class="info-label">電話：</span>
+                            <span class="info-value">02-2674-1222</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">🕐</span>
+                        <div class="info-content">
+                            <span class="info-label">營業時間：</span>
+                            <span class="info-value">平日 11:00-14:00、17:00-21:00<br>假日 11:00-21:00</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">💰</span>
+                        <div class="info-content">
+                            <span class="info-label">價位：</span>
+                            <span class="info-value">排餐 $170-560，含自助吧吃到飽</span>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-kids">兒童餐</span>
+                        <span class="tag tag-price">價格親民</span>
+                        <span class="tag tag-late">營業到21:00</span>
+                    </div>
+                    <div class="highlights">
+                        <h4>為什麼適合您的家庭</h4>
+                        <ul>
+                            <li>提供快樂兒童餐，小朋友愛吃</li>
+                            <li>自助吧無限量：玉米濃湯、剝皮辣椒雞湯、飲料、冰淇淋、爆米花</li>
+                            <li>堅持使用原肉切片，品質有保證</li>
+                            <li>排餐附贈會爆漿的餐包</li>
+                            <li>座位寬敞舒適</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 上水樸石 -->
+            <article class="restaurant-card animate-on-scroll">
+                <div class="card-header recommended">
+                    <span class="recommendation-badge">火鍋首選</span>
+                    <h3 class="restaurant-name">上水樸石（三峽店）</h3>
+                    <p class="restaurant-type">日式火鍋吃到飽</p>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-text">在地經營多年好評</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <span class="info-icon">📍</span>
+                        <div class="info-content">
+                            <span class="info-label">地址：</span>
+                            <span class="info-value">新北市三峽區國際一街22號</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">🕐</span>
+                        <div class="info-content">
+                            <span class="info-label">營業時間：</span>
+                            <span class="info-value">平日 11:30-14:00、17:00-21:30<br>假日 11:30-21:30</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">💰</span>
+                        <div class="info-content">
+                            <span class="info-label">兒童收費：</span>
+                            <span class="info-value">120公分以下免費<br>121-139公分 $250共鍋費</span>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-kids">兒童免費</span>
+                        <span class="tag tag-late">營業到21:30</span>
+                        <span class="tag tag-parking">空間寬敞</span>
+                    </div>
+                    <div class="highlights">
+                        <h4>為什麼適合您的家庭</h4>
+                        <ul>
+                            <li>120公分以下兒童不收費（1歲、3歲小孩適用）</li>
+                            <li>可坐200人以上，桌距寬敞</li>
+                            <li>湯底當天熬煮，原塊肉品新鮮</li>
+                            <li>營業到21:30，較晚也能用餐</li>
+                            <li>日式風格裝潢，環境舒適</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 甘樂食堂 -->
+            <article class="restaurant-card animate-on-scroll">
+                <div class="card-header recommended">
+                    <span class="recommendation-badge">特色餐廳</span>
+                    <h3 class="restaurant-name">甘樂食堂</h3>
+                    <p class="restaurant-type">大地料理 / 在地食材</p>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-text">TripAdvisor 4.5分，三峽排名第2</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <span class="info-icon">📍</span>
+                        <div class="info-content">
+                            <span class="info-label">地址：</span>
+                            <span class="info-value">新北市三峽區清水街317號</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">📞</span>
+                        <div class="info-content">
+                            <span class="info-label">電話：</span>
+                            <span class="info-value">02-2673-1857</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">🕐</span>
+                        <div class="info-content">
+                            <span class="info-label">營業時間：</span>
+                            <span class="info-value">11:00-21:00（無公休）</span>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-kids">親子旅遊</span>
+                        <span class="tag tag-late">營業到21:00</span>
+                    </div>
+                    <div class="highlights">
+                        <h4>為什麼適合您的家庭</h4>
+                        <ul>
+                            <li>百年古厝改建，有綠蔭小院子</li>
+                            <li>使用自家「禾乃川」台灣大豆手工豆腐</li>
+                            <li>天然釀酵食材，健康無負擔</li>
+                            <li>可線上訂位（8位以下）</li>
+                            <li>有部落客6大4小家庭聚餐經驗分享</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Other Good Choices -->
+        <h2 class="section-title">其他優質選擇</h2>
+        <div class="restaurants-grid">
+            <!-- 半扮鍋苑 -->
+            <article class="restaurant-card animate-on-scroll">
+                <div class="card-header good-choice">
+                    <span class="recommendation-badge">營業較晚</span>
+                    <h3 class="restaurant-name">半扮鍋苑</h3>
+                    <p class="restaurant-type">鴛鴦麻辣火鍋</p>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <span class="info-icon">📍</span>
+                        <div class="info-content">
+                            <span class="info-label">地址：</span>
+                            <span class="info-value">新北市三峽區國際一街66之6號</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">🕐</span>
+                        <div class="info-content">
+                            <span class="info-label">營業時間：</span>
+                            <span class="info-value">每日 11:30-14:30、17:00-22:00</span>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-late">營業到22:00</span>
+                        <span class="tag tag-parking">近台北大學</span>
+                    </div>
+                    <div class="highlights">
+                        <h4>特色</h4>
+                        <ul>
+                            <li>單點式麻辣鍋，食材精選</li>
+                            <li>可選鴛鴦鍋，小孩吃清淡湯底</li>
+                            <li>營業到22:00，時間更充裕</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- house 家 pasta -->
+            <article class="restaurant-card animate-on-scroll">
+                <div class="card-header good-choice">
+                    <span class="recommendation-badge">平價美味</span>
+                    <h3 class="restaurant-name">house 家 pasta</h3>
+                    <p class="restaurant-type">義式料理</p>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <span class="info-icon">📍</span>
+                        <div class="info-content">
+                            <span class="info-label">地址：</span>
+                            <span class="info-value">新北市三峽區中華路46-7號</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">🕐</span>
+                        <div class="info-content">
+                            <span class="info-label">營業時間：</span>
+                            <span class="info-value">平日 11:00-14:00、16:00-21:00<br>假日 11:00-21:00（週一公休）</span>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-price">$80起超平價</span>
+                        <span class="tag tag-late">營業到21:00</span>
+                    </div>
+                    <div class="highlights">
+                        <h4>特色</h4>
+                        <ul>
+                            <li>義大利麵$80起跳，超級便宜</li>
+                            <li>份量大，大人小孩都吃得飽</li>
+                            <li>小孩通常愛吃義大利麵</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 阿爸的客家菜 -->
+            <article class="restaurant-card animate-on-scroll">
+                <div class="card-header good-choice">
+                    <span class="recommendation-badge">合菜推薦</span>
+                    <h3 class="restaurant-name">阿爸的客家菜</h3>
+                    <p class="restaurant-type">客家料理</p>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <span class="info-icon">📍</span>
+                        <div class="info-content">
+                            <span class="info-label">地址：</span>
+                            <span class="info-value">新北市三峽區中山路118號</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">🕐</span>
+                        <div class="info-content">
+                            <span class="info-label">營業時間：</span>
+                            <span class="info-value">11:00-14:00、17:00-21:00（週二公休）</span>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-kids">份量足</span>
+                        <span class="tag tag-late">營業到21:00</span>
+                    </div>
+                    <div class="highlights">
+                        <h4>特色</h4>
+                        <ul>
+                            <li>客家菜份量多，適合3人以上聚餐</li>
+                            <li>傳統家常風味</li>
+                            <li>價格實惠</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 錢都 -->
+            <article class="restaurant-card animate-on-scroll">
+                <div class="card-header good-choice">
+                    <span class="recommendation-badge">深夜可用</span>
+                    <h3 class="restaurant-name">錢都日式涮涮鍋（北大旗艦店）</h3>
+                    <p class="restaurant-type">平價火鍋</p>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <span class="info-icon">📍</span>
+                        <div class="info-content">
+                            <span class="info-label">地址：</span>
+                            <span class="info-value">新北市三峽區大學路</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">🕐</span>
+                        <div class="info-content">
+                            <span class="info-label">營業時間：</span>
+                            <span class="info-value">營業到凌晨2點</span>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-late">營業到凌晨</span>
+                        <span class="tag tag-price">小資首選</span>
+                    </div>
+                    <div class="highlights">
+                        <h4>特色</h4>
+                        <ul>
+                            <li>價格便宜，小資族最愛</li>
+                            <li>營業到凌晨2點，不怕太晚</li>
+                            <li>青菜新鮮</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Selection Guide -->
+        <section class="selection-guide animate-on-scroll">
+            <h2>餐廳比較一覽表</h2>
+            <div style="overflow-x: auto;">
+                <table class="guide-table">
+                    <thead>
+                        <tr>
+                            <th>餐廳</th>
+                            <th>兒童設施</th>
+                            <th>營業至</th>
+                            <th>價位</th>
+                            <th>適合度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>藍爵 Blue Jazz</strong></td>
+                            <td><span class="check">✓</span> 遊戲室</td>
+                            <td>21:00</td>
+                            <td>$$</td>
+                            <td>★★★★★</td>
+                        </tr>
+                        <tr>
+                            <td><strong>牛好吃</strong></td>
+                            <td><span class="check">✓</span> 兒童餐</td>
+                            <td>21:00</td>
+                            <td>$</td>
+                            <td>★★★★☆</td>
+                        </tr>
+                        <tr>
+                            <td><strong>上水樸石</strong></td>
+                            <td><span class="check">✓</span> 120cm免費</td>
+                            <td>21:30</td>
+                            <td>$$</td>
+                            <td>★★★★☆</td>
+                        </tr>
+                        <tr>
+                            <td><strong>甘樂食堂</strong></td>
+                            <td><span class="partial">△</span> 親子友善</td>
+                            <td>21:00</td>
+                            <td>$$</td>
+                            <td>★★★★☆</td>
+                        </tr>
+                        <tr>
+                            <td><strong>半扮鍋苑</strong></td>
+                            <td><span class="partial">△</span> 鴛鴦鍋</td>
+                            <td>22:00</td>
+                            <td>$$</td>
+                            <td>★★★☆☆</td>
+                        </tr>
+                        <tr>
+                            <td><strong>house 家 pasta</strong></td>
+                            <td><span class="no">-</span></td>
+                            <td>21:00</td>
+                            <td>$</td>
+                            <td>★★★☆☆</td>
+                        </tr>
+                        <tr>
+                            <td><strong>錢都涮涮鍋</strong></td>
+                            <td><span class="no">-</span></td>
+                            <td>02:00</td>
+                            <td>$</td>
+                            <td>★★★☆☆</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="margin-top: 15px; color: #666; font-size: 0.9rem;">
+                💡 價位說明：$ = 平價（$200以下/人）、$$ = 中價位（$200-500/人）
+            </p>
+        </section>
+
+        <!-- Tips Section -->
+        <section class="tips-section animate-on-scroll">
+            <h2>帶三個小孩用餐的實用建議</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>提早訂位</h3>
+                    <p>建議提前打電話訂位，尤其是週末假日。帶三個小孩需要較大的座位空間，訂位時可先說明有嬰幼兒。</p>
+                </div>
+                <div class="tip-card">
+                    <h3>選擇寬敞座位</h3>
+                    <p>5人（含3小孩）需要較大空間。建議詢問是否有圓桌、包廂或角落位置，方便照顧小孩。</p>
+                </div>
+                <div class="tip-card">
+                    <h3>準備兒童用品</h3>
+                    <p>自備圍兜、兒童餐具、小零食。1歲寶寶可能需要副食品或奶瓶，可先詢問餐廳是否方便加熱。</p>
+                </div>
+                <div class="tip-card">
+                    <h3>錯開用餐尖峰</h3>
+                    <p>晚上6-7點是尖峰時段，建議提早或延後。若選擇9點前抵達，記得確認餐廳最後點餐時間。</p>
+                </div>
+                <div class="tip-card">
+                    <h3>火鍋安全注意</h3>
+                    <p>火鍋店要特別注意熱湯安全，讓小孩坐在遠離鍋子的位置。3歲以下不建議坐太靠近。</p>
+                </div>
+                <div class="tip-card">
+                    <h3>停車便利性</h3>
+                    <p>帶小孩開車較方便，選擇有附近停車場的餐廳。北大特區多數餐廳附近都有付費停車場。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Area Guide -->
+        <section class="map-section animate-on-scroll">
+            <h2>三峽用餐區域指南</h2>
+            <div class="area-cards">
+                <div class="area-card">
+                    <h3>北大特區</h3>
+                    <ul>
+                        <li>藍爵 Blue Jazz（大學路）</li>
+                        <li>牛好吃（國際二街）</li>
+                        <li>上水樸石（國際一街）</li>
+                        <li>半扮鍋苑（國際一街）</li>
+                        <li>錢都涮涮鍋（大學路）</li>
+                    </ul>
+                    <p style="margin-top: 10px; color: #888; font-size: 0.85rem;">
+                        停車方便，餐廳集中，是親子用餐首選區域
+                    </p>
+                </div>
+                <div class="area-card">
+                    <h3>三峽老街周邊</h3>
+                    <ul>
+                        <li>甘樂食堂（清水街）</li>
+                        <li>阿爸的客家菜（中山路）</li>
+                        <li>house 家 pasta（中華路）</li>
+                    </ul>
+                    <p style="margin-top: 10px; color: #888; font-size: 0.85rem;">
+                        老街小吃多在傍晚結束，正式餐廳營業較晚
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>資料整理時間：2024年12月</p>
+        <p class="disclaimer">
+            以上資訊僅供參考，實際營業時間、價格及服務內容請以各店家公告為準。
+            建議用餐前先致電確認，避免撲空。
+        </p>
+        <a href="../index.html" class="back-link">← 返回首頁</a>
+    </footer>
+
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
