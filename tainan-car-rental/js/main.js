@@ -1,15 +1,31 @@
 // Main JavaScript for Tainan Car Rental Guide
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 50
+    });
+
     initMobileMenu();
     initNavbarScroll();
     renderCompanies();
     renderComparisonTable();
     renderVehicles();
     renderFAQs();
+    renderInsurance();
+    renderCoupons();
+    renderCreditCards();
     initFilterButtons();
     initPriceChart();
     initSmoothScroll();
+    initCalculator();
+    initBackToTop();
+    initVehicleSwiper();
+    initTooltips();
+    initRentalMap();
 });
 
 // Mobile Menu
@@ -157,39 +173,41 @@ function renderComparisonTable() {
     }).join('');
 }
 
-// Render Vehicles
+// Render Vehicles (Swiper Slides)
 function renderVehicles() {
     const container = document.getElementById('vehicleList');
     if (!container) return;
 
     container.innerHTML = vehicles.map(v => `
-        <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/10 hover:bg-white/20 transition duration-300">
-            <div class="flex justify-between items-start mb-4">
-                <span class="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold border border-primary/20">${v.tag}</span>
-                <span class="text-white font-bold">$${v.price} <span class="text-sm text-slate-400 font-normal">/日</span></span>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">${v.name}</h3>
-            <p class="text-slate-400 text-sm mb-4 min-h-[48px]">${v.desc}</p>
+        <div class="swiper-slide">
+            <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/10 hover:bg-white/20 transition duration-300 h-full">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold border border-primary/20">${v.tag}</span>
+                    <span class="text-white font-bold price-tooltip" data-tippy-content="假日價格，平日可能更便宜">$${v.price} <span class="text-sm text-slate-400 font-normal">/日</span></span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">${v.name}</h3>
+                <p class="text-slate-400 text-sm mb-4 min-h-[48px]">${v.desc}</p>
 
-            <div class="grid grid-cols-2 gap-4 text-sm text-slate-300 mb-4">
-                <div class="flex items-center gap-2">
-                    <i class="fas fa-chair text-slate-500"></i>
-                    <span>${v.seats} 人座</span>
+                <div class="grid grid-cols-2 gap-4 text-sm text-slate-300 mb-4">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-chair text-slate-500"></i>
+                        <span>${v.seats} 人座</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-suitcase text-slate-500"></i>
+                        <span>${v.bags}</span>
+                    </div>
                 </div>
-                <div class="flex items-center gap-2">
-                    <i class="fas fa-suitcase text-slate-500"></i>
-                    <span>${v.bags}</span>
-                </div>
-            </div>
 
-            <div class="pt-4 border-t border-white/10 grid grid-cols-2 gap-2 text-xs">
-                <div>
-                    <span class="text-green-400"><i class="fas fa-check mr-1"></i></span>
-                    <span class="text-slate-400">${v.pros}</span>
-                </div>
-                <div>
-                    <span class="text-red-400"><i class="fas fa-times mr-1"></i></span>
-                    <span class="text-slate-400">${v.cons}</span>
+                <div class="pt-4 border-t border-white/10 grid grid-cols-2 gap-2 text-xs">
+                    <div>
+                        <span class="text-green-400"><i class="fas fa-check mr-1"></i></span>
+                        <span class="text-slate-400">${v.pros}</span>
+                    </div>
+                    <div>
+                        <span class="text-red-400"><i class="fas fa-times mr-1"></i></span>
+                        <span class="text-slate-400">${v.cons}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -330,4 +348,405 @@ function initSmoothScroll() {
             }
         });
     });
+}
+
+// Render Insurance Comparison Table
+function renderInsurance() {
+    const tableBody = document.getElementById('insuranceTable');
+    if (!tableBody || typeof insuranceComparison === 'undefined') return;
+
+    tableBody.innerHTML = insuranceComparison.map(item => {
+        const formatCell = (value) => {
+            if (value === true) return '<span class="text-green-600 font-bold"><i class="fas fa-check-circle"></i></span>';
+            if (value === false) return '<span class="text-red-400"><i class="fas fa-times-circle"></i></span>';
+            if (value === '需確認' || value === '需另購') return `<span class="text-amber-500 text-xs">${value}</span>`;
+            return `<span class="text-slate-700 text-xs">${value}</span>`;
+        };
+
+        return `
+            <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-4 font-medium text-slate-800">${item.company}</td>
+                <td class="p-4 text-center">${formatCell(item.compulsory)}</td>
+                <td class="p-4 text-center">${formatCell(item.thirdParty)}</td>
+                <td class="p-4 text-center">${formatCell(item.driver)}</td>
+                <td class="p-4 text-center">${formatCell(item.deductible)}</td>
+                <td class="p-4 text-center">${formatCell(item.addon)}</td>
+            </tr>
+        `;
+    }).join('');
+}
+
+// Render Coupons
+function renderCoupons() {
+    const container = document.getElementById('couponList');
+    if (!container || typeof coupons === 'undefined') return;
+
+    container.innerHTML = coupons.map(coupon => `
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20 hover:bg-white/20 transition">
+            <div class="flex justify-between items-start mb-2">
+                <div class="text-sm text-purple-200">${coupon.platform}</div>
+                ${coupon.expiry !== '持續進行' ? `<span class="text-xs text-purple-300 bg-white/10 px-2 py-0.5 rounded-full">至 ${coupon.expiry}</span>` : ''}
+            </div>
+            <div class="text-lg font-bold mb-1 ${coupon.code.length < 10 ? '' : 'font-mono text-base'}">${coupon.code}</div>
+            <div class="text-xl font-bold text-yellow-300 mb-2">${coupon.discount}</div>
+            <p class="text-purple-200 text-xs">${coupon.note}</p>
+        </div>
+    `).join('');
+}
+
+// Render Credit Card Deals
+function renderCreditCards() {
+    const container = document.getElementById('creditCardList');
+    if (!container || typeof creditCardDeals === 'undefined') return;
+
+    container.innerHTML = creditCardDeals.map(card => `
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
+            <div class="font-bold text-white mb-2">${card.bank}</div>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+                <div>
+                    <div class="text-purple-300">平日</div>
+                    <div class="text-yellow-300 font-bold">${card.weekday}</div>
+                </div>
+                <div>
+                    <div class="text-purple-300">假日</div>
+                    <div class="text-yellow-300 font-bold">${card.weekend}</div>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Initialize Calculator
+function initCalculator() {
+    const select = document.getElementById('calcCompany');
+    if (!select) return;
+
+    // Populate company select
+    const validCompanies = companies.filter(c => c.dailyPrice > 0);
+    select.innerHTML = validCompanies.map(c =>
+        `<option value="${c.id}" ${c.recommended ? 'selected' : ''}>${c.name} - $${c.dailyPrice.toLocaleString()}/日</option>`
+    ).join('');
+
+    // Set default to recommended company
+    const recommended = validCompanies.find(c => c.recommended);
+    if (recommended) {
+        select.value = recommended.id;
+    }
+
+    // Add event listeners
+    select.addEventListener('change', calculateCost);
+    document.getElementById('calcDays').addEventListener('change', calculateCost);
+    document.getElementById('calcInsurance').addEventListener('change', calculateCost);
+    document.getElementById('calcMileage').addEventListener('input', calculateCost);
+
+    // Initial calculation
+    calculateCost();
+}
+
+// Adjust Days
+function adjustDays(delta) {
+    const input = document.getElementById('calcDays');
+    if (!input) return;
+
+    let value = parseInt(input.value) + delta;
+    value = Math.max(1, Math.min(30, value));
+    input.value = value;
+    calculateCost();
+}
+
+// Update Mileage Display
+function updateMileageDisplay() {
+    const slider = document.getElementById('calcMileage');
+    const display = document.getElementById('mileageDisplay');
+    if (slider && display) {
+        display.textContent = slider.value + 'km';
+    }
+}
+
+// Calculate Cost
+function calculateCost() {
+    const companyId = parseInt(document.getElementById('calcCompany')?.value);
+    const days = parseInt(document.getElementById('calcDays')?.value) || 2;
+    const mileage = parseInt(document.getElementById('calcMileage')?.value) || 100;
+    const addInsurance = document.getElementById('calcInsurance')?.checked || false;
+
+    const company = companies.find(c => c.id === companyId);
+    if (!company) return;
+
+    // Base rental cost
+    let baseCost = company.dailyPrice * days;
+
+    // Apply discount for 3+ days if applicable (中租 6折優惠)
+    if (company.name === '中租租車' && days >= 3) {
+        baseCost = Math.round(baseCost * 0.6);
+    }
+
+    // Insurance cost
+    const insuranceCost = addInsurance ? (600 * days) : 0;
+
+    // Mileage overage cost (simplified calculation)
+    let mileageLimit = 0;
+    let overageRate = 0;
+
+    if (company.mileageLimit && company.mileageLimit !== '依方案' && company.mileageLimit !== '依車行') {
+        const match = company.mileageLimit.match(/(\d+)/);
+        if (match) {
+            mileageLimit = parseInt(match[1]) * days;
+        }
+    }
+
+    if (company.mileageOvercharge) {
+        const rateMatch = company.mileageOvercharge.match(/(\d+)/);
+        if (rateMatch) {
+            overageRate = parseInt(rateMatch[1]);
+        }
+    }
+
+    let mileageCost = 0;
+    if (mileageLimit > 0 && mileage > mileageLimit && overageRate > 0) {
+        mileageCost = (mileage - mileageLimit) * overageRate;
+    }
+
+    // Total
+    const total = baseCost + insuranceCost + mileageCost;
+
+    // Update display
+    document.getElementById('calcResult').textContent = total.toLocaleString();
+
+    // Build breakdown text
+    let breakdown = `基本租金 $${baseCost.toLocaleString()}`;
+    if (company.name === '中租租車' && days >= 3) {
+        breakdown += ' (6折優惠)';
+    }
+    if (insuranceCost > 0) {
+        breakdown += ` + 安心免責 $${insuranceCost.toLocaleString()}`;
+    }
+    if (mileageCost > 0) {
+        breakdown += ` + 超里程費 $${mileageCost.toLocaleString()}`;
+    }
+
+    document.getElementById('calcBreakdown').textContent = breakdown;
+
+    // Update mileage display
+    updateMileageDisplay();
+}
+
+// Back to Top Button
+function initBackToTop() {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            btn.classList.remove('translate-y-20', 'opacity-0');
+            btn.classList.add('translate-y-0', 'opacity-100');
+        } else {
+            btn.classList.add('translate-y-20', 'opacity-0');
+            btn.classList.remove('translate-y-0', 'opacity-100');
+        }
+    });
+}
+
+// Scroll to Top
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Initialize Vehicle Swiper
+function initVehicleSwiper() {
+    if (typeof Swiper === 'undefined') return;
+
+    new Swiper('.vehicleSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        grabCursor: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+        },
+    });
+}
+
+// Initialize Tippy.js Tooltips
+function initTooltips() {
+    if (typeof tippy === 'undefined') return;
+
+    // Price tooltips
+    tippy('.price-tooltip', {
+        theme: 'rental',
+        placement: 'top',
+        arrow: true,
+    });
+
+    // Insurance tooltips (add data-tippy-content to insurance headers if needed)
+    tippy('[data-tippy-content]', {
+        theme: 'rental',
+        placement: 'top',
+        arrow: true,
+    });
+}
+
+// Initialize Leaflet Map
+function initRentalMap() {
+    const mapContainer = document.getElementById('rentalMap');
+    if (!mapContainer || typeof L === 'undefined') return;
+
+    // Initialize map centered on Tainan
+    const map = L.map('rentalMap').setView([22.9998, 120.2268], 12);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Custom icons
+    const createIcon = (color) => L.divIcon({
+        className: 'custom-marker',
+        html: `<div style="background-color: ${color}; width: 24px; height: 24px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.3);"></div>`,
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
+        popupAnchor: [0, -12]
+    });
+
+    const hsrIcon = createIcon('#22c55e');   // Green - 高鐵站
+    const trainIcon = createIcon('#3b82f6'); // Blue - 火車站
+    const otherIcon = createIcon('#f97316'); // Orange - 其他
+
+    // Rental locations data
+    const locations = [
+        {
+            name: '格上租車 高鐵站',
+            lat: 22.9250,
+            lng: 120.2863,
+            type: 'hsr',
+            price: '$3,120/日起',
+            hours: '08:00-21:30',
+            address: '台南高鐵站1樓'
+        },
+        {
+            name: '中租租車 高鐵站',
+            lat: 22.9255,
+            lng: 120.2870,
+            type: 'hsr',
+            price: '$2,799/日起',
+            hours: '08:00-21:00',
+            address: '台南高鐵站附近'
+        },
+        {
+            name: '和運租車 高鐵站',
+            lat: 22.9248,
+            lng: 120.2858,
+            type: 'hsr',
+            price: '$3,300/日起',
+            hours: '08:00-21:00',
+            address: '台南高鐵站'
+        },
+        {
+            name: '直航租車 火車站',
+            lat: 22.9971,
+            lng: 120.2124,
+            type: 'train',
+            price: '$1,370/日起',
+            hours: '08:00-20:00',
+            address: '台南火車站前站'
+        },
+        {
+            name: '直航租車 高鐵站',
+            lat: 22.9260,
+            lng: 120.2880,
+            type: 'hsr',
+            price: '$1,370/日起',
+            hours: '08:00-20:00',
+            address: '高鐵站接送'
+        },
+        {
+            name: '小馬租車 台南站',
+            lat: 22.9975,
+            lng: 120.2130,
+            type: 'train',
+            price: '$2,800/日起',
+            hours: '08:00-20:00',
+            address: '台南火車站附近'
+        },
+        {
+            name: '松興租車',
+            lat: 23.0010,
+            lng: 120.2150,
+            type: 'other',
+            price: '$1,500/日起',
+            hours: '08:00-20:00',
+            address: '北區長榮路'
+        },
+        {
+            name: '固得租車',
+            lat: 22.9950,
+            lng: 120.2080,
+            type: 'other',
+            price: '$1,600/日起',
+            hours: '08:00-20:00',
+            address: '中西區民族路'
+        },
+        {
+            name: 'AVIS 台南站',
+            lat: 22.9965,
+            lng: 120.2115,
+            type: 'train',
+            price: '$3,500/日起',
+            hours: '08:00-20:00',
+            address: '台南火車站'
+        },
+        {
+            name: '格上租車 火車站',
+            lat: 22.9968,
+            lng: 120.2120,
+            type: 'train',
+            price: '$3,120/日起',
+            hours: '08:00-20:00',
+            address: '台南火車站'
+        }
+    ];
+
+    // Add markers
+    locations.forEach(loc => {
+        let icon;
+        switch (loc.type) {
+            case 'hsr': icon = hsrIcon; break;
+            case 'train': icon = trainIcon; break;
+            default: icon = otherIcon;
+        }
+
+        const marker = L.marker([loc.lat, loc.lng], { icon: icon }).addTo(map);
+
+        const popupContent = `
+            <div class="map-popup">
+                <h4>${loc.name}</h4>
+                <p class="price">${loc.price}</p>
+                <p><i class="fas fa-clock"></i> ${loc.hours}</p>
+                <p><i class="fas fa-map-marker-alt"></i> ${loc.address}</p>
+            </div>
+        `;
+
+        marker.bindPopup(popupContent);
+    });
+
+    // Fit bounds to show all markers
+    const group = L.featureGroup(locations.map(loc => L.marker([loc.lat, loc.lng])));
+    map.fitBounds(group.getBounds().pad(0.1));
 }

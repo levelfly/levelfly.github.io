@@ -3,8 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>台南7人座租車完整比較指南 | 2024-2025 精選版</title>
-    <meta name="description" content="台南地區7人座租車公司終極比較，包含價格、評價與行程推薦。收錄10+家租車公司完整資訊。">
+    <title>台南7人座租車完整比較指南 | 2025 最新版</title>
+    <meta name="description" content="2025年台南7人座租車公司完整比較，收錄12家租車公司價格、保險、評價與行程推薦。兩天一夜最低$2,740起！">
+
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="台南租車,7人座租車,台南7人座,台南高鐵租車,家庭旅遊租車,台南自駕">
+    <meta name="author" content="台南租車指南">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://levelfly.github.io/tainan-car-rental/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://levelfly.github.io/tainan-car-rental/">
+    <meta property="og:title" content="台南7人座租車完整比較指南 | 2025 最新版">
+    <meta property="og:description" content="2025年台南7人座租車公司完整比較，收錄12家租車公司價格、保險、評價與行程推薦。兩天一夜最低$2,740起！">
+    <meta property="og:image" content="https://levelfly.github.io/tainan-car-rental/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://levelfly.github.io/tainan-car-rental/">
+    <meta property="twitter:title" content="台南7人座租車完整比較指南 | 2025 最新版">
+    <meta property="twitter:description" content="2025年台南7人座租車公司完整比較，收錄12家租車公司價格、保險、評價與行程推薦。">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "台南7人座租車完整比較指南",
+        "description": "2025年台南7人座租車公司完整比較，收錄12家租車公司價格、保險、評價與行程推薦。",
+        "url": "https://levelfly.github.io/tainan-car-rental/",
+        "dateModified": "2025-12-07",
+        "inLanguage": "zh-TW",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "台南租車指南",
+            "url": "https://levelfly.github.io/"
+        },
+        "about": {
+            "@type": "Service",
+            "serviceType": "Car Rental Comparison",
+            "areaServed": {
+                "@type": "City",
+                "name": "Tainan",
+                "containedInPlace": {
+                    "@type": "Country",
+                    "name": "Taiwan"
+                }
+            }
+        },
+        "mainEntity": {
+            "@type": "ItemList",
+            "name": "台南租車公司列表",
+            "numberOfItems": 12,
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@type": "AutoRental",
+                        "name": "中租租車",
+                        "url": "https://www.rentalcar.com.tw/",
+                        "priceRange": "$$",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "台南市",
+                            "addressCountry": "TW"
+                        }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@type": "AutoRental",
+                        "name": "格上租車",
+                        "url": "https://www.car-plus.com.tw/",
+                        "priceRange": "$$"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                        "@type": "AutoRental",
+                        "name": "直航租車",
+                        "url": "https://www.any-car.com.tw/",
+                        "priceRange": "$"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
 
     <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -33,6 +124,22 @@
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Swiper.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Tippy.js -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+    <!-- Leaflet.js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <style>
         body {
@@ -126,6 +233,65 @@
         .float-animation {
             animation: float 3s ease-in-out infinite;
         }
+
+        /* Swiper Custom Styles */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #0ea5e9;
+            background: rgba(255,255,255,0.9);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .swiper-pagination-bullet-active {
+            background: #0ea5e9;
+        }
+
+        /* Leaflet Map Styles */
+        #rentalMap {
+            height: 400px;
+            border-radius: 1.5rem;
+            z-index: 1;
+        }
+        .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+        }
+        .map-popup {
+            text-align: center;
+            padding: 4px;
+        }
+        .map-popup h4 {
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: #0f172a;
+        }
+        .map-popup p {
+            font-size: 12px;
+            color: #64748b;
+            margin: 2px 0;
+        }
+        .map-popup .price {
+            color: #0ea5e9;
+            font-weight: bold;
+        }
+
+        /* Tippy Custom Theme */
+        .tippy-box[data-theme~='rental'] {
+            background-color: #0f172a;
+            color: white;
+            font-size: 13px;
+            border-radius: 8px;
+            padding: 4px 8px;
+        }
+        .tippy-box[data-theme~='rental'] .tippy-arrow {
+            color: #0f172a;
+        }
     </style>
 </head>
 <body class="text-slate-800 selection:bg-primary selection:text-white">
@@ -142,12 +308,12 @@
                 </a>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-6">
                     <a href="#companies" class="nav-link text-slate-600 hover:text-primary font-medium transition">租車公司</a>
                     <a href="#comparison" class="nav-link text-slate-600 hover:text-primary font-medium transition">價格比較</a>
                     <a href="#vehicles" class="nav-link text-slate-600 hover:text-primary font-medium transition">車款介紹</a>
-                    <a href="#tips" class="nav-link text-slate-600 hover:text-primary font-medium transition">注意事項</a>
-                    <a href="#itinerary" class="nav-link text-slate-600 hover:text-primary font-medium transition">推薦行程</a>
+                    <a href="#insurance" class="nav-link text-slate-600 hover:text-primary font-medium transition">保險比較</a>
+                    <a href="#calculator" class="nav-link text-slate-600 hover:text-primary font-medium transition">費用試算</a>
                     <a href="#faq" class="nav-link text-slate-600 hover:text-primary font-medium transition">常見問題</a>
                     <a href="https://gogoout.com/suggestion/tainan-car-rental" target="_blank" class="px-5 py-2 rounded-full bg-slate-900 text-white font-medium hover:bg-slate-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                         立即比價
@@ -173,8 +339,11 @@
                 <a href="#companies" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">租車公司</a>
                 <a href="#comparison" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">價格比較</a>
                 <a href="#vehicles" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">車款介紹</a>
+                <a href="#insurance" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">保險比較</a>
+                <a href="#calculator" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">費用試算</a>
                 <a href="#tips" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">注意事項</a>
                 <a href="#itinerary" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">推薦行程</a>
+                <a href="#coupons" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">優惠碼</a>
                 <a href="#faq" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">常見問題</a>
             </div>
         </div>
@@ -195,7 +364,7 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-                <span class="text-sm font-medium text-slate-600">2024-2025 最新版情報</span>
+                <span class="text-sm font-medium text-slate-600">2025 最新版情報</span>
             </div>
 
             <h1 class="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight tracking-tight">
@@ -251,14 +420,14 @@
     <!-- AI Recommendation -->
     <section class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col items-center mb-12">
+            <div class="flex flex-col items-center mb-12" data-aos="fade-up">
                 <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-600 text-sm font-bold mb-3">AI 智慧分析</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900">您的最佳租車推薦</h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Option 1: 最便宜 -->
-                <div class="group relative bg-white rounded-3xl p-8 shadow-xl border border-slate-100 card-hover overflow-hidden">
+                <div class="group relative bg-white rounded-3xl p-8 shadow-xl border border-slate-100 card-hover overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150"></div>
                     <div class="relative">
                         <div class="flex items-center gap-3 mb-6">
@@ -293,7 +462,7 @@
                 </div>
 
                 <!-- Option 2 (Featured): 推薦首選 -->
-                <div class="group relative bg-slate-900 rounded-3xl p-8 shadow-2xl card-hover transform md:-translate-y-4 border border-slate-800">
+                <div class="group relative bg-slate-900 rounded-3xl p-8 shadow-2xl card-hover transform md:-translate-y-4 border border-slate-800" data-aos="fade-up" data-aos-delay="200">
                     <div class="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                         推薦首選
                     </div>
@@ -330,7 +499,7 @@
                 </div>
 
                 <!-- Option 3: 高鐵最方便 -->
-                <div class="group relative bg-white rounded-3xl p-8 shadow-xl border border-slate-100 card-hover overflow-hidden">
+                <div class="group relative bg-white rounded-3xl p-8 shadow-xl border border-slate-100 card-hover overflow-hidden" data-aos="fade-up" data-aos-delay="300">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150"></div>
                     <div class="relative">
                         <div class="flex items-center gap-3 mb-6">
@@ -370,7 +539,7 @@
     <!-- Companies Section -->
     <section id="companies" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">台南7人座租車公司總覽</h2>
                 <p class="text-slate-600 max-w-2xl mx-auto">點擊標籤篩選您偏好的租車模式</p>
             </div>
@@ -393,7 +562,7 @@
     <!-- Price Comparison -->
     <section id="comparison" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">價格比較表</h2>
                 <p class="text-slate-600">兩天一夜7人座車款費用預估（假日價格）</p>
             </div>
@@ -444,13 +613,19 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">嚴選 7-9 人座車款</h2>
-                <p class="text-slate-400">依據您的行李數量與舒適度需求選擇</p>
+                <p class="text-slate-400">依據您的行李數量與舒適度需求選擇，左右滑動查看更多</p>
             </div>
 
-            <div id="vehicleList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Javascript will populate this -->
+            <!-- Swiper Container -->
+            <div class="swiper vehicleSwiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper" id="vehicleList">
+                    <!-- Javascript will populate this -->
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination mt-8"></div>
             </div>
 
             <!-- Vehicle Tips -->
@@ -484,7 +659,7 @@
     <!-- Tips Section -->
     <section id="tips" class="py-20 bg-gradient-to-br from-amber-50 to-orange-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">租車注意事項</h2>
                 <p class="text-slate-600">台南開車必看的重要提醒</p>
             </div>
@@ -544,14 +719,14 @@
     <!-- Itinerary Section -->
     <section id="itinerary" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">台南自駕推薦行程</h2>
                 <p class="text-slate-600">專為開車族群設計的路線，輕鬆停車好走</p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-10">
                 <!-- Route 1 -->
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100" data-aos="fade-right">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-blue-500/30">
                             <i class="fas fa-landmark"></i>
@@ -616,7 +791,7 @@
                 </div>
 
                 <!-- Route 2 -->
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100" data-aos="fade-left">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-green-500/30">
                             <i class="fas fa-tree"></i>
@@ -679,39 +854,134 @@
         </div>
     </section>
 
+    <!-- Insurance Comparison Section -->
+    <section id="insurance" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="px-3 py-1 rounded-full bg-red-100 text-red-600 text-sm font-bold mb-3 inline-block">🛡️ 重要資訊</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">租車保險比較</h2>
+                <p class="text-slate-600">了解各家保險內容，保障您的出遊安全</p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden mb-8">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="bg-slate-800 text-white">
+                                <th class="p-4 font-bold">租車公司</th>
+                                <th class="p-4 font-bold text-center">強制險</th>
+                                <th class="p-4 font-bold text-center">第三責任險</th>
+                                <th class="p-4 font-bold text-center">駕駛人險</th>
+                                <th class="p-4 font-bold text-center">自負額</th>
+                                <th class="p-4 font-bold text-center">安心免責</th>
+                            </tr>
+                        </thead>
+                        <tbody id="insuranceTable" class="divide-y divide-slate-100">
+                            <!-- Javascript will populate this -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6">
+                <div class="flex items-start gap-4">
+                    <span class="text-2xl">💡</span>
+                    <div>
+                        <h4 class="font-bold text-amber-800 mb-2">保險小提醒</h4>
+                        <ul class="text-amber-700 text-sm space-y-1">
+                            <li>• <strong>強制險</strong>：法規規定必備，保障對方人身傷亡</li>
+                            <li>• <strong>第三責任險</strong>：保障撞到他人車輛/財物的賠償</li>
+                            <li>• <strong>安心免責</strong>：強烈建議加購！發生事故可免除自負額（通常$30-100/時 或 $600/日）</li>
+                            <li>• 取車時務必確認保險內容，有疑問請當場詢問</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Calculator Section -->
+    <section id="calculator" class="py-20 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="px-3 py-1 rounded-full bg-green-100 text-green-600 text-sm font-bold mb-3 inline-block">🧮 試算工具</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">租車費用試算器</h2>
+                <p class="text-slate-600">快速估算您的租車總費用</p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Input Section -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">選擇租車公司</label>
+                            <select id="calcCompany" class="w-full p-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary focus:border-primary transition">
+                                <!-- Javascript will populate this -->
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">租車天數</label>
+                            <div class="flex items-center gap-4">
+                                <button onclick="adjustDays(-1)" class="w-12 h-12 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold text-xl transition">-</button>
+                                <input type="number" id="calcDays" value="2" min="1" max="30" class="flex-1 p-3 rounded-xl border border-slate-200 text-center text-2xl font-bold focus:ring-2 focus:ring-primary focus:border-primary transition">
+                                <button onclick="adjustDays(1)" class="w-12 h-12 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold text-xl transition">+</button>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">預估行駛里程（公里）</label>
+                            <input type="range" id="calcMileage" min="50" max="500" value="100" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer" oninput="updateMileageDisplay()">
+                            <div class="flex justify-between text-sm text-slate-500 mt-1">
+                                <span>50km</span>
+                                <span id="mileageDisplay" class="font-bold text-primary">100km</span>
+                                <span>500km</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <input type="checkbox" id="calcInsurance" class="w-5 h-5 rounded text-primary focus:ring-primary">
+                            <label for="calcInsurance" class="text-sm text-slate-700">加購安心免責（約 $600/日）</label>
+                        </div>
+                    </div>
+
+                    <!-- Result Section -->
+                    <div class="bg-gradient-to-br from-primary to-secondary rounded-2xl p-6 text-white flex flex-col justify-center">
+                        <div class="text-center">
+                            <div class="text-sm opacity-80 mb-2">預估總費用</div>
+                            <div class="text-5xl font-black mb-4">$<span id="calcResult">5,600</span></div>
+                            <div class="text-sm opacity-80 mb-6" id="calcBreakdown">
+                                基本租金 $5,600
+                            </div>
+                            <button onclick="calculateCost()" class="w-full py-3 rounded-xl bg-white text-primary font-bold hover:bg-slate-100 transition">
+                                <i class="fas fa-calculator mr-2"></i>重新計算
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-slate-100 text-sm text-slate-500 text-center">
+                    *此為預估金額，實際費用請以各租車公司報價為準。未含油資、過路費、停車費等額外支出。
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Coupons Section -->
-    <section class="py-16 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+    <section id="coupons" class="py-16 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
                 <span class="px-3 py-1 rounded-full bg-white/20 text-white text-sm font-bold mb-3 inline-block">🎁 限時優惠</span>
-                <h2 class="text-2xl md:text-3xl font-bold">2024-2025 租車優惠碼</h2>
+                <h2 class="text-2xl md:text-3xl font-bold">2025 租車優惠碼</h2>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20">
-                    <div class="text-sm text-purple-200 mb-1">格上租車</div>
-                    <div class="text-lg font-bold mb-2">新戶送 $390</div>
-                    <p class="text-purple-200 text-xs">註冊即送日租$250+共享車$140</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20">
-                    <div class="text-sm text-purple-200 mb-1">中租租車</div>
-                    <div class="text-lg font-bold mb-2">連租3天 6折</div>
-                    <p class="text-purple-200 text-xs">不分平假日，超值推薦</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20">
-                    <div class="text-sm text-purple-200 mb-1">Klook 優惠碼</div>
-                    <div class="text-lg font-bold mb-2 font-mono">APP10TW</div>
-                    <p class="text-purple-200 text-xs">App首購享9折（新用戶）</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20">
-                    <div class="text-sm text-purple-200 mb-1">KKday 優惠碼</div>
-                    <div class="text-lg font-bold mb-2 font-mono">2025ITF94</div>
-                    <p class="text-purple-200 text-xs">全站94折優惠</p>
-                </div>
+            <div id="couponList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Javascript will populate this -->
             </div>
 
-            <div class="mt-8 text-center">
-                <p class="text-purple-200 text-sm">💡 信用卡優惠：中信/玉山/台新/富邦 和運租車平日75折、假日85折</p>
+            <!-- Credit Card Deals -->
+            <div class="mt-10">
+                <h3 class="text-xl font-bold text-center mb-6">💳 信用卡優惠</h3>
+                <div id="creditCardList" class="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <!-- Javascript will populate this -->
+                </div>
             </div>
         </div>
     </section>
@@ -719,13 +989,43 @@
     <!-- FAQ Section -->
     <section id="faq" class="py-20 bg-slate-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">常見問題</h2>
                 <p class="text-slate-600">解決您對台南租車的所有疑問</p>
             </div>
 
             <div id="faqList" class="space-y-4">
                 <!-- Javascript will populate this -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Rental Locations Map -->
+    <section id="map" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-600 text-sm font-bold mb-3 inline-block">📍 據點地圖</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">台南租車據點分佈</h2>
+                <p class="text-slate-600">點擊標記查看各據點詳細資訊</p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden p-4" data-aos="fade-up" data-aos-delay="100">
+                <div id="rentalMap"></div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded-full bg-green-500"></span>
+                    <span class="text-slate-600">高鐵站據點</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded-full bg-blue-500"></span>
+                    <span class="text-slate-600">火車站據點</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded-full bg-orange-500"></span>
+                    <span class="text-slate-600">其他據點</span>
+                </div>
             </div>
         </div>
     </section>
@@ -785,7 +1085,7 @@
                     <h5 class="text-white font-bold mb-6">資料更新</h5>
                     <div class="flex items-center gap-2 text-sm mb-2">
                         <i class="far fa-clock"></i>
-                        <span>最後更新：2024年12月</span>
+                        <span>最後更新：2025年12月</span>
                     </div>
                     <p class="text-xs text-slate-500">
                         *價格可能因季節與連續假期有所變動<br>
@@ -794,10 +1094,15 @@
                 </div>
             </div>
             <div class="border-t border-slate-800 pt-8 text-center text-xs">
-                <p>&copy; 2024-2025 台南租車指南. All rights reserved.</p>
+                <p>&copy; 2025 台南租車指南. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 transition-all transform translate-y-20 opacity-0 z-50" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- JavaScript -->
     <script src="js/rental-data.js"></script>
