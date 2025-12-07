@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>台南7人座租車完整比較指南 | 2024-2025</title>
-    <meta name="description" content="完整收錄台南地區7人座租車公司比較，包含和運、格上、直航、iRent等10家租車公司價格、評價與注意事項。">
+    <title>台南7人座租車完整比較指南 | 2024-2025 精選版</title>
+    <meta name="description" content="台南地區7人座租車公司終極比較，包含價格、評價與行程推薦。收錄10+家租車公司完整資訊。">
 
     <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0ea5e9',
+                        secondary: '#6366f1',
+                        dark: '#0f172a',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -21,39 +37,36 @@
     <style>
         body {
             font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f8fafc;
         }
 
-        .gradient-bg {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%);
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .card-hover {
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .company-card {
-            border-left: 4px solid #3b82f6;
-        }
-
-        .company-card.recommended {
-            border-left-color: #10b981;
-        }
-
-        .company-card.budget {
-            border-left-color: #f59e0b;
-        }
-
-        .price-tag {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        }
-
-        .scroll-smooth {
-            scroll-behavior: smooth;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -5px rgba(14, 165, 233, 0.15);
         }
 
         .nav-link {
@@ -63,361 +76,405 @@
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -2px;
-            left: 0;
+            bottom: -4px;
+            left: 50%;
             width: 0;
             height: 2px;
-            background: #60a5fa;
-            transition: width 0.3s ease;
+            background: #0ea5e9;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
         .nav-link:hover::after {
             width: 100%;
         }
 
-        .faq-item {
-            border-bottom: 1px solid #e5e7eb;
-        }
-
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.4s ease-in-out, opacity 0.4s ease;
+            opacity: 0;
         }
 
         .faq-item.active .faq-answer {
             max-height: 500px;
+            opacity: 1;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
         }
 
         .faq-item.active .faq-icon {
             transform: rotate(180deg);
         }
 
-        .comparison-table th {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 24px;
+            bottom: 24px;
+            width: 2px;
+            background: #e2e8f0;
         }
 
-        .badge {
-            font-size: 0.75rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 9999px;
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        .badge-green {
-            background-color: #d1fae5;
-            color: #065f46;
-        }
-
-        .badge-blue {
-            background-color: #dbeafe;
-            color: #1e40af;
-        }
-
-        .badge-yellow {
-            background-color: #fef3c7;
-            color: #92400e;
-        }
-
-        .badge-red {
-            background-color: #fee2e2;
-            color: #991b1b;
-        }
-
-        .star-rating {
-            color: #fbbf24;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade-in-up {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .mobile-menu {
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .mobile-menu.active {
-            transform: translateX(0);
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="bg-gray-50 scroll-smooth">
+<body class="text-slate-800 selection:bg-primary selection:text-white">
+
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
+    <nav class="fixed top-0 left-0 right-0 z-50 glass shadow-sm transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <a href="#" class="flex items-center space-x-2">
-                    <span class="text-2xl">🚗</span>
-                    <span class="font-bold text-xl text-gray-800">台南租車指南</span>
+                <a href="#" class="flex items-center space-x-2 group">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fas fa-car-side text-sm"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-slate-800">台南<span class="text-primary">租車</span>指南</span>
                 </a>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="#companies" class="nav-link text-gray-600 hover:text-blue-600 transition">租車公司</a>
-                    <a href="#comparison" class="nav-link text-gray-600 hover:text-blue-600 transition">價格比較</a>
-                    <a href="#vehicles" class="nav-link text-gray-600 hover:text-blue-600 transition">車款介紹</a>
-                    <a href="#tips" class="nav-link text-gray-600 hover:text-blue-600 transition">注意事項</a>
-                    <a href="#faq" class="nav-link text-gray-600 hover:text-blue-600 transition">常見問題</a>
-                    <a href="#itinerary" class="nav-link text-gray-600 hover:text-blue-600 transition">推薦行程</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#companies" class="nav-link text-slate-600 hover:text-primary font-medium transition">租車公司</a>
+                    <a href="#comparison" class="nav-link text-slate-600 hover:text-primary font-medium transition">價格比較</a>
+                    <a href="#vehicles" class="nav-link text-slate-600 hover:text-primary font-medium transition">車款介紹</a>
+                    <a href="#tips" class="nav-link text-slate-600 hover:text-primary font-medium transition">注意事項</a>
+                    <a href="#itinerary" class="nav-link text-slate-600 hover:text-primary font-medium transition">推薦行程</a>
+                    <a href="#faq" class="nav-link text-slate-600 hover:text-primary font-medium transition">常見問題</a>
+                    <a href="https://gogoout.com/suggestion/tainan-car-rental" target="_blank" class="px-5 py-2 rounded-full bg-slate-900 text-white font-medium hover:bg-slate-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        立即比價
+                    </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
-                    <i class="fas fa-bars text-gray-600 text-xl"></i>
+                <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-600 hover:text-primary transition">
+                    <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-white z-50 md:hidden">
-            <div class="flex justify-between items-center p-4 border-b">
-                <span class="font-bold text-xl">選單</span>
-                <button id="closeMobileMenu" class="p-2">
+        <div id="mobileMenu" class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col">
+            <div class="flex justify-between items-center p-4 border-b border-slate-100">
+                <span class="font-bold text-xl text-slate-800">選單</span>
+                <button id="closeMobileMenu" class="p-2 text-slate-500 hover:text-red-500 transition">
                     <i class="fas fa-times text-2xl"></i>
                 </button>
             </div>
-            <div class="flex flex-col p-4 space-y-4">
-                <a href="#companies" class="text-lg py-2">租車公司</a>
-                <a href="#comparison" class="text-lg py-2">價格比較</a>
-                <a href="#vehicles" class="text-lg py-2">車款介紹</a>
-                <a href="#tips" class="text-lg py-2">注意事項</a>
-                <a href="#faq" class="text-lg py-2">常見問題</a>
-                <a href="#itinerary" class="text-lg py-2">推薦行程</a>
+            <div class="flex flex-col p-6 space-y-6 flex-grow overflow-y-auto">
+                <a href="#companies" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">租車公司</a>
+                <a href="#comparison" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">價格比較</a>
+                <a href="#vehicles" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">車款介紹</a>
+                <a href="#tips" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">注意事項</a>
+                <a href="#itinerary" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">推薦行程</a>
+                <a href="#faq" class="text-xl font-medium text-slate-700 hover:text-primary mobile-link">常見問題</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="gradient-bg pt-24 pb-16 md:pt-32 md:pb-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-                <span class="text-white text-sm">📅 適用日期：2024年12月13日（六）起</span>
+    <header class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-slate-50 to-blue-50"></div>
+            <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+            <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-8">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-sm font-medium text-slate-600">2024-2025 最新版情報</span>
             </div>
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">
-                台南7人座租車完整比較指南
+
+            <h1 class="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight tracking-tight">
+                台南7人座租車<br>
+                <span class="text-gradient">完整比較與攻略</span>
             </h1>
-            <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-                兩天一夜家族旅遊必備！收錄10家租車公司、5款熱門車型<br class="hidden md:block">
-                價格、評價、據點一次比較，輕鬆找到最適合的租車方案
+
+            <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                兩天一夜家族旅遊必備！收錄 15+ 家租車公司、多款熱門車型。
+                <br class="hidden md:block">價格、評價、據點一次比較，輕鬆找到最適合的方案。
             </p>
 
             <!-- Quick Stats -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                    <div class="text-3xl md:text-4xl font-bold text-white">10</div>
-                    <div class="text-blue-100 text-sm">家租車公司</div>
+                <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 card-hover">
+                    <div class="text-3xl md:text-4xl font-black text-primary mb-1">15<span class="text-lg text-slate-400 font-normal ml-1">家+</span></div>
+                    <div class="text-slate-600 text-sm font-medium">嚴選租車公司</div>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                    <div class="text-3xl md:text-4xl font-bold text-white">5</div>
-                    <div class="text-blue-100 text-sm">款7人座車型</div>
+                <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 card-hover">
+                    <div class="text-3xl md:text-4xl font-black text-secondary mb-1">7<span class="text-lg text-slate-400 font-normal ml-1">款+</span></div>
+                    <div class="text-slate-600 text-sm font-medium">熱門7人座車型</div>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                    <div class="text-3xl md:text-4xl font-bold text-white">$5,000</div>
-                    <div class="text-blue-100 text-sm">起 / 兩天一夜</div>
+                <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 card-hover">
+                    <div class="text-3xl md:text-4xl font-black text-primary mb-1">$2.7k<span class="text-lg text-slate-400 font-normal ml-1">起</span></div>
+                    <div class="text-slate-600 text-sm font-medium">兩天一夜最低價</div>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                    <div class="text-3xl md:text-4xl font-bold text-white">4.5</div>
-                    <div class="text-blue-100 text-sm">平均評分</div>
+                <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 card-hover">
+                    <div class="text-3xl md:text-4xl font-black text-yellow-500 mb-1">4.9<span class="text-lg text-slate-400 font-normal ml-1">★</span></div>
+                    <div class="text-slate-600 text-sm font-medium">最高用戶評分</div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Trip Info Banner -->
-    <section class="bg-blue-600 text-white py-4">
-        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center items-center gap-4 md:gap-8 text-sm md:text-base">
-            <div class="flex items-center gap-2">
-                <i class="fas fa-calendar-alt"></i>
-                <span>日期：12月13-14日</span>
+    <!-- Context Bar -->
+    <div class="bg-slate-900 text-white py-4 relative z-20 shadow-xl mx-4 rounded-xl -mt-8 md:-mt-10 max-w-5xl md:mx-auto">
+        <div class="flex flex-wrap justify-around items-center gap-4 text-sm md:text-base px-4">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center"><i class="fas fa-map-marker-alt text-primary"></i></div>
+                <span>地點：台南全區</span>
             </div>
-            <div class="flex items-center gap-2">
-                <i class="fas fa-moon"></i>
-                <span>天數：兩天一夜</span>
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center"><i class="fas fa-users text-primary"></i></div>
+                <span>建議：6-8 人出遊</span>
             </div>
-            <div class="flex items-center gap-2">
-                <i class="fas fa-users"></i>
-                <span>人數：7人</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <i class="fas fa-car"></i>
-                <span>需求：7人座以上</span>
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center"><i class="fas fa-calendar-check text-primary"></i></div>
+                <span>旺季：建議提前7天預約</span>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- AI Recommendation Section -->
-    <section class="py-12 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+    <!-- AI Recommendation -->
+    <section class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-8">
-                <span class="inline-block bg-white/20 rounded-full px-4 py-1 text-sm mb-4">🤖 AI 智慧分析</span>
-                <h2 class="text-2xl md:text-3xl font-bold">您的最佳租車推薦</h2>
+            <div class="flex flex-col items-center mb-12">
+                <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-600 text-sm font-bold mb-3">AI 智慧分析</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">您的最佳租車推薦</h2>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Best Value -->
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="text-3xl">💰</span>
-                        <div>
-                            <div class="text-sm text-purple-200">最高性價比</div>
-                            <div class="text-xl font-bold">直航租車</div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Option 1: 最便宜 -->
+                <div class="group relative bg-white rounded-3xl p-8 shadow-xl border border-slate-100 card-hover overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150"></div>
+                    <div class="relative">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-green-100 flex items-center justify-center text-green-600 text-xl">
+                                <i class="fas fa-hand-holding-dollar"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-slate-500 font-medium">最便宜首選</div>
+                                <div class="text-xl font-bold text-slate-800">直航租車</div>
+                            </div>
                         </div>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-slate-900">$2,740</span>
+                            <span class="text-slate-400 text-sm">起 / 兩天</span>
+                        </div>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3 text-sm text-slate-600">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span>本地最便宜方案</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-600">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span>火車站/高鐵站雙據點</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-600">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span>保險完整有保障</span>
+                            </div>
+                        </div>
+                        <a href="https://www.any-car.com.tw/" target="_blank" class="block w-full py-3 rounded-xl bg-slate-50 text-slate-700 font-bold hover:bg-green-600 hover:text-white transition-colors text-center">前往官網</a>
                     </div>
-                    <div class="text-3xl font-bold mb-2">$6,300</div>
-                    <div class="text-purple-200 text-sm mb-4">兩天一夜預估費用</div>
-                    <ul class="space-y-2 text-sm">
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-300"></i>免押證件免保證金</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-300"></i>高鐵站免費接駁</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-300"></i>評價4.5星好評</li>
-                    </ul>
                 </div>
 
-                <!-- Best Service -->
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border-2 border-yellow-400 relative">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
+                <!-- Option 2 (Featured): 推薦首選 -->
+                <div class="group relative bg-slate-900 rounded-3xl p-8 shadow-2xl card-hover transform md:-translate-y-4 border border-slate-800">
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                         推薦首選
                     </div>
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="text-3xl">⭐</span>
-                        <div>
-                            <div class="text-sm text-purple-200">服務最完善</div>
-                            <div class="text-xl font-bold">和運租車</div>
+                    <div class="relative">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-yellow-400 text-xl">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-slate-400 font-medium">CP值最高</div>
+                                <div class="text-xl font-bold text-white">中租租車</div>
+                            </div>
                         </div>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-white">$5,600</span>
+                            <span class="text-slate-400 text-sm">起 / 兩天</span>
+                        </div>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3 text-sm text-slate-300">
+                                <i class="fas fa-check-circle text-yellow-400"></i>
+                                <span>Hyundai Custin 新車款</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-300">
+                                <i class="fas fa-check-circle text-yellow-400"></i>
+                                <span>連租3天享6折優惠</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-300">
+                                <i class="fas fa-check-circle text-yellow-400"></i>
+                                <span>部分方案不限里程</span>
+                            </div>
+                        </div>
+                        <a href="https://www.rentalcar.com.tw/" target="_blank" class="block w-full py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-bold hover:shadow-lg hover:shadow-primary/30 transition-all text-center">立即預約</a>
                     </div>
-                    <div class="text-3xl font-bold mb-2">$7,400</div>
-                    <div class="text-purple-200 text-sm mb-4">兩天一夜預估費用</div>
-                    <ul class="space-y-2 text-sm">
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-300"></i>全台最多據點</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-300"></i>車況最新最好</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-300"></i>品牌信譽保證</li>
-                    </ul>
                 </div>
 
-                <!-- Budget Option -->
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="text-3xl">🎯</span>
-                        <div>
-                            <div class="text-sm text-purple-200">預算優先</div>
-                            <div class="text-xl font-bold">松興租車</div>
+                <!-- Option 3: 高鐵最方便 -->
+                <div class="group relative bg-white rounded-3xl p-8 shadow-xl border border-slate-100 card-hover overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150"></div>
+                    <div class="relative">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center text-blue-600 text-xl">
+                                <i class="fas fa-train"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-slate-500 font-medium">高鐵站最方便</div>
+                                <div class="text-xl font-bold text-slate-800">格上租車</div>
+                            </div>
                         </div>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-slate-900">$6,240</span>
+                            <span class="text-slate-400 text-sm">起 / 兩天</span>
+                        </div>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3 text-sm text-slate-600">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span>高鐵站內櫃檯取車</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-600">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span>營業至 21:30</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-600">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span>新戶註冊送 $390</span>
+                            </div>
+                        </div>
+                        <a href="https://www.car-plus.com.tw/" target="_blank" class="block w-full py-3 rounded-xl bg-slate-50 text-slate-700 font-bold hover:bg-blue-600 hover:text-white transition-colors text-center">前往官網</a>
                     </div>
-                    <div class="text-3xl font-bold mb-2">$5,000</div>
-                    <div class="text-purple-200 text-sm mb-4">兩天一夜預估費用</div>
-                    <ul class="space-y-2 text-sm">
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-300"></i>價格最實惠</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-300"></i>火車站旁便利</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-exclamation text-yellow-300"></i>需確認車況</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Companies Section -->
-    <section id="companies" class="py-16">
+    <section id="companies" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">台南7人座租車公司</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">完整收錄10家提供7人座車款的租車公司，包含價格、評價與服務特色</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">台南7人座租車公司總覽</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">點擊標籤篩選您偏好的租車模式</p>
             </div>
 
             <!-- Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-3 mb-8">
-                <button class="filter-btn active px-4 py-2 rounded-full bg-blue-600 text-white" data-filter="all">全部</button>
-                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition" data-filter="chain">連鎖品牌</button>
-                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition" data-filter="self-service">自助租還</button>
-                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition" data-filter="local">在地店家</button>
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <button class="filter-btn active px-6 py-2 rounded-full bg-slate-800 text-white shadow-lg transition-all transform hover:scale-105" data-filter="all">全部顯示</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:bg-white hover:text-primary hover:border-primary transition-all" data-filter="chain">連鎖品牌</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:bg-white hover:text-primary hover:border-primary transition-all" data-filter="local">在地口碑</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:bg-white hover:text-primary hover:border-primary transition-all" data-filter="platform">線上平台</button>
             </div>
 
-            <!-- Company Cards -->
-            <div id="companyList" class="grid md:grid-cols-2 gap-6">
-                <!-- Cards will be inserted by JavaScript -->
+            <!-- Company Cards Container -->
+            <div id="companyList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Javascript will populate this -->
             </div>
         </div>
     </section>
 
-    <!-- Price Comparison Section -->
-    <section id="comparison" class="py-16 bg-gray-100">
+    <!-- Price Comparison -->
+    <section id="comparison" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">價格比較表</h2>
-                <p class="text-gray-600">兩天一夜7人座車款費用預估（12月假日價格）</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">價格比較表</h2>
+                <p class="text-slate-600">兩天一夜7人座車款費用預估（假日價格）</p>
             </div>
 
-            <!-- Price Chart -->
-            <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
-                <canvas id="priceChart" height="300"></canvas>
-            </div>
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                <!-- Chart Area -->
+                <div class="w-full lg:w-1/3 bg-white rounded-3xl p-6 shadow-xl border border-slate-100 lg:sticky lg:top-24">
+                    <h3 class="text-xl font-bold text-slate-800 mb-6">兩天一夜費用比較</h3>
+                    <div class="relative h-64">
+                        <canvas id="priceChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-sm text-slate-500 text-center">
+                        *以假日價格估算，含基本保險
+                    </div>
+                </div>
 
-            <!-- Comparison Table -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="comparison-table w-full">
-                        <thead>
-                            <tr class="text-white">
-                                <th class="px-4 py-4 text-left">租車公司</th>
-                                <th class="px-4 py-4 text-center">7人座日租</th>
-                                <th class="px-4 py-4 text-center">兩天預估</th>
-                                <th class="px-4 py-4 text-center">里程限制</th>
-                                <th class="px-4 py-4 text-center">評分</th>
-                                <th class="px-4 py-4 text-center">特色</th>
-                            </tr>
-                        </thead>
-                        <tbody id="comparisonTable">
-                            <!-- Rows will be inserted by JavaScript -->
-                        </tbody>
-                    </table>
+                <!-- Table Area -->
+                <div class="w-full lg:w-2/3">
+                    <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-50 border-b border-slate-100">
+                                        <th class="p-5 font-bold text-slate-700">租車公司</th>
+                                        <th class="p-5 font-bold text-slate-700 text-center">7人座車款</th>
+                                        <th class="p-5 font-bold text-slate-700 text-center">兩天預估</th>
+                                        <th class="p-5 font-bold text-slate-700 text-center">里程限制</th>
+                                        <th class="p-5 font-bold text-slate-700 text-center">評分</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="comparisonTable" class="divide-y divide-slate-100">
+                                    <!-- Javascript will populate this -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Vehicle Models Section -->
-    <section id="vehicles" class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">7人座車款介紹</h2>
-                <p class="text-gray-600">了解各車款特色，選擇最適合的車型</p>
+    <!-- Vehicle Models -->
+    <section id="vehicles" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+             <div class="absolute -top-24 -left-24 w-96 h-96 bg-primary rounded-full blur-[100px]"></div>
+             <div class="absolute top-1/2 right-0 w-96 h-96 bg-secondary rounded-full blur-[100px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">嚴選 7-9 人座車款</h2>
+                <p class="text-slate-400">依據您的行李數量與舒適度需求選擇</p>
             </div>
 
-            <div id="vehicleList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Vehicle cards will be inserted by JavaScript -->
+            <div id="vehicleList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Javascript will populate this -->
             </div>
 
-            <!-- Vehicle Comparison Tips -->
-            <div class="mt-12 bg-blue-50 rounded-2xl p-6 md:p-8">
-                <h3 class="text-xl font-bold text-gray-800 mb-4">
-                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+            <!-- Vehicle Tips -->
+            <div class="mt-12 bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
+                <h3 class="text-xl font-bold text-white mb-4">
+                    <i class="fas fa-lightbulb text-yellow-400 mr-2"></i>
                     7人出遊選車建議
                 </h3>
-                <div class="grid md:grid-cols-2 gap-6">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
                     <div>
-                        <h4 class="font-semibold text-gray-700 mb-2">行李較少（每人1小背包）</h4>
-                        <p class="text-gray-600 text-sm">Toyota SIENTA 即可滿足需求，價格實惠且好操控。</p>
+                        <h4 class="font-semibold text-primary mb-2">行李較少</h4>
+                        <p class="text-slate-300">每人1小背包 → Toyota SIENTA 即可滿足</p>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-gray-700 mb-2">行李中等（每人1登機箱）</h4>
-                        <p class="text-gray-600 text-sm">建議選擇 Hyundai CUSTIN，空間較大且配備新穎。</p>
+                        <h4 class="font-semibold text-primary mb-2">行李中等</h4>
+                        <p class="text-slate-300">每人1登機箱 → Hyundai CUSTIN 空間較大</p>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-gray-700 mb-2">行李較多（每人1大行李箱）</h4>
-                        <p class="text-gray-600 text-sm">考慮9人座車款如 STAREX 或 GRANVIA，確保空間足夠。</p>
+                        <h4 class="font-semibold text-primary mb-2">行李較多</h4>
+                        <p class="text-slate-300">每人1大行李箱 → 考慮9人座 STAREX</p>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-gray-700 mb-2">長途舒適優先</h4>
-                        <p class="text-gray-600 text-sm">GRANVIA 或 ALPHARD 乘坐舒適度最高，適合長途。</p>
+                        <h4 class="font-semibold text-primary mb-2">長途舒適</h4>
+                        <p class="text-slate-300">GRANVIA / ALPHARD 乘坐最舒適</p>
                     </div>
                 </div>
             </div>
@@ -425,28 +482,58 @@
     </section>
 
     <!-- Tips Section -->
-    <section id="tips" class="py-16 bg-gradient-to-br from-amber-50 to-orange-50">
+    <section id="tips" class="py-20 bg-gradient-to-br from-amber-50 to-orange-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">租車注意事項</h2>
-                <p class="text-gray-600">12月旺季租車必看的重要提醒</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">租車注意事項</h2>
+                <p class="text-slate-600">台南開車必看的重要提醒</p>
             </div>
 
-            <div id="tipsList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Tips will be inserted by JavaScript -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">📅</div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">提早預約</h3>
+                    <p class="text-slate-600 text-sm">假日7人座車款較搶手，建議至少提前3-7天預約。旺季請提前14天。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">🔍</div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">確認車況</h3>
+                    <p class="text-slate-600 text-sm">取車時務必仔細檢查車身外觀，有任何刮痕或凹陷都要拍照存證並告知租車公司。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">了解保險</h3>
+                    <p class="text-slate-600 text-sm">確認租金是否包含保險，建議加購「安心免責」方案，發生擦撞時可免除自負額。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">📏</div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">注意里程</h3>
+                    <p class="text-slate-600 text-sm">確認每日里程限制（通常300-400km），台南市區至七股、關子嶺等郊區來回約80-150km。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">⛽</div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">油費計算</h3>
+                    <p class="text-slate-600 text-sm">了解油費計算方式：「滿油取車滿油還」或「依里程數計費」。使用指定加油卡可能有優惠。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">⏰</div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">還車時間</h3>
+                    <p class="text-slate-600 text-sm">注意還車時間，逾時通常以每小時1/10日租金計費，超過6小時算一天。</p>
+                </div>
             </div>
 
-            <!-- Important Notice -->
-            <div class="mt-12 bg-red-50 border-l-4 border-red-500 rounded-r-xl p-6">
+            <!-- Important Warning -->
+            <div class="bg-red-50 border-l-4 border-red-500 rounded-r-xl p-6">
                 <div class="flex items-start gap-4">
                     <span class="text-3xl">⚠️</span>
                     <div>
-                        <h4 class="font-bold text-red-800 mb-2">12月假日特別注意</h4>
+                        <h4 class="font-bold text-red-800 mb-2">台南圓環交通規則（很重要！）</h4>
                         <ul class="text-red-700 text-sm space-y-1">
-                            <li>• 12月13日為週六，屬假日計價，價格比平日高約$200-500/天</li>
-                            <li>• 7人座車款較熱門，建議至少提前3-5天預約</li>
-                            <li>• 部分公司假日需加價，預約時請確認總價</li>
-                            <li>• 還車時間若遇假日可能較多人，建議預留時間</li>
+                            <li>• 西門圓環：進入<strong>需</strong>打方向燈（有十字路口）</li>
+                            <li>• 民生綠園、東門圓環：進入<strong>不需</strong>打方向燈</li>
+                            <li>• 但！變換車道、駛出圓環都<strong>要</strong>打方向燈</li>
+                            <li>• 「未打方向燈」是最常見違規，罰款 NT$1,200-3,600</li>
+                            <li>• 建議：<strong>保險起見，任何轉彎或變換車道都打方向燈</strong></li>
                         </ul>
                     </div>
                 </div>
@@ -454,196 +541,265 @@
         </div>
     </section>
 
+    <!-- Itinerary Section -->
+    <section id="itinerary" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">台南自駕推薦行程</h2>
+                <p class="text-slate-600">專為開車族群設計的路線，輕鬆停車好走</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-10">
+                <!-- Route 1 -->
+                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-blue-500/30">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800">經典古都與海線之旅</h3>
+                            <p class="text-slate-500 text-sm">適合首次造訪台南的家庭 | 總里程約80km</p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-8 space-y-8">
+                        <div class="timeline-line"></div>
+
+                        <!-- Day 1 -->
+                        <div class="relative">
+                            <span class="absolute -left-10 top-1 w-6 h-6 rounded-full bg-blue-100 border-2 border-blue-500 z-10"></span>
+                            <h4 class="font-bold text-blue-600 mb-3">Day 1：古蹟與夕陽</h4>
+                            <div class="space-y-3">
+                                <div class="bg-slate-50 p-3 rounded-lg text-sm text-slate-700 flex justify-between">
+                                    <span>🚄 台南高鐵站取車</span>
+                                    <span class="text-slate-400">10:00</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg text-sm text-slate-700 flex justify-between">
+                                    <span>🏯 安平古堡 & 老街午餐</span>
+                                    <span class="text-slate-400">12:30</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg text-sm text-slate-700 flex justify-between">
+                                    <span>🌿 四草綠色隧道 (需預約)</span>
+                                    <span class="text-slate-400">15:00</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg text-sm text-slate-700 flex justify-between">
+                                    <span>🌅 觀夕平台看夕陽</span>
+                                    <span class="text-slate-400">17:30</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 2 -->
+                        <div class="relative">
+                            <span class="absolute -left-10 top-1 w-6 h-6 rounded-full bg-blue-100 border-2 border-blue-500 z-10"></span>
+                            <h4 class="font-bold text-blue-600 mb-3">Day 2：文創與博物館</h4>
+                            <div class="space-y-3">
+                                <div class="bg-slate-50 p-3 rounded-lg text-sm text-slate-700 flex justify-between">
+                                    <span>🏛️ 奇美博物館 (好停車)</span>
+                                    <span class="text-slate-400">09:30</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg text-sm text-slate-700 flex justify-between">
+                                    <span>🥁 十鼓仁糖文創園區</span>
+                                    <span class="text-slate-400">13:30</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg text-sm text-slate-700 flex justify-between">
+                                    <span>🚄 高鐵站還車</span>
+                                    <span class="text-slate-400">17:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex justify-between items-center text-sm">
+                        <span class="text-slate-500"><i class="fas fa-road mr-1"></i> 總里程：約80km</span>
+                        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold">適合7人座</span>
+                    </div>
+                </div>
+
+                <!-- Route 2 -->
+                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-green-500/30">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800">自然生態與溫泉之旅</h3>
+                            <p class="text-slate-500 text-sm">遠離市區擁擠，享受自然 | 總里程約150km</p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-8 space-y-8">
+                        <div class="timeline-line"></div>
+
+                        <!-- Day 1 -->
+                        <div class="relative">
+                            <span class="absolute -left-10 top-1 w-6 h-6 rounded-full bg-green-100 border-2 border-green-500 z-10"></span>
+                            <h4 class="font-bold text-green-600 mb-3">Day 1：濱海風光</h4>
+                            <div class="space-y-3">
+                                <div class="bg-slate-50 p-3 rounded-lg text-sm text-slate-700 flex justify-between">
+                                    <span>🚄 高鐵站取車出發</span>
+                                    <span class="text-slate-400">10:30</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg text-sm text-slate-700 flex justify-between">
+                                    <span>🧂 七股鹽山 & 遊客中心</span>
+                                    <span class="text-slate-400">13:00</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg text-sm text-slate-700 flex justify-between">
+                                    <span>🌅 井仔腳瓦盤鹽田夕陽</span>
+                                    <span class="text-slate-400">16:30</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 2 -->
+                        <div class="relative">
+                            <span class="absolute -left-10 top-1 w-6 h-6 rounded-full bg-green-100 border-2 border-green-500 z-10"></span>
+                            <h4 class="font-bold text-green-600 mb-3">Day 2：山林溫泉</h4>
+                            <div class="space-y-3">
+                                <div class="bg-slate-50 p-3 rounded-lg text-sm text-slate-700 flex justify-between">
+                                    <span>♨️ 關子嶺泥漿溫泉</span>
+                                    <span class="text-slate-400">10:00</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg text-sm text-slate-700 flex justify-between">
+                                    <span>🍗 甕窯雞午餐</span>
+                                    <span class="text-slate-400">12:30</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg text-sm text-slate-700 flex justify-between">
+                                    <span>☕ 175咖啡公路喝咖啡</span>
+                                    <span class="text-slate-400">14:30</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex justify-between items-center text-sm">
+                        <span class="text-slate-500"><i class="fas fa-road mr-1"></i> 總里程：約150km</span>
+                        <span class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-xs font-bold">注意里程限制</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coupons Section -->
+    <section class="py-16 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="px-3 py-1 rounded-full bg-white/20 text-white text-sm font-bold mb-3 inline-block">🎁 限時優惠</span>
+                <h2 class="text-2xl md:text-3xl font-bold">2024-2025 租車優惠碼</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20">
+                    <div class="text-sm text-purple-200 mb-1">格上租車</div>
+                    <div class="text-lg font-bold mb-2">新戶送 $390</div>
+                    <p class="text-purple-200 text-xs">註冊即送日租$250+共享車$140</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20">
+                    <div class="text-sm text-purple-200 mb-1">中租租車</div>
+                    <div class="text-lg font-bold mb-2">連租3天 6折</div>
+                    <p class="text-purple-200 text-xs">不分平假日，超值推薦</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20">
+                    <div class="text-sm text-purple-200 mb-1">Klook 優惠碼</div>
+                    <div class="text-lg font-bold mb-2 font-mono">APP10TW</div>
+                    <p class="text-purple-200 text-xs">App首購享9折（新用戶）</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20">
+                    <div class="text-sm text-purple-200 mb-1">KKday 優惠碼</div>
+                    <div class="text-lg font-bold mb-2 font-mono">2025ITF94</div>
+                    <p class="text-purple-200 text-xs">全站94折優惠</p>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <p class="text-purple-200 text-sm">💡 信用卡優惠：中信/玉山/台新/富邦 和運租車平日75折、假日85折</p>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ Section -->
-    <section id="faq" class="py-16">
+    <section id="faq" class="py-20 bg-slate-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">常見問題</h2>
-                <p class="text-gray-600">台南7人座租車的疑問解答</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">常見問題</h2>
+                <p class="text-slate-600">解決您對台南租車的所有疑問</p>
             </div>
 
             <div id="faqList" class="space-y-4">
-                <!-- FAQ items will be inserted by JavaScript -->
+                <!-- Javascript will populate this -->
             </div>
         </div>
     </section>
 
-    <!-- Itinerary Section -->
-    <section id="itinerary" class="py-16 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">推薦行程</h2>
-                <p class="text-gray-600">兩天一夜台南自駕行程參考</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Itinerary 1 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-6">
-                        <h3 class="text-xl font-bold">台南經典兩天一夜</h3>
-                        <p class="text-blue-100 text-sm mt-1">古蹟文化 + 美食之旅</p>
-                    </div>
-                    <div class="p-6">
-                        <div class="mb-6">
-                            <div class="flex items-center gap-2 text-gray-500 text-sm mb-3">
-                                <i class="fas fa-sun text-yellow-500"></i>
-                                <span>Day 1</span>
-                            </div>
-                            <div class="space-y-2 text-sm">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs">1</span>
-                                    <span>台南高鐵站取車</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs">2</span>
-                                    <span>安平古堡 & 安平老街午餐</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs">3</span>
-                                    <span>四草綠色隧道</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs">4</span>
-                                    <span>神農街 & 海安路晚餐</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-2 text-gray-500 text-sm mb-3">
-                                <i class="fas fa-cloud-sun text-orange-500"></i>
-                                <span>Day 2</span>
-                            </div>
-                            <div class="space-y-2 text-sm">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-6 h-6 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-xs">5</span>
-                                    <span>奇美博物館</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-6 h-6 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-xs">6</span>
-                                    <span>十鼓仁糖文創園區</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-6 h-6 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-xs">7</span>
-                                    <span>台南高鐵站還車</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-6 pt-4 border-t flex justify-between text-sm">
-                            <span class="text-gray-500"><i class="fas fa-road mr-1"></i> 總里程：約80km</span>
-                            <span class="badge badge-green">適合7人座</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Itinerary 2 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="bg-gradient-to-r from-green-500 to-teal-500 text-white p-6">
-                        <h3 class="text-xl font-bold">台南自然生態之旅</h3>
-                        <p class="text-green-100 text-sm mt-1">鹽田風光 + 溫泉放鬆</p>
-                    </div>
-                    <div class="p-6">
-                        <div class="mb-6">
-                            <div class="flex items-center gap-2 text-gray-500 text-sm mb-3">
-                                <i class="fas fa-sun text-yellow-500"></i>
-                                <span>Day 1</span>
-                            </div>
-                            <div class="space-y-2 text-sm">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs">1</span>
-                                    <span>台南高鐵站取車</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs">2</span>
-                                    <span>七股鹽山 & 七股潟湖遊船</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs">3</span>
-                                    <span>北門水晶教堂</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs">4</span>
-                                    <span>井仔腳瓦盤鹽田夕陽</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-2 text-gray-500 text-sm mb-3">
-                                <i class="fas fa-cloud-sun text-orange-500"></i>
-                                <span>Day 2</span>
-                            </div>
-                            <div class="space-y-2 text-sm">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-6 h-6 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xs">5</span>
-                                    <span>關子嶺溫泉 & 泥漿溫泉</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-6 h-6 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xs">6</span>
-                                    <span>白河蓮花公園</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-6 h-6 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xs">7</span>
-                                    <span>台南高鐵站還車</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-6 pt-4 border-t flex justify-between text-sm">
-                            <span class="text-gray-500"><i class="fas fa-road mr-1"></i> 總里程：約150km</span>
-                            <span class="badge badge-yellow">注意里程限制</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quick Links Section -->
-    <section class="py-12 bg-blue-600 text-white">
+    <!-- Quick Links -->
+    <section class="py-12 bg-slate-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 class="text-xl font-bold text-center mb-8">快速預約連結</h3>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                <a href="https://www.easyrent.com.tw/" target="_blank" class="bg-white/10 hover:bg-white/20 rounded-xl p-4 text-center transition">
-                    <div class="font-semibold">和運租車</div>
-                    <div class="text-sm text-blue-200">官網預約</div>
+                <a href="https://www.rentalcar.com.tw/" target="_blank" class="bg-white/10 hover:bg-white/20 rounded-xl p-4 text-center transition">
+                    <div class="font-semibold">中租租車</div>
+                    <div class="text-sm text-slate-400">CP值最高</div>
                 </a>
                 <a href="https://www.car-plus.com.tw/" target="_blank" class="bg-white/10 hover:bg-white/20 rounded-xl p-4 text-center transition">
                     <div class="font-semibold">格上租車</div>
-                    <div class="text-sm text-blue-200">官網預約</div>
+                    <div class="text-sm text-slate-400">高鐵站取車</div>
                 </a>
                 <a href="https://www.any-car.com.tw/" target="_blank" class="bg-white/10 hover:bg-white/20 rounded-xl p-4 text-center transition">
                     <div class="font-semibold">直航租車</div>
-                    <div class="text-sm text-blue-200">官網預約</div>
+                    <div class="text-sm text-slate-400">最便宜</div>
                 </a>
-                <a href="https://www.irentcar.com.tw/" target="_blank" class="bg-white/10 hover:bg-white/20 rounded-xl p-4 text-center transition">
-                    <div class="font-semibold">iRent</div>
-                    <div class="text-sm text-blue-200">APP下載</div>
+                <a href="https://www.ponyrent.com.tw/" target="_blank" class="bg-white/10 hover:bg-white/20 rounded-xl p-4 text-center transition">
+                    <div class="font-semibold">小馬租車</div>
+                    <div class="text-sm text-slate-400">車款最多</div>
                 </a>
                 <a href="https://gogoout.com/suggestion/tainan-car-rental" target="_blank" class="bg-white/10 hover:bg-white/20 rounded-xl p-4 text-center transition">
                     <div class="font-semibold">gogoout</div>
-                    <div class="text-sm text-blue-200">比價平台</div>
+                    <div class="text-sm text-slate-400">比價平台</div>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12">
+    <footer class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <div class="text-2xl mb-4">🚗</div>
-                <h4 class="text-white font-bold text-lg mb-2">台南7人座租車完整比較指南</h4>
-                <p class="text-sm mb-4">資料更新時間：2024年12月</p>
-                <p class="text-xs text-gray-500">
-                    本網站資訊僅供參考，實際價格與服務內容以各租車公司官方公告為準。<br>
-                    建議預約前直接聯繫租車公司確認最新價格與車輛供應狀況。
-                </p>
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 text-white text-xl font-bold mb-6">
+                        <i class="fas fa-car-side text-primary"></i>
+                        <span>台南租車指南</span>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        我們致力於提供最透明、客觀的台南租車資訊，協助旅客找到最適合的交通方案。資訊僅供參考，請以各車行公告為準。
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-6">快速連結</h5>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#companies" class="hover:text-primary transition">租車公司一覽</a></li>
+                        <li><a href="#comparison" class="hover:text-primary transition">價格比較表</a></li>
+                        <li><a href="#vehicles" class="hover:text-primary transition">車款介紹</a></li>
+                        <li><a href="#itinerary" class="hover:text-primary transition">推薦行程</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-6">資料更新</h5>
+                    <div class="flex items-center gap-2 text-sm mb-2">
+                        <i class="far fa-clock"></i>
+                        <span>最後更新：2024年12月</span>
+                    </div>
+                    <p class="text-xs text-slate-500">
+                        *價格可能因季節與連續假期有所變動<br>
+                        *實際價格以各租車公司報價為準
+                    </p>
+                </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
-                <p>&copy; 2024 台南租車指南. All rights reserved.</p>
+            <div class="border-t border-slate-800 pt-8 text-center text-xs">
+                <p>&copy; 2024-2025 台南租車指南. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- JavaScript -->
     <script src="js/rental-data.js"></script>
     <script src="js/main.js"></script>
 </body>
