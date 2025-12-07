@@ -1,0 +1,2662 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣電商市場研究報告 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #a0a0a0;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f093fb;
+            margin: 2rem 0 1rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #667eea;
+            margin: 1.5rem 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #c0c0c0;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.15);
+        }
+
+        th {
+            background: rgba(102, 126, 234, 0.15);
+            color: #667eea;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        tr:hover {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        td:first-child {
+            font-weight: 500;
+            color: #e0e0e0;
+        }
+
+        /* Key Findings Grid */
+        .key-findings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .finding-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .finding-card .label {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .finding-card .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .finding-card .desc {
+            font-size: 0.85rem;
+            color: #a0a0a0;
+        }
+
+        /* Strategy Cards */
+        .strategy-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .strategy-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            border-radius: 2px;
+        }
+
+        .strategy-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+
+        .strategy-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid #0a0a1a;
+        }
+
+        .strategy-item.short::before { background: #00d4aa; }
+        .strategy-item.mid::before { background: #667eea; }
+        .strategy-item.long::before { background: #f093fb; }
+
+        .strategy-label {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .strategy-label.short { background: rgba(0, 212, 170, 0.2); color: #00d4aa; }
+        .strategy-label.mid { background: rgba(102, 126, 234, 0.2); color: #667eea; }
+        .strategy-label.long { background: rgba(240, 147, 251, 0.2); color: #f093fb; }
+
+        /* Platform Cards */
+        .platform-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .platform-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .platform-rank {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .platform-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e0e0e0;
+        }
+
+        .platform-share {
+            margin-left: auto;
+            font-size: 1.2rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Progress Bars */
+        .progress-bar {
+            height: 8px;
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        /* Stat Boxes */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-box {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-box .label {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+            margin-top: 0.5rem;
+        }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 0.2rem;
+        }
+
+        .tag-red { background: rgba(255, 100, 100, 0.2); color: #ff6464; }
+        .tag-yellow { background: rgba(255, 200, 100, 0.2); color: #ffc864; }
+        .tag-green { background: rgba(100, 255, 150, 0.2); color: #64ff96; }
+        .tag-blue { background: rgba(100, 150, 255, 0.2); color: #6496ff; }
+        .tag-purple { background: rgba(180, 100, 255, 0.2); color: #b464ff; }
+
+        /* Code Blocks */
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            white-space: pre;
+            color: #c0c0c0;
+            margin: 1rem 0;
+        }
+
+        /* Charts Container */
+        .chart-container {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+        }
+
+        /* Comparison Cards */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .comparison-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .comparison-card h4 {
+            margin-top: 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        /* List Styles */
+        ul, ol {
+            margin: 1rem 0 1rem 1.5rem;
+            color: #c0c0c0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Blockquote */
+        blockquote {
+            background: rgba(102, 126, 234, 0.1);
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 1rem;
+            font-style: normal;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        /* Warning/Info Boxes */
+        .info-box {
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .info-box.warning {
+            background: rgba(255, 200, 100, 0.1);
+            border: 1px solid rgba(255, 200, 100, 0.3);
+        }
+
+        .info-box.danger {
+            background: rgba(255, 100, 100, 0.1);
+            border: 1px solid rgba(255, 100, 100, 0.3);
+        }
+
+        .info-box.success {
+            background: rgba(100, 255, 150, 0.1);
+            border: 1px solid rgba(100, 255, 150, 0.3);
+        }
+
+        /* Flow Diagram */
+        .flow-diagram {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            font-family: 'Consolas', monospace;
+            white-space: pre;
+            overflow-x: auto;
+            line-height: 1.5;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-to-top svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(102, 126, 234, 0.2);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                padding: 5rem 1rem 2rem;
+            }
+
+            .platform-header {
+                flex-wrap: wrap;
+            }
+
+            .platform-share {
+                margin-left: 0;
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+        }
+
+        /* TOC */
+        .toc {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+        }
+
+        .toc-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-list a {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: #a0a0a0;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .toc-list a:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+        }
+
+        .toc-list .toc-num {
+            color: #667eea;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        /* Trend indicators */
+        .trend-up { color: #64ff96; }
+        .trend-down { color: #ff6464; }
+        .trend-stable { color: #ffc864; }
+
+        /* Video cards */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        .video-card a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .video-card a:hover {
+            text-decoration: underline;
+        }
+
+        .video-views {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">台灣電商市場研究</div>
+            <ul class="nav-links">
+                <li><a href="#executive-summary">執行摘要</a></li>
+                <li><a href="#market-size">市場規模</a></li>
+                <li><a href="#competition">競爭格局</a></li>
+                <li><a href="#consumer">消費者行為</a></li>
+                <li><a href="#regulations">法規政策</a></li>
+                <li><a href="#emerging">新興模式</a></li>
+                <li><a href="#technology">技術趨勢</a></li>
+                <li><a href="#cross-border">跨境電商</a></li>
+                <li><a href="#sustainability">永續ESG</a></li>
+                <li><a href="#outlook">產業展望</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>台灣電商市場研究報告</h1>
+            <p class="subtitle">深入分析台灣電商市場的現況、競爭格局、消費者行為、法規環境及未來趨勢，為企業提供策略參考</p>
+            <div class="hero-meta">
+                <span>報告版本：1.0</span>
+                <span>研究日期：2025年12月8日</span>
+                <span>資料來源：經濟部統計處、未來流通研究所、MIC資策會、KPMG</span>
+            </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>目錄</h3>
+            <ul class="toc-list">
+                <li><a href="#executive-summary"><span class="toc-num">01</span>執行摘要</a></li>
+                <li><a href="#market-size"><span class="toc-num">02</span>市場規模與成長分析</a></li>
+                <li><a href="#competition"><span class="toc-num">03</span>電商平台競爭格局</a></li>
+                <li><a href="#consumer"><span class="toc-num">04</span>消費者行為深度分析</a></li>
+                <li><a href="#regulations"><span class="toc-num">05</span>法規政策環境</a></li>
+                <li><a href="#emerging"><span class="toc-num">06</span>新興商業模式</a></li>
+                <li><a href="#technology"><span class="toc-num">07</span>技術應用趨勢</a></li>
+                <li><a href="#cross-border"><span class="toc-num">08</span>跨境電商發展</a></li>
+                <li><a href="#sustainability"><span class="toc-num">09</span>永續電商與ESG</a></li>
+                <li><a href="#outlook"><span class="toc-num">10</span>產業展望與建議</a></li>
+                <li><a href="#appendix"><span class="toc-num">11</span>附錄：學習資源</a></li>
+            </ul>
+        </div>
+
+        <!-- Section 1: Executive Summary -->
+        <section id="executive-summary">
+            <h2>執行摘要</h2>
+
+            <div class="card">
+                <h3>研究背景</h3>
+                <p>台灣電商市場歷經疫情期間的爆發式成長後，於2024-2025年進入穩定發展期。本報告深入分析台灣電商市場的現況、競爭格局、消費者行為、法規環境及未來趨勢，為企業提供策略參考。</p>
+            </div>
+
+            <h3>核心發現</h3>
+            <div class="key-findings">
+                <div class="finding-card">
+                    <div class="label">市場規模</div>
+                    <div class="value">4,668億</div>
+                    <div class="desc">2024年達4,668億元，預計2025年B2C市場達6,830億元</div>
+                </div>
+                <div class="finding-card">
+                    <div class="label">成長率</div>
+                    <div class="value">3-8%</div>
+                    <div class="desc">從疫情期間20%+趨緩至3-8%，進入成熟期</div>
+                </div>
+                <div class="finding-card">
+                    <div class="label">競爭格局</div>
+                    <div class="value">雙雄爭霸</div>
+                    <div class="desc">momo與蝦皮合計市佔超過50%</div>
+                </div>
+                <div class="finding-card">
+                    <div class="label">行動交易</div>
+                    <div class="value">60%</div>
+                    <div class="desc">行動支付普及率達89.9%</div>
+                </div>
+                <div class="finding-card">
+                    <div class="label">社群電商</div>
+                    <div class="value">25.5%</div>
+                    <div class="desc">年成長率，直播電商GMV超過450億元</div>
+                </div>
+                <div class="finding-card">
+                    <div class="label">跨境機會</div>
+                    <div class="value">7億人口</div>
+                    <div class="desc">東南亞市場，電商GMV雙倍成長</div>
+                </div>
+            </div>
+
+            <h3>策略建議摘要</h3>
+            <div class="strategy-timeline">
+                <div class="strategy-item short">
+                    <span class="strategy-label short">短期策略</span>
+                    <p>優化行動購物體驗、整合多元支付、強化24小時物流</p>
+                </div>
+                <div class="strategy-item mid">
+                    <span class="strategy-label mid">中期策略</span>
+                    <p>佈局社群/直播電商、發展OMO虛實整合</p>
+                </div>
+                <div class="strategy-item long">
+                    <span class="strategy-label long">長期策略</span>
+                    <p>拓展東南亞跨境市場、導入AI技術、建立永續供應鏈</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Market Size -->
+        <section id="market-size">
+            <h2>市場規模與成長分析</h2>
+
+            <h3>2.1 整體市場規模</h3>
+
+            <h4>2024年市場數據</h4>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>統計口徑</th>
+                            <th>規模</th>
+                            <th>成長率</th>
+                            <th>資料來源</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>電子購物及郵購業營業額</td>
+                            <td>4,668億元</td>
+                            <td class="trend-up">+3.0%</td>
+                            <td>經濟部統計處</td>
+                        </tr>
+                        <tr>
+                            <td>B2C電商市場</td>
+                            <td>約5,500億元</td>
+                            <td class="trend-up">+5-7%</td>
+                            <td>產業研究機構</td>
+                        </tr>
+                        <tr>
+                            <td>整體電商（含B2B）</td>
+                            <td>約476億美元</td>
+                            <td class="trend-up">+7.9%</td>
+                            <td>Statista</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>歷史成長軌跡</h4>
+            <div class="chart-container">
+                <div class="chart-wrapper">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+
+            <h4>長期預測</h4>
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="number">6.91%</div>
+                    <div class="label">2025-2029年 CAGR</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">13.3-13.6%</div>
+                    <div class="label">電商滲透率穩定區間</div>
+                </div>
+            </div>
+            <div class="info-box warning">
+                <strong>天花板效應：</strong>便利商店密度高，削弱電商相對優勢
+            </div>
+
+            <h3>2.2 市場結構分析</h3>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h4>交易模式佔比</h4>
+                    <div class="table-container">
+                        <table>
+                            <tr><td>B2C</td><td>74%</td><td>品牌/平台直售消費者</td></tr>
+                            <tr><td>C2C</td><td>15%</td><td>個人賣家對消費者</td></tr>
+                            <tr><td>B2B</td><td>11%</td><td>企業間交易</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>銷售通路佔比</h4>
+                    <div class="table-container">
+                        <table>
+                            <tr><td>純電商平台</td><td>69.2%</td><td class="trend-down">微幅下降</td></tr>
+                            <tr><td>實體零售網路銷售</td><td>30.8%</td><td class="trend-up">首次突破30%</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <h3>2.3 季節性與購物節效應</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>檔期</th>
+                            <th>時間</th>
+                            <th>銷售佔比</th>
+                            <th>特色</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>雙11</strong></td>
+                            <td>11月11日</td>
+                            <td>10-12%</td>
+                            <td>全年最大檔期</td>
+                        </tr>
+                        <tr>
+                            <td><strong>618</strong></td>
+                            <td>6月18日</td>
+                            <td>6-8%</td>
+                            <td>年中大促</td>
+                        </tr>
+                        <tr>
+                            <td><strong>農曆年前</strong></td>
+                            <td>1-2月</td>
+                            <td>8-10%</td>
+                            <td>年貨採購</td>
+                        </tr>
+                        <tr>
+                            <td><strong>雙12</strong></td>
+                            <td>12月12日</td>
+                            <td>5-7%</td>
+                            <td>雙11延續</td>
+                        </tr>
+                        <tr>
+                            <td><strong>黑色星期五</strong></td>
+                            <td>11月第四週五</td>
+                            <td>3-5%</td>
+                            <td>歐美購物節</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box success">
+                <strong>購物節總佔比：</strong>約佔全年電商交易額 <strong>25-30%</strong>
+            </div>
+
+            <h3>2.4 2025年上半年實際表現</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>指標</th>
+                            <th>數據</th>
+                            <th>變化</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>電商滲透率</td>
+                            <td>13.3%</td>
+                            <td class="trend-down">較2024年微降</td>
+                        </tr>
+                        <tr>
+                            <td>網路銷售總額</td>
+                            <td>-</td>
+                            <td class="trend-down">年減0.04%</td>
+                        </tr>
+                        <tr>
+                            <td>純電商銷售額</td>
+                            <td>-</td>
+                            <td class="trend-up">小幅正成長</td>
+                        </tr>
+                        <tr>
+                            <td>實體零售網銷</td>
+                            <td>-</td>
+                            <td class="trend-down">年減3.4%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>解讀：</strong>消費者部分回歸實體店面，顯示電商成長已達短期天花板。</p>
+        </section>
+
+        <!-- Section 3: Competition -->
+        <section id="competition">
+            <h2>電商平台競爭格局</h2>
+
+            <h3>3.1 市場版圖總覽</h3>
+
+            <h4>2024年市佔率排名</h4>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>排名</th>
+                            <th>平台</th>
+                            <th>市佔率</th>
+                            <th>2024營收估計</th>
+                            <th>年增率</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><strong>momo購物網</strong></td>
+                            <td>19.8-33.3%</td>
+                            <td>1,125億元</td>
+                            <td class="trend-up">+8%</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><strong>蝦皮購物</strong></td>
+                            <td>18-28%</td>
+                            <td>1,000-1,400億元</td>
+                            <td class="trend-up">+5%</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><strong>PChome 24h</strong></td>
+                            <td>6-12%</td>
+                            <td>375億元</td>
+                            <td class="trend-down">-5%</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><strong>Coupang酷澎</strong></td>
+                            <td>5-7%</td>
+                            <td>50億元</td>
+                            <td class="trend-up">+120%</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><strong>Yahoo購物</strong></td>
+                            <td>5-9%</td>
+                            <td>未公開</td>
+                            <td class="trend-down">-10%</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><strong>露天拍賣</strong></td>
+                            <td>6.4%</td>
+                            <td>未公開</td>
+                            <td class="trend-stable">持平</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td><strong>東森購物</strong></td>
+                            <td>3.6%</td>
+                            <td>未公開</td>
+                            <td class="trend-up">+3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><em>註：蝦皮數據差異大，因統計方法不同（使用率 vs 營收）</em></p>
+
+            <h4>競爭格局演變（2020→2024）</h4>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>2020年市場格局</h4>
+                    <div style="margin-top: 1rem;">
+                        <div style="margin-bottom: 0.8rem;">
+                            <span>PChome</span>
+                            <span style="float: right; color: #667eea;">25%</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 25%;"></div></div>
+                        </div>
+                        <div style="margin-bottom: 0.8rem;">
+                            <span>momo</span>
+                            <span style="float: right; color: #667eea;">20%</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 20%;"></div></div>
+                        </div>
+                        <div style="margin-bottom: 0.8rem;">
+                            <span>蝦皮</span>
+                            <span style="float: right; color: #667eea;">15%</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 15%;"></div></div>
+                        </div>
+                        <div style="margin-bottom: 0.8rem;">
+                            <span>Yahoo</span>
+                            <span style="float: right; color: #667eea;">10%</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 10%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>2024年市場格局</h4>
+                    <div style="margin-top: 1rem;">
+                        <div style="margin-bottom: 0.8rem;">
+                            <span>momo <span class="tag tag-green">穩居龍頭</span></span>
+                            <span style="float: right; color: #667eea;">20%</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 20%;"></div></div>
+                        </div>
+                        <div style="margin-bottom: 0.8rem;">
+                            <span>蝦皮 <span class="tag tag-blue">緊追在後</span></span>
+                            <span style="float: right; color: #667eea;">18%</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 18%;"></div></div>
+                        </div>
+                        <div style="margin-bottom: 0.8rem;">
+                            <span>PChome <span class="tag tag-red">大幅衰退</span></span>
+                            <span style="float: right; color: #667eea;">6%</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 6%;"></div></div>
+                        </div>
+                        <div style="margin-bottom: 0.8rem;">
+                            <span>酷澎 <span class="tag tag-purple">異軍突起</span></span>
+                            <span style="float: right; color: #667eea;">5%</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 5%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>3.2 主要平台深度分析</h3>
+
+            <!-- momo -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div class="platform-rank">1</div>
+                    <div class="platform-name">momo購物網（富邦媒體科技）</div>
+                    <div class="platform-share">市佔 19.8-33.3%</div>
+                </div>
+
+                <div class="grid-2">
+                    <div>
+                        <h4>基本資料</h4>
+                        <ul>
+                            <li><strong>成立年份：</strong>2004年</li>
+                            <li><strong>母公司：</strong>富邦集團</li>
+                            <li><strong>2024營收：</strong>約1,125億元</li>
+                            <li><strong>員工數：</strong>約4,500人</li>
+                            <li><strong>股票代號：</strong>8454</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>核心競爭優勢</h4>
+                        <ul>
+                            <li><strong>物流速度領先：</strong>5H快配（最快3小時到貨）</li>
+                            <li><strong>金融生態整合：</strong>富邦信用卡最高37.5%回饋</li>
+                            <li><strong>會員經濟深耕：</strong>moPlus訂閱制、RMN廣告變現</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid-3" style="margin-top: 1.5rem;">
+                    <div class="stat-box">
+                        <div class="number">25-45歲</div>
+                        <div class="label">主力客群（女性）</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">15-25%</div>
+                        <div class="label">抽成比例</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">純電商</div>
+                        <div class="label">2025策略路線</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 蝦皮 -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div class="platform-rank">2</div>
+                    <div class="platform-name">蝦皮購物（Shopee Taiwan）</div>
+                    <div class="platform-share">市佔 18-28%</div>
+                </div>
+
+                <div class="grid-2">
+                    <div>
+                        <h4>基本資料</h4>
+                        <ul>
+                            <li><strong>進入台灣：</strong>2015年</li>
+                            <li><strong>母公司：</strong>Sea Limited（新加坡）</li>
+                            <li><strong>營收估計：</strong>1,000-1,400億元</li>
+                            <li><strong>模式：</strong>C2C + B2C2C</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>核心競爭優勢</h4>
+                        <ul>
+                            <li><strong>流量與用戶基礎：</strong>18-25歲用戶使用率達80%</li>
+                            <li><strong>價格競爭力：</strong>長期低價策略、免運券大量投放</li>
+                            <li><strong>社群導購生態：</strong>蝦皮分潤聯盟行銷</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box warning" style="margin-top: 1rem;">
+                    <strong>面臨挑戰：</strong>商品品質參差不齊、淘寶低價競爭壓力、獲利能力待提升
+                </div>
+            </div>
+
+            <!-- PChome -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div class="platform-rank">3</div>
+                    <div class="platform-name">PChome 24h購物</div>
+                    <div class="platform-share">市佔 6-12%</div>
+                </div>
+
+                <div class="grid-2">
+                    <div>
+                        <h4>基本資料</h4>
+                        <ul>
+                            <li><strong>成立年份：</strong>2000年</li>
+                            <li><strong>母公司：</strong>網家集團</li>
+                            <li><strong>2024營收：</strong>約375億元</li>
+                            <li><strong>股票代號：</strong>8044</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>核心競爭優勢</h4>
+                        <ul>
+                            <li><strong>24小時到貨先驅：</strong>台灣首創</li>
+                            <li><strong>3C專業形象：</strong>產品規格資訊完整</li>
+                            <li><strong>生態系整合：</strong>統一OPENPOINT點數串接</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box danger" style="margin-top: 1rem;">
+                    <strong>面臨挑戰：</strong>市佔率從25%跌至6%、物流速度優勢被追平、用戶介面老舊、年輕用戶流失
+                </div>
+            </div>
+
+            <!-- 酷澎 -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div class="platform-rank">4</div>
+                    <div class="platform-name">Coupang酷澎（韓國電商巨頭）</div>
+                    <div class="platform-share">市佔 5-7% <span class="tag tag-green">+120%</span></div>
+                </div>
+
+                <div class="grid-2">
+                    <div>
+                        <h4>基本資料</h4>
+                        <ul>
+                            <li><strong>進入台灣：</strong>2022年</li>
+                            <li><strong>母公司：</strong>Coupang Inc.（韓國/美國上市）</li>
+                            <li><strong>2024營收估計：</strong>約50億元</li>
+                            <li><strong>累計投資：</strong>118億元（三次增資）</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>核心競爭優勢</h4>
+                        <ul>
+                            <li><strong>火箭配送系統：</strong>晚上9點前下單，隔日到貨</li>
+                            <li><strong>跨境商品優勢：</strong>韓國、美國、日本直送</li>
+                            <li><strong>Wow會員：</strong>月付59元享免運、免費退貨</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="stat-grid" style="margin-top: 1rem;">
+                    <div class="stat-box">
+                        <div class="number">1,850元</div>
+                        <div class="label">客單價（最高）</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">478萬</div>
+                        <div class="label">2025 Q1流量（人次）</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">120%</div>
+                        <div class="label">年成長率</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>3.3 國際平台入侵</h3>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>淘寶/天貓</h4>
+                    <ul>
+                        <li><strong>月流量：</strong>441萬人次</li>
+                        <li><strong>策略：</strong>超低價、運費補貼</li>
+                        <li><strong>2024雙11：</strong>投資20億元運費補貼</li>
+                        <li><strong>威脅對象：</strong>蝦皮（價格戰）</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Amazon Bazaar（2025新進）</h4>
+                    <ul>
+                        <li><strong>定位：</strong>低價時尚、家居用品</li>
+                        <li><strong>價格帶：</strong>多數300元以下</li>
+                        <li><strong>策略：</strong>中國供應鏈優勢</li>
+                        <li><strong>威脅對象：</strong>酷澎、低價電商</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Temu（拼多多旗下）</h4>
+                    <ul>
+                        <li><strong>現況：</strong>尚未正式進入台灣</li>
+                        <li><strong>策略預期：</strong>極致低價</li>
+                        <li><strong>參考：</strong>韓國市場與酷澎激烈競爭</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>3.4 三大競爭戰場</h3>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>戰場一：物流速度戰</h4>
+                    <div class="table-container">
+                        <table>
+                            <tr><td>momo</td><td>3小時</td></tr>
+                            <tr><td>蝦皮</td><td>當日達</td></tr>
+                            <tr><td>PChome</td><td>24小時</td></tr>
+                            <tr><td>酷澎</td><td>隔日達</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>戰場二：會員經濟戰</h4>
+                    <div class="table-container">
+                        <table>
+                            <tr><td>momo</td><td>moPlus訂閱制</td></tr>
+                            <tr><td>蝦皮</td><td>蝦幣回饋</td></tr>
+                            <tr><td>PChome</td><td>OPENPOINT整合</td></tr>
+                            <tr><td>酷澎</td><td>Wow會員（月$59）</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>戰場三：價格補貼戰</h4>
+                    <div class="table-container">
+                        <table>
+                            <tr><td>蝦皮</td><td>免運券投放</td></tr>
+                            <tr><td>酷澎</td><td>年行銷45億</td></tr>
+                            <tr><td>momo</td><td>最高37.5%</td></tr>
+                            <tr><td>淘寶</td><td>雙11投入20億</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Consumer Behavior -->
+        <section id="consumer">
+            <h2>消費者行為深度分析</h2>
+
+            <h3>4.1 購物習慣與偏好</h3>
+
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="number">9.11個</div>
+                    <div class="label">平均使用平台數</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">3.25次</div>
+                    <div class="label">每日使用次數</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">7-12種</div>
+                    <div class="label">購物旅程接觸點</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">56%</div>
+                    <div class="label">線上線下穿梭比例</div>
+                </div>
+            </div>
+
+            <h4>購物決策因素排名</h4>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>排名</th>
+                            <th>因素</th>
+                            <th>說明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td><strong>商品定價</strong></td><td>首要考量</td></tr>
+                        <tr><td>2</td><td><strong>付款安全性</strong></td><td>台灣獨有特徵</td></tr>
+                        <tr><td>3</td><td><strong>商品多樣性</strong></td><td>選擇豐富度</td></tr>
+                        <tr><td>4</td><td><strong>送達速度</strong></td><td>24小時成基本要求</td></tr>
+                        <tr><td>5</td><td><strong>折扣優惠</strong></td><td>購物節敏感度高</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>4.2 消費族群深度分析</h3>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h4>Z世代（1997-2012年出生，13-27歲）</h4>
+                    <p><strong>特徵：</strong>數位原生代、社群媒體重度使用者、環保意識高</p>
+                    <div class="table-container">
+                        <table>
+                            <tr><td>購物管道</td><td>社群平台主導</td></tr>
+                            <tr><td>決策影響</td><td>KOL、朋友推薦</td></tr>
+                            <tr><td>支付偏好</td><td>行動支付優先</td></tr>
+                            <tr><td>價值觀</td><td>重視DEI、永續</td></tr>
+                        </table>
+                    </div>
+                    <p><strong>行銷建議：</strong>短影音內容、網紅合作、強調品牌價值觀</p>
+                </div>
+                <div class="card">
+                    <h4>千禧世代（1981-1996年出生，28-43歲）</h4>
+                    <p><strong>特徵：</strong>最活躍網購族群、數位移民、購買力強</p>
+                    <div class="table-container">
+                        <table>
+                            <tr><td>購物管道</td><td>多元並用</td></tr>
+                            <tr><td>決策影響</td><td>比價、評價</td></tr>
+                            <tr><td>支付偏好</td><td>信用卡+行動支付</td></tr>
+                            <tr><td>價值觀</td><td>效益最大化</td></tr>
+                        </table>
+                    </div>
+                    <p><strong>行銷建議：</strong>強調CP值、詳細評價系統、會員優惠方案</p>
+                </div>
+                <div class="card">
+                    <h4>中長青族群（45-54歲）</h4>
+                    <p><strong>特徵：</strong>經濟能力最強、品牌忠誠度高</p>
+                    <div class="table-container">
+                        <table>
+                            <tr><td>購物管道</td><td>品牌官網、大型平台</td></tr>
+                            <tr><td>決策影響</td><td>品牌信任、品質</td></tr>
+                            <tr><td>客單價</td><td>最高（是18-24歲的7.6倍）</td></tr>
+                            <tr><td>主力品類</td><td>生鮮、保健、家電</td></tr>
+                        </table>
+                    </div>
+                    <p><strong>行銷建議：</strong>強調品質保證、完善客服、簡化購物流程</p>
+                </div>
+                <div class="card">
+                    <h4>銀髮族（60歲以上）</h4>
+                    <p><strong>特徵：</strong>網購比例持續上升、高品牌忠誠</p>
+                    <div class="table-container">
+                        <table>
+                            <tr><td>購物管道</td><td>電視購物、子女代購</td></tr>
+                            <tr><td>決策影響</td><td>客服、產品說明</td></tr>
+                            <tr><td>支付偏好</td><td>貨到付款、超商付款</td></tr>
+                            <tr><td>新趨勢</td><td>孝親宅配（子女代訂）</td></tr>
+                        </table>
+                    </div>
+                    <p><strong>行銷建議：</strong>大字體、簡化介面、電話客服支援</p>
+                </div>
+            </div>
+
+            <h3>4.3 熱門商品類別分析</h3>
+
+            <h4>2024年電商熱銷品類</h4>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>高頻民生需求類</h4>
+                    <ul>
+                        <li><strong>食品飲料生鮮：</strong>第1名，總聲量766萬筆</li>
+                        <li><strong>居家生活用品：</strong>衛生紙連續2年入榜</li>
+                        <li><strong>保健食品：</strong>魚油、GABA、益生菌熱銷</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>高單價科技消費類</h4>
+                    <ul>
+                        <li>1. iPhone 15</li>
+                        <li>3. Samsung Galaxy A55</li>
+                        <li>5. AirPods Pro 2</li>
+                        <li>7. PS5 SLIM版</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>成長亮點品類</h4>
+                    <ul>
+                        <li><strong>珠寶精品配飾：</strong>+44.9% 成長最快</li>
+                        <li><strong>戶外旅遊商品：</strong>行李箱成主角</li>
+                        <li><strong>黃金：</strong>熱銷榜第2、4名</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>4.4 支付方式分析</h3>
+
+            <h4>支付方式使用率與趨勢</h4>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>支付方式</th>
+                            <th>使用率</th>
+                            <th>趨勢</th>
+                            <th>說明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>行動支付</strong></td>
+                            <td>89.9%</td>
+                            <td class="trend-up">+5%</td>
+                            <td>唯一正成長，常用者84%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>信用卡</strong></td>
+                            <td>主流</td>
+                            <td class="trend-stable">穩定</td>
+                            <td>習慣難改變</td>
+                        </tr>
+                        <tr>
+                            <td><strong>電子支付儲值</strong></td>
+                            <td>45%</td>
+                            <td class="trend-up">大幅上升</td>
+                            <td>第二成長來源</td>
+                        </tr>
+                        <tr>
+                            <td><strong>實體卡</strong></td>
+                            <td>71%</td>
+                            <td class="trend-down">下降</td>
+                            <td>與行動支付差距擴大</td>
+                        </tr>
+                        <tr>
+                            <td><strong>現金</strong></td>
+                            <td>42%</td>
+                            <td class="trend-down">下降</td>
+                            <td>51%消費者減少使用</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>行動支付平台排名</h4>
+            <ol>
+                <li>一卡通票證（iPASS MONEY）- 交通整合</li>
+                <li>街口支付 - 店家覆蓋廣</li>
+                <li>全支付 - 全聯生態系</li>
+                <li>LINE Pay - 年輕族群青睞</li>
+                <li>Apple Pay / Google Pay - 國際品牌</li>
+            </ol>
+
+            <h4>電商金流整合建議</h4>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>必備選項</h4>
+                    <ul>
+                        <li>信用卡付款（基礎）</li>
+                        <li>超商取貨付款</li>
+                        <li>至少一種行動支付（LINE Pay、Apple Pay）</li>
+                        <li>貨到付款</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>進階選項</h4>
+                    <ul>
+                        <li>分期付款</li>
+                        <li>電子錢包</li>
+                        <li>銀行轉帳</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>4.5 物流配送期望</h3>
+
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="number">20.8%</div>
+                    <div class="label">期望12小時內</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">60%+</div>
+                    <div class="label">期望24小時內</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">80%+</div>
+                    <div class="label">期望48小時內</div>
+                </div>
+            </div>
+
+            <div class="info-box success">
+                <strong>結論：</strong>24小時到貨已成基本標準，12小時內成為競爭優勢
+            </div>
+
+            <h4>取貨通路偏好</h4>
+            <div class="chart-container">
+                <div class="chart-wrapper" style="height: 300px;">
+                    <canvas id="pickupChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Regulations -->
+        <section id="regulations">
+            <h2>法規政策環境</h2>
+
+            <h3>5.1 核心法規架構</h3>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h4>消費者保護法</h4>
+                    <ul>
+                        <li><strong>7天鑑賞期：</strong>郵購買賣可無條件退貨</li>
+                        <li><strong>定型化契約：</strong>須提供30日內合理審閱期</li>
+                        <li><strong>資訊揭露：</strong>須清楚標示商品資訊</li>
+                        <li><strong>企業身分揭露：</strong>須明示身分、聯絡方式</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>公平交易法</h4>
+                    <ul>
+                        <li><strong>不實廣告：</strong>禁止虛假不實表示</li>
+                        <li><strong>網紅業配：</strong>需明確標示「廣告」</li>
+                        <li><strong>限制競爭：</strong>聯合行為、獨占管制</li>
+                        <li><strong>平台責任：</strong>對賣家商品負連帶責任</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>個人資料保護法</h4>
+                    <ul>
+                        <li><strong>告知義務：</strong>蒐集目的、使用方式</li>
+                        <li><strong>最小必要原則：</strong>僅蒐集必要資料</li>
+                        <li><strong>安全措施：</strong>HTTPS加密、存取控制</li>
+                        <li><strong>當事人權利：</strong>查詢、更正、刪除</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>違反個資法後果</h4>
+            <div class="table-container">
+                <table>
+                    <tr><td>民事賠償</td><td>每人500~20,000元</td></tr>
+                    <tr><td>刑事責任</td><td>5年以下有期徒刑</td></tr>
+                    <tr><td>行政罰鍰</td><td>2萬~200萬元</td></tr>
+                </table>
+            </div>
+
+            <h3>5.2 跨境電商規範</h3>
+
+            <h4>海關進出口規定變更</h4>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>項目</th>
+                            <th>2024/4/6前</th>
+                            <th>2024/4/6後</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>進口免稅額度</td>
+                            <td>3,000元</td>
+                            <td><strong>2,000元</strong></td>
+                        </tr>
+                        <tr>
+                            <td>半年免稅次數</td>
+                            <td>無限制</td>
+                            <td><strong>超過6次即課稅</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>禁運物品清單</h4>
+            <div class="info-box danger">
+                <ul>
+                    <li><strong>肉類：</strong>禁止進口</li>
+                    <li><strong>植物：</strong>需檢疫證明</li>
+                    <li><strong>藥品：</strong>需食藥署許可</li>
+                    <li><strong>菸酒：</strong>需財政部許可</li>
+                    <li><strong>保健食品：</strong>高劑量維他命列管為藥品</li>
+                </ul>
+            </div>
+
+            <h3>5.3 2024-2025重大政策變革</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>時間</th>
+                            <th>變革內容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>2024/4/6</td><td>進口免稅額3,000→2,000元、半年6次限制</td></tr>
+                        <tr><td>2025/4/6</td><td>境外電商門檻48萬→60萬元</td></tr>
+                        <tr><td>2024年</td><td>電子簽章法修正（允許國際平台）</td></tr>
+                        <tr><td>2024年</td><td>數位經濟競爭政策白皮書發布</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>5.5 高風險領域提醒</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>風險等級</th>
+                            <th>領域</th>
+                            <th>注意事項</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="tag tag-red">高</span></td>
+                            <td>保健食品</td>
+                            <td>高劑量維他命列管為藥品，需食藥署許可</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-red">高</span></td>
+                            <td>菸酒</td>
+                            <td>絕對禁止網路販售</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-red">高</span></td>
+                            <td>個資處理</td>
+                            <td>GDPR + 台灣個資法雙重合規</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-yellow">中</span></td>
+                            <td>平台責任</td>
+                            <td>可能對第三方賣家負連帶責任</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-yellow">中</span></td>
+                            <td>廣告標示</td>
+                            <td>業配需明確標示</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 6: Emerging Business Models -->
+        <section id="emerging">
+            <h2>新興商業模式</h2>
+
+            <h3>6.1 社群電商</h3>
+
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="number">40.8億美元</div>
+                    <div class="label">2025年市場規模</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">25.5%</div>
+                    <div class="label">年成長率</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">22.7%</div>
+                    <div class="label">年複合成長率</div>
+                </div>
+            </div>
+
+            <h4>主要形式</h4>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>社群導購</h4>
+                    <p>透過社群內容引導至電商</p>
+                    <p><strong>代表平台：</strong>Facebook、Instagram</p>
+                </div>
+                <div class="card">
+                    <h4>社群團購</h4>
+                    <p>揪團購買享優惠</p>
+                    <p><strong>代表平台：</strong>LINE群組、FB社團</p>
+                </div>
+                <div class="card">
+                    <h4>社群分潤</h4>
+                    <p>推薦購買獲得傭金</p>
+                    <p><strong>代表平台：</strong>蝦皮分潤、聯盟行銷</p>
+                </div>
+            </div>
+
+            <h4>成功要素</h4>
+            <ul>
+                <li><strong>內容為王：</strong>優質內容驅動購買決策</li>
+                <li><strong>信任經濟：</strong>KOL/KOC的推薦效力</li>
+                <li><strong>互動性：</strong>即時問答、社群討論</li>
+                <li><strong>便利性：</strong>一鍵導購、無縫購物</li>
+            </ul>
+
+            <h3>6.2 直播電商</h3>
+
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="number">450億+</div>
+                    <div class="label">台灣直播電商GMV</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">98.4%</div>
+                    <div class="label">Facebook佔比</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">10-20%</div>
+                    <div class="label">2026預測佔電商銷售額</div>
+                </div>
+            </div>
+
+            <h4>運作模式</h4>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>模式</th>
+                            <th>說明</th>
+                            <th>獲利方式</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>導購模式</td><td>與平台合作，導流至網店</td><td>佣金抽成</td></tr>
+                        <tr><td>品牌合作</td><td>業配/代言，導流至官網</td><td>固定費用+佣金</td></tr>
+                        <tr><td>直播帶貨</td><td>直播主自營</td><td>價差利潤</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h4>優勢</h4>
+                    <ul>
+                        <li>即時互動與問答</li>
+                        <li>娛樂與消費一體化</li>
+                        <li>留言「+1」即可下單</li>
+                        <li>適合體驗型商品（食品、服飾）</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>挑戰</h4>
+                    <ul>
+                        <li>需要特定技能（口條、互動、銷售）</li>
+                        <li>持續曝光壓力大</li>
+                        <li>退貨率較高</li>
+                        <li>價格透明化壓力</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>6.3 OMO虛實整合</h3>
+
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="number">30.8%</div>
+                    <div class="label">實體電商佔網銷比例（首次突破30%）</div>
+                </div>
+            </div>
+
+            <h4>OMO運作模式</h4>
+            <div class="flow-diagram">
+線上（Online）          線下（Offline）
+   ↓                        ↓
+┌─────────────────────────────────────┐
+│           OMO 整合                   │
+├─────────────────────────────────────┤
+│ • 線上訂購，門市取貨                 │
+│ • 門市體驗，線上下單                 │
+│ • 會員資料雙向同步                   │
+│ • 庫存共享管理                       │
+│ • 全通路行銷                         │
+└─────────────────────────────────────┘
+            </div>
+
+            <h4>成功案例</h4>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>全聯</h4>
+                    <p>全支付+PXGo線上購</p>
+                </div>
+                <div class="card">
+                    <h4>統一超商</h4>
+                    <p>OPENPOINT+7-11線上購</p>
+                </div>
+                <div class="card">
+                    <h4>家樂福</h4>
+                    <p>線上購+店取服務</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Technology -->
+        <section id="technology">
+            <h2>技術應用趨勢</h2>
+
+            <h3>7.1 AI人工智慧</h3>
+
+            <h4>主要應用領域</h4>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>應用</th>
+                            <th>說明</th>
+                            <th>效益</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>產品推薦引擎</td><td>個人化商品推薦</td><td>亞馬遜增加35%營收</td></tr>
+                        <tr><td>產品描述生成</td><td>AI自動撰寫文案</td><td>提升轉換率</td></tr>
+                        <tr><td>智能客服</td><td>聊天機器人</td><td>降低人力成本</td></tr>
+                        <tr><td>視覺式搜尋</td><td>圖片搜尋商品</td><td>下一波應用熱點</td></tr>
+                        <tr><td>需求預測</td><td>庫存優化</td><td>降低倉儲成本</td></tr>
+                        <tr><td>價格優化</td><td>動態定價</td><td>最大化利潤</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>台灣本土案例</h4>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>東森購物</h4>
+                    <p>AWS AI大數據貼標</p>
+                    <p><strong>成效：</strong>80%精準度，電銷年獲利破20億</p>
+                </div>
+                <div class="card">
+                    <h4>91APP</h4>
+                    <p>GenAI零售平台</p>
+                    <p><strong>成效：</strong>亞洲第一個零售業ChatGPT外掛</p>
+                </div>
+                <div class="card">
+                    <h4>momo</h4>
+                    <p>會員分群模型</p>
+                    <p><strong>成效：</strong>精準行銷提升轉換</p>
+                </div>
+            </div>
+
+            <blockquote>
+                「AI最大戰場在電商」<br>
+                AI四大應用（數位行銷、程式設計、客服、技術管理）都與電商高度相關。
+                <strong>視覺式搜尋</strong>將是下一波應用重點。
+                <cite>— 簡立峰（Google台灣前董事總經理）</cite>
+            </blockquote>
+
+            <h3>7.2 AR/VR擴增實境/虛擬實境</h3>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h4>AR應用場景</h4>
+                    <ul>
+                        <li><strong>虛擬試穿：</strong>服飾、眼鏡、彩妝 → 提升購買信心</li>
+                        <li><strong>家具預覽：</strong>疊加到真實環境 → 降低退貨率</li>
+                        <li><strong>產品展示：</strong>360度觀看 → 增加互動性</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>VR應用場景</h4>
+                    <ul>
+                        <li><strong>虛擬商店：</strong>沉浸式購物體驗</li>
+                        <li><strong>虛擬展間：</strong>汽車、房屋展示</li>
+                        <li><strong>品牌體驗：</strong>提升趣味性與參與度</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="number">5億美元</div>
+                    <div class="label">台灣AR/VR軟體市場（2029年）</div>
+                </div>
+            </div>
+
+            <h3>7.3 大數據與精準行銷</h3>
+
+            <h4>數據驅動策略</h4>
+            <div class="table-container">
+                <table>
+                    <tr><td>CDP建置</td><td>客戶數據平台整合第一方數據</td></tr>
+                    <tr><td>超個性化</td><td>精準預測需求，最佳時機傳遞內容</td></tr>
+                    <tr><td>RPA自動化</td><td>流程自動化提升效率</td></tr>
+                    <tr><td>零售媒體網路</td><td>利用自有流量變現</td></tr>
+                </table>
+            </div>
+
+            <h4>數據應用模型</h4>
+            <div class="grid-4">
+                <div class="stat-box">
+                    <div class="number">NAPL</div>
+                    <div class="label">會員生命週期預測</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">DCIU</div>
+                    <div class="label">購買意圖分析</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">RFM</div>
+                    <div class="label">客戶價值分群</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">CLV</div>
+                    <div class="label">客戶終身價值計算</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Cross-border -->
+        <section id="cross-border">
+            <h2>跨境電商發展</h2>
+
+            <h3>8.1 東南亞市場機會</h3>
+
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="number">近7億</div>
+                    <div class="label">總人口</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">4.93億</div>
+                    <div class="label">網路使用人口</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">4.6%</div>
+                    <div class="label">2024年GDP成長率</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">20%+</div>
+                    <div class="label">菲律賓電商成長率</div>
+                </div>
+            </div>
+
+            <h4>主要市場比較</h4>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>國家</th>
+                            <th>人口</th>
+                            <th>電商特色</th>
+                            <th>主要平台</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>印尼</td><td>2.7億</td><td>最大市場、穆斯林商機</td><td>Tokopedia、Shopee</td></tr>
+                        <tr><td>越南</td><td>1億</td><td>快速成長、年輕人口</td><td>Shopee、Lazada</td></tr>
+                        <tr><td>泰國</td><td>7千萬</td><td>成熟市場、社群電商發達</td><td>Shopee、Lazada</td></tr>
+                        <tr><td>馬來西亞</td><td>3千萬</td><td>中文優勢、華人市場</td><td>Shopee、Lazada</td></tr>
+                        <tr><td>菲律賓</td><td>1.1億</td><td>成長最快、英語優勢</td><td>Shopee、Lazada</td></tr>
+                        <tr><td>新加坡</td><td>600萬</td><td>高消費力、跳板市場</td><td>Shopee、Lazada、Amazon</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>台灣優勢</h4>
+            <div class="grid-4">
+                <div class="card">
+                    <h4>文化語言</h4>
+                    <p>英文、中文為主，文化接近</p>
+                </div>
+                <div class="card">
+                    <h4>品牌形象</h4>
+                    <p>台灣品牌在當地接受度高</p>
+                </div>
+                <div class="card">
+                    <h4>政策支持</h4>
+                    <p>各國鬆綁跨境政策</p>
+                </div>
+                <div class="card">
+                    <h4>平台生態</h4>
+                    <p>Shopee提供完整跨境方案</p>
+                </div>
+            </div>
+
+            <h3>8.2 跨境物流創新</h3>
+
+            <h4>B2B2C模式崛起</h4>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>項目</th>
+                            <th>傳統B2C</th>
+                            <th>B2B2C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>交付時間</td><td>15-20天</td><td class="trend-up">3-5天</td></tr>
+                        <tr><td>庫存管理</td><td>國內倉</td><td>海外倉</td></tr>
+                        <tr><td>關稅處理</td><td>消費者負擔</td><td>賣家預繳</td></tr>
+                        <tr><td>退換貨</td><td>複雜</td><td>本地處理</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>ShipAny案例</h4>
+            <div class="card">
+                <div class="grid-2">
+                    <div>
+                        <h4>功能</h4>
+                        <ul>
+                            <li>多物流商整合（即時比價）</li>
+                            <li>自動化報關（減少人工）</li>
+                            <li>多國貨態追蹤（提升體驗）</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>效益</h4>
+                        <ul>
+                            <li>成本優化：降低30%運費</li>
+                            <li>時效提升：9天→5天內</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Sustainability -->
+        <section id="sustainability">
+            <h2>永續電商與ESG</h2>
+
+            <h3>9.1 循環包裝生態系</h3>
+
+            <h4>配客嘉（PackAge+）案例</h4>
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="number">50次+</div>
+                    <div class="label">包裝重複使用次數</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">4,500+</div>
+                    <div class="label">歸還站點</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">86%</div>
+                    <div class="label">回收率</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">200+</div>
+                    <div class="label">合作企業</div>
+                </div>
+            </div>
+
+            <div class="info-box success">
+                <strong>減碳效果：</strong>比一次性紙箱減少 <strong>50.6%</strong> 碳排放
+            </div>
+
+            <h3>9.2 主要平台永續作為</h3>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h4>momo購物網</h4>
+                    <ul>
+                        <li><strong>綠活會員：</strong>突破70萬人</li>
+                        <li><strong>累計減碳：</strong>超過230公噸</li>
+                        <li><strong>循環袋回收率：</strong>21.4%</li>
+                        <li><strong>太陽能發電：</strong>2024年累計207萬度</li>
+                        <li><strong>回收站點：</strong>超過1.5萬個</li>
+                        <li><strong>創新服務：</strong>減碳儀表板（會員可視化）</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>PChome</h4>
+                    <ul>
+                        <li><strong>塑膠再生料比例：</strong>30%以上</li>
+                        <li><strong>紙類再生紙比例：</strong>90%以上</li>
+                        <li><strong>碳標籤：</strong>率先取得環境部認證</li>
+                        <li><strong>綠色物流：</strong>電動機車車隊</li>
+                        <li><strong>智慧物流：</strong>林口A7中心</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>蝦皮購物</h4>
+                    <ul>
+                        <li><strong>環保無包裝物流：</strong>2024年10月推出</li>
+                        <li><strong>預估減碳：</strong>年底減少4,060公噸CO2</li>
+                        <li><strong>店到店循環包裝：</strong>試點計畫</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>酷澎</h4>
+                    <ul>
+                        <li><strong>回收材料紙箱：</strong>比例高於95%</li>
+                        <li><strong>未來規劃：</strong>評估導入回收塑膠箱</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>9.3 政策法規</h3>
+
+            <h4>環境部網購包裝減量指引</h4>
+            <div class="table-container">
+                <table>
+                    <tr><td>紙類包材回收紙含量</td><td>90%以上</td></tr>
+                    <tr><td>塑膠包材再生料</td><td>25%以上</td></tr>
+                    <tr><td>業者義務</td><td>須提交減量報告</td></tr>
+                </table>
+            </div>
+
+            <h3>9.4 永續電商趨勢</h3>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>循環經濟</h4>
+                    <p>包裝重複使用成主流</p>
+                </div>
+                <div class="card">
+                    <h4>碳中和物流</h4>
+                    <p>電動車隊、綠能倉儲</p>
+                </div>
+                <div class="card">
+                    <h4>綠色消費</h4>
+                    <p>Z世代願意多花錢買環保產品</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Outlook -->
+        <section id="outlook">
+            <h2>產業展望與建議</h2>
+
+            <h3>10.1 市場機會分析</h3>
+
+            <h4>高成長領域</h4>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>領域</th>
+                            <th>成長率</th>
+                            <th>機會說明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>社群電商</strong></td><td class="trend-up">25.5%</td><td>內容驅動、信任經濟</td></tr>
+                        <tr><td><strong>直播電商</strong></td><td class="trend-up">20%+</td><td>娛樂+消費一體化</td></tr>
+                        <tr><td><strong>跨境電商</strong></td><td class="trend-up">15%+</td><td>東南亞藍海市場</td></tr>
+                        <tr><td><strong>生鮮電商</strong></td><td class="trend-up">10%+</td><td>銀髮族客單價高</td></tr>
+                        <tr><td><strong>永續電商</strong></td><td>新興</td><td>法規推動+消費者意識</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>待開發族群</h4>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>銀髮族</h4>
+                    <p><strong>機會：</strong>客單價最高、忠誠度高</p>
+                    <p><strong>策略：</strong>簡化操作、優質客服</p>
+                </div>
+                <div class="card">
+                    <h4>男性消費者</h4>
+                    <p><strong>機會：</strong>3C以外品類滲透低</p>
+                    <p><strong>策略：</strong>精準推薦、規格導向</p>
+                </div>
+                <div class="card">
+                    <h4>二三線城市</h4>
+                    <p><strong>機會：</strong>滲透率仍有空間</p>
+                    <p><strong>策略：</strong>超商取貨、在地化</p>
+                </div>
+            </div>
+
+            <h3>10.2 競爭挑戰</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>挑戰</th>
+                            <th>說明</th>
+                            <th>因應策略</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>物流軍備競賽</td><td>24小時成基本，朝12小時邁進</td><td>策略聯盟、自建倉儲</td></tr>
+                        <tr><td>國際平台入侵</td><td>酷澎、淘寶、Amazon價格壓力</td><td>差異化、服務品質</td></tr>
+                        <tr><td>成長趨緩</td><td>滲透率13%已達短期天花板</td><td>跨境拓展、品類延伸</td></tr>
+                        <tr><td>法規趨嚴</td><td>免稅額降低、個資要求提高</td><td>合規經營、透明化</td></tr>
+                        <tr><td>人才競爭</td><td>電商人才供需失衡</td><td>培訓投資、留才策略</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>10.3 策略建議</h3>
+
+            <div class="strategy-timeline">
+                <div class="strategy-item short">
+                    <span class="strategy-label short">短期策略（6-12個月）</span>
+                    <ul>
+                        <li><strong>優化行動體驗：</strong>RWD網站、APP優化、一頁式結帳</li>
+                        <li><strong>整合多元支付：</strong>信用卡+行動支付+超商付款</li>
+                        <li><strong>強化物流：</strong>24小時到貨、超商取貨（優先7-11）</li>
+                        <li><strong>付款安全：</strong>SSL、3D驗證、代碼化</li>
+                    </ul>
+                </div>
+                <div class="strategy-item mid">
+                    <span class="strategy-label mid">中期策略（1-2年）</span>
+                    <ul>
+                        <li><strong>佈局社群電商：</strong>內容行銷、KOL合作、社群導購</li>
+                        <li><strong>發展直播電商：</strong>培養直播人才、建立直播基礎設施</li>
+                        <li><strong>推動OMO整合：</strong>會員系統整合、庫存共享、全通路行銷</li>
+                        <li><strong>導入AI技術：</strong>推薦引擎、智能客服、需求預測</li>
+                    </ul>
+                </div>
+                <div class="strategy-item long">
+                    <span class="strategy-label long">長期策略（3-5年）</span>
+                    <ul>
+                        <li><strong>拓展跨境市場：</strong>東南亞優先、建立海外倉</li>
+                        <li><strong>建立永續供應鏈：</strong>循環包裝、碳中和物流</li>
+                        <li><strong>發展自有品牌：</strong>提升毛利、建立護城河</li>
+                        <li><strong>數據資產化：</strong>CDP建置、RMN廣告變現</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>10.4 不同規模企業建議</h3>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h4>大型電商平台</h4>
+                    <ul>
+                        <li><strong>物流基建：</strong>自建倉儲、最後一哩配送</li>
+                        <li><strong>技術投資：</strong>AI/ML、大數據平台</li>
+                        <li><strong>生態系建構：</strong>金流、物流、行銷整合</li>
+                        <li><strong>國際化：</strong>跨境布局、海外併購</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>中型電商/品牌</h4>
+                    <ul>
+                        <li><strong>通路選擇：</strong>多平台+自有官網並行</li>
+                        <li><strong>差異化：</strong>專注特定品類/族群</li>
+                        <li><strong>社群經營：</strong>內容行銷、會員經營</li>
+                        <li><strong>系統投資：</strong>ERP、CRM、行銷自動化</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>小型電商/新創</h4>
+                    <ul>
+                        <li><strong>平台起步：</strong>蝦皮低門檻進入</li>
+                        <li><strong>選品策略：</strong>利基市場、差異化</li>
+                        <li><strong>內容經營：</strong>社群媒體、短影音</li>
+                        <li><strong>成本控制：</strong>SaaS工具、外包物流</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>10.5 2025-2026關鍵轉型要點</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>面向</th>
+                            <th>行動要點</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>數位基礎建設</td><td>混合雲、API標準化、災難復原</td></tr>
+                        <tr><td>資料管理</td><td>資料治理架構、KPI驅動決策</td></tr>
+                        <tr><td>行銷自動化</td><td>GenAI文案、RPA流程自動化</td></tr>
+                        <tr><td>組織能力</td><td>員工數位培訓、敏捷團隊</td></tr>
+                        <tr><td>資安合規</td><td>個資法遵循、資安防護</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 11: Appendix -->
+        <section id="appendix">
+            <h2>附錄：學習資源</h2>
+
+            <h3>11.1 YouTube推薦影片</h3>
+
+            <h4>市場分析類（高觀看）</h4>
+            <div class="video-grid">
+                <div class="video-card">
+                    <h4><a href="https://www.youtube.com/watch?v=De8rKEzVA0M" target="_blank">酷澎砸百億攻台灣</a></h4>
+                    <p>商業周刊</p>
+                    <p class="video-views">64萬觀看</p>
+                </div>
+                <div class="video-card">
+                    <h4><a href="https://www.youtube.com/watch?v=ESlF8Lx9wgo" target="_blank">台灣電商大亂鬥</a></h4>
+                    <p>志祺七七</p>
+                    <p class="video-views">24萬觀看</p>
+                </div>
+                <div class="video-card">
+                    <h4><a href="https://www.youtube.com/watch?v=MLNhLvA6Hto" target="_blank">電商=暴利？</a></h4>
+                    <p>谷阿莫</p>
+                    <p class="video-views">20萬觀看</p>
+                </div>
+                <div class="video-card">
+                    <h4><a href="https://www.youtube.com/watch?v=T-T9k34Zs4M" target="_blank">19歲電商創業分享</a></h4>
+                    <p>yyselina</p>
+                    <p class="video-views">22萬觀看</p>
+                </div>
+            </div>
+
+            <h4>實戰教學類</h4>
+            <div class="video-grid">
+                <div class="video-card">
+                    <h4><a href="https://www.youtube.com/watch?v=Ka-HnGshee0" target="_blank">怎麼在蝦皮賣東西</a></h4>
+                    <p>Wilson隨拍日常</p>
+                    <p class="video-views">23萬觀看</p>
+                </div>
+                <div class="video-card">
+                    <h4><a href="https://www.youtube.com/watch?v=FQD4cPvk5rM" target="_blank">千萬營收蝦皮賣家揭密</a></h4>
+                    <p>涵捺Hana</p>
+                    <p class="video-views">4萬觀看</p>
+                </div>
+                <div class="video-card">
+                    <h4><a href="https://www.youtube.com/watch?v=t1E3qyz-Rjw" target="_blank">蝦皮選品三部曲</a></h4>
+                    <p>蝦皮診療室</p>
+                    <p class="video-views">3.9萬觀看</p>
+                </div>
+                <div class="video-card">
+                    <h4><a href="https://www.youtube.com/watch?v=o39x_mM_C8s" target="_blank">MOMO 2025戰略揭密</a></h4>
+                    <p>電商Tony陳</p>
+                    <p class="video-views">1.5萬觀看</p>
+                </div>
+            </div>
+
+            <h3>11.2 官方資源</h3>
+            <div class="table-container">
+                <table>
+                    <tr><td>經濟部統計處</td><td><a href="https://www.moea.gov.tw/Mns/dos/home/Home.aspx" target="_blank">https://www.moea.gov.tw</a></td></tr>
+                    <tr><td>財政部關務署</td><td><a href="https://web.customs.gov.tw/" target="_blank">https://web.customs.gov.tw</a></td></tr>
+                    <tr><td>行政院消保會</td><td><a href="https://cpc.ey.gov.tw/" target="_blank">https://cpc.ey.gov.tw</a></td></tr>
+                    <tr><td>公平交易委員會</td><td><a href="https://www.ftc.gov.tw/" target="_blank">https://www.ftc.gov.tw</a></td></tr>
+                    <tr><td>數位發展部</td><td><a href="https://moda.gov.tw/" target="_blank">https://moda.gov.tw</a></td></tr>
+                </table>
+            </div>
+
+            <h3>11.3 產業研究機構</h3>
+            <div class="grid-4">
+                <div class="card">
+                    <h4>未來流通研究所</h4>
+                    <p>零售電商市場分析</p>
+                </div>
+                <div class="card">
+                    <h4>資策會MIC</h4>
+                    <p>科技產業研究</p>
+                </div>
+                <div class="card">
+                    <h4>商業發展研究院</h4>
+                    <p>商業服務業研究</p>
+                </div>
+                <div class="card">
+                    <h4>91APP零售研究</h4>
+                    <p>OMO、零售科技</p>
+                </div>
+            </div>
+
+            <h3>11.4 學習路徑建議</h3>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h4>新手入門（1-2週）</h4>
+                    <div class="code-block">第1週：基礎認知
+├── 觀看「怎麼在蝦皮賣東西」(Wilson)
+├── 實際開設測試賣場
+└── 熟悉平台操作介面
+
+第2週：選品定位
+├── 蝦皮選品三部曲 (蝦皮診療室)
+├── 千萬營收賣家經驗 (涵捺Hana)
+└── 確定賣場定位與首批商品</div>
+                </div>
+                <div class="card">
+                    <h4>進階發展（1-2月）</h4>
+                    <div class="code-block">第1-2週：市場理解
+├── 志祺七七平台比較
+├── 商業周刊酷澎分析
+└── 了解競爭格局
+
+第3-4週：跨境準備
+├── 蝦皮大學跨境課程
+├── Brayden Chen平台點評
+└── 選定目標市場
+
+第5-8週：技術整合
+├── 金流物流串接
+├── 行銷工具學習
+└── 數據分析基礎</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Method -->
+        <section>
+            <h2>研究方法說明</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h4>資料來源</h4>
+                    <ul>
+                        <li><strong>官方統計：</strong>經濟部、財政部、主計處</li>
+                        <li><strong>產業研究：</strong>未來流通研究所、MIC、KPMG</li>
+                        <li><strong>國際機構：</strong>Statista、麥肯錫、DHL</li>
+                        <li><strong>新聞媒體：</strong>數位時代、商業周刊</li>
+                        <li><strong>影音內容：</strong>YouTube產業分析</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>資料時效性</h4>
+                    <ul>
+                        <li><strong>市場規模數據：</strong>2024年實際 + 2025年預測</li>
+                        <li><strong>法規政策：</strong>截至2025年12月</li>
+                        <li><strong>平台資訊：</strong>2024-2025年</li>
+                        <li><strong>趨勢預測：</strong>2025-2029年</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box warning">
+                <strong>數據差異說明：</strong>
+                <ul>
+                    <li>蝦皮市佔率差異（18%-61%）：使用率vs營收統計方法不同</li>
+                    <li>momo市佔率差異（19.8%-33.3%）：含/不含直銷業整體市佔</li>
+                    <li>市場規模差異：統計口徑不同（純電商vs含實體零售線上銷售）</li>
+                </ul>
+                <p>建議交叉驗證重要決策數據，以官方統計為主要參考。</p>
+            </div>
+        </section>
+
+        <!-- Version -->
+        <section>
+            <h2>版本紀錄</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>版本</th>
+                            <th>日期</th>
+                            <th>更新內容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1.0</td>
+                            <td>2025-12-08</td>
+                            <td>初版發布</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; color: #888; font-style: italic;">
+                本報告僅供參考，不構成投資或商業決策建議。所有數據以官方公告為準。
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>台灣電商市場研究報告 2025 | 研究日期：2025年12月8日</p>
+        <p style="margin-top: 1rem;">資料來源：經濟部統計處、未來流通研究所、MIC資策會、KPMG、產業報告</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+    </button>
+
+    <script>
+        // Growth Chart
+        const growthCtx = document.getElementById('growthChart').getContext('2d');
+        new Chart(growthCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025(預)'],
+                datasets: [{
+                    label: '年成長率 (%)',
+                    data: [10.2, 24.0, 26.6, 12.3, 4.5, 3.0, 6.5],
+                    backgroundColor: [
+                        'rgba(102, 126, 234, 0.6)',
+                        'rgba(0, 212, 170, 0.6)',
+                        'rgba(0, 212, 170, 0.6)',
+                        'rgba(240, 147, 251, 0.6)',
+                        'rgba(102, 126, 234, 0.6)',
+                        'rgba(102, 126, 234, 0.6)',
+                        'rgba(102, 126, 234, 0.4)'
+                    ],
+                    borderColor: [
+                        'rgba(102, 126, 234, 1)',
+                        'rgba(0, 212, 170, 1)',
+                        'rgba(0, 212, 170, 1)',
+                        'rgba(240, 147, 251, 1)',
+                        'rgba(102, 126, 234, 1)',
+                        'rgba(102, 126, 234, 1)',
+                        'rgba(102, 126, 234, 0.6)'
+                    ],
+                    borderWidth: 2,
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: { color: '#e0e0e0' }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.parsed.y + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(102, 126, 234, 0.1)' },
+                        ticks: {
+                            color: '#a0a0a0',
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#a0a0a0' }
+                    }
+                }
+            }
+        });
+
+        // Pickup Channel Chart
+        const pickupCtx = document.getElementById('pickupChart').getContext('2d');
+        new Chart(pickupCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['7-ELEVEN', '全家', '萊爾富', '其他'],
+                datasets: [{
+                    data: [81, 12, 5, 2],
+                    backgroundColor: [
+                        'rgba(102, 126, 234, 0.8)',
+                        'rgba(0, 212, 170, 0.8)',
+                        'rgba(240, 147, 251, 0.8)',
+                        'rgba(160, 160, 160, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(102, 126, 234, 1)',
+                        'rgba(0, 212, 170, 1)',
+                        'rgba(240, 147, 251, 1)',
+                        'rgba(160, 160, 160, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: { color: '#e0e0e0' }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + context.parsed + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
