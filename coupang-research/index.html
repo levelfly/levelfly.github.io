@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酷澎（Coupang）完整情報研究報告 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255, 87, 34, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff5722 0%, #ff9800 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff5722;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ff5722 0%, #ff9800 50%, #ffc107 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #a0a0a0;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(255, 87, 34, 0.3);
+            background: linear-gradient(135deg, #ff5722 0%, #ff9800 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffc107;
+            margin: 2rem 0 1rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ff9800;
+            margin: 1.5rem 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 87, 34, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 87, 34, 0.5);
+            box-shadow: 0 10px 40px rgba(255, 87, 34, 0.1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h4 {
+            margin-top: 0;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 87, 34, 0.1);
+            border: 1px solid rgba(255, 87, 34, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff5722 0%, #ffc107 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 0.5rem;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        th {
+            background: rgba(255, 87, 34, 0.1);
+            font-weight: 600;
+            color: #ff9800;
+        }
+
+        tr:hover {
+            background: rgba(255, 87, 34, 0.05);
+        }
+
+        /* Chart Container */
+        .chart-container {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 87, 34, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #ff5722, #ffc107);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #ff5722;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: #ff9800;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: rgba(255, 87, 34, 0.1);
+            border-left: 4px solid #ff5722;
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0;
+        }
+
+        .danger-box {
+            background: rgba(244, 67, 54, 0.1);
+            border-left: 4px solid #f44336;
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0;
+        }
+
+        /* Blockquote */
+        blockquote {
+            border-left: 4px solid #ff9800;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #a0a0a0;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            background: rgba(255, 87, 34, 0.2);
+            color: #ff9800;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+        }
+
+        /* Code Block */
+        pre {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 87, 34, 0.2);
+            color: #666;
+        }
+
+        footer a {
+            color: #ff9800;
+            text-decoration: none;
+        }
+
+        /* TOC */
+        .toc {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 87, 34, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0.75rem;
+        }
+
+        .toc a {
+            color: #ff9800;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .toc a:hover {
+            color: #ffc107;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-value {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Comparison Table */
+        .comparison-good {
+            color: #4caf50;
+        }
+
+        .comparison-bad {
+            color: #f44336;
+        }
+
+        .comparison-neutral {
+            color: #ffc107;
+        }
+
+        /* Video List */
+        .video-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .video-item {
+            display: flex;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 87, 34, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            transition: all 0.3s;
+        }
+
+        .video-item:hover {
+            border-color: rgba(255, 87, 34, 0.5);
+            background: rgba(255, 87, 34, 0.05);
+        }
+
+        .video-icon {
+            font-size: 2rem;
+            color: #f44336;
+        }
+
+        .video-info h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .video-meta {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .video-link {
+            color: #ff9800;
+            text-decoration: none;
+        }
+
+        .video-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">Coupang Research</div>
+            <ul class="nav-links">
+                <li><a href="#overview">公司概覽</a></li>
+                <li><a href="#financials">財務數據</a></li>
+                <li><a href="#business">商業模式</a></li>
+                <li><a href="#taiwan">台灣市場</a></li>
+                <li><a href="#competition">競爭分析</a></li>
+                <li><a href="#risks">風險評估</a></li>
+                <li><a href="#youtube">YouTube 研究</a></li>
+                <li><a href="../index.html">返回首頁</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>酷澎（Coupang）<br>完整情報研究報告</h1>
+            <p class="subtitle">韓國最大電商平台深度分析：商業模式、財務表現、台灣市場策略與投資評估</p>
+            <div class="hero-meta">
+                <span>📅 研究日期：2025-12-08</span>
+                <span>📊 資料來源：財報、產業分析、YouTube</span>
+                <span>🎯 適用：市場研究、投資參考</span>
+            </div>
+        </section>
+
+        <!-- Key Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">$590億</div>
+                <div class="stat-label">市值（美元）</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">25%</div>
+                <div class="stat-label">韓國市占率</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">228</div>
+                <div class="stat-label">物流中心數量</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">1,400萬</div>
+                <div class="stat-label">WOW 會員數</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">350億+</div>
+                <div class="stat-label">台灣投資（新台幣）</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">三位數</div>
+                <div class="stat-label">台灣年成長率</div>
+            </div>
+        </div>
+
+        <!-- TOC -->
+        <div class="toc">
+            <h3>目錄</h3>
+            <ul>
+                <li><a href="#overview">1. 公司概覽</a></li>
+                <li><a href="#financials">2. 財務數據</a></li>
+                <li><a href="#business">3. 核心商業模式</a></li>
+                <li><a href="#taiwan">4. 台灣市場發展</a></li>
+                <li><a href="#competition">5. 競爭態勢分析</a></li>
+                <li><a href="#risks">6. 風險與挑戰</a></li>
+                <li><a href="#outlook">7. 未來展望</a></li>
+                <li><a href="#youtube">8. YouTube 影音研究</a></li>
+                <li><a href="#quick-ref">9. 關鍵數據速查</a></li>
+            </ul>
+        </div>
+
+        <!-- Section 1: Company Overview -->
+        <section id="overview">
+            <h2>1. 公司概覽</h2>
+
+            <h3>基本資訊</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>項目</th><th>資訊</th></tr>
+                    <tr><td>公司名稱</td><td>Coupang, Inc.（酷澎）</td></tr>
+                    <tr><td>成立時間</td><td>2010 年</td></tr>
+                    <tr><td>創辦人</td><td>金範錫（Bom Kim），韓裔美籍，哈佛商學院 MBA 輟學創業</td></tr>
+                    <tr><td>法定總部</td><td>美國西雅圖</td></tr>
+                    <tr><td>營運總部</td><td>韓國首爾</td></tr>
+                    <tr><td>上市資訊</td><td>2021年3月11日 NYSE 上市</td></tr>
+                    <tr><td>股票代碼</td><td>CPNG</td></tr>
+                    <tr><td>上市發行價</td><td>$35 美元</td></tr>
+                    <tr><td>首日市值</td><td>約 850 億美元（2014年阿里巴巴後最大外企 IPO）</td></tr>
+                    <tr><td>定位</td><td>韓國最大電商平台，「韓國的 Amazon」</td></tr>
+                </table>
+            </div>
+
+            <h3>發展歷程</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-year">2010</span>
+                    <p>公司成立，初期以團購模式起步</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2017</span>
+                    <p>推出「Rocket Delivery」火箭速配，成為市場差異化關鍵</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2021</span>
+                    <p>紐約證交所上市，WOW 會員達 90 萬</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2022</span>
+                    <p>進軍台灣市場，推出火箭速配與火箭跨境</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2023</span>
+                    <p>首次年度盈利，入選財星 500 強（第 195 名），超越韓國零售龍頭 E-Mart</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2024</span>
+                    <p>年營收 41.29 兆韓元（創韓國零售業紀錄），毛利年增 43%</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2025</span>
+                    <p>台灣市場三位數成長，面臨重大資安事件</p>
+                </div>
+            </div>
+
+            <h3>主要業務</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">📦</div>
+                    <h4>電商核心業務</h4>
+                    <ul>
+                        <li>零售電商平台（自營 + 第三方）</li>
+                        <li>Rocket Delivery（火箭速配）</li>
+                        <li>Rocket Fresh（生鮮配送）</li>
+                        <li>Rocket Jikgu（海外直購）</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌐</div>
+                    <h4>生態系統服務</h4>
+                    <ul>
+                        <li>Coupang Eats（餐飲外送）</li>
+                        <li>Coupang Play（影音串流）</li>
+                        <li>Coupang Pay（金融支付）</li>
+                        <li>Coupang Flex（彈性配送人力）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Financials -->
+        <section id="financials">
+            <h2>2. 財務數據</h2>
+
+            <h3>股票資訊（2025年11月）</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>指標</th><th>數值</th></tr>
+                    <tr><td>股票代碼</td><td>CPNG（NYSE）</td></tr>
+                    <tr><td>當前股價</td><td>$27-28</td></tr>
+                    <tr><td>52週高點</td><td>$32.40</td></tr>
+                    <tr><td>52週低點</td><td>$19.02</td></tr>
+                    <tr><td>市值</td><td>約 590 億美元</td></tr>
+                    <tr><td>總股本</td><td>18.27 億股</td></tr>
+                </table>
+            </div>
+
+            <h3>營收與獲利</h3>
+            <div class="chart-container">
+                <div class="chart-wrapper">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+            <div class="table-container">
+                <table>
+                    <tr><th>年度/季度</th><th>營收</th><th>年增率</th><th>淨利</th></tr>
+                    <tr><td>2023全年</td><td>318.3 兆韓元</td><td>-</td><td>6,174 億韓元（首次年度盈利）</td></tr>
+                    <tr><td>2024全年</td><td>302.7 億美元</td><td>+24.14%</td><td>1.54 億美元</td></tr>
+                    <tr><td>2025 Q3</td><td>93 億美元</td><td>+18%</td><td>9,500 萬美元</td></tr>
+                    <tr><td>2025 TTM</td><td>322.6 億美元</td><td>+18.69%</td><td>3.65 億美元</td></tr>
+                </table>
+            </div>
+
+            <h3>關鍵財務指標</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>指標</th><th>數值</th><th>評估</th></tr>
+                    <tr><td>毛利率</td><td>29.4%-29.7%</td><td class="comparison-good">持續改善</td></tr>
+                    <tr><td>淨利率</td><td>0.82%-1.13%</td><td class="comparison-neutral">仍處低位</td></tr>
+                    <tr><td>P/E 比率</td><td>130-282</td><td class="comparison-bad">估值極高</td></tr>
+                    <tr><td>自由現金流（TTM）</td><td>13 億美元</td><td class="comparison-good">健康正向</td></tr>
+                </table>
+            </div>
+
+            <h3>分析師評價</h3>
+            <div class="info-box">
+                <p><strong>共識評級：強力買進</strong></p>
+                <p>目標價 $37.00-37.50，上漲潛力 30-33%</p>
+            </div>
+            <div class="table-container">
+                <table>
+                    <tr><th>來源</th><th>評級</th><th>目標價</th><th>備註</th></tr>
+                    <tr><td>Barclays</td><td>增持</td><td>$40</td><td>對公司信心增強</td></tr>
+                    <tr><td>Morningstar</td><td>-</td><td>$28.60</td><td>公允價值上調 9%</td></tr>
+                    <tr><td>Seeking Alpha</td><td>買進</td><td>$52（2026年底）</td><td>上漲潛力 60%</td></tr>
+                    <tr><td>TIKR</td><td>-</td><td>$46（2027年底）</td><td>年化報酬率 27%</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 3: Business Model -->
+        <section id="business">
+            <h2>3. 核心商業模式</h2>
+
+            <h3>火箭配送（Rocket Delivery）</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🏭</div>
+                    <h4>物流基礎設施</h4>
+                    <ul>
+                        <li><strong>物流中心數量：</strong>228 座（韓國）</li>
+                        <li><strong>倉儲面積：</strong>590 萬平方米</li>
+                        <li><strong>覆蓋密度：</strong>70% 韓國人口居住在物流中心 10 分鐘車程內</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h4>配送績效</h4>
+                    <ul>
+                        <li>99.3% 準時送達率（24小時內）</li>
+                        <li>99.95% 當日送達率</li>
+                        <li>365 天全年無休</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤖</div>
+                    <h4>技術創新</h4>
+                    <ul>
+                        <li>AI 需求預測：提前將熱銷商品運至鄰近倉庫</li>
+                        <li>AGV 自動導引車：效率提升超過 2 倍</li>
+                        <li>分類機器人：工作量減少 65%</li>
+                        <li>Digital Twin：虛擬模型模擬營運</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Rocket WOW 會員制</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">1,400萬</div>
+                    <div class="stat-label">韓國會員數</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">2/3</div>
+                    <div class="stat-label">家庭滲透率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">9倍</div>
+                    <div class="stat-label">會員訂單頻率 vs 非會員</div>
+                </div>
+            </div>
+
+            <h4>會員權益（韓國）</h4>
+            <div class="table-container">
+                <table>
+                    <tr><th>權益</th><th>內容</th></tr>
+                    <tr><td>月費</td><td>7,890 韓元（約 190 新台幣）</td></tr>
+                    <tr><td>免運費</td><td>Rocket Delivery 無條件免運</td></tr>
+                    <tr><td>免費退貨</td><td>30 天內免費退貨</td></tr>
+                    <tr><td>配送升級</td><td>晨間配送、當日配送</td></tr>
+                    <tr><td>餐飲外送</td><td>Coupang Eats 免費無限次配送</td></tr>
+                    <tr><td>生鮮配送</td><td>Rocket Fresh 專屬通道</td></tr>
+                    <tr><td>串流服務</td><td>Coupang Play 免費觀看</td></tr>
+                </table>
+            </div>
+
+            <h3>商業模式特點</h3>
+            <div class="info-box">
+                <h4>B2C 自營模式（學習 Amazon）</h4>
+                <ul>
+                    <li><strong>買斷制：</strong>直接向供應商購買並儲存</li>
+                    <li><strong>垂直整合：</strong>從倉儲、物流到配送全鏈路自營</li>
+                    <li><strong>規模經濟：</strong>越大越便宜，形成正向循環</li>
+                </ul>
+            </div>
+
+            <h4>競爭優勢</h4>
+            <ol>
+                <li><strong>物流速度無可匹敵：</strong>數小時到貨，重新定義消費者期待</li>
+                <li><strong>資本密集型護城河：</strong>100+ 中心需數十億美元，新進者難複製</li>
+                <li><strong>生態系統鎖定：</strong>電商+外送+串流多場景覆蓋</li>
+                <li><strong>技術驅動：</strong>AI First 戰略提升效率與利潤</li>
+            </ol>
+        </section>
+
+        <!-- Section 4: Taiwan Market -->
+        <section id="taiwan">
+            <h2>4. 台灣市場發展</h2>
+
+            <h3>發展時程</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-year">2022年10月</span>
+                    <p>正式進入台灣，推出火箭速配與火箭跨境</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2023年底</span>
+                    <p>首次增資 24.75 億元</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2024年4月</span>
+                    <p>第二次增資 60.5 億元</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2024年12月</span>
+                    <p>第三次增資 21.1 億元</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2025年1月</span>
+                    <p>推出 WOW 會員訂閱制（月費 59 元）</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2025年10月</span>
+                    <p>與經濟部簽署投資意向書</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2025年11月</span>
+                    <p>第四次增資 247.5 億元（近年最大外商投資案）</p>
+                </div>
+            </div>
+
+            <h3>營運成績</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">350億+</div>
+                    <div class="stat-label">累計投資（新台幣）</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">三位數</div>
+                    <div class="stat-label">年成長率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">500億</div>
+                    <div class="stat-label">2025 目標 GMV</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">40%</div>
+                    <div class="stat-label">活躍顧客季增</div>
+                </div>
+            </div>
+
+            <h3>台灣服務內容</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>服務</th><th>內容</th><th>特色</th></tr>
+                    <tr><td>火箭速配</td><td>台灣本地商品</td><td>今日訂明日到；宅配滿 490 免運</td></tr>
+                    <tr><td>火箭跨境</td><td>美韓日商品直送</td><td>最快 5 天到貨；滿 690 免運</td></tr>
+                    <tr><td>WOW 會員</td><td>月費 59 元</td><td>90 天免費試用；無條件免運</td></tr>
+                </table>
+            </div>
+
+            <h3>消費者評價</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">👍</div>
+                    <h4>正面評價</h4>
+                    <ul>
+                        <li>價格便宜（比實體店低 20%+）</li>
+                        <li>到貨速度快（通常隔天到）</li>
+                        <li>包裝完善</li>
+                        <li>退款處理快速</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👎</div>
+                    <h4>負面評價</h4>
+                    <ul>
+                        <li>食品效期過短</li>
+                        <li>價格不穩定（動態定價）</li>
+                        <li>商品真假疑慮（化妝品、母嬰用品）</li>
+                        <li>介面誘導訂閱</li>
+                        <li>包裹未通知直接丟門口</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Competition -->
+        <section id="competition">
+            <h2>5. 競爭態勢分析</h2>
+
+            <h3>韓國市場市占率（2024-2025）</h3>
+            <div class="chart-container">
+                <div class="chart-wrapper">
+                    <canvas id="marketShareChart"></canvas>
+                </div>
+            </div>
+
+            <h3>台灣市場比較</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>排名</th><th>平台</th><th>市占率</th><th>2024 營收</th></tr>
+                    <tr><td>1</td><td>momo</td><td>24-33%</td><td>1,125.6 億元</td></tr>
+                    <tr><td>2</td><td>蝦皮</td><td>20-30%</td><td>-</td></tr>
+                    <tr><td>3</td><td><strong>酷澎</strong></td><td><strong>1% → 快速成長</strong></td><td>52 億 → 目標 500 億</td></tr>
+                    <tr><td>4</td><td>PChome</td><td>8%（下滑中）</td><td>376 億（連虧 3 年）</td></tr>
+                </table>
+            </div>
+
+            <h3>國際競爭比較</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>維度</th><th>Coupang</th><th>Amazon</th><th>Alibaba</th></tr>
+                    <tr><td>韓國市占</td><td class="comparison-good">20-25%</td><td>&lt;1%</td><td>&lt;5%</td></tr>
+                    <tr><td>物流策略</td><td>自建端到端</td><td>全球 FBA</td><td>主要外包</td></tr>
+                    <tr><td>韓國配送</td><td class="comparison-good">數小時-24小時</td><td class="comparison-bad">數天-數週</td><td>5-14 天</td></tr>
+                    <tr><td>韓國履行中心</td><td class="comparison-good">228 座</td><td class="comparison-bad">0 座</td><td>-</td></tr>
+                </table>
+            </div>
+
+            <div class="info-box">
+                <h4>為何 Amazon 在韓國失利？</h4>
+                <ul>
+                    <li>無本地物流中心</li>
+                    <li>配送時間長、運費高</li>
+                    <li>無法匹敵 Coupang 的速度優勢</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 6: Risks -->
+        <section id="risks">
+            <h2>6. 風險與挑戰</h2>
+
+            <h3>2025 年重大資安事件</h3>
+            <div class="danger-box">
+                <h4>事件概要</h4>
+                <ul>
+                    <li><strong>影響範圍：</strong>3,370 萬用戶帳戶資料外洩</li>
+                    <li><strong>時間範圍：</strong>2025年6月24日至11月8日</li>
+                    <li><strong>外洩內容：</strong>姓名、電子郵件、電話、配送地址、部分訂單歷史</li>
+                    <li><strong>嫌疑人：</strong>前中國籍開發人員（2024年12月離職）</li>
+                </ul>
+            </div>
+
+            <h4>法律後果</h4>
+            <div class="table-container">
+                <table>
+                    <tr><th>監管機構</th><th>潛在處罰</th></tr>
+                    <tr><td>韓國監管</td><td class="comparison-bad">可能罰款最高年營收 3%（約 1.2 兆韓元）</td></tr>
+                    <tr><td>美國 SEC</td><td class="comparison-neutral">可能因未及時披露而受罰</td></tr>
+                    <tr><td>集體訴訟</td><td class="comparison-bad">懲罰性賠償可達實際損害 5 倍（總額可能達 16.85 兆韓元）</td></tr>
+                </table>
+            </div>
+
+            <h3>其他風險</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">⚔️</div>
+                    <h4>競爭風險</h4>
+                    <ul>
+                        <li>新世界集團 + 阿里巴巴成立 6 兆韓元合資企業挑戰</li>
+                        <li>Naver 持續強化電商業務</li>
+                        <li>台灣 momo 祭出 5 年最大優惠反擊</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💰</div>
+                    <h4>營運風險</h4>
+                    <ul>
+                        <li>台灣市場仍在投資期，尚未盈利</li>
+                        <li>物流建設需要大量資本支出</li>
+                        <li>淨利率僅 1%，尚未達規模經濟效益</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <h4>外部風險</h4>
+                    <ul>
+                        <li>總體經濟不確定性</li>
+                        <li>中國電商業者積極擴張</li>
+                        <li>地緣政治風險（主要市場在韓國）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Outlook -->
+        <section id="outlook">
+            <h2>7. 未來展望</h2>
+
+            <h3>投資計畫</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🇰🇷</div>
+                    <h4>韓國市場</h4>
+                    <ul>
+                        <li>2026 年前投資 3 兆韓元擴展物流</li>
+                        <li>新增 9 座物流中心（大田、光州等）</li>
+                        <li>2027 年底覆蓋 230+ 市郡區</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🇹🇼</div>
+                    <h4>台灣市場</h4>
+                    <ul>
+                        <li>累計投資超過 350 億新台幣</li>
+                        <li>建構第一方物流（1PL）</li>
+                        <li>部署「最後一哩路」配送網路</li>
+                        <li>目標：80% 本島「次日達」服務</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤖</div>
+                    <h4>技術投資</h4>
+                    <ul>
+                        <li>AI First 戰略</li>
+                        <li>2025 上半年技術投資年增近 100%</li>
+                        <li>持續部署機器人與自動化設備</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>分析師預期</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>時間</th><th>預期</th></tr>
+                    <tr><td>2025 EPS</td><td>$0.61（年增 236%）</td></tr>
+                    <tr><td>2027 EBITDA 利潤率</td><td>7%（倍增）</td></tr>
+                    <tr><td>2027 目標價</td><td>$46（年化 27% 報酬）</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 8: YouTube Research -->
+        <section id="youtube">
+            <h2>8. YouTube 影音研究</h2>
+
+            <h3>研究影片清單</h3>
+            <div class="video-list">
+                <div class="video-item">
+                    <div class="video-icon">▶️</div>
+                    <div class="video-info">
+                        <h4>酷澎砸百億攻台灣，為何「太便宜」反而成為擠下momo的關卡</h4>
+                        <div class="video-meta">商業周刊 | 64.5萬觀看 | 2025/07/18</div>
+                        <a href="https://www.youtube.com/watch?v=De8rKEzVA0M" target="_blank" class="video-link">觀看影片 →</a>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="video-icon">▶️</div>
+                    <div class="video-info">
+                        <h4>酷澎狂砸9億美金，只是玩玩而已</h4>
+                        <div class="video-meta">電商Tony陳 | 2.5萬觀看 | 2025/09/03</div>
+                        <a href="https://www.youtube.com/watch?v=8qEnoa8gkM4" target="_blank" class="video-link">觀看影片 →</a>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="video-icon">▶️</div>
+                    <div class="video-info">
+                        <h4>台灣電商血戰誰會先倒？</h4>
+                        <div class="video-meta">Emmy追劇時間 | 23.5萬觀看 | 2025/07/16</div>
+                        <a href="https://www.youtube.com/watch?v=OaDFpnBb3dk" target="_blank" class="video-link">觀看影片 →</a>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="video-icon">▶️</div>
+                    <div class="video-info">
+                        <h4>酷澎跟蝦皮，即將正面對決</h4>
+                        <div class="video-meta">電商Tony陳 | 1.27萬觀看 | 2025/11/27</div>
+                        <a href="https://www.youtube.com/watch?v=PwBtSGmMZxk" target="_blank" class="video-link">觀看影片 →</a>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="video-icon">▶️</div>
+                    <div class="video-info">
+                        <h4>Coupang有假貨？比蝦皮便宜又快速？</h4>
+                        <div class="video-meta">heyitsmindy | 13.4萬觀看 | 2023/10/03</div>
+                        <a href="https://www.youtube.com/watch?v=mGwvb4KUSZQ" target="_blank" class="video-link">觀看影片 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3>專家觀點精華</h3>
+
+            <h4>商業周刊：負毛利戰法的兩難</h4>
+            <div class="info-box">
+                <p><strong>核心觀點：</strong></p>
+                <ul>
+                    <li>酷澎在台灣砸百億台幣（約9億美金），採用「負毛利戰法」</li>
+                    <li>台灣被視為「試驗場」和「皇冠上的珍珠」</li>
+                    <li>618 戰術：開出 720 元時薪搶人力（遠高於市場水準）</li>
+                </ul>
+            </div>
+            <blockquote>
+                「太便宜」反而成為擠下 momo 的關卡 — 供應商抵制導致供應鏈卡關
+            </blockquote>
+            <blockquote>
+                「酷澎一個增資，比 momo 實收資本額還高！」
+            </blockquote>
+
+            <h4>電商Tony陳：酷澎 vs 蝦皮正面對決</h4>
+            <div class="warning-box">
+                <p><strong>對賣家的影響：</strong></p>
+                <ul>
+                    <li>初期：低手續費吸引入駐</li>
+                    <li>後期：手續費暴漲 + 自動定價壓縮利潤</li>
+                    <li>「割韭菜」式低價策略引發賣家後悔</li>
+                </ul>
+            </div>
+
+            <h4>Emmy追劇時間：台灣電商的諸神黃昏</h4>
+            <div class="table-container">
+                <table>
+                    <tr><th>平台</th><th>狀態</th></tr>
+                    <tr><td>momo</td><td class="comparison-bad">「慘變宏達電 2.0」，財報和股價雙崩潰</td></tr>
+                    <tr><td>PChome</td><td class="comparison-bad">轉手統一後繼續賠錢，逐漸邊緣化</td></tr>
+                    <tr><td>蝦皮</td><td class="comparison-neutral">靠 AI 智慧廣告賺翻天，但「賣家哀鴻遍野」</td></tr>
+                    <tr><td>酷澎</td><td class="comparison-good">618 各業者遭擊潰，三位數成長</td></tr>
+                </table>
+            </div>
+
+            <h3>消費者實測：價格比較</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>產品</th><th>酷澎價格</th><th>參考價</th><th>節省</th></tr>
+                    <tr><td>ROUND LAB 乳液</td><td>NT$314</td><td>NT$399</td><td class="comparison-good">21%</td></tr>
+                    <tr><td>LAURA MERCIER 蜜粉</td><td>NT$654</td><td>NT$1,458</td><td class="comparison-good">55%</td></tr>
+                    <tr><td>ROM&ND 唇釉</td><td>NT$160</td><td>NT$259</td><td class="comparison-good">38%</td></tr>
+                    <tr><td>FLYNN 絲絨唇釉</td><td>NT$244</td><td>NT$458</td><td class="comparison-good">47%</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 9: Quick Reference -->
+        <section id="quick-ref">
+            <h2>9. 關鍵數據速查</h2>
+            <pre>
+=== 公司基本 ===
+創立：2010年
+上市：2021年（NYSE: CPNG）
+創辦人：金範錫（Bom Kim）
+
+=== 財務規模 ===
+市值：590 億美元
+年營收：300 億+ 美元
+毛利率：29.4%
+淨利率：~1%
+
+=== 韓國市場 ===
+市占率：25%（第一名）
+物流中心：228 座
+WOW會員：1,400 萬
+復購率：83%
+
+=== 台灣市場 ===
+進入時間：2022年10月
+累計投資：350 億+ 新台幣
+2025目標：500 億 GMV
+成長率：三位數年增
+
+=== 股票資訊 ===
+代碼：CPNG
+當前股價：$27-28
+分析師目標價：$37-52
+共識評級：強力買進
+            </pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>研究日期：2025-12-08 | 資料來源：官方財報、財經媒體、產業分析報告、YouTube</p>
+        <p><strong>免責聲明：</strong>本報告僅供研究參考，不構成投資建議。</p>
+        <p><a href="../index.html">← 返回首頁</a></p>
+    </footer>
+
+    <script>
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2023', '2024', '2025 TTM'],
+                datasets: [{
+                    label: '營收（億美元）',
+                    data: [240, 302.7, 322.6],
+                    backgroundColor: 'rgba(255, 87, 34, 0.7)',
+                    borderColor: 'rgba(255, 87, 34, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: { color: '#e0e0e0' }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { color: '#a0a0a0' }
+                    },
+                    x: {
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { color: '#a0a0a0' }
+                    }
+                }
+            }
+        });
+
+        // Market Share Chart
+        const marketCtx = document.getElementById('marketShareChart').getContext('2d');
+        new Chart(marketCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Coupang', 'Naver', 'Gmarket', '其他'],
+                datasets: [{
+                    data: [25, 22, 8, 45],
+                    backgroundColor: [
+                        'rgba(255, 87, 34, 0.8)',
+                        'rgba(76, 175, 80, 0.8)',
+                        'rgba(33, 150, 243, 0.8)',
+                        'rgba(158, 158, 158, 0.5)'
+                    ],
+                    borderColor: '#1a1a2e',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: { color: '#e0e0e0' }
+                    },
+                    title: {
+                        display: true,
+                        text: '韓國電商市場市占率 (%)',
+                        color: '#ff9800',
+                        font: { size: 16 }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
