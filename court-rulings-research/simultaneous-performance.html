@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最高法院同時履行抗辯權判決研究 - 民法第264條裁判整理</title>
+    <meta name="description" content="台灣最高法院關於同時履行抗辯權（民法第264條）重要判決整理，包含雙務契約、遲延責任、類推適用等裁判要旨分析。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            min-height: 100vh;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .case-card {
+            transition: all 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .principle-badge {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3));
+            border: 1px solid rgba(59, 130, 246, 0.5);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+        }
+
+        .quote-box {
+            border-left: 4px solid #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: rgba(59, 130, 246, 0.3);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+
+<body class="text-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="../index.html" class="text-xl font-bold gradient-text">Levelfly</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#overview" class="nav-link text-gray-300 hover:text-white transition">概述</a>
+                    <a href="#law" class="nav-link text-gray-300 hover:text-white transition">法條解析</a>
+                    <a href="#cases" class="nav-link text-gray-300 hover:text-white transition">重要判決</a>
+                    <a href="#principles" class="nav-link text-gray-300 hover:text-white transition">法律原則</a>
+                    <a href="index.html" class="nav-link text-gray-300 hover:text-white transition">誠信原則研究</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 px-4">
+        <div class="max-w-4xl mx-auto text-center animate-fade-in">
+            <div class="inline-block px-4 py-2 rounded-full glass-card text-sm text-gray-300 mb-6">
+                台灣司法院裁判研究系列
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                <span class="gradient-text">最高法院</span><br>
+                <span class="text-white">同時履行抗辯權判決研究</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                民法第264條「同時履行抗辯權」之重要裁判要旨整理<br>
+                涵蓋雙務契約、遲延責任、類推適用等核心法律概念
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#cases" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-500 rounded-lg font-medium hover:opacity-90 transition">
+                    查看判決整理
+                </a>
+                <a href="#law" class="px-6 py-3 glass-card rounded-lg font-medium hover:bg-white/10 transition">
+                    了解法條
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="stat-card rounded-xl p-6 text-center glass-card">
+                    <div class="text-3xl font-bold gradient-text mb-2">15+</div>
+                    <div class="text-gray-400 text-sm">重要判決</div>
+                </div>
+                <div class="stat-card rounded-xl p-6 text-center glass-card">
+                    <div class="text-3xl font-bold gradient-text mb-2">5</div>
+                    <div class="text-gray-400 text-sm">核心議題</div>
+                </div>
+                <div class="stat-card rounded-xl p-6 text-center glass-card">
+                    <div class="text-3xl font-bold gradient-text mb-2">大法庭</div>
+                    <div class="text-gray-400 text-sm">110年裁定</div>
+                </div>
+                <div class="stat-card rounded-xl p-6 text-center glass-card">
+                    <div class="text-3xl font-bold gradient-text mb-2">民法</div>
+                    <div class="text-gray-400 text-sm">§264</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">
+                <span class="gradient-text">研究概述</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card rounded-2xl p-8">
+                    <h3 class="text-xl font-semibold mb-4 text-white">什麼是同時履行抗辯權？</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        同時履行抗辯權是指在<strong class="text-blue-400">雙務契約</strong>中，當事人之一方於他方未為對待給付前，
+                        可以拒絕提出自己給付的權利。簡單來說，就是「<strong class="text-blue-400">一手交錢，一手交貨</strong>」的法律保障。
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        例如在買賣契約中，賣方在買方尚未付款前，可以拒絕交付貨物；
+                        反之，買方在賣方尚未交貨前，也可以拒絕付款。
+                    </p>
+                </div>
+                <div class="glass-card rounded-2xl p-8">
+                    <h3 class="text-xl font-semibold mb-4 text-white">為何重要？</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        同時履行抗辯權的功能在於：
+                    </p>
+                    <ul class="text-gray-300 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-400">•</span>
+                            <span><strong>確保公平</strong>：防止一方先給付後，他方卻不履行</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-400">•</span>
+                            <span><strong>壓力手段</strong>：促使雙方同時履行契約義務</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-400">•</span>
+                            <span><strong>避免損失</strong>：保障債權實現，降低交易風險</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-400">•</span>
+                            <span><strong>免除遲延</strong>：行使後可溯及免除遲延責任</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Law Section -->
+    <section id="law" class="py-16 px-4 bg-black/30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">
+                <span class="gradient-text">法條解析</span>
+            </h2>
+
+            <div class="glass-card rounded-2xl p-8 mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="px-3 py-1 bg-blue-500/30 rounded-lg text-blue-300 text-sm font-medium">民法</span>
+                    <h3 class="text-2xl font-bold text-white">第264條（同時履行抗辯權）</h3>
+                </div>
+
+                <div class="quote-box p-6 rounded-lg mb-6">
+                    <p class="text-lg text-gray-200 mb-4">
+                        <strong>第一項：</strong>因契約互負債務者，於他方當事人未為對待給付前，得拒絕自己之給付。
+                        但自己有先為給付之義務者，不在此限。
+                    </p>
+                    <p class="text-lg text-gray-200">
+                        <strong>第二項：</strong>他方當事人已為部分之給付時，依其情形，如拒絕自己之給付有違背誠實及信用方法者，
+                        不得拒絕自己之給付。
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-4 rounded-lg bg-white/5">
+                        <h4 class="font-semibold text-blue-300 mb-2">第一項本文</h4>
+                        <p class="text-gray-400 text-sm">
+                            確立同時履行抗辯權的基本原則：雙務契約當事人在他方未履行前，得拒絕自己之給付。
+                        </p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-white/5">
+                        <h4 class="font-semibold text-blue-300 mb-2">第一項但書</h4>
+                        <p class="text-gray-400 text-sm">
+                            例外規定：若依契約約定或交易習慣，自己有先為給付之義務者，不得主張同時履行抗辯。
+                        </p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-white/5">
+                        <h4 class="font-semibold text-blue-300 mb-2">第二項</h4>
+                        <p class="text-gray-400 text-sm">
+                            誠信原則之限制：他方已為部分給付時，若拒絕自己給付有違誠信，則不得拒絕。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 相關法條 -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card rounded-xl p-6">
+                    <h4 class="text-lg font-semibold text-white mb-3">民法第265條（不安抗辯權）</h4>
+                    <p class="text-gray-400 text-sm mb-3">
+                        當事人之一方，應向他方先為給付者，如他方之財產，於訂約後顯形減少，
+                        有難為對待給付之虞時，如他方未為對待給付或提出擔保前，得拒絕自己之給付。
+                    </p>
+                    <span class="px-2 py-1 bg-purple-500/20 rounded text-xs text-purple-300">先給付義務人之保護</span>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <h4 class="text-lg font-semibold text-white mb-3">民法第263條（準用規定）</h4>
+                    <p class="text-gray-400 text-sm mb-3">
+                        第258條及第260條之規定，於當事人依法律之規定終止契約者準用之。
+                        契約解除後回復原狀之義務，亦得主張同時履行抗辯。
+                    </p>
+                    <span class="px-2 py-1 bg-green-500/20 rounded text-xs text-green-300">回復原狀之準用</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section id="cases" class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4 text-center">
+                <span class="gradient-text">重要判決整理</span>
+            </h2>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+                以下整理最高法院關於同時履行抗辯權之重要判決與民事庭會議決議
+            </p>
+
+            <!-- 大法庭裁定 -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="principle-badge px-4 py-2 rounded-lg text-sm font-medium">民事大法庭</span>
+                    <h3 class="text-xl font-semibold text-white">重要裁定</h3>
+                </div>
+
+                <div class="highlight-box rounded-2xl p-8 mb-6">
+                    <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                        <div>
+                            <span class="text-xs text-yellow-400 font-medium">最高法院民事大法庭</span>
+                            <h4 class="text-xl font-bold text-white">110年度台上大字第1353號裁定</h4>
+                            <p class="text-gray-400 text-sm">111年12月30日</p>
+                        </div>
+                        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs">大法庭裁定</span>
+                    </div>
+
+                    <div class="quote-box p-4 rounded-lg mb-4">
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            「出賣人依買賣契約將買受人給付之價金沒收充為違約金，經法院依民法第252條規定酌減至相當數額後，
+                            就出賣人應返還之金額，屬<strong class="text-blue-300">不當得利</strong>性質，
+                            買受人得<strong class="text-blue-300">類推適用</strong>民法第264條規定，
+                            與自己因買賣契約解除後所負回復原狀之給付義務，為同時履行之抗辯。」
+                        </p>
+                    </div>
+
+                    <div class="bg-white/5 rounded-lg p-4 mb-4">
+                        <h5 class="font-semibold text-blue-300 mb-2">裁定要旨</h5>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                            <li>• 同時履行抗辯制度，係為保障同一雙務契約之當事人</li>
+                            <li>• 本適用於具有互為對待給付或對價關係而互相關聯之雙方債務間</li>
+                            <li>• 出賣人與買受人之義務既源自同一契約關係，基於誠信及公平原則，具有履行實質牽連之交換給付性質</li>
+                            <li>• 買受人得類推適用民法第264條主張同時履行抗辯</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">違約金酌減</span>
+                        <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">類推適用</span>
+                        <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">不當得利</span>
+                        <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">回復原狀</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 民事庭會議決議 -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="principle-badge px-4 py-2 rounded-lg text-sm font-medium">民事庭會議決議</span>
+                    <h3 class="text-xl font-semibold text-white">重要決議</h3>
+                </div>
+
+                <div class="case-card glass-card rounded-xl p-6 mb-4">
+                    <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                        <div>
+                            <span class="text-xs text-blue-400 font-medium">最高法院民事庭會議</span>
+                            <h4 class="text-lg font-bold text-white">107年度第8次民事庭會議決議</h4>
+                            <p class="text-gray-400 text-sm">107年9月25日</p>
+                        </div>
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">會議決議</span>
+                    </div>
+                    <div class="quote-box p-4 rounded-lg mb-4">
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            「債務人得主張同時履行抗辯者，未行使其抗辯權前，固可發生遲延責任，
+                            然於其合法提出同時履行之抗辯後，其<strong class="text-blue-300">遲延責任即溯及免除</strong>。」
+                        </p>
+                    </div>
+                    <div class="bg-white/5 rounded-lg p-4 mb-4">
+                        <h5 class="font-semibold text-blue-300 mb-2">法律問題</h5>
+                        <p class="text-gray-400 text-sm">
+                            甲向乙買受土地，約定同時給付價金與移轉登記。甲僅給付部分價金，乙拒絕移轉登記並訴請甲給付餘款及遲延利息。
+                            甲於訴訟中行使同時履行抗辯權後，其遲延責任是否因而溯及免除？
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">遲延責任</span>
+                        <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">溯及免除</span>
+                        <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">不動產買賣</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 經典判例 -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="principle-badge px-4 py-2 rounded-lg text-sm font-medium">經典判例</span>
+                    <h3 class="text-xl font-semibold text-white">裁判先例</h3>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- 判決卡片 1 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-blue-400 font-medium">最高法院判例</span>
+                                <h4 class="text-lg font-bold text-white">50年台上字第1550號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs">經典判例</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                「債務人享有同時履行抗辯權者，在<strong class="text-blue-300">未行使此抗辯權以前</strong>，
+                                仍可發生遲延責任之問題，必須<strong class="text-blue-300">行使以後始能免責</strong>。」
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">遲延責任</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">抗辯權行使</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 2 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-blue-400 font-medium">最高法院判例</span>
+                                <h4 class="text-lg font-bold text-white">29年渝上字第895號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs">經典判例</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                「被告在裁判上援用民法第264條之抗辯權時，原告如不能證明自己已為給付或已提出給付，
+                                法院應為原告<strong class="text-blue-300">提出對待給付時，被告即向原告為給付</strong>之判決，
+                                不能遽將原告之訴駁回。」
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">判決主文</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">對待給付</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 3 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-blue-400 font-medium">最高法院判例</span>
+                                <h4 class="text-lg font-bold text-white">59年台上字第850號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs">經典判例</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                「所謂同時履行之抗辯，乃係基於<strong class="text-blue-300">雙務契約</strong>而發生，
+                                倘雙方之債務，非本於同一之雙務契約而發生，縱令雙方債務在事實上有密切之關係，
+                                或雙方之債務雖因同一之雙務契約而發生，然其一方之給付，與他方之給付，
+                                並非立於<strong class="text-blue-300">互為對待給付之關係</strong>者，均不能發生同時履行之抗辯。」
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">成立要件</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">對待給付</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">雙務契約</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 近年重要判決 -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="principle-badge px-4 py-2 rounded-lg text-sm font-medium">近年判決</span>
+                    <h3 class="text-xl font-semibold text-white">重要裁判</h3>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- 判決卡片 4 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-blue-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">95年台上字第1489號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs">實務應用</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                「所謂同時履行之抗辯，乃因<strong class="text-blue-300">成立或履行上有牽連關係</strong>之雙務契約而生，
+                                倘雙方之債務，本於同一雙務契約而發生，且其一方之給付與他方之給付，
+                                立於互為對待給付之關係者，即可主張同時履行抗辯。」
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">牽連關係</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">成立要件</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 5 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-blue-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">106年台上字第2048號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">類推適用</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                探討<strong class="text-blue-300">類推適用同時履行抗辯權之要件</strong>。
+                                雖非具有對價關係之雙務契約而生之債務，其兩債務之對立，在實質上有牽連性者，
+                                基於法律公平原則仍可能類推適用。本案採取較為保守之見解。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">類推適用</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">實質牽連</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 6 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-blue-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">104年台上字第1655號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs">契約解除</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                涉及遲延給付與同時履行抗辯的關係。甲遲延給付，未同時提出尾款及違約金，
+                                乙得主張同時履行抗辯。於乙履行移轉登記及交屋之義務前，
+                                能否謂其得以甲違約為由而<strong class="text-blue-300">解除契約</strong>，自滋疑問。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">契約解除</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">不動產</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">遲延給付</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 7 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-blue-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">104年台上字第2011號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-red-500/20 text-red-300 rounded-full text-xs">回復原狀</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                涉及回復原狀與解除權消滅的問題。當受領之給付物因可歸責於一方之原因而
+                                <strong class="text-blue-300">無法回復原狀</strong>時，其解除權自歸消滅，
+                                同時履行抗辯之主張亦受影響。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">回復原狀</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">解除權消滅</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principles Section -->
+    <section id="principles" class="py-16 px-4 bg-black/30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4 text-center">
+                <span class="gradient-text">核心法律原則</span>
+            </h2>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+                從上述判決歸納出的同時履行抗辯權核心原則
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 原則1 -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center text-xl">
+                            🤝
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">雙務契約原則</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-3">
+                        同時履行抗辯權僅適用於雙務契約，即雙方互負對待給付義務之契約。
+                        單務契約或非基於同一契約之債務，不得主張。
+                    </p>
+                    <div class="p-3 bg-white/5 rounded-lg">
+                        <p class="text-xs text-gray-400">
+                            <strong class="text-blue-300">代表判例：</strong>59年台上字第850號
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 原則2 -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-xl">
+                            ⏰
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">遲延責任溯及免除</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-3">
+                        債務人合法行使同時履行抗辯權後，其先前已發生之遲延責任溯及免除。
+                        此為107年民事庭會議決議確立之見解。
+                    </p>
+                    <div class="p-3 bg-white/5 rounded-lg">
+                        <p class="text-xs text-gray-400">
+                            <strong class="text-blue-300">代表決議：</strong>107年第8次民事庭會議
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 原則3 -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center text-xl">
+                            📋
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">類推適用</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-3">
+                        非雙務契約之債務，若在實質上具有履行牽連之交換給付性質，
+                        基於誠信及公平原則，仍得類推適用民法第264條。
+                    </p>
+                    <div class="p-3 bg-white/5 rounded-lg">
+                        <p class="text-xs text-gray-400">
+                            <strong class="text-blue-300">代表裁定：</strong>110年台上大字第1353號
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 原則4 -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center text-xl">
+                            ⚖️
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">誠信原則限制</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-3">
+                        他方已為部分給付時，若拒絕自己之給付有違背誠實及信用方法者，
+                        不得主張同時履行抗辯。例如：僅差極小金額即拒絕交貨。
+                    </p>
+                    <div class="p-3 bg-white/5 rounded-lg">
+                        <p class="text-xs text-gray-400">
+                            <strong class="text-blue-300">法條依據：</strong>民法第264條第2項
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 原則5 -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-rose-500 rounded-xl flex items-center justify-center text-xl">
+                            📜
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">對待給付判決</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-3">
+                        被告主張同時履行抗辯時，原告如不能證明已為給付，
+                        法院應判決「原告提出對待給付時，被告即向原告為給付」。
+                    </p>
+                    <div class="p-3 bg-white/5 rounded-lg">
+                        <p class="text-xs text-gray-400">
+                            <strong class="text-blue-300">代表判例：</strong>29年渝上字第895號
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 原則6 -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl flex items-center justify-center text-xl">
+                            🔄
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">回復原狀之準用</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-3">
+                        契約解除後，雙方互負回復原狀之義務，亦得主張同時履行抗辯。
+                        但若無法回復原狀，解除權及抗辯權皆受影響。
+                    </p>
+                    <div class="p-3 bg-white/5 rounded-lg">
+                        <p class="text-xs text-gray-400">
+                            <strong class="text-blue-300">法條依據：</strong>民法第259條、第263條
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">
+                <span class="gradient-text">同時履行抗辯 vs 留置權</span>
+            </h2>
+
+            <div class="glass-card rounded-2xl p-8">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-white/10">
+                                <th class="text-left py-4 px-4 text-gray-400 font-medium">比較項目</th>
+                                <th class="text-left py-4 px-4 text-blue-300 font-medium">同時履行抗辯權</th>
+                                <th class="text-left py-4 px-4 text-purple-300 font-medium">留置權</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-300">
+                            <tr class="border-b border-white/5">
+                                <td class="py-4 px-4 font-medium">法律性質</td>
+                                <td class="py-4 px-4">債權（抗辯權）</td>
+                                <td class="py-4 px-4">物權（擔保物權）</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-4 px-4 font-medium">效力對象</td>
+                                <td class="py-4 px-4">僅能對契約當事人主張（相對性）</td>
+                                <td class="py-4 px-4">得對任何人主張（對世性）</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-4 px-4 font-medium">發生原因</td>
+                                <td class="py-4 px-4">基於雙務契約</td>
+                                <td class="py-4 px-4">不以雙務契約為限</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-4 px-4 font-medium">標的物</td>
+                                <td class="py-4 px-4">不限於動產，不動產亦可</td>
+                                <td class="py-4 px-4">僅限於動產</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-4 font-medium">抗辯類型</td>
+                                <td class="py-4 px-4">一時性抗辯（延期抗辯權）</td>
+                                <td class="py-4 px-4">得拍賣取償</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-16 px-4 bg-black/30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">
+                <span class="gradient-text">參考資源</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&flno=264" target="_blank"
+                   class="glass-card rounded-xl p-6 hover:border-blue-500/50 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                            📜
+                        </div>
+                        <h3 class="font-semibold text-white group-hover:text-blue-300 transition">全國法規資料庫</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">民法第264條條文查詢</p>
+                </a>
+
+                <a href="https://tps.judicial.gov.tw/" target="_blank"
+                   class="glass-card rounded-xl p-6 hover:border-blue-500/50 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                            ⚖️
+                        </div>
+                        <h3 class="font-semibold text-white group-hover:text-blue-300 transition">最高法院</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">司法院最高法院官方網站</p>
+                </a>
+
+                <a href="https://www.judicial.gov.tw/tw/cp-1888-788318-f626f-1.html" target="_blank"
+                   class="glass-card rounded-xl p-6 hover:border-blue-500/50 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-yellow-500/20 rounded-lg flex items-center justify-center">
+                            📰
+                        </div>
+                        <h3 class="font-semibold text-white group-hover:text-blue-300 transition">大法庭新聞稿</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">110年度台上大字第1353號裁定</p>
+                </a>
+
+                <a href="https://zh.wikipedia.org/wiki/同時履行抗辯權" target="_blank"
+                   class="glass-card rounded-xl p-6 hover:border-blue-500/50 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-gray-500/20 rounded-lg flex items-center justify-center">
+                            🌐
+                        </div>
+                        <h3 class="font-semibold text-white group-hover:text-blue-300 transition">維基百科</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">同時履行抗辯權概念說明</p>
+                </a>
+
+                <a href="https://www.legis-pedia.com/dictionary/2678" target="_blank"
+                   class="glass-card rounded-xl p-6 hover:border-blue-500/50 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                            📚
+                        </div>
+                        <h3 class="font-semibold text-white group-hover:text-blue-300 transition">法律百科</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">同時履行抗辯權白話解說</p>
+                </a>
+
+                <a href="index.html"
+                   class="glass-card rounded-xl p-6 hover:border-blue-500/50 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-pink-500/20 rounded-lg flex items-center justify-center">
+                            🔗
+                        </div>
+                        <h3 class="font-semibold text-white group-hover:text-blue-300 transition">誠信原則研究</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">民法第148條判決整理</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-card rounded-xl p-6 border-yellow-500/30">
+                <div class="flex items-start gap-4">
+                    <div class="text-2xl">⚠️</div>
+                    <div>
+                        <h3 class="font-semibold text-yellow-300 mb-2">免責聲明</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            本頁面內容僅供學術研究及參考用途，不構成法律意見。判決要旨係經整理摘錄，
+                            如需引用請查閱原始判決全文。具體法律問題請諮詢專業律師。
+                            資料來源：司法院、全國法規資料庫、元照出版。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-white/10">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-gray-500 text-sm">
+                © 2024 Levelfly. 最高法院同時履行抗辯權判決研究
+            </p>
+            <p class="text-gray-600 text-xs mt-2">
+                資料整理日期：2024年12月 |
+                <a href="../index.html" class="hover:text-blue-400 transition">返回首頁</a> |
+                <a href="index.html" class="hover:text-blue-400 transition">誠信原則研究</a>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
