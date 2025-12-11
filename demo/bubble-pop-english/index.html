@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Bubble Pop English 🫧</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(180deg, #A1C4FD 0%, #C2E9FB 100%);
+            font-family: 'Comic Sans MS', sans-serif;
+            touch-action: none;
+            user-select: none;
+        }
+
+        /* HUD */
+        .hud {
+            position: absolute;
+            top: env(safe-area-inset-top);
+            left: 0;
+            width: 100%;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .score-board {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Game Elements */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(255,255,255,0.5) 20%, rgba(255,255,255,0.2) 60%, rgba(255,255,255,0.5) 100%);
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.6), 0 5px 15px rgba(0,0,0,0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-weight: bold;
+            color: #333; /* Slightly darker text for readability inside bubble */
+            text-shadow: 0px 0px 2px rgba(255,255,255,0.8);
+            border: 2px solid rgba(255,255,255,0.8);
+            transition: transform 0.1s;
+        }
+
+        .bubble:active {
+            transform: scale(0.9);
+        }
+
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* UI Overlays */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-start {
+            background: #FFD460;
+            border: 5px solid white;
+            padding: 20px 50px;
+            font-size: 2rem;
+            border-radius: 50px;
+            color: #555;
+            font-weight: bold;
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
+            box-shadow: 0 10px 0 rgba(0,0,0,0.2);
+        }
+
+        .btn-start:active {
+            transform: translateY(5px);
+            box-shadow: 0 5px 0 rgba(0,0,0,0.2);
+        }
+
+        /* Main Speaker Button (Now in center bottom) */
+        .speaker-main {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            z-index: 20;
+            cursor: pointer;
+            border: 4px solid #FFD460;
+        }
+
+        .speaker-main:active {
+            transform: translateX(-50%) scale(0.95);
+        }
+
+        /* Visual Feedback Popup (Word or Sticker) */
+        .feedback-popup {
+            position: fixed;
+            top: 40%; left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            z-index: 50;
+            pointer-events: none;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+        }
+
+        .feedback-word {
+            font-size: 4rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.3);
+            padding: 10px 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+        }
+
+        .feedback-sticker {
+            font-size: 6rem;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+        }
+
+        /* Target Word Display (Hidden by default, structure kept for future logic if needed) */
+        .target-word-display {
+            display: none;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Start Screen -->
+    <div class="overlay" id="startScreen">
+        <h1 style="color:white; font-size: 3rem; text-shadow: 0 5px 0 #333; margin-bottom: 20px;">🫧 Pop!</h1>
+        <button class="btn-start" onclick="startGame()">PLAY</button>
+        <p style="color:white; margin-top: 20px;">Turn on Sound 🔊</p>
+    </div>
+
+    <!-- HUD -->
+    <div class="hud">
+        <div class="score-board">⭐ <span id="scoreVal">0</span></div>
+    </div>
+
+    <!-- Repeat Button (Always visible) -->
+    <div class="speaker-main" onclick="speakCurrentTarget()">🔊</div>
+
+    <!-- Hidden Target Display Container -->
+    <div class="target-word-display" id="targetDisplay"></div>
+
+    <!-- Feedback Popup (Shows Word or Sticker) -->
+    <div class="feedback-popup" id="feedbackPopup">
+        <div id="feedbackText" class="feedback-word">Apple</div>
+    </div>
+
+    <script>
+        // --- DATA & CONFIG ---
+        const rawData = `the,of,and,a,to,in,is,you,that,it,he,was,for,on,are,as,with,his,they,I,at,be,this,have,from,or,one,had,by,words,but,not,what,all,were,we,when,your,can,said,there,use,an,each,which,she,do,how,their,if,will,up,other,about,out,many,then,them,these,so,some,her,would,make,like,him,into,time,has,look,two,more,write,go,see,number,no,way,could,people,my,than,first,water,been,called,who,oil,sit,now,find,long,down,day,did,get,come,made,may,part,over,new,sound,take,only,little,work,know,place,years,live,me,back,give,most,very,after,things,our,just,name,good,sentence,man,think,say,great,where,help,through,much,before,line,right,too,means,old,any,same,tell,boy,follow,came,want,show,also,around,form,three,small,set,put,end,does,another,well,large,must,big,even,such,because,turn,here,why,ask,went,men,read,need,land,different,home,us,move,try,kind,hand,picture,again,change,off,play,spell,air,away,animal,house,point,page,letter,mother,answer,found,study,still,learn,should,America,world,high,every,near,add,food,between,own,below,country,plant,last,school,father,keep,tree,never,start,city,earth,eyes,light,thought,head,under,story,saw,left,don't,few,while,along,might,close,something,seem,next,hard,open,example,begin,life,always,those,both,paper,together,got,group,often,run,important,until,children,side,feet,car,mile,night,walk,white,sea,began,grow,took,river,four,carry,state,once,book,hear,stop,without,second,late,miss,idea,enough,eat,face,watch,far,Indian,real,almost,let,above,girl,sometimes,mountains,cut,young,talk,soon,list,song,being,leave,family,it's,body,music,color,stand,sun,questions,fish,area,mark,dog,horse,birds,problem,complete,room,knew,since,ever,piece,told,usually,didn't,friends,easy,heard,order,red,door,sure,become,top,ship,across,today,during,short,better,best,however,low,hours,black,products,happened,whole,measure,remember,early,waves,reached,listen,wind,rock,space,covered,fast,several,hold,himself,toward,five,step,morning,passed,vowel,true,hundred,against,pattern,numeral,table,north,slowly,money,map,farm,pulled,draw,voice,seen,cold,cried,plan,notice,south,sing,war,ground,fall,king,town,I'll,unit,figure,certain,field,travel,wood,fire,upon,done,English,road,half,ten,fly,gave,box,finally,wait,correct,oh,quickly,person,became,shown,minutes,strong,verb,stars,front,feel,fact,inches,street,decided,contain,course,surface,produce,building,ocean,class,note,nothing,rest,carefully,scientists,inside,wheels,stay,green,known,island,week,less,machine,base,ago,stood,plane,system,behind,ran,round,boat,game,force,brought,understand,warm,common,bring,explain,dry,though,language,shape,deep,thousands,yes,clear,equation,yet,government,filled,heat,full,hot,check,object,am,rule,among,noun,power,cannot,able,six,size,dark,ball,material,special,heavy,fine,pair,circle,include,built,can't,matter,square,syllables,perhaps,bill,felt,suddenly,test,direction,center,farmers,ready,anything,divided,general,energy,subject,Europe,moon,region,return,believe,dance,members,picked,simple,cells,paint,mind,love,cause,rain,exercise,eggs,train,blue,wish,drop,developed,window,difference,distance,heart,site,sum,summer,wall,forest,probably,legs,sat,main,winter,wide,written,length,reason,kept,interest,arms,brother,race,present,beautiful,store,job,edge,past,sign,record,finished,discovered,wild,happy,beside,gone,sky,grass,million,west,lay,weather,root,instruments,meet,third,months,paragraph,raised,represent,soft,whether,clothes,flowers,shall,teacher,held,describe,drive,cross,speak,solve,appear,metal,son,either,ice,sleep,village,factors,result,jumped,snow,ride,care,floor,hill,pushed,baby,buy,century,outside,everything,tall,already,instead,phrase,soil,bed,copy,free,hope,spring,case,laughed,nation,quite,type,themselves,temperature,bright,lead,everyone,method,section,lake,iron,within,dictionary,hair,age,amount,scale,pounds,although,per,broken,moment,tiny,possible,gold,milk,quiet,natural,lot,stone,act,build,middle,speed,count,consonant,someone,sail,rolled,bear,wonder,smiled,angle,fraction,Africa,killed,melody,bottom,trip,hole,poor,let's,fight,surprise,French,died,beat,exactly,remain,dress,cat,couldn't,fingers,row,least,catch,climbed,wrote,shouted,continued,itself,else,plains,gas,England,burning,design,joined,foot,law,ears,glass,you're,grew,skin,valley,cents,key,president,brown,trouble,cool,cloud,lost,sent,symbols,wear,bad,save,experiment,engine,alone,drawing,east,choose,single,touch,information,express,mouth,yard,equal,decimal,yourself,control,practice,report,straight,rise,statement,stick,party,seeds,suppose,woman,coast,bank,period,wire,pay,clean,visit,bit,whose,received,garden,please,strange,caught,fell,team,God,captain,direct,ring,serve,child,desert,increase,history,cost,maybe,business,separate,break,uncle,hunting,flow,lady,students,human,art,feeling,supply,corner,electric,insects,crops,tone,hit,sand,doctor,provide,thus,won't,cook,bones,mall,board,modern,compound,mine,wasn't,fit,addition,belong,safe,soldiers,guess,silent,trade,rather,compare,crowd,poem,enjoy,elements,indicate,except,expect,flat,seven,interesting,sense,string,blow,famous,value,wings,movement,pole,exciting,branches,thick,blood,lie,spot,bell,fun,loud,consider,suggested,thin,position,entered,fruit,tied,rich,dollars,send,sight,chief,Japanese,stream,planets,rhythm,eight,science,major,observe,tube,necessary,weight,meat,lifted,process,army,hat,property,particular,swim,terms,current,park,sell,shoulder,industry,wash,block,spread,cattle,wife,sharp,company,radio,we'll,action,capital,factories,settled,yellow,isn't,southern,truck,fair,printed,wouldn't,ahead,chance,born,level,triangle,molecules,France,repeated,column,western,church,sister,oxygen,plural,various,agreed,opposite,wrong,chart,prepared,pretty,solution,fresh,shop,suffix,especially,shoes,actually,nose,afraid,dead,sugar,adjective,fig,office,huge,gun,similar,death,score,forward,stretched,experience,rose,allow,fear,workers,Washington,Greek,women,bought,led,march,northern,create,British,difficult,match,win,doesn't,steel,total,deal,determine,evening,hoe,rope,cotton,apple,details,entire,corn,substances,smell,tools,conditions,cows,track,arrived,located,sir,seat,division,effect,underline,view`;
+
+        const allWords = rawData.replace(/[\n\r]+/g, '').split(',').map(w => w.trim()).filter(w => w.length > 0);
+        const stickers = ["🦄", "🐱", "🐶", "🐼", "🐸", "🐷", "🍦", "🍩", "🍪", "🍭", "🦋", "🌈", "🎈", "🎁"];
+
+        // --- GAME VARIABLES ---
+        let currentIndex = parseInt(localStorage.getItem('bubbleIndex') || 0);
+        let score = parseInt(localStorage.getItem('bubbleScore') || 0);
+        let currentTarget = "";
+        let isPlaying = false;
+        let bubbles = [];
+        let spawnTimer;
+        let gameLoop;
+        let targetBubbleSpawned = false;
+
+        // --- AUDIO CONTEXT ---
+        let audioCtx;
+        function initAudio() {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        function playPopSound(isCorrect) {
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            if (isCorrect) {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(500, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(1000, audioCtx.currentTime + 0.1);
+            } else {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(200, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(50, audioCtx.currentTime + 0.1);
+            }
+
+            gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.1);
+        }
+
+        // --- SPEECH (Adjusted Rate) ---
+        function speak(text) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            // Speed Adjusted to 0.3 as requested
+            utterance.rate = 0.3;
+
+            const voices = window.speechSynthesis.getVoices();
+            let v = voices.find(v => v.name === "Samantha") || voices.find(v => v.lang === "en-US");
+            if(v) utterance.voice = v;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function speakCurrentTarget() {
+            speak(currentTarget);
+        }
+
+        // --- GAME LOGIC ---
+        function startGame() {
+            initAudio();
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            document.getElementById('startScreen').style.display = 'none';
+            document.getElementById('scoreVal').innerText = score;
+
+            isPlaying = true;
+            nextRound();
+
+            // Start Loops
+            spawnTimer = setInterval(spawnBubble, 1400); // Slower spawn for better readability
+            gameLoop = requestAnimationFrame(updateBubbles);
+        }
+
+        function nextRound() {
+            if (currentIndex >= allWords.length) currentIndex = 0;
+            currentTarget = allWords[currentIndex];
+            targetBubbleSpawned = false;
+
+            // Don't show text! Just speak.
+            speakCurrentTarget();
+        }
+
+        function spawnBubble() {
+            if (!isPlaying) return;
+
+            const b = document.createElement('div');
+            b.className = 'bubble';
+
+            let word;
+            let isTarget = false;
+
+            if (!targetBubbleSpawned && Math.random() > 0.4) {
+                word = currentTarget;
+                isTarget = true;
+                targetBubbleSpawned = true;
+            } else {
+                word = allWords[Math.floor(Math.random() * allWords.length)];
+                if (word === currentTarget) {
+                    isTarget = true;
+                    targetBubbleSpawned = true;
+                }
+            }
+
+            b.innerText = word;
+            b.dataset.isTarget = isTarget;
+
+            // Size Logic (Make target slightly bigger sometimes?)
+            const size = Math.random() * 40 + 80;
+            b.style.width = size + 'px';
+            b.style.height = size + 'px';
+            b.style.fontSize = (size/3.5) + 'px';
+
+            // Distinct Colors
+            const hue = Math.floor(Math.random() * 360);
+            b.style.borderColor = `hsl(${hue}, 70%, 60%)`;
+            b.style.color = `#333`;
+            b.style.background = `radial-gradient(circle at 30% 30%, hsla(${hue}, 100%, 95%, 0.9), hsla(${hue}, 100%, 80%, 0.4))`;
+
+            const x = Math.random() * (window.innerWidth - size);
+            b.style.left = x + 'px';
+            b.style.bottom = '-150px';
+
+            b.speed = Math.random() * 1.0 + 1.0; // Slower bubbles
+            b.wobble = Math.random() * Math.PI * 2;
+            b.wobbleSpeed = Math.random() * 0.05 + 0.02;
+
+            b.addEventListener('pointerdown', (e) => popBubble(e, b));
+
+            document.body.appendChild(b);
+            bubbles.push(b);
+        }
+
+        function updateBubbles() {
+            if (!isPlaying) return;
+
+            for (let i = bubbles.length - 1; i >= 0; i--) {
+                const b = bubbles[i];
+
+                let bottom = parseFloat(b.style.bottom || -150);
+                bottom += b.speed;
+                b.style.bottom = bottom + 'px';
+
+                b.wobble += b.wobbleSpeed;
+                const xOffset = Math.sin(b.wobble) * 1.5;
+                const currentLeft = parseFloat(b.style.left);
+                b.style.left = (currentLeft + xOffset) + 'px';
+
+                if (bottom > window.innerHeight + 50) {
+                    if (b.dataset.isTarget === 'true') {
+                        targetBubbleSpawned = false;
+                        if (Math.random() > 0.5) speak(currentTarget); // Hint if missed
+                    }
+                    b.remove();
+                    bubbles.splice(i, 1);
+                }
+            }
+            requestAnimationFrame(updateBubbles);
+        }
+
+        function popBubble(e, b) {
+            e.stopPropagation();
+
+            const isTarget = b.dataset.isTarget === 'true';
+
+            createParticles(e.clientX, e.clientY, b.style.borderColor);
+            b.remove();
+            bubbles = bubbles.filter(item => item !== b);
+
+            if (isTarget) {
+                playPopSound(true);
+                score += 10;
+                currentIndex++;
+                localStorage.setItem('bubbleIndex', currentIndex);
+                localStorage.setItem('bubbleScore', score);
+                document.getElementById('scoreVal').innerText = score;
+
+                // Show Correct Word as Reinforcement
+                showFeedback(currentTarget, false);
+                speak(currentTarget);
+
+                if (currentIndex % 5 === 0) {
+                    setTimeout(() => showFeedback(null, true), 1000); // Show sticker after word
+                }
+
+                setTimeout(nextRound, 1200);
+
+            } else {
+                playPopSound(false);
+                speak("Try again");
+            }
+        }
+
+        function createParticles(x, y, color) {
+            for (let i = 0; i < 8; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = x + 'px';
+                p.style.top = y + 'px';
+                p.style.width = '10px';
+                p.style.height = '10px';
+                p.style.background = color || 'white';
+
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = Math.random() * 5 + 2;
+                const tx = Math.cos(angle) * velocity * 20;
+                const ty = Math.sin(angle) * velocity * 20;
+
+                p.animate([
+                    { transform: `translate(0,0) scale(1)`, opacity: 1 },
+                    { transform: `translate(${tx}px, ${ty}px) scale(0)`, opacity: 0 }
+                ], {
+                    duration: 400,
+                    easing: 'ease-out'
+                }).onfinish = () => p.remove();
+
+                document.body.appendChild(p);
+            }
+        }
+
+        function showFeedback(word, isSticker) {
+            const popup = document.getElementById('feedbackPopup');
+            const textDiv = document.getElementById('feedbackText');
+
+            if (isSticker) {
+                const sticker = stickers[Math.floor(Math.random() * stickers.length)];
+                textDiv.innerText = sticker;
+                textDiv.className = 'feedback-sticker';
+            } else {
+                textDiv.innerText = word;
+                textDiv.className = 'feedback-word';
+            }
+
+            popup.style.transform = "translate(-50%, -50%) scale(1)";
+            setTimeout(() => {
+                popup.style.transform = "translate(-50%, -50%) scale(0)";
+            }, 1000);
+        }
+
+    </script>
+</body>
+</html>
