@@ -697,6 +697,147 @@
             line-height: 1.8;
         }
 
+        /* Subsidy Section */
+        .subsidy-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-top: 1.5rem;
+        }
+
+        .subsidy-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .subsidy-table {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .subsidy-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .subsidy-row:last-child {
+            border-bottom: none;
+        }
+
+        .subsidy-row.header {
+            background: #f3f4f6;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+
+        .subsidy-row.highlight {
+            background: #fef3c7;
+        }
+
+        .subsidy-cell {
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        .subsidy-note {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: #16a34a;
+            font-weight: 500;
+        }
+
+        /* Observation Indicators */
+        .observation-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .observation-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .observation-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .observation-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .observation-card {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .observation-card.green {
+            background: #dcfce7;
+            border: 1px solid #86efac;
+        }
+
+        .observation-card.yellow {
+            background: #fef9c3;
+            border: 1px solid #fde047;
+        }
+
+        .observation-card.red {
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+        }
+
+        .observation-card h4 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .observation-card.green h4 { color: #166534; }
+        .observation-card.yellow h4 { color: #854d0e; }
+        .observation-card.red h4 { color: #991b1b; }
+
+        .observation-card ul {
+            list-style: disc;
+            list-style-position: inside;
+            color: #4b5563;
+        }
+
+        .observation-card li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Sleep Tip */
+        .sleep-tip {
+            background: #ede9fe;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            color: #5b21b6;
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+        }
+
+        .sleep-tip .icon {
+            flex-shrink: 0;
+        }
+
         /* Back Link */
         .back-link {
             display: inline-flex;
@@ -797,6 +938,34 @@
                         <div class="desc">品質已驗證</div>
                     </div>
                 </div>
+            </div>
+
+            <!-- 補助政策 -->
+            <div class="subsidy-section">
+                <h3>💰 2025 年幼幼班補助（第3胎最優惠！）</h3>
+                <div class="subsidy-table">
+                    <div class="subsidy-row header">
+                        <div class="subsidy-cell">幼兒園類型</div>
+                        <div class="subsidy-cell">每月繳費上限</div>
+                    </div>
+                    <div class="subsidy-row highlight">
+                        <div class="subsidy-cell">🏫 公立</div>
+                        <div class="subsidy-cell"><strong>1,000 元</strong></div>
+                    </div>
+                    <div class="subsidy-row">
+                        <div class="subsidy-cell">🏠 非營利</div>
+                        <div class="subsidy-cell">2,000 元</div>
+                    </div>
+                    <div class="subsidy-row highlight">
+                        <div class="subsidy-cell">🤝 準公共（第3胎）</div>
+                        <div class="subsidy-cell"><strong>1,000 元</strong></div>
+                    </div>
+                    <div class="subsidy-row">
+                        <div class="subsidy-cell">🏢 私立（未簽約）</div>
+                        <div class="subsidy-cell">可領 7,000 元/月 津貼</div>
+                    </div>
+                </div>
+                <p class="subsidy-note">瑞融是第3胎，享有最高補助！入學即自動減免，無需另外申請。</p>
             </div>
         </div>
 
@@ -939,6 +1108,12 @@
                         <li>調整作息：練習在學校午睡的時間睡覺。</li>
                         <li>閱讀《上學去》、《小波去上學》等繪本。</li>
                     </ul>
+                    <div class="sleep-tip">
+                        <span class="icon">💤</span>
+                        <div>
+                            <strong>睡眠小提醒：</strong>2 歲幼兒每天需要 11-14 小時睡眠（含午睡）。建議現在就開始調整，讓午睡時間接近學校的 12:30-14:30，這樣入學後會更順利！
+                        </div>
+                    </div>
                 </div>
 
                 <div class="timeline-item">
@@ -973,6 +1148,43 @@
                         <li><b>接納生病</b>：備好常用藥，前半年不責怪孩子或自己。</li>
                     </ul>
                 </div>
+            </div>
+
+            <!-- 適應觀察指標 -->
+            <div class="observation-section">
+                <h3>👀 如何判斷適應狀況？</h3>
+                <div class="observation-grid">
+                    <div class="observation-card green">
+                        <h4>✅ 正常（繼續觀察）</h4>
+                        <ul>
+                            <li>前 1-2 週有哭泣</li>
+                            <li>早上說不想去</li>
+                            <li>比較黏人</li>
+                            <li>2-4 週後明顯改善</li>
+                        </ul>
+                    </div>
+                    <div class="observation-card yellow">
+                        <h4>⚠️ 需要關注</h4>
+                        <ul>
+                            <li>超過 1 個月仍每天大哭</li>
+                            <li>睡眠明顯變差</li>
+                            <li>食慾持續下降</li>
+                            <li>情緒變得很不穩定</li>
+                        </ul>
+                    </div>
+                    <div class="observation-card red">
+                        <h4>🚨 考慮暫緩</h4>
+                        <ul>
+                            <li>超過 2 個月嚴重抗拒</li>
+                            <li>嚴重退化行為</li>
+                            <li>原本會的技能退步</li>
+                            <li>健康受嚴重影響</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.875rem; color: #6b7280; text-align: center;">
+                    💡 「暫緩」不是失敗，是尊重孩子的步調。可以 2 月再試試看。
+                </p>
             </div>
 
             <div class="message-card">
