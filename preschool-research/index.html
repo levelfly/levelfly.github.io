@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>洪瑞融 2 歲幼幼班決策研究報告</title>
-    <meta name="description" content="根據 NICHD 等國際研究，為 2 歲幼兒是否入學幼幼班提供全面分析，涵蓋認知發展、依附理論、免疫系統、風險評估等面向">
+    <title>瑞融的成長決策書</title>
+    <meta name="description" content="給媽咪的專屬報告：瑞融明年8月上幼幼班的決策分析">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * {
             margin: 0;
@@ -14,1932 +15,1096 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
-            color: #e0e0e0;
-            line-height: 1.8;
+            background: #fff7ed;
+            color: #374151;
+            line-height: 1.7;
             min-height: 100vh;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
             top: 0;
-            width: 100%;
-            padding: 15px 30px;
+            z-index: 50;
+        }
+
+        .header-content {
+            max-width: 56rem;
+            margin: 0 auto;
+            padding: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
-            background: rgba(10, 10, 26, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
         }
 
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .logo span {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
+        .logo-section {
             display: flex;
-            gap: 25px;
-            list-style: none;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .nav-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            padding: 5px 10px;
-            border-radius: 5px;
+        .logo-icon {
+            background: #fb923c;
+            padding: 0.5rem;
+            border-radius: 9999px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
         }
 
-        .nav-links a:hover {
-            color: #fff;
-            background: rgba(102, 126, 234, 0.2);
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: none;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+            }
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            padding: 0.25rem 0;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            color: #6b7280;
+        }
+
+        .nav-btn:hover {
+            color: #fb923c;
+        }
+
+        .nav-btn.active {
+            border-bottom-color: #f97316;
+            color: #ea580c;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: flex;
+            overflow-x: auto;
+            padding: 0.5rem 1rem;
+            gap: 1rem;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .mobile-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-nav {
+                display: none;
+            }
+        }
+
+        .mobile-nav-btn {
+            white-space: nowrap;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            border: none;
+            background: none;
+            color: #6b7280;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .mobile-nav-btn.active {
+            background: #ffedd5;
+            color: #c2410c;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 56rem;
+            margin: 0 auto;
+            padding: 2rem 1rem;
         }
 
         /* Hero Section */
         .hero {
-            padding: 120px 30px 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg, #ffedd5 0%, #fef3c7 100%);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
-            pointer-events: none;
+        @media (min-width: 768px) {
+            .hero {
+                padding: 2rem;
+            }
         }
 
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero .subtitle {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 30px;
-        }
-
-        .meta-info {
+        .hero-content {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
+        @media (min-width: 768px) {
+            .hero-content {
+                flex-direction: row;
+                align-items: center;
+            }
         }
 
-        .meta-item .icon {
-            font-size: 1.2rem;
+        .hero-text {
+            flex: 1;
         }
 
-        /* Executive Summary */
-        .executive-summary {
-            max-width: 1000px;
-            margin: 0 auto 60px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(102, 126, 234, 0.3);
-            border-radius: 20px;
-        }
-
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .summary-card {
-            padding: 25px;
-            background: rgba(102, 126, 234, 0.1);
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            border-radius: 15px;
-            transition: all 0.3s;
-        }
-
-        .summary-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(102, 126, 234, 0.5);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
-        }
-
-        .summary-card h3 {
-            font-size: 1.1rem;
-            color: #a78bfa;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .summary-card p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        /* Section Styles */
-        section {
-            margin-bottom: 80px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-number {
+        .hero-badge {
             display: inline-block;
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            font-size: 1.3rem;
+            padding: 0.25rem 0.75rem;
+            background: white;
+            color: #ea580c;
+            border-radius: 9999px;
+            font-size: 0.75rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            letter-spacing: 0.05em;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1rem;
         }
 
-        .section-title {
-            font-size: 2rem;
+        .hero h2 {
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            color: #1f2937;
+            line-height: 1.3;
+            margin-bottom: 1rem;
         }
 
-        .section-subtitle {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 1rem;
+        @media (min-width: 768px) {
+            .hero h2 {
+                font-size: 1.875rem;
+            }
         }
 
-        /* Content Cards */
-        .content-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            transition: all 0.3s;
+        .hero p {
+            color: #4b5563;
         }
 
-        .content-card:hover {
-            border-color: rgba(102, 126, 234, 0.3);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        .hero-icon {
+            display: none;
+            width: 8rem;
+            height: 8rem;
+            background: white;
+            border-radius: 9999px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 4px solid white;
+            font-size: 3rem;
         }
 
-        .content-card h3 {
-            font-size: 1.4rem;
-            color: #a78bfa;
-            margin-bottom: 20px;
+        @media (min-width: 768px) {
+            .hero-icon {
+                display: flex;
+            }
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Info Card */
+        .info-card {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card.border-green {
+            border-left: 4px solid #4ade80;
+        }
+
+        .info-card.border-yellow {
+            border-left: 4px solid #facc15;
+        }
+
+        .info-card.border-red {
+            border-left: 4px solid #f87171;
+        }
+
+        .info-card.border-orange {
+            border-left: 4px solid #fb923c;
+        }
+
+        .info-card h3 {
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.5rem;
         }
 
-        .content-card h4 {
-            font-size: 1.1rem;
-            color: #60a5fa;
-            margin: 25px 0 15px;
-        }
-
-        .content-card p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 15px;
-        }
-
-        /* Tables */
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.95rem;
-        }
-
-        .data-table th,
-        .data-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .data-table th {
-            background: rgba(102, 126, 234, 0.2);
-            color: #a78bfa;
-            font-weight: 600;
-        }
-
-        .data-table tr:hover {
-            background: rgba(102, 126, 234, 0.1);
-        }
-
-        .data-table td {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* Blockquote */
-        blockquote {
-            background: rgba(102, 126, 234, 0.1);
-            border-left: 4px solid #667eea;
-            padding: 20px 25px;
-            margin: 20px 0;
-            border-radius: 0 10px 10px 0;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* Lists */
-        ul, ol {
-            margin: 15px 0;
-            padding-left: 25px;
-        }
-
-        li {
-            margin: 10px 0;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* Risk Colors */
-        .risk-low { color: #22c55e; }
-        .risk-medium { color: #f59e0b; }
-        .risk-high { color: #ef4444; }
-        .risk-unknown { color: #a78bfa; }
-
-        /* Warning Box */
-        .warning-box {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-
-        .warning-box h4 {
-            color: #f87171;
-            margin-bottom: 15px;
-        }
-
-        /* Success Box */
-        .success-box {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-
-        .success-box h4 {
-            color: #4ade80;
-            margin-bottom: 15px;
-        }
-
-        /* Info Box */
-        .info-box {
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-
-        .info-box h4 {
-            color: #60a5fa;
-            margin-bottom: 15px;
-        }
-
-        /* Links */
-        a {
-            color: #60a5fa;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: #a78bfa;
-        }
-
-        /* TOC */
-        .toc {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-        }
-
-        .toc h3 {
-            color: #a78bfa;
-            margin-bottom: 20px;
-        }
-
-        .toc ul {
+        .info-card ul {
             list-style: none;
             padding: 0;
         }
 
-        .toc li {
-            margin: 12px 0;
+        .info-card li {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
         }
 
-        .toc a {
+        .check-green { color: #22c55e; }
+        .warn-yellow { color: #eab308; }
+
+        /* Advantage Cards */
+        .advantage-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-top: 1.5rem;
+        }
+
+        .advantage-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .advantage-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .advantage-item {
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .advantage-item.blue { background: #eff6ff; }
+        .advantage-item.orange { background: #fff7ed; }
+        .advantage-item.purple { background: #faf5ff; }
+
+        .advantage-item .icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .advantage-item .title {
+            font-weight: 700;
+            color: #374151;
+            font-size: 0.875rem;
+        }
+
+        .advantage-item .desc {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .chart-header {
+            margin-bottom: 1rem;
+        }
+
+        .chart-header h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #1f2937;
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 8px 15px;
-            border-radius: 8px;
-            transition: all 0.3s;
+            gap: 0.5rem;
         }
 
-        .toc a:hover {
-            background: rgba(102, 126, 234, 0.2);
+        .chart-header p {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        .chart-wrapper {
+            height: 16rem;
+            width: 100%;
+        }
+
+        .chart-note {
+            margin-top: 1rem;
+            background: #fef2f2;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            color: #b91c1c;
+        }
+
+        /* Comparison Section */
+        .comparison-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-align: center;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-card {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        .comparison-card.recommended {
+            border: 2px solid #fed7aa;
+        }
+
+        .comparison-header {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .comparison-card:first-child .comparison-header {
+            background: #f3f4f6;
+        }
+
+        .comparison-card.recommended .comparison-header {
+            background: #ffedd5;
+            position: relative;
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: #f97316;
+            color: white;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        .comparison-header h4 {
+            font-weight: 700;
+            color: #374151;
+        }
+
+        .comparison-header.recommended h4 {
+            color: #9a3412;
+        }
+
+        .comparison-header span {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+
+        .comparison-header.recommended span {
+            color: #ea580c;
+        }
+
+        .comparison-body {
+            padding: 1.5rem;
+        }
+
+        .comparison-section h5 {
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-section h5.green { color: #16a34a; }
+        .comparison-section h5.red { color: #ef4444; }
+
+        .comparison-section ul {
+            list-style: disc;
+            list-style-position: inside;
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-section li {
+            margin-bottom: 0.25rem;
+        }
+
+        .highlight-item {
+            font-weight: 700;
+            background: #fef9c3;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+        }
+
+        .highlight-item.green {
+            background: #dcfce7;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: #eff6ff;
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            font-size: 0.875rem;
+            color: #1e40af;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            margin-top: 1.5rem;
+        }
+
+        .info-box .icon {
+            flex-shrink: 0;
+            font-size: 1.5rem;
+        }
+
+        /* Risk Section */
+        .risk-section {
+            background: #fef2f2;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid #fecaca;
+            margin-bottom: 1.5rem;
+        }
+
+        .risk-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #991b1b;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .risk-section > p {
+            font-size: 0.875rem;
+            color: #b91c1c;
+            margin-bottom: 1rem;
+        }
+
+        .risk-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .risk-card h4 {
+            font-weight: 700;
+            color: #1f2937;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .risk-card p {
+            font-size: 0.75rem;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+
+        .risk-card .solution {
+            color: #16a34a;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .conclusion-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .conclusion-card h3 {
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .conclusion-card p {
+            font-size: 0.875rem;
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+        .highlight-text {
+            background: #fef9c3;
+            font-weight: 700;
+            padding: 0 0.25rem;
         }
 
         /* Timeline */
         .timeline {
             position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #667eea, #764ba2);
+            border-left: 4px solid #fed7aa;
+            margin-left: 1rem;
+            padding-left: 2rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 30px;
-            padding-left: 30px;
+            margin-bottom: 2rem;
         }
 
-        .timeline-item::before {
-            content: '';
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-icon {
             position: absolute;
-            left: -34px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            background: #667eea;
-            border-radius: 50%;
-            border: 3px solid #0a0a1a;
+            left: -2.75rem;
+            background: #ffedd5;
+            padding: 0.375rem;
+            border-radius: 9999px;
+            color: #f97316;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+        }
+
+        .timeline-icon.highlight {
+            background: #f97316;
+            color: white;
+        }
+
+        .timeline-icon.green {
+            background: #dcfce7;
+            color: #16a34a;
         }
 
         .timeline-item h4 {
-            color: #a78bfa;
-            margin-bottom: 10px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
         }
 
-        /* Footer */
-        footer {
+        .timeline-item ul {
+            list-style: disc;
+            list-style-position: inside;
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.25rem;
+        }
+
+        .schedule-box {
+            background: #fff7ed;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .schedule-item {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .schedule-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .schedule-week {
+            font-weight: 700;
+            color: #ea580c;
+            width: 3rem;
+            flex-shrink: 0;
+        }
+
+        /* Message Card */
+        .message-card {
+            background: #1f2937;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
             text-align: center;
-            padding: 40px 30px;
-            background: rgba(0, 0, 0, 0.3);
-            border-top: 1px solid rgba(102, 126, 234, 0.2);
+            margin-top: 2rem;
         }
 
-        footer p {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.9rem;
+        .message-card h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
+        .message-card p {
+            font-size: 0.875rem;
+            color: #d1d5db;
+            line-height: 1.8;
+        }
 
-            nav {
-                padding: 10px 20px;
-            }
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ea580c;
+            text-decoration: none;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            transition: color 0.2s;
+        }
 
-            .nav-links {
-                display: none;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-
-            .content-card {
-                padding: 25px;
-            }
-
-            .data-table {
-                font-size: 0.85rem;
-            }
-
-            .data-table th,
-            .data-table td {
-                padding: 10px;
-            }
-
-            .meta-info {
-                flex-direction: column;
-                gap: 10px;
-            }
+        .back-link:hover {
+            color: #c2410c;
         }
     </style>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav>
-        <a href="../index.html" class="logo">Level<span>fly</span></a>
-        <ul class="nav-links">
-            <li><a href="#summary">摘要</a></li>
-            <li><a href="#research">研究分析</a></li>
-            <li><a href="#risks">風險警示</a></li>
-            <li><a href="#recommendation">建議</a></li>
-        </ul>
-    </nav>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">👶</div>
+                <h1 class="logo-text">瑞融的成長決策書</h1>
+            </div>
+            <nav class="desktop-nav">
+                <button class="nav-btn active" data-tab="summary">核心結論</button>
+                <button class="nav-btn" data-tab="health">健康與發展</button>
+                <button class="nav-btn" data-tab="comparison">情境比一比</button>
+                <button class="nav-btn" data-tab="risks">風險管理</button>
+                <button class="nav-btn" data-tab="plan">執行計畫</button>
+            </nav>
+        </div>
+        <!-- Mobile Nav -->
+        <div class="mobile-nav">
+            <button class="mobile-nav-btn active" data-tab="summary">結論</button>
+            <button class="mobile-nav-btn" data-tab="health">健康</button>
+            <button class="mobile-nav-btn" data-tab="comparison">比較</button>
+            <button class="mobile-nav-btn" data-tab="risks">風險</button>
+            <button class="mobile-nav-btn" data-tab="plan">計畫</button>
+        </div>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>洪瑞融 2 歲幼幼班決策研究報告</h1>
-        <p class="subtitle">基於 NICHD 等國際研究的全面分析 v3.0</p>
-        <div class="meta-info">
-            <div class="meta-item">
-                <span class="icon">👶</span>
-                <span>對象：洪瑞融（明年 8 月剛滿 2 歲）</span>
+    <main>
+        <a href="../index.html" class="back-link">← 返回首頁</a>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">給媽咪的專屬報告</span>
+                    <h2>瑞融明年8月上幼幼班：<br/>一個「先苦後甘」但值得的決定</h2>
+                    <p>這份報告綜合了 NICHD 26年追蹤研究與台灣家長經驗。雖然有挑戰，但瑞融擁有「外向氣質」與「手足同校」兩大超級優勢。</p>
+                </div>
+                <div class="hero-icon">☀️</div>
             </div>
-            <div class="meta-item">
-                <span class="icon">📅</span>
-                <span>報告日期：2025-12-12</span>
+        </section>
+
+        <!-- Tab: 核心結論 Summary -->
+        <div id="summary" class="tab-content active">
+            <div class="cards-grid">
+                <div class="info-card border-green">
+                    <h3><span style="color: #22c55e;">✓</span> 為什麼選幼幼班？</h3>
+                    <ul>
+                        <li><span class="check-green">✓</span> <b>認知甜蜜點</b>：研究顯示 2-3 歲入學對認知發展效益最佳。</li>
+                        <li><span class="check-green">✓</span> <b>手足紅利</b>：哥哥姐姐在同校，能大幅降低瑞融的不安。</li>
+                        <li><span class="check-green">✓</span> <b>解決接送痛點</b>：避免瑞融每天在車上空耗 1-2 小時。</li>
+                        <li><span class="check-green">✓</span> <b>經濟補助</b>：第三胎優惠最多，每月僅需約 1,000 元。</li>
+                    </ul>
+                </div>
+                <div class="info-card border-yellow">
+                    <h3><span style="color: #eab308;">⚠</span> 我們需要克服什麼？</h3>
+                    <ul>
+                        <li><span class="warn-yellow">!</span> <b>病毒碼更新期</b>：前半年會頻繁生病 (平均月1-2次)。</li>
+                        <li><span class="warn-yellow">!</span> <b>分離焦慮</b>：初期哭鬧是正常的，需堅持溫柔道別。</li>
+                        <li><span class="warn-yellow">!</span> <b>風險警示</b>：需注意不過度刺激，維持高品質親子互動。</li>
+                    </ul>
+                </div>
             </div>
-            <div class="meta-item">
-                <span class="icon">📖</span>
-                <span>版本：v3.0 含風險與警示專章</span>
+
+            <div class="advantage-section">
+                <h3>瑞融的個人優勢分析</h3>
+                <div class="advantage-grid">
+                    <div class="advantage-item blue">
+                        <div class="icon">👫</div>
+                        <div class="title">第3胎手足</div>
+                        <div class="desc">哥姐帶領適應更快</div>
+                    </div>
+                    <div class="advantage-item orange">
+                        <div class="icon">☀️</div>
+                        <div class="title">外向氣質</div>
+                        <div class="desc">適合團體互動</div>
+                    </div>
+                    <div class="advantage-item purple">
+                        <div class="icon">🛡️</div>
+                        <div class="title">優質幼兒園</div>
+                        <div class="desc">品質已驗證</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Executive Summary -->
-    <div class="container">
-        <div class="executive-summary" id="summary">
-            <h2 style="text-align: center; margin-bottom: 20px; color: #a78bfa;">📋 核心研究發現摘要</h2>
-            <p style="text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 30px;">
-                根據美國國家兒童健康與人類發展研究院（NICHD）追蹤 1,364 名兒童從出生到 26 歲的大型研究
-            </p>
-            <div class="summary-grid">
-                <div class="summary-card">
-                    <h3>🧠 認知發展</h3>
-                    <p>18 個月後入學：輕微正向影響<br>18 個月前入學：輕微負向影響</p>
+        <!-- Tab: 健康與發展 Health -->
+        <div id="health" class="tab-content">
+            <!-- 免疫力圖表 -->
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>🛡️ 媽咪最擔心的：生病頻率 (每年次數)</h3>
+                    <p>數據顯示：雖然2歲入學初期生病多，但到了小學階段，反而比在家照顧的孩子更健康（獲得長期保護力）。</p>
                 </div>
-                <div class="summary-card">
-                    <h3>😊 行為發展</h3>
-                    <p>托育時數越長、越早入學 → 輕微增加行為問題風險</p>
+                <div class="chart-wrapper">
+                    <canvas id="immunityChart"></canvas>
                 </div>
-                <div class="summary-card">
-                    <h3>📊 效果大小</h3>
-                    <p>兩種效果都很小（d = 0.09-0.16），且到後期會逐漸消退</p>
-                </div>
-                <div class="summary-card">
-                    <h3>💡 最關鍵因素</h3>
-                    <p><strong>家庭互動品質</strong>遠比托育形式更重要</p>
+                <div class="chart-note">
+                    <strong>💡 心理準備：</strong> 入學前6個月是「更新病毒碼」時期，頻繁請假是正常的，不是身體不好。
                 </div>
             </div>
-            <blockquote style="margin-top: 30px;">
-                <strong>2-3 歲入學可能是認知效益的甜蜜點</strong>：研究發現 2-3 歲開始上幼兒園的認知增益，比一歲前或幼兒園前一年才入學都來得好。
-            </blockquote>
+
+            <!-- 認知發展圖表 -->
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>📚 認知與能力發展比較 (NICHD研究)</h3>
+                    <p>幼兒園環境在語言刺激和學校準備度上有顯著優勢，但也要留意行為問題的微幅增加。</p>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="cognitiveChart"></canvas>
+                </div>
+            </div>
         </div>
 
-        <!-- Table of Contents -->
-        <div class="toc">
-            <h3>📑 目錄</h3>
-            <ul>
-                <li><a href="#section1">一、核心研究發現摘要</a></li>
-                <li><a href="#section2">二、詳細研究分析</a></li>
-                <li><a href="#section3">三、風險與警示（批判性研究）</a></li>
-                <li><a href="#section4">四、針對瑞融的情境分析</a></li>
-                <li><a href="#section5">五、研究支持的建議</a></li>
-                <li><a href="#section6">六、最終建議</a></li>
-                <li><a href="#section7">七、參考來源</a></li>
-            </ul>
+        <!-- Tab: 情境比一比 Comparison -->
+        <div id="comparison" class="tab-content">
+            <h3 class="comparison-title">如果我們選擇...</h3>
+
+            <div class="cards-grid">
+                <!-- 選項 A -->
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <h4>繼續在家照顧</h4>
+                        <span>媽媽一對一</span>
+                    </div>
+                    <div class="comparison-body">
+                        <div class="comparison-section">
+                            <h5 class="green">優點</h5>
+                            <ul>
+                                <li>極高的安全依附感</li>
+                                <li>生病頻率低</li>
+                                <li>作息彈性自由</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-section">
+                            <h5 class="red">瑞融的具體痛點</h5>
+                            <ul>
+                                <li class="highlight-item">🚗 長時間在車上 (接送哥姐)</li>
+                                <li>車上被迫固定，缺乏活動</li>
+                                <li>社交刺激較少</li>
+                                <li>媽媽疲勞累積</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 選項 B -->
+                <div class="comparison-card recommended">
+                    <div class="comparison-header recommended">
+                        <div class="recommended-badge">推薦</div>
+                        <h4>去上幼幼班</h4>
+                        <span>與哥姐同校</span>
+                    </div>
+                    <div class="comparison-body">
+                        <div class="comparison-section">
+                            <h5 class="green">優點</h5>
+                            <ul>
+                                <li class="highlight-item green">👫 手足同校，安全感加倍</li>
+                                <li>解決車上空等的困境</li>
+                                <li>語言爆發期的豐富刺激</li>
+                                <li>媽媽獲得喘息與品質時間</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-section">
+                            <h5 class="red">挑戰</h5>
+                            <ul>
+                                <li>病毒感染高峰期</li>
+                                <li>初期分離焦慮</li>
+                                <li>需要適應團體規範</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="icon">🚗</div>
+                <div>
+                    <strong>為什麼「車上時間」是關鍵考量？</strong><br/>
+                    研究指出，2歲幼兒需要大量的大肌肉活動與探索。如果在車上被動等待超過1-2小時，不僅剝奪了發展時間，也容易造成孩子情緒煩躁。去學校反而能讓他在遊樂場奔跑，是更符合發展需求的選擇。
+                </div>
+            </div>
         </div>
 
-        <!-- Section 2: 詳細研究分析 -->
-        <section id="research">
-            <div class="section-header" id="section2">
-                <div class="section-number">二</div>
-                <h2 class="section-title">詳細研究分析</h2>
-                <p class="section-subtitle">基於多項國際研究的深度剖析</p>
-            </div>
-
-            <!-- 2.1 NICHD 研究 -->
-            <div class="content-card">
-                <h3>📚 2.1 NICHD 早期兒童照護研究（最大規模長期追蹤）</h3>
-                <p>這是目前最完整的兒童照護研究，追蹤時間長達 26 年：</p>
-
-                <h4>✅ 正向發現</h4>
-                <ul>
-                    <li><strong>認知與學業</strong>：高品質托育 → 15 歲時學業成就較高，效果可延續到高中畢業</li>
-                    <li><strong>語言發展</strong>：中心式托育（如幼兒園）→ 較好的語言和記憶能力</li>
-                    <li><strong>學校準備度</strong>：幼兒園環境 → 較佳的入學準備</li>
-                </ul>
-
-                <h4>⚠️ 需注意的發現</h4>
-                <ul>
-                    <li><strong>4.5 歲時</strong>：托育時數越長 → 社會能力較低、外顯行為問題較多、與成人衝突較多</li>
-                    <li><strong>依附關係</strong>：15 個月大時，高時數托育 + 母親低敏感度 = 增加不安全依附風險</li>
-                    <li><strong>行為問題</strong>：24 個月時，托育時數較長 → 較低的社會合作能力</li>
-                </ul>
-
-                <blockquote>
-                    <strong>重點</strong>：這些負面效果在童年後期會逐漸消退，且效果量很小
-                </blockquote>
-            </div>
-
-            <!-- 2.2 皮質醇研究 -->
-            <div class="content-card">
-                <h3>🧪 2.2 壓力荷爾蒙研究（皮質醇 Cortisol）</h3>
-                <p>荷蘭學者 Vermeer 和 van IJzendoorn 的統合分析發現：</p>
-
-                <table class="data-table">
-                    <tr>
-                        <th>發現</th>
-                        <th>說明</th>
-                    </tr>
-                    <tr>
-                        <td>托育 vs 在家</td>
-                        <td>托育環境中，幼兒皮質醇（壓力荷爾蒙）較高</td>
-                    </tr>
-                    <tr>
-                        <td>年齡效應</td>
-                        <td><strong>36 個月以下</strong>的幼兒效果最明顯</td>
-                    </tr>
-                    <tr>
-                        <td>時間模式</td>
-                        <td>托育時，皮質醇從早到晚持續上升；在家則維持正常日間模式</td>
-                    </tr>
-                    <tr>
-                        <td>依附類型</td>
-                        <td>不安全依附的孩子，壓力反應更強烈</td>
-                    </tr>
-                </table>
-
-                <div class="success-box">
-                    <h4>緩解因素</h4>
-                    <p><strong>高品質托育可以緩解</strong>：當孩子與托育者建立安全依附關係時，壓力反應會接近在家的正常水平。</p>
-                </div>
-            </div>
-
-            <!-- 2.3 依附理論 -->
-            <div class="content-card">
-                <h3>❤️ 2.3 依附理論與分離焦慮</h3>
-                <p>根據 Bowlby 的依附理論：</p>
-
-                <h4>發展階段</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>年齡</th>
-                        <th>階段</th>
-                        <th>特徵</th>
-                    </tr>
-                    <tr>
-                        <td>6-24 個月</td>
-                        <td>明確依附期</td>
-                        <td>強烈依附、明顯分離焦慮</td>
-                    </tr>
-                    <tr>
-                        <td><strong>24 個月後</strong></td>
-                        <td>目標修正夥伴關係</td>
-                        <td>開始理解分離是暫時的</td>
-                    </tr>
-                </table>
-
-                <h4>2 歲的特殊性</h4>
-                <ul>
-                    <li>分離焦慮通常在 <strong>10-18 個月達到高峰</strong>，2-3 歲逐漸減緩</li>
-                    <li>2 歲開始能理解「媽媽會回來」的概念</li>
-                    <li>部分孩子可能在 <strong>18 個月到 2.5 歲</strong>才出現分離焦慮</li>
-                </ul>
-
-                <div class="info-box">
-                    <h4>正常 vs 需擔心</h4>
-                    <p><strong>正常</strong>：不願離開父母是健康依附的表現<br>
-                    <strong>需注意</strong>：持續數月無法適應、嚴重退化行為（如已會的技能退步）</p>
-                </div>
-            </div>
-
-            <!-- 2.4 托育品質 -->
-            <div class="content-card">
-                <h3>🏫 2.4 托育品質的關鍵性</h3>
-                <p><strong>品質比「去不去」更重要</strong>：</p>
-
-                <table class="data-table">
-                    <tr>
-                        <th>高品質托育的特徵</th>
-                        <th>效果</th>
-                    </tr>
-                    <tr>
-                        <td>低師生比</td>
-                        <td>2 歲時較少行為問題</td>
-                    </tr>
-                    <tr>
-                        <td>穩定的照顧者</td>
-                        <td>利於建立安全依附</td>
-                    </tr>
-                    <tr>
-                        <td>回應式互動</td>
-                        <td>較好的認知語言發展</td>
-                    </tr>
-                    <tr>
-                        <td>適齡課程活動</td>
-                        <td>15 歲時學業成就較高</td>
-                    </tr>
-                </table>
-
-                <div class="info-box">
-                    <h4>台灣規定</h4>
-                    <ul>
-                        <li>托嬰中心（2 歲以下）：師生比 <strong>1:5</strong></li>
-                        <li>幼幼班（2-3 歲）：師生比 <strong>1:8</strong>，每班最多 16 人</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 2.5 免疫系統 -->
-            <div class="content-card">
-                <h3>🦠 2.5 免疫系統與生病頻率（重要！）</h3>
-                <p>這是許多家長最擔心的問題。研究結果如下：</p>
-
-                <h4>生病頻率的真相</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>年齡層</th>
-                        <th>每年感冒次數</th>
-                        <th>說明</th>
-                    </tr>
-                    <tr>
-                        <td>幼兒/學齡前</td>
-                        <td><strong>7-8 次</strong></td>
-                        <td>托育環境可能高達 10-12 次</td>
-                    </tr>
-                    <tr>
-                        <td>學齡兒童</td>
-                        <td>5-6 次</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>青少年/成人</td>
-                        <td>約 4 次</td>
-                        <td></td>
-                    </tr>
-                </table>
-
-                <h4>長期免疫效益（重要發現）</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>研究發現</th>
-                        <th>說明</th>
-                    </tr>
-                    <tr>
-                        <td>2.5 歲前進入大型托育</td>
-                        <td>學齡前常生病，但 <strong>5-8 歲時感染率較低</strong></td>
-                    </tr>
-                    <tr>
-                        <td>2.5 歲後才進入托育</td>
-                        <td>未獲得同樣的長期保護效果</td>
-                    </tr>
-                    <tr>
-                        <td>「更新病毒碼」概念</td>
-                        <td>前 6 個月最常生病，之後逐漸減少</td>
-                    </tr>
-                </table>
-
-                <blockquote>
-                    <strong>台灣家長經驗</strong>（PTT/BabyHome）：
-                    <ul>
-                        <li>「幼幼班前半年病不斷，甚至每週發燒一次」</li>
-                        <li>「撐過一年後變得很少生病」</li>
-                        <li>「小病不斷、大病不來」</li>
-                        <li>「這是更新病毒碼的必經之路」</li>
-                    </ul>
-                </blockquote>
-            </div>
-
-            <!-- 2.6 手足同校 -->
-            <div class="content-card">
-                <h3>👨‍👩‍👧‍👦 2.6 手足同校效應（對瑞融特別有利！）</h3>
-                <p>研究顯示，有哥哥姐姐在同一所學校對幼兒適應有顯著正面影響：</p>
-
-                <table class="data-table">
-                    <tr>
-                        <th>效果</th>
-                        <th>說明</th>
-                    </tr>
-                    <tr>
-                        <td><strong>適應更快</strong></td>
-                        <td>「有哥哥陪伴，適應容易多了！」</td>
-                    </tr>
-                    <tr>
-                        <td><strong>安全感提升</strong></td>
-                        <td>知道熟悉的人在附近，減少分離焦慮</td>
-                    </tr>
-                    <tr>
-                        <td><strong>行為模仿</strong></td>
-                        <td>年幼手足會觀察並模仿年長手足的行為</td>
-                    </tr>
-                    <tr>
-                        <td><strong>情緒支持</strong></td>
-                        <td>部分學校允許哥姐在弟妹需要時給予安慰</td>
-                    </tr>
-                </table>
-
-                <div class="success-box">
-                    <h4>對瑞融的意義 ✅</h4>
-                    <p><strong>這是一個很大的優勢</strong>：</p>
-                    <ul>
-                        <li>哥姐可以在入學前帶他認識環境</li>
-                        <li>瑞融看到哥姐每天開心去上學，會建立正面預期</li>
-                        <li>適應期間若哭鬧，可能因為知道哥姐在附近而較快穩定</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 2.7 語言爆發期 -->
-            <div class="content-card">
-                <h3>🗣️ 2.7 語言爆發期與上學的關係</h3>
-                <p>2 歲正是語言發展的關鍵時期：</p>
-
-                <table class="data-table">
-                    <tr>
-                        <th>階段</th>
-                        <th>說明</th>
-                    </tr>
-                    <tr>
-                        <td><strong>發生時間</strong></td>
-                        <td>通常 18-24 個月</td>
-                    </tr>
-                    <tr>
-                        <td>爆發前</td>
-                        <td>每週學 2-3 個新詞</td>
-                    </tr>
-                    <tr>
-                        <td><strong>爆發期間</strong></td>
-                        <td>每天可學 <strong>10 個新詞</strong>，一個月超過 300 個</td>
-                    </tr>
-                    <tr>
-                        <td>2-3 歲詞彙量</td>
-                        <td>200-1,000 個詞（取決於語言環境豐富度）</td>
-                    </tr>
-                </table>
-
-                <blockquote>
-                    語言爆發期<strong>可以被鼓勵但無法被催促</strong>。只要孩子每天接觸大量語言，詞彙量終會起飛。
-                </blockquote>
-
-                <p><strong>對瑞融的意義</strong>：</p>
-                <ul>
-                    <li>2 歲入學可以提供豐富的語言環境</li>
-                    <li>但在家照顧若有足夠親子對話，效果不會差</li>
-                    <li>關鍵是<strong>互動品質</strong>而非單純的環境</li>
-                </ul>
-            </div>
-
-            <!-- 2.8 漸進式適應 -->
-            <div class="content-card">
-                <h3>📅 2.8 漸進式適應策略（實務指南）</h3>
-
-                <h4>核心原則</h4>
-                <ol>
-                    <li><strong>條件相似</strong>：家與學校的規則、作息盡量一致</li>
-                    <li><strong>溝通鼓勵</strong>：讓孩子表達感受</li>
-                    <li><strong>漸進過渡</strong>：逐步增加時間，而非一次到位</li>
-                </ol>
-
-                <h4>具體策略</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>策略</th>
-                        <th>做法</th>
-                    </tr>
-                    <tr>
-                        <td>建立例行程序</td>
-                        <td>固定的送別儀式（如擁抱+說「放學見」）</td>
-                    </tr>
-                    <tr>
-                        <td>視覺提示</td>
-                        <td>用圖卡說明一天流程</td>
-                    </tr>
-                    <tr>
-                        <td>預告提醒</td>
-                        <td>用順序詞：「先...然後...接下來...」（2 歲還不懂時間）</td>
-                    </tr>
-                    <tr>
-                        <td>歌曲轉場</td>
-                        <td>用固定歌曲提示活動轉換</td>
-                    </tr>
-                </table>
-
-                <h4>適應期建議時程</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>週次</th>
-                        <th>安排</th>
-                    </tr>
-                    <tr>
-                        <td>第 1 週</td>
-                        <td>家長陪同在教室 1-2 小時</td>
-                    </tr>
-                    <tr>
-                        <td>第 2 週</td>
-                        <td>家長離開，孩子待 1-2 小時</td>
-                    </tr>
-                    <tr>
-                        <td>第 3 週</td>
-                        <td>延長到半天（含午餐）</td>
-                    </tr>
-                    <tr>
-                        <td>第 4 週</td>
-                        <td>嘗試全天（視適應狀況）</td>
-                    </tr>
-                </table>
-            </div>
-
-            <!-- 2.9 入學時間點 -->
-            <div class="content-card">
-                <h3>📆 2.9 入學時間點選擇（8 月 vs 2 月）</h3>
-
-                <h4>8 月入學（學年開始）</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>優點</th>
-                        <th>缺點</th>
-                    </tr>
-                    <tr>
-                        <td>與其他新生一起適應，有「同梯」感</td>
-                        <td>夏天較熱，可能增加不適感</td>
-                    </tr>
-                    <tr>
-                        <td>老師專注於新生適應</td>
-                        <td>如果不適應，要等到隔年 2 月才能再試</td>
-                    </tr>
-                    <tr>
-                        <td>完整體驗一學年</td>
-                        <td></td>
-                    </tr>
-                </table>
-
-                <h4>2 月入學（學期中）</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>優點</th>
-                        <th>缺點</th>
-                    </tr>
-                    <tr>
-                        <td>瑞融已 2.5 歲，可能更成熟</td>
-                        <td>其他孩子已熟悉環境，瑞融是「插班生」</td>
-                    </tr>
-                    <tr>
-                        <td>天氣較涼爽</td>
-                        <td>老師可能較難分心照顧新生</td>
-                    </tr>
-                    <tr>
-                        <td>若 8 月不適應，2 月可再試</td>
-                        <td></td>
-                    </tr>
-                </table>
-
-                <blockquote>
-                    研究未發現 9 月 vs 2 月入學有顯著差異。關鍵是<strong>孩子的準備度</strong>和<strong>家長的彈性心態</strong>。
-                </blockquote>
-            </div>
-
-            <!-- 2.10 補助政策 -->
-            <div class="content-card">
-                <h3>💰 2.10 2025 年台灣幼幼班補助政策</h3>
-
-                <h4>補助金額一覽</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>幼兒園類型</th>
-                        <th>每月繳費上限</th>
-                        <th>說明</th>
-                    </tr>
-                    <tr>
-                        <td><strong>公立</strong></td>
-                        <td>1,000 元</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><strong>非營利</strong></td>
-                        <td>2,000 元</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><strong>準公共</strong></td>
-                        <td>3,000 元（第 1 胎）<br>2,000 元（第 2 胎）<br>1,000 元（第 3 胎）</td>
-                        <td>政府與私立園簽約</td>
-                    </tr>
-                    <tr>
-                        <td><strong>私立（未簽約）</strong></td>
-                        <td>領育兒津貼</td>
-                        <td>第 1 胎 5,000 元/月<br>第 2 胎 6,000 元/月<br>第 3 胎 7,000 元/月</td>
-                    </tr>
-                </table>
-
-                <div class="success-box">
-                    <h4>對瑞融的適用</h4>
-                    <p>瑞融是<strong>第 3 胎</strong>，可享有最高補助：</p>
-                    <ul>
-                        <li>若就讀準公共幼兒園：每月最多繳 <strong>1,000 元</strong></li>
-                        <li>若就讀私立幼兒園：每月可領 <strong>7,000 元</strong> 育兒津貼</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3: 風險與警示 -->
-        <section id="risks">
-            <div class="section-header" id="section3">
-                <div class="section-number">三</div>
-                <h2 class="section-title">風險與警示（批判性研究）</h2>
-                <p class="section-subtitle">為平衡報告觀點，本章收錄質疑早期托育的研究證據</p>
-            </div>
-
-            <!-- 3.1 NICHD 負面發現 -->
-            <div class="content-card">
-                <h3>⚠️ 3.1 NICHD 研究的負面發現與局限性</h3>
-                <p>雖然 NICHD 研究常被引用支持托育，但該研究也有重要的負面發現和方法論局限：</p>
-
-                <h4>負面發現（常被忽略）</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>年齡</th>
-                        <th>發現</th>
-                        <th>說明</th>
-                    </tr>
-                    <tr>
-                        <td><strong>4.5 歲</strong></td>
-                        <td>托育時數越長 → 行為問題越多</td>
-                        <td>高托育時數兒童出現社會問題的比率是低時數的 <strong>3 倍</strong></td>
-                    </tr>
-                    <tr>
-                        <td><strong>15 歲追蹤</strong></td>
-                        <td>早期長時數托育 → 較多冒險行為</td>
-                        <td>衝動行為、物質濫用傾向略高</td>
-                    </tr>
-                    <tr>
-                        <td><strong>24 個月</strong></td>
-                        <td>社會合作能力較低</td>
-                        <td>與照顧者的正向互動較少</td>
-                    </tr>
-                </table>
-
-                <h4>研究方法論局限</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>局限</th>
-                        <th>說明</th>
-                    </tr>
-                    <tr>
-                        <td><strong>非實驗設計</strong></td>
-                        <td>觀察性研究，無法確立因果關係</td>
-                    </tr>
-                    <tr>
-                        <td><strong>樣本不具代表性</strong></td>
-                        <td>1991 年招募，僅限 10 個城市，排除高風險家庭</td>
-                    </tr>
-                    <tr>
-                        <td><strong>選擇偏差</strong></td>
-                        <td>選擇托育的家庭可能本身就不同</td>
-                    </tr>
-                    <tr>
-                        <td><strong>效果量很小</strong></td>
-                        <td>d = 0.08-0.16，雖統計顯著但實際影響有限</td>
-                    </tr>
-                    <tr>
-                        <td><strong>時代差異</strong></td>
-                        <td>30 年前的托育環境與現在不同</td>
-                    </tr>
-                </table>
-
-                <blockquote>
-                    <strong>平衡觀點</strong>：效果量小意味著絕大多數孩子不會受到明顯影響，但對某些敏感的孩子，風險可能被放大。
-                </blockquote>
-            </div>
-
-            <!-- 3.2 魁北克研究 -->
-            <div class="content-card">
-                <h3>🇨🇦 3.2 魁北克全民托育研究（重要警示）</h3>
-                <p>加拿大魁北克 1997 年實施低價全民托育政策，後續長期追蹤發現令人擔憂的結果：</p>
-
-                <div class="warning-box">
-                    <h4>研究發現</h4>
-                    <table class="data-table">
-                        <tr>
-                            <th>指標</th>
-                            <th>發現</th>
-                        </tr>
-                        <tr>
-                            <td><strong>攻擊性行為</strong></td>
-                            <td>參與托育的兒童攻擊性顯著增加</td>
-                        </tr>
-                        <tr>
-                            <td><strong>焦慮問題</strong></td>
-                            <td>焦慮、退縮行為增加</td>
-                        </tr>
-                        <tr>
-                            <td><strong>犯罪率</strong></td>
-                            <td>追蹤到成年後，犯罪定罪率增加 <strong>19-22%</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>自評健康</strong></td>
-                            <td>成年後自評健康狀況較差</td>
-                        </tr>
-                        <tr>
-                            <td><strong>生活滿意度</strong></td>
-                            <td>整體生活滿意度較低</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <h4>為什麼魁北克研究重要</h4>
-                <ul>
-                    <li>這是<strong>自然實驗</strong>（政策變化導致托育率大幅增加）</li>
-                    <li>追蹤時間長達 <strong>20+ 年</strong></li>
-                    <li>樣本量大，涵蓋多元社經背景</li>
-                </ul>
-
-                <h4>批判性解讀</h4>
-                <ol>
-                    <li>魁北克托育品質參差不齊，不代表高品質托育</li>
-                    <li>政策實施倉促，可能有制度性問題</li>
-                    <li>但研究顯示「普及托育 ≠ 對所有孩子都好」</li>
-                </ol>
-            </div>
-
-            <!-- 3.3 皮質醇深入研究 -->
-            <div class="content-card">
-                <h3>🧬 3.3 皮質醇（壓力荷爾蒙）的深入研究</h3>
-
-                <table class="data-table">
-                    <tr>
-                        <th>發現</th>
-                        <th>數據</th>
-                    </tr>
-                    <tr>
-                        <td><strong>皮質醇上升比率</strong></td>
-                        <td><strong>71%</strong> 的 16-38 個月幼兒在托育環境中皮質醇升高</td>
-                    </tr>
-                    <tr>
-                        <td><strong>在家對照</strong></td>
-                        <td>只有 35% 的幼兒在家時皮質醇升高</td>
-                    </tr>
-                    <tr>
-                        <td><strong>最敏感年齡</strong></td>
-                        <td><strong>36 個月以下</strong>最明顯</td>
-                    </tr>
-                    <tr>
-                        <td><strong>時間模式</strong></td>
-                        <td>托育時皮質醇持續上升，違反正常日間下降模式</td>
-                    </tr>
-                </table>
-
-                <h4>長期壓力的潛在影響</h4>
-                <p>研究指出，慢性壓力可能影響：</p>
-                <ul>
-                    <li>海馬迴發育（與記憶相關）</li>
-                    <li>壓力調節系統發展</li>
-                    <li>免疫功能</li>
-                </ul>
-
-                <div class="success-box">
-                    <h4>緩解因素</h4>
-                    <table class="data-table">
-                        <tr>
-                            <th>因素</th>
-                            <th>效果</th>
-                        </tr>
-                        <tr>
-                            <td>高品質托育</td>
-                            <td>壓力反應較低</td>
-                        </tr>
-                        <tr>
-                            <td>穩定的照顧者關係</td>
-                            <td>皮質醇接近在家水平</td>
-                        </tr>
-                        <tr>
-                            <td>安全依附的孩子</td>
-                            <td>壓力反應較輕微</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-
-            <!-- 3.4 雙重風險 -->
-            <div class="content-card">
-                <h3>⚡ 3.4 依附傷害的「雙重風險」現象</h3>
-                <p>研究發現，托育本身不一定造成依附問題，但與其他風險因素結合時會放大影響：</p>
-
-                <h4>雙重風險組合</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>風險組合</th>
-                        <th>結果</th>
-                    </tr>
-                    <tr>
-                        <td>高托育時數 + 母親敏感度低</td>
-                        <td class="risk-high">不安全依附風險顯著增加</td>
-                    </tr>
-                    <tr>
-                        <td>每週 >40-60 小時 + 低品質托育</td>
-                        <td class="risk-high">混亂型依附比例增加</td>
-                    </tr>
-                    <tr>
-                        <td>早期入學 + 家庭壓力大</td>
-                        <td class="risk-medium">影響被放大</td>
-                    </tr>
-                </table>
-
-                <h4>關鍵數據</h4>
-                <ul>
-                    <li>每週托育 <strong>>10 小時</strong> + 不敏感母親 = 不安全依附風險加倍</li>
-                    <li>每週 <strong>40-60 小時</strong>以上的全日托育 → 混亂型依附比例較高</li>
-                </ul>
-
-                <div class="info-box">
-                    <h4>對瑞融的意義</h4>
-                    <p>✅ 若家庭互動品質高，托育風險較低<br>
-                    ⚠️ 但若家長同時處於高壓狀態，需特別注意</p>
-                </div>
-            </div>
-
-            <!-- 3.5 外向幼兒風險 -->
-            <div class="content-card">
-                <h3>🌟 3.5 外向幼兒的特殊風險（重要！）</h3>
-                <p>雖然外向氣質通常被視為適應優勢，但研究也指出潛在風險：</p>
-
-                <h4>「過度刺激」風險</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>風險</th>
-                        <th>說明</th>
-                    </tr>
-                    <tr>
-                        <td><strong>持續過度激發</strong></td>
-                        <td>外向孩子在高刺激環境中難以自我調節</td>
-                    </tr>
-                    <tr>
-                        <td><strong>攻擊性增加</strong></td>
-                        <td>「失控型」氣質的幼兒在托育中攻擊性可能增加</td>
-                    </tr>
-                    <tr>
-                        <td><strong>慢性焦慮</strong></td>
-                        <td>長期過度刺激可能轉化為焦慮</td>
-                    </tr>
-                </table>
-
-                <h4>氣質-環境契合理論 (Goodness-of-Fit)</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>氣質類型</th>
-                        <th>最適環境</th>
-                    </tr>
-                    <tr>
-                        <td>內向敏感</td>
-                        <td>低刺激、小團體、穩定</td>
-                    </tr>
-                    <tr>
-                        <td><strong>外向活躍</strong></td>
-                        <td>結構清楚、有調節機制、適度刺激</td>
-                    </tr>
-                    <tr>
-                        <td>失控衝動</td>
-                        <td>需額外行為支持策略</td>
-                    </tr>
-                </table>
-
-                <div class="info-box">
-                    <h4>對瑞融的建議</h4>
-                    <ul>
-                        <li>確認幼兒園有<strong>安靜角落</strong>讓孩子可以休息</li>
-                        <li>老師需有策略處理過度興奮的孩子</li>
-                        <li>避免整天都是高刺激活動</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 3.6 手足同校負面 -->
-            <div class="content-card">
-                <h3>👫 3.6 手足同校的潛在負面影響</h3>
-                <p>手足同校雖有安全感優勢，但研究也發現潛在問題：</p>
-
-                <h4>比較壓力</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>問題</th>
-                        <th>說明</th>
-                    </tr>
-                    <tr>
-                        <td><strong>「誰比較好」壓力</strong></td>
-                        <td>老師或家長可能無意間比較</td>
-                    </tr>
-                    <tr>
-                        <td><strong>身份發展受限</strong></td>
-                        <td>弟妹可能被標籤為「某某的弟弟」</td>
-                    </tr>
-                    <tr>
-                        <td><strong>生態位分化</strong></td>
-                        <td>弟妹為求差異化，可能刻意發展相反特質</td>
-                    </tr>
-                </table>
-
-                <h4>研究發現</h4>
-                <ul>
-                    <li>手足同校的<strong>學業適應不良</strong>比例略高於手足分校</li>
-                    <li>若哥姐表現優異，弟妹可能有<strong>成就焦慮</strong></li>
-                    <li>過度依賴哥姐可能<strong>延遲自主發展</strong></li>
-                </ul>
-
-                <div class="info-box">
-                    <h4>緩解策略</h4>
-                    <ol>
-                        <li>讓瑞融有自己的朋友圈（不只依賴哥姐）</li>
-                        <li>避免比較：「你看哥哥姐姐多乖」</li>
-                        <li>建立瑞融獨特的身份認同</li>
-                    </ol>
-                </div>
-            </div>
-
-            <!-- 3.7 適應失敗案例 -->
-            <div class="content-card">
-                <h3>😢 3.7 適應失敗的真實案例</h3>
-                <p>台灣家長論壇的經驗顯示，並非所有孩子都能順利適應：</p>
-
-                <h4>常見困難</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>類型</th>
-                        <th>案例</th>
-                    </tr>
-                    <tr>
-                        <td><strong>長期不適應</strong></td>
-                        <td>「上了 2 個月還是每天哭整天」</td>
-                    </tr>
-                    <tr>
-                        <td><strong>被退回</strong></td>
-                        <td>「老師說孩子太小，建議明年再來」</td>
-                    </tr>
-                    <tr>
-                        <td><strong>退化行為</strong></td>
-                        <td>「本來會自己吃飯，現在要餵」</td>
-                    </tr>
-                    <tr>
-                        <td><strong>睡眠問題</strong></td>
-                        <td>「晚上開始做惡夢、夜驚」</td>
-                    </tr>
-                </table>
-
-                <div class="warning-box">
-                    <h4>需要換校或暫停的情況</h4>
-                    <ul>
-                        <li>超過 <strong>2 個月</strong>仍無改善</li>
-                        <li>出現嚴重退化（語言、如廁）</li>
-                        <li>老師無法給予足夠關注</li>
-                        <li>孩子健康受嚴重影響</li>
-                    </ul>
-                    <p style="margin-top: 15px;"><strong>提醒</strong>：「放棄」不是失敗，而是尊重孩子步調</p>
-                </div>
-            </div>
-
-            <!-- 3.8 家長焦慮 -->
-            <div class="content-card">
-                <h3>😰 3.8 家長焦慮的情緒傳染效應</h3>
-                <p>研究發現，家長的情緒會直接影響孩子的適應：</p>
-
-                <h4>情緒傳染機制</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>現象</th>
-                        <th>說明</th>
-                    </tr>
-                    <tr>
-                        <td><strong>非語言訊號</strong></td>
-                        <td>焦慮的家長會傳遞「你應該害怕」的訊息</td>
-                    </tr>
-                    <tr>
-                        <td><strong>過度保護</strong></td>
-                        <td>增加孩子對環境的不信任感</td>
-                    </tr>
-                    <tr>
-                        <td><strong>分離時的遲疑</strong></td>
-                        <td>讓孩子更難適應分離</td>
-                    </tr>
-                </table>
-
-                <h4>研究發現</h4>
-                <ul>
-                    <li>母親的教養壓力 → 負向預測孩子的社會情緒能力</li>
-                    <li>焦慮型依附的母親 → 孩子適應期較長</li>
-                    <li><strong>「乾淨俐落的道別」比「依依不捨」更有效</strong></li>
-                </ul>
-
-                <div class="success-box">
-                    <h4>對家長的建議</h4>
-                    <ol>
-                        <li><strong>承認自己的焦慮</strong>：這是正常的</li>
-                        <li><strong>在孩子面前表現正向</strong>：「媽媽等一下就來接你！」</li>
-                        <li><strong>道別要堅定</strong>：說完再見就離開，不要反覆回頭</li>
-                        <li><strong>相信孩子的能力</strong>：大多數孩子會適應</li>
-                    </ol>
-                </div>
-            </div>
-
-            <!-- 3.9 睡眠 -->
-            <div class="content-card">
-                <h3>😴 3.9 睡眠與午睡的重要性</h3>
-                <p>2 歲幼兒的睡眠需求常被低估：</p>
-
-                <h4>睡眠需求</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>項目</th>
-                        <th>說明</th>
-                    </tr>
-                    <tr>
-                        <td><strong>每日總睡眠</strong></td>
-                        <td>11-14 小時（含午睡）</td>
-                    </tr>
-                    <tr>
-                        <td><strong>午睡需求</strong></td>
-                        <td>大多數 2 歲孩子仍需 1-3 小時午睡</td>
-                    </tr>
-                    <tr>
-                        <td><strong>午睡過渡期</strong></td>
-                        <td>2-3 歲開始從雙午睡轉為單午睡</td>
-                    </tr>
-                </table>
-
-                <div class="warning-box">
-                    <h4>錯過午睡的影響</h4>
-                    <p>研究發現，錯過<strong>一次</strong>午睡就會導致：</p>
-                    <ul>
-                        <li>焦慮增加 <strong>34%</strong></li>
-                        <li>正向情緒減少 <strong>39%</strong></li>
-                        <li>問題解決能力下降</li>
-                        <li>情緒調節能力變差</li>
-                    </ul>
-                </div>
-
-                <h4>對策</h4>
-                <ol>
-                    <li><strong>入學前</strong>：調整作息接近幼兒園時間表</li>
-                    <li><strong>確認</strong>：幼兒園午睡環境是否安靜</li>
-                    <li><strong>觀察</strong>：孩子晚上是否過度疲累或睡不好</li>
-                </ol>
-            </div>
-
-            <!-- 3.10 綜合風險評估 -->
-            <div class="content-card">
-                <h3>📊 3.10 綜合風險評估（更新版）</h3>
-                <p>整合正反證據後，對瑞融的風險評估：</p>
-
-                <table class="data-table">
-                    <tr>
-                        <th>風險因素</th>
-                        <th>瑞融情況</th>
-                        <th>風險程度</th>
-                    </tr>
-                    <tr>
-                        <td>早期入學（2 歲）</td>
-                        <td>是</td>
-                        <td class="risk-medium">🟡 中等</td>
-                    </tr>
-                    <tr>
-                        <td>托育時數</td>
-                        <td>預計全日？</td>
-                        <td class="risk-medium">🟡 若 >8 小時需注意</td>
-                    </tr>
-                    <tr>
-                        <td>外向氣質</td>
-                        <td>是</td>
-                        <td class="risk-low">🟢 優勢，但注意過度刺激</td>
-                    </tr>
-                    <tr>
-                        <td>手足同校</td>
-                        <td>是</td>
-                        <td class="risk-low">🟢 優勢，但注意比較壓力</td>
-                    </tr>
-                    <tr>
-                        <td>托育品質</td>
-                        <td>已驗證良好</td>
-                        <td class="risk-low">🟢 最重要的保護因素</td>
-                    </tr>
-                    <tr>
-                        <td>家庭互動品質</td>
-                        <td>假設良好</td>
-                        <td class="risk-low">🟢 最關鍵因素</td>
-                    </tr>
-                    <tr>
-                        <td>家長焦慮</td>
-                        <td>未知</td>
-                        <td class="risk-unknown">❓ 需自我評估</td>
-                    </tr>
-                </table>
-
-                <div class="info-box">
-                    <h4>總體評估</h4>
-                    <p><strong>支持入學的因素 > 風險因素</strong>，但需要：</p>
-                    <ol>
-                        <li>控制每日托育時數（建議不超過 8 小時）</li>
-                        <li>注意過度刺激的跡象</li>
-                        <li>家長管理自己的焦慮</li>
-                        <li>密切觀察睡眠品質變化</li>
-                        <li>設定明確的「暫停標準」</li>
-                    </ol>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 4: 情境分析 -->
-        <section id="section4">
-            <div class="section-header">
-                <div class="section-number">四</div>
-                <h2 class="section-title">針對瑞融的情境分析</h2>
-                <p class="section-subtitle">結合具體條件的個人化評估</p>
-            </div>
-
-            <div class="content-card">
-                <h3>✨ 瑞融的有利條件</h3>
-
-                <table class="data-table">
-                    <tr>
-                        <th>條件</th>
-                        <th>研究支持</th>
-                        <th>對入學的影響</th>
-                    </tr>
-                    <tr>
-                        <td>✅ <strong>外向氣質</strong></td>
-                        <td>外向型幼兒適應新環境較快</td>
-                        <td>分離焦慮較輕微，適應期較短</td>
-                    </tr>
-                    <tr>
-                        <td>✅ <strong>哥姐同校</strong></td>
-                        <td>手足同校顯著降低適應壓力</td>
-                        <td>有熟悉的人在附近，安全感提升</td>
-                    </tr>
-                    <tr>
-                        <td>✅ <strong>幼兒園品質已驗證</strong></td>
-                        <td>品質是發展結果的關鍵因素</td>
-                        <td>降低負面影響風險</td>
-                    </tr>
-                    <tr>
-                        <td>✅ <strong>第 3 胎</strong></td>
-                        <td>-</td>
-                        <td>補助最優惠，每月最多繳 1,000 元</td>
-                    </tr>
-                </table>
-
-                <div class="success-box">
-                    <h4>綜合評估</h4>
-                    <p>瑞融的條件非常適合 2 歲入學。</p>
-                </div>
-            </div>
-
-            <div class="content-card">
-                <h3>⚖️ 兩個選項的利弊</h3>
-
-                <h4>選項 A：跟媽媽在家</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>優點</th>
-                        <th>缺點</th>
-                    </tr>
-                    <tr>
-                        <td>一對一的個別關注</td>
-                        <td>同儕互動機會較少</td>
-                    </tr>
-                    <tr>
-                        <td>維持安全依附</td>
-                        <td>媽媽接送時間，孩子長時間在車上</td>
-                    </tr>
-                    <tr>
-                        <td>彈性作息</td>
-                        <td>可能缺乏結構化學習刺激</td>
-                    </tr>
-                    <tr>
-                        <td>疾病風險低</td>
-                        <td>媽媽照顧壓力較大</td>
-                    </tr>
-                </table>
-
-                <h4>選項 B：上幼幼班（與哥哥姐姐同校）</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>優點</th>
-                        <th>缺點</th>
-                    </tr>
-                    <tr>
-                        <td>同儕互動，促進社會化</td>
-                        <td>師生比 1:8，個別關注較少</td>
-                    </tr>
-                    <tr>
-                        <td>結構化學習環境</td>
-                        <td>初期可能有分離焦慮</td>
-                    </tr>
-                    <tr>
-                        <td>與哥姐同校，接送方便</td>
-                        <td>疾病交叉感染風險較高</td>
-                    </tr>
-                    <tr>
-                        <td>給媽媽喘息時間</td>
-                        <td>2 歲可能偏早（建議 2.5-3 歲較理想）</td>
-                    </tr>
-                    <tr>
-                        <td>免除長時間車上等待</td>
-                        <td>需評估孩子準備度</td>
-                    </tr>
-                </table>
-            </div>
-        </section>
-
-        <!-- Section 5: 建議 -->
-        <section id="recommendation">
-            <div class="section-header" id="section5">
-                <div class="section-number">五</div>
-                <h2 class="section-title">研究支持的建議</h2>
-                <p class="section-subtitle">基於研究證據的具體行動方案</p>
-            </div>
-
-            <div class="content-card">
-                <h3>📌 若傾向讓瑞融上學</h3>
-                <p><strong>根據研究，2 歲入學不是「太早」，但需要以下條件</strong>：</p>
-
-                <h4>1. 選擇高品質幼兒園</h4>
-                <ul>
-                    <li>實際師生比接近或優於 1:8</li>
-                    <li>教保人員穩定、有經驗</li>
-                    <li>重視情緒支持而非只有學習活動</li>
-                </ul>
-
-                <h4>2. 漸進式適應（非常重要）</h4>
-                <ul>
-                    <li>第 1 週：家長陪同 1-2 小時</li>
-                    <li>第 2 週：家長離開 1-2 小時</li>
-                    <li>第 3-4 週：逐漸延長到半天</li>
-                    <li>完全適應前避免全天托育</li>
-                </ul>
-
-                <h4>3. 密切觀察適應指標</h4>
-                <table class="data-table">
-                    <tr>
-                        <th style="background: rgba(34, 197, 94, 0.2); color: #4ade80;">✅ 正常</th>
-                        <th style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">⚠️ 警訊</th>
-                    </tr>
-                    <tr>
-                        <td>初期哭泣、黏人，但 2-4 週後改善</td>
-                        <td>持續 1-2 個月仍嚴重抗拒、睡眠/飲食明顯退化</td>
-                    </tr>
-                </table>
-
-                <h4>4. 善用「與哥姐同校」的優勢</h4>
-                <ul>
-                    <li>讓哥姐帶弟弟認識環境</li>
-                    <li>知道哥姐在附近可能增加安全感</li>
-                </ul>
-            </div>
-
-            <div class="content-card">
-                <h3>📌 若傾向讓瑞融在家</h3>
-                <p><strong>在家照顧也是好選擇，但需補足社交刺激</strong>：</p>
-
-                <h4>1. 解決車上時間問題</h4>
-                <ul>
-                    <li>盡量讓瑞融在車上睡覺（配合午睡時間）</li>
-                    <li>準備車上活動（音樂、有聲書）</li>
-                    <li>考慮是否能減少接送次數（如課後班）</li>
-                </ul>
-
-                <h4>2. 創造社交機會</h4>
-                <ul>
-                    <li>每週 2-3 次與同齡孩子互動（親子館、共學團）</li>
-                    <li>參加親子課程（律動、繪本）</li>
-                    <li>與鄰居或親友的同齡孩子約玩伴</li>
-                </ul>
-
-                <h4>3. 提供學習刺激</h4>
-                <ul>
-                    <li>每天固定親子共讀時間</li>
-                    <li>戶外活動與大肌肉發展</li>
-                    <li>簡單的感官遊戲和生活自理練習</li>
-                </ul>
-
-                <h4>4. 評估明年（3 歲）入學</h4>
-                <ul>
-                    <li>研究顯示 2.5-3 歲入學的認知效益最佳</li>
-                    <li>屆時分離焦慮也會較輕微</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Section 6: 最終建議 -->
-        <section id="section6">
-            <div class="section-header">
-                <div class="section-number">六</div>
-                <h2 class="section-title">最終建議</h2>
-                <p class="section-subtitle">根據瑞融情況的綜合判斷</p>
-            </div>
-
-            <div class="content-card">
-                <div class="success-box">
-                    <h4 style="font-size: 1.3rem;">結論：建議明年 8 月入學</h4>
-                    <p>基於深度研究和瑞融的具體條件，<strong>建議讓瑞融明年 8 月上幼幼班</strong>。</p>
-                </div>
-
-                <h3>支持入學的理由</h3>
-                <table class="data-table">
-                    <tr>
-                        <th>因素</th>
-                        <th>說明</th>
-                    </tr>
-                    <tr>
-                        <td><strong>外向氣質</strong> ✅</td>
-                        <td>研究顯示外向型幼兒適應更快，分離焦慮較輕</td>
-                    </tr>
-                    <tr>
-                        <td><strong>哥姐同校</strong> ✅</td>
-                        <td>手足同校是重大優勢，可顯著降低適應壓力</td>
-                    </tr>
-                    <tr>
-                        <td><strong>幼兒園品質</strong> ✅</td>
-                        <td>已驗證過品質，這是最關鍵的保護因素</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2 歲是認知甜蜜點</strong></td>
-                        <td>研究發現 2-3 歲入學的認知效益最佳</td>
-                    </tr>
-                    <tr>
-                        <td><strong>免疫系統效益</strong></td>
-                        <td>2.5 歲前入學，5-8 歲時感染率較低</td>
-                    </tr>
-                    <tr>
-                        <td><strong>解決車上時間</strong></td>
-                        <td>避免長時間被動等待</td>
-                    </tr>
-                    <tr>
-                        <td><strong>補助優惠</strong></td>
-                        <td>第 3 胎每月最多繳 1,000 元</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="content-card">
-                <h3>📅 執行計畫</h3>
-
-                <h4>入學前準備（暑假）</h4>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h4>6-7 月</h4>
-                        <p>帶瑞融去幼兒園玩幾次，熟悉環境</p>
+        <!-- Tab: 風險管理 Risks -->
+        <div id="risks" class="tab-content">
+            <div class="risk-section">
+                <h3>ℹ️ 研究中的負面發現 (我們要注意什麼？)</h3>
+                <p>為了客觀，我們必須看見風險。以下是長期追蹤研究發現的潛在問題，以及我們如何避免：</p>
+
+                <div class="cards-grid">
+                    <div class="risk-card">
+                        <h4>壓力荷爾蒙 (Cortisol)</h4>
+                        <p>研究發現幼兒在托育環境中，下午的壓力指數會升高，尤其是3歲以下。</p>
+                        <div class="solution">🛡️ 對策：瑞融有哥姐在校支持，加上高品質師生互動，可有效緩解壓力。</div>
                     </div>
-                    <div class="timeline-item">
-                        <h4>6-7 月</h4>
-                        <p>讓哥姐跟他說學校的有趣事</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>7 月起</h4>
-                        <p>建立規律作息（接近幼兒園時間表）</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>7 月起</h4>
-                        <p>練習基本自理：自己吃飯、表達需求</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>入學前</h4>
-                        <p>閱讀「上學」相關繪本</p>
+                    <div class="risk-card">
+                        <h4>攻擊性行為</h4>
+                        <p>托育時數過長的孩子，4.5歲時出現攻擊行為的機率微幅增加。</p>
+                        <div class="solution">🛡️ 對策：控制每日時數（不超過8-9小時），回家後給予高品質陪伴。</div>
                     </div>
                 </div>
-
-                <h4>漸進式適應期（8 月）</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>週次</th>
-                        <th>安排</th>
-                        <th>觀察重點</th>
-                    </tr>
-                    <tr>
-                        <td>第 1 週</td>
-                        <td>家長陪同 1-2 小時</td>
-                        <td>對環境的反應</td>
-                    </tr>
-                    <tr>
-                        <td>第 2 週</td>
-                        <td>家長離開，待 1-2 小時</td>
-                        <td>分離時的情緒</td>
-                    </tr>
-                    <tr>
-                        <td>第 3 週</td>
-                        <td>延長到半天（含午餐）</td>
-                        <td>是否能吃飯、午睡</td>
-                    </tr>
-                    <tr>
-                        <td>第 4 週</td>
-                        <td>嘗試全天</td>
-                        <td>整體適應狀況</td>
-                    </tr>
-                </table>
-
-                <h4>適應觀察指標</h4>
-                <table class="data-table">
-                    <tr>
-                        <th style="background: rgba(34, 197, 94, 0.2); color: #4ade80;">✅ 正常（可繼續）</th>
-                        <th style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">⚠️ 需關注</th>
-                        <th style="background: rgba(239, 68, 68, 0.2); color: #f87171;">🚨 考慮暫緩</th>
-                    </tr>
-                    <tr>
-                        <td>前 1-2 週哭泣</td>
-                        <td>超過 1 個月仍每天大哭</td>
-                        <td>超過 2 個月嚴重抗拒</td>
-                    </tr>
-                    <tr>
-                        <td>黏人、不想去</td>
-                        <td>睡眠明顯變差</td>
-                        <td>嚴重退化行為</td>
-                    </tr>
-                    <tr>
-                        <td>2-4 週後明顯改善</td>
-                        <td>食慾下降</td>
-                        <td>原本會的技能退步</td>
-                    </tr>
-                </table>
             </div>
 
-            <div class="content-card">
-                <h3>🎯 需要心理準備的事</h3>
-
-                <h4>1. 生病是必經之路</h4>
-                <ul>
-                    <li><strong>前 6 個月會頻繁生病</strong>（可能每月 1-2 次）</li>
-                    <li>這是「更新病毒碼」的過程</li>
-                    <li>好處：5-8 歲時會比較少生病</li>
-                </ul>
-
-                <h4>2. 可能的情緒反應</h4>
-                <ul>
-                    <li>初期可能出現：黏人、做惡夢、脾氣變大</li>
-                    <li>這是正常的適應反應，通常 2-4 週後改善</li>
-                </ul>
-
-                <h4>3. 保持彈性</h4>
-                <ul>
-                    <li>若 2 個月後仍嚴重不適應，可考慮暫緩到 2 月</li>
-                    <li>「延後」不是失敗，是尊重孩子的步調</li>
-                </ul>
-            </div>
-
-            <div class="content-card">
-                <h3>🔄 備案：若選擇延後</h3>
-
-                <table class="data-table">
-                    <tr>
-                        <th>時間點</th>
-                        <th>說明</th>
-                    </tr>
-                    <tr>
-                        <td><strong>明年 2 月</strong>（2.5 歲）</td>
-                        <td>分離焦慮較輕，但會是插班生</td>
-                    </tr>
-                    <tr>
-                        <td><strong>後年 8 月</strong>（3 歲）</td>
-                        <td>研究顯示這也是好時機</td>
-                    </tr>
-                </table>
-
-                <p><strong>延後期間要做的事</strong>：</p>
-                <ul>
-                    <li>每週 2-3 次安排同儕互動</li>
-                    <li>參加親子課程</li>
-                    <li>豐富的語言刺激（親子共讀、對話）</li>
-                </ul>
-            </div>
-
-            <div class="executive-summary" style="text-align: center; margin-top: 60px;">
-                <h2 style="color: #a78bfa; margin-bottom: 20px;">💡 最重要的提醒</h2>
-                <p style="font-size: 1.1rem; line-height: 2;">
-                    研究一致顯示，<strong>家庭互動品質</strong>對孩子發展的影響，遠大於「上不上學」的選擇。<br>
-                    無論選擇哪個方案，維持溫暖、回應式的親子互動才是關鍵。
-                </p>
-                <p style="font-size: 1.1rem; line-height: 2; margin-top: 20px; color: #4ade80;">
-                    瑞融有外向氣質 + 哥姐同校 + 優質幼兒園，這是非常理想的組合。<br>
-                    <strong>相信他會適應得很好！</strong>
+            <div class="conclusion-card">
+                <h3>關鍵結論：家庭品質 > 學校形式</h3>
+                <p>
+                    NICHD 最大型的研究結論是：<br/>
+                    <span class="highlight-text">「父母與孩子的互動品質」</span>對孩子的影響力，遠遠大於孩子是去上學還是在家照顧。<br/><br/>
+                    只要我們回家後，專心陪瑞融玩、讀書、聊天（而不是這時候還要忙家務），他就能獲得最好的發展，同時規避掉大部分的托育風險。
                 </p>
             </div>
-        </section>
+        </div>
 
-        <!-- Section 7: 參考來源 -->
-        <section id="section7">
-            <div class="section-header">
-                <div class="section-number">七</div>
-                <h2 class="section-title">參考來源</h2>
-                <p class="section-subtitle">本報告引用的研究與資源</p>
+        <!-- Tab: 執行計畫 Plan -->
+        <div id="plan" class="tab-content">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">📅</div>
+                    <h4>6-7月：預備期</h4>
+                    <ul>
+                        <li>帶瑞融去接送哥姐時，多在門口逗留，介紹「這是學校」。</li>
+                        <li>調整作息：練習在學校午睡的時間睡覺。</li>
+                        <li>閱讀《上學去》、《小波去上學》等繪本。</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon highlight">⏰</div>
+                    <h4>8月：漸進式適應 (關鍵!)</h4>
+                    <div class="schedule-box">
+                        <div class="schedule-item">
+                            <span class="schedule-week">第1週</span>
+                            <span>家長陪同或半天 (視學校規定)，建立安全感。</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-week">第2週</span>
+                            <span>嘗試在校用餐，餐後接回。</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-week">第3週</span>
+                            <span>嘗試在校午睡 (通常是最大關卡)，睡醒接回。</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-week">第4週</span>
+                            <span>視情況延長至正常放學。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon green">❤️</div>
+                    <h4>家長心態建設</h4>
+                    <ul>
+                        <li><b>堅定道別</b>：說了再見就離開，不要依依不捨，孩子會更焦慮。</li>
+                        <li><b>信任孩子</b>：相信瑞融的外向特質和哥哥姐姐的陪伴。</li>
+                        <li><b>接納生病</b>：備好常用藥，前半年不責怪孩子或自己。</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="content-card">
-                <h3>📚 批判性研究與風險警示（v3.0 新增）</h3>
-                <ul>
-                    <li><a href="https://www.nationalaffairs.com/publications/detail/the-uncomfortable-truth-about-daycare" target="_blank">National Affairs: The Uncomfortable Truth About Daycare</a></li>
-                    <li><a href="https://ifstudies.org/blog/another-perspective-on-the-latest-research-on-early-child-care" target="_blank">Institute for Family Studies: Another Perspective on Early Child Care</a></li>
-                    <li><a href="https://www.nber.org/papers/w21571" target="_blank">NBER: Universal Child Care Effects (Quebec Study)</a></li>
-                    <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2724160/" target="_blank">PMC: Cortisol in Day Care (Vermeer & van IJzendoorn)</a></li>
-                    <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2939669/" target="_blank">PMC: Early Child Care and Mother-Child Interaction</a></li>
-                    <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6759395/" target="_blank">PMC: Temperament-Based Intervention</a></li>
-                </ul>
+            <div class="message-card">
+                <h3>給親愛的老婆</h3>
+                <p>
+                    我知道妳會擔心，這很正常。但看著這份分析，瑞融有很好的條件去探索新世界。<br/>
+                    不管最後決定如何，我都會支持妳，並且我們一起分擔接送和照顧生病的日子。<br/>
+                    我們一起加油！
+                </p>
             </div>
+        </div>
+    </main>
 
-            <div class="content-card">
-                <h3>📚 主要研究（NICHD 長期追蹤）</h3>
-                <ul>
-                    <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2938040/" target="_blank">NICHD Study of Early Child Care and Youth Development (PMC)</a></li>
-                    <li><a href="https://www.nichd.nih.gov/sites/default/files/publications/pubs/documents/seccyd_06.pdf" target="_blank">NICHD Study Overview (PDF)</a></li>
-                    <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5115787/" target="_blank">Early Child Care and Adolescent Functioning (PMC)</a></li>
-                </ul>
-            </div>
+    <script>
+        // Tab Navigation
+        const navBtns = document.querySelectorAll('.nav-btn, .mobile-nav-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
 
-            <div class="content-card">
-                <h3>📚 免疫系統與生病頻率</h3>
-                <ul>
-                    <li><a href="https://jamanetwork.com/journals/jamapediatrics/fullarticle/191522" target="_blank">JAMA Pediatrics: Day Care and Common Cold</a></li>
-                    <li><a href="https://health.clevelandclinic.org/day-care-diseases-how-to-keep-your-kids-healthy" target="_blank">Cleveland Clinic: Day Care Diseases</a></li>
-                    <li><a href="https://mcpress.mayoclinic.org/parenting/the-constant-cold-why-kids-are-always-sick-and-what-to-do-about-it/" target="_blank">Mayo Clinic: The Constant Cold</a></li>
-                </ul>
-            </div>
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tab = btn.dataset.tab;
 
-            <div class="content-card">
-                <h3>📚 手足關係與語言發展</h3>
-                <ul>
-                    <li><a href="https://www.child-encyclopedia.com/peer-relations/according-experts/sibling-relations-and-their-impact-childrens-development" target="_blank">Child Encyclopedia: Sibling Relations and Development</a></li>
-                    <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7687271/" target="_blank">PMC: Sibling Influence on Toddler Behavior</a></li>
-                    <li><a href="https://www.nidcd.nih.gov/health/speech-and-language" target="_blank">NIDCD: Speech and Language Milestones</a></li>
-                    <li><a href="https://blog.lovevery.com/child-development/the-science-behind-your-childs-language-explosion/" target="_blank">Lovevery: The Science Behind Language Explosion</a></li>
-                </ul>
-            </div>
+                // Update all buttons
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.mobile-nav-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll(`[data-tab="${tab}"]`).forEach(b => b.classList.add('active'));
 
-            <div class="content-card">
-                <h3>📚 台灣資源</h3>
-                <ul>
-                    <li><a href="https://parents.hsin-yi.org.tw/Library/Article/7505" target="_blank">信誼好好育兒：托嬰中心 vs 幼幼班</a></li>
-                    <li><a href="https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/8e4f1094-b001-40da-aa52-346ac5d31268" target="_blank">行政院：0-6 歲國家一起養 2.0</a></li>
-                    <li><a href="https://mamilove.com.tw/articles/1316" target="_blank">媽咪愛：2025 幼兒園補助懶人包</a></li>
-                    <li><a href="https://www.ece.moe.edu.tw/ch/" target="_blank">全國教保資訊網</a></li>
-                </ul>
-            </div>
-        </section>
-    </div>
+                // Update content
+                tabContents.forEach(content => content.classList.remove('active'));
+                document.getElementById(tab).classList.add('active');
 
-    <!-- Footer -->
-    <footer>
-        <p>本報告整理自國際學術研究與台灣本地資源，供決策參考。</p>
-        <p style="margin-top: 10px;">報告版本：v3.0 | 更新日期：2025-12-12</p>
-        <p style="margin-top: 10px; font-style: italic;">每個孩子都是獨特的，最了解瑞融的是你們。祝一切順利！</p>
-    </footer>
+                // Initialize charts if health tab
+                if (tab === 'health') {
+                    initCharts();
+                }
+            });
+        });
+
+        // Charts
+        let immunityChart = null;
+        let cognitiveChart = null;
+
+        function initCharts() {
+            // Immunity Chart
+            const immunityCtx = document.getElementById('immunityChart');
+            if (immunityCtx && !immunityChart) {
+                immunityChart = new Chart(immunityCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['1歲', '2歲(入學)', '3歲', '4歲', '5歲(小學前)', '6歲(小一)', '7歲'],
+                        datasets: [
+                            {
+                                label: '在家照顧 (生病次數)',
+                                data: [4, 5, 6, 7, 8, 8, 7],
+                                borderColor: '#82ca9d',
+                                backgroundColor: 'rgba(130, 202, 157, 0.1)',
+                                borderWidth: 2,
+                                tension: 0.3
+                            },
+                            {
+                                label: '幼兒園 (生病次數)',
+                                data: [4, 12, 10, 8, 4, 3, 3],
+                                borderColor: '#ff8042',
+                                backgroundColor: 'rgba(255, 128, 66, 0.1)',
+                                borderWidth: 3,
+                                tension: 0.3
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: '生病次數/年'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Cognitive Chart
+            const cognitiveCtx = document.getElementById('cognitiveChart');
+            if (cognitiveCtx && !cognitiveChart) {
+                cognitiveChart = new Chart(cognitiveCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['語言能力', '記憶力', '學校準備度', '行為問題(風險)'],
+                        datasets: [
+                            {
+                                label: '在家照顧指標',
+                                data: [60, 65, 55, 20],
+                                backgroundColor: '#82ca9d',
+                                borderRadius: 4
+                            },
+                            {
+                                label: '幼兒園指標',
+                                data: [75, 72, 80, 35],
+                                backgroundColor: '#8884d8',
+                                borderRadius: 4
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        indexAxis: 'y',
+                        plugins: {
+                            legend: {
+                                position: 'bottom'
+                            }
+                        },
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                max: 100
+                            }
+                        }
+                    }
+                });
+            }
+        }
+    </script>
 </body>
 
 </html>
