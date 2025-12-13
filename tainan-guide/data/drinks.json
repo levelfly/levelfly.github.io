@@ -24,7 +24,7 @@
       "signature": ["紅茶", "奶茶", "紅茶牛奶"],
       "features": ["古早味", "排隊名店", "台南特色"],
       "rating": 4.5,
-      "images": ["shuangquan-1.webp"],
+      "images": ["shuangquan-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=雙全紅茶",
       "source": ["熱血玩台南", "在地推薦"],
       "tips": "招牌是紅茶牛奶，甜度選擇半糖最剛好"
@@ -43,7 +43,7 @@
       "signature": ["冬瓜茶", "冬瓜檸檬", "冬瓜牛奶"],
       "features": ["古早味", "安平老街", "消暑"],
       "rating": 4.3,
-      "images": ["yifeng-1.webp"],
+      "images": ["yifeng-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=義豐冬瓜茶",
       "source": ["在地推薦"],
       "tips": "買冬瓜糖磚回家自己煮也很好喝"
@@ -62,7 +62,7 @@
       "signature": ["木瓜牛奶", "西瓜汁", "綜合果汁"],
       "features": ["水果", "老店"],
       "rating": 4.2,
-      "images": ["atian-1.webp"],
+      "images": ["atian-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=阿田水果店",
       "source": ["在地推薦"],
       "tips": "依季節會有不同水果可選"
@@ -81,7 +81,7 @@
       "signature": ["青草茶", "仙草茶"],
       "features": ["古早味", "消暑", "市場"],
       "rating": 4.1,
-      "images": ["qingcao-1.webp"],
+      "images": ["qingcao-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=水仙宮市場青草茶",
       "source": ["在地推薦"],
       "tips": "賣完就沒了，要早點去"
@@ -100,7 +100,7 @@
       "signature": ["紅豆牛奶冰", "草湖芋頭冰", "綜合冰"],
       "features": ["老店", "冰品", "古早味"],
       "rating": 4.3,
-      "images": ["taiyang-1.webp"],
+      "images": ["taiyang-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=太陽牌冰品",
       "source": ["熱血玩台南"],
       "tips": "招牌草湖芋頭冰要試試"
@@ -119,7 +119,7 @@
       "signature": ["哈密瓜冰", "芒果冰", "西瓜冰"],
       "features": ["網美打卡", "正興街", "水果冰"],
       "rating": 4.4,
-      "images": ["taicheng-1.webp"],
+      "images": ["taicheng-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=泰成水果店",
       "source": ["熱血玩台南"],
       "tips": "哈密瓜冰很上相但份量大，可兩人分食"
@@ -138,7 +138,7 @@
       "signature": ["芒果冰", "綜合水果盤", "芒果牛奶冰"],
       "features": ["芒果冰", "排隊名店", "水果"],
       "rating": 4.4,
-      "images": ["yucheng-1.webp"],
+      "images": ["yucheng-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=裕成水果店",
       "source": ["熱血玩台南"],
       "tips": "芒果產季5-8月最推薦"
@@ -157,7 +157,7 @@
       "signature": ["霜淇淋", "限定口味"],
       "features": ["正興街", "網美打卡", "文青"],
       "rating": 4.5,
-      "images": ["juanweijia-1.webp"],
+      "images": ["juanweijia-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=蜷尾家甘味處",
       "website": "https://www.ninao.com/",
       "source": ["熱血玩台南"],
@@ -177,7 +177,7 @@
       "signature": ["招牌咖啡", "手沖咖啡"],
       "features": ["老屋咖啡", "網美打卡", "文青"],
       "rating": 4.3,
-      "images": ["narrowdoor-1.webp"],
+      "images": ["narrowdoor-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=窄門咖啡",
       "source": ["熱血玩台南"],
       "tips": "入口超窄要側身進入，很有特色"
@@ -196,7 +196,7 @@
       "signature": ["手沖單品", "拿鐵"],
       "features": ["老屋", "自烘咖啡", "文青"],
       "rating": 4.4,
-      "images": ["gandan-1.webp"],
+      "images": ["gandan-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=甘單咖啡",
       "source": ["在地推薦"],
       "tips": "環境很適合放空發呆"
@@ -215,7 +215,7 @@
       "signature": ["冰滴咖啡", "手沖咖啡"],
       "features": ["老屋", "文青", "懷舊"],
       "rating": 4.2,
-      "images": ["shunfeng-1.webp"],
+      "images": ["shunfeng-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=順風號",
       "source": ["在地推薦"],
       "tips": "假日人比較多，平日來比較悠閒"
@@ -234,7 +234,7 @@
       "signature": ["綠豆椪", "蛋黃酥", "鳳梨酥"],
       "features": ["百年老店", "伴手禮", "台南名產"],
       "rating": 4.3,
-      "images": ["jiuzhennan-1.webp"],
+      "images": ["jiuzhennan-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=舊振南餅店",
       "website": "https://www.jzn.com.tw/",
       "source": ["官方"],
@@ -254,7 +254,7 @@
       "signature": ["焦糖布丁", "奶酪", "雞蛋布丁"],
       "features": ["安平", "伴手禮", "甜點"],
       "rating": 4.2,
-      "images": ["elate-1.webp"],
+      "images": ["elate-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=依蕾特布丁",
       "source": ["在地推薦"],
       "tips": "買回家要冷藏保存"
@@ -273,7 +273,7 @@
       "signature": ["青草茶", "苦茶"],
       "features": ["古早味", "消暑", "便宜"],
       "rating": 4.0,
-      "images": ["xiaoxijiao-1.webp"],
+      "images": ["xiaoxijiao-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=小西腳青草茶",
       "source": ["在地推薦"],
       "tips": "夏天來一杯超解渴"
@@ -292,7 +292,7 @@
       "signature": ["原味泡芙", "巧克力泡芙", "抹茶泡芙"],
       "features": ["甜點", "排隊名店"],
       "rating": 4.3,
-      "images": ["cream-1.webp"],
+      "images": ["cream-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=克林姆之屋",
       "source": ["熱血玩台南"],
       "tips": "泡芙現做要等，但等待是值得的"

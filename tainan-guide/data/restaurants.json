@@ -24,7 +24,7 @@
       "signature": ["虱目魚肚粥", "綜合鹹粥", "煎魚腸"],
       "features": ["必比登推薦", "早餐", "在地老店"],
       "rating": 4.3,
-      "images": ["atang-1.webp"],
+      "images": ["atang-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=阿堂鹹粥",
       "source": ["米其林必比登2024", "熱血玩台南"],
       "tips": "早起才吃得到，建議7點前到"
@@ -43,7 +43,7 @@
       "signature": ["牛肉湯", "牛肉燴飯", "炒牛肉"],
       "features": ["必比登推薦", "早餐", "排隊名店"],
       "rating": 4.4,
-      "images": ["6000beef-1.webp"],
+      "images": ["6000beef-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=六千牛肉湯",
       "source": ["米其林必比登2024"],
       "tips": "排隊人潮多，建議5-6點前往"
@@ -62,7 +62,7 @@
       "signature": ["牛肉湯", "牛腩湯", "牛肉燴飯"],
       "features": ["早餐", "在地人推薦"],
       "rating": 4.3,
-      "images": ["wenzhang-1.webp"],
+      "images": ["wenzhang-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=文章牛肉湯",
       "source": ["在地推薦"],
       "tips": "可順便逛安平老街"
@@ -81,7 +81,7 @@
       "signature": ["砂鍋鴨", "紅蟳米糕", "台式料理"],
       "features": ["米其林餐盤", "聚餐", "老字號"],
       "rating": 4.2,
-      "images": ["amei-1.webp"],
+      "images": ["amei-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=阿美飯店台南",
       "source": ["米其林餐盤2024"],
       "tips": "招牌砂鍋鴨需預訂"
@@ -100,7 +100,7 @@
       "signature": ["擔仔麵", "肉燥飯", "蝦捲"],
       "features": ["必比登推薦", "百年老店", "觀光客必吃"],
       "rating": 4.0,
-      "images": ["duxiaoyue-1.webp"],
+      "images": ["duxiaoyue-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=度小月擔仔麵",
       "website": "https://www.iddi.com.tw/",
       "source": ["米其林必比登2024"],
@@ -120,7 +120,7 @@
       "signature": ["無菜單料理", "古宅用餐體驗"],
       "features": ["米其林一星", "古宅", "需預約"],
       "rating": 4.5,
-      "images": ["zhuxinju-1.webp"],
+      "images": ["zhuxinju-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=筑馨居",
       "source": ["米其林指南2024"],
       "tips": "至少一週前預約，人數需確認"
@@ -139,7 +139,7 @@
       "signature": ["薏仁甜湯", "檸檬薏仁", "薏仁豆花"],
       "features": ["必比登推薦", "甜品", "國華街"],
       "rating": 4.4,
-      "images": ["chun-1.webp"],
+      "images": ["chun-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=CHUN純薏仁",
       "source": ["米其林必比登2024"],
       "tips": "夏天來一碗冰的超消暑"
@@ -158,7 +158,7 @@
       "signature": ["小卷米粉", "綜合米粉"],
       "features": ["必比登推薦", "排隊名店", "國華街"],
       "rating": 4.3,
-      "images": ["chiuxiaojuan-1.webp"],
+      "images": ["chiuxiaojuan-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=邱家小卷米粉",
       "source": ["米其林必比登2024"],
       "tips": "小卷賣完就收，建議早點去"
@@ -177,7 +177,7 @@
       "signature": ["蝦仁飯", "鴨蛋湯", "香腸熟肉"],
       "features": ["必比登推薦", "在地老店"],
       "rating": 4.2,
-      "images": ["aizai-1.webp"],
+      "images": ["aizai-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=矮仔成蝦仁飯",
       "source": ["米其林必比登2024"],
       "tips": "蝦仁飯配鴨蛋湯是經典組合"
@@ -196,7 +196,7 @@
       "signature": ["清蒸肉圓", "四神湯"],
       "features": ["必比登推薦", "在地老店"],
       "rating": 4.3,
-      "images": ["fuji-1.webp"],
+      "images": ["fuji-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=福記肉圓",
       "source": ["米其林必比登2024"],
       "tips": "先吃原味再加醬是老饕吃法"

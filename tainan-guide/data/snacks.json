@@ -32,7 +32,7 @@
       "signature": ["碗粿", "魚羹"],
       "features": ["百年老店", "國華街必吃", "早餐"],
       "rating": 4.3,
-      "images": ["fusheng-1.webp"],
+      "images": ["fusheng-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=富盛號碗粿",
       "source": ["熱血玩台南", "在地推薦"],
       "tips": "早上人潮最多，建議提早前往"
@@ -52,7 +52,7 @@
       "signature": ["豬舌包", "爌肉包", "豬耳朵包"],
       "features": ["必比登推薦", "國華街", "在地老店"],
       "rating": 4.4,
-      "images": ["asong-1.webp"],
+      "images": ["asong-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=阿松割包",
       "source": ["米其林必比登2024"],
       "tips": "豬舌包限量，建議早點去"
@@ -72,7 +72,7 @@
       "signature": ["春捲（潤餅）"],
       "features": ["在地老店", "排隊名店"],
       "rating": 4.3,
-      "images": ["jindechun-1.webp"],
+      "images": ["jindechun-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=金得春捲",
       "source": ["在地推薦"],
       "tips": "清明節前後人潮最多"
@@ -92,7 +92,7 @@
       "signature": ["小卷米粉", "乾米粉"],
       "features": ["國華街", "排隊名店", "海鮮"],
       "rating": 4.2,
-      "images": ["yejia-1.webp"],
+      "images": ["yejia-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=葉家小卷米粉",
       "source": ["在地推薦"],
       "tips": "小卷賣完就收，建議早點去"
@@ -112,7 +112,7 @@
       "signature": ["燒肉飯", "排骨飯"],
       "features": ["永樂市場", "古早味"],
       "rating": 4.1,
-      "images": ["yongle-sharou-1.webp"],
+      "images": ["yongle-sharou-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=永樂燒肉飯",
       "source": ["在地推薦"],
       "tips": "用餐時間人很多，建議避開尖峰"
@@ -132,7 +132,7 @@
       "signature": ["香腸熟肉", "粉腸", "豬心"],
       "features": ["宵夜", "在地人推薦", "保安路"],
       "rating": 4.3,
-      "images": ["along-1.webp"],
+      "images": ["along-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=阿龍香腸熟肉",
       "source": ["在地推薦"],
       "tips": "可以多點幾樣分著吃"
@@ -152,7 +152,7 @@
       "signature": ["蚵仔煎", "蝦仁煎"],
       "features": ["排隊名店", "宵夜"],
       "rating": 4.2,
-      "images": ["shihjingju-1.webp"],
+      "images": ["shihjingju-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=石精臼蚵仔煎",
       "source": ["熱血玩台南"],
       "tips": "下午才開始營業，晚餐或宵夜時段前往"
@@ -172,7 +172,7 @@
       "signature": ["豬心冬粉", "綜合冬粉"],
       "features": ["宵夜", "保安路", "在地人推薦"],
       "rating": 4.4,
-      "images": ["aming-1.webp"],
+      "images": ["aming-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=阿明豬心冬粉",
       "source": ["在地推薦", "熱血玩台南"],
       "tips": "營業到凌晨2點，很適合宵夜"
@@ -192,7 +192,7 @@
       "signature": ["原味豆花", "加料豆花"],
       "features": ["在地人推薦", "限量", "古早味"],
       "rating": 4.5,
-      "images": ["wuming-douhua-1.webp"],
+      "images": ["wuming-douhua-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=台南無名豆花民族路",
       "source": ["在地推薦"],
       "tips": "賣完就收，想吃要碰運氣"
@@ -212,7 +212,7 @@
       "signature": ["炒鱔魚意麵", "鱔魚米粉"],
       "features": ["排隊名店", "台南特色"],
       "rating": 4.3,
-      "images": ["ajiang-1.webp"],
+      "images": ["ajiang-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=阿江炒鱔魚",
       "source": ["熱血玩台南"],
       "tips": "大份量很飽，可以兩人分食"
@@ -232,7 +232,7 @@
       "signature": ["鍋燒意麵", "鍋燒烏龍麵"],
       "features": ["台南特色", "老店"],
       "rating": 4.2,
-      "images": ["chunxian-1.webp"],
+      "images": ["chunxian-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=醇涎坊鍋燒意麵",
       "source": ["在地推薦"],
       "tips": "砂鍋很燙，小心食用"
@@ -252,7 +252,7 @@
       "signature": ["綜合水果盤", "芒果冰", "木瓜牛奶"],
       "features": ["老店", "水果", "冰品"],
       "rating": 4.3,
-      "images": ["lili-1.webp"],
+      "images": ["lili-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=莉莉水果店",
       "source": ["熱血玩台南"],
       "tips": "芒果季（5-8月）最推薦來"
@@ -272,7 +272,7 @@
       "signature": ["米糕", "四神湯"],
       "features": ["早餐", "古早味"],
       "rating": 4.2,
-      "images": ["xiadado-1.webp"],
+      "images": ["xiadado-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=下大道米糕",
       "source": ["在地推薦"],
       "tips": "早上限定，下午吃不到"
@@ -292,7 +292,7 @@
       "signature": ["米糕", "四神湯", "排骨酥湯"],
       "features": ["必比登推薦", "老店"],
       "rating": 4.3,
-      "images": ["luocheng-1.webp"],
+      "images": ["luocheng-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=落成米糕",
       "source": ["米其林必比登2024"],
       "tips": "米糕加蛋是在地人吃法"
@@ -312,7 +312,7 @@
       "signature": ["蝦仁肉圓"],
       "features": ["台南特色", "清蒸"],
       "rating": 4.1,
-      "images": ["huangshi-1.webp"],
+      "images": ["huangshi-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=黃氏蝦仁肉圓",
       "source": ["在地推薦"],
       "tips": "蝦仁肉圓和彰化油炸的不同，是清蒸口味"
@@ -332,7 +332,7 @@
       "signature": ["肉燥飯", "魚皮湯", "虱目魚腸"],
       "features": ["早餐", "在地人推薦", "安平"],
       "rating": 4.2,
-      "images": ["ahe-1.webp"],
+      "images": ["ahe-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=阿和肉燥飯安平",
       "source": ["在地推薦"],
       "tips": "早起的鳥兒有蟲吃，太晚去會賣完"
@@ -352,7 +352,7 @@
       "signature": ["蝦捲", "蝦餅"],
       "features": ["安平老街", "伴手禮", "排隊名店"],
       "rating": 4.2,
-      "images": ["zhoushi-1.webp"],
+      "images": ["zhoushi-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=安平周氏蝦捲",
       "source": ["熱血玩台南"],
       "tips": "現炸的最好吃，也有冷凍可外帶"
@@ -372,7 +372,7 @@
       "signature": ["原味豆花", "竹炭豆花", "綜合豆花"],
       "features": ["安平老街", "排隊名店", "甜點"],
       "rating": 4.4,
-      "images": ["tongji-1.webp"],
+      "images": ["tongji-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=同記安平豆花",
       "source": ["熱血玩台南"],
       "tips": "招牌是原味傳統豆花"
@@ -392,7 +392,7 @@
       "signature": ["魚肚粥", "蚵仔粥", "綜合粥"],
       "features": ["早餐", "在地人推薦"],
       "rating": 4.2,
-      "images": ["ahan-1.webp"],
+      "images": ["ahan-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=阿憨鹹粥",
       "source": ["在地推薦"],
       "tips": "比阿堂人少一點，品質也很好"
@@ -412,7 +412,7 @@
       "signature": ["蝦仁飯", "鴨蛋湯"],
       "features": ["台南特色", "老店"],
       "rating": 4.2,
-      "images": ["jipin-1.webp"],
+      "images": ["jipin-1.jpg"],
       "mapUrl": "https://maps.google.com/?q=集品蝦仁飯",
       "source": ["在地推薦"],
       "tips": "和矮仔成風格略有不同，可以比較看看"
