@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Word Sort! 🎯</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Comic Sans MS', sans-serif;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFE66D 100%);
+            min-height: 100vh;
+            padding: 10px;
+            padding-top: env(safe-area-inset-top);
+            user-select: none;
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            padding: 10px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        /* Lives */
+        .lives {
+            font-size: 1.2rem;
+        }
+
+        /* Combo meter */
+        .combo-container {
+            text-align: center;
+            margin: 5px 0;
+        }
+
+        .combo-text {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.3s;
+        }
+
+        .combo-text.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .combo-text.mega {
+            font-size: 1.5rem;
+            color: #FFE66D;
+            animation: megaPulse 0.5s;
+        }
+
+        @keyframes megaPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* Game area */
+        .game-area {
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Category bins */
+        .bins-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .bin {
+            flex: 1;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 3px dashed rgba(255,255,255,0.6);
+            border-radius: 20px;
+            padding: 15px 10px;
+            text-align: center;
+            transition: all 0.3s;
+            min-height: 100px;
+        }
+
+        .bin.highlight-left {
+            background: rgba(100, 200, 255, 0.4);
+            border-color: #64C8FF;
+            transform: scale(1.05);
+        }
+
+        .bin.highlight-right {
+            background: rgba(255, 100, 150, 0.4);
+            border-color: #FF6496;
+            transform: scale(1.05);
+        }
+
+        .bin.correct {
+            animation: binPop 0.4s;
+            background: rgba(100, 255, 150, 0.4);
+        }
+
+        @keyframes binPop {
+            50% { transform: scale(1.1); }
+        }
+
+        .bin-icon {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .bin-label {
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* Card area */
+        .card-area {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Word card */
+        .word-card {
+            position: absolute;
+            width: 200px;
+            height: 220px;
+            background: white;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            cursor: grab;
+            transition: box-shadow 0.3s;
+            touch-action: none;
+        }
+
+        .word-card:active {
+            cursor: grabbing;
+        }
+
+        .word-card.dragging {
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .word-card .emoji {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .word-card .word {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .word-card .hint-arrow {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .word-card .hint-arrow.left {
+            left: -50px;
+            color: #64C8FF;
+        }
+
+        .word-card .hint-arrow.right {
+            right: -50px;
+            color: #FF6496;
+        }
+
+        .word-card.hint-left .hint-arrow.left {
+            opacity: 1;
+        }
+
+        .word-card.hint-right .hint-arrow.right {
+            opacity: 1;
+        }
+
+        /* Swipe indicator */
+        .swipe-indicator {
+            position: absolute;
+            top: 10px;
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .swipe-indicator.left {
+            left: 10px;
+            background: #64C8FF;
+            color: white;
+        }
+
+        .swipe-indicator.right {
+            right: 10px;
+            background: #FF6496;
+            color: white;
+        }
+
+        .word-card.swiping-left .swipe-indicator.left,
+        .word-card.swiping-right .swipe-indicator.right {
+            opacity: 1;
+        }
+
+        /* Buttons for tap control */
+        .tap-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .tap-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: all 0.2s;
+        }
+
+        .tap-btn:active {
+            transform: scale(0.9);
+        }
+
+        .tap-btn.left {
+            background: linear-gradient(135deg, #64C8FF, #4FACFE);
+        }
+
+        .tap-btn.right {
+            background: linear-gradient(135deg, #FF6496, #FF4B7D);
+        }
+
+        .tap-btn.speak {
+            background: white;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+        }
+
+        /* Progress */
+        .progress-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+            margin: 15px 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: white;
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+
+        /* Feedback popup */
+        .feedback-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 5rem;
+            z-index: 100;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+
+        .feedback-popup.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Particles */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            font-size: 1.5rem;
+            z-index: 50;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 90%;
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-content .trophy {
+            font-size: 4rem;
+            margin: 15px 0;
+        }
+
+        .modal-content .stars {
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+
+        .modal-content p {
+            color: #666;
+            margin: 8px 0;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FF6B6B, #FFE66D);
+            border: none;
+            padding: 15px 35px;
+            border-radius: 25px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Round info */
+        .round-info {
+            text-align: center;
+            color: white;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* Instruction hint */
+        .instruction {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🎯 Word Sort!</h1>
+    </div>
+
+    <div class="stats">
+        <div class="stat-box">⭐ <span id="score">0</span></div>
+        <div class="stat-box lives">❤️❤️❤️</div>
+        <div class="stat-box">🏆 <span id="highscore">0</span></div>
+    </div>
+
+    <div class="combo-container">
+        <div class="combo-text" id="comboText">🔥 3x Combo!</div>
+    </div>
+
+    <div class="round-info">Round <span id="round">1</span> · <span id="categoryNames">Animals vs Food</span></div>
+
+    <div class="game-area">
+        <!-- Category bins at top -->
+        <div class="bins-container">
+            <div class="bin" id="binLeft">
+                <div class="bin-icon">🐾</div>
+                <div class="bin-label">Animals</div>
+            </div>
+            <div class="bin" id="binRight">
+                <div class="bin-icon">🍎</div>
+                <div class="bin-label">Food</div>
+            </div>
+        </div>
+
+        <!-- Card area -->
+        <div class="card-area">
+            <div class="word-card" id="wordCard">
+                <span class="hint-arrow left">👈</span>
+                <span class="swipe-indicator left">ANIMAL</span>
+                <span class="emoji">🐶</span>
+                <span class="word">dog</span>
+                <span class="swipe-indicator right">FOOD</span>
+                <span class="hint-arrow right">👉</span>
+            </div>
+        </div>
+
+        <!-- Tap buttons -->
+        <div class="tap-buttons">
+            <button class="tap-btn left" id="btnLeft">👈</button>
+            <button class="tap-btn speak" onclick="speakWord()">🔊</button>
+            <button class="tap-btn right" id="btnRight">👉</button>
+        </div>
+
+        <p class="instruction">Swipe or tap to sort!</p>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+    </div>
+
+    <div class="feedback-popup" id="feedbackPopup">✨</div>
+
+    <!-- Game Over Modal -->
+    <div class="modal" id="gameOverModal">
+        <div class="modal-content">
+            <h2 id="modalTitle">🎉 Great Job!</h2>
+            <div class="trophy" id="modalEmoji">🏆</div>
+            <div class="stars" id="modalStars">⭐⭐⭐</div>
+            <p>Score: <strong id="finalScore">0</strong></p>
+            <p>Best Combo: <strong id="finalCombo">0</strong></p>
+            <p>Rounds: <strong id="finalRounds">0</strong></p>
+            <button class="btn-primary" onclick="startGame()">Play Again 🎮</button>
+        </div>
+    </div>
+
+    <script>
+        // ============ DATA ============
+        const categories = [
+            {
+                name: "Animals",
+                icon: "🐾",
+                words: [
+                    { emoji: "🐶", word: "dog" },
+                    { emoji: "🐱", word: "cat" },
+                    { emoji: "🐭", word: "mouse" },
+                    { emoji: "🐰", word: "rabbit" },
+                    { emoji: "🦊", word: "fox" },
+                    { emoji: "🐻", word: "bear" },
+                    { emoji: "🐼", word: "panda" },
+                    { emoji: "🦁", word: "lion" },
+                    { emoji: "🐯", word: "tiger" },
+                    { emoji: "🐷", word: "pig" },
+                    { emoji: "🐸", word: "frog" },
+                    { emoji: "🐵", word: "monkey" }
+                ]
+            },
+            {
+                name: "Food",
+                icon: "🍎",
+                words: [
+                    { emoji: "🍎", word: "apple" },
+                    { emoji: "🍌", word: "banana" },
+                    { emoji: "🍕", word: "pizza" },
+                    { emoji: "🍔", word: "burger" },
+                    { emoji: "🍦", word: "ice cream" },
+                    { emoji: "🍩", word: "donut" },
+                    { emoji: "🍪", word: "cookie" },
+                    { emoji: "🧀", word: "cheese" },
+                    { emoji: "🥕", word: "carrot" },
+                    { emoji: "🍇", word: "grape" },
+                    { emoji: "🍓", word: "strawberry" },
+                    { emoji: "🍰", word: "cake" }
+                ]
+            },
+            {
+                name: "Colors",
+                icon: "🎨",
+                words: [
+                    { emoji: "❤️", word: "red" },
+                    { emoji: "🧡", word: "orange" },
+                    { emoji: "💛", word: "yellow" },
+                    { emoji: "💚", word: "green" },
+                    { emoji: "💙", word: "blue" },
+                    { emoji: "💜", word: "purple" },
+                    { emoji: "🖤", word: "black" },
+                    { emoji: "🤍", word: "white" },
+                    { emoji: "🩷", word: "pink" },
+                    { emoji: "🤎", word: "brown" }
+                ]
+            },
+            {
+                name: "Nature",
+                icon: "🌿",
+                words: [
+                    { emoji: "☀️", word: "sun" },
+                    { emoji: "🌙", word: "moon" },
+                    { emoji: "⭐", word: "star" },
+                    { emoji: "🌈", word: "rainbow" },
+                    { emoji: "☁️", word: "cloud" },
+                    { emoji: "🌊", word: "wave" },
+                    { emoji: "🌸", word: "flower" },
+                    { emoji: "🌳", word: "tree" },
+                    { emoji: "⛰️", word: "mountain" },
+                    { emoji: "❄️", word: "snow" }
+                ]
+            },
+            {
+                name: "Things",
+                icon: "📦",
+                words: [
+                    { emoji: "📱", word: "phone" },
+                    { emoji: "💻", word: "computer" },
+                    { emoji: "📚", word: "book" },
+                    { emoji: "✏️", word: "pencil" },
+                    { emoji: "🎒", word: "bag" },
+                    { emoji: "🚗", word: "car" },
+                    { emoji: "✈️", word: "plane" },
+                    { emoji: "🏠", word: "house" },
+                    { emoji: "⏰", word: "clock" },
+                    { emoji: "🪑", word: "chair" }
+                ]
+            },
+            {
+                name: "Body",
+                icon: "🫀",
+                words: [
+                    { emoji: "👁️", word: "eye" },
+                    { emoji: "👂", word: "ear" },
+                    { emoji: "👃", word: "nose" },
+                    { emoji: "👄", word: "mouth" },
+                    { emoji: "🖐️", word: "hand" },
+                    { emoji: "🦶", word: "foot" },
+                    { emoji: "❤️", word: "heart" },
+                    { emoji: "🦷", word: "tooth" },
+                    { emoji: "💪", word: "arm" },
+                    { emoji: "🦵", word: "leg" }
+                ]
+            }
+        ];
+
+        // ============ GAME STATE ============
+        let score = 0;
+        let highscore = parseInt(localStorage.getItem('wordSortHighscore') || 0);
+        let lives = 3;
+        let combo = 0;
+        let bestCombo = 0;
+        let round = 1;
+        let currentPair = [];
+        let wordQueue = [];
+        let currentWord = null;
+        let wordsInRound = 0;
+        let totalWordsPerRound = 10;
+
+        // Drag state
+        let isDragging = false;
+        let startX = 0;
+        let startY = 0;
+        let currentX = 0;
+        let cardEl;
+
+        // ============ DOM ============
+        const scoreEl = document.getElementById('score');
+        const highscoreEl = document.getElementById('highscore');
+        const comboText = document.getElementById('comboText');
+        const roundEl = document.getElementById('round');
+        const categoryNamesEl = document.getElementById('categoryNames');
+        const binLeft = document.getElementById('binLeft');
+        const binRight = document.getElementById('binRight');
+        const wordCard = document.getElementById('wordCard');
+        const progressFill = document.getElementById('progressFill');
+        const feedbackPopup = document.getElementById('feedbackPopup');
+        const gameOverModal = document.getElementById('gameOverModal');
+
+        // ============ AUDIO ============
+        let audioCtx;
+        function initAudio() {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+        }
+
+        function playSound(type) {
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            if (type === 'correct') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523, audioCtx.currentTime);
+                osc.frequency.setValueAtTime(659, audioCtx.currentTime + 0.08);
+                osc.frequency.setValueAtTime(784, audioCtx.currentTime + 0.16);
+                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            } else if (type === 'wrong') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(200, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.3);
+                gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            } else if (type === 'combo') {
+                [523, 659, 784, 1047].forEach((freq, i) => {
+                    const o = audioCtx.createOscillator();
+                    const g = audioCtx.createGain();
+                    o.connect(g);
+                    g.connect(audioCtx.destination);
+                    o.type = 'sine';
+                    o.frequency.setValueAtTime(freq, audioCtx.currentTime + i * 0.08);
+                    g.gain.setValueAtTime(0.12, audioCtx.currentTime + i * 0.08);
+                    g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + i * 0.08 + 0.15);
+                    o.start(audioCtx.currentTime + i * 0.08);
+                    o.stop(audioCtx.currentTime + i * 0.08 + 0.15);
+                });
+            } else if (type === 'swipe') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.1);
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.1);
+            } else if (type === 'levelup') {
+                [523, 659, 784, 1047, 1319].forEach((freq, i) => {
+                    const o = audioCtx.createOscillator();
+                    const g = audioCtx.createGain();
+                    o.connect(g);
+                    g.connect(audioCtx.destination);
+                    o.type = 'sine';
+                    o.frequency.setValueAtTime(freq, audioCtx.currentTime + i * 0.1);
+                    g.gain.setValueAtTime(0.15, audioCtx.currentTime + i * 0.1);
+                    g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + i * 0.1 + 0.2);
+                    o.start(audioCtx.currentTime + i * 0.1);
+                    o.stop(audioCtx.currentTime + i * 0.1 + 0.2);
+                });
+            }
+        }
+
+        // ============ SPEECH ============
+        function speak(text) {
+            window.speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = 'en-US';
+            u.rate = 0.8;
+            const voices = window.speechSynthesis.getVoices();
+            const v = voices.find(v => v.name === "Samantha") || voices.find(v => v.lang.startsWith("en"));
+            if (v) u.voice = v;
+            window.speechSynthesis.speak(u);
+        }
+
+        function speakWord() {
+            if (currentWord) speak(currentWord.word);
+        }
+
+        // ============ GAME LOGIC ============
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        function startGame() {
+            gameOverModal.classList.remove('show');
+            score = 0;
+            lives = 3;
+            combo = 0;
+            bestCombo = 0;
+            round = 1;
+
+            updateUI();
+            startRound();
+        }
+
+        function startRound() {
+            // Pick two random different categories
+            const shuffled = shuffle(categories);
+            currentPair = [shuffled[0], shuffled[1]];
+
+            // Setup bins
+            binLeft.querySelector('.bin-icon').textContent = currentPair[0].icon;
+            binLeft.querySelector('.bin-label').textContent = currentPair[0].name;
+            binRight.querySelector('.bin-icon').textContent = currentPair[1].icon;
+            binRight.querySelector('.bin-label').textContent = currentPair[1].name;
+
+            categoryNamesEl.textContent = `${currentPair[0].name} vs ${currentPair[1].name}`;
+
+            // Create word queue (5 from each category)
+            const leftWords = shuffle(currentPair[0].words).slice(0, 5).map(w => ({ ...w, category: 0 }));
+            const rightWords = shuffle(currentPair[1].words).slice(0, 5).map(w => ({ ...w, category: 1 }));
+            wordQueue = shuffle([...leftWords, ...rightWords]);
+            wordsInRound = 0;
+            totalWordsPerRound = wordQueue.length;
+
+            updateProgress();
+            nextWord();
+        }
+
+        function nextWord() {
+            if (wordQueue.length === 0) {
+                // Round complete!
+                round++;
+                roundEl.textContent = round;
+                playSound('levelup');
+                showFeedback('🎉');
+                speak("Great! Next round!");
+                setTimeout(startRound, 1500);
+                return;
+            }
+
+            currentWord = wordQueue.shift();
+
+            // Update card
+            wordCard.querySelector('.emoji').textContent = currentWord.emoji;
+            wordCard.querySelector('.word').textContent = currentWord.word;
+            wordCard.querySelector('.swipe-indicator.left').textContent = currentPair[0].name.toUpperCase();
+            wordCard.querySelector('.swipe-indicator.right').textContent = currentPair[1].name.toUpperCase();
+
+            // Reset card position
+            wordCard.style.transform = '';
+            wordCard.style.opacity = '1';
+            wordCard.classList.remove('swiping-left', 'swiping-right', 'hint-left', 'hint-right');
+
+            // Speak the word
+            setTimeout(() => speak(currentWord.word), 200);
+        }
+
+        function sortWord(direction) {
+            // direction: 0 = left, 1 = right
+            const isCorrect = currentWord.category === direction;
+
+            initAudio();
+
+            if (isCorrect) {
+                // Correct!
+                playSound('correct');
+                combo++;
+                if (combo > bestCombo) bestCombo = combo;
+
+                // Score with combo bonus
+                const comboBonus = Math.min(combo, 5);
+                score += 10 * comboBonus;
+
+                // Show combo
+                if (combo >= 3) {
+                    comboText.textContent = combo >= 5 ? `🔥 ${combo}x MEGA COMBO!` : `🔥 ${combo}x Combo!`;
+                    comboText.classList.add('show');
+                    if (combo >= 5) {
+                        comboText.classList.add('mega');
+                        playSound('combo');
+                    }
+                    setTimeout(() => {
+                        comboText.classList.remove('show', 'mega');
+                    }, 800);
+                }
+
+                // Animate bin
+                const bin = direction === 0 ? binLeft : binRight;
+                bin.classList.add('correct');
+                setTimeout(() => bin.classList.remove('correct'), 400);
+
+                showFeedback('✅');
+                createParticles(direction === 0 ? '20%' : '80%');
+
+            } else {
+                // Wrong!
+                playSound('wrong');
+                combo = 0;
+                lives--;
+                updateLives();
+
+                showFeedback('❌');
+                speak("Oops! Try again!");
+
+                if (lives <= 0) {
+                    setTimeout(gameOver, 800);
+                    return;
+                }
+            }
+
+            wordsInRound++;
+            updateUI();
+            updateProgress();
+
+            // Animate card out
+            const translateX = direction === 0 ? -300 : 300;
+            wordCard.style.transition = 'transform 0.3s, opacity 0.3s';
+            wordCard.style.transform = `translateX(${translateX}px) rotate(${direction === 0 ? -20 : 20}deg)`;
+            wordCard.style.opacity = '0';
+
+            setTimeout(() => {
+                wordCard.style.transition = '';
+                nextWord();
+            }, 300);
+        }
+
+        function updateUI() {
+            scoreEl.textContent = score;
+            highscoreEl.textContent = highscore;
+            roundEl.textContent = round;
+        }
+
+        function updateLives() {
+            const livesEl = document.querySelector('.lives');
+            livesEl.textContent = '❤️'.repeat(lives) + '🖤'.repeat(3 - lives);
+        }
+
+        function updateProgress() {
+            const pct = (wordsInRound / totalWordsPerRound) * 100;
+            progressFill.style.width = pct + '%';
+        }
+
+        function showFeedback(emoji) {
+            feedbackPopup.textContent = emoji;
+            feedbackPopup.classList.add('show');
+            setTimeout(() => feedbackPopup.classList.remove('show'), 600);
+        }
+
+        function createParticles(xPos) {
+            const emojis = ['⭐', '✨', '💫', '🌟'];
+            for (let i = 0; i < 6; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                p.style.left = xPos;
+                p.style.top = '30%';
+                document.body.appendChild(p);
+
+                const angle = (Math.random() - 0.5) * Math.PI;
+                const distance = 50 + Math.random() * 100;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance - 50;
+
+                p.animate([
+                    { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                    { transform: `translate(${tx}px, ${ty}px) scale(0)`, opacity: 0 }
+                ], { duration: 600, easing: 'ease-out' }).onfinish = () => p.remove();
+            }
+        }
+
+        function gameOver() {
+            if (score > highscore) {
+                highscore = score;
+                localStorage.setItem('wordSortHighscore', highscore);
+            }
+
+            document.getElementById('finalScore').textContent = score;
+            document.getElementById('finalCombo').textContent = bestCombo;
+            document.getElementById('finalRounds').textContent = round;
+
+            // Stars
+            let stars = '⭐';
+            if (score >= 200) stars = '⭐⭐⭐';
+            else if (score >= 100) stars = '⭐⭐';
+            document.getElementById('modalStars').textContent = stars;
+
+            if (score >= highscore && score > 0) {
+                document.getElementById('modalTitle').textContent = '🎉 New High Score!';
+                document.getElementById('modalEmoji').textContent = '👑';
+            } else {
+                document.getElementById('modalTitle').textContent = '💪 Good Try!';
+                document.getElementById('modalEmoji').textContent = '🏆';
+            }
+
+            gameOverModal.classList.add('show');
+        }
+
+        // ============ DRAG HANDLING ============
+        function onPointerDown(e) {
+            if (e.target.closest('.tap-btn')) return;
+            isDragging = true;
+            startX = e.clientX || e.touches?.[0]?.clientX;
+            startY = e.clientY || e.touches?.[0]?.clientY;
+            wordCard.classList.add('dragging');
+            initAudio();
+        }
+
+        function onPointerMove(e) {
+            if (!isDragging) return;
+
+            const x = e.clientX || e.touches?.[0]?.clientX;
+            const y = e.clientY || e.touches?.[0]?.clientY;
+            const deltaX = x - startX;
+            const deltaY = (y - startY) * 0.3;
+            const rotation = deltaX * 0.1;
+
+            wordCard.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotation}deg)`;
+
+            // Highlight bins
+            const threshold = 50;
+            binLeft.classList.toggle('highlight-left', deltaX < -threshold);
+            binRight.classList.toggle('highlight-right', deltaX > threshold);
+            wordCard.classList.toggle('swiping-left', deltaX < -threshold);
+            wordCard.classList.toggle('swiping-right', deltaX > threshold);
+            wordCard.classList.toggle('hint-left', deltaX < -30 && deltaX >= -threshold);
+            wordCard.classList.toggle('hint-right', deltaX > 30 && deltaX <= threshold);
+
+            currentX = deltaX;
+        }
+
+        function onPointerUp() {
+            if (!isDragging) return;
+            isDragging = false;
+            wordCard.classList.remove('dragging');
+            binLeft.classList.remove('highlight-left');
+            binRight.classList.remove('highlight-right');
+
+            const threshold = 80;
+            if (currentX < -threshold) {
+                playSound('swipe');
+                sortWord(0); // Left
+            } else if (currentX > threshold) {
+                playSound('swipe');
+                sortWord(1); // Right
+            } else {
+                // Snap back
+                wordCard.style.transition = 'transform 0.3s';
+                wordCard.style.transform = '';
+                wordCard.classList.remove('swiping-left', 'swiping-right', 'hint-left', 'hint-right');
+                setTimeout(() => wordCard.style.transition = '', 300);
+            }
+            currentX = 0;
+        }
+
+        // ============ EVENT LISTENERS ============
+        wordCard.addEventListener('mousedown', onPointerDown);
+        wordCard.addEventListener('touchstart', onPointerDown, { passive: true });
+        document.addEventListener('mousemove', onPointerMove);
+        document.addEventListener('touchmove', onPointerMove, { passive: true });
+        document.addEventListener('mouseup', onPointerUp);
+        document.addEventListener('touchend', onPointerUp);
+
+        // Tap buttons
+        document.getElementById('btnLeft').addEventListener('click', () => {
+            initAudio();
+            playSound('swipe');
+            sortWord(0);
+        });
+        document.getElementById('btnRight').addEventListener('click', () => {
+            initAudio();
+            playSound('swipe');
+            sortWord(1);
+        });
+
+        // Load voices
+        if (window.speechSynthesis) {
+            window.speechSynthesis.getVoices();
+            window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+        }
+
+        // Init
+        highscoreEl.textContent = highscore;
+        startGame();
+    </script>
+</body>
+</html>
