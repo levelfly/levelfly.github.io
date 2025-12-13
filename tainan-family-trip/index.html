@@ -450,7 +450,7 @@
             body { padding-bottom: 100px; }
         }
 
-        /* 底部導航列 - 雙排網格 */
+        /* 底部導航列 - 兩階可滑動 */
         .bottom-nav {
             display: none;
             position: fixed;
@@ -458,45 +458,104 @@
             left: 0;
             right: 0;
             background: white;
-            padding: 6px 4px;
             box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
             z-index: 1000;
         }
         @media (max-width: 768px) {
             .bottom-nav { display: block; }
         }
-        .bottom-nav .nav-row {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 2px;
-        }
-        .bottom-nav .nav-row:first-child {
-            margin-bottom: 4px;
-            padding-bottom: 4px;
+        /* 主分類列 */
+        .bottom-nav .main-nav {
+            display: flex;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 8px 10px;
+            gap: 6px;
             border-bottom: 1px solid #eee;
         }
-        .bottom-nav a {
+        .bottom-nav .main-nav::-webkit-scrollbar { display: none; }
+        .bottom-nav .main-nav a {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-decoration: none;
             color: #666;
-            font-size: 0.6rem;
-            padding: 4px 2px;
-            border-radius: 6px;
+            font-size: 0.7rem;
+            padding: 6px 12px;
+            border-radius: 8px;
             transition: all 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
-        .bottom-nav a i, .bottom-nav a .nav-emoji {
-            font-size: 1rem;
-            margin-bottom: 1px;
+        .bottom-nav .main-nav a i, .bottom-nav .main-nav a .nav-emoji {
+            font-size: 1.1rem;
+            margin-bottom: 2px;
             line-height: 1;
         }
-        .bottom-nav a .nav-emoji {
+        .bottom-nav .main-nav a .nav-emoji {
             font-style: normal;
         }
-        .bottom-nav a.active {
+        .bottom-nav .main-nav a.active {
             color: var(--primary);
             background: #fff5f5;
+        }
+        .bottom-nav .main-nav a.has-sub {
+            position: relative;
+        }
+        .bottom-nav .main-nav a.has-sub::after {
+            content: '▾';
+            font-size: 0.5rem;
+            margin-left: 2px;
+            opacity: 0.5;
+        }
+        .bottom-nav .main-nav a.has-sub.expanded {
+            color: var(--secondary);
+            background: #e3f2fd;
+        }
+        .bottom-nav .main-nav a.has-sub.expanded::after {
+            content: '▴';
+        }
+        /* 子分類列 */
+        .bottom-nav .sub-nav {
+            display: none;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 6px 10px;
+            gap: 6px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        .bottom-nav .sub-nav::-webkit-scrollbar { display: none; }
+        .bottom-nav .sub-nav.show {
+            display: flex;
+        }
+        .bottom-nav .sub-nav a {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+            color: #555;
+            font-size: 0.75rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: white;
+            transition: all 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .bottom-nav .sub-nav a .nav-emoji {
+            font-size: 0.9rem;
+            font-style: normal;
+        }
+        .bottom-nav .sub-nav a.active {
+            color: white;
+            background: var(--secondary);
+        }
+        .bottom-nav .sub-nav a:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
         .bottom-nav a:active {
             background: #f0f0f0;
@@ -4185,19 +4244,37 @@
 
     <!-- 底部導航列（手機版）- 雙排 -->
     <nav class="bottom-nav">
-        <div class="nav-row">
-            <a href="#itinerary" class="active"><i class="fas fa-route"></i>行程</a>
-            <a href="#cat-animal"><span class="nav-emoji">🦁</span>農場</a>
-            <a href="#cat-museum"><span class="nav-emoji">🏛️</span>博物館</a>
-            <a href="#cat-play"><span class="nav-emoji">🎢</span>遊樂</a>
-            <a href="#cat-outdoor"><span class="nav-emoji">🌊</span>玩水</a>
-        </div>
-        <div class="nav-row">
-            <a href="#cat-park"><span class="nav-emoji">🛝</span>公園</a>
-            <a href="#food"><i class="fas fa-utensils"></i>美食</a>
+        <!-- 主分類 (大分類) -->
+        <div class="main-nav">
+            <a href="#itinerary"><i class="fas fa-route"></i>行程</a>
+            <a href="#attractions" class="has-sub" data-sub="sub-attractions"><span class="nav-emoji">🗺️</span>景點</a>
+            <a href="#food" class="has-sub" data-sub="sub-food"><i class="fas fa-utensils"></i>美食</a>
             <a href="#nightmarket"><span class="nav-emoji">🌙</span>夜市</a>
             <a href="#hotels"><i class="fas fa-bed"></i>住宿</a>
             <a href="#tips"><i class="fas fa-lightbulb"></i>更多</a>
+        </div>
+        <!-- 子分類：景點 -->
+        <div class="sub-nav" id="sub-attractions">
+            <a href="#cat-animal"><span class="nav-emoji">🦁</span>農場動物</a>
+            <a href="#cat-museum"><span class="nav-emoji">🏛️</span>博物館</a>
+            <a href="#cat-play"><span class="nav-emoji">🎢</span>遊樂園</a>
+            <a href="#cat-outdoor"><span class="nav-emoji">🌊</span>玩水</a>
+            <a href="#cat-park"><span class="nav-emoji">🛝</span>特色公園</a>
+            <a href="#cat-new"><span class="nav-emoji">✨</span>新景點</a>
+            <a href="#cat-factory"><span class="nav-emoji">🏭</span>觀光工廠</a>
+            <a href="#cat-indoor"><span class="nav-emoji">🏠</span>室內景點</a>
+        </div>
+        <!-- 子分類：美食 -->
+        <div class="sub-nav" id="sub-food">
+            <a href="#food"><span class="nav-emoji">🍜</span>小吃總覽</a>
+            <a href="#cat-drinks-tea"><span class="nav-emoji">🫖</span>古早紅茶</a>
+            <a href="#cat-drinks-chain"><span class="nav-emoji">🏆</span>台南品牌</a>
+            <a href="#cat-drinks-traditional"><span class="nav-emoji">🌿</span>傳統涼飲</a>
+            <a href="#cat-drinks-fruit"><span class="nav-emoji">🍹</span>現打果汁</a>
+            <a href="#cat-drinks-special"><span class="nav-emoji">✨</span>特色手搖</a>
+            <a href="#cat-drinks-cheap"><span class="nav-emoji">💰</span>平價推薦</a>
+            <a href="#cat-drinks-special2"><span class="nav-emoji">🤎</span>黑糖芋頭</a>
+            <a href="#cat-drinks-milk"><span class="nav-emoji">🥛</span>鮮奶茶</a>
         </div>
     </nav>
 
@@ -4216,7 +4293,8 @@
         // 更新底部導航高亮
         function updateBottomNav() {
             const allTargets = document.querySelectorAll('section[id], .attraction-category[id]');
-            const bottomNavLinks = document.querySelectorAll('.bottom-nav a');
+            const mainNavLinks = document.querySelectorAll('.bottom-nav .main-nav a:not(.has-sub)');
+            const subNavLinks = document.querySelectorAll('.bottom-nav .sub-nav a');
             let current = '';
 
             allTargets.forEach(target => {
@@ -4226,13 +4304,66 @@
                 }
             });
 
-            bottomNavLinks.forEach(link => {
+            // 更新主分類高亮
+            mainNavLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+
+            // 更新子分類高亮
+            subNavLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === '#' + current) {
                     link.classList.add('active');
                 }
             });
         }
+
+        // 兩階導航切換邏輯
+        function initTwoLevelNav() {
+            const mainNavLinks = document.querySelectorAll('.bottom-nav .main-nav a.has-sub');
+            const allSubNavs = document.querySelectorAll('.bottom-nav .sub-nav');
+
+            mainNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const subNavId = this.getAttribute('data-sub');
+                    const subNav = document.getElementById(subNavId);
+                    const isExpanded = this.classList.contains('expanded');
+
+                    // 收起所有子分類
+                    mainNavLinks.forEach(l => l.classList.remove('expanded'));
+                    allSubNavs.forEach(s => s.classList.remove('show'));
+
+                    // 如果原本沒展開，就展開
+                    if (!isExpanded && subNav) {
+                        this.classList.add('expanded');
+                        subNav.classList.add('show');
+                    }
+                });
+            });
+
+            // 點擊非 has-sub 的主分類時，收起所有子分類
+            document.querySelectorAll('.bottom-nav .main-nav a:not(.has-sub)').forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNavLinks.forEach(l => l.classList.remove('expanded'));
+                    allSubNavs.forEach(s => s.classList.remove('show'));
+                });
+            });
+
+            // 點擊子分類連結時，收起子分類列
+            document.querySelectorAll('.bottom-nav .sub-nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNavLinks.forEach(l => l.classList.remove('expanded'));
+                    allSubNavs.forEach(s => s.classList.remove('show'));
+                });
+            });
+        }
+
+        // 初始化兩階導航
+        initTwoLevelNav();
 
         // 導航標籤高亮
         const sections = document.querySelectorAll('section[id]');
@@ -4269,13 +4400,6 @@
             });
         });
 
-        // 底部導航點擊效果
-        document.querySelectorAll('.bottom-nav a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                document.querySelectorAll('.bottom-nav a').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
     </script>
 </body>
 </html>
