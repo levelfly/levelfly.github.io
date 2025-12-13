@@ -447,10 +447,10 @@
             .night-market-grid { grid-template-columns: 1fr; }
             .souvenir-grid { grid-template-columns: repeat(2, 1fr); }
             .tips-grid { grid-template-columns: 1fr; }
-            body { padding-bottom: 70px; }
+            body { padding-bottom: 100px; }
         }
 
-        /* 底部導航列 */
+        /* 底部導航列 - 雙排網格 */
         .bottom-nav {
             display: none;
             position: fixed;
@@ -458,26 +458,49 @@
             left: 0;
             right: 0;
             background: white;
-            justify-content: space-around;
-            padding: 8px 0;
+            padding: 6px 4px;
             box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
             z-index: 1000;
         }
         @media (max-width: 768px) {
-            .bottom-nav { display: flex; }
+            .bottom-nav { display: block; }
+        }
+        .bottom-nav .nav-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2px;
+        }
+        .bottom-nav .nav-row:first-child {
+            margin-bottom: 4px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #eee;
         }
         .bottom-nav a {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-decoration: none;
-            color: #888;
-            font-size: 0.65rem;
-            padding: 4px 8px;
-            transition: color 0.2s;
+            color: #666;
+            font-size: 0.6rem;
+            padding: 4px 2px;
+            border-radius: 6px;
+            transition: all 0.2s;
         }
-        .bottom-nav a i { font-size: 1.1rem; margin-bottom: 2px; }
-        .bottom-nav a.active, .bottom-nav a:active { color: var(--primary); }
+        .bottom-nav a i, .bottom-nav a .nav-emoji {
+            font-size: 1rem;
+            margin-bottom: 1px;
+            line-height: 1;
+        }
+        .bottom-nav a .nav-emoji {
+            font-style: normal;
+        }
+        .bottom-nav a.active {
+            color: var(--primary);
+            background: #fff5f5;
+        }
+        .bottom-nav a:active {
+            background: #f0f0f0;
+        }
 
         /* 可收合章節 */
         .section-collapsible .section-content {
@@ -744,7 +767,7 @@
             <h2><i class="fas fa-child"></i> 台南親子景點大全</h2>
 
             <!-- 動物農場類 -->
-            <div class="attraction-category">
+            <div class="attraction-category" id="cat-animal">
                 <h3><span class="emoji">🦁</span> 動物園 / 農場</h3>
                 <div class="cards-grid">
                     <div class="card">
@@ -854,7 +877,7 @@
             </div>
 
             <!-- 博物館類 -->
-            <div class="attraction-category">
+            <div class="attraction-category" id="cat-museum">
                 <h3><span class="emoji">🏛️</span> 博物館 / 科學館</h3>
                 <div class="cards-grid">
                     <div class="card">
@@ -964,7 +987,7 @@
             </div>
 
             <!-- 遊樂體驗類 -->
-            <div class="attraction-category">
+            <div class="attraction-category" id="cat-play">
                 <h3><span class="emoji">🎢</span> 遊樂 / 體驗</h3>
                 <div class="cards-grid">
                     <div class="card">
@@ -1074,7 +1097,7 @@
             </div>
 
             <!-- 戶外玩水類 -->
-            <div class="attraction-category">
+            <div class="attraction-category" id="cat-outdoor">
                 <h3><span class="emoji">🌊</span> 戶外 / 玩水</h3>
                 <div class="cards-grid">
                     <div class="card">
@@ -1166,7 +1189,7 @@
             </div>
 
             <!-- 特色公園 免費遊戲場 -->
-            <div class="attraction-category">
+            <div class="attraction-category" id="cat-park">
                 <h3><span class="emoji">🛝</span> 特色公園 / 免費遊戲場</h3>
                 <div class="highlight-box green" style="margin-bottom:20px;">
                     <strong>💡 省錢玩法：</strong>台南有超多免費特色公園，設計精美、遊具豐富，完全不輸付費景點！帶小孩來放電超適合。
@@ -1345,7 +1368,7 @@
             </div>
 
             <!-- 2024-2025新景點 -->
-            <div class="attraction-category">
+            <div class="attraction-category" id="cat-new">
                 <h3><span class="emoji">✨</span> 2024-2025 新景點</h3>
                 <div class="cards-grid">
                     <div class="card">
@@ -1459,7 +1482,7 @@
             </div>
 
             <!-- 觀光工廠 -->
-            <div class="attraction-category">
+            <div class="attraction-category" id="cat-factory">
                 <h3><span class="emoji">🏭</span> 觀光工廠 / DIY體驗</h3>
                 <div class="highlight-box blue" style="margin-bottom:20px;">
                     <strong>💡 雨天首選：</strong>觀光工廠室內有冷氣、免日曬雨淋，還能 DIY 動手做，寓教於樂超適合親子！
@@ -1637,7 +1660,7 @@
             </div>
 
             <!-- 室內景點/雨天備案 -->
-            <div class="attraction-category">
+            <div class="attraction-category" id="cat-indoor">
                 <h3><span class="emoji">🌧️</span> 室內景點 / 雨天備案</h3>
                 <div class="highlight-box yellow" style="margin-bottom:20px;">
                     <strong>☔ 下雨免煩惱：</strong>這些室內景點都有冷氣，不管大太陽或下雨天都能玩得開心！
@@ -2904,14 +2927,22 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- 底部導航列（手機版） -->
+    <!-- 底部導航列（手機版）- 雙排 -->
     <nav class="bottom-nav">
-        <a href="#itinerary" class="active"><i class="fas fa-route"></i>行程</a>
-        <a href="#attractions"><i class="fas fa-map-marker-alt"></i>景點</a>
-        <a href="#food"><i class="fas fa-utensils"></i>美食</a>
-        <a href="#nightmarket"><i class="fas fa-moon"></i>夜市</a>
-        <a href="#hotels"><i class="fas fa-bed"></i>住宿</a>
-        <a href="#tips"><i class="fas fa-lightbulb"></i>建議</a>
+        <div class="nav-row">
+            <a href="#itinerary" class="active"><i class="fas fa-route"></i>行程</a>
+            <a href="#cat-animal"><span class="nav-emoji">🦁</span>農場</a>
+            <a href="#cat-museum"><span class="nav-emoji">🏛️</span>博物館</a>
+            <a href="#cat-play"><span class="nav-emoji">🎢</span>遊樂</a>
+            <a href="#cat-outdoor"><span class="nav-emoji">🌊</span>玩水</a>
+        </div>
+        <div class="nav-row">
+            <a href="#cat-park"><span class="nav-emoji">🛝</span>公園</a>
+            <a href="#food"><i class="fas fa-utensils"></i>美食</a>
+            <a href="#nightmarket"><span class="nav-emoji">🌙</span>夜市</a>
+            <a href="#hotels"><i class="fas fa-bed"></i>住宿</a>
+            <a href="#tips"><i class="fas fa-lightbulb"></i>更多</a>
+        </div>
     </nav>
 
     <script>
@@ -2928,14 +2959,14 @@
 
         // 更新底部導航高亮
         function updateBottomNav() {
-            const sections = document.querySelectorAll('section[id]');
+            const allTargets = document.querySelectorAll('section[id], .attraction-category[id]');
             const bottomNavLinks = document.querySelectorAll('.bottom-nav a');
             let current = '';
 
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
+            allTargets.forEach(target => {
+                const targetTop = target.offsetTop;
+                if (scrollY >= targetTop - 200) {
+                    current = target.getAttribute('id');
                 }
             });
 
