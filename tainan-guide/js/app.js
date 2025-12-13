@@ -201,17 +201,28 @@ function getItemsArray(data) {
   return [];
 }
 
+// Get image HTML for card
+function getImageHTML(item) {
+  if (item.images && item.images.length > 0) {
+    const imagePath = `images/${state.currentCategory}/${item.images[0]}`;
+    return `
+      <div class="card__image">
+        <img src="${imagePath}" alt="${item.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'card__image--placeholder\\'>${item.name.charAt(0)}</div>'">
+      </div>`;
+  }
+  return `<div class="card__image card__image--placeholder">${item.name.charAt(0)}</div>`;
+}
+
 // Create Card HTML
 function createCardHTML(item) {
   const priceDisplay = getPriceDisplay(item.priceLevel);
   const ratingDisplay = item.rating ? `⭐ ${item.rating}` : '';
   const tags = getItemTags(item);
+  const imageHTML = getImageHTML(item);
 
   return `
     <article class="card" data-id="${item.id}">
-      <div class="card__image card__image--placeholder">
-        ${item.name.charAt(0)}
-      </div>
+      ${imageHTML}
       <div class="card__content">
         <div class="card__header">
           <h3 class="card__title">${item.name}</h3>
@@ -266,9 +277,13 @@ function renderNightMarkets(data) {
   const scheduleHTML = renderScheduleGrid(data.scheduleByDay);
 
   // Then render market cards
-  const marketsHTML = data.nightmarkets.map(market => `
+  const marketsHTML = data.nightmarkets.map(market => {
+    const marketImageHTML = market.images && market.images.length > 0
+      ? `<div class="card__image"><img src="images/nightmarkets/${market.images[0]}" alt="${market.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'card__image--placeholder\\'>🌙</div>'"></div>`
+      : `<div class="card__image card__image--placeholder">🌙</div>`;
+    return `
     <article class="card" data-id="${market.id}">
-      <div class="card__image card__image--placeholder">🌙</div>
+      ${marketImageHTML}
       <div class="card__content">
         <div class="card__header">
           <h3 class="card__title">${market.name}</h3>
@@ -288,7 +303,7 @@ function renderNightMarkets(data) {
         </div>
       </div>
     </article>
-  `).join('');
+  `; }).join('');
 
   elements.cardGrid.innerHTML = scheduleHTML + `<div class="card-grid">${marketsHTML}</div>`;
 }
