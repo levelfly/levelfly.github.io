@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>台南二日遊親子行程規劃 - 7人家庭旅遊攻略</title>
-    <meta name="description" content="台南兩天一夜家庭旅遊完整攻略，適合帶小孩和長輩的親子景點、住宿、美食推薦">
+    <title>台南親子旅遊完整攻略 2025 - 景點、美食、住宿一次看</title>
+    <meta name="description" content="2025台南親子旅遊完整攻略，70+景點、必吃美食、夜市攻略、伴手禮推薦、親子飯店全收錄">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -13,9 +14,9 @@
             --secondary: #3498DB;
             --accent: #F39C12;
             --success: #27AE60;
+            --purple: #9B59B6;
             --dark: #2C3E50;
             --light: #ECF0F1;
-            --purple: #9B59B6;
         }
         body {
             font-family: 'Noto Sans TC', sans-serif;
@@ -32,6 +33,14 @@
         }
         .header h1 { font-size: 2.5rem; margin-bottom: 15px; }
         .header .subtitle { font-size: 1.2rem; opacity: 0.95; margin-bottom: 20px; }
+        .header .update-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
         .family-tags {
             display: flex;
             justify-content: center;
@@ -45,6 +54,29 @@
             border-radius: 20px;
             font-size: 0.9rem;
         }
+        .nav-tabs {
+            background: white;
+            padding: 15px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-tab {
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        .nav-tab:hover { background: var(--light); }
+        .nav-tab.active { background: var(--primary); color: white; }
         .main-content { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         .section {
             background: white;
@@ -55,18 +87,20 @@
         }
         .section h2 {
             color: var(--primary);
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
         }
         .section h3 {
             color: var(--dark);
             font-size: 1.2rem;
             margin: 25px 0 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #eee;
+            padding-left: 15px;
+            border-left: 4px solid var(--secondary);
         }
         .day-header {
             background: linear-gradient(135deg, var(--secondary) 0%, #2980B9 100%);
@@ -75,7 +109,7 @@
             border-radius: 15px;
             margin-bottom: 25px;
         }
-        .day-header h3 { font-size: 1.3rem; border: none; margin: 0; padding: 0; color: white; }
+        .day-header h3 { font-size: 1.3rem; border: none; padding: 0; margin: 0; color: white; }
         .timeline { position: relative; padding-left: 30px; }
         .timeline::before {
             content: '';
@@ -128,8 +162,8 @@
         .tag-elder { background: #FFF3E0; color: #E65100; }
         .tag-free { background: #E3F2FD; color: #1565C0; }
         .tag-food { background: #FCE4EC; color: #C2185B; }
-        .tag-indoor { background: #EDE7F6; color: #5E35B1; }
-        .tag-diy { background: #FFF8E1; color: #F57F17; }
+        .tag-new { background: #F3E5F5; color: #7B1FA2; }
+        .tag-hot { background: #FFEBEE; color: #C62828; }
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -139,21 +173,47 @@
             background: #f8f9fa;
             border-radius: 15px;
             overflow: hidden;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
         }
-        .card:hover { transform: translateY(-5px); }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
         .card-image {
             height: 160px;
             overflow: hidden;
+            position: relative;
         }
         .card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
         .card-body { padding: 20px; }
-        .card-body h4 { color: var(--dark); margin-bottom: 8px; }
-        .card-body p { color: #666; font-size: 0.9rem; }
+        .card-body h4 { color: var(--dark); margin-bottom: 8px; font-size: 1.1rem; }
+        .card-body p { color: #666; font-size: 0.9rem; margin-bottom: 10px; }
+        .card-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
         .highlight-box {
             background: linear-gradient(135deg, #FFF9E6 0%, #FFF3CD 100%);
             border-left: 4px solid var(--accent);
@@ -161,11 +221,28 @@
             border-radius: 10px;
             margin: 20px 0;
         }
+        .highlight-box.blue {
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+            border-left-color: var(--secondary);
+        }
+        .highlight-box.green {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            border-left-color: var(--success);
+        }
+        .highlight-box.red {
+            background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+            border-left-color: var(--primary);
+        }
         .hotel-card {
             border: 2px solid #eee;
             border-radius: 15px;
             padding: 20px;
             margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+        .hotel-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
         .hotel-card.recommended {
             border-color: var(--primary);
@@ -186,6 +263,11 @@
             background: #f8f9fa;
             border-radius: 10px;
             margin-bottom: 10px;
+            border-left: 3px solid var(--accent);
+        }
+        .food-item:hover {
+            background: #fff;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
         .food-item h5 { color: var(--dark); margin-bottom: 5px; }
         .food-item p { color: #666; font-size: 0.85rem; }
@@ -213,6 +295,7 @@
             text-decoration: none;
             font-size: 0.85rem;
             margin-top: 10px;
+            transition: background 0.3s;
         }
         .map-link:hover { background: #3367D6; }
         .comparison-table {
@@ -225,26 +308,96 @@
             text-align: left;
             border-bottom: 1px solid #eee;
         }
-        .comparison-table th { background: #f8f9fa; }
+        .comparison-table th { background: #f8f9fa; font-weight: 600; }
+        .comparison-table tr:hover { background: #fafafa; }
         .check { color: var(--success); }
-        .attraction-card {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
+        .night-market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
-        .attraction-card h4 { color: var(--dark); margin-bottom: 8px; }
-        .attraction-card p { color: #666; font-size: 0.9rem; margin-bottom: 10px; }
-        .subsection {
-            background: linear-gradient(135deg, #f0f4ff 0%, #e8f4f8 100%);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
+        .night-market-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
         }
-        .subsection h4 {
-            color: var(--secondary);
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+        .night-market-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+        .night-market-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .night-market-card .schedule {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+        .night-market-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .night-market-card li {
+            padding: 5px 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .night-market-card li::before {
+            content: '🍴 ';
+        }
+        .souvenir-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .souvenir-item {
+            background: white;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .souvenir-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        .souvenir-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .souvenir-item h5 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        .souvenir-item p {
+            font-size: 0.8rem;
+            color: #888;
+        }
+        .attraction-category {
+            margin-bottom: 30px;
+        }
+        .attraction-category h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .attraction-category h3 .emoji {
+            font-size: 1.5rem;
         }
         .footer {
             background: rgba(0,0,0,0.3);
@@ -253,123 +406,141 @@
             text-align: center;
         }
         .footer a { color: white; }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            display: none;
+        }
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
         @media (max-width: 768px) {
             .header h1 { font-size: 1.8rem; }
             .timeline { padding-left: 20px; }
+            .nav-tabs { gap: 5px; }
+            .nav-tab { padding: 8px 12px; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1>台南二日遊家庭旅遊攻略</h1>
-        <p class="subtitle">兼顧幼兒與長輩的完美行程規劃（深度版）</p>
+        <div class="update-badge">🔥 2025 最新版</div>
+        <h1>台南親子旅遊完整攻略</h1>
+        <p class="subtitle">70+ 景點 × 必吃美食 × 夜市攻略 × 親子住宿</p>
         <div class="family-tags">
-            <span class="family-tag">7人出遊</span>
-            <span class="family-tag">3位小孩（1、3、5歲）</span>
-            <span class="family-tag">2位長輩</span>
-            <span class="family-tag">2天1夜</span>
+            <span class="family-tag">👨‍👩‍👧‍👦 親子友善</span>
+            <span class="family-tag">👴 長輩適合</span>
+            <span class="family-tag">🚗 自駕推薦</span>
+            <span class="family-tag">📍 台南全區</span>
         </div>
     </header>
 
+    <nav class="nav-tabs">
+        <a href="#itinerary" class="nav-tab active">行程規劃</a>
+        <a href="#attractions" class="nav-tab">親子景點</a>
+        <a href="#food" class="nav-tab">必吃美食</a>
+        <a href="#nightmarket" class="nav-tab">夜市攻略</a>
+        <a href="#hotels" class="nav-tab">親子住宿</a>
+        <a href="#souvenirs" class="nav-tab">伴手禮</a>
+        <a href="#tips" class="nav-tab">實用建議</a>
+    </nav>
+
     <main class="main-content">
         <!-- 行程總覽 -->
-        <section class="section">
-            <h2>行程總覽</h2>
+        <section id="itinerary" class="section">
+            <h2><i class="fas fa-route"></i> 二日遊行程規劃</h2>
             <div class="highlight-box">
-                <strong>行程特色：</strong>選擇步行少、有遮蔭、適合推嬰兒車的景點，兼顧小孩放電與長輩輕鬆遊覽。本攻略提供多種備案選擇，可依天氣、體力彈性調整。
+                <strong>🎯 行程特色：</strong>選擇步行少、有遮蔭、適合推嬰兒車的景點，兼顧小孩放電與長輩輕鬆遊覽。全程可依體力彈性調整！
             </div>
-            <div class="cards-grid">
+
+            <div class="cards-grid" style="margin-bottom: 30px;">
                 <div class="card">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=400&h=300&fit=crop" alt="親子景點">
+                        <span class="card-badge">Day 1 上午</span>
                     </div>
                     <div class="card-body">
-                        <h4>Day 1 上午</h4>
-                        <p>奇美博物館 / 樹谷農場 / 南科考古館（三選一）</p>
+                        <h4>奇美博物館 / 樹谷農場</h4>
+                        <p>二選一：博物館看恐龍、農場餵動物</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=300&fit=crop" alt="美食">
+                        <span class="card-badge">Day 1 下午</span>
                     </div>
                     <div class="card-body">
-                        <h4>Day 1 下午</h4>
-                        <p>安平老街 → 安平古堡/樹屋 → 大魚的祝福</p>
+                        <h4>安平古蹟巡禮</h4>
+                        <p>安平老街 → 安平古堡 → 大魚的祝福</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&h=300&fit=crop" alt="綠色隧道">
+                        <span class="card-badge">Day 2 上午</span>
                     </div>
                     <div class="card-body">
-                        <h4>Day 2 上午</h4>
-                        <p>四草綠色隧道 / 頑皮世界（二選一）</p>
+                        <h4>四草綠色隧道</h4>
+                        <p>台版亞馬遜河，搭船輕鬆遊</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop" alt="小吃">
+                        <span class="card-badge">Day 2 下午</span>
                     </div>
                     <div class="card-body">
-                        <h4>Day 2 下午</h4>
-                        <p>國華街美食 → 赤崁樓/林百貨 → 返程</p>
+                        <h4>美食巡禮</h4>
+                        <p>國華街 → 神農街 → 河樂廣場</p>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Day 1 -->
-        <section class="section">
+            <!-- Day 1 詳細 -->
             <div class="day-header">
-                <h3>Day 1：博物館 + 安平古蹟之旅</h3>
+                <h3>📅 Day 1：博物館 + 安平古蹟之旅</h3>
             </div>
             <div class="timeline">
                 <div class="timeline-item">
                     <span class="time">09:00 - 12:00</span>
-                    <h4>奇美博物館</h4>
+                    <h4>🏛️ 奇美博物館</h4>
                     <p>西洋古典風格建築，館內有恐龍骨架、兵器、樂器收藏。戶外大草坪可讓小孩跑跳，長輩可在陰涼處休息。全館無障礙設施完善，可推嬰兒車。</p>
                     <div class="tags">
                         <span class="tag tag-kids">適合幼兒</span>
                         <span class="tag tag-elder">長輩友善</span>
-                        <span class="tag tag-indoor">室內冷氣</span>
+                        <span class="tag tag-hot">必訪</span>
                     </div>
-                    <p style="margin-top:10px;"><strong>門票：</strong>全票200元｜6歲以下免費｜65歲以上150元</p>
-                    <a href="https://www.google.com/maps/search/奇美博物館" target="_blank" class="map-link">Google Maps 導航</a>
+                    <p style="margin-top:10px;"><strong>💰 門票：</strong>全票200元｜6歲以下免費｜65歲以上150元</p>
+                    <a href="https://www.google.com/maps/search/奇美博物館" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i> Google Maps</a>
                 </div>
 
                 <div class="timeline-item" style="background:#e8f5e9;">
-                    <span class="time">備案選擇 A</span>
-                    <h4>樹谷農場（如果小孩想餵動物）</h4>
-                    <p>門票只要60元含飼料！可餵小羊、兔子、天竺鼠。農場不大，約1小時可逛完，適合1-5歲幼兒。旁邊還有樹谷生活科學館可順遊。</p>
+                    <span class="time">備案選擇</span>
+                    <h4>🐑 樹谷農場（如果小孩想餵動物）</h4>
+                    <p>門票只要60元含飼料！可餵小羊、兔子、天竺鼠。農場不大，約1小時可逛完，適合1-5歲幼兒。旁邊還有樹谷生活科學館可順遊！</p>
                     <div class="tags">
                         <span class="tag tag-kids">餵動物</span>
-                        <span class="tag tag-free">銅板價</span>
+                        <span class="tag tag-free">銅板價60元</span>
                     </div>
-                    <a href="https://www.google.com/maps/search/樹谷農場" target="_blank" class="map-link">Google Maps 導航</a>
-                </div>
-
-                <div class="timeline-item" style="background:#ede7f6;">
-                    <span class="time">備案選擇 B</span>
-                    <h4>南科考古館（雨天首選）</h4>
-                    <p>國立台灣史前文化博物館南科分館，有兒童廳互動設施、考古沙坑、VR體驗。全室內有冷氣，下雨天最佳選擇！門票便宜，兒童廳免費。</p>
-                    <div class="tags">
-                        <span class="tag tag-indoor">全室內</span>
-                        <span class="tag tag-kids">互動體驗</span>
-                        <span class="tag tag-free">兒童廳免費</span>
-                    </div>
-                    <p style="margin-top:10px;"><strong>門票：</strong>全票80元｜6歲以下免費</p>
-                    <a href="https://www.google.com/maps/search/南科考古館" target="_blank" class="map-link">Google Maps 導航</a>
+                    <a href="https://www.google.com/maps/search/樹谷農場" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i> Google Maps</a>
                 </div>
 
                 <div class="timeline-item">
                     <span class="time">12:00 - 13:30</span>
-                    <h4>午餐：台南經典早午餐</h4>
-                    <p>台南人的早餐吃牛肉湯、鹹粥！推薦：</p>
-                    <ul style="margin:10px 0; padding-left:20px; color:#666;">
-                        <li><strong>文章牛肉湯</strong> - 溫體牛肉鮮甜，肉質軟嫩</li>
-                        <li><strong>阿堂鹹粥</strong> - 虱目魚粥經典老店</li>
-                        <li><strong>周氏蝦捲</strong> - 安平必吃，酥脆蝦捲</li>
-                    </ul>
+                    <h4>🍜 午餐：安平周邊美食</h4>
+                    <p>推薦：周氏蝦捲、陳家蚵捲、文章牛肉湯、王氏魚皮。都是台南經典小吃，份量適中適合多人分食。</p>
                     <div class="tags">
                         <span class="tag tag-food">必吃美食</span>
                     </div>
@@ -377,539 +548,797 @@
 
                 <div class="timeline-item">
                     <span class="time">14:00 - 15:30</span>
-                    <h4>安平古堡 + 安平老街</h4>
+                    <h4>🏯 安平古堡 + 安平老街</h4>
                     <p>台灣第一座城堡，可登上瞭望塔俯瞰安平。老街有蝦餅、蜜餞可買。建議長輩在老街喝茶休息，爸媽帶小孩逛古堡。</p>
                     <div class="tags">
                         <span class="tag tag-elder">可分頭行動</span>
                         <span class="tag tag-kids">歷史教育</span>
                     </div>
-                    <p style="margin-top:10px;"><strong>門票：</strong>全票50元｜6歲以下免費</p>
-                    <a href="https://www.google.com/maps/search/安平古堡" target="_blank" class="map-link">Google Maps 導航</a>
-                </div>
-
-                <div class="timeline-item" style="background:#fff3e0;">
-                    <span class="time">順遊選擇</span>
-                    <h4>安平樹屋 + 德記洋行</h4>
-                    <p>老榕樹與廢棄倉庫共生的奇景，有木棧道可安全參觀。德記洋行是百年洋樓，展示台灣歷史。兩個景點一票玩到底！</p>
-                    <div class="tags">
-                        <span class="tag tag-kids">探險感</span>
-                        <span class="tag tag-elder">有步道</span>
-                    </div>
-                    <p style="margin-top:10px;"><strong>門票：</strong>全票50元（含德記洋行）</p>
-                    <a href="https://www.google.com/maps/search/安平樹屋" target="_blank" class="map-link">Google Maps 導航</a>
+                    <p style="margin-top:10px;"><strong>💰 門票：</strong>全票50元｜6歲以下免費</p>
+                    <a href="https://www.google.com/maps/search/安平古堡" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i> Google Maps</a>
                 </div>
 
                 <div class="timeline-item">
-                    <span class="time">16:00 - 17:30</span>
-                    <h4>大魚的祝福 + 安平觀夕平台</h4>
+                    <span class="time">15:30 - 16:30</span>
+                    <h4>🏰 安平航海城（2024新景點）</h4>
+                    <p>城堡外觀超好拍！有夢幻大廳、頂樓希臘地中海鐘樓，大門口的英國雙層巴士也是必拍場景。台南安平2024年最火熱的新景點！</p>
+                    <div class="tags">
+                        <span class="tag tag-new">2024新開幕</span>
+                        <span class="tag tag-hot">打卡熱點</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">16:30 - 18:00</span>
+                    <h4>🐋 大魚的祝福 + 觀夕平台</h4>
                     <p>巨型鯨魚藝術裝置，免費參觀拍照。傍晚到觀夕平台看夕陽，海風舒適，小孩可在沙灘玩耍。</p>
                     <div class="tags">
                         <span class="tag tag-free">免費景點</span>
                         <span class="tag tag-kids">玩沙</span>
                     </div>
-                    <a href="https://www.google.com/maps/search/大魚的祝福+台南" target="_blank" class="map-link">Google Maps 導航</a>
+                    <a href="https://www.google.com/maps/search/大魚的祝福+台南" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i> Google Maps</a>
                 </div>
 
                 <div class="timeline-item">
-                    <span class="time">18:00 - 19:30</span>
-                    <h4>晚餐選擇</h4>
+                    <span class="time">18:30 - 20:00</span>
+                    <h4>🍽️ 晚餐選擇</h4>
                     <p><strong>選項A：</strong>親子餐廳「小森林」有遊戲區<br>
-                    <strong>選項B：</strong>飯店內用餐較輕鬆<br>
-                    <strong>選項C：</strong>花園夜市（週四、六、日營業）- 人多但美食多</p>
+                    <strong>選項B：</strong>飯店用餐較輕鬆<br>
+                    <strong>選項C：</strong>若是週四六日，可去花園夜市（人多需注意安全）</p>
                     <div class="tags">
                         <span class="tag tag-kids">有遊戲區</span>
                         <span class="tag tag-elder">輕鬆用餐</span>
                     </div>
                 </div>
-
-                <div class="timeline-item">
-                    <span class="time">20:00</span>
-                    <h4>入住飯店休息</h4>
-                    <p>建議選擇有親子設施的飯店，小孩可在飯店玩，長輩早點休息。</p>
-                </div>
             </div>
-        </section>
 
-        <!-- Day 2 -->
-        <section class="section">
-            <div class="day-header" style="background: linear-gradient(135deg, var(--success) 0%, #1E8449 100%);">
-                <h3>Day 2：生態體驗 + 美食巡禮</h3>
+            <!-- Day 2 詳細 -->
+            <div class="day-header" style="background: linear-gradient(135deg, var(--success) 0%, #1E8449 100%); margin-top: 30px;">
+                <h3>📅 Day 2：生態體驗 + 美食巡禮</h3>
             </div>
             <div class="timeline">
                 <div class="timeline-item">
                     <span class="time">08:30 - 10:30</span>
-                    <h4>四草綠色隧道</h4>
-                    <p>「台版亞馬遜河」搭竹筏穿越紅樹林，全程30分鐘坐船輕鬆遊覽，長輩和小孩都適合。建議一早來避免排隊！</p>
+                    <h4>🌿 四草綠色隧道</h4>
+                    <p>「台版亞馬遜河」搭竹筏穿越紅樹林，全程30分鐘坐船輕鬆遊覽，長輩和小孩都適合。<strong>建議一早來避免排隊！</strong></p>
                     <div class="tags">
                         <span class="tag tag-kids">搭船體驗</span>
                         <span class="tag tag-elder">免走路</span>
+                        <span class="tag tag-hot">必訪</span>
                     </div>
-                    <p style="margin-top:10px;"><strong>票價：</strong>全票200元｜7-12歲100元｜6歲以下30元</p>
-                    <a href="https://www.google.com/maps/search/四草綠色隧道" target="_blank" class="map-link">Google Maps 導航</a>
-                </div>
-
-                <div class="timeline-item" style="background:#e8f5e9;">
-                    <span class="time">備案選擇</span>
-                    <h4>頑皮世界野生動物園（如果想看更多動物）</h4>
-                    <p>南台灣最大野生動物園！可近距離餵長頸鹿、水豚、羊駝。有遊園車可搭乘，長輩不用走太多路。園區大，建議停留3-4小時。</p>
-                    <div class="tags">
-                        <span class="tag tag-kids">餵動物</span>
-                        <span class="tag tag-elder">有遊園車</span>
-                    </div>
-                    <p style="margin-top:10px;"><strong>門票：</strong>全票480元｜3-6歲380元｜65歲以上240元</p>
-                    <a href="https://www.google.com/maps/search/頑皮世界野生動物園" target="_blank" class="map-link">Google Maps 導航</a>
+                    <p style="margin-top:10px;"><strong>💰 票價：</strong>全票200元｜7-12歲100元｜6歲以下30元</p>
+                    <a href="https://www.google.com/maps/search/四草綠色隧道" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i> Google Maps</a>
                 </div>
 
                 <div class="timeline-item">
                     <span class="time">11:00 - 13:00</span>
-                    <h4>國華街美食巡禮</h4>
-                    <p>台南美食一條街！必吃清單：</p>
-                    <ul style="margin:10px 0; padding-left:20px; color:#666;">
-                        <li><strong>阿松割包</strong> - 80年老店，花生醬版本</li>
-                        <li><strong>富盛號碗粿</strong> - 口感綿密</li>
-                        <li><strong>邱家小卷米粉</strong> - 小卷新鮮彈牙</li>
-                        <li><strong>蜷尾家霜淇淋</strong> - 每日限定口味</li>
-                        <li><strong>修安扁擔豆花</strong> - 綿密豆花</li>
-                    </ul>
+                    <h4>🥢 國華街美食巡禮</h4>
+                    <p>台南美食一條街！推薦：阿松割包、富盛號碗粿、邱家小卷米粉、蜷尾家霜淇淋、阿星鹹粥。可以邊走邊吃！</p>
                     <div class="tags">
                         <span class="tag tag-food">必吃小吃</span>
+                        <span class="tag tag-hot">米其林推薦</span>
                     </div>
                     <div class="highlight-box">
-                        <strong>帶長輩小孩建議：</strong>先找位子坐（永樂市場有座位），再派人去買食物回來一起吃。
+                        <strong>👴 帶長輩小孩建議：</strong>先找位子坐（永樂市場有座位），再派人去買食物回來一起吃。
                     </div>
-                    <a href="https://www.google.com/maps/search/國華街+台南" target="_blank" class="map-link">Google Maps 導航</a>
+                    <a href="https://www.google.com/maps/search/國華街+台南" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i> Google Maps</a>
                 </div>
 
                 <div class="timeline-item">
-                    <span class="time">13:30 - 15:00</span>
-                    <h4>赤崁樓 + 祀典武廟（長輩最愛）</h4>
-                    <p>台南地標古蹟，荷蘭時期建築遺跡。旁邊的祀典武廟是一級古蹟，長輩可參拜祈福。園區不大，輕鬆走完。</p>
-                    <div class="tags">
-                        <span class="tag tag-elder">經典必訪</span>
-                        <span class="tag tag-kids">歷史教育</span>
-                    </div>
-                    <p style="margin-top:10px;"><strong>門票：</strong>全票50元｜6歲以下免費</p>
-                    <a href="https://www.google.com/maps/search/赤崁樓" target="_blank" class="map-link">Google Maps 導航</a>
-                </div>
-
-                <div class="timeline-item" style="background:#fff3e0;">
-                    <span class="time">順遊選擇</span>
-                    <h4>林百貨（文青長輩都愛）</h4>
-                    <p>1932年開幕的古蹟百貨，台灣第二家有電梯的百貨公司。裡面賣文創商品、台南伴手禮，頂樓有神社遺跡。有冷氣很舒適！</p>
-                    <div class="tags">
-                        <span class="tag tag-indoor">室內冷氣</span>
-                        <span class="tag tag-elder">買伴手禮</span>
-                    </div>
-                    <a href="https://www.google.com/maps/search/林百貨+台南" target="_blank" class="map-link">Google Maps 導航</a>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="time">15:00 - 16:00</span>
-                    <h4>神農街散步</h4>
+                    <span class="time">13:30 - 14:30</span>
+                    <h4>🏮 神農街散步</h4>
                     <p>老街巷弄充滿文創小店，適合拍照。街道不長約200公尺，慢慢走很輕鬆。</p>
                     <div class="tags">
                         <span class="tag tag-free">免費景點</span>
                         <span class="tag tag-elder">好走</span>
                     </div>
-                    <a href="https://www.google.com/maps/search/神農街+台南" target="_blank" class="map-link">Google Maps 導航</a>
+                    <a href="https://www.google.com/maps/search/神農街+台南" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i> Google Maps</a>
                 </div>
 
                 <div class="timeline-item">
-                    <span class="time">16:00 - 17:00</span>
-                    <h4>河樂廣場（夏天可玩水）</h4>
-                    <p>市中心親水公園，古羅馬風格設計超好拍。夏天有淺水池讓小孩玩水，長輩可在樹蔭下休息。</p>
+                    <span class="time">15:00 - 16:30</span>
+                    <h4>💦 河樂廣場（夏天必玩）</h4>
+                    <p>市中心親水公園，古羅馬風格設計超好拍。夏天有淺水池讓小孩玩水，長輩可在樹蔭下休息。記得帶換洗衣物！</p>
                     <div class="tags">
                         <span class="tag tag-kids">玩水</span>
                         <span class="tag tag-free">免費</span>
+                        <span class="tag tag-hot">IG熱門</span>
                     </div>
-                    <a href="https://www.google.com/maps/search/河樂廣場" target="_blank" class="map-link">Google Maps 導航</a>
+                    <a href="https://www.google.com/maps/search/河樂廣場" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i> Google Maps</a>
                 </div>
 
                 <div class="timeline-item">
                     <span class="time">17:00</span>
-                    <h4>返程 / 順路景點</h4>
-                    <p>如果還有體力，可順路去「台灣歷史博物館」或直接踏上歸途。</p>
+                    <h4>🚗 返程 / 順路景點</h4>
+                    <p>還有體力可順路：南科考古館（兒童廳超讚）、十鼓仁糖文創園區。或採買伴手禮後踏上歸途。</p>
                 </div>
             </div>
         </section>
 
-        <!-- 更多景點選擇 -->
-        <section class="section">
-            <h2>更多景點選擇</h2>
+        <!-- 親子景點 -->
+        <section id="attractions" class="section">
+            <h2><i class="fas fa-child"></i> 台南親子景點大全</h2>
 
-            <h3>室內景點（雨天備案）</h3>
-            <div class="cards-grid">
-                <div class="attraction-card">
-                    <h4>南科考古館</h4>
-                    <p>國立史前文化博物館南科分館，兒童廳有考古沙坑、互動遊戲，全室內有冷氣。</p>
-                    <div class="tags">
-                        <span class="tag tag-indoor">全室內</span>
-                        <span class="tag tag-kids">互動體驗</span>
+            <!-- 動物農場類 -->
+            <div class="attraction-category">
+                <h3><span class="emoji">🦁</span> 動物園 / 農場</h3>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1474511320723-9a56873571b7?w=400&h=200&fit=crop" alt="頑皮世界">
+                            <span class="card-badge">南台灣最大</span>
+                        </div>
+                        <div class="card-body">
+                            <h4>頑皮世界野生動物園</h4>
+                            <p>半開放式動物園，可預約餵水豚君、長頸鹿！園內還有兒童樂園可免費玩。</p>
+                            <div class="tags">
+                                <span class="tag tag-kids">餵動物互動</span>
+                                <span class="tag tag-hot">超人氣</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 學甲區</span>
+                                <span>⏰ 3-4小時</span>
+                            </div>
+                        </div>
                     </div>
-                    <p><strong>門票：</strong>80元｜兒童廳免費</p>
-                    <a href="https://www.google.com/maps/search/南科考古館" target="_blank" class="map-link">導航</a>
-                </div>
-                <div class="attraction-card">
-                    <h4>國立臺灣歷史博物館</h4>
-                    <p>互動式展覽讓小孩認識台灣歷史，戶外有大草坪和親水區。</p>
-                    <div class="tags">
-                        <span class="tag tag-indoor">室內為主</span>
-                        <span class="tag tag-kids">教育意義</span>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>🐑 樹谷農場</h4>
+                            <p>門票60元含飼料超划算！餵小羊、兔子、天竺鼠，還有樹溜滑梯與沙坑。假日限定開放。</p>
+                            <div class="tags">
+                                <span class="tag tag-free">銅板價60元</span>
+                                <span class="tag tag-kids">1-5歲最愛</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 新市區</span>
+                                <span>⏰ 1小時</span>
+                            </div>
+                        </div>
                     </div>
-                    <p><strong>門票：</strong>100元｜6歲以下免費</p>
-                    <a href="https://www.google.com/maps/search/國立臺灣歷史博物館" target="_blank" class="map-link">導航</a>
-                </div>
-                <div class="attraction-card">
-                    <h4>南瀛天文館</h4>
-                    <p>有星象劇場、太空探索展區，小孩可以認識宇宙奧秘。</p>
-                    <div class="tags">
-                        <span class="tag tag-indoor">全室內</span>
-                        <span class="tag tag-kids">太空體驗</span>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>🦆 臺南鴨莊休閒農場</h4>
+                            <p>餵鴨群、撿鴨蛋（每人可撿6顆帶回家）、DIY鹹鴨蛋、搭小火車、釣魚、烤肉通通有！</p>
+                            <div class="tags">
+                                <span class="tag tag-kids">撿鴨蛋DIY</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 官田區</span>
+                                <span>💰 200元（可抵100）</span>
+                            </div>
+                        </div>
                     </div>
-                    <p><strong>門票：</strong>展示館50元｜星象劇場100元</p>
-                    <a href="https://www.google.com/maps/search/南瀛天文館" target="_blank" class="map-link">導航</a>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>🐄 八老爺車站-乳牛的家</h4>
+                            <p>懷舊日式車站，餵乳牛吃草、餵麝香豬喝奶，還能搭五分車遊園！</p>
+                            <div class="tags">
+                                <span class="tag tag-kids">搭小火車</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 柳營區</span>
+                                <span>⏰ 1.5小時</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>🐷 仙湖農場</h4>
+                            <p>無邊際玩水池、山景鞦韆、大草原，還有一大群可愛小豬！適合住一晚。</p>
+                            <div class="tags">
+                                <span class="tag tag-kids">玩水</span>
+                                <span class="tag tag-hot">網美景點</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 東山區</span>
+                                <span>⏰ 半天-一天</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <h3>觀光工廠（免費/DIY體驗）</h3>
-            <div class="cards-grid">
-                <div class="attraction-card">
-                    <h4>奇美食品幸福工廠</h4>
-                    <p>可以看鳳梨酥、包子製作過程，有DIY手作課程，小孩超愛！</p>
-                    <div class="tags">
-                        <span class="tag tag-diy">DIY體驗</span>
-                        <span class="tag tag-indoor">室內冷氣</span>
+            <!-- 博物館類 -->
+            <div class="attraction-category">
+                <h3><span class="emoji">🏛️</span> 博物館 / 科學館</h3>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>🦖 奇美博物館</h4>
+                            <p>南台灣最大博物館，恐龍骨架、兵器、樂器收藏豐富。戶外大草坪可讓小孩跑跳。</p>
+                            <div class="tags">
+                                <span class="tag tag-hot">必訪</span>
+                                <span class="tag tag-elder">長輩友善</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 仁德區</span>
+                                <span>💰 200元（6歲以下免費）</span>
+                            </div>
+                        </div>
                     </div>
-                    <p><strong>門票：</strong>免費參觀｜DIY另計</p>
-                    <a href="https://www.google.com/maps/search/奇美食品幸福工廠" target="_blank" class="map-link">導航</a>
-                </div>
-                <div class="attraction-card">
-                    <h4>黑橋牌香腸博物館</h4>
-                    <p>免費參觀！了解香腸製作歷史，有復古場景可拍照，還可試吃。</p>
-                    <div class="tags">
-                        <span class="tag tag-free">免費</span>
-                        <span class="tag tag-food">可試吃</span>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>🏺 南科考古館</h4>
+                            <p>票價超佛！兒童廳有溜滑梯球池、迷宮、4D海洋劇場。黃色天井是IG打卡熱點！</p>
+                            <div class="tags">
+                                <span class="tag tag-kids">兒童廳必玩</span>
+                                <span class="tag tag-free">票價佛心</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 新市區</span>
+                                <span>💰 80元（6歲以下免費）</span>
+                            </div>
+                        </div>
                     </div>
-                    <p><strong>門票：</strong>免費</p>
-                    <a href="https://www.google.com/maps/search/黑橋牌香腸博物館" target="_blank" class="map-link">導航</a>
-                </div>
-                <div class="attraction-card">
-                    <h4>萬國通路創意觀光工廠</h4>
-                    <p>行李箱主題觀光工廠，有大型溜滑梯、遊戲區，小孩很愛。</p>
-                    <div class="tags">
-                        <span class="tag tag-kids">溜滑梯</span>
-                        <span class="tag tag-indoor">室內</span>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>🦕 左鎮化石園區</h4>
+                            <p>全台唯一館校合一化石博物館！體驗模擬挖掘化石，各種恐龍標本模型超震撼。</p>
+                            <div class="tags">
+                                <span class="tag tag-kids">挖化石體驗</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 左鎮區</span>
+                                <span>💰 100元（6歲以下免費）</span>
+                            </div>
+                        </div>
                     </div>
-                    <p><strong>門票：</strong>200元（可抵消費）</p>
-                    <a href="https://www.google.com/maps/search/萬國通路創意觀光工廠" target="_blank" class="map-link">導航</a>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>🦣 樹谷生活科學館</h4>
+                            <p>恐龍骨骼標本、長毛象化石是最大亮點！「恐龍遊樂券」120元可選三樣設施。</p>
+                            <div class="tags">
+                                <span class="tag tag-kids">恐龍迷必來</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 新市區</span>
+                                <span>💰 60-120元</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>📚 國立臺灣歷史博物館</h4>
+                            <p>有趣好玩的兒童廳、VR多媒體展廳！戶外天空階梯、光電雲牆超好拍。</p>
+                            <div class="tags">
+                                <span class="tag tag-kids">兒童廳</span>
+                                <span class="tag tag-hot">打卡熱點</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 安南區</span>
+                                <span>💰 100元（6歲以下免費）</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <h3>親子農場 / 動物園</h3>
-            <div class="cards-grid">
-                <div class="attraction-card">
-                    <h4>頑皮世界野生動物園</h4>
-                    <p>南台灣最大！可餵長頸鹿、水豚、羊駝。有遊園車，長輩不累。</p>
-                    <div class="tags">
-                        <span class="tag tag-kids">餵動物</span>
-                        <span class="tag tag-elder">有遊園車</span>
+            <!-- 遊樂體驗類 -->
+            <div class="attraction-category">
+                <h3><span class="emoji">🎢</span> 遊樂 / 體驗</h3>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>🥁 十鼓仁糖文化園區</h4>
+                            <p>五層樓旋轉溜滑梯、三鐵極限設施、霍格華茲魔法場景！夜間更有夢幻燈光。</p>
+                            <div class="tags">
+                                <span class="tag tag-hot">超刺激</span>
+                                <span class="tag tag-new">哈利波特場景</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 仁德區</span>
+                                <span>💰 399元起</span>
+                            </div>
+                        </div>
                     </div>
-                    <p><strong>門票：</strong>全票480元｜優待票380元</p>
-                    <a href="https://www.google.com/maps/search/頑皮世界野生動物園" target="_blank" class="map-link">導航</a>
-                </div>
-                <div class="attraction-card">
-                    <h4>走馬瀨農場</h4>
-                    <p>大草原可放風箏、有小火車、餵動物區。適合野餐親子遊。</p>
-                    <div class="tags">
-                        <span class="tag tag-kids">戶外放電</span>
-                        <span class="tag tag-kids">騎小火車</span>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>🧗 樹谷冒險體驗場</h4>
+                            <p>全亞洲唯一兒童專屬冒險場！U型繩、閃電橋、滑索等10設施，5項只要199元。</p>
+                            <div class="tags">
+                                <span class="tag tag-kids">120cm以上</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 新市區</span>
+                                <span>💰 199元/5項</span>
+                            </div>
+                        </div>
                     </div>
-                    <p><strong>門票：</strong>全票200元</p>
-                    <a href="https://www.google.com/maps/search/走馬瀨農場" target="_blank" class="map-link">導航</a>
-                </div>
-                <div class="attraction-card">
-                    <h4>樹谷農場</h4>
-                    <p>銅板價60元含飼料！可餵小羊、兔子。適合幼兒，1小時可逛完。</p>
-                    <div class="tags">
-                        <span class="tag tag-free">銅板價</span>
-                        <span class="tag tag-kids">餵小動物</span>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>📦 台南貨櫃公園</h4>
+                            <p>彩色貨櫃組成的兒童樂園，假日2-12歲299元不限時！有滑草、攀爬、沙坑等。</p>
+                            <div class="tags">
+                                <span class="tag tag-kids">不限時玩</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 永康區</span>
+                                <span>💰 200-299元</span>
+                            </div>
+                        </div>
                     </div>
-                    <p><strong>門票：</strong>60元（含飼料）</p>
-                    <a href="https://www.google.com/maps/search/樹谷農場" target="_blank" class="map-link">導航</a>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>🆓 南瀛親子館（免費！）</h4>
+                            <p>超過300坪免費室內親子樂園！1樓0-3歲、2-3樓3-6歲，必玩一層樓高透明滑梯！</p>
+                            <div class="tags">
+                                <span class="tag tag-free">完全免費</span>
+                                <span class="tag tag-hot">超推薦</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 新營區</span>
+                                <span>💰 免費</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>👹 麻豆代天府</h4>
+                            <p>有天堂跟十八層地獄展館！還有滾輪溜滑梯、玩沙池，廟宇竟然這麼好玩！</p>
+                            <div class="tags">
+                                <span class="tag tag-free">免費入園</span>
+                                <span class="tag tag-kids">溜滑梯</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 麻豆區</span>
+                                <span>💰 地獄40元</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <h3>安平周邊景點</h3>
-            <div class="cards-grid">
-                <div class="attraction-card">
-                    <h4>德陽艦園區</h4>
-                    <p>退役軍艦開放參觀，小朋友可以上船探索、體驗當海軍。</p>
-                    <div class="tags">
-                        <span class="tag tag-kids">軍艦體驗</span>
+            <!-- 戶外玩水類 -->
+            <div class="attraction-category">
+                <h3><span class="emoji">🌊</span> 戶外 / 玩水</h3>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>💦 河樂廣場</h4>
+                            <p>市區最大親水廣場，古羅馬風格超好拍！夏天淺水池讓小孩玩水，免費入場。</p>
+                            <div class="tags">
+                                <span class="tag tag-free">免費</span>
+                                <span class="tag tag-kids">玩水</span>
+                                <span class="tag tag-hot">IG熱門</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 中西區</span>
+                                <span>⏰ 1小時</span>
+                            </div>
+                        </div>
                     </div>
-                    <p><strong>門票：</strong>全票80元</p>
-                    <a href="https://www.google.com/maps/search/德陽艦園區" target="_blank" class="map-link">導航</a>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>🧂 七股鹽山</h4>
+                            <p>南台灣最美小雪山！2025新吉祥物是療癒吃冰小雪人。有小火車、兒童遊戲區。</p>
+                            <div class="tags">
+                                <span class="tag tag-kids">小火車</span>
+                                <span class="tag tag-new">2025新裝置</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 七股區</span>
+                                <span>💰 100元</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>🌿 四草綠色隧道</h4>
+                            <p>台版亞馬遜河！搭竹筏穿越紅樹林，全程30分鐘坐船輕鬆遊，老少皆宜。</p>
+                            <div class="tags">
+                                <span class="tag tag-hot">必訪</span>
+                                <span class="tag tag-elder">免走路</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 安南區</span>
+                                <span>💰 200元</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>🌅 井仔腳瓦盤鹽田</h4>
+                            <p>台灣最古老鹽田，夕陽時分超美！可體驗曬鹽、挑鹽，小孩玩得很開心。</p>
+                            <div class="tags">
+                                <span class="tag tag-free">免費</span>
+                                <span class="tag tag-hot">夕陽必拍</span>
+                            </div>
+                            <div class="card-info">
+                                <span>📍 北門區</span>
+                                <span>⏰ 1-2小時</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="attraction-card">
-                    <h4>安平樹屋</h4>
-                    <p>老榕樹與廢棄倉庫共生，有木棧道穿梭其中，像在探險！</p>
-                    <div class="tags">
-                        <span class="tag tag-kids">探險感</span>
-                    </div>
-                    <p><strong>門票：</strong>50元</p>
-                    <a href="https://www.google.com/maps/search/安平樹屋" target="_blank" class="map-link">導航</a>
-                </div>
-                <div class="attraction-card">
-                    <h4>漁光島</h4>
-                    <p>月牙灣沙灘，可玩沙踏浪。有藝術裝置可拍照，傍晚看夕陽超美。</p>
-                    <div class="tags">
-                        <span class="tag tag-free">免費</span>
-                        <span class="tag tag-kids">玩沙</span>
-                    </div>
-                    <p><strong>門票：</strong>免費</p>
-                    <a href="https://www.google.com/maps/search/漁光島" target="_blank" class="map-link">導航</a>
+            </div>
+
+            <!-- 2024新景點 -->
+            <div class="attraction-category">
+                <h3><span class="emoji">✨</span> 2024-2025 新景點</h3>
+                <div class="highlight-box blue">
+                    <strong>🆕 安平航海城</strong><br>
+                    城堡外觀超夢幻！有電影般的大廳、頂樓希臘地中海鐘樓，門口英國雙層巴士必拍。2024年安平最火熱新景點！
                 </div>
             </div>
         </section>
 
-        <!-- 住宿推薦 -->
-        <section class="section">
-            <h2>親子住宿推薦</h2>
-
-            <h3>高級親子飯店</h3>
-            <div class="hotel-card recommended">
-                <h4>夏都城旅安平館 ⭐ 首推</h4>
-                <p>200坪兒童遊樂園、玩沙池、頂樓空中沙池，房間一房一廳超寬敞。親子DIY活動可報名。</p>
-                <div class="hotel-features">
-                    <span class="tag tag-kids">200坪遊戲室</span>
-                    <span class="tag tag-kids">玩沙池</span>
-                    <span class="tag tag-elder">電梯無障礙</span>
-                </div>
-                <p class="price">約 NT$3,500-5,000/晚（家庭房）</p>
-                <a href="https://www.google.com/maps/search/夏都城旅安平館" target="_blank" class="map-link">Google Maps</a>
-            </div>
-
-            <div class="hotel-card recommended">
-                <h4>和逸飯店台南西門館（HOTEL COZZI）</h4>
-                <p>有兒童賽車跑道、XBOX遊戲室、戶外電動車，還有卡通頻道主題房（飛天小女警、探險活寶）。</p>
-                <div class="hotel-features">
-                    <span class="tag tag-kids">賽車跑道</span>
-                    <span class="tag tag-kids">主題房</span>
-                    <span class="tag tag-kids">電動車</span>
-                </div>
-                <p class="price">約 NT$3,000-4,500/晚</p>
-                <a href="https://www.google.com/maps/search/和逸飯店台南西門館" target="_blank" class="map-link">Google Maps</a>
-            </div>
-
-            <div class="hotel-card recommended">
-                <h4>福爾摩沙遊艇酒店（2024新開幕）</h4>
-                <p>台灣唯一有遊艇碼頭的酒店！無邊際泳池、兒童遊戲室，可搭遊艇遊安平。</p>
-                <div class="hotel-features">
-                    <span class="tag tag-kids">無邊際泳池</span>
-                    <span class="tag tag-kids">遊艇體驗</span>
-                    <span class="tag tag-elder">高級設施</span>
-                </div>
-                <p class="price">約 NT$4,500-7,000/晚</p>
-                <a href="https://www.google.com/maps/search/福爾摩沙遊艇酒店+台南" target="_blank" class="map-link">Google Maps</a>
-            </div>
-
-            <div class="hotel-card">
-                <h4>台南大員皇冠假日酒店</h4>
-                <p>日式榻榻米房型適合有幼兒家庭，近安平景點。有兒童俱樂部、游泳池。</p>
-                <div class="hotel-features">
-                    <span class="tag tag-kids">榻榻米房</span>
-                    <span class="tag tag-elder">國際品牌</span>
-                    <span class="tag tag-kids">兒童俱樂部</span>
-                </div>
-                <p class="price">約 NT$4,000-6,000/晚</p>
-                <a href="https://www.google.com/maps/search/台南大員皇冠假日酒店" target="_blank" class="map-link">Google Maps</a>
-            </div>
-
-            <div class="hotel-card">
-                <h4>台南晶英酒店</h4>
-                <p>五星級飯店，位於市中心精華區。有兒童遊戲室、空中游泳池，近孔廟、赤崁樓。</p>
-                <div class="hotel-features">
-                    <span class="tag tag-elder">五星服務</span>
-                    <span class="tag tag-kids">遊戲室</span>
-                    <span class="tag tag-kids">游泳池</span>
-                </div>
-                <p class="price">約 NT$5,000-8,000/晚</p>
-                <a href="https://www.google.com/maps/search/台南晶英酒店" target="_blank" class="map-link">Google Maps</a>
-            </div>
-
-            <h3>平價親子住宿</h3>
-            <div class="hotel-card">
-                <h4>晶盈親旅大酒店（2024新開幕）</h4>
-                <p>主題親子房（米奇、法拉利等）、200坪遊戲室、小賽車跑道。CP值超高！</p>
-                <div class="hotel-features">
-                    <span class="tag tag-kids">主題房</span>
-                    <span class="tag tag-kids">遊戲室</span>
-                    <span class="tag tag-free">平價</span>
-                </div>
-                <p class="price">約 NT$2,500-4,000/晚</p>
-                <a href="https://www.google.com/maps/search/晶盈親旅大酒店" target="_blank" class="map-link">Google Maps</a>
-            </div>
-
-            <div class="hotel-card">
-                <h4>南科贊美酒店</h4>
-                <p>可焢窯、採果、釣魚！夏天有泳池，室內有球池溜滑梯，在飯店就能玩整天。</p>
-                <div class="hotel-features">
-                    <span class="tag tag-kids">農場體驗</span>
-                    <span class="tag tag-kids">溜滑梯</span>
-                </div>
-                <p class="price">約 NT$2,800-4,000/晚</p>
-                <a href="https://www.google.com/maps/search/南科贊美酒店" target="_blank" class="map-link">Google Maps</a>
-            </div>
-
-            <h3>親子民宿（包棟/大家庭）</h3>
-            <div class="hotel-card">
-                <h4>Fun電旅店</h4>
-                <p>安平親子民宿，有旋轉木馬、溜滑梯、球池、樂高牆！多種主題房型可選。</p>
-                <div class="hotel-features">
-                    <span class="tag tag-kids">旋轉木馬</span>
-                    <span class="tag tag-kids">溜滑梯</span>
-                </div>
-                <p class="price">約 NT$2,500-4,000/晚</p>
-                <a href="https://www.google.com/maps/search/Fun電旅店+台南" target="_blank" class="map-link">Google Maps</a>
-            </div>
-
-            <div class="hotel-card">
-                <h4>安平宿沐親子民宿</h4>
-                <p>森林風格裝潢，房內大溜滑梯、專屬遊戲室、陽台戲水池。適合包棟7人入住！</p>
-                <div class="hotel-features">
-                    <span class="tag tag-kids">可包棟</span>
-                    <span class="tag tag-kids">溜滑梯</span>
-                    <span class="tag tag-kids">戲水池</span>
-                </div>
-                <p class="price">約 NT$5,000-8,000/晚（包棟）</p>
-                <a href="https://www.google.com/maps/search/安平宿沐親子民宿" target="_blank" class="map-link">Google Maps</a>
-            </div>
+        <!-- 必吃美食 -->
+        <section id="food" class="section">
+            <h2><i class="fas fa-utensils"></i> 必吃美食推薦</h2>
 
             <div class="highlight-box">
-                <strong>7人住宿建議：</strong>建議訂2間家庭房，或選擇可包棟的民宿。提前預訂嬰兒床、消毒鍋等備品。
+                <strong>🏆 2025台南米其林必比登：</strong>共30家入選！中西區有19家店鋪，牛肉湯、鍋燒意麵、鹹粥、米糕、肉圓全上榜。
             </div>
-        </section>
 
-        <!-- 美食推薦 -->
-        <section class="section">
-            <h2>美食推薦</h2>
-
-            <h3>台南經典早餐</h3>
+            <h3>🥩 經典牛肉湯</h3>
             <div class="food-item">
                 <div>
-                    <h5>文章牛肉湯</h5>
-                    <p>溫體牛肉鮮甜軟嫩，台南人的經典早餐。建議早上7-9點去，新鮮現切！</p>
-                    <a href="https://www.google.com/maps/search/文章牛肉湯+台南" target="_blank" class="map-link">導航</a>
+                    <h5>文章牛肉湯（東寧旗艦店）⭐ 米其林推薦</h5>
+                    <p>台南在地人最愛！每日新鮮配送溫體牛肉，湯頭清甜、牛肉鮮嫩。觀光客必訪美食地標。</p>
                 </div>
             </div>
             <div class="food-item">
                 <div>
-                    <h5>阿堂鹹粥</h5>
-                    <p>70年老店，虱目魚肚粥鮮美無比。排隊名店，建議早點去！</p>
-                    <a href="https://www.google.com/maps/search/阿堂鹹粥" target="_blank" class="map-link">導航</a>
-                </div>
-            </div>
-            <div class="food-item">
-                <div>
-                    <h5>阿憨鹹粥</h5>
-                    <p>另一家鹹粥名店，配油條超對味。比阿堂人少一點。</p>
-                    <a href="https://www.google.com/maps/search/阿憨鹹粥" target="_blank" class="map-link">導航</a>
+                    <h5>六千牛肉湯</h5>
+                    <p>凌晨四點開賣的老店，當地人早餐首選，想吃要趁早！</p>
                 </div>
             </div>
 
-            <h3>國華街必吃</h3>
+            <h3>🍜 米其林必比登小吃</h3>
             <div class="food-item">
                 <div>
-                    <h5>阿松割包</h5>
-                    <p>80年老店，瘦肉包用花生醬取代花生粉，清爽不膩。</p>
-                    <a href="https://www.google.com/maps/search/阿松割包" target="_blank" class="map-link">導航</a>
+                    <h5>阿星鹹粥 ⭐ 連年入選</h5>
+                    <p>1965年開業老店，台南人早餐口袋名單。店裡有冷氣，鹹粥料多味美。</p>
                 </div>
             </div>
             <div class="food-item">
                 <div>
-                    <h5>富盛號碗粿</h5>
-                    <p>與割包並稱「金三角」，碗粿口感綿密。</p>
-                    <a href="https://www.google.com/maps/search/富盛號碗粿" target="_blank" class="map-link">導航</a>
+                    <h5>阿明豬心冬粉 ⭐ 年年上榜</h5>
+                    <p>在地人和觀光客都熟到不行的名店，豬心處理得恰到好處，湯頭清爽。</p>
                 </div>
             </div>
             <div class="food-item">
                 <div>
-                    <h5>邱家小卷米粉</h5>
-                    <p>小卷新鮮彈牙，湯頭鮮甜。排隊名店！</p>
-                    <a href="https://www.google.com/maps/search/邱家小卷米粉" target="_blank" class="map-link">導航</a>
+                    <h5>蓮霧腳羊肉（新化）⭐ 2025新入選</h5>
+                    <p>傳承超過70年老字號，凌晨4點半開門！使用當日直送新鮮溫體羊製作。</p>
                 </div>
             </div>
             <div class="food-item">
                 <div>
-                    <h5>蜷尾家霜淇淋</h5>
-                    <p>每日限定口味，小孩最愛的散步甜點。</p>
-                    <a href="https://www.google.com/maps/search/蜷尾家霜淇淋" target="_blank" class="map-link">導航</a>
+                    <h5>博仁堂藥膳湯 ⭐</h5>
+                    <p>中藥鋪結合藥膳的創新體驗，米其林推薦！湯頭溫潤養生。</p>
                 </div>
             </div>
 
-            <h3>安平必吃</h3>
+            <h3>🦐 國華街必吃（美食一條街）</h3>
+            <div class="cards-grid">
+                <div class="food-item">
+                    <div>
+                        <h5>阿松割包</h5>
+                        <p>80年老店，瘦肉包用花生醬取代花生粉，清爽不膩。</p>
+                    </div>
+                </div>
+                <div class="food-item">
+                    <div>
+                        <h5>富盛號碗粿</h5>
+                        <p>與割包並稱「金三角」，碗粿口感綿密，配料豐富。</p>
+                    </div>
+                </div>
+                <div class="food-item">
+                    <div>
+                        <h5>邱家小卷米粉</h5>
+                        <p>小卷新鮮彈牙，湯頭鮮甜。排隊名店，建議早點來！</p>
+                    </div>
+                </div>
+                <div class="food-item">
+                    <div>
+                        <h5>蜷尾家霜淇淋</h5>
+                        <p>每日限定口味，小孩最愛的散步甜點。</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>🦪 安平在地美食</h3>
             <div class="food-item">
                 <div>
                     <h5>周氏蝦捲</h5>
-                    <p>安平最有名的蝦捲！外酥內嫩，蝦肉飽滿。</p>
-                    <a href="https://www.google.com/maps/search/周氏蝦捲" target="_blank" class="map-link">導航</a>
+                    <p>安平最知名的蝦捲老店，外皮酥脆、內餡鮮美。</p>
                 </div>
             </div>
             <div class="food-item">
                 <div>
-                    <h5>同記安平豆花</h5>
-                    <p>綿密豆花配粉圓，清涼解暑。有冷氣內用區。</p>
-                    <a href="https://www.google.com/maps/search/同記安平豆花" target="_blank" class="map-link">導航</a>
+                    <h5>王氏魚皮</h5>
+                    <p>平價無雷！虱目魚料理是台南必吃招牌之一。</p>
                 </div>
             </div>
             <div class="food-item">
                 <div>
-                    <h5>陳家蚵捲</h5>
-                    <p>跟周氏齊名的蚵捲名店，蚵仔新鮮肥美。</p>
-                    <a href="https://www.google.com/maps/search/陳家蚵捲+安平" target="_blank" class="map-link">導航</a>
+                    <h5>孫家小卷米粉</h5>
+                    <p>被日本美食雜誌報導，小卷米粉90元，小卷新鮮不老。</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div>
+                    <h5>養蚵世家</h5>
+                    <p>近50年老店！蚵仔煎、蚵仔炒飯、蚵仔炒麵，PTT/Dcard人氣推薦。</p>
                 </div>
             </div>
 
-            <h3>夜市推薦</h3>
-            <div class="subsection">
-                <h4>花園夜市（週四、六、日營業）</h4>
-                <p>台南最大夜市！美食攤位超多，必吃：阿美芭樂、二師兄滷味、統大碳烤、四草蚵嗲。</p>
-                <p><strong>注意：</strong>人很多，帶嬰兒車較不方便。建議讓長輩在入口處休息，年輕人去買。</p>
-                <a href="https://www.google.com/maps/search/花園夜市" target="_blank" class="map-link">導航</a>
-            </div>
-            <div class="subsection">
-                <h4>大東夜市（週一、二、五營業）</h4>
-                <p>比花園夜市小一點，但一樣美食多。人潮相對少，帶小孩較輕鬆。</p>
-                <a href="https://www.google.com/maps/search/大東夜市+台南" target="_blank" class="map-link">導航</a>
-            </div>
-
-            <h3>親子友善餐廳</h3>
+            <h3>👨‍👩‍👧 親子友善餐廳</h3>
             <div class="food-item">
                 <div>
                     <h5>小森林親子餐廳</h5>
-                    <p>有球池、溜滑梯、廚具組。適合帶小小孩用餐。地址：永康區東橋六街85號</p>
-                    <a href="https://www.google.com/maps/search/小森林親子餐廳+台南" target="_blank" class="map-link">導航</a>
+                    <p>有球池、溜滑梯、廚具組。📍 永康區東橋六街85號</p>
                 </div>
             </div>
             <div class="food-item">
                 <div>
                     <h5>大窩與小宅</h5>
-                    <p>義式餐廳+兒童遊戲室+夏天戲水池。地址：善化區光復路208號</p>
-                    <a href="https://www.google.com/maps/search/大窩與小宅+台南" target="_blank" class="map-link">導航</a>
-                </div>
-            </div>
-            <div class="food-item">
-                <div>
-                    <h5>童樂島親子餐廳</h5>
-                    <p>大型室內遊戲區、決明子沙坑，餐點選擇多。</p>
-                    <a href="https://www.google.com/maps/search/童樂島親子餐廳+台南" target="_blank" class="map-link">導航</a>
+                    <p>義式餐廳+兒童遊戲室+夏天戲水池。📍 善化區光復路208號</p>
                 </div>
             </div>
         </section>
 
-        <!-- 景點比較表 -->
-        <section class="section">
-            <h2>景點比較表</h2>
+        <!-- 夜市攻略 -->
+        <section id="nightmarket" class="section">
+            <h2><i class="fas fa-moon"></i> 夜市攻略</h2>
+
+            <div class="highlight-box red">
+                <strong>📅 2025夜市口訣：</strong>「大東大東東、大東大東東、武、花、大東大東東武、武花、花」<br>
+                <small>週一二：大東 ｜ 週三：武聖 ｜ 週四：花園 ｜ 週五：大東+武聖 ｜ 週六：武聖+花園 ｜ 週日：花園</small>
+            </div>
+
+            <div class="night-market-grid">
+                <div class="night-market-card">
+                    <h4>🌸 花園夜市 <span style="font-size:0.8rem;opacity:0.7;">南台灣第一五星夜市</span></h4>
+                    <div class="schedule">
+                        <strong>營業：</strong>每週四、六、日 17:00-24:00<br>
+                        <strong>地點：</strong>北區海安路三段（有免費停車場）
+                    </div>
+                    <p style="font-size:0.9rem;opacity:0.9;margin-bottom:10px;">近400攤位，台南之冠！分美食、服飾、精品、娛樂四大區。</p>
+                    <ul>
+                        <li>統大碳烤香雞排（先炸後烤）</li>
+                        <li>二師兄滷味</li>
+                        <li>大腸包小腸</li>
+                        <li>蚵仔煎</li>
+                    </ul>
+                    <p style="font-size:0.8rem;color:#ffd700;margin-top:10px;">⚠️ 人潮極多，避開19-21點高峰，多備現金</p>
+                </div>
+
+                <div class="night-market-card">
+                    <h4>🌙 大東夜市 <span style="font-size:0.8rem;opacity:0.7;">在地人最愛</span></h4>
+                    <div class="schedule">
+                        <strong>營業：</strong>每週一、二、五 17:00-01:00<br>
+                        <strong>地點：</strong>東區林森路一段（近南紡購物中心）
+                    </div>
+                    <p style="font-size:0.9rem;opacity:0.9;margin-bottom:10px;">2024年分家後約400攤，動線寬敞、人潮較舒緩。</p>
+                    <ul>
+                        <li>古曼蔥油餅（排隊人氣王）</li>
+                        <li>東洲黑糖奶</li>
+                        <li>曾氏福建炒麵</li>
+                        <li>延記臭豆腐</li>
+                    </ul>
+                    <p style="font-size:0.8rem;color:#90EE90;margin-top:10px;">✓ 適合怕人擠人的家庭</p>
+                </div>
+
+                <div class="night-market-card">
+                    <h4>⚔️ 武聖夜市</h4>
+                    <div class="schedule">
+                        <strong>營業：</strong>每週三、五、六 18:00-01:30<br>
+                        <strong>地點：</strong>中西區武聖路
+                    </div>
+                    <p style="font-size:0.9rem;opacity:0.9;margin-bottom:10px;">2025年新增週五營業！老牌夜市，美食選擇多。</p>
+                    <ul>
+                        <li>阿三哥牛排</li>
+                        <li>大上海香酥雞</li>
+                        <li>木瓜牛奶</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top:20px;">
+                <strong>👨‍👩‍👧 帶小孩逛夜市建議：</strong>
+                <ul style="margin-top:10px;padding-left:20px;">
+                    <li>選平日去大東夜市，人少較安全</li>
+                    <li>帶推車要有心理準備會很擠</li>
+                    <li>準備濕紙巾和零錢</li>
+                    <li>避開21-23點最擁擠時段</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 親子住宿 -->
+        <section id="hotels" class="section">
+            <h2><i class="fas fa-hotel"></i> 親子住宿推薦</h2>
+
+            <div class="hotel-card recommended">
+                <h4>🏆 台南晶盈親旅大酒店 ⭐ 2024新開幕首推</h4>
+                <p>200坪「無尾熊奇遊樂園」室內兒童遊戲室！有積木、球池、溜滑梯、小賽車跑道、Switch、PS5。主題房有米妮、法拉利、米奇等造型床。</p>
+                <div class="hotel-features">
+                    <span class="tag tag-new">2024新開幕</span>
+                    <span class="tag tag-kids">200坪遊戲室</span>
+                    <span class="tag tag-kids">主題房</span>
+                    <span class="tag tag-kids">小賽車跑道</span>
+                </div>
+                <p class="price">約 NT$2,500-4,000/晚</p>
+            </div>
+
+            <div class="hotel-card recommended">
+                <h4>🏆 夏都城旅安平館 ⭐ 親子首選</h4>
+                <p>超過200坪兒童遊戲室，新增電競室可開賽車玩Switch！頂樓可看夕陽玩空中沙池。房間一房一廳超寬敞。</p>
+                <div class="hotel-features">
+                    <span class="tag tag-kids">200坪遊戲室</span>
+                    <span class="tag tag-kids">空中沙池</span>
+                    <span class="tag tag-kids">電競室</span>
+                    <span class="tag tag-elder">電梯無障礙</span>
+                </div>
+                <p class="price">約 NT$3,500-5,000/晚（家庭房）</p>
+            </div>
+
+            <div class="hotel-card recommended">
+                <h4>🏆 和逸飯店台南西門館 ⭐ 卡通主題</h4>
+                <p>卡通頻道主題！戶外有嘟嘟小火車、兒童電動車、沙池、噴泉池；室內有超大球池、Xbox遊戲區。主題客房有探險活寶、飛天小女警。</p>
+                <div class="hotel-features">
+                    <span class="tag tag-kids">賽車跑道</span>
+                    <span class="tag tag-kids">小火車</span>
+                    <span class="tag tag-kids">卡通主題房</span>
+                </div>
+                <p class="price">約 NT$3,000-4,500/晚</p>
+            </div>
+
+            <div class="hotel-card">
+                <h4>香格里拉台南遠東國際大飯店</h4>
+                <p>200坪挑高室內兒童遊戲室，溜滑梯球池、家家酒、職業體驗免費使用！頂樓有戶外沙坑與戲水池(3-11月)。</p>
+                <div class="hotel-features">
+                    <span class="tag tag-kids">200坪遊戲室</span>
+                    <span class="tag tag-kids">戶外戲水池</span>
+                    <span class="tag tag-elder">五星級</span>
+                </div>
+                <p class="price">約 NT$4,000-6,000/晚</p>
+            </div>
+
+            <div class="hotel-card">
+                <h4>南科贊美酒店</h4>
+                <p>占地上萬坪！全台唯一能住宿+體驗焢窯的飯店。有雙心湖、彩色玻璃教堂可拍美照，戶外泳池及室內兒童遊戲室。</p>
+                <div class="hotel-features">
+                    <span class="tag tag-kids">焢窯體驗</span>
+                    <span class="tag tag-kids">戶外泳池</span>
+                    <span class="tag tag-hot">網美景點</span>
+                </div>
+                <p class="price">約 NT$3,000-5,000/晚</p>
+            </div>
+
+            <div class="hotel-card">
+                <h4>台南大員皇冠假日酒店</h4>
+                <p>日式榻榻米房型適合有幼兒家庭，近安平景點。</p>
+                <div class="hotel-features">
+                    <span class="tag tag-kids">榻榻米房</span>
+                    <span class="tag tag-elder">高級飯店</span>
+                </div>
+                <p class="price">約 NT$4,000-6,000/晚</p>
+            </div>
+
+            <div class="hotel-card">
+                <h4>趣淘漫旅-台南（曾文水庫）</h4>
+                <p>在曾文水庫風景區內！有室內戰勤基地、戶外擎空塔台冒險設施，適合國小以上小孩。</p>
+                <div class="hotel-features">
+                    <span class="tag tag-kids">冒險設施</span>
+                    <span class="tag tag-hot">山林景觀</span>
+                </div>
+                <p class="price">約 NT$3,500-5,500/晚</p>
+            </div>
+        </section>
+
+        <!-- 伴手禮 -->
+        <section id="souvenirs" class="section">
+            <h2><i class="fas fa-gift"></i> 伴手禮推薦</h2>
+
+            <h3>🍮 甜點布丁類</h3>
+            <div class="souvenir-grid">
+                <div class="souvenir-item">
+                    <div class="icon">🍮</div>
+                    <h5>銀波布丁</h5>
+                    <p>80年老店，遍布台南</p>
+                </div>
+                <div class="souvenir-item">
+                    <div class="icon">🍮</div>
+                    <h5>依蕾特布丁</h5>
+                    <p>20週年！口感綿密</p>
+                </div>
+                <div class="souvenir-item">
+                    <div class="icon">🍫</div>
+                    <h5>堯平布朗尼</h5>
+                    <p>台南最好吃！12塊500有找</p>
+                </div>
+                <div class="souvenir-item">
+                    <div class="icon">🥧</div>
+                    <h5>阿嬤的珍藏</h5>
+                    <p>生巧克力塔團購第一名</p>
+                </div>
+                <div class="souvenir-item">
+                    <div class="icon">🍰</div>
+                    <h5>狸小路千層蛋糕</h5>
+                    <p>豹紋、長頸鹿紋超可愛</p>
+                </div>
+            </div>
+
+            <h3>🦐 鹹食傳統類</h3>
+            <div class="souvenir-grid">
+                <div class="souvenir-item">
+                    <div class="icon">🦐</div>
+                    <h5>安平小舖蝦餅</h5>
+                    <p>非油炸，健康又唰嘴</p>
+                </div>
+                <div class="souvenir-item">
+                    <div class="icon">🥜</div>
+                    <h5>進福大灣花生糖</h5>
+                    <p>百年老店，赤崁樓對面</p>
+                </div>
+                <div class="souvenir-item">
+                    <div class="icon">🥚</div>
+                    <h5>姑姑茶葉蛋</h5>
+                    <p>新化傳奇，要提早訂</p>
+                </div>
+                <div class="souvenir-item">
+                    <div class="icon">🍪</div>
+                    <h5>大師兄蛋捲</h5>
+                    <p>虱目魚、仙女紅茶口味</p>
+                </div>
+            </div>
+
+            <h3>🎁 創意特色類</h3>
+            <div class="souvenir-grid">
+                <div class="souvenir-item">
+                    <div class="icon">🐷</div>
+                    <h5>新玉香豬飼料柑仔店</h5>
+                    <p>爆米花裝在豬飼料袋裡</p>
+                </div>
+                <div class="souvenir-item">
+                    <div class="icon">🏛️</div>
+                    <h5>古蹟限定商品</h5>
+                    <p>至聖點心麵、成功啤酒</p>
+                </div>
+                <div class="souvenir-item">
+                    <div class="icon">🦫</div>
+                    <h5>MOGU KABI豆塔</h5>
+                    <p>水豚君主題，可看水豚</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 實用建議 -->
+        <section id="tips" class="section">
+            <h2><i class="fas fa-lightbulb"></i> 實用建議</h2>
+
+            <h3>👨‍👩‍👧 帶長輩和幼兒的貼心提醒</h3>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>🚼 攜帶嬰兒車</h4>
+                    <p>奇美博物館、安平老街都適合推車。四草搭船時可折疊收起。</p>
+                </div>
+                <div class="tip-card">
+                    <h4>⏰ 避開人潮</h4>
+                    <p>國華街假日人很多，建議平日去或一早10點前抵達。</p>
+                </div>
+                <div class="tip-card">
+                    <h4>👥 分頭行動</h4>
+                    <p>長輩體力有限時，可讓長輩在咖啡廳休息，年輕人帶小孩玩。</p>
+                </div>
+                <div class="tip-card">
+                    <h4>💤 預留午休時間</h4>
+                    <p>1歲寶寶需要午睡，建議中午回飯店休息再出發。</p>
+                </div>
+                <div class="tip-card">
+                    <h4>☀️ 準備防曬用品</h4>
+                    <p>台南陽光強烈，帽子、防曬乳、陽傘必備。</p>
+                </div>
+                <div class="tip-card">
+                    <h4>👕 多帶換洗衣物</h4>
+                    <p>河樂廣場玩水、安平玩沙，小孩容易弄濕弄髒。</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top:30px;">📊 景點比較表</h3>
             <div style="overflow-x: auto;">
                 <table class="comparison-table">
                     <thead>
@@ -917,7 +1346,6 @@
                             <th>景點</th>
                             <th>適合幼兒</th>
                             <th>適合長輩</th>
-                            <th>室內</th>
                             <th>門票</th>
                             <th>停留時間</th>
                         </tr>
@@ -927,79 +1355,48 @@
                             <td><strong>奇美博物館</strong></td>
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
                             <td>200元</td>
                             <td>2-3小時</td>
-                        </tr>
-                        <tr>
-                            <td><strong>南科考古館</strong></td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                            <td>80元</td>
-                            <td>2小時</td>
                         </tr>
                         <tr>
                             <td><strong>四草綠色隧道</strong></td>
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
-                            <td>✗</td>
                             <td>200元</td>
                             <td>1小時</td>
-                        </tr>
-                        <tr>
-                            <td><strong>頑皮世界</strong></td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                            <td>✗</td>
-                            <td>480元</td>
-                            <td>3-4小時</td>
                         </tr>
                         <tr>
                             <td><strong>樹谷農場</strong></td>
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
-                            <td>✗</td>
                             <td>60元</td>
                             <td>1小時</td>
                         </tr>
                         <tr>
-                            <td><strong>安平古堡</strong></td>
+                            <td><strong>南科考古館</strong></td>
                             <td><span class="check">✓</span></td>
-                            <td>△（有階梯）</td>
-                            <td>✗</td>
-                            <td>50元</td>
-                            <td>1小時</td>
+                            <td><span class="check">✓</span></td>
+                            <td>80元</td>
+                            <td>1.5-2小時</td>
                         </tr>
                         <tr>
-                            <td><strong>安平樹屋</strong></td>
+                            <td><strong>頑皮世界</strong></td>
                             <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                            <td>✗</td>
-                            <td>50元</td>
-                            <td>40分鐘</td>
+                            <td>△（較大）</td>
+                            <td>480元</td>
+                            <td>3-4小時</td>
                         </tr>
                         <tr>
-                            <td><strong>赤崁樓</strong></td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                            <td>✗</td>
-                            <td>50元</td>
-                            <td>1小時</td>
-                        </tr>
-                        <tr>
-                            <td><strong>林百貨</strong></td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                            <td>免費</td>
-                            <td>30分鐘</td>
+                            <td><strong>十鼓仁糖</strong></td>
+                            <td>△（部分）</td>
+                            <td>△</td>
+                            <td>399元</td>
+                            <td>2-3小時</td>
                         </tr>
                         <tr>
                             <td><strong>河樂廣場</strong></td>
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
-                            <td>✗</td>
                             <td>免費</td>
                             <td>1小時</td>
                         </tr>
@@ -1007,57 +1404,21 @@
                             <td><strong>神農街</strong></td>
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
-                            <td>✗</td>
                             <td>免費</td>
                             <td>30分鐘</td>
+                        </tr>
+                        <tr>
+                            <td><strong>南瀛親子館</strong></td>
+                            <td><span class="check">✓</span></td>
+                            <td>—</td>
+                            <td>免費</td>
+                            <td>1-2小時</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </section>
 
-        <!-- 實用建議 -->
-        <section class="section">
-            <h2>帶長輩和幼兒的實用建議</h2>
-            <div class="tips-grid">
-                <div class="tip-card">
-                    <h4>攜帶嬰兒車</h4>
-                    <p>奇美博物館、安平老街、林百貨都適合推車。四草搭船時可折疊收起。</p>
-                </div>
-                <div class="tip-card">
-                    <h4>避開人潮</h4>
-                    <p>國華街假日人很多，建議平日去或一早10點前抵達。夜市人擠人，帶幼兒要小心。</p>
-                </div>
-                <div class="tip-card">
-                    <h4>分頭行動</h4>
-                    <p>長輩體力有限時，可讓長輩在咖啡廳或有冷氣的地方休息，年輕人帶小孩玩。</p>
-                </div>
-                <div class="tip-card">
-                    <h4>預留午休時間</h4>
-                    <p>1歲寶寶需要午睡，建議中午回飯店休息再出發。選親子飯店小孩也可在飯店玩。</p>
-                </div>
-                <div class="tip-card">
-                    <h4>準備防曬用品</h4>
-                    <p>台南陽光強烈，帽子、防曬乳、陽傘必備。夏天記得多補充水分。</p>
-                </div>
-                <div class="tip-card">
-                    <h4>多帶換洗衣物</h4>
-                    <p>河樂廣場玩水、安平玩沙，小孩容易弄濕弄髒。多帶幾套換洗衣物。</p>
-                </div>
-                <div class="tip-card">
-                    <h4>預訂嬰兒備品</h4>
-                    <p>提前向飯店預訂嬰兒床、消毒鍋、澡盆等。熱門飯店數量有限要早訂！</p>
-                </div>
-                <div class="tip-card">
-                    <h4>雨天備案</h4>
-                    <p>南科考古館、奇美食品工廠、黑橋牌博物館都是全室內，下雨也能玩。</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 預算估算 -->
-        <section class="section">
-            <h2>7人預算估算</h2>
+            <h3 style="margin-top:30px;">💰 7人預算估算</h3>
             <table class="comparison-table">
                 <thead>
                     <tr>
@@ -1070,46 +1431,85 @@
                     <tr>
                         <td>住宿（1晚）</td>
                         <td>NT$ 5,000-10,000</td>
-                        <td>需訂2間家庭房或包棟</td>
+                        <td>需訂2間家庭房</td>
                     </tr>
                     <tr>
                         <td>門票</td>
-                        <td>NT$ 1,500-3,000</td>
-                        <td>6歲以下多免費，選擇頑皮世界會較高</td>
+                        <td>NT$ 1,500-2,500</td>
+                        <td>6歲以下多免費</td>
                     </tr>
                     <tr>
                         <td>餐飲（4餐）</td>
                         <td>NT$ 3,000-5,000</td>
-                        <td>小吃為主較省，親子餐廳較貴</td>
+                        <td>小吃為主較省</td>
                     </tr>
                     <tr>
                         <td>交通（油資/停車）</td>
-                        <td>NT$ 500-1,000</td>
-                        <td>自行開車，多數景點有免費停車</td>
+                        <td>NT$ 500-1,500</td>
+                        <td>自行開車</td>
+                    </tr>
+                    <tr>
+                        <td>伴手禮</td>
+                        <td>NT$ 500-1,500</td>
+                        <td>依購買數量</td>
                     </tr>
                     <tr>
                         <td><strong>總計</strong></td>
-                        <td><strong>NT$ 10,000-19,000</strong></td>
+                        <td><strong>NT$ 10,500-20,500</strong></td>
                         <td>7人2天1夜</td>
                     </tr>
                 </tbody>
             </table>
-            <div class="highlight-box">
-                <strong>省錢提示：</strong>
-                <ul style="margin:10px 0; padding-left:20px;">
-                    <li>選擇免費景點（神農街、河樂廣場、漁光島）</li>
-                    <li>選擇銅板價景點（樹谷農場60元、南科考古館80元）</li>
-                    <li>觀光工廠多免費參觀（黑橋牌、奇美食品）</li>
-                    <li>吃小吃比餐廳省很多</li>
-                </ul>
-            </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>資料整理時間：2024年12月（深度擴充版）</p>
+        <p>資料整理時間：2025年12月</p>
         <p>以上資訊僅供參考，實際營業時間、價格請以各店家公告為準。</p>
+        <p style="margin-top:10px;font-size:0.85rem;opacity:0.8;">
+            資料來源：<a href="https://www.kkday.com/zh-tw/blog/81854/asia-taiwan-tainan-parent-child-spot" target="_blank">KKday</a>、
+            <a href="https://supertaste.tvbs.com.tw/" target="_blank">食尚玩家</a>、
+            <a href="https://bobowin.blog/" target="_blank">寶寶溫</a>、
+            <a href="https://mimihan.tw/" target="_blank">Mimi韓</a>
+        </p>
         <a href="../index.html" style="display:inline-block;margin-top:15px;padding:10px 25px;border:1px solid rgba(255,255,255,0.3);border-radius:25px;text-decoration:none;">← 返回首頁</a>
     </footer>
+
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 回到頂部按鈕
+        window.onscroll = function() {
+            const btn = document.getElementById('backToTop');
+            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        };
+
+        // 導航標籤高亮
+        const sections = document.querySelectorAll('section[id]');
+        const navTabs = document.querySelectorAll('.nav-tab');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navTabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.getAttribute('href') === '#' + current) {
+                    tab.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
