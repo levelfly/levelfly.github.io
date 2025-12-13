@@ -1,0 +1,234 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-13",
+  "categories": {
+    "car": "租車公司",
+    "scooter": "機車租借",
+    "parking": "停車場",
+    "public": "大眾運輸"
+  },
+  "carRentals": [
+    {
+      "id": "car001",
+      "name": "格上租車-台南站",
+      "address": "台南市東區北門路二段4號",
+      "phone": "06-226-1311",
+      "hours": "08:00-21:00",
+      "priceRange": "1800-3500元/日",
+      "description": "知名連鎖租車品牌，車款選擇多，服務據點多，可甲租乙還。",
+      "features": ["連鎖品牌", "車款多", "甲租乙還"],
+      "website": "https://www.car-plus.com.tw/",
+      "mapUrl": "https://maps.google.com/?q=格上租車台南站",
+      "source": ["官方"]
+    },
+    {
+      "id": "car002",
+      "name": "和運租車-台南高鐵站",
+      "address": "台南市歸仁區歸仁大道100號",
+      "phone": "06-600-8998",
+      "hours": "08:00-21:00",
+      "priceRange": "1600-3200元/日",
+      "description": "和泰汽車旗下租車品牌，Toyota車款為主，品質穩定，高鐵站取還車方便。",
+      "features": ["Toyota車款", "高鐵站點", "品質穩定"],
+      "website": "https://www.easyrent.com.tw/",
+      "mapUrl": "https://maps.google.com/?q=和運租車台南高鐵站",
+      "source": ["官方"]
+    },
+    {
+      "id": "car003",
+      "name": "IWS租車-台南火車站",
+      "address": "台南市中西區成功路2號",
+      "phone": "06-222-6699",
+      "hours": "08:00-21:00",
+      "priceRange": "1200-2800元/日",
+      "description": "價格相對實惠的租車選擇，火車站取車方便，適合預算有限的旅客。",
+      "features": ["價格實惠", "火車站取車"],
+      "website": "https://www.iwscar.com.tw/",
+      "mapUrl": "https://maps.google.com/?q=IWS租車台南",
+      "source": ["在地推薦"]
+    },
+    {
+      "id": "car004",
+      "name": "小馬租車-台南站",
+      "address": "台南市東區北門路二段16號",
+      "phone": "06-236-3636",
+      "hours": "08:00-21:00",
+      "priceRange": "1500-3000元/日",
+      "description": "南部知名的在地租車品牌，服務親切，價格合理。",
+      "features": ["在地品牌", "服務親切"],
+      "website": "https://www.ponyrent.com.tw/",
+      "mapUrl": "https://maps.google.com/?q=小馬租車台南",
+      "source": ["在地推薦"]
+    }
+  ],
+  "scooterRentals": [
+    {
+      "id": "sct001",
+      "name": "台南火車站機車出租",
+      "address": "台南市中西區北門路一段（火車站周邊）",
+      "phone": "各店家不同",
+      "hours": "08:00-21:00",
+      "priceRange": "300-500元/日",
+      "description": "火車站前有多家機車出租店，方便旅客租借，適合在市區移動。",
+      "features": ["火車站周邊", "選擇多"],
+      "tips": "記得攜帶駕照，外國人需國際駕照",
+      "mapUrl": "https://maps.google.com/?q=台南火車站機車出租",
+      "source": ["在地推薦"]
+    },
+    {
+      "id": "sct002",
+      "name": "GoShare共享機車",
+      "address": "台南市區各處",
+      "phone": "App客服",
+      "hours": "24小時",
+      "priceRange": "2.5元/分鐘起",
+      "description": "電動機車共享服務，使用App租借，隨借隨還，適合短程移動。",
+      "features": ["App租借", "電動車", "隨借隨還"],
+      "website": "https://www.ridegoshare.com/",
+      "tips": "先下載App註冊，確認台南有車可用",
+      "mapUrl": "",
+      "source": ["官方"]
+    }
+  ],
+  "parkingLots": [
+    {
+      "id": "prk001",
+      "name": "國華街立體停車場",
+      "district": "west-central",
+      "address": "台南市中西區國華街三段（近海安路）",
+      "hours": "24小時",
+      "priceRange": "30-40元/小時",
+      "description": "逛國華街美食的最佳停車選擇，走出來就是國華街。",
+      "nearbyAttractions": ["國華街", "水仙宮市場", "友愛街"],
+      "mapUrl": "https://maps.google.com/?q=國華街立體停車場",
+      "source": ["在地推薦"]
+    },
+    {
+      "id": "prk002",
+      "name": "海安路停車場",
+      "district": "west-central",
+      "address": "台南市中西區海安路一段",
+      "hours": "24小時",
+      "priceRange": "30-40元/小時",
+      "description": "海安路沿線有多個停車場，方便遊逛神農街、海安路藝術街區。",
+      "nearbyAttractions": ["神農街", "海安路藝術街", "蝸牛巷"],
+      "mapUrl": "https://maps.google.com/?q=海安路停車場",
+      "source": ["在地推薦"]
+    },
+    {
+      "id": "prk003",
+      "name": "安平老街周邊停車場",
+      "district": "anping",
+      "address": "台南市安平區安平路周邊",
+      "hours": "08:00-22:00",
+      "priceRange": "假日50-100元/次，平日30-50元/小時",
+      "description": "安平老街周邊有多個民營和公營停車場，假日建議早點去。",
+      "nearbyAttractions": ["安平老街", "安平古堡", "安平樹屋"],
+      "mapUrl": "https://maps.google.com/?q=安平老街停車場",
+      "tips": "假日人潮多，停車位難找",
+      "source": ["在地推薦"]
+    },
+    {
+      "id": "prk004",
+      "name": "奇美博物館停車場",
+      "district": "rende",
+      "address": "台南市仁德區文華路二段66號",
+      "hours": "跟隨園區營業時間",
+      "priceRange": "汽車50元/次",
+      "description": "博物館專屬停車場，容量大，參觀博物館必停。",
+      "nearbyAttractions": ["奇美博物館", "十鼓文創園區"],
+      "mapUrl": "https://maps.google.com/?q=奇美博物館停車場",
+      "source": ["官方"]
+    },
+    {
+      "id": "prk005",
+      "name": "花園夜市停車場",
+      "district": "north",
+      "address": "台南市北區海安路三段（夜市周邊）",
+      "hours": "夜市營業時段",
+      "priceRange": "50-100元/次",
+      "description": "花園夜市周邊有多個臨時停車場，營業日人潮眾多建議提早到。",
+      "nearbyAttractions": ["花園夜市"],
+      "mapUrl": "https://maps.google.com/?q=花園夜市停車場",
+      "tips": "夜市營業日停車很難找，建議騎機車或搭計程車",
+      "source": ["在地推薦"]
+    }
+  ],
+  "publicTransport": {
+    "highSpeedRail": {
+      "name": "台灣高鐵-台南站",
+      "address": "台南市歸仁區歸仁大道100號",
+      "description": "高鐵台南站位於歸仁區，可轉乘台鐵沙崙線或公車進入市區。",
+      "connections": [
+        {
+          "type": "台鐵沙崙線",
+          "destination": "台南火車站",
+          "duration": "約25分鐘",
+          "price": "25元"
+        },
+        {
+          "type": "H31快捷公車",
+          "destination": "市區主要景點",
+          "duration": "約30-50分鐘",
+          "price": "免費"
+        }
+      ],
+      "mapUrl": "https://maps.google.com/?q=高鐵台南站",
+      "website": "https://www.thsrc.com.tw/"
+    },
+    "trainStation": {
+      "name": "台南火車站",
+      "address": "台南市東區北門路二段4號",
+      "description": "台南市區的主要交通樞紐，可轉乘公車前往各景點。",
+      "nearbyAttractions": ["成功大學", "台南文創園區"],
+      "mapUrl": "https://maps.google.com/?q=台南火車站",
+      "website": "https://www.railway.gov.tw/"
+    },
+    "busRoutes": [
+      {
+        "name": "88安平線",
+        "description": "行經安平區主要景點，是遊安平的便利選擇。",
+        "keyStops": ["台南火車站", "孔廟", "安平古堡", "安平老街", "四草"],
+        "frequency": "約20-30分鐘一班"
+      },
+      {
+        "name": "99台江線",
+        "description": "行經四草、七股等濱海景點。",
+        "keyStops": ["台南火車站", "安平", "四草綠色隧道", "七股鹽山"],
+        "frequency": "約30-60分鐘一班"
+      },
+      {
+        "name": "H31奇美線",
+        "description": "高鐵站往返奇美博物館的快捷公車。",
+        "keyStops": ["高鐵台南站", "奇美博物館"],
+        "frequency": "配合高鐵班次"
+      },
+      {
+        "name": "府城觀光公車",
+        "description": "串聯市區主要觀光景點的觀光公車。",
+        "keyStops": ["台南火車站", "赤崁樓", "孔廟", "林百貨", "安平"],
+        "frequency": "依路線不同"
+      }
+    ],
+    "tips": [
+      "公車可使用一卡通、悠遊卡付費",
+      "88、99線是遊台南最實用的公車路線",
+      "假日公車班次較少，建議查好時刻表",
+      "台南市區範圍大，租車或騎機車會比較方便"
+    ]
+  },
+  "transportTips": {
+    "general": [
+      "台南市區景點多在中西區、安平區，可步行+公車/機車遊玩",
+      "往郊區景點（奇美博物館、四草、七股）建議開車或參加一日遊",
+      "夜市日停車困難，建議騎機車或搭計程車",
+      "假日安平老街人潮眾多，停車位難找，建議早去或傍晚去"
+    ],
+    "recommended": {
+      "市區一日遊": "機車或腳踏車最方便，景點之間距離近",
+      "親子旅遊": "租車最方便，方便載嬰兒車和行李",
+      "深度旅遊": "租車可以走訪更多郊區景點",
+      "省錢旅遊": "善用公車88、99線，搭配步行"
+    }
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-13",
+  "nightmarkets": [
+    {
+      "id": "nm001",
+      "name": "花園夜市",
+      "district": "north",
+      "address": "台南市北區海安路三段533號",
+      "hours": "週四、週六、週日 17:00-00:00",
+      "operatingDays": ["thursday", "saturday", "sunday"],
+      "description": "全台最大夜市之一，攤位超過400攤，分為美食區、服飾區、遊戲區。是台南夜市的代表，觀光客必訪。",
+      "features": ["超大規模", "觀光客必訪", "有停車場"],
+      "parking": "周邊有多處停車場，約50-100元",
+      "rating": 4.2,
+      "images": ["huayuan-1.webp", "huayuan-2.webp"],
+      "mapUrl": "https://maps.google.com/?q=花園夜市",
+      "source": ["官方", "熱血玩台南"],
+      "tips": "人潮很多要有心理準備，建議搭計程車或機車前往",
+      "stalls": [
+        {
+          "id": "nm001-s01",
+          "name": "二師兄滷味",
+          "category": "小吃",
+          "description": "花園夜市超人氣滷味攤，種類豐富，滷汁入味。",
+          "priceRange": "50-150元",
+          "signature": ["滷味拼盤", "豆干", "米血"],
+          "rating": 4.3,
+          "tips": "排隊人潮很長，要有耐心"
+        },
+        {
+          "id": "nm001-s02",
+          "name": "統大炭烤香雞排",
+          "category": "炸物",
+          "description": "花園夜市排隊名店，雞排炭烤香氣十足，外酥內嫩。",
+          "priceRange": "70-90元",
+          "signature": ["炭烤雞排"],
+          "rating": 4.4,
+          "tips": "現炸需等候約10-15分鐘"
+        },
+        {
+          "id": "nm001-s03",
+          "name": "小上海香酥雞",
+          "category": "炸物",
+          "description": "酥炸雞肉塊搭配特製胡椒鹽，是夜市經典小吃。",
+          "priceRange": "60-100元",
+          "signature": ["香酥雞", "炸雞皮"],
+          "rating": 4.2,
+          "tips": ""
+        },
+        {
+          "id": "nm001-s04",
+          "name": "麻糬叔叔",
+          "category": "甜點",
+          "description": "現做麻糬QQ彈彈，多種口味選擇，是夜市必買甜點。",
+          "priceRange": "40-80元",
+          "signature": ["花生麻糬", "紅豆麻糬", "芝麻麻糬"],
+          "rating": 4.3,
+          "tips": "買完趁熱吃最好吃"
+        },
+        {
+          "id": "nm001-s05",
+          "name": "鱔魚意麵",
+          "category": "小吃",
+          "description": "大火快炒的鱔魚意麵，鱔魚脆口，意麵吸飽醬汁。",
+          "priceRange": "80-120元",
+          "signature": ["炒鱔魚意麵"],
+          "rating": 4.2,
+          "tips": ""
+        },
+        {
+          "id": "nm001-s06",
+          "name": "東山鴨頭",
+          "category": "滷味",
+          "description": "台南名產東山鴨頭，滷到入味再油炸，香脆好吃。",
+          "priceRange": "30-100元",
+          "signature": ["鴨頭", "鴨翅", "鴨脖子"],
+          "rating": 4.1,
+          "tips": ""
+        },
+        {
+          "id": "nm001-s07",
+          "name": "蚵仔煎",
+          "category": "小吃",
+          "description": "台南夜市經典，外皮酥脆，蚵仔鮮美飽滿。",
+          "priceRange": "60-80元",
+          "signature": ["蚵仔煎"],
+          "rating": 4.0,
+          "tips": ""
+        },
+        {
+          "id": "nm001-s08",
+          "name": "地瓜球",
+          "category": "炸物",
+          "description": "外酥內QQ的地瓜球，現炸現賣，越嚼越香。",
+          "priceRange": "40-60元",
+          "signature": ["地瓜球"],
+          "rating": 4.2,
+          "tips": "剛炸好的最酥脆"
+        }
+      ]
+    },
+    {
+      "id": "nm002",
+      "name": "大東夜市",
+      "district": "east",
+      "address": "台南市東區林森路一段276號",
+      "hours": "週一、週二、週五 18:00-01:00",
+      "operatingDays": ["monday", "tuesday", "friday"],
+      "description": "台南三大夜市之一，規模適中，攤位約300攤，美食選擇多元，在地人也愛逛。",
+      "features": ["在地人推薦", "規模適中", "美食為主"],
+      "parking": "周邊停車場",
+      "rating": 4.1,
+      "images": ["dadong-1.webp"],
+      "mapUrl": "https://maps.google.com/?q=大東夜市",
+      "source": ["熱血玩台南"],
+      "tips": "比花園夜市人少一點，逛起來比較舒服",
+      "stalls": [
+        {
+          "id": "nm002-s01",
+          "name": "阿美芭樂",
+          "category": "飲料",
+          "description": "新鮮現切芭樂搭配特製梅粉，清爽解膩。",
+          "priceRange": "40-60元",
+          "signature": ["芭樂切盤"],
+          "rating": 4.2,
+          "tips": ""
+        },
+        {
+          "id": "nm002-s02",
+          "name": "大腸包小腸",
+          "category": "小吃",
+          "description": "糯米腸包香腸，是夜市經典台灣味小吃。",
+          "priceRange": "50-70元",
+          "signature": ["大腸包小腸"],
+          "rating": 4.0,
+          "tips": ""
+        },
+        {
+          "id": "nm002-s03",
+          "name": "蔥油餅",
+          "category": "小吃",
+          "description": "現桿現煎的蔥油餅，外酥內軟，蔥香四溢。",
+          "priceRange": "30-50元",
+          "signature": ["蔥油餅", "蔥油餅加蛋"],
+          "rating": 4.1,
+          "tips": ""
+        },
+        {
+          "id": "nm002-s04",
+          "name": "豆乳雞",
+          "category": "炸物",
+          "description": "豆乳醃製的炸雞，外酥內嫩帶有獨特香氣。",
+          "priceRange": "60-100元",
+          "signature": ["豆乳雞"],
+          "rating": 4.2,
+          "tips": ""
+        }
+      ]
+    },
+    {
+      "id": "nm003",
+      "name": "武聖夜市",
+      "district": "west-central",
+      "address": "台南市中西區武聖路69巷",
+      "hours": "週三、週六 18:00-01:00",
+      "operatingDays": ["wednesday", "saturday"],
+      "description": "台南歷史最悠久的夜市之一，在地人最愛，攤位約200攤，隱藏版美食多。",
+      "features": ["在地人最愛", "歷史悠久", "隱藏版美食"],
+      "parking": "周邊停車場",
+      "rating": 4.0,
+      "images": ["wusheng-1.webp"],
+      "mapUrl": "https://maps.google.com/?q=武聖夜市",
+      "source": ["在地推薦"],
+      "tips": "規模比花園夜市小，但很多老攤位值得挖掘",
+      "stalls": [
+        {
+          "id": "nm003-s01",
+          "name": "阿三哥臭豆腐",
+          "category": "小吃",
+          "description": "武聖夜市人氣臭豆腐，外酥內嫩，搭配泡菜解膩。",
+          "priceRange": "50-70元",
+          "signature": ["臭豆腐"],
+          "rating": 4.2,
+          "tips": ""
+        },
+        {
+          "id": "nm003-s02",
+          "name": "鹽酥雞",
+          "category": "炸物",
+          "description": "經典鹽酥雞攤，炸物種類豐富，香酥好吃。",
+          "priceRange": "50-150元",
+          "signature": ["鹽酥雞", "炸花枝", "甜不辣"],
+          "rating": 4.1,
+          "tips": ""
+        }
+      ]
+    },
+    {
+      "id": "nm004",
+      "name": "小北成功夜市",
+      "district": "north",
+      "address": "台南市北區西門路四段171號",
+      "hours": "週二、週五 18:00-00:00",
+      "operatingDays": ["tuesday", "friday"],
+      "description": "平日營業的夜市選擇，規模中等，約150攤，美食為主。",
+      "features": ["平日營業", "在地人去處"],
+      "parking": "路邊停車",
+      "rating": 3.9,
+      "images": ["xiaobei-1.webp"],
+      "mapUrl": "https://maps.google.com/?q=小北成功夜市",
+      "source": ["在地推薦"],
+      "tips": "平日想逛夜市的好選擇",
+      "stalls": [
+        {
+          "id": "nm004-s01",
+          "name": "碳烤玉米",
+          "category": "小吃",
+          "description": "炭火慢烤的玉米，刷上醬料香氣誘人。",
+          "priceRange": "50-80元",
+          "signature": ["碳烤玉米"],
+          "rating": 4.0,
+          "tips": ""
+        }
+      ]
+    },
+    {
+      "id": "nm005",
+      "name": "永大夜市",
+      "district": "yongkang",
+      "address": "台南市永康區永大路二段",
+      "hours": "週一、週四 17:30-00:00",
+      "operatingDays": ["monday", "thursday"],
+      "description": "永康區的在地夜市，規模不大但價格實惠，在地人的日常去處。",
+      "features": ["平日營業", "價格實惠", "在地人去處"],
+      "parking": "路邊停車",
+      "rating": 3.8,
+      "images": ["yongda-1.webp"],
+      "mapUrl": "https://maps.google.com/?q=永大夜市",
+      "source": ["在地推薦"],
+      "tips": "永康區住民的夜市首選",
+      "stalls": []
+    }
+  ],
+  "scheduleByDay": {
+    "monday": ["大東夜市", "永大夜市"],
+    "tuesday": ["大東夜市", "小北成功夜市"],
+    "wednesday": ["武聖夜市"],
+    "thursday": ["花園夜市", "永大夜市"],
+    "friday": ["大東夜市", "小北成功夜市"],
+    "saturday": ["花園夜市", "武聖夜市"],
+    "sunday": ["花園夜市"]
+  }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="台南旅遊全方位指南 - 景點、美食、小吃、夜市、住宿、交通一次搞定">
+  <meta name="theme-color" content="#FF6B35">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <title>台南旅遊全方位指南</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Preload Data -->
+  <link rel="preload" href="data/attractions.json" as="fetch" crossorigin>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__logo">🏛️ 台南旅遊指南</div>
+    <div class="header__search">
+      <input type="search" id="search-input" class="search-input" placeholder="搜尋景點、美食、住宿...">
+    </div>
+    <nav class="header__nav">
+      <!-- Desktop navigation will be added here if needed -->
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Category Navigation -->
+    <nav id="category-nav" class="category-nav" aria-label="主要分類">
+      <!-- Categories will be rendered by JavaScript -->
+    </nav>
+
+    <!-- Subcategory Navigation -->
+    <nav id="subcategory-nav" class="subcategory-nav" aria-label="子分類">
+      <!-- Subcategories will be rendered by JavaScript -->
+    </nav>
+
+    <!-- Content Area -->
+    <section id="card-grid" class="card-grid" aria-label="內容列表">
+      <!-- Content will be rendered by JavaScript -->
+      <div class="loading">
+        <div class="loading__spinner"></div>
+        <span>載入中...</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- Detail Modal -->
+  <div id="detail-modal" class="modal" role="dialog" aria-modal="true">
+    <!-- Modal content will be rendered by JavaScript -->
+  </div>
+
+  <!-- Bottom Navigation (Mobile) -->
+  <nav id="bottom-nav" class="bottom-nav" aria-label="底部導航">
+    <!-- Bottom nav will be rendered by JavaScript -->
+  </nav>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+</html>
