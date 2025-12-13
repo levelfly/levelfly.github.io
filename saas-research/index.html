@@ -1,0 +1,2467 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杰特企業 SaaS 轉型深度研究報告</title>
+    <meta name="description" content="為杰特企業 SaaS 轉型決策提供全面市場情報，涵蓋競爭格局、Micro-SaaS 模式、賣家痛點、AI 工具市場、定價策略分析">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 26, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 30px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 30px;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .meta-item .icon {
+            font-size: 1.2rem;
+        }
+
+        /* Executive Summary */
+        .executive-summary {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 20px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .summary-card {
+            padding: 25px;
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .summary-card h3 {
+            font-size: 1.1rem;
+            color: #a78bfa;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .summary-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 80px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+            padding: 15px 20px;
+            text-align: left;
+            font-weight: 600;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 15px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        tr:hover td {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        /* Feature Comparison */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .feature-card .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Market Position Chart */
+        .market-position {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 30px 0;
+        }
+
+        /* Pain Points */
+        .painpoint-list {
+            display: grid;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .painpoint-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .painpoint-item:hover {
+            border-color: rgba(102, 126, 234, 0.5);
+            transform: translateX(10px);
+        }
+
+        .painpoint-rank {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .painpoint-content {
+            flex: 1;
+        }
+
+        .painpoint-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .painpoint-content p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .painpoint-bar {
+            width: 100px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .painpoint-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 5px;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .pricing-card {
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: rgba(102, 126, 234, 0.5);
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .pricing-card.featured::before {
+            content: '推薦';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+        }
+
+        .pricing-card .period {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 25px;
+            width: 14px;
+            height: 14px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid #0a0a1a;
+        }
+
+        .timeline-item h4 {
+            font-size: 1.1rem;
+            color: #a78bfa;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        /* Action Items */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .action-card {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+
+        .action-card h4 {
+            font-size: 1.1rem;
+            color: #a78bfa;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .action-list {
+            list-style: none;
+        }
+
+        .action-list li {
+            padding: 10px 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .action-list li::before {
+            content: '□';
+            color: #667eea;
+            flex-shrink: 0;
+        }
+
+        /* Conclusion Box */
+        .conclusion-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .conclusion-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .conclusion-box .highlight {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .strategy-badge {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Case Study Cards */
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .case-card {
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .case-card:hover {
+            border-color: rgba(102, 126, 234, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .case-card h4 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .case-card .mrr {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #a78bfa;
+            margin-bottom: 10px;
+        }
+
+        .case-card p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ICP Profile */
+        .icp-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .icp-box h3 {
+            font-size: 1.3rem;
+            color: #a78bfa;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .icp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .icp-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .icp-item .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .icp-item .label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 5px;
+        }
+
+        .icp-item .value {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 30px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 80px;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .executive-summary {
+                padding: 25px;
+            }
+
+            .pricing-card {
+                padding: 25px;
+            }
+
+            .conclusion-box {
+                padding: 30px 20px;
+            }
+
+            .meta-info {
+                gap: 15px;
+            }
+        }
+
+        /* Code blocks */
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Highlight text */
+        .highlight-text {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+            padding: 2px 8px;
+            border-radius: 5px;
+        }
+
+        /* Info boxes */
+        .info-box {
+            background: rgba(102, 126, 234, 0.1);
+            border-left: 4px solid #667eea;
+            padding: 20px 25px;
+            border-radius: 0 10px 10px 0;
+            margin: 25px 0;
+        }
+
+        .info-box h4 {
+            color: #a78bfa;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        /* Risk table colors */
+        .risk-high {
+            color: #f87171;
+        }
+
+        .risk-medium {
+            color: #fbbf24;
+        }
+
+        .risk-low {
+            color: #4ade80;
+        }
+
+        /* Advantage list */
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .advantage-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .advantage-item .check {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.8rem;
+        }
+
+        .advantage-item h4 {
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .advantage-item p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="../index.html" class="logo">Level<span>fly</span></a>
+        <ul class="nav-links">
+            <li><a href="#summary">摘要</a></li>
+            <li><a href="#product">神筆</a></li>
+            <li><a href="#competition">競爭分析</a></li>
+            <li><a href="#microsaas">Micro-SaaS</a></li>
+            <li><a href="#painpoints">痛點分析</a></li>
+            <li><a href="#ai-tools">AI 工具</a></li>
+            <li><a href="#pricing">定價策略</a></li>
+            <li><a href="#strategy">戰略建議</a></li>
+            <li><a href="#framework">思考框架</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>杰特企業 SaaS 轉型深度研究報告</h1>
+        <p class="subtitle">為 SaaS 轉型決策提供全面市場情報</p>
+
+        <div class="meta-info">
+            <div class="meta-item">
+                <span class="icon">📅</span>
+                <span>研究日期：2024年12月8日</span>
+            </div>
+            <div class="meta-item">
+                <span class="icon">🎯</span>
+                <span>研究範圍：5 大主題深度分析</span>
+            </div>
+            <div class="meta-item">
+                <span class="icon">📊</span>
+                <span>資料來源：網路搜尋、專家分析、產業報告</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <div class="container">
+        <section id="summary" class="executive-summary">
+            <h2 style="text-align: center; font-size: 1.5rem; margin-bottom: 10px;">執行摘要</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 30px;">經過五大主題的深度研究，為杰特企業提供以下核心結論</p>
+
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>🎯 市場機會</h3>
+                    <p>月費 NT$3,000-8,000 區間、具備 AI 智慧補貨、深度平台整合的「智慧型中階 ERP」目前市場缺乏，存在明確空白。</p>
+                </div>
+                <div class="summary-card">
+                    <h3>🚀 戰略建議</h3>
+                    <p>採用 Micro-SaaS 起步策略：以單一模組（智慧補貨或 AI 商品圖）切入，24-36 個月目標達到 $10K MRR。</p>
+                </div>
+                <div class="summary-card">
+                    <h3>💰 定價策略</h3>
+                    <p>三階梯免費增值模式：基礎版免費 → 專業版 NT$3,000/月 → 企業版 NT$8,000/月，提供 30 天免費試用。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Introduction: 神筆 -->
+        <section id="product" style="margin-top: 60px;">
+            <div class="section-header">
+                <div class="section-number">✦</div>
+                <h2 class="section-title">產品介紹：<span>神筆</span></h2>
+                <p class="section-subtitle">Shen-Bi / Magic Brush — AI 智慧視覺工作站</p>
+            </div>
+
+            <div class="info-box" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%); border-left: 4px solid #667eea;">
+                <h4 style="margin-bottom: 15px; font-size: 1.1rem;">產品定義</h4>
+                <p style="line-height: 1.8;">
+                    「神筆」是一套專為台灣跨境電商賣家打造的<strong>「AI 智慧視覺工作站」</strong>。它不是通用修圖軟體（如 Photoshop），也不是通用設計工具（如 Canva）。它是目前市場上<strong>唯一</strong>針對「從中國進貨、在台灣銷售」這條商業路徑，深度整合了「AI 圖像處理」與「在地化電商工作流」的<strong>垂直型 SaaS 解決方案</strong>。
+                </p>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">誕生緣起</h3>
+            <p style="line-height: 1.9; color: rgba(255,255,255,0.85);">
+                「神筆」源於杰特企業創辦人<strong>洪杰先生十年的電商實戰痛點</strong>。面對每日從 1688 等平台引進的海量商品，賣家長期受困於繁瑣的圖源處理：去除簡體字、消除浮水印、修改大陸用語、以及適應不同平台（MOMO、蝦皮、酷澎）的嚴格規範。
+            </p>
+            <p style="line-height: 1.9; color: rgba(255,255,255,0.85); margin-top: 15px;">
+                為了從低效的「美工手工業」中解放出來，「神筆」應運而生。其核心理念是：
+            </p>
+            <div style="text-align: center; margin: 25px 0; padding: 20px; background: rgba(102, 126, 234, 0.1); border-radius: 12px;">
+                <span style="font-size: 1.3rem; font-weight: 600; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">「由賣家為賣家打造」(By a Seller, for Sellers)</span>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">核心功能與獨門絕技</h3>
+            <p style="margin-bottom: 25px; color: rgba(255,255,255,0.7);">「神筆」解決的是<strong style="color: #a78bfa;">「效率」</strong>與<strong style="color: #a78bfa;">「在地化」</strong>兩大核心問題：</p>
+
+            <div style="display: grid; gap: 25px;">
+                <!-- 獨家絕技 -->
+                <div class="feature-card" style="text-align: left; padding: 25px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border: 2px solid rgba(102, 126, 234, 0.3);">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                        <span style="font-size: 1.5rem;">🎯</span>
+                        <h4 style="font-size: 1.1rem; color: #fff; margin: 0;">獨家絕技：AI 智能去簡換繁與在地化引擎</h4>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);">
+                            <strong style="color: #4ade80;">一鍵淨化：</strong>自動辨識並移除圖片中的簡體中文、浮水印、牛皮癬廣告
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);">
+                            <strong style="color: #4ade80;">語意在地化：</strong>不僅是繁簡轉換，更進行用語潤飾（例如：「視頻」→「影片」、「親」→「您」），確保符合台灣消費者閱讀習慣
+                        </li>
+                        <li style="padding: 10px 0; color: rgba(255,255,255,0.85);">
+                            <strong style="color: #4ade80;">風格還原：</strong>AI 移除文字後，能自動修補背景，並將新繁體文字以「原圖風格」貼回，維持視覺一致性
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 其他功能網格 -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <div class="feature-card" style="text-align: left; padding: 20px;">
+                        <div style="font-size: 1.5rem; margin-bottom: 10px;">🖼️</div>
+                        <h4 style="margin-bottom: 8px;">無限工作畫布</h4>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6;">打破「一張圖一個檔案」的限制。在超大畫布上同時預覽、編輯同一商品的所有圖片（主圖、詳情圖、活動圖），大幅提升視覺策劃連貫性。</p>
+                    </div>
+                    <div class="feature-card" style="text-align: left; padding: 20px;">
+                        <div style="font-size: 1.5rem; margin-bottom: 10px;">📐</div>
+                        <h4 style="margin-bottom: 8px;">智慧裁切與多平台適配</h4>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6;">內建 MOMO、蝦皮、酷澎等主流平台圖片規範（尺寸、白底要求、Logo 限制）。製作一次，自動導出所有平台成品，解決「一稿多投」痛點。</p>
+                    </div>
+                    <div class="feature-card" style="text-align: left; padding: 20px;">
+                        <div style="font-size: 1.5rem; margin-bottom: 10px;">🎨</div>
+                        <h4 style="margin-bottom: 8px;">可播放的模板庫</h4>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6;">將成功設計風格（如「爆品促銷風」、「日系極簡風」）存為模板。這些模板保留圖層結構，可一鍵套用到新商品，實現設計資產積累。</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">價值主張</h3>
+            <div class="advantage-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                <div class="advantage-item">
+                    <div class="check" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">⚡</div>
+                    <div>
+                        <h4>極致效率</h4>
+                        <p>處理一組商品圖從 30-60 分鐘縮短至 <strong>3-5 分鐘</strong>，效率提升 10 倍</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="check" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">👤</div>
+                    <div>
+                        <h4>降低門檻</h4>
+                        <p>不懂 Photoshop、沒有專業美編，也能產出 <strong>4A 級廣告質感</strong>的商品內容</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="check" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">🚀</div>
+                    <div>
+                        <h4>搶佔紅利</h4>
+                        <p>幫助賣家以最快速度將商品鋪貨至 <strong>酷澎 (Coupang)</strong> 等新興紅利平台</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="check" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">🛡️</div>
+                    <div>
+                        <h4>合規避險</h4>
+                        <p>透過 AI 重製與原創生成，大幅降低直接盜用 1688 原圖的 <strong>版權侵權風險</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">目標客群</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>階段</th>
+                            <th>客群</th>
+                            <th>特徵</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(102, 126, 234, 0.15);">
+                            <td><strong>初期（灘頭堡）</strong></td>
+                            <td>酷澎拓荒者</td>
+                            <td>急需大量鋪貨以搶佔新平台紅利的賣家</td>
+                        </tr>
+                        <tr style="background: rgba(102, 126, 234, 0.1);">
+                            <td><strong>初期（灘頭堡）</strong></td>
+                            <td>蝦皮進階者</td>
+                            <td>月營收 10-50 萬，團隊 1-5 人，正被製圖效率拖慢成長的跨平台經營者</td>
+                        </tr>
+                        <tr>
+                            <td><strong>中期</strong></td>
+                            <td>中小型電商團隊</td>
+                            <td>TP 代運營商</td>
+                        </tr>
+                        <tr>
+                            <td><strong>後期</strong></td>
+                            <td>傳統零售品牌</td>
+                            <td>尋求數位轉型的實體零售商</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">終極願景：三階段進化</h3>
+            <div style="display: flex; flex-direction: column; gap: 0; margin: 30px 0;">
+                <div style="display: flex; align-items: stretch;">
+                    <div style="width: 60px; display: flex; flex-direction: column; align-items: center;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; color: #fff;">1</div>
+                        <div style="flex: 1; width: 3px; background: linear-gradient(180deg, #764ba2, #667eea);"></div>
+                    </div>
+                    <div style="flex: 1; padding: 0 20px 30px;">
+                        <h4 style="color: #fff; margin-bottom: 8px;">智慧副駕 (Co-Pilot)</h4>
+                        <p style="color: rgba(255,255,255,0.7);">幫你<strong style="color: #a78bfa;">「做圖」</strong>，解決執行效率問題</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: stretch;">
+                    <div style="width: 60px; display: flex; flex-direction: column; align-items: center;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; color: #fff;">2</div>
+                        <div style="flex: 1; width: 3px; background: linear-gradient(180deg, #764ba2, #667eea);"></div>
+                    </div>
+                    <div style="flex: 1; padding: 0 20px 30px;">
+                        <h4 style="color: #fff; margin-bottom: 8px;">營運艦橋 (Bridge)</h4>
+                        <p style="color: rgba(255,255,255,0.7);">整合進銷存與 CRM，幫你<strong style="color: #a78bfa;">「管店」</strong>，解決管理複雜性問題</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: stretch;">
+                    <div style="width: 60px; display: flex; flex-direction: column; align-items: center;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; color: #fff;">3</div>
+                    </div>
+                    <div style="flex: 1; padding: 0 20px 0;">
+                        <h4 style="color: #fff; margin-bottom: 8px;">市場先知 (Oracle)</h4>
+                        <p style="color: rgba(255,255,255,0.7);">利用數據與 AI，幫你<strong style="color: #a78bfa;">「決策」</strong>，告訴你該賣什麼、該投什麼，成為賣家真正的 <strong>AI 合夥人</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Competition Analysis -->
+        <section id="competition">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">競爭格局<span>分析</span></h2>
+                <p class="section-subtitle">台灣電商 SaaS/ERP 市場全景</p>
+            </div>
+
+            <h3 style="margin-bottom: 20px; color: #a78bfa;">1.1 主要玩家概覽</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>廠商</th>
+                            <th>定位</th>
+                            <th>月費區間</th>
+                            <th>核心功能</th>
+                            <th>目標客群</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>91APP</strong></td>
+                            <td>高端品牌電商</td>
+                            <td>NT$30,000+</td>
+                            <td>OMO、會員經營、數據分析</td>
+                            <td>中大型品牌商</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SHOPLINE</strong></td>
+                            <td>中端開店平台</td>
+                            <td>NT$2,000-15,000</td>
+                            <td>官網建置、多通路、物流整合</td>
+                            <td>中小型賣家</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CYBERBIZ</strong></td>
+                            <td>中端開店平台</td>
+                            <td>NT$1,500-12,000</td>
+                            <td>一頁式購物、分潤系統</td>
+                            <td>中小型賣家</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WACA</strong></td>
+                            <td>入門開店</td>
+                            <td>NT$599-2,500</td>
+                            <td>簡易官網、基礎功能</td>
+                            <td>微型賣家</td>
+                        </tr>
+                        <tr>
+                            <td><strong>鼎新電腦</strong></td>
+                            <td>傳統 ERP</td>
+                            <td>NT$50,000+/年</td>
+                            <td>進銷存、財務、製造</td>
+                            <td>中大型企業</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">1.2 功能比較矩陣</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>功能</th>
+                            <th>91APP</th>
+                            <th>SHOPLINE</th>
+                            <th>CYBERBIZ</th>
+                            <th>鼎新</th>
+                            <th style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">神筆系統</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>多平台庫存同步</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>△</td>
+                            <td><strong style="color: #a78bfa;">✓✓</strong></td>
+                        </tr>
+                        <tr>
+                            <td>蝦皮/MOMO 深度整合</td>
+                            <td>△</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✗</td>
+                            <td><strong style="color: #a78bfa;">✓✓</strong></td>
+                        </tr>
+                        <tr>
+                            <td>AI 智慧補貨</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                            <td><strong style="color: #a78bfa;">✓</strong></td>
+                        </tr>
+                        <tr>
+                            <td>AI 商品圖生成</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                            <td><strong style="color: #a78bfa;">✓</strong></td>
+                        </tr>
+                        <tr>
+                            <td>3D 倉儲管理</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                            <td>△</td>
+                            <td><strong style="color: #a78bfa;">✓</strong></td>
+                        </tr>
+                        <tr>
+                            <td>客製化彈性</td>
+                            <td>低</td>
+                            <td>中</td>
+                            <td>中</td>
+                            <td>高</td>
+                            <td><strong style="color: #a78bfa;">高</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 15px;">
+                圖例：✓✓ 強項 | ✓ 具備 | △ 部分支援 | ✗ 不具備
+            </p>
+
+            <div class="market-position">
+                <h3 style="color: #a78bfa; margin-bottom: 20px;">1.3 市場定位圖</h3>
+                <div class="chart-container">
+                    <canvas id="marketChart"></canvas>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">1.4 神筆系統差異化優勢</h3>
+
+            <div class="advantage-grid">
+                <div class="advantage-item">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>AI 原生設計</h4>
+                        <p>從設計就整合 AI，非後期加掛，技術架構更完整</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>實戰驗證</h4>
+                        <p>2 萬 SKU 自用經驗，經過真實業務場景打磨</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>深度整合</h4>
+                        <p>針對台灣平台 API 優化，在地化體驗更佳</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>彈性客製</h4>
+                        <p>Python/Django 技術棧易於調整，滿足特殊需求</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Micro-SaaS -->
+        <section id="microsaas">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">Micro-SaaS <span>成功路徑</span></h2>
+                <p class="section-subtitle">小團隊的 SaaS 創業模式</p>
+            </div>
+
+            <div class="info-box">
+                <h4>什麼是 Micro-SaaS？</h4>
+                <p>由 1-3 人小團隊經營、專注利基市場、訂閱制收費、自力更生（Bootstrapped）的軟體服務模式。成功標準通常定義為達到 $10K MRR（月經常性收入）。</p>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">2.1 成功案例分析</h3>
+
+            <div class="case-grid">
+                <div class="case-card">
+                    <h4>Nomad List</h4>
+                    <div class="mrr">$50K+ MRR</div>
+                    <p>1 人創辦，數位遊牧城市資訊平台。成功關鍵：社群驅動、持續迭代。</p>
+                </div>
+                <div class="case-card">
+                    <h4>Plausible</h4>
+                    <div class="mrr">$100K+ MRR</div>
+                    <p>2 人創辦，隱私優先網站分析工具。成功關鍵：差異化定位、開源策略。</p>
+                </div>
+                <div class="case-card">
+                    <h4>Bannerbear</h4>
+                    <div class="mrr">$30K+ MRR</div>
+                    <p>1 人創辦，自動圖片生成 API。成功關鍵：API 經濟、自動化需求。</p>
+                </div>
+                <div class="case-card">
+                    <h4>Photoroom</h4>
+                    <div class="mrr">估值 $5億+</div>
+                    <p>小團隊創辦，AI 去背景工具。成功關鍵：AI 先發優勢。</p>
+                </div>
+                <div class="case-card">
+                    <h4>Carrd</h4>
+                    <div class="mrr">$100K+ MRR</div>
+                    <p>1 人創辦，一頁式網站建立工具。成功關鍵：極簡定位、低維護成本。</p>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">2.2 成功時間軸</h3>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>0-3 個月</h4>
+                    <p>MVP 開發 + 首批 10 位測試用戶</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>3-6 個月</h4>
+                    <p>產品市場契合驗證 + $1K MRR</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>6-12 個月</h4>
+                    <p>口碑成長 + $3K MRR</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>12-18 個月</h4>
+                    <p>穩定獲客 + $5K MRR</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>18-24 個月</h4>
+                    <p>系統優化 + $8K MRR</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>24-36 個月</h4>
+                    <p>達到 $10K MRR ✓</p>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">2.3 杰特適用策略</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>策略</th>
+                            <th>建議作法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>單點突破</strong></td>
+                            <td>先推「AI 智慧補貨」或「AI 商品圖」單一模組</td>
+                        </tr>
+                        <tr>
+                            <td><strong>利基定位</strong></td>
+                            <td>專注「2,000-10,000 SKU 的蝦皮/MOMO 賣家」</td>
+                        </tr>
+                        <tr>
+                            <td><strong>內容行銷</strong></td>
+                            <td>分享電商經營心得、建立專業形象</td>
+                        </tr>
+                        <tr>
+                            <td><strong>社群經營</strong></td>
+                            <td>建立電商賣家 LINE 社群</td>
+                        </tr>
+                        <tr>
+                            <td><strong>持續迭代</strong></td>
+                            <td>每週更新、快速響應用戶需求</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 3: Pain Points -->
+        <section id="painpoints">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2 class="section-title">電商賣家<span>痛點優先級</span></h2>
+                <p class="section-subtitle">市場真實需求調查</p>
+            </div>
+
+            <h3 style="margin-bottom: 30px; color: #a78bfa;">3.1 痛點嚴重度排序</h3>
+
+            <div class="painpoint-list">
+                <div class="painpoint-item">
+                    <div class="painpoint-rank">1</div>
+                    <div class="painpoint-content">
+                        <h4>庫存管理與同步</h4>
+                        <p>願付價格：NT$2,000-5,000/月 | 現有方案：多平台同步差</p>
+                    </div>
+                    <div class="painpoint-bar">
+                        <div class="painpoint-bar-fill" style="width: 63%;"></div>
+                    </div>
+                    <span style="color: #a78bfa; font-weight: bold;">63%</span>
+                </div>
+                <div class="painpoint-item">
+                    <div class="painpoint-rank">2</div>
+                    <div class="painpoint-content">
+                        <h4>多平台整合</h4>
+                        <p>願付價格：NT$3,000-8,000/月 | 現有方案：有但昂貴或複雜</p>
+                    </div>
+                    <div class="painpoint-bar">
+                        <div class="painpoint-bar-fill" style="width: 58%;"></div>
+                    </div>
+                    <span style="color: #a78bfa; font-weight: bold;">58%</span>
+                </div>
+                <div class="painpoint-item">
+                    <div class="painpoint-rank">3</div>
+                    <div class="painpoint-content">
+                        <h4>人力成本過高</h4>
+                        <p>願付價格：願付自動化工具費 | 現有方案：缺乏智慧化工具</p>
+                    </div>
+                    <div class="painpoint-bar">
+                        <div class="painpoint-bar-fill" style="width: 52%;"></div>
+                    </div>
+                    <span style="color: #a78bfa; font-weight: bold;">52%</span>
+                </div>
+                <div class="painpoint-item">
+                    <div class="painpoint-rank">4</div>
+                    <div class="painpoint-content">
+                        <h4>訂單處理效率</h4>
+                        <p>願付價格：NT$1,500-3,000/月 | 現有方案：基礎功能已有</p>
+                    </div>
+                    <div class="painpoint-bar">
+                        <div class="painpoint-bar-fill" style="width: 47%;"></div>
+                    </div>
+                    <span style="color: #a78bfa; font-weight: bold;">47%</span>
+                </div>
+                <div class="painpoint-item">
+                    <div class="painpoint-rank">5</div>
+                    <div class="painpoint-content">
+                        <h4>商品上架繁瑣</h4>
+                        <p>願付價格：NT$2,000-4,000/月 | 現有方案：AI 工具剛起步</p>
+                    </div>
+                    <div class="painpoint-bar">
+                        <div class="painpoint-bar-fill" style="width: 45%;"></div>
+                    </div>
+                    <span style="color: #a78bfa; font-weight: bold;">45%</span>
+                </div>
+                <div class="painpoint-item">
+                    <div class="painpoint-rank">6</div>
+                    <div class="painpoint-content">
+                        <h4>退換貨管理</h4>
+                        <p>願付價格：NT$1,000-2,000/月 | 現有方案：多靠人工處理</p>
+                    </div>
+                    <div class="painpoint-bar">
+                        <div class="painpoint-bar-fill" style="width: 38%;"></div>
+                    </div>
+                    <span style="color: #a78bfa; font-weight: bold;">38%</span>
+                </div>
+                <div class="painpoint-item">
+                    <div class="painpoint-rank">7</div>
+                    <div class="painpoint-content">
+                        <h4>數據分析能力</h4>
+                        <p>願付價格：NT$2,000-5,000/月 | 現有方案：平台內建不足</p>
+                    </div>
+                    <div class="painpoint-bar">
+                        <div class="painpoint-bar-fill" style="width: 35%;"></div>
+                    </div>
+                    <span style="color: #a78bfa; font-weight: bold;">35%</span>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">3.2 痛點與神筆系統功能對應</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>痛點</th>
+                            <th>神筆系統解決方案</th>
+                            <th>競爭優勢</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>庫存管理</td>
+                            <td>多平台即時同步 + 3D 倉儲視覺化</td>
+                            <td style="color: #a78bfa;">3D 倉儲獨家</td>
+                        </tr>
+                        <tr>
+                            <td>多平台整合</td>
+                            <td>蝦皮/MOMO/PChome API 深度整合</td>
+                            <td style="color: #a78bfa;">台灣平台專精</td>
+                        </tr>
+                        <tr>
+                            <td>人力成本</td>
+                            <td>AI 自動補貨建議 + 批次操作</td>
+                            <td style="color: #a78bfa;">AI 原生設計</td>
+                        </tr>
+                        <tr>
+                            <td>商品上架</td>
+                            <td>AI 商品圖生成 + 文案生成</td>
+                            <td style="color: #a78bfa;">ComfyUI 整合</td>
+                        </tr>
+                        <tr>
+                            <td>數據分析</td>
+                            <td>銷售預測 + 庫存健康度分析</td>
+                            <td style="color: #a78bfa;">2 萬 SKU 驗證</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="icp-box">
+                <h3>理想客戶畫像（ICP）</h3>
+                <div class="icp-grid">
+                    <div class="icp-item">
+                        <div class="icon">📦</div>
+                        <div class="label">SKU 數量</div>
+                        <div class="value">2,000 - 10,000</div>
+                    </div>
+                    <div class="icp-item">
+                        <div class="icon">🏪</div>
+                        <div class="label">銷售平台</div>
+                        <div class="value">蝦皮 + MOMO（雙平台以上）</div>
+                    </div>
+                    <div class="icp-item">
+                        <div class="icon">👥</div>
+                        <div class="label">團隊規模</div>
+                        <div class="value">2-10 人</div>
+                    </div>
+                    <div class="icp-item">
+                        <div class="icon">💰</div>
+                        <div class="label">月營業額</div>
+                        <div class="value">NT$50萬 - 500萬</div>
+                    </div>
+                    <div class="icp-item">
+                        <div class="icon">😫</div>
+                        <div class="label">核心痛點</div>
+                        <div class="value">庫存同步、人工操作多</div>
+                    </div>
+                    <div class="icp-item">
+                        <div class="icon">💳</div>
+                        <div class="label">月預算</div>
+                        <div class="value">NT$3,000-8,000</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: AI Tools -->
+        <section id="ai-tools">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">AI 電商工具<span>市場分析</span></h2>
+                <p class="section-subtitle">人工智慧在電商領域的應用與商機</p>
+            </div>
+
+            <h3 style="margin-bottom: 20px; color: #a78bfa;">4.1 市場規模與成長</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>類別</th>
+                            <th>2024 市場規模</th>
+                            <th>2025 預估</th>
+                            <th>年增率</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AI 視覺內容生成</td>
+                            <td>$2.1B</td>
+                            <td>$3.5B</td>
+                            <td style="color: #4ade80;">+67%</td>
+                        </tr>
+                        <tr>
+                            <td>AI 文案/行銷</td>
+                            <td>$1.8B</td>
+                            <td>$2.7B</td>
+                            <td style="color: #4ade80;">+50%</td>
+                        </tr>
+                        <tr>
+                            <td>AI 客服/對話</td>
+                            <td>$1.2B</td>
+                            <td>$1.8B</td>
+                            <td style="color: #4ade80;">+50%</td>
+                        </tr>
+                        <tr>
+                            <td>AI 定價/庫存</td>
+                            <td>$0.8B</td>
+                            <td>$1.2B</td>
+                            <td style="color: #4ade80;">+50%</td>
+                        </tr>
+                        <tr style="background: rgba(102, 126, 234, 0.1);">
+                            <td><strong>整體電商 AI</strong></td>
+                            <td><strong>$8B</strong></td>
+                            <td><strong>$12B</strong></td>
+                            <td style="color: #4ade80;"><strong>+50%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">4.2 AI 工具類型與定價</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>工具類型</th>
+                            <th>代表產品</th>
+                            <th>定價模式</th>
+                            <th>價格區間</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AI 商品攝影</td>
+                            <td>Photoroom、Remove.bg</td>
+                            <td>按張/月費</td>
+                            <td>$10-50/月</td>
+                        </tr>
+                        <tr>
+                            <td>AI 文案生成</td>
+                            <td>Jasper、Copy.ai</td>
+                            <td>月費制</td>
+                            <td>$39-99/月</td>
+                        </tr>
+                        <tr>
+                            <td>AI 客服</td>
+                            <td>Zendesk AI、Intercom</td>
+                            <td>月費+用量</td>
+                            <td>$50-500/月</td>
+                        </tr>
+                        <tr>
+                            <td>AI 定價</td>
+                            <td>Prisync、Competera</td>
+                            <td>按 SKU 數</td>
+                            <td>$99-999/月</td>
+                        </tr>
+                        <tr>
+                            <td>AI 補貨</td>
+                            <td>少數 ERP 內建</td>
+                            <td>模組加購</td>
+                            <td>$100-500/月</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">4.3 ComfyUI 商業化路徑</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>模式</th>
+                            <th>說明</th>
+                            <th>預估收入</th>
+                            <th>適合度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>SaaS 服務</strong></td>
+                            <td>網頁版 AI 商品圖服務</td>
+                            <td>NT$500-2,000/月</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>工作流程市集</strong></td>
+                            <td>販售電商專用工作流程</td>
+                            <td>NT$500-3,000/個</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>私有部署</strong></td>
+                            <td>企業內部部署服務</td>
+                            <td>NT$50,000+/次</td>
+                            <td>⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>API 服務</strong></td>
+                            <td>按次計費 API</td>
+                            <td>NT$1-5/張</td>
+                            <td>⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>教學培訓</strong></td>
+                            <td>線上課程/企業培訓</td>
+                            <td>NT$3,000-30,000</td>
+                            <td>⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-box">
+                <h4>AI 商品圖服務建議方案</h4>
+                <p><strong>免費版</strong>：每月 20 張、基礎背景替換、有浮水印<br>
+                <strong>專業版 NT$990/月</strong>：每月 200 張、進階場景、無浮水印、批次處理<br>
+                <strong>企業版 NT$2,990/月</strong>：無限張數、自訂場景訓練、API 存取、優先支援</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Pricing Strategy -->
+        <section id="pricing">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2 class="section-title">SaaS <span>定價策略</span></h2>
+                <p class="section-subtitle">建立可持續的商業模式</p>
+            </div>
+
+            <h3 style="margin-bottom: 20px; color: #a78bfa;">5.1 定價模式比較</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>模式</th>
+                            <th>優點</th>
+                            <th>缺點</th>
+                            <th>適用情境</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>免費增值</strong></td>
+                            <td>低獲客門檻</td>
+                            <td>轉換率低 (2-5%)</td>
+                            <td>功能可分層</td>
+                        </tr>
+                        <tr>
+                            <td><strong>付費試用</strong></td>
+                            <td>高轉換率 (10-18%)</td>
+                            <td>獲客難度高</td>
+                            <td>高價值產品</td>
+                        </tr>
+                        <tr>
+                            <td><strong>用量計費</strong></td>
+                            <td>公平定價</td>
+                            <td>收入不穩定</td>
+                            <td>API 類服務</td>
+                        </tr>
+                        <tr>
+                            <td><strong>階梯定價</strong></td>
+                            <td>彈性選擇</td>
+                            <td>選擇困難</td>
+                            <td>多元客群</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">5.2 台灣 SaaS 定價洞察</h3>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon">💰</div>
+                    <h4>價格敏感點</h4>
+                    <p>月費超過營收 3% 接受度驟降</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📅</div>
+                    <h4>年約折扣</h4>
+                    <p>15-20% 折扣最有效</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">⏰</div>
+                    <h4>試用期</h4>
+                    <p>台灣需 30 天（國際 14 天）</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">💳</div>
+                    <h4>付款偏好</h4>
+                    <p>信用卡自動扣款接受度提升</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🧾</div>
+                    <h4>發票需求</h4>
+                    <p>電子發票為必要功能</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🔄</div>
+                    <h4>轉換率</h4>
+                    <p>付費試用 10-18% vs 免費 2-5%</p>
+                </div>
+            </div>
+
+            <h3 style="margin: 50px 0 30px; color: #a78bfa;">5.3 神筆系統建議定價</h3>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>入門版</h3>
+                    <div class="price">免費</div>
+                    <div class="period">永久免費使用</div>
+                    <ul class="pricing-features">
+                        <li>SKU 上限：500</li>
+                        <li>平台整合：1 個</li>
+                        <li>AI 功能：基礎補貨提醒</li>
+                        <li>支援：社群 / FAQ</li>
+                    </ul>
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">目的：獲客漏斗、口碑傳播</p>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>專業版</h3>
+                    <div class="price">NT$2,990</div>
+                    <div class="period">每月（年約 NT$2,490/月）</div>
+                    <ul class="pricing-features">
+                        <li>SKU 上限：5,000</li>
+                        <li>平台整合：3 個</li>
+                        <li>AI 功能：智慧補貨 + 銷售預測</li>
+                        <li>AI 圖片：100 張/月</li>
+                        <li>支援：Email + LINE</li>
+                    </ul>
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">目標客群：中型賣家</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>企業版</h3>
+                    <div class="price">NT$7,990</div>
+                    <div class="period">每月（年約 NT$6,490/月）</div>
+                    <ul class="pricing-features">
+                        <li>SKU 上限：無限</li>
+                        <li>平台整合：無限</li>
+                        <li>AI 功能：全功能 + 自訂模型</li>
+                        <li>AI 圖片：無限</li>
+                        <li>3D 倉儲：完整功能</li>
+                        <li>支援：專屬客服 + 導入輔導</li>
+                    </ul>
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">目標客群：大型賣家、品牌商</p>
+                </div>
+            </div>
+
+            <h3 style="margin: 50px 0 20px; color: #a78bfa;">5.4 模組拆分銷售</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>模組</th>
+                            <th>單獨售價</th>
+                            <th>目標客群</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>智慧補貨</strong></td>
+                            <td>NT$1,490/月</td>
+                            <td>只需補貨功能者</td>
+                        </tr>
+                        <tr>
+                            <td><strong>多平台同步</strong></td>
+                            <td>NT$1,990/月</td>
+                            <td>多通路賣家</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AI 商品圖</strong></td>
+                            <td>NT$990/月</td>
+                            <td>需要視覺內容者</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3D 倉儲</strong></td>
+                            <td>NT$1,490/月</td>
+                            <td>有實體倉庫者</td>
+                        </tr>
+                        <tr style="background: rgba(102, 126, 234, 0.1);">
+                            <td><strong>全模組套餐</strong></td>
+                            <td>NT$4,990/月</td>
+                            <td>全功能需求者</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 6: Strategy -->
+        <section id="strategy">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2 class="section-title">戰略<span>建議</span></h2>
+                <p class="section-subtitle">Micro-SaaS 起步路線圖</p>
+            </div>
+
+            <div class="info-box">
+                <h4>推薦策略：單模組 Micro-SaaS 驗證 → 逐步擴展</h4>
+                <p>第一步：AI 智慧補貨（獨立產品）→ 第二步：驗證 PMF，達到 $5K MRR → 第三步：加入多平台同步模組 → 第四步：達到 $10K MRR → 第五步：推出完整神筆系統</p>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">6.1 為什麼選「AI 智慧補貨」切入？</h3>
+
+            <div class="advantage-grid">
+                <div class="advantage-item">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>痛點明確</h4>
+                        <p>63% 賣家最困擾的問題</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>差異化強</h4>
+                        <p>市場幾乎沒有 AI 驅動的補貨工具</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>技術就緒</h4>
+                        <p>杰特已有內部使用經驗</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>價值可量化</h4>
+                        <p>減少缺貨 = 增加營收，ROI 明確</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>獨立性高</h4>
+                        <p>可獨立運作，不需整套 ERP</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">6.2 備選方案：AI 商品圖服務</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>評估面向</th>
+                            <th>說明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: #4ade80;">✅ 市場熱度高</td>
+                            <td>AI 視覺工具年增 67%</td>
+                        </tr>
+                        <tr>
+                            <td style="color: #4ade80;">✅ 進入門檻低</td>
+                            <td>用戶容易理解價值</td>
+                        </tr>
+                        <tr>
+                            <td style="color: #4ade80;">✅ 技術護城河</td>
+                            <td>ComfyUI 整合是技術優勢</td>
+                        </tr>
+                        <tr>
+                            <td style="color: #fbbf24;">⚠️ 競爭激烈</td>
+                            <td>Photoroom 等國際玩家已進入</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">6.3 執行時程</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>階段</th>
+                            <th>任務</th>
+                            <th>里程碑</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>第 1 個月</strong></td>
+                            <td>確定切入模組、設計 MVP</td>
+                            <td>產品規格確定</td>
+                        </tr>
+                        <tr>
+                            <td><strong>第 2-3 個月</strong></td>
+                            <td>開發 MVP、建立官網</td>
+                            <td>MVP 上線</td>
+                        </tr>
+                        <tr>
+                            <td><strong>第 4-6 個月</strong></td>
+                            <td>招募 Beta 用戶、收集回饋</td>
+                            <td>10 位付費用戶</td>
+                        </tr>
+                        <tr>
+                            <td><strong>第 7-12 個月</strong></td>
+                            <td>產品迭代、內容行銷</td>
+                            <td>$3K MRR</td>
+                        </tr>
+                        <tr>
+                            <td><strong>第 13-18 個月</strong></td>
+                            <td>擴展功能、口碑成長</td>
+                            <td>$5K MRR</td>
+                        </tr>
+                        <tr>
+                            <td><strong>第 19-24 個月</strong></td>
+                            <td>第二模組上線</td>
+                            <td>$8K MRR</td>
+                        </tr>
+                        <tr>
+                            <td><strong>第 25-36 個月</strong></td>
+                            <td>完整產品、規模化</td>
+                            <td>$10K MRR</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">6.4 行動清單</h3>
+
+            <div class="action-grid">
+                <div class="action-card">
+                    <h4>📌 立即行動（本週）</h4>
+                    <ul class="action-list">
+                        <li>決定首發模組：AI 智慧補貨 或 AI 商品圖</li>
+                        <li>列出 MVP 核心功能清單（最小可行功能）</li>
+                        <li>整理現有程式碼，評估可重用性</li>
+                    </ul>
+                </div>
+                <div class="action-card">
+                    <h4>📌 一個月內</h4>
+                    <ul class="action-list">
+                        <li>完成產品命名與品牌定位</li>
+                        <li>建立產品官網（Landing Page）</li>
+                        <li>設計定價方案</li>
+                        <li>開始 MVP 開發</li>
+                    </ul>
+                </div>
+                <div class="action-card">
+                    <h4>📌 三個月內</h4>
+                    <ul class="action-list">
+                        <li>MVP 上線</li>
+                        <li>招募 5-10 位 Beta 測試用戶</li>
+                        <li>建立用戶回饋機制</li>
+                        <li>開始內容行銷（部落格/社群）</li>
+                    </ul>
+                </div>
+                <div class="action-card">
+                    <h4>📌 六個月內</h4>
+                    <ul class="action-list">
+                        <li>達成首批 10 位付費用戶</li>
+                        <li>驗證產品市場契合度（PMF）</li>
+                        <li>根據回饋進行產品迭代</li>
+                        <li>評估是否擴展第二模組</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">6.5 風險與對策</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>風險</th>
+                            <th>等級</th>
+                            <th>對策</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>市場接受度不確定</td>
+                            <td class="risk-high">高</td>
+                            <td>先驗證 MVP，小規模測試</td>
+                        </tr>
+                        <tr>
+                            <td>開發資源有限</td>
+                            <td class="risk-medium">中</td>
+                            <td>聚焦單一模組，避免功能膨脹</td>
+                        </tr>
+                        <tr>
+                            <td>競爭者模仿</td>
+                            <td class="risk-medium">中</td>
+                            <td>持續迭代、建立用戶關係</td>
+                        </tr>
+                        <tr>
+                            <td>定價過高/過低</td>
+                            <td class="risk-medium">中</td>
+                            <td>初期可調整，收集市場回饋</td>
+                        </tr>
+                        <tr>
+                            <td>客戶支援負擔</td>
+                            <td class="risk-medium">中</td>
+                            <td>建立 FAQ、自助服務，限制免費版支援</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <div class="conclusion-box">
+            <h2>核心結論與建議</h2>
+            <p class="highlight">
+                市場機會確實存在：台灣電商 SaaS 市場在「AI 驅動的中階 ERP」存在明顯空白<br>
+                Micro-SaaS 模式可行：小團隊可在 24-36 個月內達到 $10K MRR<br>
+                神筆系統具備差異化優勢：AI 原生、實戰驗證、深度平台整合
+            </p>
+            <h3 style="margin: 30px 0 20px; color: #a78bfa;">決策矩陣</h3>
+            <div class="table-container" style="margin-bottom: 30px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>選項</th>
+                            <th>風險</th>
+                            <th>回報</th>
+                            <th>資源需求</th>
+                            <th>建議</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>繼續電商本業</td>
+                            <td style="color: #4ade80;">低</td>
+                            <td>穩定</td>
+                            <td>現有</td>
+                            <td>維持</td>
+                        </tr>
+                        <tr>
+                            <td>全力 SaaS 轉型</td>
+                            <td class="risk-high">高</td>
+                            <td>高</td>
+                            <td>大量</td>
+                            <td>不建議</td>
+                        </tr>
+                        <tr style="background: rgba(102, 126, 234, 0.2);">
+                            <td><strong>Micro-SaaS 並行</strong></td>
+                            <td class="risk-medium">中</td>
+                            <td>中高</td>
+                            <td>可控</td>
+                            <td style="color: #4ade80;"><strong>✓ 推薦</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="strategy-badge">
+                推薦策略：Micro-SaaS 並行策略
+            </div>
+            <p style="margin-top: 25px; color: rgba(255,255,255,0.7); font-size: 0.95rem;">
+                維持電商本業現金流，同時以 AI 智慧補貨模組作為 SaaS 試水溫產品。<br>
+                用 24-36 個月時間驗證市場，達到 $10K MRR 後再決定是否全力投入 SaaS 轉型。
+            </p>
+        </div>
+
+        <!-- Section 7: Strategic Thinking Framework -->
+        <section id="framework" style="margin-top: 80px;">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2 class="section-title">未來<span>思考框架</span></h2>
+                <p class="section-subtitle">在不確定環境中的決策指引</p>
+            </div>
+
+            <div class="info-box" style="background: linear-gradient(135deg, rgba(74, 222, 128, 0.1) 0%, rgba(102, 126, 234, 0.1) 100%); border-left: 4px solid #4ade80;">
+                <h4 style="margin-bottom: 15px;">核心認知轉變</h4>
+                <p style="line-height: 1.8;">
+                    <strong style="color: #4ade80;">認知 1</strong>：這不是「電商 or SaaS」的二選一，最佳策略是<strong>並行驗證</strong><br>
+                    <strong style="color: #4ade80;">認知 2</strong>：不確定性是常態，關鍵不是「猜對市場」而是<strong>快速學習</strong><br>
+                    <strong style="color: #4ade80;">認知 3</strong>：小賭注優於大豪賭，用<strong>最小成本驗證最關鍵假設</strong>
+                </p>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">7.1 Effectuation（效果推理）五原則</h3>
+            <p style="margin-bottom: 20px; color: rgba(255,255,255,0.7);">創業學者研究 27 位成功創業家後總結的決策邏輯：</p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>原則</th>
+                            <th>傳統思維</th>
+                            <th>創業思維</th>
+                            <th>杰特應用</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>鳥在手</strong></td>
+                            <td>先設目標，再找資源</td>
+                            <td>先看手上有什麼</td>
+                            <td>10年經驗、神筆系統、技術能力</td>
+                        </tr>
+                        <tr>
+                            <td><strong>可承受損失</strong></td>
+                            <td>計算期望報酬</td>
+                            <td>設定最多能輸多少</td>
+                            <td>問「失敗能承受嗎」而非「成功率多高」</td>
+                        </tr>
+                        <tr>
+                            <td><strong>瘋狂拼布</strong></td>
+                            <td>競爭分析</td>
+                            <td>找夥伴共創</td>
+                            <td>與早期用戶共同開發、找代理商合作</td>
+                        </tr>
+                        <tr>
+                            <td><strong>檸檬汁</strong></td>
+                            <td>避免意外</td>
+                            <td>利用意外</td>
+                            <td>疫情加速數位化、酷澎進入都是機會</td>
+                        </tr>
+                        <tr>
+                            <td><strong>飛行員</strong></td>
+                            <td>預測未來</td>
+                            <td>控制可控的</td>
+                            <td>專注產品品質和用戶關係</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">7.2 Small Bets（有限下注）策略</h3>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0;">
+                <div class="feature-card" style="text-align: left; padding: 25px; border-left: 3px solid #ef4444;">
+                    <h4 style="color: #ef4444; margin-bottom: 15px;">❌ 大賭注（避免）</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; color: rgba(255,255,255,0.7);">
+                        <li style="padding: 8px 0;">投入 2 年開發完整系統</li>
+                        <li style="padding: 8px 0;">借款全力投入</li>
+                        <li style="padding: 8px 0;">辭職全職創業</li>
+                        <li style="padding: 8px 0;">做完整 ERP 系統</li>
+                    </ul>
+                </div>
+                <div class="feature-card" style="text-align: left; padding: 25px; border-left: 3px solid #4ade80;">
+                    <h4 style="color: #4ade80; margin-bottom: 15px;">✓ 小賭注（推薦）</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; color: rgba(255,255,255,0.7);">
+                        <li style="padding: 8px 0;">投入 3 個月做 MVP</li>
+                        <li style="padding: 8px 0;">用電商利潤支撐實驗</li>
+                        <li style="padding: 8px 0;">先兼職驗證再漸進投入</li>
+                        <li style="padding: 8px 0;">先做單一模組（AI 補貨）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">7.3 驗證金字塔</h3>
+
+            <div style="background: rgba(255,255,255,0.03); border-radius: 15px; padding: 30px; margin: 20px 0;">
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <span style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 8px 15px; border-radius: 8px; font-size: 0.85rem;">Level 5</span>
+                        <span style="color: rgba(255,255,255,0.6);">全面推出</span>
+                        <span style="color: #fbbf24;">💰💰💰💰💰</span>
+                        <span style="color: rgba(255,255,255,0.4); font-size: 0.85rem;">← 最後才做</span>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.3);">↑</div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <span style="background: rgba(102, 126, 234, 0.3); padding: 8px 15px; border-radius: 8px; font-size: 0.85rem;">Level 4</span>
+                        <span style="color: rgba(255,255,255,0.6);">Beta 測試</span>
+                        <span style="color: #fbbf24;">💰💰💰💰</span>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.3);">↑</div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <span style="background: rgba(102, 126, 234, 0.3); padding: 8px 15px; border-radius: 8px; font-size: 0.85rem;">Level 3</span>
+                        <span style="color: rgba(255,255,255,0.6);">MVP 原型</span>
+                        <span style="color: #fbbf24;">💰💰💰</span>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.3);">↑</div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <span style="background: rgba(74, 222, 128, 0.3); padding: 8px 15px; border-radius: 8px; font-size: 0.85rem;">Level 2</span>
+                        <span style="color: #4ade80;">Landing Page</span>
+                        <span style="color: #fbbf24;">💰💰</span>
+                        <span style="color: #4ade80; font-size: 0.85rem;">← 神筆現在應該在這</span>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.3);">↑</div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <span style="background: rgba(74, 222, 128, 0.5); padding: 8px 15px; border-radius: 8px; font-size: 0.85rem;">Level 1</span>
+                        <span style="color: #4ade80;">客戶訪談</span>
+                        <span style="color: #fbbf24;">💰</span>
+                        <span style="color: #4ade80; font-size: 0.85rem;">← 先從這開始</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">7.4 決策時機判斷</h3>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 20px 0;">
+                <div class="feature-card" style="text-align: left; padding: 25px;">
+                    <h4 style="color: #4ade80; margin-bottom: 15px;">✓ 何時該「加碼投入」</h4>
+                    <p style="color: rgba(255,255,255,0.6); margin-bottom: 15px; font-size: 0.9rem;">滿足 4/5 項條件時：</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 8px 0; color: rgba(255,255,255,0.8);">☐ 至少 10 位付費用戶</li>
+                        <li style="padding: 8px 0; color: rgba(255,255,255,0.8);">☐ 連續 3 個月用戶增長 > 15%</li>
+                        <li style="padding: 8px 0; color: rgba(255,255,255,0.8);">☐ LTV > 3x CAC</li>
+                        <li style="padding: 8px 0; color: rgba(255,255,255,0.8);">☐ 現金流可支撐 12+ 個月</li>
+                        <li style="padding: 8px 0; color: rgba(255,255,255,0.8);">☐ 有明確的市場時機</li>
+                    </ul>
+                </div>
+                <div class="feature-card" style="text-align: left; padding: 25px;">
+                    <h4 style="color: #fbbf24; margin-bottom: 15px;">⚠️ 何時該「保守觀望」</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 8px 0; color: rgba(255,255,255,0.8);">• 驗證不足（付費用戶 < 10）</li>
+                        <li style="padding: 8px 0; color: rgba(255,255,255,0.8);">• 資源有限（現金流 < 6 個月）</li>
+                        <li style="padding: 8px 0; color: rgba(255,255,255,0.8);">• 方向未明（還在探索多個可能）</li>
+                        <li style="padding: 8px 0; color: rgba(255,255,255,0.8);">• 個人生活變動期</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">7.5 克服決策焦慮</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>焦慮來源</th>
+                            <th>應對策略</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>「不知道會不會成功」</td>
+                            <td>改問：「失敗我能承受嗎？」</td>
+                        </tr>
+                        <tr>
+                            <td>「別人都成功了」</td>
+                            <td>記住：你看到的是倖存者偏差</td>
+                        </tr>
+                        <tr>
+                            <td>「怕錯過機會」</td>
+                            <td>問 80 歲的自己：會後悔沒試嗎？</td>
+                        </tr>
+                        <tr>
+                            <td>「分析到癱瘓」</td>
+                            <td>設定決策截止日，強迫行動</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #a78bfa;">7.6 立即行動清單</h3>
+
+            <div class="action-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="action-card">
+                    <h4>🔴 本週（立即）</h4>
+                    <ul class="action-list">
+                        <li>列出 10 位潛在用戶名單</li>
+                        <li>設定「可承受損失」上限</li>
+                        <li>加入 Indie Hackers 社群</li>
+                    </ul>
+                </div>
+                <div class="action-card">
+                    <h4>🟡 第一個月</h4>
+                    <ul class="action-list">
+                        <li>完成 10 次客戶訪談</li>
+                        <li>發布 Landing Page</li>
+                        <li>分析數據並決策</li>
+                    </ul>
+                </div>
+                <div class="action-card">
+                    <h4>🟢 第一季度</h4>
+                    <ul class="action-list">
+                        <li>MVP 上線</li>
+                        <li>獲得首位付費用戶</li>
+                        <li>達成 5 位付費用戶</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);">
+                <h4 style="margin-bottom: 15px; text-align: center;">💡 最重要的一句話</h4>
+                <p style="text-align: center; font-size: 1.1rem; line-height: 1.8;">
+                    <strong style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        「不是要做出完美決策，而是要開始行動並從中學習。」
+                    </strong>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>杰特企業 SaaS 轉型深度研究報告 | 研究日期：2024年12月8日</p>
+        <p style="margin-top: 10px;">本報告為決策參考，實際執行需結合公司資源與能力評估</p>
+        <p style="margin-top: 20px;"><a href="../index.html">← 返回 Levelfly 首頁</a></p>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Market Position Chart
+        const ctx = document.getElementById('marketChart').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [
+                    {
+                        label: '鼎新',
+                        data: [{ x: 1, y: 9 }],
+                        backgroundColor: 'rgba(255, 99, 132, 0.8)',
+                        pointRadius: 15
+                    },
+                    {
+                        label: '91APP',
+                        data: [{ x: 2, y: 8.5 }],
+                        backgroundColor: 'rgba(255, 159, 64, 0.8)',
+                        pointRadius: 15
+                    },
+                    {
+                        label: 'SHOPLINE',
+                        data: [{ x: 3, y: 5 }],
+                        backgroundColor: 'rgba(75, 192, 192, 0.8)',
+                        pointRadius: 15
+                    },
+                    {
+                        label: 'CYBERBIZ',
+                        data: [{ x: 2.5, y: 4.5 }],
+                        backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                        pointRadius: 15
+                    },
+                    {
+                        label: 'WACA',
+                        data: [{ x: 1.5, y: 2 }],
+                        backgroundColor: 'rgba(153, 102, 255, 0.8)',
+                        pointRadius: 15
+                    },
+                    {
+                        label: '神筆系統（機會）',
+                        data: [{ x: 8, y: 5 }],
+                        backgroundColor: 'rgba(102, 126, 234, 1)',
+                        pointRadius: 20,
+                        pointStyle: 'star'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: 'rgba(255, 255, 255, 0.7)',
+                            padding: 20,
+                            font: { size: 12 }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: '市場定位圖（X軸：AI能力 / Y軸：價格）',
+                        color: 'rgba(255, 255, 255, 0.9)',
+                        font: { size: 14 }
+                    }
+                },
+                scales: {
+                    x: {
+                        min: 0,
+                        max: 10,
+                        title: {
+                            display: true,
+                            text: 'AI 能力 →',
+                            color: 'rgba(255, 255, 255, 0.7)'
+                        },
+                        ticks: { color: 'rgba(255, 255, 255, 0.5)' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    },
+                    y: {
+                        min: 0,
+                        max: 10,
+                        title: {
+                            display: true,
+                            text: '價格 →',
+                            color: 'rgba(255, 255, 255, 0.7)'
+                        },
+                        ticks: { color: 'rgba(255, 255, 255, 0.5)' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

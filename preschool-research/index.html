@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑞融的成長決策書</title>
+    <meta name="description" content="給媽咪的專屬報告：瑞融明年8月上幼幼班的決策分析">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #fff7ed;
+            color: #374151;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-content {
+            max-width: 56rem;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            background: #fb923c;
+            padding: 0.5rem;
+            border-radius: 9999px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: none;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+            }
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            padding: 0.25rem 0;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            color: #6b7280;
+        }
+
+        .nav-btn:hover {
+            color: #fb923c;
+        }
+
+        .nav-btn.active {
+            border-bottom-color: #f97316;
+            color: #ea580c;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: flex;
+            overflow-x: auto;
+            padding: 0.5rem 1rem;
+            gap: 1rem;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .mobile-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-nav {
+                display: none;
+            }
+        }
+
+        .mobile-nav-btn {
+            white-space: nowrap;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            border: none;
+            background: none;
+            color: #6b7280;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .mobile-nav-btn.active {
+            background: #ffedd5;
+            color: #c2410c;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 56rem;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ffedd5 0%, #fef3c7 100%);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 2rem;
+            }
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-content {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: white;
+            color: #ea580c;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero h2 {
+                font-size: 1.875rem;
+            }
+        }
+
+        .hero p {
+            color: #4b5563;
+        }
+
+        .hero-icon {
+            display: none;
+            width: 8rem;
+            height: 8rem;
+            background: white;
+            border-radius: 9999px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 4px solid white;
+            font-size: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-icon {
+                display: flex;
+            }
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Info Card */
+        .info-card {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card.border-green {
+            border-left: 4px solid #4ade80;
+        }
+
+        .info-card.border-yellow {
+            border-left: 4px solid #facc15;
+        }
+
+        .info-card.border-red {
+            border-left: 4px solid #f87171;
+        }
+
+        .info-card.border-orange {
+            border-left: 4px solid #fb923c;
+        }
+
+        .info-card h3 {
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card li {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+
+        .check-green { color: #22c55e; }
+        .warn-yellow { color: #eab308; }
+
+        /* Advantage Cards */
+        .advantage-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-top: 1.5rem;
+        }
+
+        .advantage-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .advantage-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .advantage-item {
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .advantage-item.blue { background: #eff6ff; }
+        .advantage-item.orange { background: #fff7ed; }
+        .advantage-item.purple { background: #faf5ff; }
+
+        .advantage-item .icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .advantage-item .title {
+            font-weight: 700;
+            color: #374151;
+            font-size: 0.875rem;
+        }
+
+        .advantage-item .desc {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .chart-header {
+            margin-bottom: 1rem;
+        }
+
+        .chart-header h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #1f2937;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chart-header p {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        .chart-wrapper {
+            height: 16rem;
+            width: 100%;
+        }
+
+        .chart-note {
+            margin-top: 1rem;
+            background: #fef2f2;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            color: #b91c1c;
+        }
+
+        /* Comparison Section */
+        .comparison-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-align: center;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-card {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        .comparison-card.recommended {
+            border: 2px solid #fed7aa;
+        }
+
+        .comparison-header {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .comparison-card:first-child .comparison-header {
+            background: #f3f4f6;
+        }
+
+        .comparison-card.recommended .comparison-header {
+            background: #ffedd5;
+            position: relative;
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: #f97316;
+            color: white;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        .comparison-header h4 {
+            font-weight: 700;
+            color: #374151;
+        }
+
+        .comparison-header.recommended h4 {
+            color: #9a3412;
+        }
+
+        .comparison-header span {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+
+        .comparison-header.recommended span {
+            color: #ea580c;
+        }
+
+        .comparison-body {
+            padding: 1.5rem;
+        }
+
+        .comparison-section h5 {
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-section h5.green { color: #16a34a; }
+        .comparison-section h5.red { color: #ef4444; }
+
+        .comparison-section ul {
+            list-style: disc;
+            list-style-position: inside;
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-section li {
+            margin-bottom: 0.25rem;
+        }
+
+        .highlight-item {
+            font-weight: 700;
+            background: #fef9c3;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+        }
+
+        .highlight-item.green {
+            background: #dcfce7;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: #eff6ff;
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            font-size: 0.875rem;
+            color: #1e40af;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            margin-top: 1.5rem;
+        }
+
+        .info-box .icon {
+            flex-shrink: 0;
+            font-size: 1.5rem;
+        }
+
+        /* Risk Section */
+        .risk-section {
+            background: #fef2f2;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid #fecaca;
+            margin-bottom: 1.5rem;
+        }
+
+        .risk-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #991b1b;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .risk-section > p {
+            font-size: 0.875rem;
+            color: #b91c1c;
+            margin-bottom: 1rem;
+        }
+
+        .risk-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .risk-card h4 {
+            font-weight: 700;
+            color: #1f2937;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .risk-card p {
+            font-size: 0.75rem;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+
+        .risk-card .solution {
+            color: #16a34a;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .conclusion-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .conclusion-card h3 {
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .conclusion-card p {
+            font-size: 0.875rem;
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+        .highlight-text {
+            background: #fef9c3;
+            font-weight: 700;
+            padding: 0 0.25rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            border-left: 4px solid #fed7aa;
+            margin-left: 1rem;
+            padding-left: 2rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: -2.75rem;
+            background: #ffedd5;
+            padding: 0.375rem;
+            border-radius: 9999px;
+            color: #f97316;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+        }
+
+        .timeline-icon.highlight {
+            background: #f97316;
+            color: white;
+        }
+
+        .timeline-icon.green {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .timeline-item h4 {
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item ul {
+            list-style: disc;
+            list-style-position: inside;
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.25rem;
+        }
+
+        .schedule-box {
+            background: #fff7ed;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .schedule-item {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .schedule-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .schedule-week {
+            font-weight: 700;
+            color: #ea580c;
+            width: 3rem;
+            flex-shrink: 0;
+        }
+
+        /* Message Card */
+        .message-card {
+            background: #1f2937;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .message-card h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .message-card p {
+            font-size: 0.875rem;
+            color: #d1d5db;
+            line-height: 1.8;
+        }
+
+        /* Subsidy Section */
+        .subsidy-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-top: 1.5rem;
+        }
+
+        .subsidy-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .subsidy-table {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .subsidy-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .subsidy-row:last-child {
+            border-bottom: none;
+        }
+
+        .subsidy-row.header {
+            background: #f3f4f6;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+
+        .subsidy-row.highlight {
+            background: #fef3c7;
+        }
+
+        .subsidy-cell {
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        .subsidy-note {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: #16a34a;
+            font-weight: 500;
+        }
+
+        /* Observation Indicators */
+        .observation-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .observation-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .observation-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .observation-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .observation-card {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .observation-card.green {
+            background: #dcfce7;
+            border: 1px solid #86efac;
+        }
+
+        .observation-card.yellow {
+            background: #fef9c3;
+            border: 1px solid #fde047;
+        }
+
+        .observation-card.red {
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+        }
+
+        .observation-card h4 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .observation-card.green h4 { color: #166534; }
+        .observation-card.yellow h4 { color: #854d0e; }
+        .observation-card.red h4 { color: #991b1b; }
+
+        .observation-card ul {
+            list-style: disc;
+            list-style-position: inside;
+            color: #4b5563;
+        }
+
+        .observation-card li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Sleep Tip */
+        .sleep-tip {
+            background: #ede9fe;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            color: #5b21b6;
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+        }
+
+        .sleep-tip .icon {
+            flex-shrink: 0;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ea580c;
+            text-decoration: none;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #c2410c;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">👶</div>
+                <h1 class="logo-text">瑞融的成長決策書</h1>
+            </div>
+            <nav class="desktop-nav">
+                <button class="nav-btn active" data-tab="summary">核心結論</button>
+                <button class="nav-btn" data-tab="health">健康與發展</button>
+                <button class="nav-btn" data-tab="comparison">情境比一比</button>
+                <button class="nav-btn" data-tab="risks">風險管理</button>
+                <button class="nav-btn" data-tab="plan">執行計畫</button>
+            </nav>
+        </div>
+        <!-- Mobile Nav -->
+        <div class="mobile-nav">
+            <button class="mobile-nav-btn active" data-tab="summary">結論</button>
+            <button class="mobile-nav-btn" data-tab="health">健康</button>
+            <button class="mobile-nav-btn" data-tab="comparison">比較</button>
+            <button class="mobile-nav-btn" data-tab="risks">風險</button>
+            <button class="mobile-nav-btn" data-tab="plan">計畫</button>
+        </div>
+    </header>
+
+    <main>
+        <a href="../index.html" class="back-link">← 返回首頁</a>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">給媽咪的專屬報告</span>
+                    <h2>瑞融明年8月上幼幼班：<br/>一個「先苦後甘」但值得的決定</h2>
+                    <p>這份報告綜合了 NICHD 26年追蹤研究與台灣家長經驗。雖然有挑戰，但瑞融擁有「外向氣質」與「手足同校」兩大超級優勢。</p>
+                </div>
+                <div class="hero-icon">☀️</div>
+            </div>
+        </section>
+
+        <!-- Tab: 核心結論 Summary -->
+        <div id="summary" class="tab-content active">
+            <div class="cards-grid">
+                <div class="info-card border-green">
+                    <h3><span style="color: #22c55e;">✓</span> 為什麼選幼幼班？</h3>
+                    <ul>
+                        <li><span class="check-green">✓</span> <b>認知甜蜜點</b>：研究顯示 2-3 歲入學對認知發展效益最佳。</li>
+                        <li><span class="check-green">✓</span> <b>手足紅利</b>：哥哥姐姐在同校，能大幅降低瑞融的不安。</li>
+                        <li><span class="check-green">✓</span> <b>解決接送痛點</b>：避免瑞融每天在車上空耗 1-2 小時。</li>
+                        <li><span class="check-green">✓</span> <b>經濟補助</b>：第三胎優惠最多，每月僅需約 1,000 元。</li>
+                    </ul>
+                </div>
+                <div class="info-card border-yellow">
+                    <h3><span style="color: #eab308;">⚠</span> 我們需要克服什麼？</h3>
+                    <ul>
+                        <li><span class="warn-yellow">!</span> <b>病毒碼更新期</b>：前半年會頻繁生病 (平均月1-2次)。</li>
+                        <li><span class="warn-yellow">!</span> <b>分離焦慮</b>：初期哭鬧是正常的，需堅持溫柔道別。</li>
+                        <li><span class="warn-yellow">!</span> <b>風險警示</b>：需注意不過度刺激，維持高品質親子互動。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="advantage-section">
+                <h3>瑞融的個人優勢分析</h3>
+                <div class="advantage-grid">
+                    <div class="advantage-item blue">
+                        <div class="icon">👫</div>
+                        <div class="title">第3胎手足</div>
+                        <div class="desc">哥姐帶領適應更快</div>
+                    </div>
+                    <div class="advantage-item orange">
+                        <div class="icon">☀️</div>
+                        <div class="title">外向氣質</div>
+                        <div class="desc">適合團體互動</div>
+                    </div>
+                    <div class="advantage-item purple">
+                        <div class="icon">🛡️</div>
+                        <div class="title">優質幼兒園</div>
+                        <div class="desc">品質已驗證</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 補助政策 -->
+            <div class="subsidy-section">
+                <h3>💰 2025 年幼幼班補助（第3胎最優惠！）</h3>
+                <div class="subsidy-table">
+                    <div class="subsidy-row header">
+                        <div class="subsidy-cell">幼兒園類型</div>
+                        <div class="subsidy-cell">每月繳費上限</div>
+                    </div>
+                    <div class="subsidy-row highlight">
+                        <div class="subsidy-cell">🏫 公立</div>
+                        <div class="subsidy-cell"><strong>1,000 元</strong></div>
+                    </div>
+                    <div class="subsidy-row">
+                        <div class="subsidy-cell">🏠 非營利</div>
+                        <div class="subsidy-cell">2,000 元</div>
+                    </div>
+                    <div class="subsidy-row highlight">
+                        <div class="subsidy-cell">🤝 準公共（第3胎）</div>
+                        <div class="subsidy-cell"><strong>1,000 元</strong></div>
+                    </div>
+                    <div class="subsidy-row">
+                        <div class="subsidy-cell">🏢 私立（未簽約）</div>
+                        <div class="subsidy-cell">可領 7,000 元/月 津貼</div>
+                    </div>
+                </div>
+                <p class="subsidy-note">瑞融是第3胎，享有最高補助！入學即自動減免，無需另外申請。</p>
+            </div>
+        </div>
+
+        <!-- Tab: 健康與發展 Health -->
+        <div id="health" class="tab-content">
+            <!-- 免疫力圖表 -->
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>🛡️ 媽咪最擔心的：生病頻率 (每年次數)</h3>
+                    <p>數據顯示：雖然2歲入學初期生病多，但到了小學階段，反而比在家照顧的孩子更健康（獲得長期保護力）。</p>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="immunityChart"></canvas>
+                </div>
+                <div class="chart-note">
+                    <strong>💡 心理準備：</strong> 入學前6個月是「更新病毒碼」時期，頻繁請假是正常的，不是身體不好。
+                </div>
+            </div>
+
+            <!-- 認知發展圖表 -->
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>📚 認知與能力發展比較 (NICHD研究)</h3>
+                    <p>幼兒園環境在語言刺激和學校準備度上有顯著優勢，但也要留意行為問題的微幅增加。</p>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="cognitiveChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: 情境比一比 Comparison -->
+        <div id="comparison" class="tab-content">
+            <h3 class="comparison-title">如果我們選擇...</h3>
+
+            <div class="cards-grid">
+                <!-- 選項 A -->
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <h4>繼續在家照顧</h4>
+                        <span>媽媽一對一</span>
+                    </div>
+                    <div class="comparison-body">
+                        <div class="comparison-section">
+                            <h5 class="green">優點</h5>
+                            <ul>
+                                <li>極高的安全依附感</li>
+                                <li>生病頻率低</li>
+                                <li>作息彈性自由</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-section">
+                            <h5 class="red">瑞融的具體痛點</h5>
+                            <ul>
+                                <li class="highlight-item">🚗 長時間在車上 (接送哥姐)</li>
+                                <li>車上被迫固定，缺乏活動</li>
+                                <li>社交刺激較少</li>
+                                <li>媽媽疲勞累積</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 選項 B -->
+                <div class="comparison-card recommended">
+                    <div class="comparison-header recommended">
+                        <div class="recommended-badge">推薦</div>
+                        <h4>去上幼幼班</h4>
+                        <span>與哥姐同校</span>
+                    </div>
+                    <div class="comparison-body">
+                        <div class="comparison-section">
+                            <h5 class="green">優點</h5>
+                            <ul>
+                                <li class="highlight-item green">👫 手足同校，安全感加倍</li>
+                                <li>解決車上空等的困境</li>
+                                <li>語言爆發期的豐富刺激</li>
+                                <li>媽媽獲得喘息與品質時間</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-section">
+                            <h5 class="red">挑戰</h5>
+                            <ul>
+                                <li>病毒感染高峰期</li>
+                                <li>初期分離焦慮</li>
+                                <li>需要適應團體規範</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="icon">🚗</div>
+                <div>
+                    <strong>為什麼「車上時間」是關鍵考量？</strong><br/>
+                    研究指出，2歲幼兒需要大量的大肌肉活動與探索。如果在車上被動等待超過1-2小時，不僅剝奪了發展時間，也容易造成孩子情緒煩躁。去學校反而能讓他在遊樂場奔跑，是更符合發展需求的選擇。
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: 風險管理 Risks -->
+        <div id="risks" class="tab-content">
+            <div class="risk-section">
+                <h3>ℹ️ 研究中的負面發現 (我們要注意什麼？)</h3>
+                <p>為了客觀，我們必須看見風險。以下是長期追蹤研究發現的潛在問題，以及我們如何避免：</p>
+
+                <div class="cards-grid">
+                    <div class="risk-card">
+                        <h4>壓力荷爾蒙 (Cortisol)</h4>
+                        <p>研究發現幼兒在托育環境中，下午的壓力指數會升高，尤其是3歲以下。</p>
+                        <div class="solution">🛡️ 對策：瑞融有哥姐在校支持，加上高品質師生互動，可有效緩解壓力。</div>
+                    </div>
+                    <div class="risk-card">
+                        <h4>攻擊性行為</h4>
+                        <p>托育時數過長的孩子，4.5歲時出現攻擊行為的機率微幅增加。</p>
+                        <div class="solution">🛡️ 對策：控制每日時數（不超過8-9小時），回家後給予高品質陪伴。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conclusion-card">
+                <h3>關鍵結論：家庭品質 > 學校形式</h3>
+                <p>
+                    NICHD 最大型的研究結論是：<br/>
+                    <span class="highlight-text">「父母與孩子的互動品質」</span>對孩子的影響力，遠遠大於孩子是去上學還是在家照顧。<br/><br/>
+                    只要我們回家後，專心陪瑞融玩、讀書、聊天（而不是這時候還要忙家務），他就能獲得最好的發展，同時規避掉大部分的托育風險。
+                </p>
+            </div>
+        </div>
+
+        <!-- Tab: 執行計畫 Plan -->
+        <div id="plan" class="tab-content">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">📅</div>
+                    <h4>6-7月：預備期</h4>
+                    <ul>
+                        <li>帶瑞融去接送哥姐時，多在門口逗留，介紹「這是學校」。</li>
+                        <li>調整作息：練習在學校午睡的時間睡覺。</li>
+                        <li>閱讀《上學去》、《小波去上學》等繪本。</li>
+                    </ul>
+                    <div class="sleep-tip">
+                        <span class="icon">💤</span>
+                        <div>
+                            <strong>睡眠小提醒：</strong>2 歲幼兒每天需要 11-14 小時睡眠（含午睡）。建議現在就開始調整，讓午睡時間接近學校的 12:30-14:30，這樣入學後會更順利！
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon highlight">⏰</div>
+                    <h4>8月：漸進式適應 (關鍵!)</h4>
+                    <div class="schedule-box">
+                        <div class="schedule-item">
+                            <span class="schedule-week">第1週</span>
+                            <span>家長陪同或半天 (視學校規定)，建立安全感。</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-week">第2週</span>
+                            <span>嘗試在校用餐，餐後接回。</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-week">第3週</span>
+                            <span>嘗試在校午睡 (通常是最大關卡)，睡醒接回。</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-week">第4週</span>
+                            <span>視情況延長至正常放學。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon green">❤️</div>
+                    <h4>家長心態建設</h4>
+                    <ul>
+                        <li><b>堅定道別</b>：說了再見就離開，不要依依不捨，孩子會更焦慮。</li>
+                        <li><b>信任孩子</b>：相信瑞融的外向特質和哥哥姐姐的陪伴。</li>
+                        <li><b>接納生病</b>：備好常用藥，前半年不責怪孩子或自己。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 適應觀察指標 -->
+            <div class="observation-section">
+                <h3>👀 如何判斷適應狀況？</h3>
+                <div class="observation-grid">
+                    <div class="observation-card green">
+                        <h4>✅ 正常（繼續觀察）</h4>
+                        <ul>
+                            <li>前 1-2 週有哭泣</li>
+                            <li>早上說不想去</li>
+                            <li>比較黏人</li>
+                            <li>2-4 週後明顯改善</li>
+                        </ul>
+                    </div>
+                    <div class="observation-card yellow">
+                        <h4>⚠️ 需要關注</h4>
+                        <ul>
+                            <li>超過 1 個月仍每天大哭</li>
+                            <li>睡眠明顯變差</li>
+                            <li>食慾持續下降</li>
+                            <li>情緒變得很不穩定</li>
+                        </ul>
+                    </div>
+                    <div class="observation-card red">
+                        <h4>🚨 考慮暫緩</h4>
+                        <ul>
+                            <li>超過 2 個月嚴重抗拒</li>
+                            <li>嚴重退化行為</li>
+                            <li>原本會的技能退步</li>
+                            <li>健康受嚴重影響</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.875rem; color: #6b7280; text-align: center;">
+                    💡 「暫緩」不是失敗，是尊重孩子的步調。可以 2 月再試試看。
+                </p>
+            </div>
+
+            <div class="message-card">
+                <h3>給親愛的老婆</h3>
+                <p>
+                    我知道妳會擔心，這很正常。但看著這份分析，瑞融有很好的條件去探索新世界。<br/>
+                    不管最後決定如何，我都會支持妳，並且我們一起分擔接送和照顧生病的日子。<br/>
+                    我們一起加油！
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Tab Navigation
+        const navBtns = document.querySelectorAll('.nav-btn, .mobile-nav-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tab = btn.dataset.tab;
+
+                // Update all buttons
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.mobile-nav-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll(`[data-tab="${tab}"]`).forEach(b => b.classList.add('active'));
+
+                // Update content
+                tabContents.forEach(content => content.classList.remove('active'));
+                document.getElementById(tab).classList.add('active');
+
+                // Initialize charts if health tab
+                if (tab === 'health') {
+                    initCharts();
+                }
+            });
+        });
+
+        // Charts
+        let immunityChart = null;
+        let cognitiveChart = null;
+
+        function initCharts() {
+            // Immunity Chart
+            const immunityCtx = document.getElementById('immunityChart');
+            if (immunityCtx && !immunityChart) {
+                immunityChart = new Chart(immunityCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['1歲', '2歲(入學)', '3歲', '4歲', '5歲(小學前)', '6歲(小一)', '7歲'],
+                        datasets: [
+                            {
+                                label: '在家照顧 (生病次數)',
+                                data: [4, 5, 6, 7, 8, 8, 7],
+                                borderColor: '#82ca9d',
+                                backgroundColor: 'rgba(130, 202, 157, 0.1)',
+                                borderWidth: 2,
+                                tension: 0.3
+                            },
+                            {
+                                label: '幼兒園 (生病次數)',
+                                data: [4, 12, 10, 8, 4, 3, 3],
+                                borderColor: '#ff8042',
+                                backgroundColor: 'rgba(255, 128, 66, 0.1)',
+                                borderWidth: 3,
+                                tension: 0.3
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: '生病次數/年'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Cognitive Chart
+            const cognitiveCtx = document.getElementById('cognitiveChart');
+            if (cognitiveCtx && !cognitiveChart) {
+                cognitiveChart = new Chart(cognitiveCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['語言能力', '記憶力', '學校準備度', '行為問題(風險)'],
+                        datasets: [
+                            {
+                                label: '在家照顧指標',
+                                data: [60, 65, 55, 20],
+                                backgroundColor: '#82ca9d',
+                                borderRadius: 4
+                            },
+                            {
+                                label: '幼兒園指標',
+                                data: [75, 72, 80, 35],
+                                backgroundColor: '#8884d8',
+                                borderRadius: 4
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        indexAxis: 'y',
+                        plugins: {
+                            legend: {
+                                position: 'bottom'
+                            }
+                        },
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                max: 100
+                            }
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

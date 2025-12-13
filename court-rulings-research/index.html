@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最高法院誠信原則判決研究 - 台灣司法院裁判整理</title>
+    <meta name="description" content="台灣最高法院關於誠信原則（民法第148條）重要判決整理，包含權利濫用、權利失效、禁反言等裁判要旨分析。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .case-card {
+            transition: all 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .principle-badge {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+            border: 1px solid rgba(102, 126, 234, 0.5);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .timeline-line {
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        }
+
+        .quote-box {
+            border-left: 4px solid #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .toc-link {
+            transition: all 0.2s ease;
+        }
+
+        .toc-link:hover {
+            color: #667eea;
+            padding-left: 8px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+
+<body class="text-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="../index.html" class="text-xl font-bold gradient-text">Levelfly</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#overview" class="nav-link text-gray-300 hover:text-white transition">概述</a>
+                    <a href="#law" class="nav-link text-gray-300 hover:text-white transition">法條解析</a>
+                    <a href="#cases" class="nav-link text-gray-300 hover:text-white transition">重要判決</a>
+                    <a href="#principles" class="nav-link text-gray-300 hover:text-white transition">法律原則</a>
+                    <a href="#resources" class="nav-link text-gray-300 hover:text-white transition">參考資源</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 px-4">
+        <div class="max-w-4xl mx-auto text-center animate-fade-in">
+            <div class="inline-block px-4 py-2 rounded-full glass-card text-sm text-gray-300 mb-6">
+                台灣司法院裁判研究
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                <span class="gradient-text">最高法院</span><br>
+                <span class="text-white">誠信原則判決研究</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                民法第148條「誠信原則」之重要裁判要旨整理<br>
+                涵蓋權利濫用、權利失效、禁反言等核心法律概念
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#cases" class="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-500 rounded-lg font-medium hover:opacity-90 transition">
+                    查看判決整理
+                </a>
+                <a href="#law" class="px-6 py-3 glass-card rounded-lg font-medium hover:bg-white/10 transition">
+                    了解法條
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="stat-card rounded-xl p-6 text-center glass-card">
+                    <div class="text-3xl font-bold gradient-text mb-2">14+</div>
+                    <div class="text-gray-400 text-sm">重要判決</div>
+                </div>
+                <div class="stat-card rounded-xl p-6 text-center glass-card">
+                    <div class="text-3xl font-bold gradient-text mb-2">4</div>
+                    <div class="text-gray-400 text-sm">核心原則</div>
+                </div>
+                <div class="stat-card rounded-xl p-6 text-center glass-card">
+                    <div class="text-3xl font-bold gradient-text mb-2">90+</div>
+                    <div class="text-gray-400 text-sm">年司法實務</div>
+                </div>
+                <div class="stat-card rounded-xl p-6 text-center glass-card">
+                    <div class="text-3xl font-bold gradient-text mb-2">民法</div>
+                    <div class="text-gray-400 text-sm">§148</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">
+                <span class="gradient-text">研究概述</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card rounded-2xl p-8">
+                    <h3 class="text-xl font-semibold mb-4 text-white">什麼是誠信原則？</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        誠信原則（又稱誠實信用原則）是民法的「帝王條款」，為公法與私法的共通原理。
+                        它要求當事人在行使權利、履行義務時，應本於誠實信用之方法，不得以損害他人為主要目的。
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        此原則源自羅馬法的「善意」（bona fides）概念，經德國民法典傳入我國，
+                        成為規範一切法律關係的基本原則，適用範圍涵蓋契約、物權、侵權等各領域。
+                    </p>
+                </div>
+                <div class="glass-card rounded-2xl p-8">
+                    <h3 class="text-xl font-semibold mb-4 text-white">為何重要？</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        誠信原則作為一般條款，具有「法律漏洞填補」功能，使法官在法無明文規定時，
+                        得依公平正義之理念裁判。它也是限制權利濫用、維護交易安全的重要工具。
+                    </p>
+                    <ul class="text-gray-300 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-400">•</span>
+                            <span>作為契約解釋的補充標準</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-400">•</span>
+                            <span>防止權利濫用與權利失效</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-400">•</span>
+                            <span>建立禁反言與情事變更原則</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Law Section -->
+    <section id="law" class="py-16 px-4 bg-black/30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">
+                <span class="gradient-text">法條解析</span>
+            </h2>
+
+            <div class="glass-card rounded-2xl p-8 mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="px-3 py-1 bg-purple-500/30 rounded-lg text-purple-300 text-sm font-medium">民法</span>
+                    <h3 class="text-2xl font-bold text-white">第148條（權利行使之界限）</h3>
+                </div>
+
+                <div class="quote-box p-6 rounded-lg mb-6">
+                    <p class="text-lg text-gray-200 mb-4">
+                        <strong>第一項：</strong>權利之行使，不得違反公共利益，或以損害他人為主要目的。
+                    </p>
+                    <p class="text-lg text-gray-200">
+                        <strong>第二項：</strong>行使權利，履行義務，應依誠實及信用方法。
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-4 rounded-lg bg-white/5">
+                        <h4 class="font-semibold text-purple-300 mb-2">第一項解析</h4>
+                        <p class="text-gray-400 text-sm">
+                            本項規定權利濫用之禁止。權利人雖有權利，但行使時不得違反公共利益，
+                            亦不得以損害他人為主要目的。此為權利社會化之具體展現。
+                        </p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-white/5">
+                        <h4 class="font-semibold text-purple-300 mb-2">第二項解析</h4>
+                        <p class="text-gray-400 text-sm">
+                            本項規定誠信原則。要求當事人於行使權利或履行義務時，
+                            均應本於誠實信用之方法，不得有詐欺、脅迫或違背信賴之行為。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-card rounded-xl p-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-2">公法適用</h4>
+                    <p class="text-gray-400 text-sm">行政程序法第8條明定誠信原則適用於公法領域，為行政法上重要原則。</p>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-2">私法適用</h4>
+                    <p class="text-gray-400 text-sm">民法第148條第2項為私法領域誠信原則之規定，適用於一切私法關係。</p>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-2">帝王條款</h4>
+                    <p class="text-gray-400 text-sm">誠信原則被稱為「帝王條款」，優先於其他法律規定適用。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section id="cases" class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4 text-center">
+                <span class="gradient-text">重要判決整理</span>
+            </h2>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+                以下整理最高法院關於誠信原則之重要判決，包含權利濫用、權利失效、禁反言等類型
+            </p>
+
+            <!-- 權利濫用類 -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="principle-badge px-4 py-2 rounded-lg text-sm font-medium">權利濫用禁止</span>
+                    <h3 class="text-xl font-semibold text-white">相關判決</h3>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- 判決卡片 1 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-purple-400 font-medium">最高法院判例</span>
+                                <h4 class="text-lg font-bold text-white">71年台上字第737號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs">經典判例</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                「權利之行使，是否以損害他人為主要目的，應就權利人因權利行使所能取得之利益，
+                                與他人及國家社會因其權利行使所受之損失，<strong class="text-purple-300">比較衡量</strong>以定之。
+                                倘其權利之行使，自己所得利益極少而他人及國家社會所受之損失甚大者，
+                                非不得視為以損害他人為主要目的，此乃<strong class="text-purple-300">權利社會化</strong>之基本內涵所必然之解釋。」
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">利益衡量</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">權利社會化</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">民事</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 2 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-purple-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">70年台上字第3283號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs">實例應用</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                土地所有人請求拆除占用其<strong class="text-purple-300">畸零地</strong>（無法建築房屋的狹窄帶狀土地）的騎樓，
+                                因會使被占用人22戶與既成道路阻隔，影響公眾利益甚鉅，構成<strong class="text-purple-300">權利濫用</strong>，不受法律保護。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">不動產</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">公共利益</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">拆屋還地</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 3 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-purple-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">108年台上字第101號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">近年判決</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                「所謂不得以損害他人為主要目的，係在限制權利人行使權利，專以損害他人為主要目的；
+                                若當事人行使權利，雖足使他人喪失利益，苟<strong class="text-purple-300">非以損害他人為主要目的</strong>，即不受此限制。」
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">權利限制</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">主觀目的</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 4 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-purple-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">106年台上字第2748號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">判斷標準</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                闡述權利濫用及違反誠信原則之判斷標準：當權利人之利益甚為細微，
+                                卻以此拒絕受領給付、行使權利，造成義務人甚鉅之損害，此權利之行使即為<strong class="text-purple-300">權利濫用</strong>。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">判斷標準</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">受領遲延</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 誠信原則類 -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="principle-badge px-4 py-2 rounded-lg text-sm font-medium">誠實信用原則</span>
+                    <h3 class="text-xl font-semibold text-white">相關判決</h3>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- 判決卡片 5 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-purple-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">86年台再字第86號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs">核心定義</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                「所謂誠實信用之原則，係在具體的權利義務之關係，依<strong class="text-purple-300">正義公平</strong>之方法，
+                                確定並實現權利之內容，避免當事人間犧牲他方利益以圖利自己，
+                                自應以權利人及義務人<strong class="text-purple-300">雙方利益</strong>為衡量依據，
+                                並應考察權利義務之社會上作用，於具體事實妥善運用之方法。」
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">正義公平</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">利益衡量</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">再審</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 6 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-purple-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">26年滬上字第69號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-red-500/20 text-red-300 rounded-full text-xs">歷史判例</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                我國最高法院最早期關於誠信原則適用之判決。確立當權利人之利益甚為細微，
+                                卻以此行使權利造成義務人甚鉅之損害，此權利之行使即為<strong class="text-purple-300">權利濫用</strong>，
+                                違反誠實信用原則。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">早期判例</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">歷史意義</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 - 誠信原則對抗時效 -->
+                    <div class="case-card glass-card rounded-xl p-6 border-l-4 border-yellow-500">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-purple-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">97年台上字第55號</h4>
+                                <p class="text-gray-400 text-xs">97年2月（自為判決）</p>
+                            </div>
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs">重大創見</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                <strong class="text-yellow-300">【誠信原則對抗消滅時效】</strong><br><br>
+                                葉姓婦人30多年前委託同居人申購國宅，房地未移轉登記到她名下。起訴要求縣府移轉土地所有權，
+                                一、二審以超過15年追訴時效判敗訴。最高法院<strong class="text-purple-300">自為判決</strong>改判勝訴：<br><br>
+                                「政府機關<strong class="text-purple-300">怠於執行職務</strong>，如今再以主張權利的15年時效已過而拒絕移轉房地所有權，
+                                <strong class="text-purple-300">違反誠信原則</strong>。土地所有權和占有分離會徒增紛擾，
+                                也和國宅條例的立法意旨相悖。」
+                            </p>
+                        </div>
+                        <div class="bg-purple-500/10 border border-purple-500/30 rounded-lg p-3 mb-4">
+                            <p class="text-purple-300 text-xs">
+                                <strong>法律意義：</strong>本件以「誠信原則」對抗「時效」是最高法院的創見，
+                                引進日本近年來保護弱勢的判例，深具意義，提醒法官法律最終目的在於實現正義。
+                                最高法院罕見「自為判決」，直接改判勝訴，讓當事人免於纏訟之苦。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-yellow-500/20 rounded text-xs text-yellow-300">誠信壓時效</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">自為判決</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">國宅過戶</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">保護弱勢</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 權利失效類 -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="principle-badge px-4 py-2 rounded-lg text-sm font-medium">權利失效原則</span>
+                    <h3 class="text-xl font-semibold text-white">相關判決</h3>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- 判決卡片 7 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-purple-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">97年台上字第950號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs">核心定義</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                「<strong class="text-purple-300">權利人於相當期間內不行使其權利</strong>，並因其行為造成特殊之情況，
+                                足引起義務人之正當信任，認為權利人已不欲行使其權利」，經綜合考量各種因素，
+                                依一般社會通念，若權利之再為行使有違誠信原則者，權利人之權利將受到限制而不得行使。
+                                此即源於誠信原則之「<strong class="text-purple-300">權利失效原則</strong>」。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">長期不行使</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">信賴保護</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">德國法</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 8 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-purple-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">99年台上字第1529號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs">實務應用</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                當事人長期不行使其權利，使他方當事人產生「<strong class="text-purple-300">不行使權利</strong>」之正當法律上信賴，
+                                在誠信原則下，應不許其再為主張，否則即為權利濫用。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">正當信賴</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">權利限制</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 9 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-purple-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">107年台上字第1386號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">近年判決</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                進一步闡述權利失效原則之適用要件：(1)權利人於相當期間內不行使其權利、
+                                (2)因其行為造成特殊情況、(3)足以引起義務人之正當信任認為權利人已不欲行使其權利。
+                                <strong class="text-purple-300">三要件須同時具備</strong>。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">三要件</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">適用標準</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 10 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-purple-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">102年台上字第1766號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs">實務應用</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                權利失效法理之意義：「權利人於相當期間內不行使其權利，而依<strong class="text-purple-300">特別情事</strong>
+                                足以使義務人正當信任債權人不欲其履行義務者，基於誠信原則不得再為主張。」
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">特別情事</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">債權債務</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 禁反言類 -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="principle-badge px-4 py-2 rounded-lg text-sm font-medium">禁反言原則</span>
+                    <h3 class="text-xl font-semibold text-white">相關判決</h3>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- 判決卡片 11 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-purple-400 font-medium">最高法院判決</span>
+                                <h4 class="text-lg font-bold text-white">109年台上字第1039號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs">核心定義</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                「按權利之行使，倘與權利人先前行為相矛盾，破壞相對人之正當信賴者，有違誠實信用原則，
+                                固不生行使權利之效力。惟該所謂『<strong class="text-purple-300">禁反言原則</strong>』之適用，
+                                須權利人有外觀之行為，足使相對人正當信賴其已不欲行使其權利，始足當之。」
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">矛盾行為</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">外觀行為</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">信賴保護</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 12 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-purple-400 font-medium">最高行政法院判決</span>
+                                <h4 class="text-lg font-bold text-white">102年判字第576號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs">行政訴訟</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                最高行政法院明確揭示「<strong class="text-purple-300">判決應適用禁反言之法律原則</strong>」。
+                                指出：「就專利制度而言，只要引證案不同，一個專利案可有數個被舉發案，
+                                但不論有多少舉發案，該被舉發專利之解釋應無不同」，強調法院裁判之一貫性要求。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">專利訴訟</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">裁判一貫性</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">公法</span>
+                        </div>
+                    </div>
+
+                    <!-- 判決卡片 13 -->
+                    <div class="case-card glass-card rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-xs text-purple-400 font-medium">最高行政法院判決</span>
+                                <h4 class="text-lg font-bold text-white">94年判字第1419號</h4>
+                            </div>
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs">行政訴訟</span>
+                        </div>
+                        <div class="quote-box p-4 rounded-lg mb-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                確認權利失效理論不僅適用於<strong class="text-purple-300">私法關係</strong>的判斷，
+                                在<strong class="text-purple-300">公法領域</strong>中亦有其適用之餘地，
+                                擴大誠信原則在行政法上的適用範圍。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">公法適用</span>
+                            <span class="px-2 py-1 bg-white/10 rounded text-xs text-gray-400">行政法</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principles Section -->
+    <section id="principles" class="py-16 px-4 bg-black/30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4 text-center">
+                <span class="gradient-text">核心法律原則</span>
+            </h2>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+                從上述判決歸納出的四大核心法律原則
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 原則1 -->
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center text-2xl">
+                            ⚖️
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">權利濫用禁止</h3>
+                            <p class="text-gray-400 text-sm">Prohibition of Abuse of Rights</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        權利人雖享有權利，但行使時不得違反公共利益或以損害他人為主要目的。
+                        判斷標準為「利益衡量」：若自己所得利益極少而他人損失甚大，即構成權利濫用。
+                    </p>
+                    <div class="p-4 bg-white/5 rounded-lg">
+                        <p class="text-sm text-gray-400">
+                            <strong class="text-purple-300">代表判例：</strong>71年台上字第737號
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 原則2 -->
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center text-2xl">
+                            🤝
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">誠實信用原則</h3>
+                            <p class="text-gray-400 text-sm">Principle of Good Faith</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        行使權利、履行義務應依正義公平之方法，以權利人及義務人雙方利益為衡量，
+                        避免犧牲他方利益以圖利自己。此為民法之「帝王條款」。
+                    </p>
+                    <div class="p-4 bg-white/5 rounded-lg">
+                        <p class="text-sm text-gray-400">
+                            <strong class="text-purple-300">代表判例：</strong>86年台再字第86號
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 原則3 -->
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center text-2xl">
+                            ⏰
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">權利失效</h3>
+                            <p class="text-gray-400 text-sm">Verwirkung</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        權利人於相當期間內不行使權利，並因其行為造成特殊情況，使義務人正當信任權利人已不欲行使權利者，
+                        該權利即不得再行使。源自德國法。
+                    </p>
+                    <div class="p-4 bg-white/5 rounded-lg">
+                        <p class="text-sm text-gray-400">
+                            <strong class="text-purple-300">代表判例：</strong>97年台上字第950號
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 原則4 -->
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-yellow-500 to-red-500 rounded-xl flex items-center justify-center text-2xl">
+                            🚫
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">禁反言</h3>
+                            <p class="text-gray-400 text-sm">Estoppel / Venire contra factum proprium</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        權利之行使若與權利人先前行為相矛盾，破壞相對人之正當信賴者，有違誠實信用原則，
+                        不生行使權利之效力。禁止前後行為矛盾。
+                    </p>
+                    <div class="p-4 bg-white/5 rounded-lg">
+                        <p class="text-sm text-gray-400">
+                            <strong class="text-purple-300">代表判例：</strong>109年台上字第1039號
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chart Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">
+                <span class="gradient-text">判決類型分布</span>
+            </h2>
+            <div class="glass-card rounded-2xl p-8">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <canvas id="caseTypeChart" height="300"></canvas>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-4">分析說明</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="w-3 h-3 bg-purple-500 rounded-full mt-1.5"></span>
+                                <span><strong>權利濫用禁止</strong>：最常見的誠信原則適用類型，約佔33%</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-3 h-3 bg-blue-500 rounded-full mt-1.5"></span>
+                                <span><strong>權利失效</strong>：近年快速發展的法理，約佔31%</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-3 h-3 bg-green-500 rounded-full mt-1.5"></span>
+                                <span><strong>禁反言</strong>：民事與行政訴訟均有適用，約佔23%</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-3 h-3 bg-yellow-500 rounded-full mt-1.5"></span>
+                                <span><strong>誠信原則</strong>：作為上位概念的一般適用，約佔13%</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-16 px-4 bg-black/30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">
+                <span class="gradient-text">參考資源</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&flno=148" target="_blank"
+                   class="glass-card rounded-xl p-6 hover:border-purple-500/50 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                            📜
+                        </div>
+                        <h3 class="font-semibold text-white group-hover:text-purple-300 transition">全國法規資料庫</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">民法第148條條文及相關判例查詢</p>
+                </a>
+
+                <a href="https://tps.judicial.gov.tw/" target="_blank"
+                   class="glass-card rounded-xl p-6 hover:border-purple-500/50 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                            ⚖️
+                        </div>
+                        <h3 class="font-semibold text-white group-hover:text-purple-300 transition">最高法院</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">司法院最高法院官方網站</p>
+                </a>
+
+                <a href="https://law.moj.gov.tw/LawClass/LawSingleRela.aspx?PCODE=B0000001&FLNO=148&ty=J" target="_blank"
+                   class="glass-card rounded-xl p-6 hover:border-purple-500/50 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                            📚
+                        </div>
+                        <h3 class="font-semibold text-white group-hover:text-purple-300 transition">判例查詢</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">民法第148條相關判例清單</p>
+                </a>
+
+                <a href="https://tpa.judicial.gov.tw/" target="_blank"
+                   class="glass-card rounded-xl p-6 hover:border-purple-500/50 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                            🏛️
+                        </div>
+                        <h3 class="font-semibold text-white group-hover:text-purple-300 transition">最高行政法院</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">行政訴訟相關判決查詢</p>
+                </a>
+
+                <a href="https://lawdata.com.tw/" target="_blank"
+                   class="glass-card rounded-xl p-6 hover:border-purple-500/50 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center">
+                            📖
+                        </div>
+                        <h3 class="font-semibold text-white group-hover:text-purple-300 transition">月旦知識庫</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">法學學術文獻資料庫</p>
+                </a>
+
+                <a href="https://zh.wikipedia.org/wiki/%E6%AC%8A%E5%88%A9%E5%A4%B1%E6%95%88" target="_blank"
+                   class="glass-card rounded-xl p-6 hover:border-purple-500/50 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-gray-500/20 rounded-lg flex items-center justify-center">
+                            🌐
+                        </div>
+                        <h3 class="font-semibold text-white group-hover:text-purple-300 transition">維基百科</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">權利失效法理概念說明</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-card rounded-xl p-6 border-yellow-500/30">
+                <div class="flex items-start gap-4">
+                    <div class="text-2xl">⚠️</div>
+                    <div>
+                        <h3 class="font-semibold text-yellow-300 mb-2">免責聲明</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            本頁面內容僅供學術研究及參考用途，不構成法律意見。判決要旨係經整理摘錄，
+                            如需引用請查閱原始判決全文。具體法律問題請諮詢專業律師。
+                            資料來源：司法院、全國法規資料庫、元照出版。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-white/10">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-gray-500 text-sm">
+                © 2024 Levelfly. 最高法院誠信原則判決研究
+            </p>
+            <p class="text-gray-600 text-xs mt-2">
+                資料整理日期：2024年12月 |
+                <a href="../index.html" class="hover:text-purple-400 transition">返回首頁</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Chart.js Script -->
+    <script>
+        // 判決類型分布圖
+        const ctx = document.getElementById('caseTypeChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['權利濫用禁止', '權利失效', '禁反言', '誠信原則'],
+                datasets: [{
+                    data: [4, 4, 3, 2],
+                    backgroundColor: [
+                        'rgba(147, 51, 234, 0.8)',
+                        'rgba(59, 130, 246, 0.8)',
+                        'rgba(34, 197, 94, 0.8)',
+                        'rgba(234, 179, 8, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(147, 51, 234, 1)',
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(34, 197, 94, 1)',
+                        'rgba(234, 179, 8, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#9CA3AF',
+                            padding: 20,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
