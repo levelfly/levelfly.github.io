@@ -1,0 +1,248 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-14",
+  "description": "台南店貓咖啡廳與寵物友善甜點店地圖",
+  "petTypes": {
+    "cat": { "name": "店貓", "icon": "🐱", "color": "#FF9800" },
+    "dog": { "name": "店狗", "icon": "🐕", "color": "#8D6E63" },
+    "pet_friendly": { "name": "可帶寵物", "icon": "🐾", "color": "#4CAF50" },
+    "pet_menu": { "name": "有寵物餐", "icon": "🍽️", "color": "#2196F3" }
+  },
+  "interactionLevels": {
+    "high": { "name": "親人愛撒嬌", "description": "主動靠近客人，喜歡被摸", "icon": "❤️" },
+    "medium": { "name": "看心情互動", "description": "偶爾會靠近，但也需要私人空間", "icon": "💛" },
+    "low": { "name": "害羞觀賞型", "description": "可遠觀不可褻玩，請輕聲細語", "icon": "💚" },
+    "none": { "name": "店主寵物", "description": "可能在休息區，不一定會出現", "icon": "💤" }
+  },
+  "shops": [
+    {
+      "id": "pet001",
+      "name": "餐桌上的鹿早",
+      "category": "甜點咖啡",
+      "petType": ["cat"],
+      "district": "中西區",
+      "address": "台南市中西區衛民街70巷1號",
+      "hours": "13:00-20:00，週二休",
+      "catInfo": {
+        "count": 2,
+        "names": ["鹿早", "小鹿"],
+        "breeds": ["米克斯"],
+        "interactionLevel": "medium",
+        "personality": "較害羞，需要時間暖場",
+        "bestTime": "平日下午較活躍",
+        "catRules": [
+          "請輕聲細語",
+          "不要追著貓咪跑",
+          "拍照請關閃光燈",
+          "不可餵食人類食物"
+        ]
+      },
+      "signature": ["手作甜點", "咖啡", "老件選物"],
+      "priceRange": "120-250元",
+      "atmosphere": "老屋改建，文青氛圍",
+      "seatingCapacity": "約12位",
+      "tips": "店內空間小，建議平日前往，貓咪較不怕生"
+    },
+    {
+      "id": "pet002",
+      "name": "a Room房間咖啡",
+      "category": "咖啡廳",
+      "petType": ["cat"],
+      "district": "中西區",
+      "address": "台南市中西區衛民街28號",
+      "hours": "12:00-21:00，週一休",
+      "catInfo": {
+        "count": 1,
+        "names": ["Momo"],
+        "breeds": ["米克斯"],
+        "interactionLevel": "high",
+        "personality": "超級親人，喜歡被摸摸",
+        "bestTime": "全天都很活潑",
+        "catRules": [
+          "可以輕輕撫摸",
+          "不要抱起來",
+          "拍照請關閃光燈"
+        ]
+      },
+      "signature": ["手沖咖啡", "甜點"],
+      "priceRange": "100-200元",
+      "atmosphere": "溫馨小空間，療癒系",
+      "seatingCapacity": "約8位",
+      "tips": "座位不多建議預約，Momo很喜歡客人"
+    },
+    {
+      "id": "pet003",
+      "name": "貓門咖啡",
+      "category": "咖啡廳",
+      "petType": ["cat"],
+      "district": "中西區",
+      "address": "台南市中西區民生路二段207號",
+      "hours": "11:00-21:00，週三休",
+      "catInfo": {
+        "count": 3,
+        "names": ["店長（三花）", "小黑", "橘子"],
+        "breeds": ["三花", "黑貓", "橘貓"],
+        "interactionLevel": "medium",
+        "personality": "各有個性，三花最親人",
+        "bestTime": "下午茶時段貓咪較活躍",
+        "catRules": [
+          "請遵守店內公告",
+          "不要強迫互動",
+          "可拍照但關閃光燈"
+        ]
+      },
+      "signature": ["咖啡", "輕食", "甜點"],
+      "priceRange": "100-220元",
+      "atmosphere": "輕鬆自在的貓咪天堂",
+      "seatingCapacity": "約20位",
+      "tips": "三隻貓個性不同，慢慢觀察很有趣"
+    },
+    {
+      "id": "pet004",
+      "name": "肥貓咖啡",
+      "category": "咖啡廳",
+      "petType": ["cat"],
+      "district": "中西區",
+      "address": "台南市中西區府前路一段85號",
+      "hours": "10:00-18:00，週一休",
+      "catInfo": {
+        "count": 2,
+        "names": ["肥肥", "圓圓"],
+        "breeds": ["美短", "英短"],
+        "interactionLevel": "low",
+        "personality": "慵懶貴族風，觀賞為主",
+        "bestTime": "下午會出來曬太陽",
+        "catRules": [
+          "請勿打擾睡覺中的貓",
+          "拍照請關閃光燈",
+          "可遠觀，等貓主動靠近"
+        ]
+      },
+      "signature": ["拿鐵", "蛋糕"],
+      "priceRange": "120-200元",
+      "atmosphere": "優雅舒適，適合放空",
+      "seatingCapacity": "約15位",
+      "tips": "貓咪較慵懶，適合喜歡安靜觀賞的人"
+    },
+    {
+      "id": "pet005",
+      "name": "順風號",
+      "category": "咖啡廳",
+      "petType": ["cat"],
+      "district": "中西區",
+      "address": "台南市中西區民族路二段22巷22號",
+      "hours": "11:00-18:00，週一休",
+      "catInfo": {
+        "count": 1,
+        "names": ["順風"],
+        "breeds": ["米克斯"],
+        "interactionLevel": "medium",
+        "personality": "老靈魂，配合老屋氛圍",
+        "bestTime": "午後陽光灑進時",
+        "catRules": [
+          "輕聲細語",
+          "尊重貓咪空間"
+        ]
+      },
+      "signature": ["冰滴咖啡", "手沖咖啡"],
+      "priceRange": "80-180元",
+      "atmosphere": "50年老屋，懷舊時光",
+      "seatingCapacity": "約10位",
+      "tips": "貓咪和老屋一樣有故事感"
+    },
+    {
+      "id": "pet006",
+      "name": "伊莉的店",
+      "category": "寵物餐廳",
+      "petType": ["pet_friendly", "pet_menu"],
+      "district": "東區",
+      "address": "台南市東區長榮路二段63號",
+      "hours": "11:00-21:00",
+      "petFriendlyInfo": {
+        "allowedPets": ["狗", "貓"],
+        "petMenu": true,
+        "petMenuItems": ["寵物鮮食", "寵物蛋糕"],
+        "petRules": [
+          "需繫牽繩或放籠內",
+          "請自備寵物墊",
+          "清理排泄物"
+        ],
+        "petArea": "戶外區及部分室內"
+      },
+      "signature": ["義大利麵", "燉飯", "甜點"],
+      "priceRange": "200-350元",
+      "atmosphere": "寬敞明亮，寵物友善",
+      "tips": "可帶毛孩一起用餐，有專屬寵物餐"
+    },
+    {
+      "id": "pet007",
+      "name": "毛孩子寵物咖啡廳",
+      "category": "寵物咖啡廳",
+      "petType": ["dog", "pet_friendly", "pet_menu"],
+      "district": "北區",
+      "address": "台南市北區成功路68號",
+      "hours": "10:00-20:00，週二休",
+      "petFriendlyInfo": {
+        "allowedPets": ["狗", "貓", "小型寵物"],
+        "petMenu": true,
+        "petMenuItems": ["寵物便當", "寵物零食", "寵物蛋糕"],
+        "petRules": [
+          "需出示寵物健康證明",
+          "狗狗需繫牽繩",
+          "請勿讓寵物上座椅"
+        ],
+        "petArea": "全區皆可"
+      },
+      "shopDogInfo": {
+        "count": 2,
+        "names": ["旺旺", "財財"],
+        "breeds": ["柯基", "法鬥"],
+        "personality": "活潑好客，喜歡交朋友"
+      },
+      "signature": ["咖啡", "輕食", "寵物蛋糕"],
+      "priceRange": "120-250元",
+      "atmosphere": "歡樂熱鬧，毛孩天堂",
+      "tips": "可以帶毛孩來交朋友"
+    }
+  ],
+  "visitTips": [
+    {
+      "title": "尊重動物",
+      "description": "不要強迫互動，讓貓咪狗狗自己決定是否靠近",
+      "icon": "🙏"
+    },
+    {
+      "title": "關閃光燈",
+      "description": "拍照時請關閉閃光燈，保護動物眼睛",
+      "icon": "📷"
+    },
+    {
+      "title": "輕聲細語",
+      "description": "保持音量適中，不要驚嚇到店內動物",
+      "icon": "🤫"
+    },
+    {
+      "title": "不餵食",
+      "description": "不要餵食人類食物，可能對動物有害",
+      "icon": "🚫"
+    },
+    {
+      "title": "過敏注意",
+      "description": "對貓狗過敏的人請評估後再前往",
+      "icon": "🤧"
+    },
+    {
+      "title": "平日前往",
+      "description": "平日人少，動物較放鬆，互動機會較高",
+      "icon": "📅"
+    }
+  ],
+  "bringPetChecklist": [
+    "確認店家接受攜帶寵物",
+    "攜帶牽繩或外出籠",
+    "準備寵物墊或尿布墊",
+    "帶清潔袋處理排泄物",
+    "確認寵物疫苗是否齊全",
+    "避開用餐尖峰時段"
+  ]
+}

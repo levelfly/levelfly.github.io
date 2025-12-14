@@ -1,0 +1,267 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-14",
+  "description": "台南深夜甜點地圖 - 晚上9點後還吃得到的甜點店",
+  "timeCategories": {
+    "until21": { "name": "營業到21:00", "icon": "🌆", "color": "#FF9800" },
+    "until22": { "name": "營業到22:00", "icon": "🌙", "color": "#FF5722" },
+    "until23": { "name": "營業到23:00", "icon": "🌃", "color": "#E91E63" },
+    "until24": { "name": "營業到24:00", "icon": "🌌", "color": "#9C27B0" },
+    "lateNight": { "name": "深夜營業", "icon": "🦉", "color": "#673AB7" },
+    "24hours": { "name": "24小時", "icon": "⏰", "color": "#3F51B5" }
+  },
+  "shops": [
+    {
+      "id": "late001",
+      "name": "裕成水果店",
+      "category": "水果冰",
+      "closingTime": "23:00",
+      "timeCategory": "until23",
+      "district": "中西區",
+      "address": "台南市中西區民生路一段122號",
+      "hours": "12:00-23:00",
+      "lateNightInfo": {
+        "lastOrder": "22:30",
+        "crowdLevel": "medium",
+        "parkingEase": "較好找車位",
+        "atmosphere": "晚間人潮較少，較悠閒"
+      },
+      "signature": ["芒果冰", "綜合水果盤"],
+      "priceRange": "80-200元",
+      "tips": "晚上來不用排隊，可以慢慢享用"
+    },
+    {
+      "id": "late002",
+      "name": "蜷尾家甘味處",
+      "category": "霜淇淋",
+      "closingTime": "22:00",
+      "timeCategory": "until22",
+      "district": "中西區",
+      "address": "台南市中西區正興街92號",
+      "hours": "11:00-22:00",
+      "lateNightInfo": {
+        "lastOrder": "21:45",
+        "crowdLevel": "low",
+        "parkingEase": "正興街週邊",
+        "atmosphere": "夜晚正興街很有氛圍"
+      },
+      "signature": ["每日限定霜淇淋"],
+      "priceRange": "80-150元",
+      "tips": "晚上去人少，但口味可能剩不多"
+    },
+    {
+      "id": "late003",
+      "name": "依蕾特布丁",
+      "category": "布丁",
+      "closingTime": "22:00",
+      "timeCategory": "until22",
+      "district": "安平區",
+      "address": "台南市安平區安北路422號",
+      "hours": "10:00-22:00",
+      "lateNightInfo": {
+        "lastOrder": "21:45",
+        "crowdLevel": "low",
+        "parkingEase": "安平老街停車場",
+        "atmosphere": "夜晚安平較清幽"
+      },
+      "signature": ["焦糖布丁", "奶酪"],
+      "priceRange": "40-80元",
+      "tips": "順便夜遊安平老街"
+    },
+    {
+      "id": "late004",
+      "name": "太陽牌冰品",
+      "category": "傳統冰品",
+      "closingTime": "22:00",
+      "timeCategory": "until22",
+      "district": "中西區",
+      "address": "台南市中西區民權路一段41號",
+      "hours": "10:00-22:00",
+      "lateNightInfo": {
+        "lastOrder": "21:45",
+        "crowdLevel": "low",
+        "parkingEase": "路邊停車",
+        "atmosphere": "老店氛圍，夜晚更有感覺"
+      },
+      "signature": ["紅豆牛奶冰", "草湖芋頭冰"],
+      "priceRange": "35-80元",
+      "tips": "80年老店，晚上來很有懷舊感"
+    },
+    {
+      "id": "late005",
+      "name": "冰鄉",
+      "category": "水果冰",
+      "closingTime": "22:00",
+      "timeCategory": "until22",
+      "district": "中西區",
+      "address": "台南市中西區民生路一段160號",
+      "hours": "11:00-22:00",
+      "lateNightInfo": {
+        "lastOrder": "21:30",
+        "crowdLevel": "low",
+        "parkingEase": "民生路週邊",
+        "atmosphere": "在地人愛店，夜晚悠閒"
+      },
+      "signature": ["芒果冰", "八寶冰"],
+      "priceRange": "60-150元",
+      "tips": "比裕成便宜，CP值高"
+    },
+    {
+      "id": "late006",
+      "name": "雙全紅茶",
+      "category": "飲品",
+      "closingTime": "23:00",
+      "timeCategory": "until23",
+      "district": "中西區",
+      "address": "台南市中西區中正路131巷2號",
+      "hours": "08:00-23:00",
+      "lateNightInfo": {
+        "lastOrder": "22:45",
+        "crowdLevel": "medium",
+        "parkingEase": "中正路週邊",
+        "atmosphere": "古早味紅茶配台南夜晚"
+      },
+      "signature": ["紅茶", "紅茶牛奶"],
+      "priceRange": "20-50元",
+      "tips": "消夜來杯紅茶牛奶很對味"
+    },
+    {
+      "id": "late007",
+      "name": "窄門咖啡",
+      "category": "咖啡廳",
+      "closingTime": "23:00",
+      "timeCategory": "until23",
+      "district": "中西區",
+      "address": "台南市中西區南門路67號",
+      "hours": "10:00-23:00",
+      "lateNightInfo": {
+        "lastOrder": "22:30",
+        "crowdLevel": "low",
+        "parkingEase": "南門路週邊",
+        "atmosphere": "夜晚更有神秘感"
+      },
+      "signature": ["招牌咖啡", "手沖單品"],
+      "priceRange": "120-250元",
+      "tips": "夜晚的窄門更有氛圍，適合約會"
+    },
+    {
+      "id": "late008",
+      "name": "小西腳青草茶",
+      "category": "傳統飲品",
+      "closingTime": "23:00",
+      "timeCategory": "until23",
+      "district": "中西區",
+      "address": "台南市中西區西門路二段116號",
+      "hours": "09:00-23:00",
+      "lateNightInfo": {
+        "lastOrder": "22:45",
+        "crowdLevel": "low",
+        "parkingEase": "西門路週邊",
+        "atmosphere": "老店深夜依然營業"
+      },
+      "signature": ["青草茶", "仙草茶", "蓮藕茶"],
+      "priceRange": "25-50元",
+      "tips": "消夜後來杯青草茶退火"
+    },
+    {
+      "id": "late009",
+      "name": "茶の魔手",
+      "category": "手搖飲",
+      "closingTime": "22:00-23:00",
+      "timeCategory": "until23",
+      "district": "各區",
+      "address": "台南市區多處分店",
+      "hours": "依分店而異，多數到22:00-23:00",
+      "lateNightInfo": {
+        "lastOrder": "營業時間前15分鐘",
+        "crowdLevel": "varies",
+        "parkingEase": "依分店位置",
+        "atmosphere": "方便快速"
+      },
+      "signature": ["胚芽奶茶", "蕎麥綠茶"],
+      "priceRange": "25-55元",
+      "tips": "台南在地手搖，深夜解渴好選擇"
+    },
+    {
+      "id": "late010",
+      "name": "義豐冬瓜茶",
+      "category": "傳統飲品",
+      "closingTime": "22:00",
+      "timeCategory": "until22",
+      "district": "安平區",
+      "address": "台南市安平區安北路433號",
+      "hours": "08:00-22:00",
+      "lateNightInfo": {
+        "lastOrder": "21:45",
+        "crowdLevel": "low",
+        "parkingEase": "安平老街停車場",
+        "atmosphere": "夜遊安平必買"
+      },
+      "signature": ["冬瓜茶", "冬瓜檸檬"],
+      "priceRange": "25-50元",
+      "tips": "晚上來順便逛安平夜景"
+    },
+    {
+      "id": "late011",
+      "name": "便利商店",
+      "category": "24小時",
+      "closingTime": "24小時",
+      "timeCategory": "24hours",
+      "district": "各區",
+      "address": "台南市區各處",
+      "hours": "24小時",
+      "lateNightInfo": {
+        "lastOrder": "無",
+        "crowdLevel": "low",
+        "parkingEase": "店門口",
+        "atmosphere": "隨時補給"
+      },
+      "signature": ["霜淇淋", "甜點", "飲料"],
+      "priceRange": "30-80元",
+      "tips": "真的很晚的時候的最後選擇"
+    }
+  ],
+  "lateNightRoutes": [
+    {
+      "routeName": "中西區深夜甜點路線",
+      "description": "從民生路到正興街的夜間甜點散步",
+      "shops": ["裕成水果店", "冰鄉", "蜷尾家"],
+      "walkingTime": "約15分鐘",
+      "bestTime": "20:00-21:30"
+    },
+    {
+      "routeName": "安平夜遊甜點路線",
+      "description": "安平老街夜間散步配甜點",
+      "shops": ["依蕾特布丁", "義豐冬瓜茶"],
+      "walkingTime": "約10分鐘",
+      "bestTime": "19:00-21:00"
+    }
+  ],
+  "nightOwlTips": [
+    {
+      "title": "提前確認",
+      "description": "出發前可先打電話確認營業狀況",
+      "icon": "📞"
+    },
+    {
+      "title": "最後點餐時間",
+      "description": "通常在打烊前15-30分鐘停止點餐",
+      "icon": "⏰"
+    },
+    {
+      "title": "停車便利",
+      "description": "晚上停車位較好找",
+      "icon": "🚗"
+    },
+    {
+      "title": "人少悠閒",
+      "description": "避開人潮，享受寧靜",
+      "icon": "😌"
+    },
+    {
+      "title": "安全優先",
+      "description": "夜間出門注意人身安全",
+      "icon": "🔒"
+    }
+  ]
+}

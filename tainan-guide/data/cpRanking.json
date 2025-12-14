@@ -1,0 +1,286 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-14",
+  "description": "台南飲品甜點CP值排行榜",
+  "cpFactors": {
+    "price": { "name": "價格實惠", "weight": 0.3, "icon": "💰" },
+    "portion": { "name": "份量充足", "weight": 0.25, "icon": "📏" },
+    "taste": { "name": "美味程度", "weight": 0.25, "icon": "😋" },
+    "uniqueness": { "name": "獨特性", "weight": 0.1, "icon": "✨" },
+    "accessibility": { "name": "方便取得", "weight": 0.1, "icon": "📍" }
+  },
+  "rankings": {
+    "drinks": [
+      {
+        "rank": 1,
+        "name": "茶の魔手",
+        "category": "手搖飲",
+        "cpScore": 95,
+        "priceRange": "25-55元",
+        "highlight": "大杯份量超值，選擇多樣",
+        "recommendation": "胚芽奶茶大杯只要35元",
+        "scores": {
+          "price": 98,
+          "portion": 95,
+          "taste": 88,
+          "uniqueness": 90,
+          "accessibility": 98
+        },
+        "verdict": "台南平價手搖之王"
+      },
+      {
+        "rank": 2,
+        "name": "雙全紅茶",
+        "category": "傳統飲品",
+        "cpScore": 92,
+        "priceRange": "20-50元",
+        "highlight": "古早味紅茶，銅板價格",
+        "recommendation": "紅茶牛奶40元喝到50年老味道",
+        "scores": {
+          "price": 95,
+          "portion": 88,
+          "taste": 92,
+          "uniqueness": 95,
+          "accessibility": 85
+        },
+        "verdict": "台南必喝古早味"
+      },
+      {
+        "rank": 3,
+        "name": "青草茶阿伯",
+        "category": "傳統飲品",
+        "cpScore": 90,
+        "priceRange": "20-35元",
+        "highlight": "傳統市場老攤，真材實料",
+        "recommendation": "青草茶25元清涼退火",
+        "scores": {
+          "price": 95,
+          "portion": 85,
+          "taste": 90,
+          "uniqueness": 92,
+          "accessibility": 75
+        },
+        "verdict": "在地人的消暑秘方"
+      },
+      {
+        "rank": 4,
+        "name": "義豐冬瓜茶",
+        "category": "傳統飲品",
+        "cpScore": 88,
+        "priceRange": "25-50元",
+        "highlight": "安平老街招牌，消暑聖品",
+        "recommendation": "冬瓜茶30元清甜解渴",
+        "scores": {
+          "price": 90,
+          "portion": 88,
+          "taste": 88,
+          "uniqueness": 88,
+          "accessibility": 85
+        },
+        "verdict": "安平必喝"
+      },
+      {
+        "rank": 5,
+        "name": "布萊恩紅茶",
+        "category": "傳統飲品",
+        "cpScore": 85,
+        "priceRange": "25-50元",
+        "highlight": "比雙全人少，味道也很棒",
+        "recommendation": "紅茶拿鐵45元",
+        "scores": {
+          "price": 90,
+          "portion": 85,
+          "taste": 85,
+          "uniqueness": 80,
+          "accessibility": 88
+        },
+        "verdict": "不想排隊的好選擇"
+      }
+    ],
+    "desserts": [
+      {
+        "rank": 1,
+        "name": "太陽牌冰品",
+        "category": "傳統冰品",
+        "cpScore": 95,
+        "priceRange": "35-80元",
+        "highlight": "80年老店，價格實惠份量大",
+        "recommendation": "紅豆牛奶冰50元料多實在",
+        "scores": {
+          "price": 98,
+          "portion": 95,
+          "taste": 90,
+          "uniqueness": 90,
+          "accessibility": 92
+        },
+        "verdict": "台南冰品CP王"
+      },
+      {
+        "rank": 2,
+        "name": "冰鄉",
+        "category": "水果冰",
+        "cpScore": 92,
+        "priceRange": "60-150元",
+        "highlight": "比裕成便宜，品質不輸",
+        "recommendation": "芒果冰100元，份量超大",
+        "scores": {
+          "price": 92,
+          "portion": 95,
+          "taste": 88,
+          "uniqueness": 85,
+          "accessibility": 90
+        },
+        "verdict": "在地人的水果冰首選"
+      },
+      {
+        "rank": 3,
+        "name": "CHUN純薏仁",
+        "category": "甜品",
+        "cpScore": 88,
+        "priceRange": "50-100元",
+        "highlight": "米其林推薦，銅板價格",
+        "recommendation": "純薏仁55元，健康又好吃",
+        "scores": {
+          "price": 88,
+          "portion": 85,
+          "taste": 92,
+          "uniqueness": 90,
+          "accessibility": 88
+        },
+        "verdict": "米其林必比登CP首選"
+      },
+      {
+        "rank": 4,
+        "name": "依蕾特布丁",
+        "category": "布丁",
+        "cpScore": 85,
+        "priceRange": "40-80元",
+        "highlight": "品質穩定，價格親民",
+        "recommendation": "焦糖布丁45元，綿密好吃",
+        "scores": {
+          "price": 88,
+          "portion": 82,
+          "taste": 88,
+          "uniqueness": 82,
+          "accessibility": 85
+        },
+        "verdict": "伴手禮好選擇"
+      },
+      {
+        "rank": 5,
+        "name": "裕成水果店",
+        "category": "水果冰",
+        "cpScore": 80,
+        "priceRange": "80-200元",
+        "highlight": "份量大可兩人分食",
+        "recommendation": "芒果冰150元，兩人吃剛好",
+        "scores": {
+          "price": 75,
+          "portion": 95,
+          "taste": 92,
+          "uniqueness": 88,
+          "accessibility": 70
+        },
+        "verdict": "觀光必訪，分食更划算"
+      }
+    ],
+    "iceCream": [
+      {
+        "rank": 1,
+        "name": "便利商店霜淇淋",
+        "category": "霜淇淋",
+        "cpScore": 90,
+        "priceRange": "30-45元",
+        "highlight": "隨時可買，穩定品質",
+        "recommendation": "35元就能吃到霜淇淋",
+        "scores": {
+          "price": 95,
+          "portion": 80,
+          "taste": 80,
+          "uniqueness": 60,
+          "accessibility": 100
+        },
+        "verdict": "方便第一名"
+      },
+      {
+        "rank": 2,
+        "name": "蜷尾家",
+        "category": "霜淇淋",
+        "cpScore": 75,
+        "priceRange": "80-150元",
+        "highlight": "文青質感，每日限定",
+        "recommendation": "120元體驗台南文青霜淇淋",
+        "scores": {
+          "price": 65,
+          "portion": 70,
+          "taste": 92,
+          "uniqueness": 95,
+          "accessibility": 75
+        },
+        "verdict": "重體驗者首選"
+      }
+    ]
+  },
+  "budgetGuides": {
+    "under50": {
+      "name": "50元以下",
+      "icon": "💵",
+      "recommendations": [
+        { "name": "雙全紅茶", "item": "紅茶", "price": "20元" },
+        { "name": "青草茶阿伯", "item": "青草茶", "price": "25元" },
+        { "name": "義豐冬瓜茶", "item": "冬瓜茶", "price": "30元" },
+        { "name": "茶の魔手", "item": "綠茶", "price": "25元" },
+        { "name": "太陽牌冰品", "item": "紅豆冰", "price": "35元" },
+        { "name": "依蕾特布丁", "item": "焦糖布丁", "price": "45元" }
+      ]
+    },
+    "under100": {
+      "name": "50-100元",
+      "icon": "💴",
+      "recommendations": [
+        { "name": "CHUN純薏仁", "item": "純薏仁", "price": "55元" },
+        { "name": "太陽牌冰品", "item": "紅豆牛奶冰", "price": "50元" },
+        { "name": "克林姆之屋", "item": "原味泡芙", "price": "80元" },
+        { "name": "蜷尾家", "item": "霜淇淋", "price": "80元" },
+        { "name": "冰鄉", "item": "八寶冰", "price": "60元" }
+      ]
+    },
+    "under200": {
+      "name": "100-200元",
+      "icon": "💶",
+      "recommendations": [
+        { "name": "裕成水果店", "item": "芒果冰(可分食)", "price": "150元" },
+        { "name": "泰成水果店", "item": "哈密瓜冰(可分食)", "price": "180元" },
+        { "name": "島旬", "item": "季節水果塔", "price": "180元" },
+        { "name": "窄門咖啡", "item": "咖啡+甜點", "price": "180元" }
+      ]
+    }
+  },
+  "savingTips": [
+    {
+      "tip": "份量大的可兩人分食",
+      "example": "裕成芒果冰一碗兩人吃",
+      "icon": "👫"
+    },
+    {
+      "tip": "平日去人少價格可能較優惠",
+      "example": "部分店家平日有優惠",
+      "icon": "📅"
+    },
+    {
+      "tip": "自備環保杯可能有折扣",
+      "example": "手搖飲自備杯折2-3元",
+      "icon": "♻️"
+    },
+    {
+      "tip": "在地品牌比觀光區划算",
+      "example": "冰鄉比裕成便宜",
+      "icon": "📍"
+    },
+    {
+      "tip": "買伴手禮選大包裝更划算",
+      "example": "冬瓜糖磚買大塊",
+      "icon": "📦"
+    }
+  ]
+}

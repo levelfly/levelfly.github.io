@@ -1,0 +1,271 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-14",
+  "description": "台南甜點攜帶指南 - 高鐵/外帶建議",
+  "carryTypes": {
+    "excellent": { "name": "非常適合", "icon": "🌟", "color": "#4CAF50", "description": "可保存較久，不易變質" },
+    "good": { "name": "適合外帶", "icon": "👍", "color": "#8BC34A", "description": "短途外帶沒問題" },
+    "careful": { "name": "需注意", "icon": "⚠️", "color": "#FF9800", "description": "需保冷或盡快食用" },
+    "not_recommended": { "name": "不建議", "icon": "❌", "color": "#f44336", "description": "現場享用最佳" }
+  },
+  "desserts": [
+    {
+      "id": "carry001",
+      "name": "依蕾特布丁",
+      "shopName": "依蕾特布丁",
+      "category": "布丁",
+      "carryRating": "good",
+      "carryInfo": {
+        "maxDuration": "4小時（無保冷）/ 8小時（有保冷）",
+        "needsRefrigeration": true,
+        "temperature": "冷藏",
+        "packaging": "店家提供保冷袋（需加購）",
+        "icePack": "可加購冰袋",
+        "icePackPrice": "10元/個"
+      },
+      "hsrTips": {
+        "suitable": true,
+        "tips": "建議加購保冷袋，放在座位下陰涼處",
+        "bestPractice": "回程前1-2小時購買最佳"
+      },
+      "shelfLife": "冷藏7天",
+      "signature": ["焦糖布丁", "奶酪"],
+      "address": "台南市安平區安北路422號"
+    },
+    {
+      "id": "carry002",
+      "name": "克林姆泡芙",
+      "shopName": "克林姆之屋",
+      "category": "泡芙",
+      "carryRating": "careful",
+      "carryInfo": {
+        "maxDuration": "2小時（建議）",
+        "needsRefrigeration": true,
+        "temperature": "冷藏",
+        "packaging": "紙盒包裝",
+        "icePack": "可自備保冷袋"
+      },
+      "hsrTips": {
+        "suitable": false,
+        "tips": "泡芙放久會軟掉，建議現場吃",
+        "bestPractice": "現點現吃最美味"
+      },
+      "shelfLife": "當日食用",
+      "signature": ["原味泡芙", "巧克力泡芙"],
+      "address": "台南市中西區民生路一段132號"
+    },
+    {
+      "id": "carry003",
+      "name": "冬瓜茶磚",
+      "shopName": "義豐冬瓜茶",
+      "category": "伴手禮",
+      "carryRating": "excellent",
+      "carryInfo": {
+        "maxDuration": "常溫可保存",
+        "needsRefrigeration": false,
+        "temperature": "常溫",
+        "packaging": "真空包裝",
+        "icePack": "不需要"
+      },
+      "hsrTips": {
+        "suitable": true,
+        "tips": "完美的伴手禮選擇",
+        "bestPractice": "可大量購買，送禮自用皆宜"
+      },
+      "shelfLife": "6個月",
+      "signature": ["冬瓜糖磚", "冬瓜露"],
+      "address": "台南市安平區安北路433號"
+    },
+    {
+      "id": "carry004",
+      "name": "水果冰",
+      "shopName": "裕成水果店/泰成水果店",
+      "category": "冰品",
+      "carryRating": "not_recommended",
+      "carryInfo": {
+        "maxDuration": "無法外帶",
+        "needsRefrigeration": true,
+        "temperature": "冷凍",
+        "packaging": "無外帶包裝",
+        "icePack": "不適用"
+      },
+      "hsrTips": {
+        "suitable": false,
+        "tips": "冰品融化快，只能現場享用",
+        "bestPractice": "安排在離開前享用，當作最後一站"
+      },
+      "shelfLife": "現場食用",
+      "signature": ["芒果冰", "哈密瓜冰"],
+      "address": "正興街/民生路"
+    },
+    {
+      "id": "carry005",
+      "name": "島旬甜點",
+      "shopName": "島旬",
+      "category": "甜點",
+      "carryRating": "careful",
+      "carryInfo": {
+        "maxDuration": "3小時（需保冷）",
+        "needsRefrigeration": true,
+        "temperature": "冷藏",
+        "packaging": "精美紙盒",
+        "icePack": "店家可提供保冷袋"
+      },
+      "hsrTips": {
+        "suitable": true,
+        "tips": "生乳捲需特別注意保冷",
+        "bestPractice": "選擇磅蛋糕較耐放"
+      },
+      "shelfLife": "冷藏3天",
+      "signature": ["季節水果塔", "生乳捲", "磅蛋糕"],
+      "address": "台南市中西區民生路一段158號"
+    },
+    {
+      "id": "carry006",
+      "name": "純薏仁",
+      "shopName": "CHUN純薏仁",
+      "category": "甜品",
+      "carryRating": "careful",
+      "carryInfo": {
+        "maxDuration": "2小時",
+        "needsRefrigeration": true,
+        "temperature": "冷藏",
+        "packaging": "杯裝",
+        "icePack": "建議自備"
+      },
+      "hsrTips": {
+        "suitable": false,
+        "tips": "液態甜品不適合長途攜帶",
+        "bestPractice": "現場品嚐最佳"
+      },
+      "shelfLife": "當日食用",
+      "signature": ["純薏仁", "薏仁豆花"],
+      "address": "台南市中西區國華街三段16巷13號"
+    },
+    {
+      "id": "carry007",
+      "name": "方雲雲蛋捲",
+      "shopName": "方雲雲蛋捲",
+      "category": "伴手禮",
+      "carryRating": "excellent",
+      "carryInfo": {
+        "maxDuration": "常溫可保存",
+        "needsRefrigeration": false,
+        "temperature": "常溫",
+        "packaging": "鐵盒/禮盒包裝",
+        "icePack": "不需要"
+      },
+      "hsrTips": {
+        "suitable": true,
+        "tips": "完美伴手禮，酥脆不易碎",
+        "bestPractice": "可提前購買，不影響品質"
+      },
+      "shelfLife": "30天",
+      "signature": ["原味蛋捲", "芝麻蛋捲"],
+      "address": "台南市區多處"
+    },
+    {
+      "id": "carry008",
+      "name": "葡吉麵包",
+      "shopName": "葡吉麵包",
+      "category": "麵包",
+      "carryRating": "good",
+      "carryInfo": {
+        "maxDuration": "8小時",
+        "needsRefrigeration": false,
+        "temperature": "常溫",
+        "packaging": "紙袋",
+        "icePack": "不需要"
+      },
+      "hsrTips": {
+        "suitable": true,
+        "tips": "羅宋麵包常溫可放一天",
+        "bestPractice": "買來當高鐵上的點心也很棒"
+      },
+      "shelfLife": "2-3天",
+      "signature": ["羅宋麵包", "奶油麵包"],
+      "address": "台南市中西區民生路一段160號"
+    },
+    {
+      "id": "carry009",
+      "name": "太陽堂太陽餅",
+      "shopName": "太陽堂",
+      "category": "伴手禮",
+      "carryRating": "excellent",
+      "carryInfo": {
+        "maxDuration": "常溫可保存",
+        "needsRefrigeration": false,
+        "temperature": "常溫",
+        "packaging": "禮盒包裝",
+        "icePack": "不需要"
+      },
+      "hsrTips": {
+        "suitable": true,
+        "tips": "經典伴手禮，適合大量購買",
+        "bestPractice": "買禮盒送人最體面"
+      },
+      "shelfLife": "30天",
+      "signature": ["太陽餅", "鳳梨酥"],
+      "address": "台南市區"
+    },
+    {
+      "id": "carry010",
+      "name": "霜淇淋",
+      "shopName": "蜷尾家",
+      "category": "冰品",
+      "carryRating": "not_recommended",
+      "carryInfo": {
+        "maxDuration": "無法外帶",
+        "needsRefrigeration": true,
+        "temperature": "冷凍",
+        "packaging": "甜筒/杯裝",
+        "icePack": "不適用"
+      },
+      "hsrTips": {
+        "suitable": false,
+        "tips": "霜淇淋只能現場吃",
+        "bestPractice": "逛正興街時順便品嚐"
+      },
+      "shelfLife": "現場食用",
+      "signature": ["每日限定口味"],
+      "address": "台南市中西區正興街92號"
+    }
+  ],
+  "packingTips": [
+    {
+      "title": "保冷袋必備",
+      "description": "夏天購買冷藏甜點，保冷袋是必須的",
+      "icon": "🧊"
+    },
+    {
+      "title": "行程安排",
+      "description": "需冷藏的甜點安排在最後購買",
+      "icon": "📅"
+    },
+    {
+      "title": "高鐵座位",
+      "description": "甜點放座位下方較陰涼",
+      "icon": "🚄"
+    },
+    {
+      "title": "分開包裝",
+      "description": "不同甜點分開放，避免互相影響",
+      "icon": "📦"
+    },
+    {
+      "title": "當日優先",
+      "description": "標示當日食用的甜點要最先吃",
+      "icon": "⏰"
+    }
+  ],
+  "hsrStationTips": {
+    "tainanStation": "台南高鐵站",
+    "nearbyShops": [
+      {
+        "name": "高鐵站內便利商店",
+        "tip": "可買冰袋補充保冷"
+      }
+    ],
+    "suggestionRoute": "市區購買 → 高鐵站 → 約30-40分鐘車程到高鐵站"
+  }
+}

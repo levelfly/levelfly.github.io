@@ -1,0 +1,180 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-14",
+  "pairings": [
+    {
+      "foodType": "oily",
+      "foodTypeName": "油膩食物",
+      "examples": ["牛肉湯", "鱔魚意麵", "蝦捲", "肉燥飯", "雞腿便當"],
+      "icon": "🍖",
+      "recommendedDrinks": [
+        {
+          "type": "tea",
+          "name": "無糖綠茶",
+          "reason": "茶多酚可解油膩",
+          "shops": ["茶の魔手", "清心福全"]
+        },
+        {
+          "type": "traditional",
+          "name": "青草茶",
+          "reason": "清涼退火，解膩效果佳",
+          "shops": ["青草茶阿伯", "小西腳青草茶"]
+        },
+        {
+          "type": "traditional",
+          "name": "冬瓜茶",
+          "reason": "清甜解渴，中和油膩",
+          "shops": ["義豐冬瓜茶"]
+        },
+        {
+          "type": "fruit",
+          "name": "檸檬汁",
+          "reason": "酸味可去油解膩",
+          "shops": ["阿田水果店"]
+        }
+      ]
+    },
+    {
+      "foodType": "sweet",
+      "foodTypeName": "甜食",
+      "examples": ["布丁", "泡芙", "蛋糕", "甜湯"],
+      "icon": "🍰",
+      "recommendedDrinks": [
+        {
+          "type": "coffee",
+          "name": "黑咖啡",
+          "reason": "苦味平衡甜膩感",
+          "shops": ["窄門咖啡", "甘單咖啡"]
+        },
+        {
+          "type": "tea",
+          "name": "無糖紅茶",
+          "reason": "茶香襯托甜點風味",
+          "shops": ["雙全紅茶"]
+        },
+        {
+          "type": "traditional",
+          "name": "杏仁茶",
+          "reason": "溫潤香氣與甜點相配",
+          "shops": ["傳統杏仁茶"]
+        }
+      ]
+    },
+    {
+      "foodType": "spicy",
+      "foodTypeName": "辛辣食物",
+      "examples": ["麻辣鍋", "辣炒年糕", "麻辣臭豆腐"],
+      "icon": "🌶️",
+      "recommendedDrinks": [
+        {
+          "type": "milk",
+          "name": "牛奶/豆漿",
+          "reason": "乳製品可緩解辣感",
+          "shops": ["義美豆漿"]
+        },
+        {
+          "type": "yogurt",
+          "name": "優酪乳",
+          "reason": "涼爽解辣",
+          "shops": ["7-11", "全家"]
+        },
+        {
+          "type": "traditional",
+          "name": "冬瓜茶",
+          "reason": "甜味中和辣感",
+          "shops": ["義豐冬瓜茶"]
+        }
+      ]
+    },
+    {
+      "foodType": "salty",
+      "foodTypeName": "重鹹食物",
+      "examples": ["鹹酥雞", "滷味", "鹹粥"],
+      "icon": "🧂",
+      "recommendedDrinks": [
+        {
+          "type": "fruit",
+          "name": "西瓜汁",
+          "reason": "水分多，解渴效果佳",
+          "shops": ["阿田水果店", "泰成水果店"]
+        },
+        {
+          "type": "tea",
+          "name": "烏龍茶",
+          "reason": "清香解膩不搶味",
+          "shops": ["茶の魔手"]
+        },
+        {
+          "type": "traditional",
+          "name": "青草茶",
+          "reason": "清涼退火",
+          "shops": ["青草茶阿伯"]
+        }
+      ]
+    },
+    {
+      "foodType": "seafood",
+      "foodTypeName": "海鮮",
+      "examples": ["小卷米粉", "蚵仔煎", "海鮮粥", "鮮蝦"],
+      "icon": "🦐",
+      "recommendedDrinks": [
+        {
+          "type": "tea",
+          "name": "綠茶",
+          "reason": "清爽不搶海鮮鮮味",
+          "shops": ["茶の魔手", "清心福全"]
+        },
+        {
+          "type": "fruit",
+          "name": "檸檬水",
+          "reason": "酸味提鮮",
+          "shops": ["現榨檸檬水攤"]
+        },
+        {
+          "type": "beer",
+          "name": "台灣啤酒",
+          "reason": "經典海鮮搭配",
+          "shops": ["便利商店"]
+        }
+      ]
+    },
+    {
+      "foodType": "breakfast",
+      "foodTypeName": "早餐類",
+      "examples": ["牛肉湯", "鹹粥", "豆漿油條"],
+      "icon": "🌅",
+      "recommendedDrinks": [
+        {
+          "type": "traditional",
+          "name": "紅茶牛奶",
+          "reason": "濃郁奶香配早餐最對味",
+          "shops": ["雙全紅茶"]
+        },
+        {
+          "type": "soy",
+          "name": "溫豆漿",
+          "reason": "傳統早餐經典搭配",
+          "shops": ["傳統豆漿店"]
+        },
+        {
+          "type": "traditional",
+          "name": "杏仁茶",
+          "reason": "溫潤暖胃",
+          "shops": ["傳統杏仁茶攤"]
+        }
+      ]
+    }
+  ],
+  "quickPairings": {
+    "牛肉湯": ["無糖綠茶", "青草茶"],
+    "鱔魚意麵": ["無糖烏龍茶", "冬瓜茶"],
+    "蝦仁飯": ["綠茶", "青草茶"],
+    "碗粿": ["紅茶", "冬瓜茶"],
+    "小卷米粉": ["綠茶", "檸檬水"],
+    "蚵仔煎": ["綠茶", "青草茶"],
+    "肉燥飯": ["無糖綠茶", "青草茶"],
+    "布丁": ["黑咖啡", "無糖紅茶"],
+    "泡芙": ["拿鐵", "紅茶"],
+    "芒果冰": ["烏龍茶", "清水"]
+  }
+}

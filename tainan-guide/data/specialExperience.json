@@ -1,0 +1,186 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-14",
+  "description": "不只是吃喝，更是特別體驗的店家",
+  "experiences": [
+    {
+      "id": "exp001",
+      "name": "餐桌上的鹿早",
+      "category": "甜點咖啡",
+      "experienceType": ["cat", "vintage"],
+      "district": "中西區",
+      "address": "台南市中西區衛民街70巷1號",
+      "hours": "13:00-20:00，週二休",
+      "description": "老屋改建的甜點店，有可愛店貓陪伴",
+      "catInfo": {
+        "hasCat": true,
+        "catCount": 2,
+        "catNames": ["鹿早", "小鹿"],
+        "interactionLevel": "medium",
+        "catFriendlyTips": "貓咪較害羞，請輕聲細語"
+      },
+      "signature": ["手作甜點", "咖啡", "老件選物"],
+      "priceRange": "120-250元",
+      "features": ["店貓", "老屋", "文青"],
+      "rating": 4.5,
+      "tips": "店內空間小，建議平日前往"
+    },
+    {
+      "id": "exp002",
+      "name": "a Room房間咖啡",
+      "category": "咖啡廳",
+      "experienceType": ["cat", "cozy"],
+      "district": "中西區",
+      "address": "台南市中西區衛民街28號",
+      "hours": "12:00-21:00，週一休",
+      "description": "溫馨小空間，有療癒店貓",
+      "catInfo": {
+        "hasCat": true,
+        "catCount": 1,
+        "catNames": ["Momo"],
+        "interactionLevel": "high",
+        "catFriendlyTips": "Momo很親人，喜歡被摸摸"
+      },
+      "signature": ["手沖咖啡", "甜點"],
+      "priceRange": "100-200元",
+      "features": ["店貓", "溫馨", "放鬆"],
+      "rating": 4.4,
+      "tips": "座位不多建議預約"
+    },
+    {
+      "id": "exp003",
+      "name": "窄門咖啡",
+      "category": "咖啡廳",
+      "experienceType": ["unique_entrance", "vintage"],
+      "district": "中西區",
+      "address": "台南市中西區南門路67號",
+      "hours": "10:00-23:00",
+      "description": "入口只有38公分寬，側身才能進入的神秘咖啡廳",
+      "uniqueFeature": {
+        "type": "narrow_entrance",
+        "width": "38公分",
+        "description": "全台灣最窄的咖啡廳入口",
+        "photoTip": "進入時拍照超有特色"
+      },
+      "signature": ["招牌咖啡", "手沖單品"],
+      "priceRange": "120-250元",
+      "features": ["網美打卡", "老屋", "特色入口"],
+      "rating": 4.3,
+      "tips": "入口超窄，大背包建議先放下"
+    },
+    {
+      "id": "exp004",
+      "name": "正興咖啡館",
+      "category": "咖啡廳",
+      "experienceType": ["creative", "local_art"],
+      "district": "中西區",
+      "address": "台南市中西區正興街66號",
+      "hours": "10:00-18:00",
+      "description": "正興街藝文空間，不定期有展覽和活動",
+      "uniqueFeature": {
+        "type": "art_space",
+        "description": "結合咖啡與在地藝術",
+        "events": "不定期舉辦藝文活動"
+      },
+      "signature": ["單品咖啡", "輕食"],
+      "priceRange": "100-200元",
+      "features": ["藝文空間", "正興街", "在地文化"],
+      "rating": 4.2,
+      "tips": "可以順便逛正興街"
+    },
+    {
+      "id": "exp005",
+      "name": "島旬",
+      "category": "甜點店",
+      "experienceType": ["creative_pickup", "seasonal"],
+      "district": "中西區",
+      "address": "台南市中西區民生路一段158號",
+      "hours": "12:00-18:00，週一二休",
+      "description": "以台灣在地食材製作甜點，取餐方式有趣",
+      "uniqueFeature": {
+        "type": "creative_pickup",
+        "description": "特殊取餐流程，像是尋寶",
+        "photoTip": "取餐過程很適合拍影片"
+      },
+      "signature": ["季節水果塔", "生乳捲", "磅蛋糕"],
+      "priceRange": "120-280元",
+      "features": ["在地食材", "創意取餐", "文青"],
+      "rating": 4.6,
+      "tips": "熱門品項容易售完，建議早點去"
+    },
+    {
+      "id": "exp006",
+      "name": "CHUN純薏仁",
+      "category": "甜品店",
+      "experienceType": ["traditional", "healthy"],
+      "district": "中西區",
+      "address": "台南市中西區國華街三段16巷13號",
+      "hours": "10:00-18:00，週三休",
+      "description": "百年老店轉型，傳統薏仁湯變身時尚甜品",
+      "uniqueFeature": {
+        "type": "tradition_innovation",
+        "description": "老店新創，傳統與現代結合",
+        "history": "源自百年老店的配方"
+      },
+      "signature": ["純薏仁", "薏仁豆花", "薏仁奶茶"],
+      "priceRange": "50-100元",
+      "features": ["老店新創", "健康", "國華街"],
+      "rating": 4.4,
+      "tips": "米其林必比登推薦"
+    },
+    {
+      "id": "exp007",
+      "name": "衛屋茶事",
+      "category": "茶館",
+      "experienceType": ["japanese", "tea_ceremony"],
+      "district": "中西區",
+      "address": "台南市中西區衛民街62號",
+      "hours": "11:00-19:00，週一休",
+      "description": "日式老屋茶館，體驗正宗茶道文化",
+      "uniqueFeature": {
+        "type": "tea_ceremony",
+        "description": "可預約體驗日式茶道",
+        "experience": "感受禪意茶道氛圍"
+      },
+      "signature": ["抹茶", "煎茶", "和菓子"],
+      "priceRange": "150-350元",
+      "features": ["日式", "茶道體驗", "老屋"],
+      "rating": 4.5,
+      "tips": "茶道體驗需預約"
+    },
+    {
+      "id": "exp008",
+      "name": "順風號",
+      "category": "咖啡廳",
+      "experienceType": ["vintage", "nostalgic"],
+      "district": "中西區",
+      "address": "台南市中西區民族路二段22巷22號",
+      "hours": "11:00-18:00，週一休",
+      "description": "保留完整的老屋格局，穿越時空感",
+      "uniqueFeature": {
+        "type": "time_travel",
+        "description": "磨石子地板、木門窗、老件傢俱",
+        "atmosphere": "彷彿回到50年前的台南"
+      },
+      "signature": ["冰滴咖啡", "手沖咖啡"],
+      "priceRange": "80-180元",
+      "features": ["老屋", "懷舊", "文青"],
+      "rating": 4.2,
+      "tips": "平日人較少，更能感受氛圍"
+    }
+  ],
+  "experienceTypes": {
+    "cat": { "name": "店貓互動", "icon": "🐱" },
+    "vintage": { "name": "老屋氛圍", "icon": "🏚️" },
+    "unique_entrance": { "name": "特色入口", "icon": "🚪" },
+    "creative_pickup": { "name": "創意取餐", "icon": "🎁" },
+    "tea_ceremony": { "name": "茶道體驗", "icon": "🍵" },
+    "local_art": { "name": "在地藝術", "icon": "🎨" },
+    "cozy": { "name": "溫馨空間", "icon": "🏠" },
+    "seasonal": { "name": "季節食材", "icon": "🌸" },
+    "traditional": { "name": "傳統創新", "icon": "✨" },
+    "healthy": { "name": "健康養生", "icon": "💚" },
+    "japanese": { "name": "日式風格", "icon": "🇯🇵" },
+    "nostalgic": { "name": "懷舊氛圍", "icon": "📻" }
+  }
+}

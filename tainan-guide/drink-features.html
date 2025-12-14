@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="台南飲品甜點進階功能 - 季節限定、配餐推薦、排隊攻略、集章探險">
+  <meta name="theme-color" content="#FF6B6B">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <title>飲品甜點探險 - 台南旅遊指南</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧋</text></svg>">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Page specific styles */
+    .features-header {
+      background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 50%, #FFD93D 100%);
+      color: white;
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
+
+    .features-header h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .features-header p {
+      opacity: 0.9;
+      font-size: 14px;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+    }
+
+    .features-nav {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 15px 20px;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .features-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-tab {
+      flex-shrink: 0;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 20px;
+      background: #f5f5f5;
+      color: #666;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-tab.active {
+      background: linear-gradient(90deg, #FF6B6B, #FF8E53);
+      color: white;
+    }
+
+    .feature-section {
+      display: none;
+      padding: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .feature-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-desc {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    /* Card styles */
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .feature-card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card-icon {
+      font-size: 40px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f5;
+      border-radius: 12px;
+    }
+
+    .feature-card-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .feature-card-subtitle {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .feature-card-content {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      background: #f5f5f5;
+      border-radius: 12px;
+      font-size: 12px;
+      color: #666;
+      margin: 2px;
+    }
+
+    .tag.highlight {
+      background: #FF6B6B;
+      color: white;
+    }
+
+    /* Season cards */
+    .season-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .season-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .season-icon {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .season-name {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .season-months {
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* Pairing section */
+    .pairing-item {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    }
+
+    .pairing-food {
+      font-size: 32px;
+      margin-right: 15px;
+    }
+
+    .pairing-info {
+      flex: 1;
+    }
+
+    .pairing-food-name {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .pairing-drinks {
+      font-size: 13px;
+      color: #FF6B6B;
+      margin-top: 5px;
+    }
+
+    /* Queue timing */
+    .timing-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .timing-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .timing-shop {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .timing-level {
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      color: white;
+    }
+
+    .timing-level.low { background: #4CAF50; }
+    .timing-level.medium { background: #FF9800; }
+    .timing-level.high { background: #f44336; }
+    .timing-level.very_high { background: #9C27B0; }
+
+    .timing-tips {
+      background: #f5f5f5;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* Quiz section */
+    .quiz-start {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #fff5f5, #fff);
+      border-radius: 20px;
+    }
+
+    .quiz-start-icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-start h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .quiz-start p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .btn-start {
+      padding: 15px 40px;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(90deg, #FF6B6B, #FF8E53);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-start:hover {
+      transform: scale(1.05);
+    }
+
+    /* Stamps section */
+    .stamps-intro {
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, #fffbf0, #fff);
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .stamps-stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .stamps-stat {
+      text-align: center;
+    }
+
+    .stamps-stat-value {
+      font-size: 28px;
+      font-weight: bold;
+      color: #FF6B6B;
+    }
+
+    .stamps-stat-label {
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* CP Ranking */
+    .ranking-item {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    }
+
+    .ranking-position {
+      font-size: 24px;
+      font-weight: bold;
+      width: 40px;
+      text-align: center;
+    }
+
+    .ranking-position.gold { color: #FFD700; }
+    .ranking-position.silver { color: #C0C0C0; }
+    .ranking-position.bronze { color: #CD7F32; }
+
+    .ranking-info {
+      flex: 1;
+      margin-left: 15px;
+    }
+
+    .ranking-name {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .ranking-highlight {
+      font-size: 12px;
+      color: #FF6B6B;
+    }
+
+    .ranking-score {
+      font-size: 18px;
+      font-weight: bold;
+      color: #4CAF50;
+    }
+
+    /* Dietary filters */
+    .dietary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .dietary-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .dietary-btn.active {
+      border-color: #FF6B6B;
+      background: #fff5f5;
+    }
+
+    .dietary-icon {
+      font-size: 24px;
+    }
+
+    .dietary-label {
+      font-size: 14px;
+      color: #333;
+    }
+
+    /* Late night section */
+    .time-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .time-btn {
+      padding: 8px 16px;
+      border: 1px solid #e0e0e0;
+      border-radius: 20px;
+      background: white;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .time-btn.active {
+      background: #333;
+      color: white;
+      border-color: #333;
+    }
+
+    /* Pet friendly */
+    .pet-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .pet-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .pet-icon {
+      font-size: 40px;
+    }
+
+    .pet-shop-name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .pet-names {
+      font-size: 13px;
+      color: #FF6B6B;
+    }
+
+    .pet-tips {
+      background: #fff5f0;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* Exclusive drinks */
+    .exclusive-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .exclusive-header {
+      background: linear-gradient(90deg, #FF6B6B, #FF8E53);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .exclusive-icon {
+      font-size: 36px;
+    }
+
+    .exclusive-body {
+      padding: 20px;
+    }
+
+    .exclusive-reason {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+      padding-left: 10px;
+      border-left: 3px solid #FF6B6B;
+    }
+
+    /* Limited desserts */
+    .limited-urgency {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 10px;
+      font-size: 11px;
+      color: white;
+      margin-left: 10px;
+    }
+
+    .limited-urgency.high { background: #f44336; }
+    .limited-urgency.medium { background: #FF9800; }
+    .limited-urgency.special { background: #9C27B0; }
+
+    /* Carry guide */
+    .carry-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      color: white;
+    }
+
+    .carry-rating.excellent { background: #4CAF50; }
+    .carry-rating.good { background: #8BC34A; }
+    .carry-rating.careful { background: #FF9800; }
+    .carry-rating.not_recommended { background: #f44336; }
+
+    /* Special experience */
+    .experience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .experience-tag {
+      padding: 4px 10px;
+      background: #f0f0f0;
+      border-radius: 12px;
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* Reservation info */
+    .reservation-type {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 14px;
+      border-radius: 15px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .reservation-type.queue { background: #FF980020; color: #FF9800; }
+    .reservation-type.line { background: #00B90020; color: #00B900; }
+    .reservation-type.phone { background: #2196F320; color: #2196F3; }
+    .reservation-type.walk_in { background: #4CAF5020; color: #4CAF50; }
+
+    /* Footer */
+    .features-footer {
+      padding: 30px 20px;
+      text-align: center;
+      background: #f5f5f5;
+    }
+
+    .features-footer a {
+      color: #FF6B6B;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="features-header">
+    <a href="index.html" class="back-link">←</a>
+    <h1>🧋 飲品甜點探險</h1>
+    <p>台南飲品甜點的進階玩法</p>
+  </header>
+
+  <!-- Feature Navigation -->
+  <nav class="features-nav">
+    <button class="nav-tab active" onclick="showSection('season')">🌸 季節限定</button>
+    <button class="nav-tab" onclick="showSection('pairing')">🍽️ 配餐推薦</button>
+    <button class="nav-tab" onclick="showSection('timing')">⏰ 排隊攻略</button>
+    <button class="nav-tab" onclick="showSection('exclusive')">🎯 台南限定</button>
+    <button class="nav-tab" onclick="showSection('experience')">✨ 特色體驗</button>
+    <button class="nav-tab" onclick="showSection('reservation')">📅 預約指南</button>
+    <button class="nav-tab" onclick="showSection('carry')">🎒 外帶指南</button>
+    <button class="nav-tab" onclick="showSection('limited')">🔥 限量追蹤</button>
+    <button class="nav-tab" onclick="showSection('pet')">🐱 店貓地圖</button>
+    <button class="nav-tab" onclick="showSection('latenight')">🌙 深夜甜點</button>
+    <button class="nav-tab" onclick="showSection('quiz')">🎮 口味測驗</button>
+    <button class="nav-tab" onclick="showSection('stamps')">🎯 集章探險</button>
+    <button class="nav-tab" onclick="showSection('cp')">💰 CP排行</button>
+    <button class="nav-tab" onclick="showSection('dietary')">🥬 飲食需求</button>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Season Section -->
+    <section id="section-season" class="feature-section active">
+      <h2 class="section-title">🌸 季節限定飲品</h2>
+      <p class="section-desc">跟著季節喝，最新鮮最對時！</p>
+      <div class="season-grid" id="season-grid">
+        <!-- Content loaded by JS -->
+      </div>
+    </section>
+
+    <!-- Pairing Section -->
+    <section id="section-pairing" class="feature-section">
+      <h2 class="section-title">🍽️ 飲品配餐推薦</h2>
+      <p class="section-desc">吃什麼配什麼喝，美食搭配更對味！</p>
+      <div id="pairing-list">
+        <!-- Content loaded by JS -->
+      </div>
+    </section>
+
+    <!-- Timing Section -->
+    <section id="section-timing" class="feature-section">
+      <h2 class="section-title">⏰ 冰品排隊攻略</h2>
+      <p class="section-desc">避開人潮，聰明排隊！</p>
+      <div id="timing-list">
+        <!-- Content loaded by JS -->
+      </div>
+    </section>
+
+    <!-- Exclusive Section -->
+    <section id="section-exclusive" class="feature-section">
+      <h2 class="section-title">🎯 台南限定飲品</h2>
+      <p class="section-desc">只有台南才喝得到的特色飲品！</p>
+      <div id="exclusive-list">
+        <!-- Content loaded by JS -->
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="section-experience" class="feature-section">
+      <h2 class="section-title">✨ 特色體驗店家</h2>
+      <p class="section-desc">不只好吃，更是特別的體驗！</p>
+      <div id="experience-list">
+        <!-- Content loaded by JS -->
+      </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="section-reservation" class="feature-section">
+      <h2 class="section-title">📅 甜點預約指南</h2>
+      <p class="section-desc">熱門甜點店的預約資訊一覽！</p>
+      <div id="reservation-list">
+        <!-- Content loaded by JS -->
+      </div>
+    </section>
+
+    <!-- Carry Section -->
+    <section id="section-carry" class="feature-section">
+      <h2 class="section-title">🎒 甜點外帶指南</h2>
+      <p class="section-desc">高鐵、外帶、伴手禮的攜帶建議！</p>
+      <div id="carry-list">
+        <!-- Content loaded by JS -->
+      </div>
+    </section>
+
+    <!-- Limited Section -->
+    <section id="section-limited" class="feature-section">
+      <h2 class="section-title">🔥 限量甜點追蹤</h2>
+      <p class="section-desc">每日限量、季節限定，錯過不再！</p>
+      <div id="limited-list">
+        <!-- Content loaded by JS -->
+      </div>
+    </section>
+
+    <!-- Pet Section -->
+    <section id="section-pet" class="feature-section">
+      <h2 class="section-title">🐱 店貓甜點店地圖</h2>
+      <p class="section-desc">邊吃甜點邊吸貓！</p>
+      <div id="pet-list">
+        <!-- Content loaded by JS -->
+      </div>
+    </section>
+
+    <!-- Late Night Section -->
+    <section id="section-latenight" class="feature-section">
+      <h2 class="section-title">🌙 深夜甜點地圖</h2>
+      <p class="section-desc">晚上9點後還吃得到的甜點店！</p>
+      <div class="time-filter" id="time-filter">
+        <button class="time-btn active" data-time="all">全部</button>
+        <button class="time-btn" data-time="until21">到21:00</button>
+        <button class="time-btn" data-time="until22">到22:00</button>
+        <button class="time-btn" data-time="until23">到23:00</button>
+        <button class="time-btn" data-time="24hours">24小時</button>
+      </div>
+      <div id="latenight-list">
+        <!-- Content loaded by JS -->
+      </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="section-quiz" class="feature-section">
+      <h2 class="section-title">🎮 飲品口味測驗</h2>
+      <p class="section-desc">測測看最適合你的台南飲品！</p>
+      <div id="quiz-container">
+        <div class="quiz-start">
+          <div class="quiz-start-icon">🧋</div>
+          <h3>找到你的命定飲品</h3>
+          <p>回答5個簡單問題，找出最適合你的台南飲品！</p>
+          <button class="btn-start" onclick="DrinkQuiz.init()">開始測驗</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stamps Section -->
+    <section id="section-stamps" class="feature-section">
+      <h2 class="section-title">🎯 甜點探險集章</h2>
+      <p class="section-desc">收集印章，解鎖成就！</p>
+      <div id="stamps-container">
+        <div class="stamps-intro">
+          <div style="font-size: 48px; margin-bottom: 15px;">🗺️</div>
+          <h3>開始你的甜點探險</h3>
+          <p>走訪台南甜點名店，收集印章獲得徽章！</p>
+          <button class="btn-start" onclick="DessertStamps.init()">查看集章地圖</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CP Ranking Section -->
+    <section id="section-cp" class="feature-section">
+      <h2 class="section-title">💰 CP值排行榜</h2>
+      <p class="section-desc">花小錢吃好料，高CP值首選！</p>
+      <div id="cp-list">
+        <!-- Content loaded by JS -->
+      </div>
+    </section>
+
+    <!-- Dietary Section -->
+    <section id="section-dietary" class="feature-section">
+      <h2 class="section-title">🥬 特殊飲食需求</h2>
+      <p class="section-desc">素食、無乳糖、低熱量等飲食需求篩選！</p>
+      <div class="dietary-grid" id="dietary-filters">
+        <!-- Content loaded by JS -->
+      </div>
+      <div id="dietary-results">
+        <!-- Filtered results -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="features-footer">
+    <p><a href="index.html">← 返回台南旅遊指南首頁</a></p>
+    <p style="font-size: 12px; color: #999; margin-top: 10px;">資料僅供參考，實際情況請以店家公告為準</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/drinkQuiz.js"></script>
+  <script src="js/dessertStamps.js"></script>
+  <script src="js/drinkFeatures.js"></script>
+</body>
+</html>

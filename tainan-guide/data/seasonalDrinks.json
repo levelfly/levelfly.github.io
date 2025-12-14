@@ -1,0 +1,161 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-14",
+  "seasons": [
+    {
+      "id": "strawberry",
+      "name": "草莓季",
+      "months": [12, 1, 2, 3],
+      "icon": "🍓",
+      "description": "冬季限定的草莓甜蜜滋味",
+      "drinks": [
+        {
+          "shopId": "drk008",
+          "shopName": "蜷尾家甘味處",
+          "drinkName": "草莓霜淇淋",
+          "price": 120,
+          "available": true,
+          "description": "使用當季新鮮草莓製作，酸甜滋味",
+          "tips": "每日限量，建議早點去"
+        },
+        {
+          "shopId": "drk006",
+          "shopName": "泰成水果店",
+          "drinkName": "草莓牛奶冰",
+          "price": 150,
+          "available": true,
+          "description": "滿滿草莓配上香濃牛奶冰",
+          "tips": "份量大可兩人分食"
+        },
+        {
+          "shopId": "new001",
+          "shopName": "莉莉水果店",
+          "drinkName": "草莓汁",
+          "price": 80,
+          "available": true,
+          "description": "新鮮草莓現打，不加水",
+          "tips": "季節限定，要把握時機"
+        }
+      ]
+    },
+    {
+      "id": "mango",
+      "name": "芒果季",
+      "months": [5, 6, 7, 8],
+      "icon": "🥭",
+      "description": "夏季必吃的芒果饗宴",
+      "drinks": [
+        {
+          "shopId": "drk007",
+          "shopName": "裕成水果店",
+          "drinkName": "芒果冰",
+          "price": 150,
+          "available": true,
+          "description": "使用在欉紅愛文芒果，新鮮香甜",
+          "tips": "芒果產季5-8月最推薦",
+          "mustTry": true
+        },
+        {
+          "shopId": "drk006",
+          "shopName": "泰成水果店",
+          "drinkName": "芒果牛奶冰",
+          "price": 180,
+          "available": true,
+          "description": "整顆芒果配上濃郁牛奶冰",
+          "tips": "網美必拍款"
+        },
+        {
+          "shopId": "new002",
+          "shopName": "有間冰舖",
+          "drinkName": "芒果無雙",
+          "price": 160,
+          "available": true,
+          "description": "芒果冰沙加芒果丁，雙重享受",
+          "tips": "玉井芒果直送"
+        },
+        {
+          "shopId": "new003",
+          "shopName": "冰鄉",
+          "drinkName": "情人果芒果冰",
+          "price": 120,
+          "available": true,
+          "description": "芒果配上酸甜情人果",
+          "tips": "老店味道，價格實惠"
+        }
+      ]
+    },
+    {
+      "id": "watermelon",
+      "name": "西瓜季",
+      "months": [6, 7, 8, 9],
+      "icon": "🍉",
+      "description": "消暑解渴的西瓜清涼",
+      "drinks": [
+        {
+          "shopId": "drk006",
+          "shopName": "泰成水果店",
+          "drinkName": "西瓜冰",
+          "price": 120,
+          "available": true,
+          "description": "整顆小西瓜挖空裝冰，超吸睛",
+          "tips": "拍照打卡必點"
+        },
+        {
+          "shopId": "drk003",
+          "shopName": "阿田水果店",
+          "drinkName": "西瓜汁",
+          "price": 50,
+          "available": true,
+          "description": "純西瓜現打，清涼消暑",
+          "tips": "不加糖最天然"
+        },
+        {
+          "shopId": "new004",
+          "shopName": "佳佳西瓜汁",
+          "drinkName": "西瓜牛奶",
+          "price": 60,
+          "available": true,
+          "description": "西瓜加牛奶，綿密好喝",
+          "tips": "夏日限定"
+        }
+      ]
+    },
+    {
+      "id": "pomelo",
+      "name": "柚子季",
+      "months": [9, 10, 11],
+      "icon": "🍊",
+      "description": "中秋前後的柚香風味",
+      "drinks": [
+        {
+          "shopId": "new005",
+          "shopName": "麻豆柚子專賣",
+          "drinkName": "柚子茶",
+          "price": 55,
+          "available": true,
+          "description": "使用麻豆文旦製作，清香解膩",
+          "tips": "中秋前後最對時"
+        },
+        {
+          "shopId": "drk008",
+          "shopName": "蜷尾家甘味處",
+          "drinkName": "柚子霜淇淋",
+          "price": 120,
+          "available": true,
+          "description": "柚子清香與奶香的完美結合",
+          "tips": "季節限定口味"
+        },
+        {
+          "shopId": "new006",
+          "shopName": "老騎士柚茶",
+          "drinkName": "蜂蜜柚子茶",
+          "price": 50,
+          "available": true,
+          "description": "柚子加蜂蜜，潤喉又好喝",
+          "tips": "熱飲冷飲都可以"
+        }
+      ]
+    }
+  ],
+  "currentSeasonHelper": "使用 getCurrentSeason() 函數取得當季飲品"
+}

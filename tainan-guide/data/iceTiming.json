@@ -1,0 +1,149 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-14",
+  "iceShops": [
+    {
+      "id": "ice001",
+      "name": "裕成水果店",
+      "category": "水果冰",
+      "address": "台南市中西區民生路一段122號",
+      "hours": "12:00-23:00",
+      "queueStatus": {
+        "weekday": {
+          "level": "medium",
+          "waitTime": "10-20分鐘",
+          "peakHours": ["14:00-16:00", "19:00-21:00"]
+        },
+        "weekend": {
+          "level": "high",
+          "waitTime": "30-60分鐘",
+          "peakHours": ["13:00-17:00", "19:00-22:00"]
+        }
+      },
+      "bestTime": {
+        "recommended": ["12:00-13:00", "17:00-18:00"],
+        "reason": "剛開店或用餐時段人較少",
+        "avoid": ["15:00-16:00"],
+        "avoidReason": "下午茶尖峰時段"
+      },
+      "seasonalNotes": "芒果季(5-8月)排隊時間加倍",
+      "tips": "可先電話確認芒果是否還有"
+    },
+    {
+      "id": "ice002",
+      "name": "泰成水果店",
+      "category": "水果冰",
+      "address": "台南市中西區正興街80號",
+      "hours": "12:00-21:00",
+      "queueStatus": {
+        "weekday": {
+          "level": "medium",
+          "waitTime": "15-25分鐘",
+          "peakHours": ["14:00-17:00"]
+        },
+        "weekend": {
+          "level": "very_high",
+          "waitTime": "45-90分鐘",
+          "peakHours": ["12:00-18:00"]
+        }
+      },
+      "bestTime": {
+        "recommended": ["11:30（開店前排隊）", "19:00-20:00"],
+        "reason": "開店前排第一輪或晚餐後人潮退去",
+        "avoid": ["14:00-17:00"],
+        "avoidReason": "正興街逛街人潮尖峰"
+      },
+      "soldOutRisk": {
+        "哈密瓜冰": "每日限量，下午常售完",
+        "西瓜冰": "夏季熱門，假日易售完"
+      },
+      "tips": "哈密瓜冰份量大建議兩人分食"
+    },
+    {
+      "id": "ice003",
+      "name": "蜷尾家甘味處",
+      "category": "霜淇淋",
+      "address": "台南市中西區正興街92號",
+      "hours": "11:00-22:00",
+      "queueStatus": {
+        "weekday": {
+          "level": "medium",
+          "waitTime": "10-20分鐘",
+          "peakHours": ["14:00-17:00"]
+        },
+        "weekend": {
+          "level": "high",
+          "waitTime": "20-40分鐘",
+          "peakHours": ["13:00-18:00"]
+        }
+      },
+      "bestTime": {
+        "recommended": ["11:00-12:00", "20:00-21:00"],
+        "reason": "開店時段或晚間人較少",
+        "avoid": ["15:00-17:00"],
+        "avoidReason": "下午茶時段人最多"
+      },
+      "dailyFlavor": true,
+      "flavorCheckMethod": "每日口味公布於 Facebook 粉專",
+      "tips": "想吃特定口味建議先查FB"
+    },
+    {
+      "id": "ice004",
+      "name": "太陽牌冰品",
+      "category": "傳統冰品",
+      "address": "台南市中西區民權路一段41號",
+      "hours": "10:00-22:00",
+      "queueStatus": {
+        "weekday": {
+          "level": "low",
+          "waitTime": "5-10分鐘",
+          "peakHours": ["15:00-17:00"]
+        },
+        "weekend": {
+          "level": "medium",
+          "waitTime": "10-20分鐘",
+          "peakHours": ["14:00-18:00"]
+        }
+      },
+      "bestTime": {
+        "recommended": ["10:00-11:00", "19:00-21:00"],
+        "reason": "上午或晚餐後人較少",
+        "avoid": ["15:00-16:00"],
+        "avoidReason": "下午茶尖峰"
+      },
+      "tips": "老店不太需要排隊，可以悠閒品嘗"
+    },
+    {
+      "id": "ice005",
+      "name": "冰鄉",
+      "category": "水果冰",
+      "address": "台南市中西區民生路一段160號",
+      "hours": "11:00-22:00",
+      "queueStatus": {
+        "weekday": {
+          "level": "low",
+          "waitTime": "5-10分鐘",
+          "peakHours": ["14:00-16:00"]
+        },
+        "weekend": {
+          "level": "medium",
+          "waitTime": "15-25分鐘",
+          "peakHours": ["13:00-17:00"]
+        }
+      },
+      "bestTime": {
+        "recommended": ["11:00-12:00", "18:00-19:00"],
+        "reason": "避開下午茶時段",
+        "avoid": ["14:00-16:00"],
+        "avoidReason": "觀光客較多"
+      },
+      "tips": "價格比裕成便宜，CP值高"
+    }
+  ],
+  "queueLevelDefinition": {
+    "low": { "name": "人少", "color": "#4CAF50", "icon": "😊" },
+    "medium": { "name": "普通", "color": "#FF9800", "icon": "😐" },
+    "high": { "name": "人多", "color": "#f44336", "icon": "😓" },
+    "very_high": { "name": "爆滿", "color": "#9C27B0", "icon": "🔥" }
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-14",
+  "description": "台南限量甜點追蹤 - 每日限定、季節限定、隱藏版",
+  "limitTypes": {
+    "daily": { "name": "每日限量", "icon": "📅", "color": "#FF5722", "urgency": "high" },
+    "seasonal": { "name": "季節限定", "icon": "🌸", "color": "#E91E63", "urgency": "medium" },
+    "weekly": { "name": "每週限定", "icon": "📆", "color": "#9C27B0", "urgency": "medium" },
+    "random": { "name": "不定期限定", "icon": "🎲", "color": "#673AB7", "urgency": "low" },
+    "hidden": { "name": "隱藏版", "icon": "🔮", "color": "#3F51B5", "urgency": "special" }
+  },
+  "limitedItems": [
+    {
+      "id": "ltd001",
+      "shopName": "泰成水果店",
+      "itemName": "哈密瓜冰",
+      "limitType": "daily",
+      "limitInfo": {
+        "dailyQuantity": "約50份",
+        "soldOutTime": "通常下午3-4點售完",
+        "checkMethod": "現場確認",
+        "reservable": false
+      },
+      "bestStrategy": {
+        "arrivalTime": "11:30（開店前）",
+        "tips": "假日建議更早，平日較有機會",
+        "alternativeChoice": "西瓜冰也很讚"
+      },
+      "seasonalNote": "夏季(5-9月)供應",
+      "price": "180元",
+      "address": "台南市中西區正興街80號",
+      "priority": 1
+    },
+    {
+      "id": "ltd002",
+      "shopName": "蜷尾家甘味處",
+      "itemName": "每日限定口味",
+      "limitType": "daily",
+      "limitInfo": {
+        "dailyQuantity": "售完為止",
+        "soldOutTime": "熱門口味下午可能售完",
+        "checkMethod": "Facebook粉專公布",
+        "reservable": false
+      },
+      "bestStrategy": {
+        "arrivalTime": "11:00開店時",
+        "tips": "先查FB確認當日口味",
+        "alternativeChoice": "通常有2-3種口味可選"
+      },
+      "socialMedia": {
+        "facebook": "蜷尾家",
+        "updateTime": "每日早上公布"
+      },
+      "price": "80-150元",
+      "address": "台南市中西區正興街92號",
+      "priority": 2
+    },
+    {
+      "id": "ltd003",
+      "shopName": "島旬",
+      "itemName": "季節水果塔",
+      "limitType": "daily",
+      "limitInfo": {
+        "dailyQuantity": "每日限量製作",
+        "soldOutTime": "熱門款下午常售完",
+        "checkMethod": "LINE官方帳號",
+        "reservable": true,
+        "reserveMethod": "LINE預約"
+      },
+      "bestStrategy": {
+        "arrivalTime": "12:00開店或預約",
+        "tips": "建議前一天LINE預約",
+        "alternativeChoice": "磅蛋糕相對好買到"
+      },
+      "lineId": "@daoshun",
+      "price": "180-280元",
+      "address": "台南市中西區民生路一段158號",
+      "priority": 1
+    },
+    {
+      "id": "ltd004",
+      "shopName": "裕成水果店",
+      "itemName": "愛文芒果冰",
+      "limitType": "seasonal",
+      "limitInfo": {
+        "season": "5月-8月",
+        "dailyQuantity": "依芒果供應量",
+        "soldOutTime": "芒果季熱門時段可能提早售完",
+        "checkMethod": "電話確認"
+      },
+      "bestStrategy": {
+        "arrivalTime": "避開15:00-17:00尖峰",
+        "tips": "可先打電話問芒果還有沒有",
+        "alternativeChoice": "其他季節有草莓、西瓜等"
+      },
+      "seasonalNote": "只有芒果季才有正宗愛文芒果",
+      "price": "150-200元",
+      "address": "台南市中西區民生路一段122號",
+      "priority": 2
+    },
+    {
+      "id": "ltd005",
+      "shopName": "餐桌上的鹿早",
+      "itemName": "每週限定甜點",
+      "limitType": "weekly",
+      "limitInfo": {
+        "updateDay": "每週更換",
+        "dailyQuantity": "限量供應",
+        "checkMethod": "Instagram/現場",
+        "reservable": false
+      },
+      "bestStrategy": {
+        "arrivalTime": "平日下午",
+        "tips": "週末人多，平日較悠閒",
+        "alternativeChoice": "常態甜點也很精緻"
+      },
+      "socialMedia": {
+        "instagram": "餐桌上的鹿早"
+      },
+      "price": "150-250元",
+      "address": "台南市中西區衛民街70巷1號",
+      "priority": 3
+    },
+    {
+      "id": "ltd006",
+      "shopName": "克林姆之屋",
+      "itemName": "季節限定泡芙",
+      "limitType": "seasonal",
+      "limitInfo": {
+        "season": "不定期推出",
+        "dailyQuantity": "限量供應",
+        "checkMethod": "現場確認",
+        "reservable": false
+      },
+      "bestStrategy": {
+        "arrivalTime": "避開15:00-17:00",
+        "tips": "季節限定口味很快賣完",
+        "alternativeChoice": "原味泡芙永遠經典"
+      },
+      "seasonalFlavors": ["草莓季泡芙", "芒果季泡芙", "栗子泡芙"],
+      "price": "80-150元",
+      "address": "台南市中西區民生路一段132號",
+      "priority": 2
+    },
+    {
+      "id": "ltd007",
+      "shopName": "窄門咖啡",
+      "itemName": "手作甜點",
+      "limitType": "daily",
+      "limitInfo": {
+        "dailyQuantity": "每日少量手作",
+        "soldOutTime": "下午茶時段後可能售完",
+        "checkMethod": "現場確認",
+        "reservable": false
+      },
+      "bestStrategy": {
+        "arrivalTime": "下午茶前（14:00前）",
+        "tips": "甜點是配角，38公分窄門才是主角",
+        "alternativeChoice": "飲品選擇豐富"
+      },
+      "uniqueFeature": "入口只有38公分寬",
+      "price": "120-200元",
+      "address": "台南市中西區南門路67號",
+      "priority": 3
+    },
+    {
+      "id": "ltd008",
+      "shopName": "衛屋茶事",
+      "itemName": "季節和菓子",
+      "limitType": "seasonal",
+      "limitInfo": {
+        "season": "配合日本節氣",
+        "dailyQuantity": "手作限量",
+        "checkMethod": "電話/現場",
+        "reservable": true
+      },
+      "bestStrategy": {
+        "arrivalTime": "預約茶道體驗",
+        "tips": "和菓子配抹茶是絕配",
+        "alternativeChoice": "常態和菓子也很美"
+      },
+      "culturalNote": "依照日本二十四節氣更換",
+      "price": "150-350元",
+      "address": "台南市中西區衛民街62號",
+      "priority": 3
+    }
+  ],
+  "huntingStrategies": [
+    {
+      "title": "早起鳥兒有蟲吃",
+      "description": "限量商品建議開店就去排隊",
+      "icon": "🐦",
+      "applicableTo": ["daily", "seasonal"]
+    },
+    {
+      "title": "社群媒體追蹤",
+      "description": "追蹤店家FB/IG，掌握最新限定資訊",
+      "icon": "📱",
+      "applicableTo": ["daily", "weekly", "random"]
+    },
+    {
+      "title": "平日優先",
+      "description": "平日競爭較少，成功率較高",
+      "icon": "📅",
+      "applicableTo": ["daily", "seasonal"]
+    },
+    {
+      "title": "預約優先",
+      "description": "能預約的店家一定要預約",
+      "icon": "📞",
+      "applicableTo": ["daily", "weekly"]
+    },
+    {
+      "title": "備案準備",
+      "description": "想好第二選擇，撲空也不失望",
+      "icon": "🎯",
+      "applicableTo": ["daily", "seasonal", "random"]
+    }
+  ],
+  "alertSettings": {
+    "description": "設定提醒功能（未來可擴展）",
+    "features": [
+      "季節限定開賣通知",
+      "每日限量剩餘提醒",
+      "社群媒體更新推播"
+    ]
+  }
+}

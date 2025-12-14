@@ -1,0 +1,317 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-14",
+  "description": "特殊飲食需求篩選資料",
+  "dietaryTypes": {
+    "vegetarian": {
+      "name": "素食",
+      "icon": "🥬",
+      "color": "#4CAF50",
+      "description": "蛋奶素或純素可食用"
+    },
+    "vegan": {
+      "name": "純素",
+      "icon": "🌱",
+      "color": "#8BC34A",
+      "description": "不含任何動物性成分"
+    },
+    "lactoseFree": {
+      "name": "無乳糖",
+      "icon": "🥛",
+      "color": "#03A9F4",
+      "description": "適合乳糖不耐症者"
+    },
+    "glutenFree": {
+      "name": "無麩質",
+      "icon": "🌾",
+      "color": "#FF9800",
+      "description": "適合麩質過敏者"
+    },
+    "sugarFree": {
+      "name": "無糖",
+      "icon": "🚫",
+      "color": "#9C27B0",
+      "description": "無添加糖或可選無糖"
+    },
+    "lowCalorie": {
+      "name": "低熱量",
+      "icon": "🔥",
+      "color": "#E91E63",
+      "description": "相對低熱量選擇"
+    },
+    "organic": {
+      "name": "有機",
+      "icon": "🍃",
+      "color": "#009688",
+      "description": "使用有機食材"
+    },
+    "nutFree": {
+      "name": "無堅果",
+      "icon": "🥜",
+      "color": "#795548",
+      "description": "適合堅果過敏者"
+    }
+  },
+  "shopDietaryInfo": [
+    {
+      "shopId": "drinks001",
+      "shopName": "茶の魔手",
+      "category": "手搖飲",
+      "dietaryOptions": {
+        "vegetarian": true,
+        "vegan": true,
+        "lactoseFree": {
+          "available": true,
+          "options": ["純茶類都可以", "避開奶類飲品"]
+        },
+        "sugarFree": {
+          "available": true,
+          "options": ["所有飲品可選無糖"]
+        },
+        "glutenFree": true
+      },
+      "notes": "純茶類對多數飲食需求都友善"
+    },
+    {
+      "shopId": "drinks002",
+      "shopName": "雙全紅茶",
+      "category": "傳統飲品",
+      "dietaryOptions": {
+        "vegetarian": true,
+        "vegan": {
+          "available": true,
+          "options": ["純紅茶"]
+        },
+        "lactoseFree": {
+          "available": true,
+          "options": ["純紅茶", "避開紅茶牛奶"]
+        },
+        "sugarFree": {
+          "available": true,
+          "options": ["可要求減糖或無糖"]
+        }
+      },
+      "notes": "傳統煮法，建議現場詢問糖量調整"
+    },
+    {
+      "shopId": "desserts001",
+      "shopName": "CHUN純薏仁",
+      "category": "甜品",
+      "dietaryOptions": {
+        "vegetarian": true,
+        "vegan": {
+          "available": true,
+          "options": ["純薏仁湯"]
+        },
+        "lactoseFree": {
+          "available": true,
+          "options": ["純薏仁", "避開奶類"]
+        },
+        "glutenFree": true,
+        "lowCalorie": {
+          "available": true,
+          "options": ["薏仁本身低熱量"]
+        }
+      },
+      "healthBenefits": ["美白", "消水腫", "清熱"],
+      "notes": "健康取向甜品，對多數需求友善"
+    },
+    {
+      "shopId": "desserts002",
+      "shopName": "太陽牌冰品",
+      "category": "傳統冰品",
+      "dietaryOptions": {
+        "vegetarian": true,
+        "lactoseFree": {
+          "available": true,
+          "options": ["水果冰", "紅豆冰（不加牛奶）"]
+        },
+        "sugarFree": {
+          "available": false,
+          "notes": "傳統冰品含糖，建議詢問減糖"
+        }
+      },
+      "notes": "傳統冰品，部分可調整"
+    },
+    {
+      "shopId": "desserts003",
+      "shopName": "裕成水果店",
+      "category": "水果冰",
+      "dietaryOptions": {
+        "vegetarian": true,
+        "vegan": {
+          "available": true,
+          "options": ["純水果盤"]
+        },
+        "lactoseFree": {
+          "available": true,
+          "options": ["純水果冰", "避開芒果牛奶冰"]
+        },
+        "glutenFree": true,
+        "lowCalorie": {
+          "available": true,
+          "options": ["新鮮水果本身較健康"]
+        }
+      },
+      "notes": "新鮮水果為主，選擇多元"
+    },
+    {
+      "shopId": "desserts004",
+      "shopName": "泰成水果店",
+      "category": "水果冰",
+      "dietaryOptions": {
+        "vegetarian": true,
+        "vegan": {
+          "available": true,
+          "options": ["純水果冰"]
+        },
+        "lactoseFree": {
+          "available": true,
+          "options": ["哈密瓜冰", "西瓜冰"]
+        },
+        "glutenFree": true
+      },
+      "notes": "整顆水果創意冰品"
+    },
+    {
+      "shopId": "desserts005",
+      "shopName": "蜷尾家",
+      "category": "霜淇淋",
+      "dietaryOptions": {
+        "vegetarian": true,
+        "lactoseFree": {
+          "available": false,
+          "notes": "霜淇淋含乳製品"
+        },
+        "vegan": {
+          "available": false,
+          "notes": "含乳製品"
+        }
+      },
+      "notes": "霜淇淋含乳製品，乳糖不耐者不建議"
+    },
+    {
+      "shopId": "desserts006",
+      "shopName": "依蕾特布丁",
+      "category": "布丁",
+      "dietaryOptions": {
+        "vegetarian": true,
+        "lactoseFree": {
+          "available": false,
+          "notes": "布丁含牛奶"
+        },
+        "vegan": {
+          "available": false,
+          "notes": "含蛋奶"
+        }
+      },
+      "notes": "傳統布丁含蛋奶"
+    },
+    {
+      "shopId": "desserts007",
+      "shopName": "克林姆之屋",
+      "category": "泡芙",
+      "dietaryOptions": {
+        "vegetarian": true,
+        "lactoseFree": {
+          "available": false,
+          "notes": "泡芙含奶油"
+        },
+        "glutenFree": {
+          "available": false,
+          "notes": "泡芙皮含麵粉"
+        },
+        "vegan": {
+          "available": false,
+          "notes": "含蛋奶"
+        }
+      },
+      "notes": "傳統泡芙不適合特殊飲食需求"
+    },
+    {
+      "shopId": "drinks003",
+      "shopName": "義豐冬瓜茶",
+      "category": "傳統飲品",
+      "dietaryOptions": {
+        "vegetarian": true,
+        "vegan": true,
+        "lactoseFree": {
+          "available": true,
+          "options": ["純冬瓜茶"]
+        },
+        "glutenFree": true,
+        "organic": {
+          "available": false,
+          "notes": "傳統製法"
+        }
+      },
+      "notes": "純植物性飲品，多數需求友善"
+    },
+    {
+      "shopId": "drinks004",
+      "shopName": "青草茶阿伯",
+      "category": "傳統飲品",
+      "dietaryOptions": {
+        "vegetarian": true,
+        "vegan": true,
+        "lactoseFree": true,
+        "glutenFree": true,
+        "lowCalorie": {
+          "available": true,
+          "options": ["青草茶熱量低"]
+        }
+      },
+      "healthBenefits": ["清熱", "退火", "消暑"],
+      "notes": "傳統青草茶，純植物性"
+    },
+    {
+      "shopId": "desserts008",
+      "shopName": "島旬",
+      "category": "甜點",
+      "dietaryOptions": {
+        "vegetarian": true,
+        "vegan": {
+          "available": false,
+          "notes": "多數甜點含蛋奶"
+        },
+        "organic": {
+          "available": true,
+          "options": ["使用在地有機食材"]
+        }
+      },
+      "notes": "強調在地食材，可詢問特殊需求"
+    }
+  ],
+  "quickFilters": {
+    "vegetarianFriendly": [
+      "茶の魔手", "雙全紅茶", "義豐冬瓜茶", "青草茶阿伯",
+      "CHUN純薏仁", "太陽牌冰品", "裕成水果店", "泰成水果店"
+    ],
+    "veganFriendly": [
+      "茶の魔手（純茶）", "義豐冬瓜茶", "青草茶阿伯",
+      "CHUN純薏仁", "裕成水果店（純水果）", "泰成水果店（純水果）"
+    ],
+    "lactoseFreeFriendly": [
+      "茶の魔手（純茶）", "雙全紅茶（純紅茶）", "義豐冬瓜茶",
+      "青草茶阿伯", "CHUN純薏仁", "裕成水果店", "泰成水果店"
+    ],
+    "lowCalorieFriendly": [
+      "青草茶阿伯", "CHUN純薏仁", "裕成水果店（水果盤）",
+      "茶の魔手（無糖茶）"
+    ]
+  },
+  "disclaimers": [
+    {
+      "icon": "⚠️",
+      "text": "資訊僅供參考，實際成分請以店家說明為準"
+    },
+    {
+      "icon": "💬",
+      "text": "有嚴重過敏者請務必現場確認"
+    },
+    {
+      "icon": "🔄",
+      "text": "店家配方可能更新，建議點餐前再次確認"
+    }
+  ]
+}

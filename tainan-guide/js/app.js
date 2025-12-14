@@ -7,6 +7,7 @@ const state = {
   currentCategory: 'attractions',
   currentSubCategory: null,
   activeFilters: [],
+  activeTagFilters: [],  // 新增：標籤篩選
   searchQuery: '',
   data: {
     attractions: null,
@@ -118,6 +119,54 @@ function renderSubcategoryNav(data) {
   `;
 }
 
+// Render Tag Filter Bar
+function renderTagFilterBar(data) {
+  if (!data || !data.tags) return '';
+
+  const tags = data.tags;
+  const tagEntries = Object.entries(tags);
+
+  if (tagEntries.length === 0) return '';
+
+  const tagButtons = tagEntries.map(([tagId, tagDef]) => {
+    const isActive = state.activeTagFilters.includes(tagId);
+    return `
+      <button class="tag-filter-btn ${isActive ? 'active' : ''}"
+              data-tag-id="${tagId}"
+              style="${isActive ? `background-color: ${tagDef.color}; color: white;` : `color: ${tagDef.color}; border-color: ${tagDef.color}40;`}">
+        ${tagDef.icon} ${tagDef.name}
+      </button>
+    `;
+  }).join('');
+
+  return `
+    <div class="tag-filter-bar" id="tag-filter-bar">
+      <button class="tag-filter-btn tag-filter-btn--clear ${state.activeTagFilters.length === 0 ? 'active' : ''}"
+              data-tag-id="__clear__">
+        全部
+      </button>
+      ${tagButtons}
+    </div>
+  `;
+}
+
+// Handle Tag Filter Click
+function handleTagFilterClick(tagId) {
+  if (tagId === '__clear__') {
+    // 清除所有篩選
+    state.activeTagFilters = [];
+  } else {
+    // 切換單一標籤
+    const index = state.activeTagFilters.indexOf(tagId);
+    if (index > -1) {
+      state.activeTagFilters.splice(index, 1);
+    } else {
+      state.activeTagFilters.push(tagId);
+    }
+  }
+  renderContent();
+}
+
 // Render Bottom Navigation
 function renderBottomNav() {
   const bottomNav = document.getElementById('bottom-nav');
@@ -163,13 +212,22 @@ function renderCards(data) {
 
   let items = getItemsArray(data);
 
-  // Apply filters
+  // Apply subcategory filter
   if (state.currentSubCategory) {
     items = items.filter(item => {
       if (Array.isArray(item.category)) {
         return item.category.includes(state.currentSubCategory);
       }
       return item.category === state.currentSubCategory;
+    });
+  }
+
+  // Apply tag filter (新增)
+  if (state.activeTagFilters.length > 0) {
+    items = items.filter(item => {
+      if (!item.tags || !Array.isArray(item.tags)) return false;
+      // 檢查項目是否包含所有選中的標籤（AND 邏輯）
+      return state.activeTagFilters.every(tagId => item.tags.includes(tagId));
     });
   }
 
@@ -183,12 +241,39 @@ function renderCards(data) {
     );
   }
 
+  // 產生 Tag 篩選列
+  const tagFilterHTML = renderTagFilterBar(data);
+
   if (items.length === 0) {
-    showEmpty();
+    elements.cardGrid.innerHTML = tagFilterHTML + `
+      <div class="empty-state">
+        <div class="empty-state__icon">🔍</div>
+        <p>找不到符合條件的結果</p>
+        ${state.activeTagFilters.length > 0 ? '<button class="tag-filter-btn tag-filter-btn--clear" onclick="handleTagFilterClick(\'__clear__\')">清除篩選</button>' : ''}
+      </div>
+    `;
+    initTagFilterListeners();
     return;
   }
 
-  elements.cardGrid.innerHTML = items.map(item => createCardHTML(item)).join('');
+  elements.cardGrid.innerHTML = tagFilterHTML + `<div class="card-grid-inner">${items.map(item => createCardHTML(item)).join('')}</div>`;
+  initTagFilterListeners();
+}
+
+// Initialize Tag Filter Event Listeners
+function initTagFilterListeners() {
+  const tagFilterBar = document.getElementById('tag-filter-bar');
+  if (!tagFilterBar) return;
+
+  tagFilterBar.addEventListener('click', (e) => {
+    const btn = e.target.closest('.tag-filter-btn');
+    if (!btn) return;
+
+    const tagId = btn.dataset.tagId;
+    if (tagId) {
+      handleTagFilterClick(tagId);
+    }
+  });
 }
 
 // Get items array from data
@@ -220,6 +305,22 @@ function createCardHTML(item) {
   const tags = getItemTags(item);
   const imageHTML = getImageHTML(item);
 
+  // 計算營業狀態
+  let statusHTML = '';
+  if (typeof TimeUtils !== 'undefined' && item.hours) {
+    const status = TimeUtils.getBusinessStatus(item);
+    statusHTML = `<span class="card__status ${status.statusClass}">${status.statusText}</span>`;
+  }
+
+  // 計算售完警告
+  let soldOutHTML = '';
+  if (typeof TimeUtils !== 'undefined' && item.soldOutTime) {
+    const soldOut = TimeUtils.getSoldOutCountdown(item.soldOutTime);
+    if (soldOut.urgencyLevel !== 'normal') {
+      soldOutHTML = `<span class="card__soldout card__soldout--${soldOut.urgencyLevel}">⚡ ${soldOut.countdownText}</span>`;
+    }
+  }
+
   return `
     <article class="card" data-id="${item.id}">
       ${imageHTML}
@@ -228,13 +329,15 @@ function createCardHTML(item) {
           <h3 class="card__title">${item.name}</h3>
           <span class="card__rating">${ratingDisplay}</span>
         </div>
+        ${statusHTML || soldOutHTML ? `<div class="card__status-row">${statusHTML}${soldOutHTML}</div>` : ''}
         <div class="card__tags">
-          ${tags.map(tag => `<span class="card__tag ${tag.class || ''}">${tag.text}</span>`).join('')}
+          ${tags.map(tag => `<span class="card__tag ${tag.class || ''}" ${tag.style ? `style="${tag.style}"` : ''}>${tag.icon || ''}${tag.text}</span>`).join('')}
         </div>
         <p class="card__description">${item.description || ''}</p>
         <div class="card__meta">
           ${item.address ? `<div class="card__meta-item">📍 ${item.address}</div>` : ''}
           ${item.hours ? `<div class="card__meta-item">🕐 ${item.hours}</div>` : ''}
+          ${item.closedDays && item.closedDays.length > 0 ? `<div class="card__meta-item">🚫 週${item.closedDays.join('、週')}公休</div>` : ''}
         </div>
         <div class="card__footer">
           <span class="card__price">${priceDisplay}</span>
@@ -255,8 +358,37 @@ function getPriceDisplay(level) {
 // Get item tags
 function getItemTags(item) {
   const tags = [];
+  const data = state.data[state.currentCategory];
 
-  if (item.features) {
+  // 優先使用新的 tags 系統
+  if (item.tags && Array.isArray(item.tags) && data && data.tags) {
+    item.tags.slice(0, 4).forEach(tagId => {
+      const tagDef = data.tags[tagId];
+      if (tagDef) {
+        tags.push({
+          text: tagDef.name,
+          icon: tagDef.icon + ' ',
+          class: 'card__tag--custom',
+          style: `background-color: ${tagDef.color}15; color: ${tagDef.color}; border-color: ${tagDef.color}40;`
+        });
+      }
+    });
+  }
+
+  // 顯示排隊狀態
+  if (item.queueStatus && data && data.queueLevels) {
+    const queueDef = data.queueLevels[item.queueStatus];
+    if (queueDef) {
+      tags.push({
+        text: queueDef.waitTime,
+        icon: queueDef.icon + ' ',
+        class: 'card__tag--queue'
+      });
+    }
+  }
+
+  // 補充傳統 features（如果沒有新標籤）
+  if (tags.length === 0 && item.features) {
     item.features.slice(0, 3).forEach(f => {
       const isMichelin = f.includes('米其林') || f.includes('必比登');
       tags.push({
@@ -723,6 +855,7 @@ function initEventListeners() {
 
       state.currentCategory = category;
       state.currentSubCategory = null;
+      state.activeTagFilters = [];  // 清除標籤篩選
       renderCategoryNav();
       renderBottomNav();
       await loadData(category);
@@ -754,6 +887,7 @@ function initEventListeners() {
 
       state.currentCategory = category;
       state.currentSubCategory = null;
+      state.activeTagFilters = [];  // 清除標籤篩選
       renderCategoryNav();
       renderBottomNav();
       await loadData(category);

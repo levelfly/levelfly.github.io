@@ -1,0 +1,177 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-14",
+  "description": "台南甜點店預約資訊大全",
+  "shops": [
+    {
+      "id": "res001",
+      "name": "克林姆之屋",
+      "category": "泡芙",
+      "district": "中西區",
+      "address": "台南市中西區民生路一段132號",
+      "hours": "11:00-21:00，週一休",
+      "reservationType": "queue",
+      "reservationInfo": {
+        "method": "現場排隊",
+        "canReserve": false,
+        "waitTime": "平日15-30分鐘，假日30-60分鐘",
+        "tips": "泡芙現做需等待，但等待值得"
+      },
+      "signature": ["原味泡芙", "巧克力泡芙", "抹茶泡芙"],
+      "priceRange": "80-200元",
+      "dailyLimit": false,
+      "tips": "下午茶時段人最多，建議避開15:00-17:00"
+    },
+    {
+      "id": "res002",
+      "name": "依蕾特布丁",
+      "category": "布丁",
+      "district": "安平區",
+      "address": "台南市安平區安北路422號",
+      "hours": "10:00-22:00",
+      "reservationType": "walk_in",
+      "reservationInfo": {
+        "method": "直接購買",
+        "canReserve": true,
+        "reserveMethod": "電話預訂大量",
+        "phone": "06-391-5826",
+        "tips": "一般購買不需預約，團購建議先打電話"
+      },
+      "signature": ["焦糖布丁", "奶酪", "雞蛋布丁"],
+      "priceRange": "40-80元",
+      "dailyLimit": false,
+      "tips": "買回家要冷藏保存"
+    },
+    {
+      "id": "res003",
+      "name": "蜷尾家甘味處",
+      "category": "霜淇淋",
+      "district": "中西區",
+      "address": "台南市中西區正興街92號",
+      "hours": "11:00-22:00",
+      "reservationType": "queue",
+      "reservationInfo": {
+        "method": "現場排隊",
+        "canReserve": false,
+        "waitTime": "平日10-20分鐘，假日20-40分鐘",
+        "tips": "每日口味不同，建議先查FB"
+      },
+      "signature": ["每日限定霜淇淋"],
+      "priceRange": "80-150元",
+      "dailyLimit": true,
+      "dailyLimitInfo": "每日口味限定，賣完為止",
+      "socialMedia": {
+        "facebook": "蜷尾家",
+        "checkDaily": true
+      },
+      "tips": "想吃特定口味建議11:00開店就去"
+    },
+    {
+      "id": "res004",
+      "name": "泰成水果店",
+      "category": "水果冰",
+      "district": "中西區",
+      "address": "台南市中西區正興街80號",
+      "hours": "12:00-21:00",
+      "reservationType": "queue",
+      "reservationInfo": {
+        "method": "現場排隊",
+        "canReserve": false,
+        "waitTime": "平日15-25分鐘，假日45-90分鐘",
+        "tips": "哈密瓜冰每日限量"
+      },
+      "signature": ["哈密瓜冰", "西瓜冰", "芒果冰"],
+      "priceRange": "60-180元",
+      "dailyLimit": true,
+      "dailyLimitInfo": "哈密瓜冰每日限量約50份",
+      "tips": "建議開店前就去排隊"
+    },
+    {
+      "id": "res005",
+      "name": "島旬",
+      "category": "甜點",
+      "district": "中西區",
+      "address": "台南市中西區民生路一段158號",
+      "hours": "12:00-18:00，週一二休",
+      "reservationType": "line",
+      "reservationInfo": {
+        "method": "LINE預約",
+        "canReserve": true,
+        "reserveMethod": "LINE官方帳號預約",
+        "lineId": "@daoshun",
+        "advanceNotice": "建議前一天預約",
+        "tips": "熱門品項建議預約"
+      },
+      "signature": ["季節水果塔", "生乳捲", "磅蛋糕"],
+      "priceRange": "120-280元",
+      "dailyLimit": true,
+      "dailyLimitInfo": "每日限量製作",
+      "tips": "沒預約也可現場碰運氣"
+    },
+    {
+      "id": "res006",
+      "name": "裕成水果店",
+      "category": "水果冰",
+      "district": "中西區",
+      "address": "台南市中西區民生路一段122號",
+      "hours": "12:00-23:00",
+      "reservationType": "queue",
+      "reservationInfo": {
+        "method": "現場排隊",
+        "canReserve": false,
+        "waitTime": "平日10-20分鐘，假日30-60分鐘",
+        "tips": "芒果季排隊時間加倍"
+      },
+      "signature": ["芒果冰", "綜合水果盤", "芒果牛奶冰"],
+      "priceRange": "80-200元",
+      "dailyLimit": false,
+      "seasonalNote": "芒果季5-8月人潮最多",
+      "tips": "可先電話確認芒果是否還有"
+    },
+    {
+      "id": "res007",
+      "name": "CHUN純薏仁",
+      "category": "甜品",
+      "district": "中西區",
+      "address": "台南市中西區國華街三段16巷13號",
+      "hours": "10:00-18:00，週三休",
+      "reservationType": "walk_in",
+      "reservationInfo": {
+        "method": "直接購買",
+        "canReserve": false,
+        "waitTime": "通常5-10分鐘",
+        "tips": "排隊速度快"
+      },
+      "signature": ["純薏仁", "薏仁豆花", "薏仁奶茶"],
+      "priceRange": "50-100元",
+      "dailyLimit": false,
+      "tips": "米其林必比登推薦"
+    },
+    {
+      "id": "res008",
+      "name": "太陽牌冰品",
+      "category": "傳統冰品",
+      "district": "中西區",
+      "address": "台南市中西區民權路一段41號",
+      "hours": "10:00-22:00",
+      "reservationType": "walk_in",
+      "reservationInfo": {
+        "method": "直接購買",
+        "canReserve": false,
+        "waitTime": "通常5-15分鐘",
+        "tips": "老店排隊速度快"
+      },
+      "signature": ["紅豆牛奶冰", "草湖芋頭冰", "綜合冰"],
+      "priceRange": "35-80元",
+      "dailyLimit": false,
+      "tips": "80年老店，價格實惠"
+    }
+  ],
+  "reservationTypes": {
+    "queue": { "name": "現場排隊", "icon": "🚶", "color": "#FF9800" },
+    "line": { "name": "LINE預約", "icon": "📱", "color": "#00B900" },
+    "phone": { "name": "電話預約", "icon": "📞", "color": "#2196F3" },
+    "walk_in": { "name": "直接購買", "icon": "🚪", "color": "#4CAF50" },
+    "online": { "name": "網路預約", "icon": "💻", "color": "#9C27B0" }
+  }
+}
