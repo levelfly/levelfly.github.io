@@ -75,6 +75,72 @@
             text-shadow: 0 0 10px rgba(102, 126, 234, 0.8);
         }
 
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            transition: all 0.3s;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 10px 30px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            color: #667eea;
+        }
+
         /* Content wrapper */
         .content {
             position: relative;
@@ -383,6 +449,107 @@
             background: rgba(0, 0, 0, 0.8);
         }
 
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .filter-tab {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .filter-tab:hover {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .filter-tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: transparent;
+            color: #fff;
+        }
+
+        /* Show More Button */
+        .show-more-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .show-more-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: transparent;
+            border: 2px solid rgba(102, 126, 234, 0.8);
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .show-more-btn:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: transparent;
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+        }
+
+        .show-more-btn.hidden {
+            display: none;
+        }
+
+        /* Work card hidden state */
+        .work-card.hidden {
+            display: none;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             nav {
@@ -391,6 +558,14 @@
 
             .nav-links {
                 display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
             }
 
             .hero h1 {
@@ -407,6 +582,23 @@
 
             .works-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .filter-tabs {
+                gap: 8px;
+                padding: 0 10px;
+            }
+
+            .filter-tab {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
             }
         }
     </style>
@@ -426,7 +618,19 @@
                 <li><a href="#works">Works</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#skills" onclick="closeMobileMenu()">Skills</a>
+            <a href="#works" onclick="closeMobileMenu()">Works</a>
+            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+        </div>
 
         <!-- Hero Section -->
         <section class="hero">
@@ -472,8 +676,19 @@
         <!-- Works Section -->
         <section id="works">
             <h2 class="section-title">My <span>Works</span></h2>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">全部</button>
+                <button class="filter-tab" data-filter="travel">旅遊生活</button>
+                <button class="filter-tab" data-filter="health">醫療健康</button>
+                <button class="filter-tab" data-filter="research">研究報告</button>
+                <button class="filter-tab" data-filter="game">互動遊戲</button>
+                <button class="filter-tab" data-filter="practice">練習作品</button>
+            </div>
+
             <div class="works-grid">
-                <a href="sanxia-family-restaurants/index.html" class="work-card">
+                <a href="sanxia-family-restaurants/index.html" class="work-card" data-category="travel">
                     <div class="work-preview">🍽️</div>
                     <div class="work-info">
                         <h3>三峽親子家庭餐廳推薦</h3>
@@ -486,7 +701,7 @@
                     </div>
                 </a>
 
-                <a href="tainan-family-trip/index.html" class="work-card">
+                <a href="tainan-family-trip/index.html" class="work-card" data-category="travel">
                     <div class="work-preview">🏯</div>
                     <div class="work-info">
                         <h3>台南二日遊家庭旅遊攻略</h3>
@@ -499,7 +714,7 @@
                     </div>
                 </a>
 
-                <a href="tainan-guide/index.html" class="work-card">
+                <a href="tainan-guide/index.html" class="work-card" data-category="travel">
                     <div class="work-preview">🏛️</div>
                     <div class="work-info">
                         <h3>台南旅遊全方位指南</h3>
@@ -512,7 +727,7 @@
                     </div>
                 </a>
 
-                <a href="taipei-clinic-guide.html" class="work-card">
+                <a href="taipei-clinic-guide.html" class="work-card" data-category="health">
                     <div class="work-preview">🏥</div>
                     <div class="work-info">
                         <h3>大台北婦產科診所指南</h3>
@@ -525,7 +740,7 @@
                     </div>
                 </a>
 
-                <a href="dental-implant-guide/index.html" class="work-card">
+                <a href="dental-implant-guide/index.html" class="work-card" data-category="health">
                     <div class="work-preview">🦷</div>
                     <div class="work-info">
                         <h3>大台北植牙診所指南</h3>
@@ -538,7 +753,7 @@
                     </div>
                 </a>
 
-                <a href="tainan-car-rental/index.html" class="work-card">
+                <a href="tainan-car-rental/index.html" class="work-card" data-category="travel">
                     <div class="work-preview">🚗</div>
                     <div class="work-info">
                         <h3>台南7人座租車指南</h3>
@@ -551,7 +766,7 @@
                     </div>
                 </a>
 
-                <a href="saas-research/index.html" class="work-card">
+                <a href="saas-research/index.html" class="work-card" data-category="research">
                     <div class="work-preview">🚀</div>
                     <div class="work-info">
                         <h3>SaaS 轉型深度研究報告</h3>
@@ -564,7 +779,7 @@
                     </div>
                 </a>
 
-                <a href="tesla-analysis/index.html" class="work-card">
+                <a href="tesla-analysis/index.html" class="work-card" data-category="research">
                     <div class="work-preview">📈</div>
                     <div class="work-info">
                         <h3>特斯拉股票深度分析</h3>
@@ -577,7 +792,7 @@
                     </div>
                 </a>
 
-                <a href="taiwan-ecommerce-research/index.html" class="work-card">
+                <a href="taiwan-ecommerce-research/index.html" class="work-card" data-category="research">
                     <div class="work-preview">🛒</div>
                     <div class="work-info">
                         <h3>台灣電商市場研究報告</h3>
@@ -590,7 +805,7 @@
                     </div>
                 </a>
 
-                <a href="coupang-research/index.html" class="work-card">
+                <a href="coupang-research/index.html" class="work-card" data-category="research">
                     <div class="work-preview">🚀</div>
                     <div class="work-info">
                         <h3>酷澎（Coupang）情報研究</h3>
@@ -603,7 +818,7 @@
                     </div>
                 </a>
 
-                <a href="preschool-research/index.html" class="work-card">
+                <a href="preschool-research/index.html" class="work-card" data-category="research">
                     <div class="work-preview">👶</div>
                     <div class="work-info">
                         <h3>瑞融的成長決策書</h3>
@@ -616,7 +831,7 @@
                     </div>
                 </a>
 
-                <a href="court-rulings-research/index.html" class="work-card">
+                <a href="court-rulings-research/index.html" class="work-card" data-category="research">
                     <div class="work-preview">⚖️</div>
                     <div class="work-info">
                         <h3>最高法院誠信原則判決研究</h3>
@@ -629,7 +844,7 @@
                     </div>
                 </a>
 
-                <a href="court-rulings-research/simultaneous-performance.html" class="work-card">
+                <a href="court-rulings-research/simultaneous-performance.html" class="work-card" data-category="research">
                     <div class="work-preview">🤝</div>
                     <div class="work-info">
                         <h3>最高法院同時履行抗辯權判決研究</h3>
@@ -642,7 +857,7 @@
                     </div>
                 </a>
 
-                <a href="demo/bubble-pop-english/index.html" class="work-card">
+                <a href="demo/bubble-pop-english/index.html" class="work-card" data-category="game">
                     <div class="work-preview">🫧</div>
                     <div class="work-info">
                         <h3>Bubble Pop English 英語學習泡泡遊戲</h3>
@@ -655,7 +870,7 @@
                     </div>
                 </a>
 
-                <a href="demo/memory-match-english/index.html" class="work-card">
+                <a href="demo/memory-match-english/index.html" class="work-card" data-category="game">
                     <div class="work-preview">🎴</div>
                     <div class="work-info">
                         <h3>Memory Match English 翻牌記憶遊戲</h3>
@@ -668,7 +883,7 @@
                     </div>
                 </a>
 
-                <a href="demo/spell-it-english/index.html" class="work-card">
+                <a href="demo/spell-it-english/index.html" class="work-card" data-category="game">
                     <div class="work-preview">✏️</div>
                     <div class="work-info">
                         <h3>Spell It! 英語拼字遊戲</h3>
@@ -681,7 +896,7 @@
                     </div>
                 </a>
 
-                <a href="demo/jingxin-orientation/index.html" class="work-card">
+                <a href="demo/jingxin-orientation/index.html" class="work-card" data-category="travel">
                     <div class="work-preview">📚</div>
                     <div class="work-info">
                         <h3>靜心小學新生說明會</h3>
@@ -694,7 +909,7 @@
                     </div>
                 </a>
 
-                <a href="demo/space-explorer/index.html" class="work-card">
+                <a href="demo/space-explorer/index.html" class="work-card" data-category="game">
                     <div class="work-preview">🚀</div>
                     <div class="work-info">
                         <h3>Space Explorer 宇宙探索</h3>
@@ -707,7 +922,7 @@
                     </div>
                 </a>
 
-                <a href="demo/vr-gallery/index.html" class="work-card">
+                <a href="demo/vr-gallery/index.html" class="work-card" data-category="game">
                     <div class="work-preview">🎨</div>
                     <div class="work-info">
                         <h3>VR Gallery 虛擬藝廊</h3>
@@ -720,7 +935,7 @@
                     </div>
                 </a>
 
-                <a href="archive/legoking/index.html" class="work-card">
+                <a href="archive/legoking/index.html" class="work-card" data-category="practice">
                     <div class="work-preview">📱</div>
                     <div class="work-info">
                         <h3>手機支架產品頁</h3>
@@ -733,7 +948,7 @@
                     </div>
                 </a>
 
-                <a href="archive/bootstrap.html" class="work-card">
+                <a href="archive/bootstrap.html" class="work-card" data-category="practice">
                     <div class="work-preview">📰</div>
                     <div class="work-info">
                         <h3>Bootstrap 響應式網站</h3>
@@ -746,7 +961,7 @@
                     </div>
                 </a>
 
-                <a href="archive/pikachu_begin/index.html" class="work-card">
+                <a href="archive/pikachu_begin/index.html" class="work-card" data-category="practice">
                     <div class="work-preview">🎮</div>
                     <div class="work-info">
                         <h3>Pikachu 個人名片</h3>
@@ -758,7 +973,7 @@
                     </div>
                 </a>
 
-                <a href="archive/lounge_basic/lounge.html" class="work-card">
+                <a href="archive/lounge_basic/lounge.html" class="work-card" data-category="practice">
                     <div class="work-preview">🍺</div>
                     <div class="work-info">
                         <h3>Lounge 休息室</h3>
@@ -770,7 +985,7 @@
                     </div>
                 </a>
 
-                <a href="archive/2.html" class="work-card">
+                <a href="archive/2.html" class="work-card" data-category="practice">
                     <div class="work-preview">🗺</div>
                     <div class="work-info">
                         <h3>Segway 旅遊日記</h3>
@@ -782,7 +997,7 @@
                     </div>
                 </a>
 
-                <a href="archive/book/index.html" class="work-card">
+                <a href="archive/book/index.html" class="work-card" data-category="practice">
                     <div class="work-preview">📖</div>
                     <div class="work-info">
                         <h3>產品說明書</h3>
@@ -794,7 +1009,15 @@
                     </div>
                 </a>
             </div>
+
+            <!-- Show More Button -->
+            <div class="show-more-container">
+                <button class="show-more-btn" id="showMoreBtn">顯示更多作品</button>
+            </div>
         </section>
+
+        <!-- Back to Top Button -->
+        <button class="back-to-top" id="backToTop">↑</button>
 
         <!-- Contact Section -->
         <section id="contact">
@@ -981,6 +1204,100 @@
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // ===== Mobile Menu =====
+        function toggleMobileMenu() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        function closeMobileMenu() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            menuToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ===== Filter and Show More =====
+        const workCards = document.querySelectorAll('.work-card');
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const showMoreBtn = document.getElementById('showMoreBtn');
+        const INITIAL_SHOW_COUNT = 6;
+        let currentFilter = 'all';
+        let showAll = false;
+
+        function updateVisibility() {
+            let visibleCount = 0;
+            let totalInCategory = 0;
+
+            workCards.forEach((card, index) => {
+                const category = card.dataset.category;
+                const matchesFilter = currentFilter === 'all' || category === currentFilter;
+
+                if (matchesFilter) {
+                    totalInCategory++;
+                    if (showAll || visibleCount < INITIAL_SHOW_COUNT) {
+                        card.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Show/hide the "show more" button
+            if (totalInCategory > INITIAL_SHOW_COUNT && !showAll) {
+                showMoreBtn.classList.remove('hidden');
+                showMoreBtn.textContent = `顯示更多作品 (${totalInCategory - INITIAL_SHOW_COUNT} 個)`;
+            } else {
+                showMoreBtn.classList.add('hidden');
+            }
+        }
+
+        // Filter tab click handler
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentFilter = tab.dataset.filter;
+                showAll = false;
+                updateVisibility();
+            });
+        });
+
+        // Show more button click handler
+        showMoreBtn.addEventListener('click', () => {
+            showAll = true;
+            updateVisibility();
+        });
+
+        // Initialize visibility
+        updateVisibility();
+
+        // ===== Back to Top Button =====
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            scrollY = window.scrollY;
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
