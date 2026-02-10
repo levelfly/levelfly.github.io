@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efteling 艾夫特琳周邊家庭旅遊推薦 2026 - 荷蘭比利時親子行程</title>
+    <meta name="description" content="Efteling艾夫特琳周邊家庭旅遊推薦，荷蘭南部與比利時親子景點、美食、交通全攻略">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1B5E20;
+            --secondary: #FF6F00;
+            --accent: #4A148C;
+            --success: #0D47A1;
+            --purple: #9B59B6;
+            --dark: #2C3E50;
+            --light: #ECF0F1;
+        }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: linear-gradient(135deg, #1B5E20 0%, #4A148C 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.8;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2E7D32 50%, var(--accent) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .header h1 { font-size: 2.5rem; margin-bottom: 15px; }
+        .header .subtitle { font-size: 1.2rem; opacity: 0.95; margin-bottom: 20px; }
+        .header .update-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+        .family-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .family-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .nav-tabs {
+            background: white;
+            padding: 15px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-tab {
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .nav-tab:hover { background: var(--light); }
+        .nav-tab.active { background: var(--primary); color: white; }
+        .main-content { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        .section h3 {
+            color: var(--dark);
+            font-size: 1.2rem;
+            margin: 25px 0 15px;
+            padding-left: 15px;
+            border-left: 4px solid var(--secondary);
+        }
+        .day-header {
+            background: linear-gradient(135deg, var(--success) 0%, #1565C0 100%);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+        .day-header h3 { font-size: 1.3rem; border: none; padding: 0; margin: 0; color: white; }
+        .day-header p { opacity: 0.9; margin-top: 5px; }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 24px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 5px solid var(--primary);
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .card h4 {
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .card .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        .tag-kids { background: #E8F5E9; color: #2E7D32; }
+        .tag-food { background: #FFF3E0; color: #E65100; }
+        .tag-culture { background: #E8EAF6; color: #283593; }
+        .tag-nature { background: #E0F2F1; color: #00695C; }
+        .tag-free { background: #FCE4EC; color: #C62828; }
+        .tag-indoor { background: #F3E5F5; color: #6A1B9A; }
+        .card .meta {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+        .card .meta i { margin-right: 4px; color: var(--secondary); }
+        .tip-box {
+            background: linear-gradient(135deg, #FFF8E1, #FFECB3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid var(--secondary);
+        }
+        .tip-box h4 { color: var(--secondary); margin-bottom: 8px; }
+        .timeline { position: relative; padding-left: 30px; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--success), var(--primary));
+            border-radius: 3px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid var(--success);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: var(--success);
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        .timeline-item h4 { color: var(--dark); font-size: 1.05rem; margin-bottom: 8px; }
+        .timeline-item .time { color: var(--success); font-weight: 600; font-size: 0.9rem; }
+        .distance-badge {
+            display: inline-block;
+            background: #E3F2FD;
+            color: #1565C0;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .weather-box {
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .weather-box h4 { color: #0D47A1; margin-bottom: 10px; }
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .cost-table th, .cost-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .cost-table th { background: #f8f9fa; font-weight: 600; color: var(--dark); }
+        .cost-table tr:hover { background: #f8f9fa; }
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #1565C0;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .map-link:hover { text-decoration: underline; }
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #ddd;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .filter-btn:hover { border-color: var(--primary); }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8rem; }
+            .card-grid { grid-template-columns: 1fr; }
+            .section { padding: 20px; }
+            .nav-tabs { gap: 5px; padding: 10px; }
+            .nav-tab { padding: 8px 14px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="update-badge"><i class="fas fa-clock"></i> 2026年2月更新</div>
+    <h1><i class="fas fa-castle"></i> Efteling 周邊家庭旅遊推薦</h1>
+    <p class="subtitle">荷蘭南部 & 比利時北部 — 帶孩子玩遍歐洲童話世界</p>
+    <div class="family-tags">
+        <span class="family-tag"><i class="fas fa-baby"></i> 親子友善</span>
+        <span class="family-tag"><i class="fas fa-car"></i> 自駕推薦</span>
+        <span class="family-tag"><i class="fas fa-calendar-days"></i> 3-5 天行程</span>
+        <span class="family-tag"><i class="fas fa-euro-sign"></i> 費用參考</span>
+    </div>
+</div>
+
+<nav class="nav-tabs">
+    <a class="nav-tab active" href="#overview">總覽</a>
+    <a class="nav-tab" href="#efteling-tips">Efteling 攻略</a>
+    <a class="nav-tab" href="#day-trips">周邊一日遊</a>
+    <a class="nav-tab" href="#itinerary">推薦行程</a>
+    <a class="nav-tab" href="#food">美食推薦</a>
+    <a class="nav-tab" href="#practical">實用資訊</a>
+</nav>
+
+<div class="main-content">
+
+    <!-- 總覽 -->
+    <section class="section" id="overview">
+        <h2><i class="fas fa-compass"></i> 旅遊總覽</h2>
+        <p>Efteling（艾夫特琳）位於荷蘭北布拉班特省（Noord-Brabant）的 Kaatsheuvel 小鎮，是歐洲最古老的主題公園之一，以童話故事和奇幻世界聞名。周邊有豐富的親子景點，非常適合安排 3-5 天的家庭旅遊。</p>
+
+        <div class="weather-box">
+            <h4><i class="fas fa-cloud-sun"></i> 2 月天氣提醒</h4>
+            <p>荷蘭 2 月平均氣溫 1-7°C，常有陣雨。建議穿著：</p>
+            <ul style="margin-top:8px; padding-left:20px;">
+                <li>防風防水外套（必備！）</li>
+                <li>多層洋蔥式穿搭</li>
+                <li>保暖帽子、手套、圍巾</li>
+                <li>防水鞋或靴子</li>
+                <li>帶一把堅固的雨傘</li>
+            </ul>
+        </div>
+
+        <div class="tip-box">
+            <h4><i class="fas fa-lightbulb"></i> 行程規劃建議</h4>
+            <p>Efteling 本身建議安排 1.5-2 天，剩下的天數可以搭配周邊城市。從 Efteling 出發，30-90 分鐘車程內有許多精彩的親子景點。</p>
+        </div>
+    </section>
+
+    <!-- Efteling 攻略 -->
+    <section class="section" id="efteling-tips">
+        <h2><i class="fas fa-hat-wizard"></i> Efteling 園區攻略</h2>
+
+        <h3>必玩設施 — 適合全家</h3>
+        <div class="card-grid">
+            <div class="card">
+                <h4>Sprookjesbos 童話森林</h4>
+                <span class="tag tag-kids">全年齡</span>
+                <span class="tag tag-free">園區經典</span>
+                <p>Efteling 的靈魂所在！漫步森林中探索 30 多個童話場景，包含小紅帽、長髮公主、睡美人等經典故事。小朋友超愛！</p>
+            </div>
+            <div class="card">
+                <h4>Symbolica 魔幻宮殿</h4>
+                <span class="tag tag-kids">全年齡</span>
+                <span class="tag tag-indoor">室內</span>
+                <p>2017 年開幕的暗黑騎乘設施，搭乘魔法車穿越奇幻宮殿，特效精緻，3 條不同路線可重複體驗。</p>
+            </div>
+            <div class="card">
+                <h4>Danse Macabre</h4>
+                <span class="tag tag-kids">8歲+</span>
+                <span class="tag tag-indoor">室內</span>
+                <p>2024 年全新開幕的沉浸式設施，結合劇場與遊樂設施，氣氛較為陰暗，建議較大的孩子體驗。</p>
+            </div>
+            <div class="card">
+                <h4>Vogel Rok 飛鳥過山車</h4>
+                <span class="tag tag-kids">4歲+ (120cm)</span>
+                <span class="tag tag-indoor">室內</span>
+                <p>室內黑暗過山車，速度適中，是孩子們嘗試雲霄飛車的好起點。</p>
+            </div>
+            <div class="card">
+                <h4>Fata Morgana 海市蜃樓</h4>
+                <span class="tag tag-kids">全年齡</span>
+                <span class="tag tag-indoor">室內</span>
+                <p>乘船穿越東方幻境，精美的場景設計令人嘆為觀止，類似迪士尼加勒比海盜。</p>
+            </div>
+            <div class="card">
+                <h4>Baron 1898 男爵跳樓機</h4>
+                <span class="tag tag-kids">12歲+</span>
+                <p>37.5 公尺自由落體，故事線精彩（礦坑主題），適合膽大的青少年和大人。</p>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <h4><i class="fas fa-clock"></i> 省時秘訣</h4>
+            <ul style="padding-left:20px;">
+                <li><strong>提早入園：</strong>開園前 15-30 分鐘就到門口排隊，先衝熱門設施</li>
+                <li><strong>下載 App：</strong>Efteling 官方 App 有即時排隊時間和園區地圖</li>
+                <li><strong>午餐避開尖峰：</strong>11:30 或 13:30 用餐，避免 12:00-13:00 人潮</li>
+                <li><strong>冬季優勢：</strong>2 月是淡季，排隊時間通常較短！</li>
+                <li><strong>Single Rider：</strong>部分設施有單人通道，等候時間更短</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 周邊一日遊 -->
+    <section class="section" id="day-trips">
+        <h2><i class="fas fa-map-marked-alt"></i> 周邊一日遊景點</h2>
+
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="kids">親子景點</button>
+            <button class="filter-btn" data-filter="city">城市探索</button>
+            <button class="filter-btn" data-filter="nature">自然生態</button>
+            <button class="filter-btn" data-filter="indoor">室內活動</button>
+        </div>
+
+        <div class="card-grid" id="spots-grid">
+
+            <!-- 布雷達 -->
+            <div class="card" data-category="city">
+                <h4><i class="fas fa-church"></i> Breda 布雷達</h4>
+                <span class="tag tag-culture">歷史城市</span>
+                <span class="distance-badge"><i class="fas fa-car"></i> 車程 25 分鐘</span>
+                <p>美麗的荷蘭南部城市，有壯觀的大教堂（Grote Kerk）、迷人的舊城區、和適合散步的購物街。週末有市集。</p>
+                <div class="meta">
+                    <i class="fas fa-star"></i> 推薦：Valkenberg 公園散步、Begijnhof 修道院
+                </div>
+            </div>
+
+            <!-- 's-Hertogenbosch -->
+            <div class="card" data-category="city">
+                <h4><i class="fas fa-palette"></i> Den Bosch 's-Hertogenbosch</h4>
+                <span class="tag tag-culture">藝術之城</span>
+                <span class="tag tag-food">必吃甜點</span>
+                <span class="distance-badge"><i class="fas fa-car"></i> 車程 30 分鐘</span>
+                <p>北布拉班特省首府，畫家乃爾波許（Hieronymus Bosch）的故鄉。中世紀城區保存完好，還有獨特的地下水道可以搭船遊覽。</p>
+                <div class="meta">
+                    <i class="fas fa-cookie-bite"></i> 必吃：Bossche Bol（巧克力奶油球），超大超好吃！
+                </div>
+            </div>
+
+            <!-- Beekse Bergen 野生動物園 -->
+            <div class="card" data-category="kids">
+                <h4><i class="fas fa-hippo"></i> Beekse Bergen 野生動物園</h4>
+                <span class="tag tag-kids">親子首選</span>
+                <span class="tag tag-nature">野生動物</span>
+                <span class="distance-badge"><i class="fas fa-car"></i> 車程 15 分鐘</span>
+                <p>荷蘭最大的野生動物園！可以自駕穿越園區看獅子、長頸鹿、大象。也有步行區和遊船。小朋友會非常興奮！</p>
+                <div class="meta">
+                    <i class="fas fa-euro-sign"></i> 成人 ~€34 / 兒童 ~€29 | <i class="fas fa-clock"></i> 建議停留 3-4 小時
+                </div>
+            </div>
+
+            <!-- Loonse en Drunense Duinen -->
+            <div class="card" data-category="nature">
+                <h4><i class="fas fa-mountain-sun"></i> Loonse en Drunense Duinen 沙丘國家公園</h4>
+                <span class="tag tag-nature">自然景觀</span>
+                <span class="tag tag-free">免費</span>
+                <span class="distance-badge"><i class="fas fa-car"></i> 車程 15 分鐘</span>
+                <p>有「布拉班特撒哈拉」之稱的沙丘公園，荷蘭最大的移動沙丘地帶。孩子們可以在沙丘上奔跑玩耍，非常特別的自然體驗。</p>
+                <div class="meta">
+                    <i class="fas fa-shoe-prints"></i> 多條步行路線，建議走 3-5 公里的短程路線
+                </div>
+            </div>
+
+            <!-- 安特衛普 -->
+            <div class="card" data-category="city">
+                <h4><i class="fas fa-gem"></i> Antwerpen 安特衛普（比利時）</h4>
+                <span class="tag tag-culture">跨國體驗</span>
+                <span class="tag tag-food">巧克力天堂</span>
+                <span class="distance-badge"><i class="fas fa-car"></i> 車程 70 分鐘</span>
+                <p>比利時第二大城，鑽石之都、時尚之都。中央車站被譽為全球最美火車站之一。逛逛巧克力店、嚐嚐比利時鬆餅和薯條！</p>
+                <div class="meta">
+                    <i class="fas fa-child"></i> 推薦：安特衛普動物園（火車站旁）、漫畫博物館
+                </div>
+            </div>
+
+            <!-- 鹿特丹 -->
+            <div class="card" data-category="city kids">
+                <h4><i class="fas fa-building"></i> Rotterdam 鹿特丹</h4>
+                <span class="tag tag-culture">現代建築</span>
+                <span class="tag tag-kids">親子景點多</span>
+                <span class="distance-badge"><i class="fas fa-car"></i> 車程 55 分鐘</span>
+                <p>充滿現代感的港口城市。方塊屋、市場大廳（Markthal）、Erasmus 大橋都是打卡聖地。</p>
+                <div class="meta">
+                    <i class="fas fa-child"></i> 推薦：Maritime Museum 海事博物館、Miniworld Rotterdam 迷你世界
+                </div>
+            </div>
+
+            <!-- NEMO / 阿姆斯特丹 -->
+            <div class="card" data-category="kids indoor">
+                <h4><i class="fas fa-flask"></i> NEMO 科學博物館（阿姆斯特丹）</h4>
+                <span class="tag tag-kids">孩子最愛</span>
+                <span class="tag tag-indoor">室內</span>
+                <span class="distance-badge"><i class="fas fa-car"></i> 車程 90 分鐘</span>
+                <p>荷蘭最大的科學互動博物館，5 層樓的互動實驗和展覽，從水的物理到化學實驗應有盡有。孩子可以玩一整天！</p>
+                <div class="meta">
+                    <i class="fas fa-euro-sign"></i> 成人 €22.50 / 4歲以下免費 | <i class="fas fa-clock"></i> 建議停留 3-5 小時
+                </div>
+            </div>
+
+            <!-- Plaswijckpark -->
+            <div class="card" data-category="kids">
+                <h4><i class="fas fa-tree"></i> Plaswijckpark 兒童樂園（鹿特丹）</h4>
+                <span class="tag tag-kids">幼兒友善</span>
+                <span class="tag tag-nature">戶外遊樂</span>
+                <span class="distance-badge"><i class="fas fa-car"></i> 車程 60 分鐘</span>
+                <p>超適合小小孩的公園！有小動物園、遊樂場、小火車、迷你高爾夫。場地不大但很溫馨，荷蘭家庭週末的首選。</p>
+                <div class="meta">
+                    <i class="fas fa-euro-sign"></i> 成人 ~€10 / 兒童 ~€10
+                </div>
+            </div>
+
+            <!-- 布魯日 -->
+            <div class="card" data-category="city">
+                <h4><i class="fas fa-water"></i> Brugge 布魯日（比利時）</h4>
+                <span class="tag tag-culture">世界遺產</span>
+                <span class="tag tag-food">巧克力 & 啤酒</span>
+                <span class="distance-badge"><i class="fas fa-car"></i> 車程 90 分鐘</span>
+                <p>「北方威尼斯」，UNESCO 世界遺產。搭運河遊船非常浪漫，滿街都是巧克力店和蕾絲店。童話般的中世紀城市。</p>
+                <div class="meta">
+                    <i class="fas fa-ship"></i> 推薦：運河遊船 ~€14/人 | 市集廣場鐘樓
+                </div>
+            </div>
+
+            <!-- Kinderdijk -->
+            <div class="card" data-category="nature">
+                <h4><i class="fas fa-wind"></i> Kinderdijk 小孩堤防</h4>
+                <span class="tag tag-nature">世界遺產</span>
+                <span class="tag tag-culture">荷蘭經典</span>
+                <span class="distance-badge"><i class="fas fa-car"></i> 車程 50 分鐘</span>
+                <p>UNESCO 世界遺產，19 座歷史風車排列在運河兩岸，是荷蘭最具代表性的風景。可以進入風車內部參觀。</p>
+                <div class="meta">
+                    <i class="fas fa-euro-sign"></i> 成人 ~€16 / 兒童 ~€6 | <i class="fas fa-clock"></i> 建議停留 2-3 小時
+                </div>
+            </div>
+
+            <!-- DierenPark Amersfoort -->
+            <div class="card" data-category="kids">
+                <h4><i class="fas fa-paw"></i> Burgers' Zoo（Arnhem）</h4>
+                <span class="tag tag-kids">親子推薦</span>
+                <span class="tag tag-indoor">部分室內</span>
+                <span class="distance-badge"><i class="fas fa-car"></i> 車程 75 分鐘</span>
+                <p>荷蘭最受歡迎的動物園之一，有巨大的室內熱帶雨林、海洋館和沙漠展區。冬天也很適合造訪，大部分展區有遮蔽。</p>
+                <div class="meta">
+                    <i class="fas fa-euro-sign"></i> 成人 ~€32 / 兒童 ~€29
+                </div>
+            </div>
+
+            <!-- GaiaZOO -->
+            <div class="card" data-category="kids nature">
+                <h4><i class="fas fa-frog"></i> GaiaZOO（Kerkrade）</h4>
+                <span class="tag tag-kids">親子推薦</span>
+                <span class="tag tag-nature">生態主題</span>
+                <span class="distance-badge"><i class="fas fa-car"></i> 車程 90 分鐘</span>
+                <p>多次獲選荷蘭最佳動物園，按洲別分區展示動物（非洲、南美、亞洲等）。互動性強，教育意義高。</p>
+                <div class="meta">
+                    <i class="fas fa-euro-sign"></i> 成人 ~€27 / 兒童 ~€23
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 推薦行程 -->
+    <section class="section" id="itinerary">
+        <h2><i class="fas fa-route"></i> 推薦行程安排</h2>
+        <p>以下是以 Efteling 為中心的 4 天家庭行程建議：</p>
+
+        <!-- Day 1 -->
+        <div class="day-header" style="margin-top:25px;">
+            <h3>Day 1 — Efteling 全日暢玩</h3>
+            <p>童話森林 + 主要設施，體驗 Efteling 的魔幻世界</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="time">09:30</span>
+                <h4>開園即入場</h4>
+                <p>先前往 Symbolica 和 Fata Morgana（熱門設施先衝！）</p>
+            </div>
+            <div class="timeline-item">
+                <span class="time">11:00</span>
+                <h4>童話森林 Sprookjesbos</h4>
+                <p>帶孩子慢慢逛童話森林，每個場景都很精緻，預留 1-1.5 小時</p>
+            </div>
+            <div class="timeline-item">
+                <span class="time">12:30</span>
+                <h4>午餐</h4>
+                <p>推薦 Polles Keuken（園區內荷蘭薄餅餐廳）或自帶三明治在園區野餐</p>
+            </div>
+            <div class="timeline-item">
+                <span class="time">13:30</span>
+                <h4>下午設施</h4>
+                <p>Vogel Rok 過山車、Danse Macabre（大孩子）、Carnaval Festival 等</p>
+            </div>
+            <div class="timeline-item">
+                <span class="time">16:30</span>
+                <h4>補玩 + 購物</h4>
+                <p>重複玩喜歡的設施、逛紀念品店。閉園前人潮較少。</p>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-header">
+            <h3>Day 2 — Beekse Bergen + Den Bosch</h3>
+            <p>上午看野生動物，下午逛歷史古城吃美食</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="time">09:30</span>
+                <h4>Beekse Bergen 野生動物園</h4>
+                <p>自駕穿越動物園區，近距離看獅子、長頸鹿、犀牛。接著走步行區。</p>
+            </div>
+            <div class="timeline-item">
+                <span class="time">13:00</span>
+                <h4>前往 Den Bosch（車程約 30 分鐘）</h4>
+                <p>在古城區找間餐廳吃午餐</p>
+            </div>
+            <div class="timeline-item">
+                <span class="time">14:00</span>
+                <h4>Den Bosch 市區探索</h4>
+                <p>逛聖約翰大教堂、搭地下水道小船（Binnendieze Boat Tour，約 55 分鐘）、在 Market 廣場喝咖啡</p>
+            </div>
+            <div class="timeline-item">
+                <span class="time">15:30</span>
+                <h4>品嚐 Bossche Bol</h4>
+                <p>到 Jan de Groot 買荷蘭最有名的巧克力奶油球！大如拳頭，一人一顆就飽了</p>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-header">
+            <h3>Day 3 — Kinderdijk + Rotterdam</h3>
+            <p>荷蘭經典風車 + 現代建築之城</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="time">09:00</span>
+                <h4>出發前往 Kinderdijk（車程約 50 分鐘）</h4>
+                <p>欣賞 19 座風車的壯觀景色，可進入風車內部參觀</p>
+            </div>
+            <div class="timeline-item">
+                <span class="time">11:30</span>
+                <h4>前往 Rotterdam（車程約 25 分鐘）</h4>
+                <p>先到 Markthal 市場大廳享用午餐，美食選擇超多</p>
+            </div>
+            <div class="timeline-item">
+                <span class="time">13:00</span>
+                <h4>Rotterdam 市區探索</h4>
+                <p>方塊屋（Cube Houses）拍照、Erasmus 大橋散步。帶小孩的可以去 Miniworld Rotterdam 看微型城市模型。</p>
+            </div>
+            <div class="timeline-item">
+                <span class="time">16:00</span>
+                <h4>回程或繼續探索</h4>
+                <p>如果還有體力，可以逛 Rotterdam 的 Witte de Withstraat 文藝街區</p>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-header">
+            <h3>Day 4 — 比利時一日遊：Antwerpen 或 Brugge</h3>
+            <p>跨境體驗比利時風情（二選一）</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="time">09:00</span>
+                <h4>選擇 A：安特衛普 Antwerpen（車程 70 分鐘）</h4>
+                <p>中央車站 → 安特衛普動物園 → 老城區 Grote Markt → 巧克力店巡禮 → 大教堂</p>
+            </div>
+            <div class="timeline-item">
+                <span class="time">09:00</span>
+                <h4>選擇 B：布魯日 Brugge（車程 90 分鐘）</h4>
+                <p>市集廣場 → 運河遊船 → Choco-Story 巧克力博物館 → 比利時鬆餅 → 城牆散步</p>
+            </div>
+            <div class="timeline-item">
+                <span class="time">12:00</span>
+                <h4>比利時午餐</h4>
+                <p>必吃：比利時淡菜薯條（Moules-frites）、比利時鬆餅（Waffle）、手工巧克力</p>
+            </div>
+            <div class="timeline-item">
+                <span class="time">15:00</span>
+                <h4>下午漫遊</h4>
+                <p>悠閒地逛街購物，買些比利時巧克力當伴手禮，然後返回住處</p>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <h4><i class="fas fa-lightbulb"></i> 彈性調整</h4>
+            <p>如果帶較小的孩子，可以把 Day 3 改成再玩一天 Efteling（兩天票通常有折扣），或改去近距離的沙丘國家公園+Breda 小城悠閒走走。不必趕行程，享受旅程最重要！</p>
+        </div>
+    </section>
+
+    <!-- 美食推薦 -->
+    <section class="section" id="food">
+        <h2><i class="fas fa-utensils"></i> 在地美食推薦</h2>
+
+        <h3>荷蘭必吃</h3>
+        <div class="card-grid">
+            <div class="card" style="border-left-color: var(--secondary);">
+                <h4>Bossche Bol 巧克力奶油球</h4>
+                <span class="tag tag-food">Den Bosch 名產</span>
+                <p>拳頭大的巧克力包裹鮮奶油泡芙，是 Den Bosch 的招牌甜點。推薦到 <strong>Jan de Groot</strong> 品嚐最正宗的版本。</p>
+            </div>
+            <div class="card" style="border-left-color: var(--secondary);">
+                <h4>Stroopwafel 荷蘭焦糖煎餅</h4>
+                <span class="tag tag-food">荷蘭經典</span>
+                <p>兩片薄脆餅乾夾著焦糖糖漿，在市集買現做的最好吃！放在熱咖啡杯上加熱更香。</p>
+            </div>
+            <div class="card" style="border-left-color: var(--secondary);">
+                <h4>Pannenkoeken 荷蘭薄餅</h4>
+                <span class="tag tag-food">親子友善</span>
+                <p>比法式可麗餅厚，有鹹甜多種口味。孩子們通常都很喜歡。Efteling 園區內的 Polles Keuken 就有賣。</p>
+            </div>
+            <div class="card" style="border-left-color: var(--secondary);">
+                <h4>Bitterballen 荷式炸肉丸</h4>
+                <span class="tag tag-food">下酒小點</span>
+                <p>荷蘭酒吧的經典小點，外酥內軟的肉丸，配黃芥末醬。在任何咖啡廳或餐廳都點得到。</p>
+            </div>
+            <div class="card" style="border-left-color: var(--secondary);">
+                <h4>Kibbeling 炸魚塊</h4>
+                <span class="tag tag-food">街頭美食</span>
+                <p>荷蘭街頭最常見的小吃之一，酥炸鱈魚塊配蒜味美乃滋，在市集攤位就能買到。</p>
+            </div>
+            <div class="card" style="border-left-color: var(--secondary);">
+                <h4>Frites 荷式薯條</h4>
+                <span class="tag tag-food">必吃</span>
+                <p>比美式薯條更粗更脆，淋上大量美乃滋是荷蘭吃法。配各種醬料都好吃！</p>
+            </div>
+        </div>
+
+        <h3>比利時必吃</h3>
+        <div class="card-grid">
+            <div class="card" style="border-left-color: #D4A017;">
+                <h4>Belgian Waffle 比利時鬆餅</h4>
+                <span class="tag tag-food">比利時經典</span>
+                <p>分為布魯塞爾鬆餅（輕薄脆）和列日鬆餅（厚實甜），街頭攤位到處都有，加草莓和巧克力醬最經典。</p>
+            </div>
+            <div class="card" style="border-left-color: #D4A017;">
+                <h4>Moules-frites 淡菜薯條</h4>
+                <span class="tag tag-food">比利時國菜</span>
+                <p>一大鍋白酒蒸淡菜（青口）配薯條，是比利時的國民美食。份量大，兩人分享剛好。</p>
+            </div>
+            <div class="card" style="border-left-color: #D4A017;">
+                <h4>Belgian Chocolate 比利時巧克力</h4>
+                <span class="tag tag-food">伴手禮首選</span>
+                <p>Godiva、Leonidas、Pierre Marcolini... 比利時巧克力舉世聞名。安特衛普和布魯日遍地都是巧克力專賣店。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 實用資訊 -->
+    <section class="section" id="practical">
+        <h2><i class="fas fa-info-circle"></i> 實用資訊</h2>
+
+        <h3>交通方式</h3>
+        <div class="card-grid">
+            <div class="card">
+                <h4><i class="fas fa-car"></i> 自駕（最推薦）</h4>
+                <p>帶家人旅遊自駕最方便，荷蘭公路系統完善。Efteling 有大型免費停車場。注意荷蘭高速公路限速通常 100-130 km/h。</p>
+                <div class="meta"><i class="fas fa-gas-pump"></i> 荷蘭油價較高，可考慮在比利時加油（較便宜）</div>
+            </div>
+            <div class="card">
+                <h4><i class="fas fa-train"></i> 火車 + 公車</h4>
+                <p>最近車站是 Tilburg，再轉公車 136/137 到 Efteling（約 30 分鐘）。OV-chipkaart 是荷蘭的交通卡，搭車必備。</p>
+                <div class="meta"><i class="fas fa-info"></i> NS.nl 可查荷蘭火車時刻表</div>
+            </div>
+        </div>
+
+        <h3>費用概估</h3>
+        <table class="cost-table">
+            <thead>
+                <tr>
+                    <th>項目</th>
+                    <th>費用（參考）</th>
+                    <th>備註</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Efteling 門票（1日）</td>
+                    <td>成人 ~€45 / 兒童 ~€43</td>
+                    <td>網路預購較便宜，4歲以下免費</td>
+                </tr>
+                <tr>
+                    <td>Efteling 2日票</td>
+                    <td>成人 ~€72</td>
+                    <td>第二天有折扣</td>
+                </tr>
+                <tr>
+                    <td>住宿（Efteling 附近）</td>
+                    <td>€100-200/晚</td>
+                    <td>Holiday Park 或 B&B 較划算</td>
+                </tr>
+                <tr>
+                    <td>Efteling 園區度假村</td>
+                    <td>€200-400/晚</td>
+                    <td>含提早入園等福利</td>
+                </tr>
+                <tr>
+                    <td>餐飲（家庭/天）</td>
+                    <td>€60-100</td>
+                    <td>超市備糧可省不少</td>
+                </tr>
+                <tr>
+                    <td>租車（含保險）</td>
+                    <td>€50-80/天</td>
+                    <td>建議提前預訂</td>
+                </tr>
+                <tr>
+                    <td>停車費</td>
+                    <td>€0-15/次</td>
+                    <td>Efteling 免費，城市需付費</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>住宿建議</h3>
+        <div class="card-grid">
+            <div class="card">
+                <h4>Efteling Hotel / Loonsche Land</h4>
+                <span class="tag tag-kids">最方便</span>
+                <p>Efteling 自有度假村，主題房型，可提早入園。價格較高但體驗滿分。</p>
+            </div>
+            <div class="card">
+                <h4>Efteling 附近 Holiday Parks</h4>
+                <span class="tag tag-kids">高CP值</span>
+                <p>如 Center Parcs De Kempervennen、Landal Duc de Brabant 等。有小木屋和公寓式住宿，適合家庭。</p>
+            </div>
+            <div class="card">
+                <h4>Tilburg / Breda 市區旅館</h4>
+                <span class="tag tag-culture">城市住宿</span>
+                <p>若想體驗荷蘭城市生活，住 Tilburg 或 Breda 市區也是好選擇，離 Efteling 車程 20-30 分鐘。</p>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <h4><i class="fas fa-lightbulb"></i> 省錢小撇步</h4>
+            <ul style="padding-left:20px;">
+                <li>超市（Albert Heijn、Jumbo）買早餐和午餐食材，省下不少餐費</li>
+                <li>荷蘭博物館卡（Museumkaart，€67.90/年）可免費進 400+ 博物館</li>
+                <li>Efteling 門票提前在官網購買，通常比現場便宜</li>
+                <li>停車用 Parkeer App（如 Yellowbrick）避免現金找零問題</li>
+                <li>比利時加油比荷蘭便宜，跨境時順便加滿</li>
+            </ul>
+        </div>
+
+        <div class="tip-box" style="background: linear-gradient(135deg, #E8F5E9, #C8E6C9); border-left-color: var(--primary);">
+            <h4><i class="fas fa-passport"></i> 跨境須知</h4>
+            <ul style="padding-left:20px;">
+                <li>荷蘭與比利時都是申根區，邊境無管制，自駕直接通過</li>
+                <li>兩國都使用歐元，不需換匯</li>
+                <li>荷蘭和比利時的交通規則略有不同，注意速限標誌</li>
+                <li>在比利時，公路交叉口若無標誌，右方來車有優先權</li>
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+<div class="footer">
+    <p>Efteling 周邊家庭旅遊推薦 | 資訊僅供參考，請以官方網站為準</p>
+    <p style="margin-top:8px;">價格和開放時間可能隨季節調整，建議出發前確認</p>
+</div>
+
+<script>
+    // Smooth scroll for nav
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const filter = this.dataset.filter;
+            document.querySelectorAll('#spots-grid .card').forEach(card => {
+                if (filter === 'all' || card.dataset.category.includes(filter)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Scroll spy for nav
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('.section');
+        const navTabs = document.querySelectorAll('.nav-tab');
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        navTabs.forEach(tab => {
+            tab.classList.remove('active');
+            if (tab.getAttribute('href') === '#' + current) {
+                tab.classList.add('active');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
