@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>靜心幼兒園 斑馬班 學校日報告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET & BASE ========== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FDF8F3;--bg-card:rgba(255,255,255,0.7);--bg-card-hover:rgba(255,255,255,0.9);
+  --border:rgba(180,160,140,0.2);--border-hover:rgba(180,160,140,0.35);
+  --text:#2D2A26;--text-secondary:#5C554D;--text-muted:#9A9088;
+  --accent:#D4654A;--accent-bright:#C4553A;--accent-dim:rgba(212,101,74,0.1);
+  --cyan:#4A8FBA;--cyan-dim:rgba(74,143,186,0.1);
+  --rose:#D4566A;--rose-dim:rgba(212,86,106,0.08);
+  --amber:#D4952A;--amber-dim:rgba(212,149,42,0.1);
+  --emerald:#4A9A5B;--emerald-dim:rgba(74,154,91,0.1);
+  --radius:16px;--radius-sm:10px;
+}
+html{scroll-behavior:smooth;font-size:16px;scrollbar-width:thin;scrollbar-color:var(--accent-dim) var(--bg)}
+body{
+  font-family:'Noto Sans TC','Inter',system-ui,sans-serif;
+  color:var(--text);background:var(--bg);line-height:1.8;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+::selection{background:var(--accent);color:#fff}
+a{color:var(--accent-bright);text-decoration:none;transition:color .2s}
+a:hover{color:var(--cyan)}
+
+/* ========== GRID DOT BACKGROUND ========== */
+.grid-bg{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(rgba(180,160,140,0.12) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+
+/* ========== AURORA HERO ========== */
+.hero{
+  position:relative;min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:60px 24px 80px;overflow:hidden;z-index:1;
+}
+.aurora{
+  position:absolute;inset:0;overflow:hidden;z-index:0;
+  filter:blur(80px);opacity:.5;
+}
+.aurora-blob{
+  position:absolute;border-radius:50%;
+  animation:aurora-float 8s ease-in-out infinite alternate;
+}
+.aurora-blob:nth-child(1){
+  width:600px;height:600px;top:-20%;left:-10%;
+  background:radial-gradient(circle,#F4A87C 0%,transparent 70%);
+  animation-duration:8s;
+}
+.aurora-blob:nth-child(2){
+  width:500px;height:500px;top:10%;right:-10%;
+  background:radial-gradient(circle,#7EC8D8 0%,transparent 70%);
+  animation-duration:10s;animation-delay:-3s;
+}
+.aurora-blob:nth-child(3){
+  width:400px;height:400px;bottom:-10%;left:30%;
+  background:radial-gradient(circle,#C8A2D4 0%,transparent 70%);
+  animation-duration:12s;animation-delay:-5s;
+}
+@keyframes aurora-float{
+  0%{transform:translate(0,0) scale(1)}
+  100%{transform:translate(60px,-40px) scale(1.15)}
+}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero h1{
+  font-size:clamp(2rem,5vw,3.5rem);font-weight:700;
+  line-height:1.2;margin-bottom:16px;
+  background:linear-gradient(135deg,#3D3530 0%,#D4654A 50%,#4A8FBA 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{font-size:1.1rem;color:var(--text-secondary);margin-bottom:32px;line-height:1.6}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.hero-tag{
+  padding:8px 18px;border-radius:999px;font-size:.85rem;font-weight:500;
+  background:rgba(255,255,255,0.6);border:1px solid var(--border);
+  backdrop-filter:blur(10px);color:var(--text-secondary);
+  transition:all .3s;
+}
+.hero-tag:hover{border-color:var(--accent);color:var(--accent-bright)}
+.hero-note{
+  margin-top:28px;padding:16px 24px;border-radius:var(--radius-sm);
+  background:var(--accent-dim);border:1px solid rgba(212,101,74,0.2);
+  font-size:.9rem;color:var(--accent-bright);
+}
+/* Spotlight effect */
+.spotlight{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(600px circle at var(--mx,50%) var(--my,40%),
+    rgba(212,101,74,0.06),transparent 60%);
+  transition:background .15s;
+}
+
+/* ========== FLOATING NAVBAR ========== */
+.floating-nav{
+  position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;
+  display:flex;gap:4px;padding:6px;border-radius:999px;
+  background:rgba(253,248,243,0.8);border:1px solid var(--border);
+  backdrop-filter:blur(16px) saturate(1.5);box-shadow:0 4px 20px rgba(0,0,0,0.06);
+  transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .35s;
+  max-width:calc(100vw - 32px);overflow-x:auto;
+  scrollbar-width:none;
+}
+.floating-nav::-webkit-scrollbar{display:none}
+.floating-nav.hidden{transform:translateX(-50%) translateY(-120%);opacity:0}
+.nav-pill{
+  padding:8px 16px;border-radius:999px;font-size:.8rem;font-weight:500;
+  color:var(--text-muted);white-space:nowrap;cursor:pointer;
+  transition:all .2s;border:none;background:none;font-family:inherit;
+}
+.nav-pill:hover,.nav-pill.active{color:var(--text);background:rgba(0,0,0,0.05)}
+.nav-pill.active{color:var(--accent-bright);background:var(--accent-dim)}
+
+/* Mobile nav toggle */
+.mobile-nav-btn{
+  display:none;position:fixed;top:16px;right:16px;z-index:101;
+  width:44px;height:44px;border-radius:12px;border:1px solid var(--border);
+  background:rgba(253,248,243,0.85);backdrop-filter:blur(16px);
+  color:var(--text);font-size:20px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+.mobile-sidebar{
+  display:none;position:fixed;top:0;right:-300px;z-index:200;
+  width:280px;height:100dvh;padding:70px 20px 20px;overflow-y:auto;
+  background:rgba(253,248,243,0.97);border-left:1px solid var(--border);
+  backdrop-filter:blur(20px);transition:right .3s cubic-bezier(.32,.72,0,1);
+  overscroll-behavior:contain;
+}
+.mobile-sidebar.open{right:0}
+.mobile-sidebar a{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 16px;border-radius:10px;margin-bottom:2px;
+  font-size:.92rem;color:var(--text-secondary);transition:all .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.mobile-sidebar a:active{background:var(--accent-dim);color:var(--accent-bright);transform:scale(.97)}
+.mobile-sidebar .sidebar-group{
+  font-size:.72rem;font-weight:600;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.06em;
+  padding:16px 16px 6px;
+}
+.mobile-overlay{
+  display:none;position:fixed;inset:0;z-index:199;
+  background:rgba(0,0,0,0.3);opacity:0;pointer-events:none;
+  transition:opacity .3s;-webkit-tap-highlight-color:transparent;
+}
+.mobile-overlay.open{opacity:1;pointer-events:auto}
+
+/* ========== BOTTOM NAV BAR (mobile) ========== */
+.bottom-nav{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;
+  padding:6px 8px calc(6px + env(safe-area-inset-bottom));
+  background:rgba(253,248,243,0.9);border-top:1px solid var(--border);box-shadow:0 -2px 12px rgba(0,0,0,0.04);
+  backdrop-filter:blur(16px) saturate(1.5);
+  overflow-x:auto;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.bottom-nav::-webkit-scrollbar{display:none}
+.bottom-nav-inner{
+  display:flex;gap:2px;min-width:max-content;
+  justify-content:space-around;
+}
+.bottom-pill{
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  padding:6px 12px;border-radius:10px;border:none;background:none;
+  color:var(--text-muted);font-size:.65rem;font-weight:500;
+  cursor:pointer;transition:all .2s;white-space:nowrap;
+  -webkit-tap-highlight-color:transparent;font-family:inherit;
+  min-width:52px;
+}
+.bottom-pill .bp-icon{font-size:18px;line-height:1}
+.bottom-pill:active{transform:scale(.9)}
+.bottom-pill.active{color:var(--accent-bright);background:var(--accent-dim)}
+
+/* ========== TOP PROGRESS BAR (mobile) ========== */
+.top-progress{
+  display:none;position:fixed;top:0;left:0;z-index:110;
+  width:0%;height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--cyan));
+  box-shadow:0 0 8px var(--accent);
+  transition:width .08s linear;
+}
+
+/* ========== TOUCH RIPPLE ========== */
+.touch-ripple{
+  position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent;
+}
+.touch-ripple::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at var(--rx,50%) var(--ry,50%),
+    rgba(212,101,74,0.10) 0%,transparent 60%);
+  opacity:0;transition:opacity .4s;pointer-events:none;
+}
+.touch-ripple:active::after{opacity:1;transition:opacity .05s}
+
+/* ========== TRACING BEAM ========== */
+.tracing-beam{
+  position:fixed;left:24px;top:0;width:2px;height:100vh;z-index:50;
+  background:var(--border);
+}
+.tracing-beam-fill{
+  position:absolute;top:0;left:0;width:100%;height:0%;
+  background:linear-gradient(180deg,var(--accent),var(--cyan));
+  border-radius:0 0 2px 2px;transition:height .05s linear;
+  box-shadow:0 0 6px rgba(212,101,74,0.3);
+}
+.tracing-beam-dot{
+  position:absolute;left:-4px;width:10px;height:10px;
+  border-radius:50%;background:var(--accent);
+  box-shadow:0 0 8px rgba(212,101,74,0.4);
+  transition:top .05s linear;
+}
+
+/* ========== MAIN CONTENT ========== */
+.main{
+  position:relative;z-index:1;max-width:860px;
+  margin:0 auto;padding:0 24px 80px;
+}
+
+/* ========== SECTIONS ========== */
+.section{margin-bottom:64px;scroll-margin-top:80px}
+.section-header{
+  display:flex;align-items:center;gap:12px;margin-bottom:28px;
+}
+.section-number{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:10px;
+  background:var(--accent-dim);color:var(--accent-bright);
+  font-size:.85rem;font-weight:700;flex-shrink:0;
+}
+.section-title{
+  font-size:1.5rem;font-weight:700;color:var(--text);
+}
+.badge{
+  display:inline-block;padding:3px 10px;border-radius:999px;
+  font-size:.7rem;font-weight:600;letter-spacing:.02em;
+}
+.badge-accent{background:var(--accent-dim);color:var(--accent-bright)}
+.badge-cyan{background:var(--cyan-dim);color:var(--cyan)}
+.badge-rose{background:var(--rose-dim);color:var(--rose)}
+.badge-amber{background:var(--amber-dim);color:var(--amber)}
+.badge-emerald{background:var(--emerald-dim);color:var(--emerald)}
+
+/* ========== CARDS (3D hover) ========== */
+.card{
+  position:relative;padding:24px;margin-bottom:16px;
+  border-radius:var(--radius);background:var(--bg-card);
+  border:1px solid var(--border);overflow:hidden;
+  transition:border-color .3s,background .3s,transform .2s,box-shadow .3s;
+  transform-style:preserve-3d;perspective:800px;
+  box-shadow:0 1px 4px rgba(0,0,0,0.03);
+}
+.card:hover{border-color:var(--border-hover);background:var(--bg-card-hover);box-shadow:0 4px 16px rgba(0,0,0,0.06)}
+.card-spotlight{
+  position:absolute;inset:0;pointer-events:none;opacity:0;
+  transition:opacity .3s;z-index:0;
+}
+.card:hover .card-spotlight{opacity:1}
+.card>*:not(.card-spotlight){position:relative;z-index:1}
+.card h4{font-size:1.05rem;font-weight:600;margin-bottom:8px;color:var(--text)}
+.card p,.card li{color:var(--text-secondary);font-size:.92rem}
+.card ul,.card ol{padding-left:20px}
+.card li{margin-bottom:4px}
+
+/* Moving border card */
+.card-glow{position:relative;overflow:visible}
+.card-glow::before{
+  content:'';position:absolute;inset:-1px;border-radius:var(--radius);z-index:-1;
+  background:conic-gradient(from var(--angle,0deg),var(--accent),var(--cyan),var(--accent));
+  animation:rotate-border 4s linear infinite;
+}
+@keyframes rotate-border{to{--angle:360deg}}
+@property --angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+.card-glow>.card-inner{
+  padding:24px;border-radius:calc(var(--radius) - 1px);
+  background:var(--bg);
+}
+
+/* Colored accent cards */
+.card-accent{border-left:3px solid var(--accent)}
+.card-cyan{border-left:3px solid var(--cyan)}
+.card-rose{border-left:3px solid var(--rose)}
+.card-amber{border-left:3px solid var(--amber)}
+.card-emerald{border-left:3px solid var(--emerald)}
+
+/* ========== FADE-IN ANIMATION ========== */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ========== TODO SECTION ========== */
+.todo-group{margin-bottom:12px}
+.todo-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;border-radius:var(--radius-sm);cursor:pointer;
+  background:var(--bg-card);border:1px solid var(--border);
+  transition:all .2s;font-weight:600;font-size:.92rem;
+}
+.todo-header:hover{background:var(--bg-card-hover);border-color:var(--border-hover)}
+.todo-header .arrow{transition:transform .3s;font-size:.7rem;color:var(--text-muted)}
+.todo-header.open .arrow{transform:rotate(90deg)}
+.todo-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.todo-body.open{max-height:2000px}
+.todo-item{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:10px 18px;border-bottom:1px solid rgba(0,0,0,0.04);
+  transition:background .15s;
+}
+.todo-item:hover{background:rgba(0,0,0,0.02)}
+.todo-item input[type=checkbox]{
+  appearance:none;width:18px;height:18px;border-radius:5px;flex-shrink:0;
+  border:1.5px solid var(--border-hover);background:rgba(255,255,255,0.5);cursor:pointer;
+  margin-top:4px;transition:all .2s;position:relative;
+}
+.todo-item input:checked{background:var(--accent);border-color:var(--accent)}
+.todo-item input:checked::after{
+  content:'✓';position:absolute;inset:0;display:flex;
+  align-items:center;justify-content:center;color:#fff;
+  font-size:11px;font-weight:700;
+}
+.todo-item label{font-size:.88rem;color:var(--text-secondary);cursor:pointer;flex:1}
+.todo-item.checked label{text-decoration:line-through;color:var(--text-muted)}
+.todo-alert{
+  display:inline-block;padding:1px 8px;border-radius:4px;
+  background:var(--rose-dim);color:var(--rose);
+  font-size:.72rem;font-weight:600;margin-left:6px;
+}
+.todo-sub{padding:4px 18px 10px 46px;font-size:.82rem;color:var(--text-muted);line-height:1.7}
+.todo-month-mar{color:var(--rose)}
+.todo-month-apr{color:var(--amber)}
+.todo-month-may{color:var(--emerald)}
+.todo-month-jun{color:var(--cyan)}
+.todo-month-ongoing{color:var(--accent-bright)}
+
+/* ========== TIMELINE ========== */
+.timeline{position:relative;padding-left:32px}
+.timeline::before{
+  content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;
+  background:var(--border);
+}
+.tl-item{
+  position:relative;padding:12px 0 12px 24px;
+  border-bottom:1px solid rgba(0,0,0,0.04);
+}
+.tl-item::before{
+  content:'';position:absolute;left:-26px;top:18px;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--text-muted);
+  transition:all .3s;z-index:1;
+}
+.tl-item.important::before{border-color:var(--amber);background:var(--amber-dim);box-shadow:0 0 8px rgba(251,191,36,0.3)}
+.tl-item.critical::before{border-color:var(--rose);background:var(--rose-dim);box-shadow:0 0 8px rgba(251,113,133,0.3)}
+.tl-date{font-size:.82rem;font-weight:600;color:var(--accent-bright);margin-bottom:2px}
+.tl-content{font-size:.9rem;color:var(--text-secondary)}
+.tl-note{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+
+/* ========== FESTIVAL GRID ========== */
+.festival-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.festival-card{
+  padding:20px;border-radius:var(--radius-sm);
+  background:var(--bg-card);border:1px solid var(--border);
+  transition:all .3s;cursor:default;
+}
+.festival-card:hover{transform:translateY(-2px);border-color:var(--border-hover);box-shadow:0 8px 24px rgba(0,0,0,0.08)}
+.festival-card h4{font-size:.95rem;font-weight:600;margin-bottom:6px}
+.festival-card p{font-size:.82rem;color:var(--text-muted);line-height:1.6}
+.fc-teacher h4{color:#fb923c}.fc-moon h4{color:#fbbf24}
+.fc-national h4{color:#f87171}.fc-halloween h4{color:#a78bfa}
+.fc-thanks h4{color:#fb923c}.fc-xmas h4{color:#34d399}
+.fc-newyear h4{color:#60a5fa}.fc-cny h4{color:#f87171}
+
+/* ========== TABS ========== */
+.tabs{
+  display:flex;gap:4px;padding:4px;border-radius:var(--radius-sm);
+  background:var(--bg-card);border:1px solid var(--border);
+  margin-bottom:20px;overflow-x:auto;
+}
+.tab-btn{
+  flex:1;padding:10px 16px;border:none;background:none;
+  border-radius:8px;font-size:.85rem;font-weight:500;
+  color:var(--text-muted);cursor:pointer;transition:all .2s;
+  white-space:nowrap;font-family:inherit;
+}
+.tab-btn.active{background:var(--accent-dim);color:var(--accent-bright)}
+.tab-btn:hover:not(.active){color:var(--text-secondary)}
+.tab-panel{display:none}
+.tab-panel.active{display:block;animation:fade-in .3s ease}
+@keyframes fade-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ========== TABLES ========== */
+table{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:.88rem}
+thead th{
+  text-align:left;padding:12px 16px;font-weight:600;font-size:.8rem;
+  color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;
+  border-bottom:1px solid var(--border);
+}
+tbody td{padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.04);color:var(--text-secondary)}
+tbody tr:hover{background:rgba(0,0,0,0.02)}
+
+/* ========== PHONICS DEMO ========== */
+.phonics-box{
+  padding:24px;border-radius:var(--radius);margin-bottom:16px;
+  background:linear-gradient(135deg,rgba(74,143,186,0.06),rgba(212,101,74,0.06));
+  border:1px solid rgba(74,143,186,0.18);
+}
+.phonics-box h4{color:var(--cyan);margin-bottom:12px}
+.step-list{padding-left:20px}
+.step-list li{color:var(--text-secondary);font-size:.88rem;margin-bottom:6px;padding-left:4px}
+.step-list li::marker{color:var(--cyan)}
+
+/* ========== LINK BUTTONS ========== */
+.link-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 18px;border-radius:999px;font-size:.82rem;font-weight:500;
+  background:var(--accent-dim);color:var(--accent-bright);
+  border:1px solid rgba(212,101,74,0.2);
+  transition:all .2s;margin-top:8px;
+}
+.link-btn:hover{background:var(--accent);color:#fff;transform:translateY(-1px)}
+.link-btn::before{content:'↗';font-size:.9rem}
+
+/* ========== ALERT BOX ========== */
+.alert-box{
+  padding:20px 24px;border-radius:var(--radius-sm);margin-bottom:16px;
+  background:var(--rose-dim);border:1px solid rgba(251,113,133,0.2);
+}
+.alert-box h4{color:var(--rose);margin-bottom:8px}
+.alert-box li{color:var(--text-secondary);font-size:.88rem;margin-bottom:4px}
+.tip-box{background:var(--accent-dim);border-color:rgba(212,101,74,0.2)}
+.tip-box h4{color:var(--accent-bright)}
+
+/* ========== CALENDAR BUTTONS ========== */
+.cal-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:6px;border:none;
+  background:var(--cyan-dim);color:var(--cyan);font-size:14px;
+  cursor:pointer;transition:all .2s;flex-shrink:0;margin-top:2px;
+  -webkit-tap-highlight-color:transparent;
+}
+.cal-btn:hover{background:var(--cyan);color:#fff}
+.cal-btn:active{transform:scale(.9)}
+.cal-all-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 20px;border-radius:999px;border:1px solid rgba(74,143,186,0.25);
+  background:var(--cyan-dim);color:var(--cyan);font-size:.85rem;font-weight:600;
+  cursor:pointer;transition:all .2s;margin-bottom:16px;
+  -webkit-tap-highlight-color:transparent;
+}
+.cal-all-btn:hover{background:var(--cyan);color:#fff;transform:translateY(-1px)}
+.cal-all-btn:active{transform:scale(.97)}
+
+/* ========== FOOTER ========== */
+.footer{
+  text-align:center;padding:40px 24px;margin-top:40px;
+  border-top:1px solid var(--border);color:var(--text-muted);font-size:.82rem;
+}
+
+/* ========== BACK TO TOP ========== */
+.back-top{
+  position:fixed;bottom:24px;right:24px;width:44px;height:44px;
+  border-radius:12px;background:rgba(253,248,243,0.85);color:var(--text);
+  border:1px solid var(--border);backdrop-filter:blur(12px);
+  font-size:16px;cursor:pointer;z-index:90;box-shadow:0 2px 10px rgba(0,0,0,0.06);
+  opacity:0;transform:translateY(20px);
+  transition:opacity .3s,transform .3s,background .2s;
+}
+.back-top.show{opacity:1;transform:none}
+.back-top:hover{background:var(--accent-dim);border-color:var(--accent)}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:768px){
+  .floating-nav{display:none}
+  .mobile-nav-btn,.mobile-sidebar,.mobile-overlay{display:block}
+  .bottom-nav,.top-progress{display:block}
+  .tracing-beam{display:none}
+  .main{padding:0 16px calc(80px + env(safe-area-inset-bottom))}
+  .hero{padding:40px 16px 60px;min-height:auto}
+  .hero h1{font-size:1.8rem}
+  .hero .meteor{display:none}
+  .festival-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .festival-card{padding:16px}
+  .tabs{flex-wrap:nowrap;-webkit-overflow-scrolling:touch}
+  .section{margin-bottom:48px}
+  .section-title{font-size:1.25rem}
+  .card{padding:18px;margin-bottom:12px;border-radius:12px;
+    -webkit-tap-highlight-color:transparent}
+  .card:active{transform:scale(.985);transition:transform .1s}
+  .todo-item{padding:12px 16px;gap:12px}
+  .todo-item input[type=checkbox]{
+    width:22px;height:22px;border-radius:6px;border-width:2px;margin-top:2px;
+  }
+  .todo-item label{font-size:.9rem;line-height:1.6}
+  .todo-header{padding:16px 18px;font-size:.95rem;
+    -webkit-tap-highlight-color:transparent}
+  .todo-header:active{background:var(--accent-dim)}
+  .todo-sub{padding:6px 16px 12px 50px;font-size:.84rem}
+  .link-btn{padding:10px 20px;font-size:.85rem}
+  .back-top{bottom:calc(70px + env(safe-area-inset-bottom));right:16px}
+  .phonics-box{padding:18px}
+  .alert-box{padding:16px 18px}
+  .tl-item{padding:10px 0 10px 20px}
+  table{font-size:.84rem}
+  thead th,tbody td{padding:10px 12px}
+  .section-header{flex-wrap:wrap}
+}
+@media(max-width:480px){
+  .festival-grid{grid-template-columns:1fr}
+  .hero-tags{flex-direction:column;align-items:center}
+  .hero h1{font-size:1.5rem}
+  .hero-sub{font-size:.95rem}
+  .main{padding:0 12px calc(80px + env(safe-area-inset-bottom))}
+}
+/* safe area for notch devices */
+@supports(padding:env(safe-area-inset-bottom)){
+  .bottom-nav{padding-bottom:calc(6px + env(safe-area-inset-bottom))}
+  body{padding-top:env(safe-area-inset-top)}
+}
+
+/* ========== METEORS ========== */
+.meteor{
+  position:absolute;width:2px;height:80px;
+  background:linear-gradient(to bottom,var(--accent),transparent);
+  border-radius:999px;opacity:.6;
+  animation:meteor-fall 3s linear infinite;
+}
+@keyframes meteor-fall{
+  0%{transform:translateY(-100px) translateX(0) rotate(-35deg);opacity:0}
+  10%{opacity:.6}
+  90%{opacity:.6}
+  100%{transform:translateY(100vh) translateX(-200px) rotate(-35deg);opacity:0}
+}
+</style>
+</head>
+<body>
+
+<!-- Grid dot background -->
+<div class="grid-bg"></div>
+
+<!-- Tracing Beam -->
+<div class="tracing-beam"><div class="tracing-beam-fill"></div><div class="tracing-beam-dot" style="top:0"></div></div>
+
+<!-- Floating Navbar -->
+<nav class="floating-nav" id="floatingNav">
+  <button class="nav-pill active" data-target="todo">待辦清單</button>
+  <button class="nav-pill" data-target="opening">開場</button>
+  <button class="nav-pill" data-target="theme1">主題一</button>
+  <button class="nav-pill" data-target="festivals">節慶</button>
+  <button class="nav-pill" data-target="dates">日程</button>
+  <button class="nav-pill" data-target="english">英文</button>
+  <button class="nav-pill" data-target="transition">幼小銜接</button>
+  <button class="nav-pill" data-target="parenting">教養</button>
+  <button class="nav-pill" data-target="admin">行政</button>
+</nav>
+
+<!-- Mobile nav -->
+<button class="mobile-nav-btn" onclick="toggleMobile()">☰</button>
+<div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobile()"></div>
+<div class="mobile-sidebar" id="mobileSidebar">
+  <div class="sidebar-group">重要</div>
+  <a href="#todo" onclick="toggleMobile()">✅ 家長待辦清單</a>
+  <a href="#dates" onclick="toggleMobile()">📅 重要日程</a>
+  <a href="#gradphoto" onclick="toggleMobile()">📷 畢業照須知</a>
+  <div class="sidebar-group">上學期回顧</div>
+  <a href="#opening" onclick="toggleMobile()">🎨 開場活動</a>
+  <a href="#theme1" onclick="toggleMobile()">🏫 主題一：認識學校</a>
+  <a href="#festivals" onclick="toggleMobile()">🎉 節慶活動</a>
+  <a href="#anniversary" onclick="toggleMobile()">🎂 校慶75週年</a>
+  <a href="#theme2" onclick="toggleMobile()">💝 主題二：愛與分享</a>
+  <a href="#other-activities" onclick="toggleMobile()">⭐ 其他活動</a>
+  <div class="sidebar-group">英文老師報告</div>
+  <a href="#english" onclick="toggleMobile()">📚 英文課程工具</a>
+  <a href="#readdraw" onclick="toggleMobile()">✍️ Read and Draw</a>
+  <a href="#phonics" onclick="toggleMobile()">🔤 Phonics 閱讀</a>
+  <a href="#oral" onclick="toggleMobile()">🍎 口腔肌肉發展</a>
+  <a href="#assessment" onclick="toggleMobile()">📝 英語評量</a>
+  <div class="sidebar-group">家長資訊</div>
+  <a href="#transition" onclick="toggleMobile()">🎓 幼小銜接</a>
+  <a href="#parenting" onclick="toggleMobile()">👨‍👩‍👧 教養資訊</a>
+  <a href="#admin" onclick="toggleMobile()">📋 行政事項</a>
+  <a href="#reminders" onclick="toggleMobile()">💌 老師叮嚀</a>
+</div>
+
+<!-- Top progress bar (mobile) -->
+<div class="top-progress" id="topProgress"></div>
+
+<!-- Bottom navigation bar (mobile) -->
+<nav class="bottom-nav" id="bottomNav">
+  <div class="bottom-nav-inner">
+    <button class="bottom-pill active" data-target="todo"><span class="bp-icon">✅</span>待辦</button>
+    <button class="bottom-pill" data-target="dates"><span class="bp-icon">📅</span>日程</button>
+    <button class="bottom-pill" data-target="english"><span class="bp-icon">📚</span>英文</button>
+    <button class="bottom-pill" data-target="transition"><span class="bp-icon">🎓</span>銜接</button>
+    <button class="bottom-pill" data-target="admin"><span class="bp-icon">📋</span>行政</button>
+    <button class="bottom-pill" onclick="toggleMobile();event.stopPropagation()" style="border-left:1px solid var(--border);margin-left:4px;padding-left:14px"><span class="bp-icon">☰</span>全部</button>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<header class="hero" id="hero">
+  <div class="aurora">
+    <div class="aurora-blob"></div>
+    <div class="aurora-blob"></div>
+    <div class="aurora-blob"></div>
+  </div>
+  <div class="spotlight" id="spotlight"></div>
+  <!-- Meteors -->
+  <div class="meteor" style="left:15%;animation-delay:0s"></div>
+  <div class="meteor" style="left:35%;animation-delay:1.2s"></div>
+  <div class="meteor" style="left:60%;animation-delay:2.5s"></div>
+  <div class="meteor" style="left:80%;animation-delay:0.8s"></div>
+
+  <div class="hero-content">
+    <h1>靜心幼兒園 斑馬班<br>學校日報告</h1>
+    <p class="hero-sub">115年3月7日（六）上午 — 大班 — 約30位小朋友</p>
+    <div class="hero-tags">
+      <span class="hero-tag">葛老師（導師）</span>
+      <span class="hero-tag">柯老師（副導師）</span>
+      <span class="hero-tag">Mr. Joubert（英文）</span>
+      <span class="hero-tag">Mr. Chen（英文）</span>
+    </div>
+    <div class="hero-note">老師觀察：斑馬班是相對穩定、溫柔的班級，美術與藝術感知力很強</div>
+  </div>
+</header>
+
+<!-- ========== MAIN ========== -->
+<div class="main">
+
+<!-- TODO -->
+<div class="section fade-up" id="todo">
+  <div class="section-header">
+    <div class="section-number">!</div>
+    <div class="section-title">家長待辦清單</div>
+    <span class="badge badge-rose">重要</span>
+  </div>
+
+  <button class="cal-all-btn" onclick="addAllToCalendar()">📅 全部日程加入行事曆（12 項）</button>
+
+  <div class="todo-group">
+    <div class="todo-header open todo-month-mar" onclick="toggleTodo(this)">
+      <span>3月 — 近期必做</span><span class="arrow">▶</span>
+    </div>
+    <div class="todo-body open">
+      <div class="todo-item" data-key="t1"><input type="checkbox" id="t1"><label for="t1"><strong>3/17 前</strong>：繳交「整合性社區篩檢」家長同意書（身體+口腔+視力，需簽名+日期）</label><button class="cal-btn" onclick="addToCalendar(0)" title="加入行事曆">📅</button></div>
+      <div class="todo-item" data-key="t2"><input type="checkbox" id="t2"><label for="t2"><strong>3/24</strong>：有報考小一雙語班的孩子，當天進行一對一評量</label><button class="cal-btn" onclick="addToCalendar(1)" title="加入行事曆">📅</button></div>
+      <div class="todo-item" data-key="t3"><input type="checkbox" id="t3"><label for="t3">準備<strong>正楷印章</strong>（補助款用，篆書會被退件！）<span class="todo-alert">注意</span></label></div>
+      <div class="todo-item" data-key="t4"><input type="checkbox" id="t4"><label for="t4">每天看<strong>聯絡簿</strong>，重要公告都在上面</label></div>
+      <div class="todo-item" data-key="t5"><input type="checkbox" id="t5"><label for="t5">下週二（3/11）<strong>兒童早會</strong>，8:20前到校（下雨取消）</label><button class="cal-btn" onclick="addToCalendar(2)" title="加入行事曆">📅</button></div>
+    </div>
+  </div>
+
+  <div class="todo-group">
+    <div class="todo-header todo-month-apr" onclick="toggleTodo(this)">
+      <span>4月重點</span><span class="arrow">▶</span>
+    </div>
+    <div class="todo-body">
+      <div class="todo-item" data-key="t6"><input type="checkbox" id="t6"><label for="t6"><strong>4/20、4/23 畢業照</strong> — 絕對不要請假！<span class="todo-alert">必到</span></label><button class="cal-btn" onclick="addToCalendar(3);addToCalendar(4)" title="加入行事曆">📅</button></div>
+      <div class="todo-sub">4/20 沙龍照：穿便服（女內搭白色小可愛/男穿白色背心）<br>4/23 團照：穿夏季運動服＋全白短襪<br>女生不要盤頭、馬尾、丸子頭（要戴學士帽）</div>
+      <div class="todo-item" data-key="t7"><input type="checkbox" id="t7"><label for="t7">4/9 文山農場校外教學</label><button class="cal-btn" onclick="addToCalendar(5)" title="加入行事曆">📅</button></div>
+      <div class="todo-item" data-key="t8"><input type="checkbox" id="t8"><label for="t8">4/28 大班校外教學</label><button class="cal-btn" onclick="addToCalendar(6)" title="加入行事曆">📅</button></div>
+    </div>
+  </div>
+
+  <div class="todo-group">
+    <div class="todo-header todo-month-may" onclick="toggleTodo(this)">
+      <span>5月重點</span><span class="arrow">▶</span>
+    </div>
+    <div class="todo-body">
+      <div class="todo-item" data-key="t9"><input type="checkbox" id="t9"><label for="t9"><strong>5/5-6 塗氟</strong>：攜帶健保卡＋兒童健康手冊</label><button class="cal-btn" onclick="addToCalendar(7)" title="加入行事曆">📅</button></div>
+      <div class="todo-item" data-key="t10"><input type="checkbox" id="t10"><label for="t10"><strong>5/20 英語認證評量</strong>（全體大班，結果以星星獎狀呈現）</label><button class="cal-btn" onclick="addToCalendar(8)" title="加入行事曆">📅</button></div>
+      <div class="todo-item" data-key="t11"><input type="checkbox" id="t11"><label for="t11">5月起練畢業典禮，盡量 8:30 前到校</label></div>
+    </div>
+  </div>
+
+  <div class="todo-group">
+    <div class="todo-header todo-month-jun" onclick="toggleTodo(this)">
+      <span>6月重點</span><span class="arrow">▶</span>
+    </div>
+    <div class="todo-body">
+      <div class="todo-item" data-key="t12"><input type="checkbox" id="t12"><label for="t12"><strong>6/12 畢業典禮</strong> — 唯一需要向公司請假的日子！<span class="todo-alert">必到</span></label><button class="cal-btn" onclick="addToCalendar(9)" title="加入行事曆">📅</button></div>
+      <div class="todo-item" data-key="t13"><input type="checkbox" id="t13"><label for="t13">6/18 課後學習活動結業（注意校車/接送變動）</label><button class="cal-btn" onclick="addToCalendar(10)" title="加入行事曆">📅</button></div>
+      <div class="todo-item" data-key="t14"><input type="checkbox" id="t14"><label for="t14">6/30 結業式（半日班）</label><button class="cal-btn" onclick="addToCalendar(11)" title="加入行事曆">📅</button></div>
+    </div>
+  </div>
+
+  <div class="todo-group">
+    <div class="todo-header todo-month-ongoing" onclick="toggleTodo(this)">
+      <span>持續進行</span><span class="arrow">▶</span>
+    </div>
+    <div class="todo-body">
+      <div class="todo-item" data-key="t15"><input type="checkbox" id="t15"><label for="t15"><strong>親子共讀</strong>：每週三借書＋完成共讀書單（一週一頁）</label></div>
+      <div class="todo-item" data-key="t16"><input type="checkbox" id="t16"><label for="t16"><strong>閱讀小博士</strong>：目標 80 本，每日填聯絡簿「床邊故事」欄</label></div>
+      <div class="todo-item" data-key="t17"><input type="checkbox" id="t17"><label for="t17"><strong>Sight Words Worksheet</strong>：每週至少認讀 1 次</label></div>
+      <div class="todo-item" data-key="t18"><input type="checkbox" id="t18"><label for="t18"><strong>Read and Draw</strong>：每週完成後繳交紙本（共16次，3/6起）</label></div>
+      <div class="todo-item" data-key="t19"><input type="checkbox" id="t19"><label for="t19"><strong>Starlight Reader 錄音</strong>：每週按進度錄，可延遲但勿提前</label></div>
+      <div class="todo-item" data-key="t20"><input type="checkbox" id="t20"><label for="t20"><strong>育兒津貼</strong>：家長自行<a href="https://e-service.k12ea.gov.tw" target="_blank" rel="noopener">線上申請</a>（第1胎5,000/月、第2胎6,000/月、第3胎7,000/月）</label></div>
+    </div>
+  </div>
+</div>
+
+<!-- OPENING -->
+<div class="section fade-up" id="opening">
+  <div class="section-header">
+    <div class="section-number">1</div>
+    <div class="section-title">開場活動：自畫像猜猜看</div>
+  </div>
+  <div class="card card-accent">
+    <div class="card-spotlight"></div>
+    <p>學校日一開始，老師讓家長進行「猜猜誰是你的孩子」遊戲：小朋友事先畫了自畫像，家長要從畫中找出自己的孩子，找到後交換欣賞、拍照留念，可與上學期的自畫像做對照觀察成長。</p>
+    <p style="margin-top:8px">老師也請家長在黑色粉絲紙上畫出心目中的寶貝，下週讓小朋友反過來猜爸爸媽媽畫的是誰。</p>
+  </div>
+  <div class="card card-amber">
+    <div class="card-spotlight"></div>
+    <h4>本週準備</h4>
+    <p>小朋友為學校日準備了「快樂幸福水」（水瓶上畫全家圖），作為招待家長的禮物。小朋友每天都很在意這瓶水有沒有準備好，非常期待爸爸媽媽來當客人。</p>
+  </div>
+  <div class="card card-emerald">
+    <div class="card-spotlight"></div>
+    <h4>寒假生活分享</h4>
+    <p>開學後小朋友輪流上台介紹寒假生活。班上很多孩子出國（環球影城、滑雪等），作業繳回率非常高，其他老師經過都稱讚「你們班作業真的很豐富」。作品佈置在教室外面。</p>
+  </div>
+</div>
+
+<!-- THEME 1 -->
+<div class="section fade-up" id="theme1">
+  <div class="section-header">
+    <div class="section-number">2</div>
+    <div class="section-title">主題一：認識學校與自我</div>
+    <span class="badge badge-emerald">上學期前半</span>
+  </div>
+
+  <!-- Tabs for theme 1 sub-topics -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'t1-campus')">認識校園</button>
+    <button class="tab-btn" onclick="switchTab(event,'t1-self')">自理能力</button>
+    <button class="tab-btn" onclick="switchTab(event,'t1-body')">身體健康</button>
+    <button class="tab-btn" onclick="switchTab(event,'t1-art')">美勞創作</button>
+  </div>
+
+  <div class="tab-panel active" id="t1-campus">
+    <div class="card"><div class="card-spotlight"></div><h4>認識校園</h4>
+      <ul><li>從鄰近教室（貓熊班、無尾熊班、檸檬班）開始認識</li>
+      <li>參觀校園重點場所：蔣緯國將軍紀念碑、繪本館、空中花園、綜合球場、操場、小學中庭</li>
+      <li>票選最喜歡的校園場所：第一名<strong>攀岩場</strong>、第二名遊戲場</li></ul>
+    </div>
+    <div class="card"><div class="card-spotlight"></div><h4>認識同學</h4>
+      <ul><li>進階版自我介紹：找出班上同名/同姓的同學（魚魚魚三人組、瑞瑞瑞三人組、張張張三人組、廖廖二人組）</li>
+      <li>認識靜心校徽（梅花、稻穗、愛心）、校訓「誠愛日新」</li></ul>
+    </div>
+    <div class="card"><div class="card-spotlight"></div><h4>防災演練</h4>
+      <ul><li>地震演練：趴下、掩護、穩住，疏散至操場</li>
+      <li>人為災害演練：鎖門窗、關燈、躲藏（小朋友貼心地問「那老師你們兩個呢？」）</li></ul>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="t1-self">
+    <div class="card"><div class="card-spotlight"></div><h4>建立自理能力</h4>
+      <ul><li>工作櫃擺放方式（由小朋友討論決定）</li>
+      <li>睡袋整理、洗手五步驟</li>
+      <li>性別教育：身體界線、安全防護網</li></ul>
+    </div>
+    <div class="card"><div class="card-spotlight"></div><h4>斑馬班班徽創作</h4>
+      <p>分為立體功（立體作品）與平面兩個部分，作品已在上學期學習檔案夾帶回家。</p>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="t1-body">
+    <div class="card"><div class="card-spotlight"></div><h4>認識身體與健康飲食</h4>
+      <ul><li>認識身體各部位：由外而內認識自己的重要器官</li>
+      <li>引導吃健康食物，部分小朋友仍在練習接受蔬菜</li>
+      <li>神秘箱遊戲：將蔬菜放入神秘箱讓小朋友摸（以為是蛇，很有趣）</li>
+      <li>戴搞笑眼鏡玩遊戲，降低小朋友對蔬菜的恐懼</li>
+      <li>用黏土製作蔬果造型，搭配繪本《愛吃水果的牛》《愛吃雞蛋的鱷魚》等引導正確飲食</li>
+      <li>蔬果剖面後進行蔬果蓋印畫</li></ul>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="t1-art">
+    <div class="card"><div class="card-spotlight"></div><h4>運動主題美勞</h4>
+      <ul><li>認識不同運動、配對遊戲</li>
+      <li>用錫箔紙＋毛根分組創作運動造型（跳繩、跑步、踢足球、跳舞等）</li>
+      <li>利用班上教具膠巾黏在板上展示</li></ul>
+    </div>
+  </div>
+</div>
+
+<!-- FESTIVALS -->
+<div class="section fade-up" id="festivals">
+  <div class="section-header">
+    <div class="section-number">3</div>
+    <div class="section-title">節慶活動</div>
+  </div>
+  <div class="festival-grid">
+    <div class="festival-card fc-teacher"><h4>教師節</h4><p>團體討論「老師的工作」、製作教師節卡片、全園慶祝大會</p></div>
+    <div class="festival-card fc-moon"><h4>中秋節</h4><p>斑馬班烤肉、吃月餅、預祝賞月美勞</p></div>
+    <div class="festival-card fc-national"><h4>雙十節</h4><p>製作國慶帽、校園遊行（與多班聯合）</p></div>
+    <div class="festival-card fc-halloween"><h4>萬聖節</h4><p>摺紙皇冠創作、全園闖關活動、英文課搖餅乾遊戲。家長用心裝扮！</p></div>
+    <div class="festival-card fc-thanks"><h4>感恩節</h4><p>認識由來、火雞頭套、五星級火雞大餐（家長會提供）、班級感恩餐會</p></div>
+    <div class="festival-card fc-xmas"><h4>聖誕節</h4><p>縫聖誕襪、立體聖誕老公公、雪人創作（錫箔紙+噴水拓印+化妝棉）、手印畫</p></div>
+    <div class="festival-card fc-newyear"><h4>元旦</h4><p>認識年曆月曆、設計馬年年曆、畢卡索風格面部創作</p></div>
+    <div class="festival-card fc-cny"><h4>過年</h4><p>剪窗花、寫春聯、舞獅美勞（分組協作）、吉祥話練習</p></div>
+  </div>
+</div>
+
+<!-- ANNIVERSARY -->
+<div class="section fade-up" id="anniversary">
+  <div class="section-header">
+    <div class="section-number" style="background:var(--amber-dim);color:var(--amber)">★</div>
+    <div class="section-title">校慶（10/31 靜心75週年）</div>
+    <span class="badge badge-amber">特別活動</span>
+  </div>
+  <div class="card-glow"><div class="card-inner">
+    <ul><li>競賽遊戲「彩帶拉力賽」：三人一組，經多次討論調整安全規則</li>
+    <li>靜態互動遊戲：認識七班班徽、校徽、75週年生日遊戲</li>
+    <li>百年樹人美勞創作（中間樹幹是小朋友的手臂手掌，棉花棒沾顏料做點狀果實）</li>
+    <li><strong>與董事長合影</strong>（登上校刊！小朋友翻開校刊馬上找自己在哪）</li>
+    <li>老師評語：斑馬班是全園相對穩定溫柔的班級，董事長也這麼認為</li></ul>
+  </div></div>
+</div>
+
+<!-- THEME 2 -->
+<div class="section fade-up" id="theme2">
+  <div class="section-header">
+    <div class="section-number">4</div>
+    <div class="section-title">主題二：愛與分享</div>
+    <span class="badge badge-rose">上學期後半</span>
+  </div>
+  <div class="card card-accent"><div class="card-spotlight"></div><h4>禮物鞋盒活動</h4>
+    <ul><li>老師帶鞋盒來引起小朋友好奇，引導認識愛心送物資的意義</li>
+    <li>小朋友互相幫忙把禮物鞋盒送到地下室，家長會協助包裝</li>
+    <li>與校長園長一起將禮物送到遠方（最遠曾送到離島）</li>
+    <li>提醒：買鞋子時可把鞋盒留下來，升小學也會有禮物鞋盒活動</li></ul>
+  </div>
+  <div class="card"><div class="card-spotlight"></div><h4>凱斯·哈林藝術導賞</h4>
+    <ul><li>介紹這位崇尚愛與和平的藝術家，作品也出現在國外兒童醫院牆壁</li>
+    <li>小朋友觀察畫中小人的型態，想像代表什麼</li>
+    <li>用小黑筆模仿創作，再用粉蠟筆配色，全程自己完成無老師幫忙</li></ul>
+  </div>
+  <div class="card"><div class="card-spotlight"></div><h4>繪本《媽媽心/媽媽書》</h4>
+    <ul><li>葛老師很喜歡的繪本，講述一個媽媽過世的孩子入小學後的心情調適</li>
+    <li>藉此培養同理心：如果遇到這樣的同學，該怎麼對待和幫助</li>
+    <li>延伸美勞：第一次讓小朋友嘗試用紙來編織，做出自己的「媽媽心」</li></ul>
+  </div>
+  <div class="card"><div class="card-spotlight"></div><h4>愛的連線美勞</h4>
+    <p>從凱斯·哈林的線條風格延伸，小朋友拿麻繩沾白膠，在紙上自由繞線創作。過程非常「搞砸」（整間教室都是白膠），但體驗用不同素材創作。</p>
+  </div>
+  <div class="card"><div class="card-spotlight"></div><h4>羅伯特·乃第安納 LOVE 裝置藝術</h4>
+    <ul><li>用紙黏土或輕黏土塑形，牙籤做連接使作品站立</li>
+    <li>紙黏土質地較硬、乾了易裂，需花較多力氣和時間</li>
+    <li>101 也有此裝置藝術，小朋友經過時會認出「這是我們學過的！」</li></ul>
+  </div>
+</div>
+
+<!-- GARDEN + FIELD TRIP + OTHER -->
+<div class="section fade-up" id="other-activities">
+  <div class="section-header">
+    <div class="section-number">5</div>
+    <div class="section-title">其他重要活動</div>
+  </div>
+  <div class="card card-emerald"><div class="card-spotlight"></div><h4>小田園種植</h4>
+    <ul><li>第一回（湯匙菜、芝麻葉）：因颱風下雨淹水失敗</li>
+    <li>第二回（蔥）：大豐收！小朋友帶蔥回家，與家長一起烹飪</li>
+    <li>下學期也討論了要種什麼，近期會更新</li></ul>
+  </div>
+
+  <h4 style="margin:24px 0 12px;color:var(--text-secondary)">校外教學</h4>
+  <table>
+    <thead><tr><th>地點</th><th>活動內容</th></tr></thead>
+    <tbody>
+      <tr><td><strong>文山農場</strong></td><td>觀察蜜蜂、黑羊與白羊活動、閉眼走路挑戰</td></tr>
+      <tr><td><strong>客家文化公園</strong></td><td>客家語引導、客家文化介紹、宣紙顏色渲染</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card"><div class="card-spotlight"></div><h4>聖誕展演</h4><p>全班協力完成舞台表演（排第一組出場！「因為我們最棒」），凝聚力大提升。</p></div>
+  <div class="card"><div class="card-spotlight"></div><h4>報佳音</h4><p>集體創作卡片，帶到學校對面曼都美髮唱歌給客人聽，客人都幫忙拍手。</p></div>
+  <div class="card"><div class="card-spotlight"></div><h4>愛心義賣</h4><p>無人攤位概念，融入數學付錢練習。班上募集到非常多物資。</p></div>
+  <div class="card"><div class="card-spotlight"></div><h4>兒童早會小樂隊</h4><p>分工合作（旗手、司儀、樂器），410個小朋友齊聚。本學期小樂隊在6月畢業典禮後。</p></div>
+  <div class="card"><div class="card-spotlight"></div><h4>歲末迎新暨結業式</h4><p>小朋友穿喜氣衣服、帶氣球、發小紅包、與校長園長互道祝福。</p></div>
+  <div class="card"><div class="card-spotlight"></div><h4>塗鴉牆與情境佈置</h4>
+    <ul><li>定期帶小朋友去畫，主題隨節慶變化（最新主題元宵節），畫完落款寫中英文名字和日期</li>
+    <li>走廊外用小朋友作品統整佈置，其他班也會來欣賞</li></ul>
+  </div>
+</div>
+
+<!-- DATES -->
+<div class="section fade-up" id="dates">
+  <div class="section-header">
+    <div class="section-number" style="background:var(--cyan-dim);color:var(--cyan)">📅</div>
+    <div class="section-title">下學期重要日程</div>
+    <span class="badge badge-cyan">必看</span>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-date">3/7</div><div class="tl-content">學校日<span style="color:var(--accent-bright);font-size:.78rem;margin-left:6px">（今天）</span></div></div>
+    <div class="tl-item"><div class="tl-date">3/9</div><div class="tl-content">大班套量皮球鞋</div></div>
+    <div class="tl-item"><div class="tl-date">3/11</div><div class="tl-content">全國防災演練</div></div>
+    <div class="tl-item important"><div class="tl-date">3/17</div><div class="tl-content">整合性社區發展篩檢<div class="tl-note">斑馬班，需繳家長同意書</div></div></div>
+    <div class="tl-item"><div class="tl-date">3/21</div><div class="tl-content">幼兒園招生說明會</div></div>
+    <div class="tl-item important"><div class="tl-date">3/24</div><div class="tl-content">小一雙語特色班評量<div class="tl-note">一對一口說/聽力/閱讀</div></div></div>
+    <div class="tl-item"><div class="tl-date">4/2</div><div class="tl-content">學習博覽會</div></div>
+    <div class="tl-item"><div class="tl-date">4/7</div><div class="tl-content">大班直升小一領取制服</div></div>
+    <div class="tl-item"><div class="tl-date">4/9</div><div class="tl-content">文山農場探索體驗</div></div>
+    <div class="tl-item"><div class="tl-date">4/13-17</div><div class="tl-content">校車演練</div></div>
+    <div class="tl-item critical"><div class="tl-date">4/20</div><div class="tl-content">拍攝沙龍畢業照<div class="tl-note">不要請假！</div></div></div>
+    <div class="tl-item critical"><div class="tl-date">4/23</div><div class="tl-content">拍攝團照+證件照<div class="tl-note">穿夏季運動服+全白短襪</div></div></div>
+    <div class="tl-item"><div class="tl-date">4/28</div><div class="tl-content">大班校外教學</div></div>
+    <div class="tl-item"><div class="tl-date">5/4-8</div><div class="tl-content">母親節感恩週</div></div>
+    <div class="tl-item important"><div class="tl-date">5/5-6</div><div class="tl-content">塗氟<div class="tl-note">攜帶健保卡+兒童健康手冊</div></div></div>
+    <div class="tl-item"><div class="tl-date">5/14</div><div class="tl-content">劇團戲劇欣賞</div></div>
+    <div class="tl-item important"><div class="tl-date">5/20</div><div class="tl-content">英語學習認證評量<div class="tl-note">大班全員，一對一交談</div></div></div>
+    <div class="tl-item critical"><div class="tl-date">6/12</div><div class="tl-content"><strong>畢業典禮</strong><div class="tl-note">唯一需要請假的日子！</div></div></div>
+    <div class="tl-item"><div class="tl-date">6/18</div><div class="tl-content">課後學習活動結業</div></div>
+    <div class="tl-item"><div class="tl-date">6月下旬</div><div class="tl-content">大手牽小手幼小銜接</div></div>
+    <div class="tl-item"><div class="tl-date">6/30</div><div class="tl-content">結業式（半日班）</div></div>
+    <div class="tl-item"><div class="tl-date">7/1</div><div class="tl-content">暑假開始、夏令營開課</div></div>
+    <div class="tl-item"><div class="tl-date">8月</div><div class="tl-content">小學暑期輔導開始</div></div>
+  </div>
+
+  <h4 style="margin:28px 0 12px;color:var(--text-secondary)">放假日</h4>
+  <table>
+    <thead><tr><th>日期</th><th>假日</th></tr></thead>
+    <tbody>
+      <tr><td>2/27-28</td><td>和平紀念日</td></tr>
+      <tr><td>4/3-6</td><td>兒童節+清明節（連假四天）</td></tr>
+      <tr><td>5/1</td><td>勞動節</td></tr>
+      <tr><td>6/19</td><td>端午節</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- GRAD PHOTO -->
+<div class="section fade-up" id="gradphoto">
+  <div class="section-header">
+    <div class="section-number" style="background:var(--rose-dim);color:var(--rose)">📷</div>
+    <div class="section-title">畢業照拍攝注意事項</div>
+  </div>
+  <div class="alert-box">
+    <h4>4/20、4/23 請務必到校！</h4>
+    <ul style="padding-left:20px;margin-top:8px">
+      <li><strong>4/20 沙龍照</strong>：攝影公司提供造型服飾，穿便服（女生內搭白色小可愛，男生穿白色背心）</li>
+      <li><strong>4/23 團照</strong>：穿夏季運動服+全白短襪（廠商提供黑色皮鞋）</li>
+      <li>女生頭髮不要盤起，勿梳馬尾或丸子頭（方便戴學士帽）</li>
+      <li>建議提前修整頭髮</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ENGLISH -->
+<div class="section fade-up" id="english">
+  <div class="section-header">
+    <div class="section-number" style="background:var(--cyan-dim);color:var(--cyan)">EN</div>
+    <div class="section-title">英文老師報告</div>
+    <span class="badge badge-cyan">English</span>
+  </div>
+
+  <h4 style="margin-bottom:12px;color:var(--text-secondary)">英語課程工具</h4>
+  <table>
+    <thead><tr><th>工具</th><th>說明</th></tr></thead>
+    <tbody>
+      <tr><td><strong>E-Class</strong></td><td>每日課程記錄、補充影片、學習單電子檔、讀本內文與語音檔<br><a class="link-btn" href="https://drive.google.com/drive/folders/1vfAjAP5k8AbMKbtmoFjuxS7XtvkhYxWo" target="_blank" rel="noopener">靜心學生雲端</a></td></tr>
+      <tr><td><strong>Sight Words</strong></td><td>每週至少認讀1次，按 phonics letter sound 引導</td></tr>
+      <tr><td><strong>Read and Draw</strong></td><td>共16次（3/6開始），每週繳交紙本</td></tr>
+      <tr><td><strong>Starlight Reader</strong></td><td>每週按進度錄音，可延遲但勿提前</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- READ AND DRAW -->
+<div class="section fade-up" id="readdraw">
+  <div class="section-header">
+    <div class="section-number" style="background:var(--cyan-dim);color:var(--cyan)">✍</div>
+    <div class="section-title">Read and Draw 練習方法</div>
+  </div>
+  <p style="margin-bottom:16px;color:var(--text-secondary)">Mr. Joubert 示範 — 重點是<strong style="color:var(--text)">拆解句子、逐步理解</strong>：</p>
+
+  <div class="phonics-box">
+    <h4>例句1：The ball is on the table.</h4>
+    <ol class="step-list">
+      <li>拆解物件：ball（球）→ 畫一顆球</li>
+      <li>拆解物件：table（桌子）→ 畫一張桌子</li>
+      <li>理解介系詞 on：用實物示範（把球放在頭上、手上）→「喔，on 就是在上面」</li>
+      <li>組合：把球畫在桌子上面</li>
+      <li>完整句子回答：Where is the ball? → "The ball is on the table."</li>
+    </ol>
+  </div>
+  <div class="phonics-box">
+    <h4>例句2：The pen is under the table.</h4>
+    <ol class="step-list">
+      <li>pen → 畫一支筆</li>
+      <li>table → 再畫一張桌子</li>
+      <li>理解 under：把球放在椅子下面、腳下面 →「喔，under 就是在下面」</li>
+      <li>組合：把筆畫在桌子下面</li>
+      <li>一張圖畫一個句子，鼓勵用完整句子回答</li>
+    </ol>
+  </div>
+
+  <div class="card"><div class="card-spotlight"></div><h4>寫字練習指導</h4>
+    <ul><li>第一行是描線範例，讓孩子照著筆跡寫；第二行開始自己獨立寫</li>
+    <li>確認孩子知道字的正確位置和方向</li>
+    <li>注意 <strong>B/D、P/Q 容易混淆</strong>，書寫不正確會干擾對文字的理解</li></ul>
+  </div>
+  <div class="tip-box" style="padding:20px 24px;border-radius:var(--radius-sm);margin-bottom:16px">
+    <h4>將英文融入生活</h4>
+    <ul style="padding-left:20px;margin-top:6px;color:var(--text-secondary);font-size:.88rem">
+      <li>在日常生活中自然使用英文，例如在遊樂場問 "What do you want to play?"</li>
+      <li>不需要刻意製造學習場景，融入生活即可</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PHONICS -->
+<div class="section fade-up" id="phonics">
+  <div class="section-header">
+    <div class="section-number" style="background:var(--cyan-dim);color:var(--cyan)">🔤</div>
+    <div class="section-title">Phonics 閱讀練習建議</div>
+  </div>
+  <div class="card card-cyan"><div class="card-spotlight"></div>
+    <ul><li><strong>Practice A 先做</strong>，是基礎；Practice B 難度較高</li>
+    <li>如果卡住，回頭做 Sight Words Worksheet 確認認字</li>
+    <li>鼓勵孩子「掙扎」：不要直接告訴答案，引導拼讀（例：h-o-p → 逐字母發音 → 混合 → "hop"）</li>
+    <li>不要按播放讓孩子跟讀，要讓孩子自己讀</li>
+    <li>如果太難，可回到上學期的內容重新練習</li></ul>
+  </div>
+</div>
+
+<!-- ORAL -->
+<div class="section fade-up" id="oral">
+  <div class="section-header">
+    <div class="section-number" style="background:var(--cyan-dim);color:var(--cyan)">🍎</div>
+    <div class="section-title">口腔肌肉發展建議</div>
+  </div>
+  <p style="margin-bottom:16px;color:var(--text-secondary)">英文老師提供用食物練習口腔肌肉的方法：</p>
+  <div class="card"><div class="card-spotlight"></div><h4>咀嚼練習（脆硬食物）</h4>
+    <p>蘋果、紅蘿蔔、小黃瓜條、芹菜、甜椒條、芋頭、芒果<br>切成條狀，練習咀嚼 20 次</p></div>
+  <div class="card"><div class="card-spotlight"></div><h4>吸吮練習</h4>
+    <p>用玻璃杯＋吸管（不要用水壺）<br>從稀的飲料開始 → 逐漸加厚（香蕉奶昔、芒果泥、濃稠優格）</p></div>
+  <div class="card"><div class="card-spotlight"></div><h4>舌頭靈活度</h4>
+    <p>在嘴巴上顎塗花生醬，讓孩子用舌頭舔<br>把藍莓放在舌頭一側，用舌頭移到另一側再吃掉</p></div>
+  <div class="card"><div class="card-spotlight"></div><h4>手部肌肉（輔助寫字）</h4>
+    <p>撕麵包或起司、烤瑪芬放葡萄乾</p></div>
+  <div class="tip-box" style="padding:16px 24px;border-radius:var(--radius-sm);margin-bottom:16px">
+    <h4>善用 AI</h4>
+    <p style="color:var(--text-secondary);font-size:.88rem;margin-top:4px">可以問 ChatGPT「我的孩子5-6歲，無法發出 P 的音，需要什麼食物活動」</p>
+  </div>
+</div>
+
+<!-- ASSESSMENT -->
+<div class="section fade-up" id="assessment">
+  <div class="section-header">
+    <div class="section-number" style="background:var(--cyan-dim);color:var(--cyan)">📝</div>
+    <div class="section-title">英語評量說明</div>
+  </div>
+  <div class="card card-accent"><div class="card-spotlight"></div>
+    <h4>小一雙語特色班評量（3/24）</h4>
+    <ul><li>對象：有意報考小一雙語班的大班生</li>
+    <li>方式：老師與小朋友一對一交談</li>
+    <li>內容：口說/聽力/基本閱讀</li>
+    <li>結果分為：正取生、備取生、未錄取生（一般班）</li>
+    <li>詢問電話：國小部國際教育中心 許嘉恬組長 <strong>2932-3118 分機113</strong></li></ul>
+  </div>
+  <div class="card card-cyan"><div class="card-spotlight"></div>
+    <h4>大班英語學習認證評量（5/20）</h4>
+    <ul><li>對象：全體大班生</li>
+    <li>目的：檢視幼兒園階段英語學習總成效</li>
+    <li>方式：一對一交談</li>
+    <li>內容：日常生活完整語句表達、A-Z 大小寫認讀、基本閱讀</li>
+    <li>每人獲得認證獎狀，口說/聽力/閱讀各以星星數表示（最多5顆星）</li></ul>
+  </div>
+</div>
+
+<!-- TRANSITION -->
+<div class="section fade-up" id="transition">
+  <div class="section-header">
+    <div class="section-number" style="background:var(--emerald-dim);color:var(--emerald)">🎓</div>
+    <div class="section-title">幼小銜接建議</div>
+    <span class="badge badge-emerald">升小一</span>
+  </div>
+  <div class="card card-emerald"><div class="card-spotlight"></div>
+    <h4>升小一準備重點</h4>
+    <ol><li><strong>早睡早起</strong>：每晚9:00前上床睡覺</li>
+    <li><strong>生活自理</strong>：練習自己整理物品</li>
+    <li><strong>書寫能力</strong>：能書寫自己的名字、基本數概念</li>
+    <li><strong>做家事</strong>：養成動手做的習慣和責任感</li>
+    <li><strong>閱讀習慣</strong>：培養每日閱讀</li>
+    <li><strong>3C 管理</strong>：控制使用時間</li>
+    <li><strong>情緒調節</strong>：學習表達與管理情緒</li>
+    <li><strong>傾聽與表達</strong>：學習能力的基礎</li></ol>
+  </div>
+  <div class="card"><div class="card-spotlight"></div><h4>芬蘭小學給新生家長的建議</h4>
+    <ul><li><strong>信任</strong>：家庭與學校之間建立互信，放學後和孩子回顧校園生活</li>
+    <li><strong>支持</strong>：關注努力而非結果，「我無能為力」→「我們一起解決！」</li>
+    <li><strong>負責</strong>：鼓勵孩子對作業負責，家長擔任支持者角色</li></ul>
+  </div>
+  <div class="card"><div class="card-spotlight"></div><h4>寫字小肌肉訓練（9個活動）</h4>
+    <p>順逆時鐘畫圈、翻筋斗、紙杯角書、手指大力士、蛇形勾手、單手撕紙、垂直面塗鴉、鉛筆毛毛蟲、小鱷魚吞蛋</p>
+  </div>
+</div>
+
+<!-- READING -->
+<div class="section fade-up" id="reading">
+  <div class="section-header">
+    <div class="section-number">6</div>
+    <div class="section-title">親子共讀</div>
+  </div>
+  <table>
+    <thead><tr><th>項目</th><th>說明</th></tr></thead>
+    <tbody>
+      <tr><td><strong>親子共讀作業</strong></td><td>每週三借閱圖書，完成親子共讀書單（一週一頁）</td></tr>
+      <tr><td><strong>閱讀小博士</strong></td><td>大班目標閱讀 80 本故事書，每日填寫在聯絡簿「床邊故事」欄位</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PARENTING -->
+<div class="section fade-up" id="parenting">
+  <div class="section-header">
+    <div class="section-number">7</div>
+    <div class="section-title">教養資訊分享</div>
+  </div>
+  <div class="card"><div class="card-spotlight"></div><h4>社會情緒教育</h4>
+    <ul><li><strong>平時教</strong>：同理、尊重（不做令人不開心的事、每個人想法不同）</li>
+    <li><strong>當下教</strong>：冷靜、溝通（學說「…讓我不舒服，我希望你能…」）</li>
+    <li><strong>事後教</strong>：方法、反省（什麼才是你想要的結果？該怎麼做？）</li></ul>
+  </div>
+  <div class="alert-box" style="background:var(--amber-dim);border-color:rgba(251,191,36,0.2)">
+    <h4 style="color:var(--amber)">生氣的界線</h4>
+    <p style="color:var(--text-secondary);font-size:.88rem">生氣可以，但不能：打人、破壞、亂罵、故意傷害人、摔東西、傷害自己</p>
+  </div>
+
+  <h4 style="margin:20px 0 12px;color:var(--text-secondary)">傾聽日（臺北市家庭教育中心）</h4>
+  <div class="card"><div class="card-spotlight"></div>
+    <a class="link-btn" href="https://family.gov.taipei/Content_List.aspx?n=7E357E732A742CED" target="_blank" rel="noopener">傾聽日專區</a>
+    <p style="margin-top:10px">每週至少1天實施「傾聽日」，5大技巧：</p>
+    <ol><li>以正面溫和語氣開啟對話</li>
+    <li>先聆聽，不急著問「為什麼」</li>
+    <li>用自身感受來溝通</li>
+    <li>說清楚需求，不猜測</li>
+    <li>整理想法與情緒</li></ol>
+  </div>
+
+  <div class="card"><div class="card-spotlight"></div><h4>親子遊戲（讓孩子靜下來24個活動）</h4>
+    <p>包含開合跳、撐地大力士、床上烤熱狗、跳繩鬼抓人、大熊走路、蜘蛛慢步、一二三木頭人、老鷹抓小雞、大風吹、疊疊樂等。</p>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div class="section fade-up" id="admin">
+  <div class="section-header">
+    <div class="section-number">8</div>
+    <div class="section-title">行政事項</div>
+  </div>
+  <div class="card"><div class="card-spotlight"></div><h4>健康篩檢（3/17）</h4>
+    <ul><li>項目：身體檢查（視力、聽覺、身高體重）、口腔篩檢、視力篩檢</li>
+    <li>需繳交家長同意書（勾選同意/拒絕，家長簽名+日期）</li></ul>
+  </div>
+  <div class="card"><div class="card-spotlight"></div><h4>5歲幼兒補助（園方統一辦理）</h4>
+    <ul><li>對象：108/9/2-109/9/1 出生之幼兒</li>
+    <li>需設籍臺北市（115/2/1前）</li>
+    <li>補助金額依家戶年所得：$2,543 ~ $12,543/學期</li>
+    <li><strong>正楷印章</strong>：必須清晰可辨識，篆書會被退件</li></ul>
+  </div>
+  <div class="card"><div class="card-spotlight"></div><h4>育兒津貼（家長自行線上申請）</h4>
+    <p>第1胎 5,000元/月、第2胎 6,000元/月、第3胎 7,000元/月</p>
+    <a class="link-btn" href="https://e-service.k12ea.gov.tw" target="_blank" rel="noopener">線上申請平台</a>
+  </div>
+  <div class="card"><div class="card-spotlight"></div><h4>115學年度學費調漲</h4>
+    <p>各年齡全日班每學期學費調漲 500 元（待教育局審核）</p>
+  </div>
+</div>
+
+<!-- REMINDERS -->
+<div class="section fade-up" id="reminders">
+  <div class="section-header">
+    <div class="section-number" style="background:var(--rose-dim);color:var(--rose)">💝</div>
+    <div class="section-title">老師的叮嚀</div>
+    <span class="badge badge-rose">溫馨提醒</span>
+  </div>
+  <div class="card-glow"><div class="card-inner">
+    <ul style="padding-left:20px">
+      <li>回家後<strong>抱抱孩子</strong>，告訴他「老師有稱讚你們」（小朋友非常在意）</li>
+      <li><strong>聯絡簿每天看</strong>：重要訊息都會公佈在上面</li>
+      <li><strong>4月很忙</strong>：做好健康管理，早睡早起、注意營養</li>
+      <li><strong>5月練畢業典禮</strong>：盡量8:30前到校</li>
+      <li><strong>7月建議放鬆</strong>：出國/回阿公阿嬤家安排在7月</li>
+      <li><strong>8月進入小學課程</strong>：完全不同的節奏，需提前準備</li>
+      <li>下週二有<strong>兒童早會</strong>，8:20前到校（下雨取消）</li>
+      <li>下週一斑馬班去<strong>攀岩場</strong>體能活動</li>
+    </ul>
+  </div></div>
+
+  <h4 style="margin:24px 0 12px;color:var(--text-secondary)">聯絡信箱</h4>
+  <div class="card">
+    <div class="card-spotlight"></div>
+    <ul>
+      <li>英文老師：<a href="mailto:kteacher@st.chjhs.tp.edu.tw"><strong>kteacher@st.chjhs.tp.edu.tw</strong></a></li>
+      <li>Mr. Joubert / Mr. Chen：<a href="mailto:c0052@tea.chjhs.tp.edu.tw"><strong>c0052@tea.chjhs.tp.edu.tw</strong></a></li>
+    </ul>
+  </div>
+</div>
+
+</div><!-- end .main -->
+
+<div class="footer">
+  靜心幼兒園 斑馬班 ｜ 115年3月7日學校日報告 ｜ 整理自當日簡報投影片與課堂逐字稿
+</div>
+
+<button class="back-top" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* ========== Floating Navbar: hide/show on scroll ========== */
+let lastScroll=0;const nav=document.getElementById('floatingNav');
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  if(y>300){nav.classList.toggle('hidden',y>lastScroll&&y-lastScroll>5)}
+  else{nav.classList.remove('hidden')}
+  lastScroll=y;
+},{passive:true});
+
+/* Nav pill click */
+document.querySelectorAll('.nav-pill').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const id=btn.dataset.target;
+    document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+  });
+});
+
+/* Active nav pill on scroll */
+const sectionEls=document.querySelectorAll('.section');
+const pills=document.querySelectorAll('.nav-pill');
+const pillObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id=e.target.id;
+      pills.forEach(p=>p.classList.toggle('active',p.dataset.target===id));
+    }
+  });
+},{rootMargin:'-30% 0px -60% 0px'});
+sectionEls.forEach(s=>pillObserver.observe(s));
+
+/* ========== Tracing Beam ========== */
+const beamFill=document.querySelector('.tracing-beam-fill');
+const beamDot=document.querySelector('.tracing-beam-dot');
+function updateBeam(){
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  const pct=h>0?(window.scrollY/h)*100:0;
+  beamFill.style.height=pct+'%';
+  beamDot.style.top=pct+'%';
+}
+window.addEventListener('scroll',updateBeam,{passive:true});
+updateBeam();
+
+/* ========== Fade-up on scroll ========== */
+const fadeEls=document.querySelectorAll('.fade-up');
+const fadeObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');fadeObserver.unobserve(e.target)}});
+},{threshold:0.08});
+fadeEls.forEach(el=>fadeObserver.observe(el));
+
+/* ========== Hero spotlight ========== */
+const heroEl=document.querySelector('.hero');
+const spotlightEl=document.getElementById('spotlight');
+heroEl.addEventListener('mousemove',e=>{
+  const r=heroEl.getBoundingClientRect();
+  spotlightEl.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+  spotlightEl.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+});
+
+/* ========== Card spotlight (follow mouse) ========== */
+document.querySelectorAll('.card').forEach(card=>{
+  const sp=card.querySelector('.card-spotlight');
+  if(!sp)return;
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=e.clientX-r.left,y=e.clientY-r.top;
+    sp.style.background=`radial-gradient(400px circle at ${x}px ${y}px,rgba(212,101,74,0.06),transparent 60%)`;
+  });
+  card.addEventListener('mouseenter',()=>sp.style.opacity='1');
+  card.addEventListener('mouseleave',()=>sp.style.opacity='0');
+});
+
+/* ========== Todo ========== */
+function toggleTodo(el){
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+const STORAGE_KEY='zebra-school-day-todos-v2';
+function loadTodos(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{}}catch(e){return{}}}
+function saveTodos(d){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(d))}catch(e){}}
+const saved=loadTodos();
+document.querySelectorAll('.todo-item').forEach(item=>{
+  const key=item.dataset.key,cb=item.querySelector('input[type=checkbox]');
+  if(!cb||!key)return;
+  if(saved[key]){cb.checked=true;item.classList.add('checked')}
+  cb.addEventListener('change',()=>{
+    const d=loadTodos();d[key]=cb.checked;saveTodos(d);
+    item.classList.toggle('checked',cb.checked);
+  });
+});
+
+/* ========== Tabs ========== */
+function switchTab(e,id){
+  const parent=e.target.closest('.section');
+  parent.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  parent.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById(id)?.classList.add('active');
+}
+
+/* ========== Mobile nav ========== */
+function toggleMobile(){
+  const sb=document.getElementById('mobileSidebar');
+  const ov=document.getElementById('mobileOverlay');
+  sb.classList.toggle('open');
+  ov.classList.toggle('open');
+  document.body.style.overflow=sb.classList.contains('open')?'hidden':'';
+}
+
+/* ========== Bottom nav ========== */
+const bottomPills=document.querySelectorAll('.bottom-pill[data-target]');
+bottomPills.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const id=btn.dataset.target;
+    document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+  });
+});
+/* Highlight active bottom pill on scroll */
+const bottomTargets=new Set([...bottomPills].map(p=>p.dataset.target));
+const bottomPillObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting&&bottomTargets.has(e.target.id)){
+      bottomPills.forEach(p=>{
+        p.classList.toggle('active',p.dataset.target===e.target.id);
+      });
+    }
+  });
+},{rootMargin:'-20% 0px -70% 0px'});
+sectionEls.forEach(s=>bottomPillObserver.observe(s));
+
+/* ========== Top progress bar (mobile) ========== */
+const topProgress=document.getElementById('topProgress');
+function updateProgress(){
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  const pct=h>0?(window.scrollY/h)*100:0;
+  if(topProgress)topProgress.style.width=pct+'%';
+}
+window.addEventListener('scroll',updateProgress,{passive:true});
+
+/* ========== Touch ripple for cards ========== */
+document.querySelectorAll('.card,.todo-header,.festival-card').forEach(el=>{
+  el.classList.add('touch-ripple');
+  el.addEventListener('touchstart',e=>{
+    const r=el.getBoundingClientRect();
+    const t=e.touches[0];
+    el.style.setProperty('--rx',((t.clientX-r.left)/r.width*100)+'%');
+    el.style.setProperty('--ry',((t.clientY-r.top)/r.height*100)+'%');
+  },{passive:true});
+});
+
+/* ========== Swipe to close sidebar ========== */
+(function(){
+  const sb=document.getElementById('mobileSidebar');
+  let startX=0,currentX=0,swiping=false;
+  sb.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;swiping=true},{passive:true});
+  sb.addEventListener('touchmove',e=>{
+    if(!swiping)return;
+    currentX=e.touches[0].clientX;
+    const dx=currentX-startX;
+    if(dx>0)sb.style.transform=`translateX(${dx}px)`;
+  },{passive:true});
+  sb.addEventListener('touchend',()=>{
+    if(!swiping)return;swiping=false;
+    const dx=currentX-startX;
+    sb.style.transform='';
+    if(dx>80)toggleMobile();
+    currentX=0;
+  });
+})();
+
+/* ========== Calendar ICS ========== */
+const calEvents=[
+  {date:'20260317',title:'繳交整合性社區篩檢同意書（截止）',desc:'身體+口腔+視力檢查，需簽名+日期\\n靜心幼兒園 斑馬班'},
+  {date:'20260324',title:'小一雙語班一對一評量',desc:'有報考雙語班的孩子當天評量\\n靜心幼兒園 斑馬班'},
+  {date:'20260311',time:'0820',title:'兒童早會（8:20前到校）',desc:'下雨取消\\n靜心幼兒園 斑馬班'},
+  {date:'20260420',title:'畢業沙龍照（穿便服）',desc:'女內搭白色小可愛／男穿白色背心\\n絕對不要請假！\\n靜心幼兒園 斑馬班'},
+  {date:'20260423',title:'畢業團照（穿夏季運動服）',desc:'夏季運動服＋全白短襪\\n女生不要盤頭、馬尾、丸子頭（要戴學士帽）\\n絕對不要請假！\\n靜心幼兒園 斑馬班'},
+  {date:'20260409',title:'文山農場校外教學',desc:'靜心幼兒園 斑馬班'},
+  {date:'20260428',title:'大班校外教學',desc:'靜心幼兒園 斑馬班'},
+  {date:'20260505',end:'20260507',title:'塗氟（5/5-6）',desc:'攜帶健保卡＋兒童健康手冊\\n靜心幼兒園 斑馬班'},
+  {date:'20260520',title:'英語認證評量',desc:'全體大班，結果以星星獎狀呈現\\n靜心幼兒園 斑馬班'},
+  {date:'20260612',title:'畢業典禮 🎓',desc:'唯一需要向公司請假的日子！\\n靜心幼兒園 斑馬班'},
+  {date:'20260618',title:'課後學習活動結業',desc:'注意校車／接送變動\\n靜心幼兒園 斑馬班'},
+  {date:'20260630',title:'結業式（半日班）',desc:'靜心幼兒園 斑馬班'},
+];
+function makeICS(events){
+  let s='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//ZebraClass//SchoolDay//EN\r\nCALSCALE:GREGORIAN\r\n';
+  events.forEach((e,i)=>{
+    s+='BEGIN:VEVENT\r\n';
+    if(e.time){
+      s+=`DTSTART:${e.date}T${e.time}00\r\n`;
+      s+=`DTEND:${e.date}T${String(Number(e.time)+200).padStart(4,'0')}00\r\n`;
+    }else{
+      s+=`DTSTART;VALUE=DATE:${e.date}\r\n`;
+      s+=`DTEND;VALUE=DATE:${e.end||nextDay(e.date)}\r\n`;
+    }
+    s+=`SUMMARY:${e.title}\r\n`;
+    if(e.desc)s+=`DESCRIPTION:${e.desc}\r\n`;
+    s+=`UID:zebra-${e.date}-${i}@school\r\n`;
+    s+='END:VEVENT\r\n';
+  });
+  s+='END:VCALENDAR';
+  return s;
+}
+function nextDay(d){
+  const y=+d.slice(0,4),m=+d.slice(4,6)-1,day=+d.slice(6,8);
+  const nd=new Date(y,m,day+1);
+  return `${nd.getFullYear()}${String(nd.getMonth()+1).padStart(2,'0')}${String(nd.getDate()).padStart(2,'0')}`;
+}
+function downloadICS(ics,name){
+  const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download=name;
+  document.body.appendChild(a);a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+function addToCalendar(idx){
+  const e=calEvents[idx];
+  downloadICS(makeICS([e]),`靜心斑馬班_${e.title}.ics`);
+}
+function addAllToCalendar(){
+  downloadICS(makeICS(calEvents),'靜心斑馬班_全部日程.ics');
+}
+
+/* ========== Back to top ========== */
+const backTop=document.querySelector('.back-top');
+window.addEventListener('scroll',()=>{
+  backTop.classList.toggle('show',window.scrollY>600);
+},{passive:true});
+</script>
+</body>
+</html>
