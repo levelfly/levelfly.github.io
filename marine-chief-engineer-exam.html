@@ -282,6 +282,19 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:
 .srs-next.due{color:var(--orange-400)}
 .srs-next.ok{color:var(--steel-500)}
 .srs-interval{font-size:10px;font-family:var(--font-mono);color:var(--steel-600,var(--steel-500));margin-left:4px}
+/* === GEMINI AI DIAGRAM === */
+.ai-diagram-section{margin-top:16px;padding-top:14px;border-top:1px solid var(--glass-border)}
+.ai-diagram-btn{width:100%;padding:11px 14px;border-radius:var(--radius);border:1px solid rgba(139,92,246,0.3);background:rgba(139,92,246,0.06);color:#a78bfa;font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:8px}
+.ai-diagram-btn:hover{background:rgba(139,92,246,0.14);border-color:rgba(139,92,246,0.5)}
+.ai-diagram-btn:disabled{opacity:.5;cursor:not-allowed}
+.ai-diagram-img{width:100%;border-radius:var(--radius);margin-top:12px;border:1px solid rgba(139,92,246,0.2);display:block;cursor:pointer}
+.ai-diagram-loading{text-align:center;padding:28px 20px;color:var(--steel-400);font-size:12px;font-family:var(--font-mono);background:rgba(139,92,246,0.04);border-radius:var(--radius);border:1px dashed rgba(139,92,246,0.2);margin-top:12px;line-height:1.8}
+.ai-diagram-error{color:var(--red-400);font-size:12px;padding:10px;text-align:center;font-family:var(--font-mono)}
+.ai-key-row{display:flex;gap:6px;margin-top:10px;align-items:center}
+.ai-key-input{flex:1;background:var(--navy-800);border:1px solid var(--glass-border);border-radius:var(--radius-sm);color:var(--steel-200);font-size:11px;padding:7px 10px;font-family:var(--font-mono);outline:none}
+.ai-key-input:focus{border-color:rgba(139,92,246,0.4)}
+.ai-key-save{padding:7px 12px;border-radius:var(--radius-sm);border:1px solid rgba(139,92,246,0.3);background:rgba(139,92,246,0.1);color:#a78bfa;font-size:11px;cursor:pointer;white-space:nowrap;font-family:var(--font-body)}
+.ai-caption{text-align:center;margin-top:6px;font-size:10px;color:var(--steel-500);font-family:var(--font-mono);letter-spacing:.5px}
 </style>
 </head>
 <body>
@@ -603,6 +616,33 @@ text:"輪機長交接的環保組件，是確保<strong>責任的連續性</stro
 ];
 
 // ═══════════════════════════════════════════════════
+//  GEMINI IMAGE GENERATION
+// ═══════════════════════════════════════════════════
+const DEFAULT_GEMINI_KEY='AIzaSyAFTDQVurpEdlyXX7jEs3nC582GJih68BI';
+function getGeminiKey(){return localStorage.getItem('gemini_api_key')||DEFAULT_GEMINI_KEY}
+function saveGeminiKey(k){if(k&&k.trim())localStorage.setItem('gemini_api_key',k.trim())}
+
+const GEMINI_PROMPTS={
+1:`Technical cutaway cross-section diagram of a marine diesel engine cylinder liner. Show THREE labeled attack zones: (1) CHEMICAL ATTACK - sulfuric acid H2SO4 droplets corroding the liner surface near piston rings, red/orange corrosion marks; (2) MECHANICAL WEAR - piston ring contact band with friction arrows in orange; (3) THERMAL STRESS - color gradient from cool blue on water jacket side to hot red on combustion side. Label parts in English: Piston Crown, Piston Rings, Cylinder Liner, Cooling Water Jacket, Combustion Chamber, Blow-by Gas Path. Dark navy technical background, white dimension lines and labels, clean engineering schematic style.`,
+
+2:`Ship dry dock management diagram showing three phases as a horizontal flow. Left section PRE-DOCK in amber: checklist icons for bunker transfer, ICCP shutdown, gearbox oil reduction. Center section DURING DOCK in cyan: cross-section of ship hull sitting on keel blocks in dry dock, labeled inspection points on hull bottom - ICCP anodes, sea valves, stern tube, propeller, rudder. Right section EXIT DOCK in green: sequence icons flood dock, start sea pump, purge air, generators online. Dark technical blueprint aesthetic with color-coded phase panels.`,
+
+3:`Marine engine AUTO SLOW DOWN instrument panel. Center shows simplified engine cross-section. BLUE warning badges on low-pressure sensors: main bearing lube oil, scavenge air, jacket cooling water, crosshead oil, turbocharger lube oil. RED warning badges on high-temperature sensors: exhaust gas, jacket water outlet, piston cooling oil, crankcase oil mist, stern tube, thrust bearing. Bottom panel shows three escalating response buttons: DEAD SLOW (green, normal), HARBOUR FULL (amber, port bypass), EMERGENCY RUN (red, short use only - max RPM warning). Dark maritime instrument panel aesthetic with glowing LCD indicators.`,
+
+4:`Cutaway cross-section of marine diesel engine piston lower space showing FIRE TRIANGLE. Worn piston rings with visible gap allowing blow-by. Bright orange-red arrows labeled BLOW-BY GAS 400-600 degC escaping downward past rings. Black oil sludge deposits on scavenge surfaces labeled FUEL SOURCE. Blue sweep arrows from scavenge ports labeled OXYGEN. The central lantern space glows orange-red indicating fire zone. Outside the engine casing, a hand touching the wall with thermometer icon labeled DAILY HAND CHECK - fire warning sign. Prevention labels: Drain scavenge daily, Monitor exhaust temperature. Dark dramatic technical cutaway.`,
+
+5:`Professional compliance infographic for Washington State bunkering. Three-phase horizontal timeline. Phase 1 amber 48 HRS BEFORE: icons for training meeting, bunker plan document, emergency procedures, communication signals. Phase 2 cyan PRE-TRANSFER MEETING: checklist - quantities confirmed, transfer rate agreed, warning signals set, crew notified, no transfer without this meeting. Phase 3 green RECORD KEEPING: four document icons - Official Log Book, Oil Record Book Part I, Bunker Delivery Note, Engineer Log. Bottom warning banner red - violations result in port detention. Dark professional infographic style.`,
+
+6:`Technical cross-section of marine Oil Water Separator OWS. Left to right flow: INLET oily bilge water 1000 ppm with oil droplets visible. FIRST GRAVITY CHAMBER oil droplets rising to top due to density difference. COALESCING PLATE PACK angled plates causing micro-droplets to merge into larger drops. SECOND FINE FILTER stage. 15 PPM MONITOR sensor at outlet with green checkmark if clean. Two output paths: bottom CLEAN WATER outlet arrow to sea valve labeled less than 15 ppm OK. Top OIL RETURN arrow back to sludge tank labeled detected over 15 ppm redirect. Side panel shows BYPASS VALVE with red lock seal labeled illegal bypass sealed. Dark navy technical diagram with clear flow arrows.`,
+
+8:`Schematic of marine diesel engine starting air system. Flow path with arrows: AIR COMPRESSOR at left arrow to AIR BOTTLE 30 bar cylindrical vessel arrow to MAIN STARTING VALVE arrow to AIR DISTRIBUTOR arrow to 6 CYLINDER STARTING VALVES on engine. Orange hazard symbols at three failure points: (1) AIR BOTTLE - water and oil contamination drops shown inside; (2) DISTRIBUTOR VALVE - carbon deposit buildup cross-section closeup; (3) STARTING VALVE - blow-by combustion gas reverse arrow. Bottom inset shows cross-section of contaminated valve with carbon buildup blocking movement. Dark technical schematic, red highlights on failure zones, clean flow diagram style.`,
+
+9:`ECP Environmental Compliance Plan policy infographic. Ship silhouette center. Four surrounding quadrants: (1) EQUIPMENT top-left - OWS, OCM, sewage plant, incinerator with green status indicators; (2) RECORDS top-right - ORB Part I and II, garbage log, sewage log as document stack icons; (3) INSPECTIONS bottom-left - PSC magnifying glass, company audit clipboard, flag state survey checklist; (4) TRAINING bottom-right - crew drill schedule, certification icons, monthly training calendar. Central ship labeled Chief Engineer Responsible for All. Dark navy professional compliance style.`,
+
+10:`Chief Engineer ECP duty infographic showing responsibility hierarchy. CE shield icon at top center. Four pillars branching down as columns. Column 1 EQUIPMENT MAINTENANCE: keep OWS OCM operational, repair within 24 hours, log defects. Column 2 RECORD ACCURACY: Oil Record Book no falsification, retain 3 years, sign every entry. Column 3 CREW SUPERVISION: monthly environmental training, oversee all discharges, enforce procedures. Column 4 REGULATORY COMPLIANCE: report to port state, notify company, cooperate with inspections. Bottom row shows consequence chain: violation leads to PSC detention leads to company fine leads to personal criminal liability. Professional dark infographic.`
+};
+
+// ═══════════════════════════════════════════════════
 //  SECTION 2 — CAUSE-EFFECT CHAINS
 // ═══════════════════════════════════════════════════
 const CHAINS=[
@@ -882,6 +922,47 @@ function startSrsQuiz(){
   state.mode='quiz';render()
 }
 
+async function generateDiagram(qId){
+  const btn=document.getElementById('genBtn'+qId);
+  const box=document.getElementById('imgBox'+qId);
+  if(!btn||!box)return;
+  const cached=(store.imgCache||{})[qId];
+  if(cached&&btn.dataset.force!=='1'){
+    box.innerHTML=`<img src="${cached}" class="ai-diagram-img" onclick="genForce(${qId})" alt="AI圖解"><div class="ai-caption">🤖 Gemini 生成 · 點擊圖片重新生成</div>`;
+    btn.style.display='none';return;
+  }
+  btn.disabled=true;btn.innerHTML='⏳ 生成中...';
+  box.innerHTML='<div class="ai-diagram-loading">🤖 Gemini 正在為您繪製工程圖解...<br><span style="font-size:10px;opacity:.6;display:block;margin-top:4px">通常需要 10-30 秒，請稍候</span></div>';
+  const key=getGeminiKey();
+  const prompt=GEMINI_PROMPTS[qId]||`Technical engineering diagram for marine chief engineer exam topic: ${QUESTIONS.find(q=>q.id===qId)?.title}. Dark background, English labels, clean professional technical illustration style.`;
+  try{
+    const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-preview-image-generation:generateContent?key=${key}`,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{responseModalities:['IMAGE']}})
+    });
+    const d=await r.json();
+    if(!r.ok)throw new Error(d.error?.message||`HTTP ${r.status}`);
+    const part=d.candidates?.[0]?.content?.parts?.find(p=>p.inlineData?.data);
+    if(!part)throw new Error('回應中無圖片資料');
+    const src=`data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
+    if(!store.imgCache)store.imgCache={};
+    store.imgCache[qId]=src;saveStorage(store);
+    box.innerHTML=`<img src="${src}" class="ai-diagram-img" onclick="genForce(${qId})" alt="AI圖解"><div class="ai-caption">🤖 Gemini 生成 · 點擊圖片重新生成</div>`;
+    btn.style.display='none';
+  }catch(e){
+    let errHtml=`<div class="ai-diagram-error">❌ 生成失敗：${e.message}</div>`;
+    if(/API.KEY|INVALID.KEY|400|401|403/i.test(e.message)){
+      errHtml+=`<div class="ai-key-row"><input class="ai-key-input" id="newKey${qId}" placeholder="輸入有效的 Gemini API Key" value="${getGeminiKey()}"><button class="ai-key-save" onclick="saveGeminiKey(document.getElementById('newKey${qId}').value);generateDiagram(${qId})">儲存並重試</button></div>`;
+    }
+    box.innerHTML=errHtml;
+    btn.disabled=false;btn.innerHTML='🎨 重新嘗試';btn.dataset.force='1';
+  }
+}
+function genForce(qId){
+  const btn=document.getElementById('genBtn'+qId);
+  if(btn){btn.dataset.force='1';btn.style.display='flex';generateDiagram(qId)}
+}
+
 let toastTimer;
 function showToast(msg){
   const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
@@ -1018,7 +1099,13 @@ function renderUnderstanding(q){
       </div>
     </div>`
   }).join('')}</div>`;
-  return fwBox+whyHtml
+  const hasCached=!!(store.imgCache||{})[q.id];
+  const aiSection=GEMINI_PROMPTS[q.id]?`<div class="ai-diagram-section">
+    <div class="section-label">🎨 AI 視覺圖解</div>
+    <div id="imgBox${q.id}">${hasCached?`<img src="${store.imgCache[q.id]}" class="ai-diagram-img" onclick="genForce(${q.id})" alt="AI圖解"><div class="ai-caption">🤖 Gemini 生成 · 點擊圖片重新生成</div>`:''}</div>
+    <button class="ai-diagram-btn" id="genBtn${q.id}" style="${hasCached?'display:none':''}" onclick="generateDiagram(${q.id})">🎨 生成 AI 圖解</button>
+  </div>`:'';
+  return fwBox+whyHtml+aiSection
 }
 
 function processKw(text){
