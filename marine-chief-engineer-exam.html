@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>輪機長晉升考試 | 理解式學習</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy-950:#060b18;--navy-900:#0a1225;--navy-800:#0f1d35;--navy-700:#182d4a;
+  --navy-600:#243b5c;--steel-500:#3d5a80;--steel-400:#5b7ea1;--steel-300:#8faabe;
+  --steel-200:#b8cdd9;--orange-600:#ea580c;--orange-500:#f97316;--orange-400:#fb923c;
+  --orange-300:#fdba74;--cyan-600:#0891b2;--cyan-500:#06b6d4;--cyan-400:#22d3ee;
+  --emerald-500:#10b981;--emerald-400:#34d399;--amber-500:#f59e0b;--amber-400:#fbbf24;
+  --violet-500:#8b5cf6;--red-500:#ef4444;--red-400:#f87171;
+  --glass-bg:rgba(15,25,50,0.65);--glass-border:rgba(120,160,200,0.12);
+  --glass-hover:rgba(20,35,65,0.75);--principle-bg:rgba(6,182,212,0.06);
+  --font-display:'Chakra Petch',sans-serif;--font-body:'Noto Sans TC',sans-serif;
+  --font-mono:'Share Tech Mono',monospace;--radius:14px;--radius-sm:8px;--radius-lg:20px;
+}
+html{font-size:16px;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--font-body);background:var(--navy-950);color:var(--steel-200);min-height:100dvh;overflow-x:hidden;position:relative}
+body::before{content:'';position:fixed;inset:0;z-index:0;background:
+  radial-gradient(ellipse 80% 60% at 20% 80%,rgba(6,182,212,0.06),transparent),
+  radial-gradient(ellipse 60% 50% at 80% 20%,rgba(249,115,22,0.05),transparent),
+  linear-gradient(180deg,var(--navy-950) 0%,#0b1a30 50%,var(--navy-950) 100%)}
+.sonar{position:fixed;border-radius:50%;border:1px solid rgba(6,182,212,0.07);animation:sonarPing 10s ease-out infinite;pointer-events:none;z-index:0}
+.sonar-1{width:400px;height:400px;top:5%;left:-180px;animation-delay:0s}
+.sonar-2{width:600px;height:600px;bottom:-200px;right:-250px;animation-delay:4s}
+@keyframes sonarPing{0%{transform:scale(.2);opacity:.6}100%{transform:scale(2.2);opacity:0}}
+#app{position:relative;z-index:1;max-width:520px;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column}
+/* === HEADER === */
+.header{padding:14px 20px 10px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;background:linear-gradient(180deg,var(--navy-950) 60%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.header-brand{display:flex;align-items:center;gap:10px}
+.header-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 0 20px rgba(249,115,22,0.25)}
+.header-title{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--steel-200);letter-spacing:1px;line-height:1.2}
+.header-sub{font-family:var(--font-mono);font-size:9px;color:var(--steel-400);letter-spacing:2px;text-transform:uppercase}
+.btn-icon{width:34px;height:34px;border-radius:9px;border:1px solid var(--glass-border);background:var(--glass-bg);color:var(--steel-300);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.btn-icon:hover,.btn-icon.active{background:var(--glass-hover);color:var(--orange-400);border-color:rgba(249,115,22,0.3)}
+/* === CONTENT AREA === */
+.content{flex:1;padding:0 16px 110px;overflow-y:auto}
+/* === CARD NAV === */
+.card-nav{display:flex;align-items:center;justify-content:space-between;padding:4px;margin-bottom:10px}
+.nav-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--glass-border);background:var(--glass-bg);color:var(--steel-300);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.nav-btn:hover{background:var(--glass-hover);color:var(--orange-400)}
+.nav-btn:disabled{opacity:.3;cursor:not-allowed}
+.card-counter{font-family:var(--font-mono);font-size:12px;color:var(--steel-400);display:flex;align-items:center;gap:6px}
+.card-counter strong{color:var(--orange-400);font-size:22px}
+.dot-nav{display:flex;gap:5px;justify-content:center;margin:10px 0 4px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--steel-500);cursor:pointer;transition:all .25s}
+.dot.active{background:var(--orange-400);width:18px;border-radius:3px}
+.dot.bookmarked{background:var(--cyan-500)}
+/* === QUESTION CARD === */
+.q-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius-lg);overflow:hidden;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 4px 30px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.04);position:relative}
+.q-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange-500),var(--cyan-500));opacity:.7}
+.q-card-header{padding:18px 18px 14px;display:flex;gap:12px;align-items:flex-start}
+.q-num{font-family:var(--font-display);font-size:26px;font-weight:700;background:linear-gradient(135deg,var(--orange-400),var(--orange-600));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;min-width:34px}
+.q-meta{flex:1}
+.q-category{font-family:var(--font-mono);font-size:10px;color:var(--cyan-400);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.q-title{font-size:17px;font-weight:700;color:#e2e8f0;line-height:1.4}
+.q-bookmark{width:34px;height:34px;border-radius:9px;border:1px solid var(--glass-border);background:transparent;color:var(--steel-400);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.q-bookmark.active{color:var(--cyan-400);border-color:rgba(6,182,212,0.3);background:rgba(6,182,212,0.08)}
+.q-question{padding:0 18px 14px;font-size:13.5px;color:var(--steel-300);line-height:1.9;border-bottom:1px solid var(--glass-border)}
+/* === ANSWER AREA === */
+.q-answer{padding:0 18px 18px}
+.ans-toggle{width:100%;padding:13px 0;background:none;border:none;color:var(--orange-400);font-family:var(--font-body);font-size:13.5px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:color .2s}
+.ans-toggle:hover{color:var(--orange-300)}
+.ans-toggle .arrow{transition:transform .3s;font-size:11px}
+.ans-toggle.open .arrow{transform:rotate(180deg)}
+/* Study Tabs (要點 / 理解) */
+.study-tabs{display:flex;gap:4px;margin-bottom:14px;background:var(--navy-900);border-radius:var(--radius-sm);padding:3px}
+.stab{flex:1;padding:8px;border-radius:6px;border:none;background:transparent;color:var(--steel-400);font-family:var(--font-body);font-size:12px;font-weight:500;cursor:pointer;transition:all .2s}
+.stab.active{background:var(--glass-bg);color:var(--orange-400);box-shadow:0 1px 8px rgba(0,0,0,0.3)}
+/* === KEY POINTS TAB === */
+.ans-section{margin-bottom:14px}
+.ans-section-title{font-family:var(--font-display);font-size:12px;font-weight:600;color:var(--cyan-400);letter-spacing:1px;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid rgba(6,182,212,0.12);display:flex;align-items:center;gap:5px}
+.ans-item{padding:9px 11px 9px 11px;margin-bottom:5px;border-radius:var(--radius-sm);background:rgba(10,18,37,0.5);border-left:3px solid var(--navy-600);font-size:13px;line-height:1.85;color:var(--steel-300);transition:border-color .2s}
+.ans-item:hover{border-left-color:var(--orange-500)}
+.ans-item .item-num{font-family:var(--font-mono);color:var(--orange-400);font-weight:700;margin-right:3px}
+.kw{color:var(--orange-300);font-weight:500;transition:all .2s;cursor:default}
+.memory-mode .kw{background:var(--orange-500);color:transparent;border-radius:3px;padding:0 2px;cursor:pointer;user-select:none}
+.memory-mode .kw.revealed{color:var(--orange-300);background:rgba(249,115,22,0.15)}
+/* === UNDERSTANDING TAB === */
+.principle-header{background:rgba(6,182,212,0.07);border:1px solid rgba(6,182,212,0.15);border-radius:var(--radius);padding:14px;margin-bottom:14px}
+.principle-header-label{font-family:var(--font-mono);font-size:10px;color:var(--cyan-400);letter-spacing:2px;margin-bottom:6px}
+.principle-framework{font-size:13.5px;line-height:1.9;color:var(--steel-200)}
+.principle-framework strong{color:var(--cyan-300)}
+.why-list{display:flex;flex-direction:column;gap:10px}
+.why-item{border-radius:var(--radius);overflow:hidden}
+.why-item-header{padding:10px 12px;background:rgba(15,25,50,0.7);border:1px solid var(--glass-border);display:flex;align-items:flex-start;gap:8px;cursor:pointer;transition:background .2s}
+.why-item-header:hover{background:var(--glass-hover)}
+.why-concept{flex:1;font-size:13px;font-weight:600;color:var(--steel-200)}
+.why-tag{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600;white-space:nowrap;flex-shrink:0}
+.why-tag.cause{background:rgba(239,68,68,0.15);color:var(--red-400);border:1px solid rgba(239,68,68,0.2)}
+.why-tag.mechanism{background:rgba(249,115,22,0.12);color:var(--orange-400);border:1px solid rgba(249,115,22,0.2)}
+.why-tag.effect{background:rgba(6,182,212,0.1);color:var(--cyan-400);border:1px solid rgba(6,182,212,0.2)}
+.why-tag.prevention{background:rgba(16,185,129,0.1);color:var(--emerald-400);border:1px solid rgba(16,185,129,0.2)}
+.why-item-body{padding:12px 14px;background:rgba(6,182,212,0.04);border:1px solid rgba(6,182,212,0.1);border-top:none;font-size:13px;line-height:1.95;color:var(--steel-300)}
+.why-item-body.closed{display:none}
+.why-analogy{margin-top:8px;padding:8px 10px;background:rgba(251,191,36,0.06);border-left:3px solid var(--amber-400);border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:12.5px;color:var(--amber-400);font-style:italic}
+.why-analogy::before{content:'💡 類比：'}
+.related-qs-row{margin-top:10px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.related-qs-row span{font-size:11px;color:var(--steel-500)}
+.q-badge{padding:3px 8px;border-radius:10px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);color:var(--orange-400);font-size:11px;font-weight:600;cursor:pointer;font-family:var(--font-mono)}
+.q-badge:hover{background:rgba(249,115,22,0.2)}
+/* === CHAIN DIAGRAMS === */
+.diagram-header{margin-bottom:14px}
+.diagram-title{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--steel-200);margin-bottom:4px}
+.diagram-sub{font-size:12px;color:var(--steel-400)}
+.sub-tabs{display:flex;gap:4px;background:var(--navy-900);border-radius:var(--radius-sm);padding:3px;margin-bottom:16px}
+.sub-tab{flex:1;padding:9px;border-radius:6px;border:none;background:transparent;color:var(--steel-400);font-family:var(--font-body);font-size:12px;font-weight:500;cursor:pointer;transition:all .2s}
+.sub-tab.active{background:var(--glass-bg);color:var(--cyan-400)}
+.chain-list{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.chain-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:border-color .2s;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.chain-card:hover{border-color:rgba(6,182,212,0.3)}
+.chain-card.open{border-color:rgba(6,182,212,0.4)}
+.chain-card-header{padding:14px 16px;display:flex;align-items:center;gap:10px}
+.chain-card-icon{font-size:22px}
+.chain-card-info{flex:1}
+.chain-card-title{font-size:14px;font-weight:700;color:var(--steel-200)}
+.chain-card-sub{font-size:11px;color:var(--steel-500);margin-top:2px}
+.chain-card-qbs{display:flex;gap:4px}
+.chain-arrow-icon{color:var(--steel-500);font-size:12px;transition:transform .3s}
+.chain-card.open .chain-arrow-icon{transform:rotate(180deg)}
+.chain-body{padding:0 16px 16px;display:none}
+.chain-card.open .chain-body{display:block}
+.chain-nodes{display:flex;flex-direction:column;align-items:center;gap:0}
+.chain-node{width:100%;padding:10px 14px;border-radius:10px;border-left:4px solid;font-size:13px;line-height:1.7;position:relative}
+.chain-node.cause{background:rgba(6,182,212,0.08);border-color:var(--cyan-500);color:var(--steel-200)}
+.chain-node.effect{background:rgba(60,80,120,0.3);border-color:var(--steel-500);color:var(--steel-300)}
+.chain-node.key{background:rgba(249,115,22,0.1);border-color:var(--orange-500);color:var(--steel-200)}
+.chain-node.danger{background:rgba(239,68,68,0.1);border-color:var(--red-500);color:var(--steel-200)}
+.chain-node.branch{background:rgba(139,92,246,0.08);border-color:var(--violet-500);color:var(--steel-300);font-style:italic;font-size:12px}
+.chain-node-q{display:inline-block;margin-left:6px;padding:1px 6px;background:rgba(249,115,22,0.15);border:1px solid rgba(249,115,22,0.3);border-radius:8px;font-size:10px;font-weight:700;color:var(--orange-400);font-family:var(--font-mono);cursor:pointer;vertical-align:middle}
+.chain-node-q:hover{background:rgba(249,115,22,0.3)}
+.chain-node-why{margin-top:6px;font-size:12px;color:var(--steel-400);line-height:1.6}
+.chain-connector{width:2px;height:18px;background:linear-gradient(180deg,var(--steel-600,var(--steel-500)),transparent);margin:0 auto;opacity:.4}
+.node-type-label{position:absolute;right:10px;top:8px;font-size:9px;font-family:var(--font-mono);padding:2px 6px;border-radius:8px}
+.chain-node.cause .node-type-label{background:rgba(6,182,212,0.15);color:var(--cyan-400)}
+.chain-node.key .node-type-label{background:rgba(249,115,22,0.15);color:var(--orange-400)}
+.chain-node.danger .node-type-label{background:rgba(239,68,68,0.15);color:var(--red-400)}
+.chain-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;padding:10px;background:rgba(10,18,37,0.5);border-radius:var(--radius-sm)}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--steel-400)}
+.legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+/* === CONCEPT MAP === */
+.concept-cards{display:flex;flex-direction:column;gap:10px}
+.concept-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius);overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.concept-card-top{padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:10px}
+.concept-card-top:hover{background:var(--glass-hover)}
+.concept-icon{font-size:24px;flex-shrink:0}
+.concept-info{flex:1}
+.concept-name{font-size:14px;font-weight:700;color:var(--steel-200);margin-bottom:4px}
+.concept-desc{font-size:12px;color:var(--steel-500)}
+.concept-qs{display:flex;gap:5px}
+.concept-expand-icon{color:var(--steel-500);font-size:12px;transition:transform .3s}
+.concept-card.open .concept-expand-icon{transform:rotate(180deg)}
+.concept-body{padding:0 16px 16px;display:none}
+.concept-card.open .concept-body{display:block}
+.concept-detail{font-size:13px;line-height:1.9;color:var(--steel-300);margin-bottom:12px;padding:12px;background:rgba(10,18,37,0.4);border-radius:var(--radius-sm)}
+.concept-detail strong{color:var(--cyan-300)}
+.concept-q-links{display:flex;flex-wrap:wrap;gap:6px}
+.concept-q-link{padding:6px 12px;background:rgba(15,25,50,0.7);border:1px solid var(--glass-border);border-radius:var(--radius-sm);font-size:12px;color:var(--steel-300);cursor:pointer;transition:all .2s;flex:1;min-width:120px;text-align:center}
+.concept-q-link:hover{border-color:var(--orange-400);color:var(--orange-300);background:rgba(249,115,22,0.06)}
+.concept-q-link .ql-num{font-family:var(--font-mono);color:var(--orange-400);font-weight:700}
+/* === SCENARIO MODE === */
+.scenario-list{display:flex;flex-direction:column;gap:10px}
+.scenario-item{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:all .2s;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.scenario-item:hover{border-color:rgba(249,115,22,0.3);background:var(--glass-hover)}
+.scenario-item-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.scenario-item-icon{font-size:24px}
+.scenario-item-title{font-size:14px;font-weight:700;color:var(--steel-200)}
+.scenario-item-sub{font-size:12px;color:var(--steel-500);margin-top:2px}
+.scenario-meta{display:flex;gap:6px;flex-wrap:wrap}
+.scenario-back{display:flex;align-items:center;gap:6px;padding:8px 0;background:none;border:none;color:var(--steel-400);font-family:var(--font-body);font-size:13px;cursor:pointer;margin-bottom:10px;transition:color .2s}
+.scenario-back:hover{color:var(--steel-200)}
+.scenario-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius-lg);overflow:hidden;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.scenario-card::before{content:'';display:block;height:3px;background:linear-gradient(90deg,var(--cyan-500),var(--amber-400))}
+.scenario-top{padding:16px 18px 14px}
+.scenario-icon-big{font-size:36px;margin-bottom:10px}
+.scenario-title-big{font-size:18px;font-weight:700;color:var(--steel-200);margin-bottom:6px}
+.scenario-progress{display:flex;gap:6px;margin-bottom:14px}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--navy-600);transition:all .3s}
+.step-dot.done{background:var(--emerald-500)}
+.step-dot.current{background:var(--orange-400);width:20px;border-radius:4px}
+.situation-box{background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.12);border-radius:var(--radius);padding:12px 14px;font-size:13px;line-height:1.9;color:var(--steel-300);margin-bottom:16px}
+.situation-label{font-family:var(--font-mono);font-size:10px;color:var(--cyan-400);letter-spacing:2px;margin-bottom:6px}
+.step-question{font-size:15px;font-weight:600;color:var(--steel-200);line-height:1.7;margin-bottom:14px}
+.choices{display:flex;flex-direction:column;gap:8px}
+.choice-btn{padding:13px 16px;border-radius:var(--radius);border:1px solid var(--glass-border);background:rgba(10,18,37,0.5);color:var(--steel-300);font-family:var(--font-body);font-size:13px;line-height:1.6;cursor:pointer;text-align:left;transition:all .25s}
+.choice-btn:hover:not(:disabled){background:var(--glass-hover);border-color:rgba(255,255,255,0.15);color:var(--steel-200)}
+.choice-btn.correct{border-color:var(--emerald-500);background:rgba(16,185,129,0.08);color:var(--steel-200)}
+.choice-btn.wrong{border-color:var(--red-500);background:rgba(239,68,68,0.06);color:var(--steel-300)}
+.choice-btn:disabled{cursor:default}
+.choice-result-icon{margin-right:6px;font-size:15px}
+.feedback-box{margin:12px 18px 0;padding:13px 14px;border-radius:var(--radius);font-size:13px;line-height:1.9;color:var(--steel-300)}
+.feedback-box.correct-fb{background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2)}
+.feedback-box.wrong-fb{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15)}
+.feedback-box strong{color:var(--emerald-400)}
+.feedback-box.wrong-fb strong{color:var(--red-400)}
+.step-next-btn{width:calc(100% - 36px);margin:12px 18px 18px;padding:13px;border-radius:var(--radius);border:1px solid rgba(249,115,22,0.3);background:rgba(249,115,22,0.08);color:var(--orange-400);font-family:var(--font-body);font-size:14px;font-weight:500;cursor:pointer;transition:all .25s}
+.step-next-btn:hover{background:rgba(249,115,22,0.15)}
+.scenario-summary{padding:20px;text-align:center}
+.summary-score{font-family:var(--font-display);font-size:48px;font-weight:700;background:linear-gradient(135deg,var(--emerald-400),var(--cyan-400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.summary-label{color:var(--steel-400);font-size:13px;margin-bottom:16px}
+.summary-review{text-align:left;margin:14px 0;padding:12px;background:rgba(10,18,37,0.5);border-radius:var(--radius)}
+.summary-review-title{font-size:12px;font-family:var(--font-mono);color:var(--cyan-400);letter-spacing:1px;margin-bottom:8px}
+.summary-restart{width:100%;margin-top:12px;padding:12px;border-radius:var(--radius);border:1px solid rgba(249,115,22,0.3);background:rgba(249,115,22,0.08);color:var(--orange-400);font-family:var(--font-body);font-size:13px;cursor:pointer;transition:all .2s}
+.summary-restart:hover{background:rgba(249,115,22,0.15)}
+/* === QUIZ MODE === */
+.quiz-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius-lg);padding:22px 18px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:relative;overflow:hidden}
+.quiz-card::before{content:'';display:block;height:3px;background:linear-gradient(90deg,var(--orange-500),var(--cyan-500));margin:-22px -18px 18px}
+.quiz-q-num{font-family:var(--font-display);font-size:42px;font-weight:700;background:linear-gradient(135deg,var(--orange-400),var(--cyan-400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.quiz-category{font-family:var(--font-mono);font-size:11px;color:var(--cyan-400);letter-spacing:2px;margin-bottom:14px}
+.quiz-question{font-size:15px;font-weight:500;color:#e2e8f0;line-height:1.8;margin-bottom:18px}
+.quiz-reveal-btn{width:100%;padding:13px;border-radius:var(--radius);border:1px solid rgba(249,115,22,0.3);background:rgba(249,115,22,0.08);color:var(--orange-400);font-family:var(--font-body);font-size:14px;font-weight:500;cursor:pointer;transition:all .25s}
+.quiz-reveal-btn:hover{background:rgba(249,115,22,0.15)}
+.quiz-answer{margin-top:16px;padding-top:16px;border-top:1px solid var(--glass-border)}
+.quiz-rate{display:flex;gap:8px;margin-top:18px}
+.rate-btn{flex:1;padding:12px 6px;border-radius:var(--radius-sm);border:1px solid;font-family:var(--font-body);font-size:12px;font-weight:500;cursor:pointer;transition:all .25s;display:flex;flex-direction:column;align-items:center;gap:4px}
+.rate-btn.red{border-color:rgba(239,68,68,0.3);background:rgba(239,68,68,0.06);color:var(--red-400)}
+.rate-btn.yellow{border-color:rgba(251,191,36,0.3);background:rgba(251,191,36,0.06);color:var(--amber-400)}
+.rate-btn.green{border-color:rgba(16,185,129,0.3);background:rgba(16,185,129,0.06);color:var(--emerald-400)}
+.rate-btn:hover{transform:translateY(-2px)}
+.rate-btn .rate-icon{font-size:20px}
+/* === PROGRESS === */
+.progress-ring-wrap{position:relative;width:130px;height:130px;margin:0 auto 10px}
+.progress-ring{transform:rotate(-90deg)}
+.progress-ring-bg{fill:none;stroke:var(--navy-700);stroke-width:8}
+.progress-ring-fill{fill:none;stroke:url(#pGrad);stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset .8s ease}
+.progress-pct{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.progress-pct .num{font-family:var(--font-display);font-size:32px;font-weight:700;background:linear-gradient(135deg,var(--orange-400),var(--cyan-400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.progress-pct .label{font-size:11px;color:var(--steel-400)}
+.stat-row{display:flex;gap:8px;margin-bottom:14px}
+.stat-card{flex:1;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius);padding:13px 10px;text-align:center;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.stat-val{font-family:var(--font-display);font-size:22px;font-weight:700}
+.stat-val.orange{color:var(--orange-400)}.stat-val.cyan{color:var(--cyan-400)}.stat-val.green{color:var(--emerald-400)}
+.stat-label{font-size:11px;color:var(--steel-400);margin-top:3px}
+.progress-list{display:flex;flex-direction:column;gap:7px}
+.progress-item{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius);padding:12px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:all .2s;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.progress-item:hover{border-color:rgba(249,115,22,0.2)}
+.progress-item .p-num{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--steel-500);min-width:26px}
+.progress-item .p-info{flex:1}
+.progress-item .p-title{font-size:13px;font-weight:500;color:var(--steel-200)}
+.progress-item .p-bar-wrap{height:3px;background:var(--navy-700);border-radius:2px;margin-top:5px}
+.progress-item .p-bar{height:100%;border-radius:2px;transition:width .5s ease}
+.progress-item .p-bar.low{background:var(--red-500)}
+.progress-item .p-bar.mid{background:var(--amber-500)}
+.progress-item .p-bar.high{background:var(--emerald-500)}
+.progress-item .p-score{font-family:var(--font-mono);font-size:12px;color:var(--steel-400)}
+.reset-btn{margin-top:20px;width:100%;padding:11px;border-radius:var(--radius);border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.05);color:var(--red-400);font-family:var(--font-body);font-size:13px;cursor:pointer;transition:all .2s}
+.reset-btn:hover{background:rgba(239,68,68,0.1)}
+/* === BOTTOM NAV === */
+.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;z-index:200;background:linear-gradient(180deg,transparent,var(--navy-950) 30%);padding:8px 14px calc(env(safe-area-inset-bottom,8px) + 8px)}
+.bottom-nav-inner{display:flex;gap:2px;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius);padding:3px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.bnav-btn{flex:1;padding:9px 4px;border-radius:var(--radius-sm);border:none;background:transparent;color:var(--steel-400);font-size:10px;font-family:var(--font-body);font-weight:500;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;transition:all .2s}
+.bnav-btn .bnav-icon{font-size:17px}
+.bnav-btn.active{background:rgba(249,115,22,0.1);color:var(--orange-400)}
+/* === FAB === */
+.memory-fab{position:fixed;bottom:88px;right:max(calc(50% - 244px),14px);z-index:150;width:46px;height:46px;border-radius:50%;border:1px solid var(--glass-border);background:var(--glass-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--steel-300);font-size:19px;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+.memory-fab.active{background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.4);color:var(--orange-400);box-shadow:0 0 20px rgba(249,115,22,0.15)}
+/* === TOAST === */
+.toast{position:fixed;top:18px;left:50%;transform:translateX(-50%) translateY(-100px);z-index:999;background:var(--navy-700);border:1px solid var(--glass-border);color:var(--steel-200);padding:9px 18px;border-radius:var(--radius);font-size:13px;transition:transform .4s cubic-bezier(.34,1.56,.64,1);box-shadow:0 8px 30px rgba(0,0,0,0.4);white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+/* === UTILS === */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.fade-up{animation:fadeUp .4s ease both}
+.fade-up-1{animation-delay:.05s}.fade-up-2{animation-delay:.1s}.fade-up-3{animation-delay:.15s}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--navy-600);border-radius:2px}
+.section-label{font-family:var(--font-mono);font-size:11px;color:var(--steel-500);letter-spacing:2px;text-transform:uppercase;margin:18px 0 10px;padding:0 2px}
+@media(min-width:520px){.content{padding:0 20px 110px}}
+</style>
+</head>
+<body>
+<div class="sonar sonar-1"></div><div class="sonar sonar-2"></div>
+<div id="app"></div>
+<div class="toast" id="toast"></div>
+<script>
+// ═══════════════════════════════════════════════════
+//  SECTION 1 — QUESTION DATA
+//  每題包含：sections (要點) + framework (核心框架) + whys (原理解說)
+// ═══════════════════════════════════════════════════
+const QUESTIONS=[
+{id:1,title:"氣缸襯套磨耗",subtitle:"CYLINDER LINER",category:"主機維護",icon:"⚙",
+question:"試述影響柴油機氣缸襯套 (CYLINDER LINER) 磨耗率之原因為何？及如何妥善處理之？",
+framework:`氣缸套同時承受三種攻擊：<strong>化學侵蝕</strong>（燃燒產物中的酸）、<strong>機械磨耗</strong>（活塞環摩擦）、<strong>熱應力</strong>（溫度不均）。九個原因全部是這三類的具體表現。理解每個原因屬於哪一類，就能從原理上預測和預防磨耗。`,
+sections:[{title:"原因及處理",items:[
+{n:"1",text:"{{燃油之性質}}：含硫分、雜質多則氣缸磨損亦大，反之則小。目前使用劣質燃油，故{{燃油加熱溫度}}以及{{重油淨油機運轉效率}}等須特別留意。"},
+{n:"2",text:"{{噴油系統、高壓油泵及燃油閥}}狀況，直接影響燃燒及負荷分配，其狀況不良時，便產生燒損及過分磨耗。因此上述部件等之燃油系統{{定保維修}}、{{測量試壓}}益顯重要。"},
+{n:"3",text:"{{氣缸油的性質和注油量}}：氣缸油{{含鹼量}}過多或不足是造成{{鹼性侵蝕}}或{{酸性侵蝕}}之原因。另注油量不適或不均都會影響；因此必須配合燃油的{{含硫量}}來決定適當含鹼量的氣缸油，並且調整{{平均適當的注油量}}。"},
+{n:"4",text:"氣缸之{{燃燒壓力}}越大，磨耗也越大。全速時{{計測馬力}}，力求主機出力平均，{{勿超負荷運轉}}。"},
+{n:"5",text:"{{啟動次數}}越多，磨耗也越大。以做好{{暖機}}，使用{{柴油}}，增加{{氣缸油注油率}}等方式來降低缸套之磨耗。"},
+{n:"6",text:"過給機吸入{{空氣若清淨}}對磨耗影響較小，反之則大。保持{{空氣冷卻器}}空氣道與冷卻水側的清潔，使主機獲得足量適溫之進氣來燃燒。"},
+{n:"7",text:"缸套及活塞之{{冷卻面}}，因{{水垢油泥}}之附著而使溫度分佈不均，影響火側溫度升高，加速缸套磨耗。留意平日{{冷卻水化驗}}之處理、{{滑油之淨油效率}}。"},
+{n:"8",text:"{{活塞環}}之影響：活塞環若{{斷損}}、{{磨耗過大}}，燃氣將{{旁吹}}破壞氣缸油膜，招致缸套磨損。另活塞環之{{硬度標準}}，要配合缸套之硬度，換用時要遵守。"},
+{n:"9",text:"氣缸之{{中心線}}與活塞運動之{{中心線不在一直線上}}。"}
+]}],
+whys:[
+{concept:"為何含硫燃油導致磨耗？",tag:"mechanism",
+text:"燃油中的硫 (S) 在高溫燃燒後生成 SO₂ 和 SO₃。這些氣體遇到缸壁上的冷凝水，立刻形成<strong>硫酸 (H₂SO₄)</strong>，直接腐蝕金屬表面。這稱為「低溫腐蝕」或「酸性侵蝕」。含硫越高，生成的酸越多，腐蝕越嚴重。",
+analogy:"就像酸雨腐蝕鐵欄杆一樣，但酸雨是稀硫酸，而缸內的是濃硫酸，腐蝕速度快很多。"},
+{concept:"為何氣缸油的TBN必須配合含硫量？",tag:"prevention",
+text:"氣缸油中的鹼性添加劑（以<strong>TBN 值</strong>衡量）的功能就是<strong>中和燃燒產生的硫酸</strong>。TBN太低 → 酸無法被中和 → 酸性侵蝕缸套。TBN太高 → 過量鹼性物質積聚形成碳酸鹽沉積 → 鹼性侵蝕。所以TBN要根據燃油含硫量「量身訂做」。",
+analogy:"就像胃藥中和胃酸——吃太少沒效果，吃太多也會傷胃。"},
+{concept:"為何啟動次數多磨耗也大？",tag:"mechanism",
+text:"啟動瞬間轉速低，<strong>滑油泵壓力不足</strong>，缸壁上的油膜尚未完整建立。這段時間活塞環與缸套幾乎是金屬對金屬的直接接觸——即「乾摩擦」，產生的磨耗遠大於正常運轉時的液膜潤滑。做好暖機、用柴油（黏度低，較容易霧化不易沖刷油膜）、增加注油率，都是為了補強這段「脆弱期」的保護。",
+analogy:"就像汽車冷車啟動時最耗損引擎，因為機油還沒充分循環。"},
+{concept:"為何活塞環斷損會加速磨耗？",tag:"cause",
+text:"活塞環的功能是<strong>密封燃氣</strong>和<strong>均勻刮油</strong>。一旦斷損或磨耗過大，高壓高溫燃氣從間隙「<strong>旁吹</strong>」(blow-by) 下來，就像高壓水槍沖刷缸壁上的油膜。失去潤滑保護的缸套金屬直接暴露在高溫燃氣下，磨耗急劇上升。<strong>旁吹也是Q4起火和Q8啟動故障的根本原因之一。</strong>"}
+]},
+
+{id:2,title:"船舶塢修管理",subtitle:"進塢·塢修·出塢",category:"塢修管理",icon:"🔧",
+question:"試述輪機長於船舶進塢前、塢修中、及出塢前後，所須注意之事項及重點。",
+framework:`塢修管理本質是<strong>風險管理</strong>，尤其是三個關鍵「轉換點」：(1)入塢時的乾濕環境切換、(2)塢修中的開放施工狀態、(3)出塢時的重新注水過程。清單上的每一項都對應一個特定的風險。理解「這項做什麼用」比死記「做了什麼」更不容易遺忘。`,
+sections:[
+{title:"進塢前",items:[
+{n:"1",text:"填具{{請修單}}及{{自修工程項目單}}，寄回公司。一般皆以檢修{{水線下船體}}、{{海水管路}}及主副機、舵、艏車、艉軸等平時在港無法維修的部份為主。"},
+{n:"2",text:"與公司連繫以確定修船、驗船所須之配合工作。是否須{{清洗雙層底油艙}}以便實施{{內檢}}。"},
+{n:"3",text:"入塢前必須瞭解每一項工程內容，並{{勘查現場做好記號}}，尤其是報修之閥。"},
+{n:"4",text:"輪機長自行檢驗{{CMS項目}}表單及記錄之準備。"},
+{n:"5",text:"查閱{{Class Survey Report}}注意是否註有{{Outstanding Recommendation}}項目，提醒公司以便報修。"},
+{n:"6",text:"主機於抵入塢港 S/B 時、電機於切岸電前徹底{{換用柴油}}。"},
+{n:"7",text:"{{B.T.}} 以及 {{S.B.O.T.}} 於入塢前安排洩岸盡量排空。"}
+]},
+{title:"塢修中",items:[
+{n:"1",text:"進塢抽出塢水前，{{ICCP電源}}置 \"OFF\"，記錄電壓電流值；出塢前放滿水後，電源置回 \"ON\"，並檢查電壓電流值是否正常。"},
+{n:"2",text:"塢水抽出達 B/T 時，先關閉 {{Head Tank}} 之出口閥，再將 {{Gear Box 滑油}}抽出約 60 Ltrs，降低油壓至 {{0.35 kg/cm²}} 以下，以防止滑油漏出。出塢放塢水前，務必先將 Gear Box 滑油加滿，{{慎防海水漏入}}。"},
+{n:"3",text:"接岸電前、切岸電後應{{記錄船廠電錶讀數}}，及每日收工後約 1800 抄錶一次，以便核對計算{{總耗電量}}。"},
+{n:"4",text:"塢水抽乾後做 {{Bottom Survey}}，對於水線下不論 {{ICCP極板}}、{{海底門}}、{{車葉}}、{{舵葉}}、{{艉軸管}}及{{艏車}}等都應詳細檢查，如發現損壞或侵蝕部份應立即安排解決修理。"},
+{n:"5",text:"塢內{{自修工程}}應事先排出{{工期表}}，塢修期間工作每日仔細記錄。出塢當日將完整之{{修理報告}}（含船廠、外包與船員自修工程）交給監督。"},
+{n:"6",text:"每日應確實記錄{{岸修支援}}船上保養人數，支援人員{{簽到總表}}正本交給高保輪機長，以便陳送公司核發工資。"},
+{n:"7",text:"修船期間，異動過的設備、開關、閥等，尤其是{{人孔蓋}}的開與關，均須由操作人員{{簽字做記錄}}，出塢前仔細檢查確認恢復正常。{{人孔蓋的墊子最好換新}}。"},
+{n:"8",text:"塢修特檢須拆艉軸換新整組 {{Seal Ring}}。裝妥完工後，{{中間軸承}}要先加妥滑油，打開冷卻淡水閥並檢查有無漏水。前後軸封櫃先加滿油但暫勿將通往各道軸封的閥打開，於出塢前依檢查程序配合船廠進行系統加油及測漏。艉軸抽出前與裝復後以 {{Wear-down Gauge}} 測量並記錄。"},
+{n:"9",text:"入塢期間準備 {{2支救火皮龍}}，機艙上下各接好一支至消防栓，隨時備便滅火。"},
+{n:"10",text:"出塢前三天應測量所有 Motor 等電器之{{絕緣值}}，包括前車、舵機與纜機等，{{絕緣差者用 Cargo light 烘烤}}。"},
+{n:"11",text:"{{鍋爐}}若不做保養檢驗，宜做{{滿水處理}}。如須進行保養，則應於移至船塢 S/B 時換成柴油後熄火，並將爐水排放，{{不可在塢內排放，以免燙傷潛水人員}}。鍋爐維修完成後，將鍋爐點火並確認良好不漏，進行{{安全閥 Popping Test}}，保持蒸汽壓力。"},
+{n:"12",text:"塢修期間燒焊工作不可免，起工時間為免火警警報頻響，可將{{火災偵測器暫時關閉}}，但收工後{{千萬記得要恢復偵測功能}}。注意火星小心防火，輪值人員應於每日收工時及睡前，各{{巡視機艙一遍}}。"},
+{n:"13",text:"掌握{{塢修進度}}，監督{{工程品質}}，注意{{人員安全}}。"}
+]},
+{title:"出塢前",items:[
+{n:"1",text:"對工程項目{{逐項核對}}，注意每項工程的內容及品質是否合乎要求。"},
+{n:"2",text:"各油水艙因內檢或其他工作開啟{{人孔蓋是否蓋回鎖緊}}。"},
+{n:"3",text:"檢查防止油漆附著所貼之{{膠帶是否除去}}：{{ICCP陽極}}本體和隔絕板、海底門、艏車之車葉和艏車通道內之鋅板，以及其他船殼板裝有鋅板者。"},
+{n:"4",text:"各海底門之 {{Grating}} 是否安裝妥當。"},
+{n:"5",text:"艏車之{{油壓系統試驗}}是否安好無洩漏。"},
+{n:"6",text:"各{{海底門閥}}、{{排海閥}}以及{{止浪閥}}是否修畢並已妥善裝回。"},
+{n:"7",text:"拆下焊修或換新之{{管路確認已全部裝回}}。"}
+]},
+{title:"船塢進水、浮船至出塢",items:[
+{n:"1",text:"水線浸到修理或換新部位時絕對要{{水密不洩漏}}，例如各海底門閥、排海閥、止浪閥及海水管路等。"},
+{n:"2",text:"塢水增加到低海底門濾器滿溢時，啟動{{主海水泵}}並{{釋放海水系統內空氣}}，建立壓力供應海水。檢查各冷卻器、海水管路和海水閥是否有漏水狀況。"},
+{n:"3",text:"啟動{{發電機}}，運轉正常後連絡廠方{{切斷岸電}}，並記錄電錶讀數，開始使用船電供電，電機視情況換用燃油。"},
+{n:"4",text:"{{主機暖機}}，艏車、纜機等送電。注意：{{在塢內主機和艏車嚴禁轉車和試車}}。"},
+{n:"5",text:"出塢主機首次動車前，{{多吹幾次缸}}以排除缸內可能存在的{{積油積水}}。"},
+{n:"6",text:"開航後注意{{艉軸管}}與{{中間軸承}}之各滑油油位、溫度是否正常。"},
+{n:"7",text:"主機{{分段換用重油}}，避免溫差太大使燃油泵或燃油閥咬住。"},
+{n:"8",text:"塢修曾開啟人孔蓋之油、水艙，於初次加油、打水至人孔蓋高度時，要至現場{{再確認無洩漏}}。"}
+]}],
+whys:[
+{concept:"ICCP電源為何要在抽水前關閉？",tag:"mechanism",
+text:"ICCP（Impressed Current Cathodic Protection）是用電流保護船殼不被電解腐蝕的系統。它的工作介質是<strong>海水</strong>。當塢水抽乾後，陽極（Anode）暴露在空氣中，繼續通電不但保護不了船殼，還可能損壞電極本身，甚至有電氣安全風險。出塢放水後才恢復ON，讓電流在海水中重新形成保護回路。"},
+{concept:"Gear Box 滑油為何要在塢水抽到B/T時降壓？",tag:"prevention",
+text:"這是<strong>壓力差問題</strong>。Gear Box 內充滿滑油，當塢水位低於 Gear Box 位置時，外部壓力（大氣壓+海水壓）小於內部滑油壓力，壓力差會把滑油從密封處「擠出來」洩漏。抽出部分油、降低油壓至 0.35 kg/cm² 以下，就是消除這個壓力差。出塢前必須先加滿油，否則進水時海水反壓進入，海水+滑油的乳化液會嚴重損壞齒輪。",
+analogy:"就像擠牙膏時按壓外部——你降低內部壓力就不會「自己流出來」。"},
+{concept:"鍋爐為何不能在塢內排放爐水？",tag:"prevention",
+text:"鍋爐正常工作時，爐水溫度可達 180-200°C、壓力可達 10 bar 以上。即使停火後，爐水仍長時間保持高溫高壓。在乾塢內直接排放，<strong>高溫蒸汽和熱水</strong>噴出會燙傷正在塢底工作的潛水人員或工人。塢底是封閉空間，人員無處閃避，傷亡風險極高。"}
+]},
+
+{id:3,title:"AUTO SLOW DOWN",subtitle:"主機自動降速系統",category:"主機操控",icon:"🔴",
+question:"試述 M.O. 船主機 AUTO SLOW DOWN 原因及對策。",
+framework:`AUTO SLOW DOWN 是主機的「<strong>神經系統保護反應</strong>」——當任何感測器偵測到危及引擎存活的異常，就自動降速以減少損傷。14個觸發條件可分為：<strong>壓力過低類</strong>（保護不足）和<strong>溫度過高類</strong>（過熱損傷）兩類。應對策略則按緊急程度分三個等級：正常→靠港→危急。`,
+sections:[{title:"觸發原因",items:[
+{n:"1",text:"{{主軸承滑油低壓}}"},
+{n:"2",text:"{{排氣閥 Spring air 低壓}}"},
+{n:"3",text:"{{缸套冷卻水低壓}}"},
+{n:"4",text:"{{十字頭滑油低壓}}（L.I. 超過自動偵測值以上時）"},
+{n:"5",text:"{{透平鼓風機滑油低壓}}"},
+{n:"6",text:"{{缸套冷卻水高溫}}"},
+{n:"7",text:"{{主滑油高溫}}"},
+{n:"8",text:"{{活塞冷卻油(水)高溫}}或單缸超過均溫之設定溫差值"},
+{n:"9",text:"{{排氣高溫}}或單缸排氣溫低於或超過均溫之設定溫差值"},
+{n:"10",text:"{{掃氣室高溫}}或單缸掃氣溫超過均溫之設定溫差值"},
+{n:"11",text:"{{曲軸室油霧過高}}"},
+{n:"12",text:"{{艉軸滑油高溫}}"},
+{n:"13",text:"{{推力軸承滑油高溫}}"},
+{n:"14",text:"{{氣缸油 Non Flow 警報}}作動"}
+]},{title:"對策（三個等級）",items:[
+{n:"正常",text:"將控制室操車桿移到 {{Dead Slow}}，等到造成 Slow down 之原因排除後，完成 {{Reset}} 即可恢復正常用車。"},
+{n:"緊急",text:"雖 Slow down 之故障原因未排除，但若因{{靠離港需要}}，可將操車桿移到 Dead Slow 後再行加車。但最高只能加到 {{HARBOUR SPEED FULL}}。"},
+{n:"危急",text:"Slow down 原因未排除，操車桿不必移到 Dead Slow，可直接拉起 {{\"E'CY RUN\"}}，使主機迅速加車避險，但{{此法不可使用太久}}，否則將嚴重傷及主機。只要將 \"E'CY RUN\" 按下，即恢復到 Dead Slow 轉數。"}
+]},{title:"注意事項",items:[
+{n:"※1",text:"Slow down 警報只響但不作動發生在 {{C/R 或 E/S 操車}}時，或在 W/H 操車但 M/E 轉數低於 {{N/F Min}}。"},
+{n:"※2",text:"若{{主軸承滑油低壓}}則無法以 \"E'CY RUN\" 緊急操作。"}
+]}],
+whys:[
+{concept:"為何曲軸室油霧過高要觸發Slow Down？",tag:"cause",
+text:"曲軸箱內正常有少量油霧。當軸承過熱或機件異常摩擦，油霧濃度會急劇上升。油霧達到一定濃度時，<strong>具有爆炸性</strong>（LEL, Lower Explosive Limit）。一旦引爆，密閉的曲軸箱內首先產生「一次爆炸」，隨後空氣湧入引發更猛烈的「<strong>二次爆炸</strong>」，這是對人員和主機最具毀滅性的事故。Auto Slow Down 在油霧達危險濃度前觸發，是防止爆炸的最後防線。"},
+{concept:"為何主軸承滑油低壓不能用E'CY RUN？",tag:"effect",
+text:"主軸承需要滑油壓力在曲軸與軸承金屬面之間形成<strong>油膜</strong>（楔形流體動壓潤滑）。油壓低 → 油膜厚度不足 → 曲軸直接接觸軸承金屬 → 瞬間產生極高溫 → 軸承「燒死」(seized)。這是<strong>不可逆的災難性損壞</strong>，可能需要更換整組主軸承甚至曲軸，費用極高。所以系統設計上鎖定不允許在此情況用 E'CY RUN。",
+analogy:"就像汽車完全沒有機油時還強行加速——曲軸會直接焊在軸承上。"},
+{concept:"E'CY RUN 為何只能短時間使用？",tag:"mechanism",
+text:"E'CY RUN 繞過<strong>所有自動保護</strong>，讓主機在觸發 Slow Down 的異常條件下全速運轉。在緊急避碰等情況下，人員安全優先，短時間這樣做是合理的。但觸發 Slow Down 的異常（如冷卻水高溫、滑油高溫）若持續加劇，可能在幾分鐘內造成不可逆的損壞。解除緊急狀況後立即恢復 Dead Slow，才能爭取時間排查根本原因。"}
+]},
+
+{id:4,title:"活塞下部空間起火",subtitle:"LANTERN SPACE 起火",category:"安全防災",icon:"🔥",
+question:"柴油機活塞下部空間 (LANTERN SPACE) 起火之原因？應如何防止？試述之。",
+framework:`Lantern Space 起火必須同時滿足「<strong>火三角</strong>」：①燃料（積存的油泥碳渣）②高溫熱源（旁吹的高溫燃氣）③氧氣（掃氣空氣）。預防就是打破其中任何一角。所有的原因都是「如何建立火三角」，所有的防止措施都是「如何破壞火三角」。`,
+sections:[{title:"起火原因（如何建立火三角）",items:[
+{n:"1",text:"{{氣缸套之磨耗或偏磨}}"},
+{n:"2",text:"{{活塞環之磨耗或折斷}}"},
+{n:"3",text:"{{活塞冠之燒損}}致使活塞環槽溝變形"},
+{n:"4",text:"由於{{燃燒不良}}而致{{活塞環膠著}}"},
+{n:"5",text:"{{氣缸油過多或過少}}時 — 注油量過多，易產生{{碳渣或油泥}}，而加速活塞環與缸套之磨耗，且易使活塞環膠著，另油泥與碳渣為引起火災的燃燒物。若注油量過少，則氣缸潤滑不良，增加缸壁與活塞環之磨擦，而使活塞環過熱甚而折斷，引起{{旁吹}}。"}
+]},{title:"防止方法（如何破壞火三角）",items:[
+{n:"1",text:"使用{{正確良好的燃油閥}}"},
+{n:"2",text:"{{正確氣缸油注油量}}（配合含硫量調整）"},
+{n:"3",text:"保持{{空氣與排氣系統通道之暢通}}"},
+{n:"4",text:"正確調整噴油泵之{{燃油凸輪及定時}}"},
+{n:"5",text:"應{{定期清潔}}活塞下部空間及掃氣總管"},
+{n:"6",text:"航行當值時，注意各缸之{{排氣溫度}}及掃氣室外側壁溫（以{{手觸摸}}），若某缸溫度異常升高，須特別注意。"},
+{n:"7",text:"對掃氣室及掃氣總管之{{疏放閥}}，須{{每日多次排放}}；在港時，各缸疏放管利用{{蒸汽吹放清管}}。"}
+]}],
+whys:[
+{concept:"旁吹(Blow-by) 究竟是什麼？",tag:"mechanism",
+text:"正常情況下，活塞環緊貼缸壁，把燃燒室內的<strong>高壓燃氣封閉在上方</strong>，不讓它洩漏到下方。「旁吹」就是封閉失效——高壓高溫燃氣（溫度可達 400-600°C）從活塞環與缸壁的間隙洩漏到活塞下部空間和掃氣室。這股燃氣帶來：①高溫熱源、②未完全燃燒的碳粒。與掃氣空氣（氧氣）和積存的油泥接觸，三角齊備，隨時可能起火。",
+analogy:"就像鍋蓋密封不好，高壓蒸汽從縫隙噴出——只是這裡噴出的是高溫燃氣。"},
+{concept:"為何用手觸摸掃氣室外壁是重要的巡檢方法？",tag:"prevention",
+text:"正常各缸掃氣室外壁溫度應相近（有溫度但不應燙手）。如果某缸明顯<strong>發熱甚至燙手</strong>，說明該缸內部有異常熱源——最可能就是旁吹的高溫燃氣正在加熱掃氣室。這是起火的<strong>前兆警報</strong>，比儀表警報更早、更直接。每次巡班都應習慣性地觸摸各缸掃氣室外壁，這是「用身體感知機器」的工程直覺。"}
+]},
+
+{id:5,title:"加油規定與記錄",subtitle:"美國華盛頓州規定",category:"法規遵循",icon:"⛽",
+question:"依美國華盛頓州之規定，船舶添加燃油時之注意事項為何？以及加完燃油後應記載於那些 Official Log 及記載內容為何？",
+framework:`華盛頓州加油規定的設計邏輯是：<strong>加油操作快速且風險高，所以一切準備必須在壓力開始前完成。</strong>整個流程分三層保護：①加油前48小時訓練（讓所有人知道計畫和緊急程序）→ ②加油前溝通會議（船岸雙方達成共識）→ ③操作中監控+完整記錄（留下法律證明）。`,
+sections:[{title:"加油前訓練會議（48小時內）",items:[
+{n:"●",text:"在加油前 {{48小時內}}舉行，並做成記錄"},
+{n:"1",text:"{{加油計劃書}}"},
+{n:"2",text:"{{漏油之罰則}}"},
+{n:"3",text:"{{加油程序}}，包括每個加油人員之職責"},
+{n:"4",text:"英文{{警句及手語}}標示"},
+{n:"5",text:"{{緊急停止程序}}"},
+{n:"※",text:"本會議應記載於{{航海日誌}}，最好浮貼本會議記錄影本。"}
+]},{title:"加油計劃書內容",items:[
+{n:"1",text:"欲加油艙之名稱、位置及名稱"},
+{n:"2",text:"加油前各油艙之{{油位及油之種類}}"},
+{n:"3",text:"每艙預定之加入量及加油後之油量佔各該油艙之{{百分比}}"},
+{n:"4",text:"各油艙{{加油之先後次序}}"},
+{n:"5",text:"監督各油艙油位及{{油閥開關}}之程序"},
+{n:"※",text:"加油站附近應{{張貼影本}}。"}
+]},{title:"加油前溝通會議",items:[
+{n:"●",text:"應由{{輪機長}}會同{{駁油負責人}}舉行："},
+{n:"1",text:"審閱{{宣誓 (Declaration of Inspection)}} 上之每一項目"},
+{n:"2",text:"傳達{{滿艙訊息}}之程序"},
+{n:"3",text:"{{緊急停止加油}}之程序及方法"},
+{n:"4",text:"辨別{{監控人員}}（加油站及甲板）"},
+{n:"5",text:"船上與駁油負責人之{{聯絡方法}}"},
+{n:"※",text:"本會議應記載於{{航海日誌}}。"}
+]},{title:"加油前工作時間限制",items:[
+{n:"●",text:"加油前 {{24小時內}}，工作不得超過 {{15小時}}"},
+{n:"●",text:"加油前 {{72小時內}}，工作不得超過 {{36小時}}"}
+]},{title:"加油後記錄",items:[
+{n:"●",text:"除必須記載於 {{O.R.B.}}（勿忘填寫{{燃油含硫量}}）外，先記載於{{輪機日誌}}，再影印交甲板當值船副記載於{{甲板日誌}}，內容包括："},
+{n:"1",text:"Bunker barge alongside time and start {{Critical Shipboard Operation}} time"},
+{n:"2",text:"Bunker hoses {{connected}} time"},
+{n:"3",text:"{{Pre-transfer conference}} time"},
+{n:"4",text:"Start {{bunkering}} time"},
+{n:"5",text:"Complete bunkering time (Including {{Replenishment Bunker Quantity}}, {{Sulfur content}} etc.)"},
+{n:"6",text:"Bunker hoses {{disconnected}} time"},
+{n:"7",text:"Bunker barge left time and finish {{Critical Shipboard Operation}} time"}
+]}],
+whys:[
+{concept:"為什麼工作時間要受限制？",tag:"prevention",
+text:"加油是高風險操作，一旦洩漏可能引發火災或嚴重污染。疲勞的人員反應變慢、判斷力下降，是事故的重要誘因。華盛頓州明確規定工時上限（24h內≤15h、72h內≤36h），是用<strong>法律強制確保操作人員的精神狀態</strong>，而非只靠道德自律。"},
+{concept:"為什麼要記錄7個時間點？",tag:"mechanism",
+text:"這7個時間點形成一條完整的<strong>操作時間鏈</strong>，法律意義重大：它能精確重建加油全過程，在發生洩漏或糾紛時，確定「誰在什麼時間點負責什麼」。任何一個時間點的缺失，都可能在司法程序中變成不利因素。記錄不只是程序，是法律保護。"}
+]},
+
+{id:6,title:"油水分離器與艙底水",subtitle:"BWS / 污染防治",category:"污染防治",icon:"💧",
+question:"A) 如何增進(確保)油水分離器(BWS)之使用效率？\nB) 船上艙底水及衛生水之適當處理流程為何？",
+framework:`BWS 效率問題的核心是<strong>油水分離的物理原理</strong>：油比水輕（密度差）、油不溶於水（不互溶）。分離過程需要：足夠的<strong>溫度</strong>（降低油的黏度）、足夠的<strong>靜置時間</strong>（讓密度差發揮作用）、乾淨的<strong>過濾元件</strong>（截留油滴）。任何干擾這三個條件的因素都會降低效率。`,
+sections:[{title:"A) 提升BWS效率",items:[
+{n:"1",text:"污水在 {{Primary tank}} 要保持適當加熱溫度（{{勿超過50℃}}），表面浮油用 {{Skimmer}} 移除；污水進入 BWS 前之{{細濾器濾材}}要視情況清洗或更換；若水質髒則須靜置沉澱後，由底部短排放至 SBOT，盡可能在進入 BWS 前除去固體粒子，以延長 {{Element}} 之壽命。"},
+{n:"2",text:"{{Bilge Well}}、{{Bilge tank}} 和 {{Primary tank}} 要保持沒有積油。"},
+{n:"3",text:"機艙主、副機和各油料泵保持{{沒有漏/滴油}}情形，{{杜絕漏油源頭}}，除可保持機艙清潔外，亦可避免漏油隨艙底水進入 Bilge Well 污染系統。"},
+{n:"4",text:"{{減少艙底水產生量}}，以延長 BWS 使用壽命。"},
+{n:"5",text:"BWS 依照說明書之指示及實際使用狀況做{{定期或機動性保養}}，船上要備有足夠的 {{Critical spare parts}}。"}
+]},{title:"B) 艙底水及衛生水處理流程",items:[
+{n:"●",text:"艙底水及衛生水之處理原則均須符合公司 {{ECP 政策}}，{{不得未經處理即直接排海}}。"},
+{n:"●",text:"艙底水處理流程：機艙各處漏水→{{艙底水井}}→{{艙底水泵}}→{{Primary tank}}（加熱沉澱、Skimmer去浮油）→{{艙底水櫃}}→{{BWS 油水分離}}（≤15ppm）→{{OCM 監控}}→{{排海}}（不合格者存槽）"}
+]}],
+whys:[
+{concept:"為何Primary Tank加熱不超過50°C？",tag:"mechanism",
+text:"加熱的目的是降低油的黏度，使其更容易與水分離（浮上表面）。但超過 50°C 時，油和水的界面張力發生變化，加上機械攪動（泵送），<strong>油水會形成穩定的乳化液</strong>（Emulsion）——油以微小液滴的形式均勻分散在水中，外觀像牛奶。這種狀態下，油水幾乎無法用物理方法再分離，BWS 完全失效，ppm 值飆升。",
+analogy:"就像攪打奶油——超過一定溫度和攪拌強度，油水就無法再分開了。"},
+{concept:"為何要減少艙底水產生量，而不只是加強BWS能力？",tag:"prevention",
+text:"這是「<strong>源頭控制</strong>」思維。機艙的漏油越少，進入艙底水的油越少，BWS 負擔越輕，Element 壽命越長，排放水的 ppm 越容易達標。從根本上解決問題（修復漏點、杜絕漏油源頭）遠比不斷處理污水更有效率，也是 ECP 政策「minimize leakages」原則的體現。"}
+]},
+
+{id:7,title:"Critical Machinery 與校正",subtitle:"SQE PROCEDURE",category:"SQE程序",icon:"📋",
+question:"A) 根據SQE PROCEDURE 之 PR-10-03 中規定，那些裝備謂之 \"Critical Machinery\"？\nB) 根據SQE PROCEDURE 之 PR-15-03 \"MMDs\" 中規定，有那些 Level Gauge 須定期作校正？如何作校正？間隔多久？記錄於何表單？",
+framework:`Critical Machinery 的定義邏輯：<strong>「如果這個設備失效，船舶是否面臨立即的安全或環保風險？」</strong>。是→Critical。Level Gauge 校正的邏輯：廢棄物槽的量測數據是環保記錄的基礎，數據不準確 = 記錄不可信 = 可能面臨法律責任。`,
+sections:[{title:"A) Critical Machinery（6類）",items:[
+{n:"1",text:"{{求生滅火裝備}}"},
+{n:"2",text:"{{污染防止設備}}"},
+{n:"3",text:"{{操舵系統}}"},
+{n:"4",text:"{{主機及操控裝置}}"},
+{n:"5",text:"{{發電機}}"},
+{n:"6",text:"{{鍋爐}}"}
+]},{title:"B) Level Gauge 校正",items:[
+{n:"1",text:"須作校正的四個槽：{{F.O. Sludge Tank}}、{{L.O. Sludge Tank}}、{{Bilge Water Tank}}、{{Separated Bilge Oil Tank}}"},
+{n:"2",text:"校正方法：用{{量尺量測}}與 Level Gauge 比較；用{{儀器做校正}}；{{送廠校正}}"},
+{n:"3",text:"間隔：{{年度}}（每年一次）"},
+{n:"4",text:"記錄表單：{{FM-15-01}}"}
+]}],
+whys:[
+{concept:"為什麼這六類是Critical而不是其他設備？",tag:"mechanism",
+text:"這六類覆蓋了船舶運行的三個核心需求：<strong>①人員生存</strong>（求生滅火裝備）、<strong>②船舶操控</strong>（操舵系統、主機、發電機、鍋爐）、<strong>③環境保護</strong>（污染防止設備）。這三類之外的設備故障，通常不會立即威脅生命或環境。所以「Critical」的本質是「不能失效」——失效即危機。"},
+{concept:"為什麼廢棄物槽的Level Gauge要定期校正？",tag:"prevention",
+text:"這四個槽（燃油污泥、滑油污泥、艙底水、分離後油水）都是<strong>O.R.B. 記錄的基礎資料</strong>。每日量測這些槽的油位，是輪機長 ECP 職責（Q10）之一。如果 Level Gauge 不準確，計算出的廢棄物量就是錯誤的，這等同於向當局提交虛假記錄——即使是無意的，也可能面臨嚴重的法律後果。年度校正是確保數據可信度的制度保障。"}
+]},
+
+{id:8,title:"啟動空氣故障排查",subtitle:"Starting Air System",category:"故障排除",icon:"🔍",
+question:"當在控制室操車，須要正車時，啟動按鈕按下，啟動空氣沒有經過啟動空氣閥進入氣缸，問題出在啟動空氣系統，試問有那些可能問題。",
+framework:`理解啟動空氣系統的<strong>方向性</strong>是關鍵：壓縮空氣應從空氣瓶→分配閥→啟動閥→氣缸，這是<strong>單向流動</strong>。一旦啟動閥密封不良，燃氣會<strong>反向流入</strong>，污染整個管路。所有故障幾乎都源自這個「反向污染」機制。`,
+sections:[{title:"緊急處置",items:[
+{n:"●",text:"因主機{{啟動空氣分配閥 Stick}} 而啟動失敗，緊急情況下可嘗試先{{切換正倒俥方向}}（若原本正俥則換為倒俥），若僅部分缸數無法作動，幸運的話切換正倒俥方向，也許會換到正常作動之其中一缸，而可順利啟動主機。"},
+{n:"※",text:"爭取到緩衝時刻後，必須立刻將主機{{啟動空氣分配閥全部缸數拆檢}}以免狀況再次發生。"}
+]},{title:"分配閥積碳原因",items:[
+{n:"●",text:"{{啟動空氣分配閥經常性髒污}}（Carbon 之類的汙垢）：由於主機各缸之{{啟動閥 (Starting Valve)}} 疏於保養，導致{{燃氣洩漏}}至啟動空氣分配器內。"},
+{n:"●",text:"船上的{{空氣品質}}也要注意，其 S/B 期間 Air 消耗量大，應要求多放{{主空氣櫃}}和控制空氣 {{Drain}}，勤放凝水、保持乾淨的 {{Drier}}、主空壓機正常保養並使用正確的{{空壓機滑油}}。"}
+]},{title:"53HP 相關問題",items:[
+{n:"●",text:"53HP 雖有在定期作維修或更換，但若{{啟動空氣閥漏}}（開航時和航行中巡班都應{{用手摸一下各缸空氣進氣管是否發熱}}，就表示有熱燃氣經由此到啟動空氣分配閥）將會造成分配閥咬死。"},
+{n:"※",text:"{{定期利用靠港檢查啟動空氣分配閥}}，而發現內部含碳渣時則 53HP 或 2.15 控制閥也應考慮打開檢查清潔。"}
+]}],
+whys:[
+{concept:"啟動空氣分配閥為何會積碳咬死？",tag:"mechanism",
+text:"啟動閥（Starting Valve）本應只在啟動時短暫開啟，讓壓縮空氣進缸推動活塞。如果啟動閥密封不良，燃燒時的<strong>高溫高壓燃氣會反向流入啟動空氣管路</strong>，一路流到分配閥位置。燃氣中的碳粒和油煙在分配閥內冷卻，形成黏稠的<strong>碳焦油沉積</strong>。隨著時間積累，分配閥的滑動機構被碳渣黏住，「咬死」(stick) 無法動作。",
+analogy:"就像水管被水垢堵死，但這裡的「水垢」是碳渣，而且是因為管路方向搞反了（逆流）才進來的。"},
+{concept:"為何用手摸進氣管能早期發現問題？",tag:"prevention",
+text:"啟動空氣管路在正常情況下是<strong>冷的</strong>——只有啟動時短暫通入壓縮空氣。如果啟動閥漏氣，高溫燃氣持續從缸內流向進氣管，管路會變得<strong>持續發熱</strong>。在巡班時用手摸一下每缸的啟動空氣進氣管，異常發熱 = 啟動閥洩漏 = 碳渣正在向分配閥方向積聚。這是成本最低的預防性維護——用手的溫度感覺代替昂貴的儀器。"}
+]},
+
+{id:9,title:"ECP Policy",subtitle:"環保合規計畫政策",category:"英文題",icon:"🌊",
+question:"What is the Company ECP Policy? Please state briefly. (英文作答)",
+framework:`ECP Policy 的 8 點可以歸類為三層：<strong>①合規義務</strong>（法律要求，Points 1, 3）→ <strong>②管理行動</strong>（如何執行，Points 2, 5, 6, 7）→ <strong>③問責機制</strong>（如何確保執行，Points 4, 8）。理解這個結構，就能在考試中有邏輯地重建 8 個要點，而不是死記。`,
+sections:[{title:"ECP Policy — 8 Points",items:[
+{n:"1",text:"To achieve {{compliance}} with all applicable U.S. and International, flag state and port state environmental law, statutes, regulations, enforceable agreements, permits and additional requirements of this ECP.",en:true},
+{n:"2",text:"To continue for {{improvement}} and commitment to the ECP management systems.",en:true},
+{n:"3",text:"To reiterate that any employee failure to comply will result a personal {{disciplinary punishment}}, including {{dismissal}} and can be held personally liable for {{criminal and civil penalties}}.",en:true},
+{n:"4",text:"To {{encourage}} any employee to {{report}} the environmental non-compliance.",en:true},
+{n:"5",text:"To continue for improvement in {{environmental performance}} of vessel components.",en:true},
+{n:"6",text:"To encourage that such waste through a suitable arrangement to be discharged to the {{port reception facility}}.",en:true},
+{n:"7",text:"To provide adequate personnel and all necessary {{funding and resources}} to implement this ECP, and to {{minimize leakages}} from systems, equipment and components.",en:true},
+{n:"8",text:"To provide full {{co-operation}} during {{audits and inspections}} required by this ECP. All employees shall be reminded that for any employee who {{obstructs, hinders or presents false information}} during any audit or inspection required by this ECP, which can result in a personal disciplinary punishment up to {{dismissal and termination}} of employment.",en:true}
+]}],
+whys:[
+{concept:"為何第3點同時提到刑事和民事責任？",tag:"effect",
+text:"環境犯罪（如故意違規排放）可同時觸犯<strong>刑事法</strong>（Criminal）和<strong>民事法</strong>（Civil）。刑事：可能導致個人被起訴、判刑（如美國 Act to Prevent Pollution from Ships - APPS）。民事：賠償清污費用、環境損害賠償。兩者同時追究，是美國對海洋環境執法的特點，威嚇力遠高於單一罰款。"},
+{concept:"為何第8點特別強調阻礙稽查的後果？",tag:"prevention",
+text:"稽查（Audit/Inspection）是環保體系的<strong>驗證機制</strong>——沒有稽查，所有規定都是空談。如果允許人員阻礙、誤導或偽造，整個體系就形同虛設。第8點把「干擾稽查」列為最嚴重的違規（開除+終止），比一般違規更嚴重，正是因為它動搖了整個合規體系的基礎。"}
+]},
+
+{id:10,title:"CE's ECP Duty",subtitle:"輪機長的環保職責",category:"英文題",icon:"👨‍✈️",
+question:"What is Chief Engineer's duty in ECP management? (英文作答)",
+framework:`17項職責可以歸納為5個層次：<strong>①政策層</strong>（確保ECP被理解和執行）→ <strong>②操作層</strong>（日常監控、設備維護）→ <strong>③記錄層</strong>（所有書面文件）→ <strong>④人員層</strong>（訓練、交接）→ <strong>⑤合規驗證層</strong>（密封管理、稽查配合）。`,
+sections:[{title:"Chief Engineer's ECP Duties — 17 Points",items:[
+{n:"1",text:"To ensure {{ECP policies}} are properly complied and followed to the engine room personnel and all relevant activities.",en:true},
+{n:"2",text:"To Ensure the {{ECP Manual}} and {{ECP Operational Manuals}} are properly Implemented and Functioning.",en:true},
+{n:"3",text:"To Ensure the Mandatory Rulers, Regulations, Codes, All applicable State and Federal safety and {{environmental statutes/regulations}} and Other Requirements are Complied and Adhered to.",en:true},
+{n:"4",text:"To properly {{report}} all shipboard {{training records}} on environmental matters to the Master and the Compliance Manager.",en:true},
+{n:"5",text:"To daily {{measure, monitor and manage}} shipboard generated wastes.",en:true},
+{n:"6",text:"To resolve and verify {{environmental concerns}}, such as inoperative or ineffective {{pollution prevention}} and waste handling equipment, ineffective procedures. Or ineffective pollution minimization programs, such as {{recycling}}, hazardous materials management.",en:true},
+{n:"7",text:"To ensure all wastes which are subject to specific handling requirements, and are being {{managed properly}} and in compliance with applicable requirements and corporate policies.",en:true},
+{n:"8",text:"To provide routine and interim {{training}} of shipboard personnel on environmental policies and procedures that including but not limited to training on the operation and use of the {{Oil Water Separator}}, {{Incinerator}}, and the making of entries in the {{Oil and Garbage Record Books}}.",en:true},
+{n:"9",text:"To manage or supervise the management of {{routine maintenance}} such as cleaning strainers and filters, cleaning purifiers, exhaust gas and auxiliary boiler cleaning, oil changes in rotating equipment, compressor and auxiliary engines.",en:true},
+{n:"10",text:"To check, install, and monitor the {{locking seals}} on the valves, connections or blank flanges such as bilge main cross-connections, emergency bilge suction valves, blank flanges of piping leading overboard and end fittings or connections of {{OWS/OCM}}.",en:true},
+{n:"11",text:"The {{seal numbers}} shall be tracked and entered into the {{Official Seals Log Book}}, and explanations shall be given anytime a crossover to the bilge main is opened or any damaged seal is replaced.",en:true},
+{n:"12",text:"All soundings, logs and ECP records shall be retained on board at least for a period of {{three years}}.",en:true},
+{n:"13",text:"To supervise and verify the {{daily soundings}} of all wastes, sludge and bilge tanks, associated with bilge water, oil wastes or sludge.",en:true},
+{n:"14",text:"The {{Tank Sounding Log}} shall be signed for and dated/timed by the engineer in charge. Each completed page shall be signed by the {{Chief Engineer}} and the {{Master}} of the ship.",en:true},
+{n:"15",text:"To enter and retain properly on the {{ECP Lube oil/Fuel oil Management}} and {{Purifiers Settings Log}} and {{ECP Oil-To-Sea Interfaces}} and {{Tank Sounding Log}}.",en:true},
+{n:"16",text:"The Chief Engineers {{handover notes}} shall have an {{environmental component}}, including conditions of OWS, Incinerator, Sewage Treatment unit, Piping system, locking seals, oil-to-sea interfaces, {{critical spare parts}} inventory and other Engineering Requirements in this ECP.",en:true},
+{n:"17",text:"To appraise of engine room crews whether and to what they are unaware of any {{violation of environmental laws}} or the ECP at each turnover when they relinquish their duties.",en:true}
+]}],
+whys:[
+{concept:"為何密封管理(Seal)如此重要？(Points 10, 11)",tag:"mechanism",
+text:"艙底水排放系統中有幾條「危險捷徑」：<strong>艙底主閥（bilge main cross-connection）、緊急艙底抽水閥、通海管路旁通管</strong>。這些閥如果被打開，艙底水（含油污水）可以不經 OWS 直接排海。實務上，曾有人員偷偷打開這些捷徑，繞過 OCM 監測違規排放。物理鎖封（Locking Seal）是<strong>防止人為繞過排放管制</strong>的機械保障。封條號碼記錄在 Seals Log Book，任何更換都必須說明，這是防止「Magic Pipe 事件」的核心措施。"},
+{concept:"為何交接時要有環保組件？(Point 16)",tag:"prevention",
+text:"輪機長交接的環保組件，是確保<strong>責任的連續性</strong>。新輪機長上船時需要確切知道：OWS/OCM 目前是否正常運作？有沒有異常記錄？密封管理的狀態如何？哪些環保設備有缺陷？如果不交代清楚，新輪機長可能在不知情下繼承了「定時炸彈」，一旦被 PSC 查到問題，卻無法說明何時發生的，就難以為自己辯護。"}
+]}
+];
+
+// ═══════════════════════════════════════════════════
+//  SECTION 2 — CAUSE-EFFECT CHAINS
+// ═══════════════════════════════════════════════════
+const CHAINS=[
+{id:1,icon:"🔥",title:"旁吹 → 三種災難",subtitle:"最核心的因果鏈，串連 Q1、Q4、Q8",relatedQs:[1,4,8],
+nodes:[
+{text:"活塞環磨耗/膠著/斷損（原因多樣：燃油品質差、注油不當...）",type:"cause",why:"活塞環是密封燃氣的最後防線，任何削弱它密封能力的因素，都會觸發這條鏈的起點。",q:1},
+{text:"旁吹 (Blow-by)：高溫燃氣從間隙洩漏至活塞下部空間",type:"key",why:"這是整條鏈的核心——本應留在燃燒室的高溫高壓燃氣（400-600°C）跑到了不應該去的地方。"},
+{text:"三條路徑同時展開",type:"branch"},
+{text:"路徑A → 高溫燃氣+油泥碳渣+掃氣空氣 → Lantern Space 起火",type:"danger",why:"火三角齊備：燃料（碳渣油泥）、熱源（旁吹燃氣）、氧氣（掃氣空氣）。",q:4},
+{text:"路徑B → 燃氣反向流入啟動空氣管路 → 分配閥積碳咬死 → 啟動失敗",type:"danger",why:"啟動空氣系統被燃氣污染，碳渣積聚，分配閥失去動作能力。",q:8},
+{text:"路徑C → 燃氣沖刷缸壁油膜 → 潤滑失效 → 缸套加速磨耗",type:"danger",why:"旁吹高壓燃氣就像高壓水槍沖刷油膜，缸套失去潤滑保護。",q:1}
+]},
+{id:2,icon:"🛢️",title:"潤滑系統崩潰鏈",subtitle:"滑油問題如何觸發自動降速到曲軸箱爆炸",relatedQs:[1,3],
+nodes:[
+{text:"滑油品質劣化 / 淨油效率不佳 / 壓力系統異常",type:"cause",why:"滑油是引擎的血液，任何劣化都會從根本上削弱保護能力。",q:1},
+{text:"油膜厚度不足，軸承摩擦增大",type:"effect"},
+{text:"軸承過熱 → 滑油溫度高壓 / 壓力異常",type:"key",why:"摩擦熱使滑油溫度升高，高溫又進一步降低黏度，形成正反饋惡化。"},
+{text:"Auto Slow Down 觸發（溫度/壓力超限）",type:"effect",q:3},
+{text:"若未及時降速：軸承燒死 → 油霧濃度急升 → 達爆炸濃度",type:"danger",why:"油霧偵測器(OMD)是最後一道防線，OMD報警=曲軸箱爆炸前兆。"},
+{text:"曲軸箱爆炸（一次+二次爆炸），不可逆損壞",type:"danger"}
+]},
+{id:3,icon:"🌊",title:"環保合規鏈",subtitle:"從艙底水產生到輪機長的法律責任",relatedQs:[5,6,9,10],
+nodes:[
+{text:"機艙產生艙底水（漏水、清洗水、設備洩漏）",type:"cause",why:"艙底水的油污染程度取決於機艙管理水準——漏油越少，水越乾淨，BWS越容易處理。",q:6},
+{text:"Primary Tank 加熱沉澱 → Skimmer 去浮油 → 艙底水櫃",type:"effect",why:"物理預處理：溫度降低油黏度，重力分離讓油上浮，再機械撇油。"},
+{text:"BWS 油水分離 + OCM 監控（≤15ppm 才可排海）",type:"key",why:"15ppm 是 MARPOL Annex I 的法律上限，超過不得排放，違反即觸犯刑法。",q:6},
+{text:"記錄於 O.R.B.（含燃油含硫量）和相關日誌",type:"effect",why:"記錄不只是行政程序，是法律證明，可在 PSC 檢查或司法調查中自我保護。",q:5},
+{text:"ECP Policy 規範整個合規體系",type:"key",q:9},
+{text:"輪機長負責執行全部 17 項 ECP 職責",type:"effect",q:10},
+{text:"PSC 不符合 → 可能罰款/扣船；違規排放 → 刑事/民事責任",type:"danger"}
+]},
+{id:4,icon:"🔧",title:"啟動空氣污染路徑",subtitle:"空氣品質如何決定主機能否啟動",relatedQs:[8],
+nodes:[
+{text:"兩個污染源並行：①啟動閥洩漏（燃氣倒灌） ②壓縮空氣含水/油",type:"cause",why:"前者帶入碳粒，後者帶入水分和油汙，兩者相遇形成更難清除的混合沉積物。"},
+{text:"碳粒/油汙進入啟動空氣分配閥",type:"effect"},
+{text:"分配閥內積碳，形成黏稠沉積物",type:"key",why:"就像關節炎——關節（分配閥）被異物填充，無法正常活動。"},
+{text:"分配閥 Stick（咬死）",type:"danger",q:8},
+{text:"啟動空氣無法正確分配 → 按啟動按鈕無反應",type:"danger"},
+{text:"緊急：切換正倒俥方向試啟動 → 靠港後全部拆檢清潔",type:"effect",why:"切換方向讓配氣轉到不同缸，可能換到沒有咬死的缸而成功啟動。"}
+]},
+{id:5,icon:"⛽",title:"塢修風險控制鏈",subtitle:"每個塢修步驟背後的風險邏輯",relatedQs:[2],
+nodes:[
+{text:"入塢前準備：換柴油、排空油艙、Class Report、請修單",type:"cause",why:"所有準備都指向「消除不確定性」——燃油確認、已知缺陷全部上報、避免帶油艙入塢（消防安全）。",q:2},
+{text:"塢水抽乾中：ICCP關電、Gear Box降壓、記錄電錶",type:"effect",why:"乾濕轉換點：每個步驟都在防止一個特定的物理風險（電解/漏油/費用糾紛）。"},
+{text:"塢修施工：人孔蓋簽字、每日記錄、艉軸Wear-down量測",type:"key",why:"記錄和簽字是「責任文件化」——什麼時候誰打開了什麼，出問題時有跡可查。"},
+{text:"出塢前：逐項核對、膠帶清除（ICCP）、管路確認",type:"effect",why:"膠帶不清除→ICCP陽極與海水絕緣→保護失效→電解腐蝕；管路沒裝回→進水。"},
+{text:"浮船進水：水密檢查→主海水泵→切岸電→暖機",type:"key",why:"這是塢修最危險的時刻：任何一個步驟失誤都可能導致進水或電氣事故。"},
+{text:"出航後：艉軸溫度監控、分段換重油、人孔蓋再確認",type:"effect",why:"分段換重油防溫差衝擊；人孔蓋再確認是因為可能在加油加水後才暴露洩漏。",q:2}
+]}
+];
+
+// ═══════════════════════════════════════════════════
+//  SECTION 3 — CONCEPT MAP
+// ═══════════════════════════════════════════════════
+const CONCEPTS=[
+{id:"blowby",name:"旁吹 (Blow-by)",icon:"💨",questions:[1,4,8],color:"#f97316",
+desc:"活塞環失效後的核心現象，連接三題",
+detail:`<strong>旁吹是最重要的跨題概念。</strong>它是一個現象，但在不同問題中扮演不同角色：
+在 <strong>Q1</strong> 中，旁吹是活塞環磨耗的<strong>結果</strong>，也是缸套進一步磨耗的<strong>原因</strong>（正反饋）。
+在 <strong>Q4</strong> 中，旁吹是 Lantern Space 起火的<strong>熱源</strong>（火三角的溫度角）。
+在 <strong>Q8</strong> 中，旁吹的燃氣反流進入啟動空氣管路，是分配閥積碳的<strong>根本原因</strong>。
+三題看似不相關，實際上都是「一個活塞環出了問題，會怎麼樣」這個問題的不同側面。`},
+{id:"oilfilm",name:"油膜潤滑原理",icon:"🛢️",questions:[1,3,8],color:"#eab308",
+desc:"液膜潤滑是所有旋轉機械保護的基礎",
+detail:`<strong>油膜（Oil Film）</strong>是引擎保護的核心機制。軸承、缸套、活塞環都依賴足夠厚度的油膜來隔離金屬接觸：
+在 <strong>Q1</strong> 中，啟動時油膜未建立完整 = 磨耗最大；旁吹沖刷油膜 = 磨耗加速。
+在 <strong>Q3</strong> 中，主軸承油壓低 = 油膜不足 = 觸發 Slow Down；這也是為何此情況下不能用 E'CY RUN（沒有油膜保護強行轉速 = 金屬直接接觸 = 瞬間燒死）。
+在 <strong>Q8</strong> 中，啟動空氣管路受到燃氣污染，與油膜概念的連接是：空壓機用油品質影響壓縮空氣中的油含量，進而影響管路污染程度。`},
+{id:"firetriangle",name:"火三角原理",icon:"🔥",questions:[4,2],color:"#ef4444",
+desc:"燃料+熱源+氧氣=起火",
+detail:`<strong>火三角（Fire Triangle）</strong>是 Q4 的核心框架，也隱含在 Q2 的塢修安全中：
+在 <strong>Q4</strong> 中，Lantern Space 起火的所有預防措施，本質上都是打破火三角的一角：定期清潔（去除燃料）、維護活塞環（防止熱源進入）、定期排放疏放閥（減少可燃物積存）。
+在 <strong>Q2</strong> 中，塢修中的防火措施（備好皮龍、燒焊後巡視機艙、恢復偵測器）也是基於同樣邏輯：建築工地充滿火花（熱源）和油氣（燃料），所以特別注重控制。
+理解火三角，就能自行推導預防措施，不需要死記清單。`},
+{id:"ecp",name:"ECP 環保合規體系",icon:"🌊",questions:[5,6,9,10],color:"#06b6d4",
+desc:"四題本質上是ECP的不同面向",
+detail:`<strong>ECP（Environmental Compliance Plan）</strong>是一個完整的管理體系，四題分別覆蓋它的不同層次：
+<strong>Q6</strong>：BWS 和艙底水處理是 ECP 的<strong>技術操作層</strong>——用什麼設備、怎麼操作。
+<strong>Q5</strong>：華盛頓州加油規定是 ECP 的<strong>特定法規適用層</strong>——在特定港口的特定合規要求。
+<strong>Q9</strong>：ECP Policy 是整個體系的<strong>政策宣示層</strong>——公司對環保的承諾和罰則。
+<strong>Q10</strong>：輪機長的 ECP 職責是<strong>執行層</strong>——具體誰負責做什麼。
+理解這個層次結構，就能理解四題的相互關係，而非把它們當作四個獨立的考題來背。`},
+{id:"records",name:"記錄與日誌管理",icon:"📋",questions:[2,5,7,10],color:"#8b5cf6",
+desc:"記錄是法律保護，不只是程序",
+detail:`記錄（Logs and Records）在四題中反覆出現，但意義相同：<strong>它是法律上的自我保護機制。</strong>
+<strong>Q2</strong>：塢修中每個人孔蓋開關都要簽字，是因為施工後出問題時，你需要證明「不是我的責任」或「我做了正確的事」。
+<strong>Q5</strong>：七個時間點記錄在三本日誌，是因為加油洩漏事故的司法調查會精確追溯每分鐘發生了什麼。
+<strong>Q7</strong>：FM-15-01 校正記錄，是因為O.R.B.的量測數據基礎必須可驗證。
+<strong>Q10</strong>：Tank Sounding Log、Seals Log Book、三年保存期，都是基於「PSC隨時可能上船查帳」的現實。`},
+{id:"pressurecool",name:"冷卻與壓力系統",icon:"🌡️",questions:[1,2,3,6],color:"#34d399",
+desc:"熱管理失效的連鎖反應",
+detail:`冷卻系統和壓力管理在多題中是核心要素：
+<strong>Q1</strong>：缸套冷卻面附著水垢 → 熱傳導差 → 缸套溫度過高 → 加速磨耗。
+<strong>Q2</strong>：塢修中艉軸管冷卻淡水確認、出塢後艉軸溫度監控，都是熱管理。
+<strong>Q3</strong>：冷卻水低壓/高溫、滑油高溫，都是 Auto Slow Down 的觸發條件，本質是冷卻系統失效。
+<strong>Q6</strong>：Primary Tank 加熱溫度不超過50°C，是熱管理在廢棄物處理中的應用。
+熱是引擎的能量載體，也是最大的破壞者——管好溫度，就管好了引擎。`}
+];
+
+// ═══════════════════════════════════════════════════
+//  SECTION 4 — SCENARIOS
+// ═══════════════════════════════════════════════════
+const SCENARIOS=[
+{id:1,title:"航行中排氣溫度異常",icon:"🌡️",relatedQs:[1,4],
+situation:"你是輪機長，船舶正在太平洋航行。巡班時發現第三缸排氣溫度比其他缸高出約 50°C，且有上升趨勢。燃油和滑油系統量測均顯示正常。",
+steps:[
+{q:"你的第一步行動是什麼？",
+choices:[
+{t:"立即停機，進入缸內檢查",c:false,fb:"停機過激，且熱機狀態下無法立即進缸。先評估情況、通報、採取監控措施才是正確程序。"},
+{t:"通知駕駛台，記錄數據，同時檢查掃氣室外壁溫度，擴大觀察範圍",c:true,fb:"正確。先通報（讓駕駛台知情）、後評估（擴大檢查範圍）。掃氣室外壁是旁吹最早出現體溫的地方，是關鍵線索。"},
+{t:"先增加該缸氣缸油注油量試圖改善",c:false,fb:"在不確定原因前就調整注油量是盲目操作。如果問題是噴油閥霧化不良，增加注油量不但無效，還可能增加碳渣。"}
+]},
+{q:"你觸摸第三缸掃氣室外壁，感覺明顯比其他缸燙。你判斷根本原因是？",
+choices:[
+{t:"噴油閥霧化不良，導致局部燃燒過熱",c:false,fb:"噴油閥問題會導致排溫高，但掃氣室外壁發熱更強烈指向旁吹——高溫燃氣從活塞環洩漏到掃氣室，才會讓外壁明顯發熱。"},
+{t:"活塞環旁吹 (Blow-by)，高溫燃氣洩漏至掃氣室",c:true,fb:"正確！這是Q1和Q4的核心概念。掃氣室外壁燙手 = 旁吹燃氣在加熱外壁。這也是Lantern Space起火（Q4）的前兆，需要立即採取行動。"},
+{t:"空氣冷卻器效率下降，進氣溫度偏高",c:false,fb:"進氣溫度問題會影響全部缸，而非只有第三缸。單缸異常通常指向該缸特有的問題（活塞環、噴油閥等）。"}
+]},
+{q:"確認旁吹後，你的處置方案是？",
+choices:[
+{t:"增加該缸氣缸油注油率，每半小時巡視一次，通知公司安排靠港拆缸檢查",c:true,fb:"正確！短期：增加注油率加強潤滑保護，密集巡視防止起火（每次巡視都要觸摸掃氣室外壁並排放疏放閥）。長期：必須靠港檢查活塞環和缸套。這直接應用了Q1和Q4的預防知識。"},
+{t:"繼續觀察，看看溫度是否自然回落",c:false,fb:"旁吹不會自行改善，只會惡化。碳渣積聚 + 持續高溫 = Lantern Space起火的條件逐漸成熟。消極等待是危險的。"},
+{t:"抬起該缸燃油泵，讓該缸停止做功",c:false,fb:"這是一個可用的選項（在某些情況下），但不是「確認旁吹後」的最佳初步應對。應先嘗試增加氣缸油注油率，同時密切監控，而不是立即減少一缸做功（會影響主機平衡）。"}
+]}
+]},
+{id:2,title:"主機無法啟動",icon:"🔴",relatedQs:[8],
+situation:"船舶準備離港，控制室操車正車，按下啟動按鈕後主機沒有任何反應。快速確認：燃油、滑油、冷卻水系統均顯示正常，空氣瓶壓力充足。",
+steps:[
+{q:"問題最可能出在哪個具體部件？",
+choices:[
+{t:"主啟動空氣閥無法開啟",c:false,fb:"主啟動空氣閥（Main Starting Valve）故障通常有明確的控制系統指示。這不是最常見的故障模式。"},
+{t:"啟動空氣分配閥 (Distributor) 咬死",c:true,fb:"正確！這是最常見的啟動失敗原因。分配閥負責把啟動空氣精確分配到正確的缸，一旦因積碳咬死，整個啟動序列失效。根本原因通常是啟動閥洩漏 + 長期積碳（Q8核心）。"},
+{t:"燃油電磁閥故障，無法供應燃油",c:false,fb:"燃油問題會導致啟動後立即熄火，而非「按下按鈕沒有任何反應」。完全無反應更指向啟動空氣系統本身。"}
+]},
+{q:"你如何驗證是哪些缸的分配閥出問題？",
+choices:[
+{t:"停止啟動，拆開全部分配閥逐一檢查",c:false,fb:"情況緊急（港口等待），不能立即全拆。應先嘗試緊急操作措施，同時快速診斷。"},
+{t:"用手觸摸各缸啟動空氣進氣管，發熱的缸 = 啟動閥可能洩漏",c:true,fb:"正確！這是Q8強調的診斷方法。正常情況下進氣管是涼的，持續發熱 = 燃氣反向洩漏。即使現在問題是分配閥，這個方法可以快速定位哪些缸有問題，為後續拆檢縮小範圍。"},
+{t:"反覆按啟動按鈕，多試幾次",c:false,fb:"分配閥已咬死，反覆按只是消耗空氣瓶壓力，完全無效。"}
+]},
+{q:"港口情況緊急，你的立即應對？",
+choices:[
+{t:"切換正倒俥方向後再試啟動",c:true,fb:"正確！切換方向改變了分配閥的配氣模式，可能換到沒有咬死的缸的分配閥，有機會成功啟動。成功後立即報告船長，並安排靠港後全部拆檢——這是Q8的緊急處置知識。"},
+{t:"通知船長，申請延遲離港，等工程師修好再走",c:false,fb:"不是最佳選擇。在嘗試所有緊急措施之前不應放棄。切換正倒俥是快速的緊急嘗試（不超過1分鐘），值得先試。"},
+{t:"切換到 E/S（緊急操車台）再試",c:false,fb:"切換操車台不改變分配閥的狀態，分配閥咬死是機械問題，從哪個台操車都無法解決。"}
+]}
+]},
+{id:3,title:"Auto Slow Down 觸發",icon:"⚡",relatedQs:[3],
+situation:"船舶正在進港操縱中，引水員在駕駛台。突然Auto Slow Down警報響起，顯示板顯示：「主滑油高溫」（Main L.O. High Temp）警報亮起，主機轉速開始降低。",
+steps:[
+{q:"你在控制室的第一個行動？",
+choices:[
+{t:"直接拉 E'CY RUN，維持引港所需轉速",c:false,fb:"還不到危急程度，E'CY RUN是最後手段。現在應先按標準程序（Dead Slow）處理，同時查找滑油高溫原因。"},
+{t:"將操車桿移到 Dead Slow，通知駕駛台情況，同時開始排查滑油高溫原因",c:true,fb:"正確！標準處置：配合Auto Slow Down移到Dead Slow，立即通報（引水員需要知道主機狀況），同時派人查滑油冷卻器、溫控閥、冷卻水流量等。"},
+{t:"關閉主機，切換備用螺旋槳模式",c:false,fb:"進港操縱中關機極危險，可能失去操縱能力。Auto Slow Down的設計就是「降速保護而非停機」。"}
+]},
+{q:"引水員要求加車通過一個窄水道，你可以加速到多少？",
+choices:[
+{t:"Sea Speed Full",c:false,fb:"滑油高溫原因未排除，主機承受高負荷可能使高溫加劇，最高只能到 Harbour Speed Full。"},
+{t:"Harbour Speed Full",c:true,fb:"正確！Q3明確規定：Slow Down原因未排除但靠離港需要，可從Dead Slow加到Harbour Speed Full。這是一個明確的安全邊界——比Dead Slow可以多，但比Full Speed少。"},
+{t:"Dead Slow是上限，不能再加",c:false,fb:"不正確。規定允許因靠離港需要加到Harbour Speed Full，只是不能回到Full Sea Speed。"}
+]},
+{q:"突然前方出現渡輪橫越，有碰撞危險。你的緊急操作？",
+choices:[
+{t:"拉起 E'CY RUN，同時通知駕駛台緊急情況",c:true,fb:"正確！這正是E'CY RUN存在的理由：人命和船舶安全優先於引擎保護。拉起E'CY RUN後主機立即響應加速，但使用後需立即按回（只有一次性觸發效果）。重要提醒：如果Slow Down原因是「主軸承滑油低壓」則不可用E'CY RUN——但本題是「主滑油高溫」，可以使用。"},
+{t:"維持目前轉速，完全依賴舵力避讓",c:false,fb:"在窄水道轉速已受限的情況下，純靠舵力避讓可能不足以應對緊急情況。E'CY RUN存在的目的就是這個場景。"},
+{t:"E'CY RUN太危險，應先讓引擎冷卻下來",c:false,fb:"在碰撞危險面前，幾分鐘的E'CY RUN對引擎的額外損傷，遠小於碰撞造成的後果。Q3明確說明：危急時可用，只是不能使用太久。"}
+]}
+]},
+{id:4,title:"BWS ppm超標處置",icon:"💧",relatedQs:[6,9,10],
+situation:"航行中使用BWS排放艙底水，OCM顯示ppm值從正常的5ppm逐漸攀升，現在已達13ppm，接近15ppm上限，且還在上升。",
+steps:[
+{q:"你現在應該？",
+choices:[
+{t:"繼續觀察，如果超過15ppm才停止",c:false,fb:"危險！15ppm是法律上限，一旦超過就已經違法。在接近上限且還在上升時，應立即停止排放，不能冒著違規的風險繼續觀察。"},
+{t:"立即停止BWS排放，艙底水繼續存槽",c:true,fb:"正確！ECP政策（Q9）明確：不得超標排放。輪機長的職責（Q10 duty #5, #6）包括每日管理廢棄物和解決污染防治設備問題。停止排放是第一步，然後才是查找原因。"},
+{t:"調低BWS設定，試圖強制降低ppm",c:false,fb:"在ppm還在上升的情況下，邊排邊調整有超標的風險。應先停止排放，查明根本原因，再重新啟動。"}
+]},
+{q:"停止排放後，你排查可能原因，最可能的是？",
+choices:[
+{t:"OCM探頭故障，顯示不準確",c:false,fb:"可能，但不應作為第一假設（因為那就繼續排放了）。應先排查BWS本身的問題。即使懷疑OCM故障，在確認前也不應排放。"},
+{t:"Primary Tank加熱溫度過高（超過50°C），導致油水乳化",c:true,fb:"正確！這是最常見的BWS效率下降原因。超過50°C會形成油水乳化液，BWS難以分離。其他可能：細濾器堵塞、Element到期、Bilge tank積油過多。對照Q6的知識，從物理原理出發排查。"},
+{t:"海水溫度太低，影響分離效率",c:false,fb:"海水溫度對BWS效率影響很小。應關注Primary Tank的溫度控制和進水水質。"}
+]},
+{q:"問題解決後重新啟動BWS，ppm恢復正常。你的後續管理工作？",
+choices:[
+{t:"口頭提醒值班管輪注意，問題已解決不必多做",c:false,fb:"不充分。輪機長的ECP職責（Q10）要求書面記錄，且問題的根本原因需要正式記錄和矯正措施。"},
+{t:"記錄於Tank Sounding Log，撰寫問題報告說明原因和矯正措施，通報公司",c:true,fb:"正確！對照Q10 duty #5（日常量測管理）、#6（解決環保問題）、#13（監督每日量測）——這些職責的「終點」都是書面記錄。記錄不只是程序，是在未來PSC檢查時證明你「已採取了正確行動」的法律憑證。"},
+{t:"只需在O.R.B.上記錄，其他不必",c:false,fb:"O.R.B.是必須的，但不夠完整。異常事件應有單獨的問題報告，記錄原因分析和矯正措施，才能體現輪機長的管理能力。"}
+]}
+]},
+{id:5,title:"塢修出塢前最後確認",icon:"🔧",relatedQs:[2],
+situation:"塢修即將結束，塢水即將注入。你做最後一輪出塢前巡查，發現幾個需要判斷的情況。",
+steps:[
+{q:"你發現某個海底門濾器(Grating)缺少兩個固定螺栓。你的決定？",
+choices:[
+{t:"問題不大，先放水出塢，靠港後再補裝",c:false,fb:"出塢後在有壓力的水流中補裝濾器螺栓非常困難，且濾器固定不全可能在啟動主海水泵時移位，造成海水系統堵塞或海底門損壞。正確做法：出塢前補裝齊全。"},
+{t:"立即安排補裝螺栓，出塢前完成",c:true,fb:"正確！出塢前檢查清單（Q2）的第4項就是「各海底門之Grating是否安裝妥當」——這條清單每一項都有具體的安全理由。Grating不全=海底門系統不完整，不應帶著已知缺陷出塢。"},
+{t:"用臨時扎帶固定，算已處置",c:false,fb:"臨時措施不符合標準，且海底門位置受到較大水壓，扎帶可能很快失效。"}
+]},
+{q:"你發現一個雙層底艙的人孔蓋剛被安裝回去，但工人說墊子是舊的，換不到新的。你怎麼辦？",
+choices:[
+{t:"情況緊急，先出塢，相信舊墊子還可以撐一段時間",c:false,fb:"Q2明確說「人孔蓋的墊子最好換新」——這不是隨意的建議，而是因為舊墊子在長期壓緊後失去彈性，再次拆裝後密封性大幅下降，進水風險高。應想辦法找到備件，哪怕延遲出塢。"},
+{t:"嘗試從其他庫存或臨近船舶借用，確保換上新墊子",c:true,fb:"正確！人孔蓋的密封性涉及艙底水密完整性，舊墊子在塢修重新安裝後密封效果不可靠。這個細節在Q2中特別提到，是有實際案例支撐的，值得認真對待。"},
+{t:"加裝密封膠填補，作為替代",c:false,fb:"密封膠不是橡膠墊的替代品，在金屬對金屬的接觸面上，長期效果不可靠。正確的做法是找到規格正確的橡膠墊。"}
+]},
+{q:"ICCP陽極表面有一層薄油漆（施工時誤噴上去），你怎麼判斷這是否需要處理？",
+choices:[
+{t:"薄薄一層漆問題不大，出塢後自然磨損就好了",c:false,fb:"ICCP陽極必須與海水直接接觸才能工作（完成電化學反應形成保護電流）。油漆是絕緣體，即使薄薄一層也會降低ICCP效率，甚至讓該陽極完全失效。失效的陽極 = 那個區域的船殼裸露在電解腐蝕中。Q2明確要求出塢前清除陽極上的膠帶和油漆。"},
+{t:"必須清除油漆，確保陽極表面導電，出塢前完成",c:true,fb:"正確！這是Q2出塢前清單第3項的核心邏輯：ICCP陽極必須導電才能工作，任何絕緣覆蓋都使其失效。清除油漆是保護船殼免受電解腐蝕的必要步驟，不能因為出塢緊迫而忽略。"},
+{t:"進水後用ICCP監測電壓電流，如果異常再處理",c:false,fb:"出塢後陽極已在水線下，清除油漆變得非常困難，需要潛水員水下作業。在乾塢內幾分鐘就能完成的工作，出塢後要花費數倍的時間和費用。"}
+]}
+]}
+];
+
+// ═══════════════════════════════════════════════════
+//  SECTION 5 — STATE
+// ═══════════════════════════════════════════════════
+const STORAGE_KEY='ce_exam_v3';
+let state={mode:'study',qIndex:0,ansOpen:{},studyTab:{},memoryMode:false,
+  whyOpen:{},chainOpen:{},conceptOpen:{},
+  quizIndex:0,quizRevealed:false,quizOrder:[],quizScores:{},
+  scenarioId:null,stepIndex:0,stepAnswered:false,stepCorrect:false,
+  sessionScore:{total:0,correct:0}};
+let store=loadStorage();
+
+function loadStorage(){
+  try{const d=JSON.parse(localStorage.getItem(STORAGE_KEY));if(d)return d}catch(e){}
+  return{bookmarks:{},scores:{},studyCount:0,quizCount:0}
+}
+function saveStorage(s){localStorage.setItem(STORAGE_KEY,JSON.stringify(s))}
+
+let toastTimer;
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2000)
+}
+
+// ═══════════════════════════════════════════════════
+//  SECTION 6 — RENDER ENGINE
+// ═══════════════════════════════════════════════════
+function render(){
+  const app=document.getElementById('app');
+  app.innerHTML=
+    renderHeader()+
+    '<div class="content">'+
+    (state.mode==='study'?renderStudy():
+     state.mode==='diagram'?renderDiagram():
+     state.mode==='scenario'?renderScenario():
+     state.mode==='quiz'?renderQuiz():
+     renderProgress())+
+    '</div>'+
+    renderBottomNav()+
+    (state.mode==='study'?renderMemoryFab():'');
+  bindEvents();
+}
+
+// --- HEADER ---
+function renderHeader(){
+  const modeLabels={study:'學習模式',diagram:'圖解模式',scenario:'情境模擬',quiz:'自我測驗',progress:'學習進度'};
+  return`<div class="header">
+    <div class="header-brand">
+      <div class="header-icon">⚙</div>
+      <div><div class="header-title">輪機長考試</div>
+      <div class="header-sub">${modeLabels[state.mode]||'CHIEF ENGINEER'}</div></div>
+    </div>
+    <div style="display:flex;gap:6px">
+      <button class="btn-icon" onclick="shuffleStudy()" title="隨機跳題">🔀</button>
+    </div>
+  </div>`
+}
+
+// --- BOTTOM NAV ---
+function renderBottomNav(){
+  const tabs=[{id:'study',icon:'📖',label:'學習'},
+    {id:'diagram',icon:'🔗',label:'圖解'},
+    {id:'scenario',icon:'🎯',label:'情境'},
+    {id:'quiz',icon:'✍️',label:'測驗'},
+    {id:'progress',icon:'📊',label:'進度'}];
+  return`<div class="bottom-nav"><div class="bottom-nav-inner">${tabs.map(t=>
+    `<button class="bnav-btn${state.mode===t.id?' active':''}" onclick="setMode('${t.id}')">
+      <span class="bnav-icon">${t.icon}</span><span>${t.label}</span>
+    </button>`).join('')}</div></div>`
+}
+
+function renderMemoryFab(){
+  return`<button class="memory-fab${state.memoryMode?' active':''}" onclick="toggleMemoryMode()" title="記憶模式">
+    ${state.memoryMode?'👁':'🙈'}
+  </button>`
+}
+
+// ═══════════════════════════════════════════════════
+//  STUDY MODE
+// ═══════════════════════════════════════════════════
+function renderStudy(){
+  const q=QUESTIONS[state.qIndex];
+  const isOpen=state.ansOpen[q.id];
+  const isBm=store.bookmarks[q.id];
+  const sTab=state.studyTab[q.id]||'points';
+  return`<div class="card-nav fade-up">
+    <button class="nav-btn" onclick="prevQ()"${state.qIndex===0?' disabled':''}>◀</button>
+    <div class="card-counter"><strong>${q.id}</strong>/${QUESTIONS.length}</div>
+    <button class="nav-btn" onclick="nextQ()"${state.qIndex===QUESTIONS.length-1?' disabled':''}>▶</button>
+  </div>
+  <div class="q-card fade-up fade-up-1${state.memoryMode?' memory-mode':''}">
+    <div class="q-card-header">
+      <div class="q-num">${String(q.id).padStart(2,'0')}</div>
+      <div class="q-meta">
+        <div class="q-category">${q.icon} ${q.category}</div>
+        <div class="q-title">${q.title}</div>
+      </div>
+      <button class="q-bookmark${isBm?' active':''}" onclick="toggleBookmark(${q.id})">${isBm?'★':'☆'}</button>
+    </div>
+    <div class="q-question">${q.question.replace(/\n/g,'<br>')}</div>
+    <div class="q-answer">
+      <button class="ans-toggle${isOpen?' open':''}" onclick="toggleAnswer(${q.id})">
+        ${isOpen?'收合答案':'展開答案'} <span class="arrow">▼</span>
+      </button>
+      <div id="ans-body-${q.id}" style="display:${isOpen?'block':'none'}">
+        ${isOpen?renderAnswerContent(q,sTab):''}
+      </div>
+    </div>
+  </div>
+  <div class="dot-nav fade-up fade-up-2">${QUESTIONS.map((_,i)=>
+    `<div class="dot${i===state.qIndex?' active':''}${store.bookmarks[QUESTIONS[i].id]?' bookmarked':''}" onclick="goToQ(${i})"></div>`
+  ).join('')}</div>`
+}
+
+function renderAnswerContent(q,sTab){
+  return`<div class="study-tabs">
+    <button class="stab${sTab==='points'?' active':''}" onclick="setStudyTab(${q.id},'points')">📝 要點</button>
+    <button class="stab${sTab==='understand'?' active':''}" onclick="setStudyTab(${q.id},'understand')">🔬 原理解說</button>
+  </div>
+  ${sTab==='points'?renderKeyPoints(q):renderUnderstanding(q)}`
+}
+
+function renderKeyPoints(q){
+  return q.sections.map(s=>`<div class="ans-section">
+    <div class="ans-section-title">▸ ${s.title}</div>
+    ${s.items.map(it=>`<div class="ans-item${it.en?' en':''}">
+      <span class="item-num">${it.n}.</span> ${processKw(it.text)}
+    </div>`).join('')}
+  </div>`).join('')
+}
+
+function renderUnderstanding(q){
+  const fwBox=`<div class="principle-header">
+    <div class="principle-header-label">🧩 核心框架</div>
+    <div class="principle-framework">${q.framework}</div>
+  </div>`;
+  if(!q.whys||!q.whys.length)return fwBox+`<div style="padding:12px;text-align:center;color:var(--steel-500);font-size:13px">（詳細原理說明整合於核心框架中）</div>`;
+  const whyHtml=`<div class="why-list">${q.whys.map((w,i)=>{
+    const key=`${q.id}-${i}`;
+    const isOpen=state.whyOpen[key];
+    return`<div class="why-item">
+      <div class="why-item-header" onclick="toggleWhy('${key}')">
+        <div class="why-concept">❓ ${w.concept}</div>
+        <span class="why-tag ${w.tag}">${{cause:'起因',mechanism:'機制',effect:'影響',prevention:'預防'}[w.tag]||w.tag}</span>
+      </div>
+      <div class="why-item-body${isOpen?'':' closed'}">
+        ${w.text}
+        ${w.analogy?`<div class="why-analogy">${w.analogy}</div>`:''}
+        ${w.relatedQs?`<div class="related-qs-row"><span>相關題目：</span>${w.relatedQs.map(qn=>`<span class="q-badge" onclick="goToQById(${qn})">Q${qn}</span>`).join('')}</div>`:''}
+      </div>
+    </div>`
+  }).join('')}</div>`;
+  return fwBox+whyHtml
+}
+
+function processKw(text){
+  return text.replace(/\{\{(.+?)\}\}/g,'<span class="kw" onclick="revealKw(this)">$1</span>')
+}
+
+// ═══════════════════════════════════════════════════
+//  DIAGRAM MODE
+// ═══════════════════════════════════════════════════
+function renderDiagram(){
+  const dTab=state.diagTab||'chains';
+  return`<div class="diagram-header fade-up">
+    <div class="diagram-title">系統圖解</div>
+    <div class="diagram-sub">理解知識之間的因果關係與連結</div>
+  </div>
+  <div class="sub-tabs fade-up fade-up-1">
+    <button class="sub-tab${dTab==='chains'?' active':''}" onclick="setDiagTab('chains')">🔗 因果鏈</button>
+    <button class="sub-tab${dTab==='concepts'?' active':''}" onclick="setDiagTab('concepts')">🗺 概念圖</button>
+  </div>
+  ${dTab==='chains'?renderChains():renderConcepts()}`
+}
+
+function renderChains(){
+  return`<div class="section-label">點擊展開每條因果鏈</div>
+  <div class="chain-list">${CHAINS.map(ch=>{
+    const isOpen=state.chainOpen[ch.id];
+    return`<div class="chain-card${isOpen?' open':''}" onclick="toggleChain(${ch.id})">
+      <div class="chain-card-header">
+        <div class="chain-card-icon">${ch.icon}</div>
+        <div class="chain-card-info">
+          <div class="chain-card-title">${ch.title}</div>
+          <div class="chain-card-sub">${ch.subtitle}</div>
+        </div>
+        <div class="chain-card-qbs">${ch.relatedQs.map(q=>`<span class="q-badge">Q${q}</span>`).join('')}</div>
+        <div class="chain-arrow-icon">▼</div>
+      </div>
+      <div class="chain-body">
+        <div class="chain-nodes">${ch.nodes.map((node,i)=>{
+          const labelMap={cause:'起點',key:'關鍵',danger:'危險',effect:'結果',branch:'分支'};
+          return`<div class="chain-node ${node.type}">
+            ${labelMap[node.type]?`<span class="node-type-label">${labelMap[node.type]}</span>`:''}
+            ${node.text}
+            ${node.q?`<span class="chain-node-q" onclick="event.stopPropagation();goToQById(${node.q})">→Q${node.q}</span>`:''}
+            ${node.why?`<div class="chain-node-why">💡 ${node.why}</div>`:''}
+          </div>${i<ch.nodes.length-1?'<div class="chain-connector"></div>':''}`
+        }).join('')}</div>
+        <div class="chain-legend">
+          <div class="legend-item"><div class="legend-dot" style="background:var(--cyan-500)"></div>起因</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--orange-500)"></div>關鍵轉折</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--red-500)"></div>危險後果</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--steel-500)"></div>中間過程</div>
+        </div>
+      </div>
+    </div>`
+  }).join('')}</div>`
+}
+
+function renderConcepts(){
+  return`<div class="section-label">這些概念貫穿多個考題</div>
+  <div class="concept-cards">${CONCEPTS.map(c=>{
+    const isOpen=state.conceptOpen[c.id];
+    return`<div class="concept-card${isOpen?' open':''}">
+      <div class="concept-card-top" onclick="toggleConcept('${c.id}')">
+        <div class="concept-icon">${c.icon}</div>
+        <div class="concept-info">
+          <div class="concept-name">${c.name}</div>
+          <div class="concept-desc">${c.desc}</div>
+        </div>
+        <div class="concept-qs">${c.questions.map(q=>`<span class="q-badge">Q${q}</span>`).join('')}</div>
+        <div class="concept-expand-icon">▼</div>
+      </div>
+      <div class="concept-body">
+        <div class="concept-detail">${c.detail}</div>
+        <div class="concept-q-links">${c.questions.map(q=>{
+          const qObj=QUESTIONS[q-1];
+          return`<div class="concept-q-link" onclick="goToQById(${q})">
+            <span class="ql-num">Q${q}</span> ${qObj.title}
+          </div>`
+        }).join('')}</div>
+      </div>
+    </div>`
+  }).join('')}</div>`
+}
+
+// ═══════════════════════════════════════════════════
+//  SCENARIO MODE
+// ═══════════════════════════════════════════════════
+function renderScenario(){
+  if(state.scenarioId===null)return renderScenarioList();
+  const sc=SCENARIOS.find(s=>s.id===state.scenarioId);
+  if(state.stepIndex>=sc.steps.length)return renderScenarioSummary(sc);
+  return renderScenarioStep(sc);
+}
+
+function renderScenarioList(){
+  return`<div class="diagram-header fade-up">
+    <div class="diagram-title">情境模擬</div>
+    <div class="diagram-sub">應用你的理解，做出正確決策</div>
+  </div>
+  <div class="section-label">選擇一個情境開始</div>
+  <div class="scenario-list">${SCENARIOS.map(sc=>{
+    const done=state.quizScores['sc'+sc.id];
+    return`<div class="scenario-item fade-up" onclick="startScenario(${sc.id})">
+      <div class="scenario-item-head">
+        <div class="scenario-item-icon">${sc.icon}</div>
+        <div>
+          <div class="scenario-item-title">${sc.title}</div>
+          <div class="scenario-item-sub">${sc.steps.length} 個決策點</div>
+        </div>
+        ${done?`<span style="margin-left:auto;font-size:18px">✅</span>`:''}
+      </div>
+      <div class="scenario-meta">${sc.relatedQs.map(q=>`<span class="q-badge">Q${q}</span>`).join('')}</div>
+    </div>`
+  }).join('')}</div>`
+}
+
+function renderScenarioStep(sc){
+  const step=sc.steps[state.stepIndex];
+  return`<div class="fade-up">
+    <button class="scenario-back" onclick="backToScenarioList()">◀ 返回情境列表</button>
+    <div class="scenario-card">
+      <div class="scenario-top">
+        <div class="scenario-icon-big">${sc.icon}</div>
+        <div class="scenario-title-big">${sc.title}</div>
+        <div class="scenario-progress">${sc.steps.map((_,i)=>`<div class="step-dot${i===state.stepIndex?' current':i<state.stepIndex?' done':''}"></div>`).join('')}</div>
+        ${state.stepIndex===0?`<div class="situation-box">
+          <div class="situation-label">📍 情境</div>${sc.situation}</div>`:''}
+        <div class="step-question">第${state.stepIndex+1}題：${step.q}</div>
+        <div class="choices">${step.choices.map((ch,i)=>{
+          let cls='';
+          if(state.stepAnswered){
+            if(ch.c)cls=' correct';
+            else if(i===state.chosenIndex&&!ch.c)cls=' wrong';
+          }
+          return`<button class="choice-btn${cls}"${state.stepAnswered?'disabled':''} onclick="${state.stepAnswered?'':'chooseAnswer('+i+')'}">
+            ${state.stepAnswered?(ch.c?'<span class="choice-result-icon">✅</span>':i===state.chosenIndex?'<span class="choice-result-icon">❌</span>':''):''}
+            ${ch.t}
+          </button>`
+        }).join('')}</div>
+      </div>
+      ${state.stepAnswered?`<div class="feedback-box ${state.stepCorrect?'correct-fb':'wrong-fb'}">
+        <strong>${state.stepCorrect?'✅ 正確！':'❌ 再想想'}</strong><br>${step.choices[state.chosenIndex].fb}
+      </div>
+      <button class="step-next-btn" onclick="nextStep(${sc.id})">
+        ${state.stepIndex<sc.steps.length-1?'下一題 →':'查看結果 →'}
+      </button>`:''}
+    </div>
+  </div>`
+}
+
+function renderScenarioSummary(sc){
+  const score=state.sessionScore;
+  const pct=Math.round(score.correct/score.total*100);
+  return`<div class="fade-up">
+    <button class="scenario-back" onclick="backToScenarioList()">◀ 返回情境列表</button>
+    <div class="scenario-card">
+      <div class="scenario-summary">
+        <div class="summary-score">${pct}%</div>
+        <div class="summary-label">${score.correct}/${score.total} 題決策正確</div>
+        <div class="summary-review">
+          <div class="summary-review-title">📚 相關知識點</div>
+          ${sc.relatedQs.map(q=>{
+            const qObj=QUESTIONS[q-1];
+            return`<div class="concept-q-link" style="margin-bottom:6px" onclick="goToQById(${q})">
+              <span class="ql-num">Q${q}</span> ${qObj.title}
+            </div>`
+          }).join('')}
+        </div>
+        <button class="summary-restart" onclick="restartScenario(${sc.id})">🔄 重新挑戰</button>
+        <button class="summary-restart" style="margin-top:6px;border-color:rgba(6,182,212,0.3);background:rgba(6,182,212,0.06);color:var(--cyan-400)" onclick="backToScenarioList()">📋 選擇其他情境</button>
+      </div>
+    </div>
+  </div>`
+}
+
+// ═══════════════════════════════════════════════════
+//  QUIZ MODE
+// ═══════════════════════════════════════════════════
+function renderQuiz(){
+  if(!state.quizOrder.length)shuffleQuiz();
+  const qi=state.quizOrder[state.quizIndex];
+  const q=QUESTIONS[qi];
+  const sTab='points';
+  return`<div class="quiz-card fade-up">
+    <div class="quiz-q-num">${q.icon}</div>
+    <div class="quiz-category">${q.category} — 第 ${state.quizIndex+1}/${state.quizOrder.length} 題</div>
+    <div class="quiz-question">${q.question.replace(/\n/g,'<br>')}</div>
+    ${!state.quizRevealed
+      ?`<button class="quiz-reveal-btn" onclick="revealQuizAnswer()">💡 我想好了，顯示答案</button>`
+      :`<div class="quiz-answer">
+        ${renderKeyPoints(q)}
+        <div class="quiz-rate">
+          <button class="rate-btn red" onclick="rateQuiz(${q.id},1)"><span class="rate-icon">😰</span>需複習</button>
+          <button class="rate-btn yellow" onclick="rateQuiz(${q.id},2)"><span class="rate-icon">🤔</span>部分記住</button>
+          <button class="rate-btn green" onclick="rateQuiz(${q.id},3)"><span class="rate-icon">💪</span>掌握了</button>
+        </div>
+      </div>`}
+  </div>
+  <div class="dot-nav fade-up fade-up-1">${state.quizOrder.map((_,i)=>{
+    const scored=state.quizScores[state.quizOrder[i]]!==undefined;
+    return`<div class="dot${i===state.quizIndex?' active':''}${scored?' bookmarked':''}" onclick="goToQuiz(${i})"></div>`
+  }).join('')}</div>`
+}
+
+// ═══════════════════════════════════════════════════
+//  PROGRESS MODE
+// ═══════════════════════════════════════════════════
+function renderProgress(){
+  const total=QUESTIONS.length;
+  const scored=Object.keys(store.scores).length;
+  const avg=scored?Object.values(store.scores).reduce((a,b)=>a+b,0)/scored/3*100:0;
+  const C=2*Math.PI*52;
+  const offset=C-(avg/100)*C;
+  return`<div style="text-align:center;padding:16px 0 10px" class="fade-up">
+    <div class="progress-ring-wrap">
+      <svg class="progress-ring" width="130" height="130" viewBox="0 0 130 130">
+        <defs><linearGradient id="pGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="${avg>66?'#10b981':avg>33?'#f59e0b':'#ef4444'}"/>
+          <stop offset="100%" stop-color="#06b6d4"/>
+        </linearGradient></defs>
+        <circle class="progress-ring-bg" cx="65" cy="65" r="52"/>
+        <circle class="progress-ring-fill" cx="65" cy="65" r="52"
+          stroke-dasharray="${C}" stroke-dashoffset="${offset}"/>
+      </svg>
+      <div class="progress-pct"><div class="num">${Math.round(avg)}%</div><div class="label">掌握度</div></div>
+    </div>
+  </div>
+  <div class="stat-row fade-up fade-up-1">
+    <div class="stat-card"><div class="stat-val orange">${scored}</div><div class="stat-label">已測驗</div></div>
+    <div class="stat-card"><div class="stat-val cyan">${store.studyCount||0}</div><div class="stat-label">學習次數</div></div>
+    <div class="stat-card"><div class="stat-val green">${Object.keys(store.bookmarks).filter(k=>store.bookmarks[k]).length}</div><div class="stat-label">已收藏</div></div>
+  </div>
+  <div class="section-label fade-up fade-up-2">各題掌握狀況</div>
+  <div class="progress-list fade-up fade-up-2">
+    ${QUESTIONS.map(q=>{
+      const sc=store.scores[q.id]||0;
+      const pct=sc/3*100;
+      const cls=pct>66?'high':pct>33?'mid':'low';
+      return`<div class="progress-item" onclick="goToStudyQ(${q.id})">
+        <div class="p-num">${String(q.id).padStart(2,'0')}</div>
+        <div class="p-info">
+          <div class="p-title">${q.title}</div>
+          <div class="p-bar-wrap"><div class="p-bar ${cls}" style="width:${Math.max(pct,4)}%"></div></div>
+        </div>
+        <div class="p-score">${sc?['','😰','🤔','💪'][sc]:'-'}</div>
+        ${store.bookmarks[q.id]?'<div style="color:var(--cyan-400)">★</div>':''}
+      </div>`
+    }).join('')}
+  </div>
+  <button class="reset-btn" onclick="resetProgress()">🗑️ 重置所有進度</button>`
+}
+
+// ═══════════════════════════════════════════════════
+//  SECTION 7 — INTERACTIONS
+// ═══════════════════════════════════════════════════
+function setMode(m){state.mode=m;if(m==='quiz'){state.quizRevealed=false}render()}
+function prevQ(){if(state.qIndex>0){state.qIndex--;trackStudy();render()}}
+function nextQ(){if(state.qIndex<QUESTIONS.length-1){state.qIndex++;trackStudy();render()}}
+function goToQ(i){state.qIndex=i;trackStudy();render()}
+function goToQById(id){state.mode='study';state.qIndex=QUESTIONS.findIndex(q=>q.id===id);trackStudy();render()}
+function goToStudyQ(id){goToQById(id)}
+function shuffleStudy(){state.qIndex=Math.floor(Math.random()*QUESTIONS.length);showToast('🔀 第 '+(state.qIndex+1)+' 題');render()}
+
+function toggleAnswer(id){
+  state.ansOpen[id]=!state.ansOpen[id];
+  if(state.ansOpen[id])trackStudy();
+  render()
+}
+
+function setStudyTab(id,tab){state.studyTab[id]=tab;render()}
+function setDiagTab(t){state.diagTab=t;render()}
+
+function toggleWhy(key){state.whyOpen[key]=!state.whyOpen[key];render()}
+function toggleChain(id){state.chainOpen[id]=!state.chainOpen[id];render()}
+function toggleConcept(id){state.conceptOpen[id]=!state.conceptOpen[id];render()}
+
+function toggleBookmark(id){
+  store.bookmarks[id]=!store.bookmarks[id];saveStorage(store);
+  showToast(store.bookmarks[id]?'★ 已收藏':'☆ 已取消');render()
+}
+function toggleMemoryMode(){
+  state.memoryMode=!state.memoryMode;
+  showToast(state.memoryMode?'🙈 記憶模式 ON：點擊關鍵字顯示':'👁 關閉記憶模式');render()
+}
+function revealKw(el){if(state.memoryMode)el.classList.toggle('revealed')}
+
+// Scenario
+function startScenario(id){
+  state.scenarioId=id;state.stepIndex=0;state.stepAnswered=false;state.stepCorrect=false;
+  state.chosenIndex=null;state.sessionScore={total:0,correct:0};render()
+}
+function backToScenarioList(){state.scenarioId=null;render()}
+function chooseAnswer(i){
+  const sc=SCENARIOS.find(s=>s.id===state.scenarioId);
+  const step=sc.steps[state.stepIndex];
+  state.chosenIndex=i;state.stepAnswered=true;state.stepCorrect=step.choices[i].c;
+  state.sessionScore.total++;if(state.stepCorrect)state.sessionScore.correct++;render()
+}
+function nextStep(scId){
+  const sc=SCENARIOS.find(s=>s.id===scId);
+  state.stepIndex++;state.stepAnswered=false;state.stepCorrect=false;state.chosenIndex=null;
+  if(state.stepIndex>=sc.steps.length){
+    state.quizScores['sc'+scId]=state.sessionScore.correct/state.sessionScore.total*3;
+  }
+  render()
+}
+function restartScenario(id){startScenario(id)}
+
+// Quiz
+function shuffleQuiz(){
+  state.quizOrder=[...Array(QUESTIONS.length).keys()].sort(()=>Math.random()-.5);
+  state.quizIndex=0;state.quizRevealed=false;state.quizScores={}
+}
+function revealQuizAnswer(){state.quizRevealed=true;render()}
+function goToQuiz(i){state.quizIndex=i;state.quizRevealed=false;render()}
+function rateQuiz(id,score){
+  state.quizScores[id]=score;store.scores[id]=score;store.quizCount=(store.quizCount||0)+1;
+  saveStorage(store);
+  if(state.quizIndex<state.quizOrder.length-1){state.quizIndex++;state.quizRevealed=false;render()}
+  else{showToast('🎉 本輪完成！');state.mode='progress';render()}
+}
+function trackStudy(){store.studyCount=(store.studyCount||0)+1;saveStorage(store)}
+function resetProgress(){
+  if(confirm('確定要重置所有進度？')){
+    store={bookmarks:{},scores:{},studyCount:0,quizCount:0};
+    saveStorage(store);state.quizScores={};showToast('已重置');render()
+  }
+}
+
+// ═══════════════════════════════════════════════════
+//  SECTION 8 — TOUCH & KEYBOARD
+// ═══════════════════════════════════════════════════
+let txStart=0,tyStart=0;
+function bindEvents(){
+  const content=document.querySelector('.content');
+  if(!content)return;
+  content.addEventListener('touchstart',e=>{txStart=e.touches[0].clientX;tyStart=e.touches[0].clientY},{passive:true});
+  content.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-txStart;
+    const dy=e.changedTouches[0].clientY-tyStart;
+    if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.5){
+      if(state.mode==='study'){dx<0?nextQ():prevQ()}
+      else if(state.mode==='quiz'){
+        if(dx<0&&state.quizIndex<state.quizOrder.length-1){state.quizIndex++;state.quizRevealed=false;render()}
+        else if(dx>0&&state.quizIndex>0){state.quizIndex--;state.quizRevealed=false;render()}
+      }
+    }
+  },{passive:true})
+}
+document.addEventListener('keydown',e=>{
+  if(state.mode==='study'){
+    if(e.key==='ArrowLeft')prevQ();
+    else if(e.key==='ArrowRight')nextQ();
+    else if(e.key===' '){e.preventDefault();toggleAnswer(QUESTIONS[state.qIndex].id)}
+  }
+});
+
+// INIT
+render();
+</script>
+</body>
+</html>
