@@ -618,9 +618,9 @@ text:"輪機長交接的環保組件，是確保<strong>責任的連續性</stro
 // ═══════════════════════════════════════════════════
 //  GEMINI IMAGE GENERATION
 // ═══════════════════════════════════════════════════
-const DEFAULT_GEMINI_KEY='AIzaSyAFTDQVurpEdlyXX7jEs3nC582GJih68BI';
-function getGeminiKey(){return localStorage.getItem('gemini_api_key')||DEFAULT_GEMINI_KEY}
-function saveGeminiKey(k){if(k&&k.trim())localStorage.setItem('gemini_api_key',k.trim())}
+const GEMINI_WORKER='https://gemini-proxy.jay-hung0515.workers.dev';
+function getGeminiKey(){return''}
+function saveGeminiKey(k){}
 
 const GEMINI_PROMPTS={
 1:`Technical cutaway cross-section diagram of a marine diesel engine cylinder liner. Show THREE labeled attack zones: (1) CHEMICAL ATTACK - sulfuric acid H2SO4 droplets corroding the liner surface near piston rings, red/orange corrosion marks; (2) MECHANICAL WEAR - piston ring contact band with friction arrows in orange; (3) THERMAL STRESS - color gradient from cool blue on water jacket side to hot red on combustion side. Label parts in English: Piston Crown, Piston Rings, Cylinder Liner, Cooling Water Jacket, Combustion Chamber, Blow-by Gas Path. Dark navy technical background, white dimension lines and labels, clean engineering schematic style.`,
@@ -936,9 +936,9 @@ async function generateDiagram(qId){
   const key=getGeminiKey();
   const prompt=GEMINI_PROMPTS[qId]||`Technical engineering diagram for marine chief engineer exam topic: ${QUESTIONS.find(q=>q.id===qId)?.title}. Dark background, English labels, clean professional technical illustration style.`;
   try{
-    const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent?key=${key}`,{
+    const r=await fetch(GEMINI_WORKER,{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{responseModalities:['IMAGE']}})
+      body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{responseModalities:['IMAGE','TEXT']}})
     });
     const d=await r.json();
     if(!r.ok)throw new Error(d.error?.message||`HTTP ${r.status}`);
@@ -950,11 +950,7 @@ async function generateDiagram(qId){
     box.innerHTML=`<img src="${src}" class="ai-diagram-img" onclick="genForce(${qId})" alt="AI圖解"><div class="ai-caption">🤖 Gemini 生成 · 點擊圖片重新生成</div>`;
     btn.style.display='none';
   }catch(e){
-    let errHtml=`<div class="ai-diagram-error">❌ 生成失敗：${e.message}</div>`;
-    if(/API.KEY|INVALID.KEY|400|401|403/i.test(e.message)){
-      errHtml+=`<div class="ai-key-row"><input class="ai-key-input" id="newKey${qId}" placeholder="輸入有效的 Gemini API Key" value="${getGeminiKey()}"><button class="ai-key-save" onclick="saveGeminiKey(document.getElementById('newKey${qId}').value);generateDiagram(${qId})">儲存並重試</button></div>`;
-    }
-    box.innerHTML=errHtml;
+    box.innerHTML=`<div class="ai-diagram-error">❌ 生成失敗：${e.message}</div>`;
     btn.disabled=false;btn.innerHTML='🎨 重新嘗試';btn.dataset.force='1';
   }
 }
