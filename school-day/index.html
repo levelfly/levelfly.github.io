@@ -436,6 +436,16 @@ tbody tr:hover{background:rgba(0,0,0,0.02)}
 .alert-box li{color:var(--text-secondary);font-size:.88rem;margin-bottom:4px}
 .tip-box{background:var(--accent-dim);border-color:rgba(212,101,74,0.2)}
 .tip-box h4{color:var(--accent-bright)}
+.reveal-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:3px 12px;border-radius:999px;border:1px solid var(--border-hover);
+  background:var(--bg-card);color:var(--text-muted);font-size:.82rem;
+  cursor:pointer;transition:all .2s;font-family:inherit;
+  -webkit-tap-highlight-color:transparent;
+}
+.reveal-btn:hover{background:var(--accent-dim);color:var(--accent-bright);border-color:var(--accent)}
+.reveal-btn:active{transform:scale(.95)}
+.reveal-btn::before{content:'🔒';font-size:.75rem}
 
 /* ========== CALENDAR BUTTONS ========== */
 .cal-btn{
@@ -1064,7 +1074,7 @@ tbody tr:hover{background:rgba(0,0,0,0.02)}
     <li>方式：老師與小朋友一對一交談</li>
     <li>內容：口說/聽力/基本閱讀</li>
     <li>結果分為：正取生、備取生、未錄取生（一般班）</li>
-    <li>詢問電話：國小部國際教育中心 <span id="contactAdmin"></span></li></ul>
+    <li>詢問電話：國小部國際教育中心 <button class="reveal-btn" onclick="revealContact('admin',this)">點擊顯示聯絡人</button><span id="contactAdmin" style="display:none"></span></li></ul>
   </div>
   <div class="card card-cyan"><div class="card-spotlight"></div>
     <h4>大班英語學習認證評量（5/20）</h4>
@@ -1200,8 +1210,8 @@ tbody tr:hover{background:rgba(0,0,0,0.02)}
   <div class="card">
     <div class="card-spotlight"></div>
     <ul>
-      <li>英文老師：<span id="contactEng1"></span></li>
-      <li>Mr. Joubert / Mr. Chen：<span id="contactEng2"></span></li>
+      <li>英文老師：<button class="reveal-btn" onclick="revealContact('eng1',this)">點擊顯示 Email</button><span id="contactEng1" style="display:none"></span></li>
+      <li>Mr. Joubert / Mr. Chen：<button class="reveal-btn" onclick="revealContact('eng2',this)">點擊顯示 Email</button><span id="contactEng2" style="display:none"></span></li>
     </ul>
   </div>
 </div>
@@ -1440,19 +1450,26 @@ function addAllToCalendar(){
   downloadICS(makeICS(calEvents),'靜心斑馬班_全部日程.ics');
 }
 
-/* ========== Dynamic contact info (anti-scrape) ========== */
-(function(){
-  const d=atob;
-  const admin=document.getElementById('contactAdmin');
-  if(admin) admin.innerHTML=d('6Kix5ZiJ5oGs57WE6ZW3')
-    +' <strong>'+d('MjkzMi0zMTE4IOWIhuapnzExMw==')+'</strong>';
-  const e1=document.getElementById('contactEng1');
-  if(e1){const a=d('a3RlYWNoZXI=')+'@'+d('c3QuY2hqaHMudHAuZWR1LnR3');
-    e1.innerHTML='<a href="mail'+'to:'+a+'"><strong>'+a+'</strong></a>';}
-  const e2=document.getElementById('contactEng2');
-  if(e2){const a=d('YzAwNTI=')+'@'+d('dGVhLmNoamhzLnRwLmVkdS50dw==');
-    e2.innerHTML='<a href="mail'+'to:'+a+'"><strong>'+a+'</strong></a>';}
-})();
+/* ========== Dynamic contact info (anti-scrape, click to reveal) ========== */
+function decB64(s){return decodeURIComponent(escape(atob(s)))}
+function revealContact(type,btn){
+  btn.style.display='none';
+  if(type==='admin'){
+    const el=document.getElementById('contactAdmin');
+    el.innerHTML=decB64('6Kix5ZiJ5oGs57WE6ZW3')+' <strong>'+decB64('MjkzMi0zMTE4IOWIhuapnzExMw==')+'</strong>';
+    el.style.display='inline';
+  }else if(type==='eng1'){
+    const el=document.getElementById('contactEng1');
+    const a=atob('a3RlYWNoZXI=')+'@'+atob('c3QuY2hqaHMudHAuZWR1LnR3');
+    el.innerHTML='<a href="mail'+'to:'+a+'"><strong>'+a+'</strong></a>';
+    el.style.display='inline';
+  }else if(type==='eng2'){
+    const el=document.getElementById('contactEng2');
+    const a=atob('YzAwNTI=')+'@'+atob('dGVhLmNoamhzLnRwLmVkdS50dw==');
+    el.innerHTML='<a href="mail'+'to:'+a+'"><strong>'+a+'</strong></a>';
+    el.style.display='inline';
+  }
+}
 
 /* ========== Back to top ========== */
 const backTop=document.querySelector('.back-top');
