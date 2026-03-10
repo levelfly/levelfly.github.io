@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>靜心幼兒園 斑馬班 學校日報告</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1063,7 +1064,7 @@ tbody tr:hover{background:rgba(0,0,0,0.02)}
     <li>方式：老師與小朋友一對一交談</li>
     <li>內容：口說/聽力/基本閱讀</li>
     <li>結果分為：正取生、備取生、未錄取生（一般班）</li>
-    <li>詢問電話：國小部國際教育中心 許嘉恬組長 <strong>2932-3118 分機113</strong></li></ul>
+    <li>詢問電話：國小部國際教育中心 <span id="contactAdmin"></span></li></ul>
   </div>
   <div class="card card-cyan"><div class="card-spotlight"></div>
     <h4>大班英語學習認證評量（5/20）</h4>
@@ -1199,8 +1200,8 @@ tbody tr:hover{background:rgba(0,0,0,0.02)}
   <div class="card">
     <div class="card-spotlight"></div>
     <ul>
-      <li>英文老師：<a href="mailto:kteacher@st.chjhs.tp.edu.tw"><strong>kteacher@st.chjhs.tp.edu.tw</strong></a></li>
-      <li>Mr. Joubert / Mr. Chen：<a href="mailto:c0052@tea.chjhs.tp.edu.tw"><strong>c0052@tea.chjhs.tp.edu.tw</strong></a></li>
+      <li>英文老師：<span id="contactEng1"></span></li>
+      <li>Mr. Joubert / Mr. Chen：<span id="contactEng2"></span></li>
     </ul>
   </div>
 </div>
@@ -1438,6 +1439,20 @@ function addToCalendar(idx){
 function addAllToCalendar(){
   downloadICS(makeICS(calEvents),'靜心斑馬班_全部日程.ics');
 }
+
+/* ========== Dynamic contact info (anti-scrape) ========== */
+(function(){
+  const d=atob;
+  const admin=document.getElementById('contactAdmin');
+  if(admin) admin.innerHTML=d('6Kix5ZiJ5oGs57WE6ZW3')
+    +' <strong>'+d('MjkzMi0zMTE4IOWIhuapnzExMw==')+'</strong>';
+  const e1=document.getElementById('contactEng1');
+  if(e1){const a=d('a3RlYWNoZXI=')+'@'+d('c3QuY2hqaHMudHAuZWR1LnR3');
+    e1.innerHTML='<a href="mail'+'to:'+a+'"><strong>'+a+'</strong></a>';}
+  const e2=document.getElementById('contactEng2');
+  if(e2){const a=d('YzAwNTI=')+'@'+d('dGVhLmNoamhzLnRwLmVkdS50dw==');
+    e2.innerHTML='<a href="mail'+'to:'+a+'"><strong>'+a+'</strong></a>';}
+})();
 
 /* ========== Back to top ========== */
 const backTop=document.querySelector('.back-top');
