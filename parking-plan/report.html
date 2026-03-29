@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>停車場配置設計報告 — C2 修正 L 型</title>
+<style>
+  /* ── 基礎變數 ── */
+  :root {
+    --bg: #0c1222;
+    --bg-card: #111827;
+    --bg-card2: #1a2234;
+    --border: #1e2d45;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --text-dim: #64748b;
+    --accent: #3b82f6;
+    --accent-dim: rgba(59,130,246,0.15);
+    --green: #22c55e;
+    --green-dim: rgba(34,197,94,0.12);
+    --amber: #f59e0b;
+    --amber-dim: rgba(245,158,11,0.12);
+    --red: #ef4444;
+    --heading-font: 'Georgia', serif;
+    --body-font: system-ui, -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body-font);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── 版面 ── */
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ── 封面 ── */
+  .cover {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 40px;
+    margin-bottom: 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24px;
+  }
+  .cover-badge {
+    display: inline-block;
+    background: var(--accent-dim);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .cover h1 {
+    font-family: var(--heading-font);
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #f8fafc;
+    margin-bottom: 12px;
+  }
+  .cover-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .cover-meta {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .cover-meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .cover-meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-dim); }
+  .cover-meta-value { font-size: 14px; font-weight: 600; color: var(--text); }
+  .cover-stamp {
+    text-align: right;
+    min-width: 120px;
+  }
+  .cover-stamp-box {
+    display: inline-block;
+    border: 2px solid var(--green);
+    border-radius: 6px;
+    padding: 10px 16px;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* ── 章節標題 ── */
+  .section-title {
+    font-family: var(--heading-font);
+    font-size: 18px;
+    font-weight: 700;
+    color: #f8fafc;
+    border-left: 3px solid var(--accent);
+    padding-left: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title .sec-num {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border-radius: 3px;
+    padding: 2px 7px;
+    letter-spacing: 0.05em;
+    font-family: var(--body-font);
+  }
+
+  /* ── Card ── */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 32px;
+  }
+
+  /* ── SVG 配置圖 ── */
+  .svg-wrap {
+    background: #0a0f1a;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    overflow-x: auto;
+    margin-bottom: 12px;
+  }
+  .svg-wrap svg { display: block; margin: 0 auto; }
+
+  /* ── 數據表格 ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  th {
+    background: var(--bg-card2);
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #151f30;
+    color: var(--text);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
+  .td-val { font-weight: 600; color: #f0f6ff; }
+  .td-pass { color: var(--green); font-weight: 700; }
+  .td-note { color: var(--text-muted); font-size: 12px; }
+
+  /* ── 三模式 ── */
+  .modes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .mode-card {
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px;
+  }
+  .mode-card.active-mode { border-color: var(--accent); }
+  .mode-icon {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  .mode-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #f0f6ff;
+    margin-bottom: 10px;
+  }
+  .mode-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .mode-list li {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    padding-left: 14px;
+    position: relative;
+  }
+  .mode-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--text-dim);
+  }
+  .mode-mini-svg {
+    margin: 12px 0 8px;
+    background: #0a0f1a;
+    border-radius: 5px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ── 施工建議 ── */
+  .construction-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .constr-item {
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .constr-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .constr-label { font-weight: 700; font-size: 13px; color: #e2e8f0; margin-bottom: 3px; }
+  .constr-text { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ── 備選方案 ── */
+  .alt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .alt-card {
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px;
+  }
+  .alt-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .alt-tag.a { background: rgba(245,158,11,0.15); color: var(--amber); border: 1px solid var(--amber); }
+  .alt-tag.d { background: rgba(139,92,246,0.15); color: #a78bfa; border: 1px solid #a78bfa; }
+  .alt-name { font-weight: 700; font-size: 15px; color: #f0f6ff; margin-bottom: 4px; }
+  .alt-score { font-size: 12px; color: var(--text-dim); margin-bottom: 12px; }
+  .pro-con { display: flex; flex-direction: column; gap: 6px; }
+  .pro-con-item { font-size: 12.5px; display: flex; gap: 7px; align-items: flex-start; }
+  .pro-con-item.pro { color: var(--green); }
+  .pro-con-item.con { color: #fb7185; }
+
+  /* ── 頁尾 ── */
+  .footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-dim);
+    font-size: 11.5px;
+  }
+
+  /* ── 尺寸說明列 ── */
+  .dim-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .dim-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+  .dim-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+  .dim-label { color: var(--text-muted); }
+  .dim-value { font-weight: 700; color: #e0eaff; }
+
+  /* ── 列印 ── */
+  @media print {
+    :root {
+      --bg: #ffffff;
+      --bg-card: #f8f9fb;
+      --bg-card2: #f0f3f7;
+      --border: #d1d9e6;
+      --text: #1a202c;
+      --text-muted: #4a5568;
+      --text-dim: #718096;
+      --accent: #1d4ed8;
+      --accent-dim: rgba(29,78,216,0.08);
+      --green: #16a34a;
+      --green-dim: rgba(22,163,74,0.08);
+      --amber: #b45309;
+    }
+    body { background: #fff; }
+    .card { box-shadow: none; border: 1px solid #d1d9e6; }
+    .svg-wrap { background: #f8f9fb; }
+    .mode-card, .alt-card, .constr-item { background: #f0f3f7; }
+    @page { margin: 20mm 18mm; size: A4; }
+    h1 { font-size: 24px !important; }
+    .cover { page-break-after: avoid; }
+    .card { page-break-inside: avoid; }
+  }
+
+  @media (max-width: 640px) {
+    .cover { grid-template-columns: 1fr; }
+    .cover-stamp { text-align: left; }
+    .modes-grid { grid-template-columns: 1fr; }
+    .construction-grid { grid-template-columns: 1fr; }
+    .alt-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ 封面 ══ -->
+  <div class="cover">
+    <div>
+      <div class="cover-badge">施工交接文件 · 2026-03-29</div>
+      <h1>停車場配置設計報告</h1>
+      <p class="cover-sub">C2 修正 L 型 — 七固定位 · L 型雨遮 · 彈性開放區</p>
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">基地面積</span>
+          <span class="cover-meta-value">20m × 29m &nbsp;(580m² / 175坪)</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">鄰接條件</span>
+          <span class="cover-meta-value">北鄰民宿建築</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">推薦方案</span>
+          <span class="cover-meta-value">C2 修正 L 型</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">報告日期</span>
+          <span class="cover-meta-value">2026-03-29</span>
+        </div>
+      </div>
+    </div>
+    <div class="cover-stamp">
+      <div class="cover-stamp-box">
+        最大容量<br>
+        <span style="font-size:22px;letter-spacing:-0.02em;">17</span><span style="font-size:13px;">車</span><br>
+        固定 7 + 溢出 10
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ §1 配置圖 ══ -->
+  <div class="card">
+    <div class="section-title">
+      <span class="sec-num">01</span>
+      推薦方案配置圖 — C2 修正 L 型
+    </div>
+
+    <div class="svg-wrap">
+      <!--
+        SVG 座標系：1m = 20px
+        畫布：20m × 29m = 400px × 580px（加標注邊距 60px 各邊）
+        原點左上角 = (60, 60)，向右為 +X，向下為 +Y（北在上）
+      -->
+      <svg width="540" height="720" viewBox="0 0 540 720" xmlns="http://www.w3.org/2000/svg"
+           style="font-family:system-ui,sans-serif;">
+
+        <defs>
+          <!-- 標注箭頭 -->
+          <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L6,3 Z" fill="#64748b"/>
+          </marker>
+          <marker id="arr-r" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse">
+            <path d="M0,0 L0,6 L6,3 Z" fill="#64748b"/>
+          </marker>
+          <marker id="arr-b" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L6,3 Z" fill="#3b82f6"/>
+          </marker>
+          <marker id="arr-br" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse">
+            <path d="M0,0 L0,6 L6,3 Z" fill="#3b82f6"/>
+          </marker>
+
+          <!-- 斜線填充（開放區） -->
+          <pattern id="hatch-open" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="rgba(254,240,58,0.12)" stroke-width="1"/>
+          </pattern>
+          <!-- 方格填充（車道） -->
+          <pattern id="hatch-road" width="8" height="8" patternUnits="userSpaceOnUse">
+            <rect width="8" height="8" fill="rgba(146,64,14,0.10)"/>
+            <path d="M0,0 L8,8 M8,0 L0,8" stroke="rgba(146,64,14,0.08)" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <!-- 比例說明 -->
+        <g transform="translate(60,40)">
+          <text x="0" y="0" fill="#475569" font-size="10" font-weight="600">比例：1:500&nbsp;&nbsp;1格=1m</text>
+          <!-- 比例尺 -->
+          <line x1="100" y1="-5" x2="200" y2="-5" stroke="#475569" stroke-width="1.5"/>
+          <line x1="100" y1="-9" x2="100" y2="-1" stroke="#475569" stroke-width="1.5"/>
+          <line x1="200" y1="-9" x2="200" y2="-1" stroke="#475569" stroke-width="1.5"/>
+          <text x="150" y="-9" fill="#475569" font-size="10" text-anchor="middle">5m</text>
+        </g>
+
+        <!-- 座標：原點(60,65)，1m=20px -->
+        <!-- X軸=東西(0~20m)，Y軸=南北(0~29m)，上方為北 -->
+
+        <g transform="translate(60,65)">
+
+          <!-- ─── 開放區（y=11~29，全寬）─── -->
+          <rect x="0" y="220" width="400" height="360"
+                fill="url(#hatch-open)" stroke="none"/>
+          <rect x="0" y="220" width="400" height="360"
+                fill="rgba(254,240,58,0.04)" stroke="none"/>
+
+          <!-- ─── 車道（x=0~4，y=0~11）─── -->
+          <rect x="0" y="0" width="80" height="220"
+                fill="url(#hatch-road)"/>
+          <rect x="0" y="0" width="80" height="220"
+                fill="rgba(146,64,14,0.14)" stroke="none"/>
+
+          <!-- ─── L型雨遮（覆蓋全部車位，最深7.5m）─── -->
+          <!-- 北牆車位雨遮：x=4~20，y=0~5.5（5.5m深）+北側通道延伸到y=7.5 -->
+          <rect x="80" y="0" width="320" height="150"
+                fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.35)" stroke-width="1" stroke-dasharray="6,3"/>
+
+          <!-- ─── 東牆車位雨遮延伸：x=14.5~20，y=0~7.5 -->
+          <rect x="290" y="0" width="110" height="150"
+                fill="rgba(59,130,246,0.04)" stroke="none"/>
+
+          <!-- ─── 北側通道（x=4~14.5，y=5.5~11）─── -->
+          <rect x="80" y="110" width="210" height="110"
+                fill="rgba(30,41,59,0.6)" stroke="#253347" stroke-width="1"/>
+
+          <!-- ─── 東側通道（x=9~14.5，y=0~7.5 共用部分）─── -->
+          <rect x="180" y="0" width="110" height="150"
+                fill="rgba(30,41,59,0.4)" stroke="#253347" stroke-width="0.5" stroke-dasharray="4,2"/>
+
+          <!-- ─── 固定車位：北牆4位（沿北牆，向南停）─── -->
+          <!-- F1: x=4~6.5, y=0~5.5 -->
+          <rect x="80" y="0" width="50" height="110"
+                fill="rgba(59,130,246,0.25)" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="105" y="62" fill="#93c5fd" font-size="10" font-weight="700" text-anchor="middle">F1</text>
+
+          <!-- F2: x=6.5~9, y=0~5.5 -->
+          <rect x="130" y="0" width="50" height="110"
+                fill="rgba(59,130,246,0.25)" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="155" y="62" fill="#93c5fd" font-size="10" font-weight="700" text-anchor="middle">F2</text>
+
+          <!-- F3: x=9~11.5 → 但此區被東側通道佔用，調整：北牆4位排在x=4~14 -->
+          <!-- 重新按題意：F1(4.5,0)~(7,0) → 中心x=5.75, F2(7,0) → 中心x=8.5 -->
+          <!-- 題意說中心座標，車位2.5m寬×5.5m深 -->
+          <!-- F1 center (5.75,2.75): x=4.5~7, y=0~5.5 -->
+          <!-- F2 center (8.25,2.75): x=7~9.5, y=0~5.5 -->
+          <!-- F3 center (10.75,2.75): x=9.5~12, y=0~5.5 -->
+          <!-- F4 center (13.25,2.75): x=12~14.5, y=0~5.5 -->
+
+          <!-- 重新繪製（先清除上面的 F1/F2 草稿） -->
+          <!-- F1: x=4.5~7m => px 90~140, y=0~5.5m => 0~110 -->
+          <rect x="90" y="0" width="50" height="110"
+                fill="rgba(59,130,246,0.28)" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="115" y="58" fill="#bfdbfe" font-size="10" font-weight="700" text-anchor="middle">F1</text>
+          <text x="115" y="72" fill="#60a5fa" font-size="9" text-anchor="middle">2.5×5.5</text>
+
+          <!-- F2: x=7~9.5m => px 140~190 -->
+          <rect x="140" y="0" width="50" height="110"
+                fill="rgba(59,130,246,0.28)" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="165" y="58" fill="#bfdbfe" font-size="10" font-weight="700" text-anchor="middle">F2</text>
+          <text x="165" y="72" fill="#60a5fa" font-size="9" text-anchor="middle">2.5×5.5</text>
+
+          <!-- F3: x=9.5~12m => px 190~240 -->
+          <rect x="190" y="0" width="50" height="110"
+                fill="rgba(59,130,246,0.28)" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="215" y="58" fill="#bfdbfe" font-size="10" font-weight="700" text-anchor="middle">F3</text>
+          <text x="215" y="72" fill="#60a5fa" font-size="9" text-anchor="middle">2.5×5.5</text>
+
+          <!-- F4: x=12~14.5m => px 240~290 -->
+          <rect x="240" y="0" width="50" height="110"
+                fill="rgba(59,130,246,0.28)" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="265" y="58" fill="#bfdbfe" font-size="10" font-weight="700" text-anchor="middle">F4</text>
+          <text x="265" y="72" fill="#60a5fa" font-size="9" text-anchor="middle">2.5×5.5</text>
+
+          <!-- 東牆3位（沿東牆，向西停）-->
+          <!-- F5: x=14.5~20, y=0~2.5 => px 290~400, y=0~50 -->
+          <rect x="290" y="0" width="110" height="50"
+                fill="rgba(59,130,246,0.22)" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="345" y="28" fill="#bfdbfe" font-size="10" font-weight="700" text-anchor="middle">F5</text>
+          <text x="345" y="41" fill="#60a5fa" font-size="9" text-anchor="middle">5.5×2.5</text>
+
+          <!-- F6: x=14.5~20, y=2.5~5 => px 290~400, y=50~100 -->
+          <rect x="290" y="50" width="110" height="50"
+                fill="rgba(59,130,246,0.22)" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="345" y="78" fill="#bfdbfe" font-size="10" font-weight="700" text-anchor="middle">F6</text>
+          <text x="345" y="91" fill="#60a5fa" font-size="9" text-anchor="middle">5.5×2.5</text>
+
+          <!-- F7: x=14.5~20, y=5~7.5 => px 290~400, y=100~150 -->
+          <rect x="290" y="100" width="110" height="50"
+                fill="rgba(59,130,246,0.22)" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="345" y="128" fill="#bfdbfe" font-size="10" font-weight="700" text-anchor="middle">F7</text>
+          <text x="345" y="141" fill="#60a5fa" font-size="9" text-anchor="middle">5.5×2.5</text>
+
+          <!-- 覆蓋空白區（x=80~90，y=0~110：車道與F1之間）-->
+          <rect x="80" y="0" width="10" height="110"
+                fill="rgba(30,41,59,0.5)" stroke="none"/>
+
+          <!-- ─── 基地邊界 ─── -->
+          <rect x="0" y="0" width="400" height="580"
+                fill="none" stroke="#94a3b8" stroke-width="2"/>
+
+          <!-- ─── 民宿北牆（x=4~20，y=0，粗線在北側外）─── -->
+          <!-- 民宿在基地北邊，北牆位於 y=-12px 以外，用粗線標示鄰接 -->
+          <line x1="80" y1="-8" x2="400" y2="-8"
+                stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+          <text x="240" y="-14" fill="#f97316" font-size="10" font-weight="700" text-anchor="middle">民宿北牆</text>
+
+          <!-- ─── 車道終止線 y=11 ─── -->
+          <line x1="0" y1="220" x2="400" y2="220"
+                stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="8,4"/>
+          <text x="4" y="216" fill="#f59e0b" font-size="10" font-weight="600">▼ 車道止 (y=11m)</text>
+
+          <!-- ─── 入口箭頭（南側）─── -->
+          <line x1="40" y1="590" x2="40" y2="540"
+                stroke="#f59e0b" stroke-width="2" marker-end="url(#arr)"/>
+          <text x="40" y="608" fill="#f59e0b" font-size="10" font-weight="600" text-anchor="middle">入口</text>
+          <text x="40" y="620" fill="#78716c" font-size="9" text-anchor="middle">4m 車道</text>
+
+          <!-- ─── 通道方向箭頭 ─── -->
+          <line x1="160" y1="260" x2="30" y2="260"
+                stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+          <line x1="30" y1="260" x2="30" y2="140"
+                stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+          <text x="95" y="255" fill="#f59e0b" font-size="9" text-anchor="middle">車輛動線</text>
+
+          <!-- ─── 開放區標籤 ─── -->
+          <text x="200" y="340" fill="rgba(254,240,58,0.55)" font-size="22" font-weight="700" text-anchor="middle">開放區</text>
+          <text x="200" y="368" fill="rgba(254,240,58,0.4)" font-size="14" text-anchor="middle">20m × 18m = 360m²</text>
+          <text x="200" y="388" fill="rgba(254,240,58,0.3)" font-size="12" text-anchor="middle">( 109 坪 )</text>
+
+          <!-- ─── 車道標籤 ─── -->
+          <text x="40" y="120" fill="rgba(146,64,14,0.9)" font-size="10" font-weight="700" text-anchor="middle"
+                transform="rotate(-90,40,120)">車道 4m</text>
+
+          <!-- ─── 雨遮標籤 ─── -->
+          <text x="185" y="175" fill="rgba(59,130,246,0.7)" font-size="11" text-anchor="middle">── L 型雨遮覆蓋範圍 ──</text>
+
+          <!-- ══ 尺寸標注線 ══ -->
+
+          <!-- 總寬 20m（頂部）-->
+          <line x1="0" y1="-30" x2="400" y2="-30"
+                stroke="#64748b" stroke-width="1"
+                marker-start="url(#arr-r)" marker-end="url(#arr)"/>
+          <text x="200" y="-34" fill="#cbd5e1" font-size="11" font-weight="600" text-anchor="middle">20 m</text>
+
+          <!-- 總深 29m（右側）-->
+          <line x1="420" y1="0" x2="420" y2="580"
+                stroke="#64748b" stroke-width="1"
+                marker-start="url(#arr-r)" marker-end="url(#arr)"/>
+          <text x="440" y="290" fill="#cbd5e1" font-size="11" font-weight="600" text-anchor="middle"
+                transform="rotate(90,440,290)">29 m</text>
+
+          <!-- 車道寬 4m（左側）-->
+          <line x1="-25" y1="0" x2="-25" y2="80"
+                stroke="#64748b" stroke-width="1"
+                marker-start="url(#arr-r)" marker-end="url(#arr)"/>
+          <text x="-32" y="40" fill="#94a3b8" font-size="10" text-anchor="middle"
+                transform="rotate(-90,-32,40)">4m</text>
+
+          <!-- 車位深 5.5m（北牆左側）-->
+          <line x1="-25" y1="0" x2="-25" y2="110"
+                stroke="#3b82f6" stroke-width="1"
+                marker-start="url(#arr-br)" marker-end="url(#arr-b)"/>
+          <text x="-38" y="55" fill="#60a5fa" font-size="10" text-anchor="middle"
+                transform="rotate(-90,-38,55)">5.5m</text>
+
+          <!-- 通道寬 5.5m（北側通道）-->
+          <line x1="-25" y1="110" x2="-25" y2="220"
+                stroke="#3b82f6" stroke-width="1"
+                marker-start="url(#arr-br)" marker-end="url(#arr-b)"/>
+          <text x="-38" y="165" fill="#60a5fa" font-size="10" text-anchor="middle"
+                transform="rotate(-90,-38,165)">5.5m</text>
+
+          <!-- 開放區深 18m（右外側）-->
+          <line x1="415" y1="220" x2="415" y2="580"
+                stroke="#64748b" stroke-width="1"
+                marker-start="url(#arr-r)" marker-end="url(#arr)"/>
+          <text x="408" y="400" fill="#94a3b8" font-size="10" text-anchor="middle"
+                transform="rotate(90,408,400)">18m</text>
+
+          <!-- 雨遮深 7.5m（上方）-->
+          <line x1="100" y1="-45" x2="100" y2="-35"
+                stroke="#3b82f6" stroke-width="1"/>
+          <line x1="100" y1="-40" x2="290" y2="-40"
+                stroke="#3b82f6" stroke-width="1"
+                marker-start="url(#arr-br)" marker-end="url(#arr-b)"/>
+          <line x1="290" y1="-45" x2="290" y2="-35"
+                stroke="#3b82f6" stroke-width="1"/>
+          <!-- 實際是垂直標注 -->
+          <!-- 雨遮深度標在右側 -->
+          <line x1="408" y1="0" x2="408" y2="150"
+                stroke="#3b82f6" stroke-width="1"
+                marker-start="url(#arr-br)" marker-end="url(#arr-b)"/>
+          <text x="400" y="75" fill="#60a5fa" font-size="10" text-anchor="end"
+                transform="rotate(90,400,75)">7.5m 雨遮</text>
+
+          <!-- 車位寬 2.5m (F1-F4 其中一格頂部標注) -->
+          <line x1="90" y1="-18" x2="140" y2="-18"
+                stroke="#3b82f6" stroke-width="1"
+                marker-start="url(#arr-br)" marker-end="url(#arr-b)"/>
+          <text x="115" y="-22" fill="#60a5fa" font-size="10" text-anchor="middle">2.5m</text>
+
+          <!-- 東牆車位深 5.5m（頂部標注）-->
+          <line x1="290" y1="155" x2="400" y2="155"
+                stroke="#3b82f6" stroke-width="1"
+                marker-start="url(#arr-br)" marker-end="url(#arr-b)"/>
+          <text x="345" y="169" fill="#60a5fa" font-size="10" text-anchor="middle">5.5m</text>
+
+          <!-- 東牆車位寬 2.5m（右側）-->
+          <line x1="408" y1="0" x2="408" y2="50"
+                stroke="#3b82f6" stroke-width="1"
+                marker-start="url(#arr-br)" marker-end="url(#arr-b)"/>
+
+          <!-- 共用轉角標記 -->
+          <rect x="180" y="110" width="110" height="40"
+                fill="rgba(245,158,11,0.08)" stroke="#f59e0b" stroke-width="0.8" stroke-dasharray="4,2"/>
+          <text x="235" y="134" fill="#f59e0b" font-size="9" text-anchor="middle">共用轉角</text>
+
+          <!-- 北邊界標示 -->
+          <text x="200" y="595" fill="#475569" font-size="10" text-anchor="middle">（南側 — 道路）</text>
+          <text x="0" y="595" fill="#475569" font-size="9">W</text>
+          <text x="390" y="595" fill="#475569" font-size="9">E</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 圖例 -->
+    <div class="dim-row">
+      <div class="dim-chip">
+        <div class="dim-dot" style="background:#3b82f6"></div>
+        <span class="dim-label">固定車位 (F1–F7)</span>
+        <span class="dim-value">2.5×5.5m / 5.5×2.5m</span>
+      </div>
+      <div class="dim-chip">
+        <div class="dim-dot" style="background:rgba(59,130,246,0.3); border:1px dashed #3b82f6"></div>
+        <span class="dim-label">L型雨遮</span>
+        <span class="dim-value">最深 7.5m</span>
+      </div>
+      <div class="dim-chip">
+        <div class="dim-dot" style="background:rgba(146,64,14,0.4)"></div>
+        <span class="dim-label">入口車道</span>
+        <span class="dim-value">4m 寬</span>
+      </div>
+      <div class="dim-chip">
+        <div class="dim-dot" style="background:rgba(30,41,59,0.8); border:1px solid #253347"></div>
+        <span class="dim-label">通道</span>
+        <span class="dim-value">5.5m（≥標準 5.0m）</span>
+      </div>
+      <div class="dim-chip">
+        <div class="dim-dot" style="background:rgba(254,240,58,0.18)"></div>
+        <span class="dim-label">開放區</span>
+        <span class="dim-value">360m² (109坪)</span>
+      </div>
+      <div class="dim-chip">
+        <div class="dim-dot" style="background:#f97316"></div>
+        <span class="dim-label">民宿北牆</span>
+        <span class="dim-value">鄰接邊界</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ §2 關鍵數據 ══ -->
+  <div class="card">
+    <div class="section-title">
+      <span class="sec-num">02</span>
+      關鍵設計數據
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>數值</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>固定車位</td>
+          <td class="td-val">7 位（4北 + 3東）</td>
+          <td class="td-note">全天候雨遮覆蓋</td>
+        </tr>
+        <tr>
+          <td>溢出容量</td>
+          <td class="td-val">+10 位</td>
+          <td class="td-note">開放區三角錐引導</td>
+        </tr>
+        <tr>
+          <td>最大合計</td>
+          <td class="td-val" style="color:var(--green)">17 車</td>
+          <td class="td-note">含溢出滿載</td>
+        </tr>
+        <tr>
+          <td>車位尺寸</td>
+          <td class="td-val">2.5m × 5.5m</td>
+          <td class="td-note">符合台灣標準（2.5×5.0m），超標 0.5m</td>
+        </tr>
+        <tr>
+          <td>通道寬度</td>
+          <td class="td-val" style="color:var(--green)">5.5m</td>
+          <td class="td-note">≥ 台灣法規標準 5.0m，餘裕 0.5m</td>
+        </tr>
+        <tr>
+          <td>雨遮形式</td>
+          <td class="td-val">L 型鋼骨</td>
+          <td class="td-note">最深 7.5m，覆蓋全部固定車位</td>
+        </tr>
+        <tr>
+          <td>開放面積</td>
+          <td class="td-val">360m²（109坪）</td>
+          <td class="td-note">20m × 18m，多功能使用</td>
+        </tr>
+        <tr>
+          <td>入口車道寬</td>
+          <td class="td-val">4m</td>
+          <td class="td-note">x=0~4，單向通行</td>
+        </tr>
+        <tr>
+          <td>基地面積</td>
+          <td class="td-val">580m²（175坪）</td>
+          <td class="td-note">20m × 29m</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══ §3 三模式 ══ -->
+  <div class="card">
+    <div class="section-title">
+      <span class="sec-num">03</span>
+      三模式運作說明
+    </div>
+    <div class="modes-grid">
+
+      <!-- 日常 -->
+      <div class="mode-card">
+        <div class="mode-icon">🅿️</div>
+        <div class="mode-title">模式 1 — 日常（7車）</div>
+        <div class="mode-mini-svg">
+          <svg width="140" height="100" viewBox="0 0 140 100">
+            <!-- 簡化示意 -->
+            <rect x="0" y="0" width="140" height="100" fill="#0a0f1a" rx="4"/>
+            <!-- 車道 -->
+            <rect x="0" y="0" width="20" height="65" fill="rgba(146,64,14,0.25)"/>
+            <!-- 固定車位 -->
+            <rect x="22" y="2" width="12" height="27" fill="rgba(59,130,246,0.5)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="36" y="2" width="12" height="27" fill="rgba(59,130,246,0.5)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="50" y="2" width="12" height="27" fill="rgba(59,130,246,0.5)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="64" y="2" width="12" height="27" fill="rgba(59,130,246,0.5)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="78" y="2" width="27" height="12" fill="rgba(59,130,246,0.45)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="78" y="16" width="27" height="12" fill="rgba(59,130,246,0.45)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="78" y="30" width="27" height="12" fill="rgba(59,130,246,0.45)" stroke="#3b82f6" stroke-width="0.8"/>
+            <!-- 開放區：淨空 -->
+            <rect x="0" y="66" width="140" height="34" fill="rgba(254,240,58,0.06)"/>
+            <text x="70" y="86" fill="rgba(254,240,58,0.5)" font-size="9" text-anchor="middle" font-weight="600">開放區淨空</text>
+            <!-- 邊界 -->
+            <rect x="0" y="0" width="140" height="100" fill="none" stroke="#334155" stroke-width="1"/>
+          </svg>
+        </div>
+        <ul class="mode-list">
+          <li>7 固定位停滿（雨遮下）</li>
+          <li>開放區 360m² 完全淨空</li>
+          <li>可作庭院、休閒、小型聚會</li>
+          <li>車輛進出單一車道，零干涉</li>
+        </ul>
+      </div>
+
+      <!-- 婚宴 -->
+      <div class="mode-card active-mode">
+        <div class="mode-icon">🎊</div>
+        <div class="mode-title">模式 2 — 婚宴 / 活動</div>
+        <div class="mode-mini-svg">
+          <svg width="140" height="100" viewBox="0 0 140 100">
+            <rect x="0" y="0" width="140" height="100" fill="#0a0f1a" rx="4"/>
+            <!-- 車道 -->
+            <rect x="0" y="0" width="20" height="65" fill="rgba(146,64,14,0.25)"/>
+            <!-- 固定車位 -->
+            <rect x="22" y="2" width="12" height="27" fill="rgba(59,130,246,0.5)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="36" y="2" width="12" height="27" fill="rgba(59,130,246,0.5)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="50" y="2" width="12" height="27" fill="rgba(59,130,246,0.5)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="64" y="2" width="12" height="27" fill="rgba(59,130,246,0.5)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="78" y="2" width="27" height="12" fill="rgba(59,130,246,0.45)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="78" y="16" width="27" height="12" fill="rgba(59,130,246,0.45)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="78" y="30" width="27" height="12" fill="rgba(59,130,246,0.45)" stroke="#3b82f6" stroke-width="0.8"/>
+            <!-- 帳篷 18×14 -->
+            <rect x="5" y="66" width="130" height="30" fill="rgba(34,197,94,0.12)" stroke="#22c55e" stroke-width="1" stroke-dasharray="4,2"/>
+            <text x="70" y="78" fill="#22c55e" font-size="8" text-anchor="middle" font-weight="600">帳篷 18×14m</text>
+            <text x="70" y="89" fill="rgba(34,197,94,0.6)" font-size="7" text-anchor="middle">12桌/120人</text>
+            <rect x="0" y="0" width="140" height="100" fill="none" stroke="#334155" stroke-width="1"/>
+          </svg>
+        </div>
+        <ul class="mode-list">
+          <li>7 車不動（雨遮下全保護）</li>
+          <li>開放區搭帳篷 18m×14m（252m²）</li>
+          <li>12 桌 120 人 + 舞台空間</li>
+          <li>外燴從車道側進入，不繞場</li>
+          <li>東牆預留 220V 電源</li>
+        </ul>
+      </div>
+
+      <!-- 滿載 -->
+      <div class="mode-card">
+        <div class="mode-icon">🚗</div>
+        <div class="mode-title">模式 3 — 滿載停車</div>
+        <div class="mode-mini-svg">
+          <svg width="140" height="100" viewBox="0 0 140 100">
+            <rect x="0" y="0" width="140" height="100" fill="#0a0f1a" rx="4"/>
+            <rect x="0" y="0" width="20" height="65" fill="rgba(146,64,14,0.25)"/>
+            <!-- 固定 -->
+            <rect x="22" y="2" width="12" height="27" fill="rgba(59,130,246,0.5)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="36" y="2" width="12" height="27" fill="rgba(59,130,246,0.5)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="50" y="2" width="12" height="27" fill="rgba(59,130,246,0.5)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="64" y="2" width="12" height="27" fill="rgba(59,130,246,0.5)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="78" y="2" width="27" height="12" fill="rgba(59,130,246,0.45)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="78" y="16" width="27" height="12" fill="rgba(59,130,246,0.45)" stroke="#3b82f6" stroke-width="0.8"/>
+            <rect x="78" y="30" width="27" height="12" fill="rgba(59,130,246,0.45)" stroke="#3b82f6" stroke-width="0.8"/>
+            <!-- 溢出 10 輛 -->
+            <rect x="22" y="68" width="11" height="9" fill="rgba(245,158,11,0.4)" stroke="#f59e0b" stroke-width="0.6"/>
+            <rect x="35" y="68" width="11" height="9" fill="rgba(245,158,11,0.4)" stroke="#f59e0b" stroke-width="0.6"/>
+            <rect x="48" y="68" width="11" height="9" fill="rgba(245,158,11,0.4)" stroke="#f59e0b" stroke-width="0.6"/>
+            <rect x="61" y="68" width="11" height="9" fill="rgba(245,158,11,0.4)" stroke="#f59e0b" stroke-width="0.6"/>
+            <rect x="74" y="68" width="11" height="9" fill="rgba(245,158,11,0.4)" stroke="#f59e0b" stroke-width="0.6"/>
+            <rect x="22" y="80" width="11" height="9" fill="rgba(245,158,11,0.4)" stroke="#f59e0b" stroke-width="0.6"/>
+            <rect x="35" y="80" width="11" height="9" fill="rgba(245,158,11,0.4)" stroke="#f59e0b" stroke-width="0.6"/>
+            <rect x="48" y="80" width="11" height="9" fill="rgba(245,158,11,0.4)" stroke="#f59e0b" stroke-width="0.6"/>
+            <rect x="61" y="80" width="11" height="9" fill="rgba(245,158,11,0.4)" stroke="#f59e0b" stroke-width="0.6"/>
+            <rect x="74" y="80" width="11" height="9" fill="rgba(245,158,11,0.4)" stroke="#f59e0b" stroke-width="0.6"/>
+            <text x="105" y="85" fill="rgba(245,158,11,0.7)" font-size="8" text-anchor="middle">+10 溢出</text>
+            <rect x="0" y="0" width="140" height="100" fill="none" stroke="#334155" stroke-width="1"/>
+          </svg>
+        </div>
+        <ul class="mode-list">
+          <li>7 固定 + 10 溢出 = 17 車</li>
+          <li>三角錐引導開放區溢出車輛</li>
+          <li>中央通道 5.5m 雙列 U 型排列</li>
+          <li>中央預留 6m 消防迴轉空間</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ §4 迴轉驗證 ══ -->
+  <div class="card">
+    <div class="section-title">
+      <span class="sec-num">04</span>
+      迴轉半徑驗證報告
+    </div>
+    <p style="font-size:12.5px;color:var(--text-muted);margin-bottom:16px;">
+      模擬方法：Ackermann 自行車模型，多路線最佳化搜索，碰撞檢測（基地邊界 + 固定障礙物）
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>車型</th>
+          <th>車長</th>
+          <th>入口右轉餘裕</th>
+          <th>L型轉角餘裕</th>
+          <th>判定</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Toyota Altis</td>
+          <td class="td-val">4.63m</td>
+          <td>1.06m</td>
+          <td>0.59m</td>
+          <td class="td-pass">✓ 通過</td>
+        </tr>
+        <tr>
+          <td>Toyota RAV4</td>
+          <td class="td-val">4.60m</td>
+          <td>1.02m</td>
+          <td>0.64m</td>
+          <td class="td-pass">✓ 通過</td>
+        </tr>
+        <tr>
+          <td>Tesla Model Y</td>
+          <td class="td-val">4.75m</td>
+          <td>0.99m</td>
+          <td>0.69m</td>
+          <td class="td-pass">✓ 通過</td>
+        </tr>
+        <tr>
+          <td>Lexus RX</td>
+          <td class="td-val">4.89m</td>
+          <td>0.98m</td>
+          <td>0.63m</td>
+          <td class="td-pass">✓ 通過</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--green);">
+        <span style="width:10px;height:10px;background:var(--green);border-radius:50%;display:inline-block;"></span>
+        全車型最小餘裕 ≥ 0.59m（安全閾值 0.3m）
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);">
+        <span style="width:10px;height:10px;background:var(--amber);border-radius:50%;display:inline-block;"></span>
+        大型 SUV（Lexus RX）最緊，仍有 0.63m 安全裕度
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ §5 施工建議 ══ -->
+  <div class="card">
+    <div class="section-title">
+      <span class="sec-num">05</span>
+      施工建議
+    </div>
+    <div class="construction-grid">
+      <div class="constr-item">
+        <div class="constr-icon">🏗️</div>
+        <div>
+          <div class="constr-label">地面鋪設</div>
+          <div class="constr-text">全區水泥或瀝青鋪面，平整無高差。固定車位與通道建議不同顏色或材質區分。</div>
+        </div>
+      </div>
+      <div class="constr-item">
+        <div class="constr-icon">🏠</div>
+        <div>
+          <div class="constr-label">L 型雨遮</div>
+          <div class="constr-text">鋼骨結構，建議 PC 中空板或鐵皮浪板。最深 7.5m，覆蓋北牆 4 位 + 東牆 3 位。</div>
+        </div>
+      </div>
+      <div class="constr-item">
+        <div class="constr-icon">💧</div>
+        <div>
+          <div class="constr-label">排水設計</div>
+          <div class="constr-text">全區向南微斜（0.5–1%坡度，遠離民宿建築），南側入口設截水排水溝。</div>
+        </div>
+      </div>
+      <div class="constr-item">
+        <div class="constr-icon">⚡</div>
+        <div>
+          <div class="constr-label">電力預留</div>
+          <div class="constr-text">南牆/東牆各預留 220V 插座 × 4，供外燴、音響、EV 充電使用。管線預埋。</div>
+        </div>
+      </div>
+      <div class="constr-item">
+        <div class="constr-icon">💡</div>
+        <div>
+          <div class="constr-label">照明配置</div>
+          <div class="constr-text">L 型雨遮下方 LED 燈條（防水 IP65）＋ 開放區四角立燈柱（3m 高），開放區燈柱留快拆接頭。</div>
+        </div>
+      </div>
+      <div class="constr-item">
+        <div class="constr-icon">🅿️</div>
+        <div>
+          <div class="constr-label">固定車位標示</div>
+          <div class="constr-text">安裝車擋（高 15cm）+ 白色標線，車位號碼 F1–F7 漆於地面。停車計費預留感應器孔位。</div>
+        </div>
+      </div>
+      <div class="constr-item">
+        <div class="constr-icon">📍</div>
+        <div>
+          <div class="constr-label">溢出區標記</div>
+          <div class="constr-text">地面嵌入反光釘標記溢出車位角點（平時不礙事，使用時三角錐沿線擺放）。</div>
+        </div>
+      </div>
+      <div class="constr-item">
+        <div class="constr-icon">🌿</div>
+        <div>
+          <div class="constr-label">開放區邊界</div>
+          <div class="constr-text">建議低矮綠籬或花圃分隔停車區與開放區視覺，高度不超過 60cm 以維持通透感。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ §6 備選方案 ══ -->
+  <div class="card">
+    <div class="section-title">
+      <span class="sec-num">06</span>
+      備選方案摘要
+    </div>
+    <p style="font-size:12.5px;color:var(--text-muted);margin-bottom:20px;">
+      以下方案可依業主需求替換，已完成相同精度的迴轉驗證。
+    </p>
+    <div class="alt-grid">
+
+      <!-- 方案 A -->
+      <div class="alt-card">
+        <div class="alt-tag a">方案 A</div>
+        <div class="alt-name">北牆一列</div>
+        <div class="alt-score">固定 6+1 位 &nbsp;·&nbsp; 360m² 開放 &nbsp;·&nbsp; 雨遮 5.5m &nbsp;·&nbsp; 綜合評分 89.5</div>
+        <div class="pro-con">
+          <div class="pro-con-item pro">
+            <span style="flex-shrink:0;">+</span>
+            雨遮最短、動線最簡，造價最低
+          </div>
+          <div class="pro-con-item pro">
+            <span style="flex-shrink:0;">+</span>
+            開放區與 C2 相同大（360m²）
+          </div>
+          <div class="pro-con-item con">
+            <span style="flex-shrink:0;">−</span>
+            第 7 位半固定，東側缺雨遮
+          </div>
+          <div class="pro-con-item con">
+            <span style="flex-shrink:0;">−</span>
+            東牆未充分利用，空間略浪費
+          </div>
+        </div>
+      </div>
+
+      <!-- 方案 D -->
+      <div class="alt-card">
+        <div class="alt-tag d">方案 D</div>
+        <div class="alt-name">西牆斜列</div>
+        <div class="alt-score">固定 7 位 &nbsp;·&nbsp; 346m² 開放 &nbsp;·&nbsp; 雨遮 6.8m &nbsp;·&nbsp; 綜合評分 82.1</div>
+        <div class="pro-con">
+          <div class="pro-con-item pro">
+            <span style="flex-shrink:0;">+</span>
+            車道零浪費，溢出容量最多
+          </div>
+          <div class="pro-con-item pro">
+            <span style="flex-shrink:0;">+</span>
+            固定 7 位全數達成，雨遮完整
+          </div>
+          <div class="pro-con-item con">
+            <span style="flex-shrink:0;">−</span>
+            開放區僅 11m 寬，活動受限
+          </div>
+          <div class="pro-con-item con">
+            <span style="flex-shrink:0;">−</span>
+            帳篷搭設空間不足婚宴需求
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 方案比較 -->
+    <div style="margin-top:20px;">
+      <table>
+        <thead>
+          <tr>
+            <th>方案</th>
+            <th>固定車位</th>
+            <th>開放面積</th>
+            <th>雨遮深度</th>
+            <th>綜合評分</th>
+            <th>推薦</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:600;color:#f59e0b;">方案 A — 北牆一列</td>
+            <td>6+1</td>
+            <td>360m²</td>
+            <td>5.5m</td>
+            <td>89.5</td>
+            <td class="td-note">備選</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.05);">
+            <td style="font-weight:700;color:#60a5fa;">方案 C2 — 修正 L 型 ★</td>
+            <td style="color:var(--green);font-weight:700;">7</td>
+            <td style="color:var(--green);font-weight:700;">360m²</td>
+            <td>7.5m</td>
+            <td style="color:var(--green);font-weight:700;">93.2</td>
+            <td class="td-pass">★ 推薦</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:#a78bfa;">方案 D — 西牆斜列</td>
+            <td>7</td>
+            <td>346m²</td>
+            <td>6.8m</td>
+            <td>82.1</td>
+            <td class="td-note">備選</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 頁尾 -->
+  <div class="footer">
+    <div>
+      停車場配置設計報告 &nbsp;·&nbsp; C2 修正 L 型 &nbsp;·&nbsp; 基地 20m × 29m
+    </div>
+    <div>
+      2026-03-29 &nbsp;·&nbsp; 本文件由自動化設計系統產出，建議配合建築師現場確認尺寸
+    </div>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>
