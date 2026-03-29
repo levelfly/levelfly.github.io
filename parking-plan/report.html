@@ -464,25 +464,6 @@
                 fill="rgba(30,41,59,0.4)" stroke="#253347" stroke-width="0.5" stroke-dasharray="4,2"/>
 
           <!-- ─── 固定車位：北牆4位（沿北牆，向南停）─── -->
-          <!-- F1: x=4~6.5, y=0~5.5 -->
-          <rect x="80" y="0" width="50" height="110"
-                fill="rgba(59,130,246,0.25)" stroke="#3b82f6" stroke-width="1.5"/>
-          <text x="105" y="62" fill="#93c5fd" font-size="10" font-weight="700" text-anchor="middle">F1</text>
-
-          <!-- F2: x=6.5~9, y=0~5.5 -->
-          <rect x="130" y="0" width="50" height="110"
-                fill="rgba(59,130,246,0.25)" stroke="#3b82f6" stroke-width="1.5"/>
-          <text x="155" y="62" fill="#93c5fd" font-size="10" font-weight="700" text-anchor="middle">F2</text>
-
-          <!-- F3: x=9~11.5 → 但此區被東側通道佔用，調整：北牆4位排在x=4~14 -->
-          <!-- 重新按題意：F1(4.5,0)~(7,0) → 中心x=5.75, F2(7,0) → 中心x=8.5 -->
-          <!-- 題意說中心座標，車位2.5m寬×5.5m深 -->
-          <!-- F1 center (5.75,2.75): x=4.5~7, y=0~5.5 -->
-          <!-- F2 center (8.25,2.75): x=7~9.5, y=0~5.5 -->
-          <!-- F3 center (10.75,2.75): x=9.5~12, y=0~5.5 -->
-          <!-- F4 center (13.25,2.75): x=12~14.5, y=0~5.5 -->
-
-          <!-- 重新繪製（先清除上面的 F1/F2 草稿） -->
           <!-- F1: x=4.5~7m => px 90~140, y=0~5.5m => 0~110 -->
           <rect x="90" y="0" width="50" height="110"
                 fill="rgba(59,130,246,0.28)" stroke="#3b82f6" stroke-width="1.5"/>
@@ -545,18 +526,27 @@
                 stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="8,4"/>
           <text x="4" y="216" fill="#f59e0b" font-size="10" font-weight="600">▼ 車道止 (y=11m)</text>
 
-          <!-- ─── 入口箭頭（南側）─── -->
-          <line x1="40" y1="590" x2="40" y2="540"
+          <!-- ─── 入口箭頭（北側，車從民宿旁進入，由上往下）─── -->
+          <line x1="40" y1="-20" x2="40" y2="30"
                 stroke="#f59e0b" stroke-width="2" marker-end="url(#arr)"/>
-          <text x="40" y="608" fill="#f59e0b" font-size="10" font-weight="600" text-anchor="middle">入口</text>
-          <text x="40" y="620" fill="#78716c" font-size="9" text-anchor="middle">4m 車道</text>
+          <text x="40" y="-26" fill="#f59e0b" font-size="10" font-weight="600" text-anchor="middle">入口 ↓</text>
+          <text x="40" y="580" fill="#78716c" font-size="9" text-anchor="middle">4m 車道</text>
 
-          <!-- ─── 通道方向箭頭 ─── -->
-          <line x1="160" y1="260" x2="30" y2="260"
-                stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
-          <line x1="30" y1="260" x2="30" y2="140"
-                stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
-          <text x="95" y="255" fill="#f59e0b" font-size="9" text-anchor="middle">車輛動線</text>
+          <!-- ─── 通道方向箭頭（車道↓ → 右轉北側通道→ → 右轉東側通道↓）─── -->
+          <!-- 1. 車道向南 -->
+          <line x1="40" y1="40" x2="40" y2="150"
+                stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+          <!-- 2. 右轉入北側通道（往東）-->
+          <path d="M40 155 Q40 175 70 175" fill="none"
+                stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <line x1="70" y1="175" x2="200" y2="175"
+                stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+          <!-- 3. 右轉入東側通道（往南）-->
+          <path d="M210 175 Q230 175 230 195" fill="none"
+                stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <line x1="230" y1="195" x2="230" y2="130"
+                stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+          <text x="120" y="168" fill="#22d3ee" font-size="9" text-anchor="middle">車輛動線</text>
 
           <!-- ─── 開放區標籤 ─── -->
           <text x="200" y="340" fill="rgba(254,240,58,0.55)" font-size="22" font-weight="700" text-anchor="middle">開放區</text>
