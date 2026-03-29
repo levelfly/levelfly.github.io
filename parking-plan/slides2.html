@@ -335,8 +335,10 @@ body::after{
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:700px){
   .flex-row{flex-direction:column!important}
+  .flex-row-keep{flex-direction:row!important}  /* 數字區保持水平 */
   .hide-mobile{display:none}
   .mode-card{min-width:auto}
+  .num-mobile{font-size:clamp(2rem,10vw,3.5rem)!important} /* 手機上數字縮小 */
 }
 @media(max-height:500px){
   .slide{padding:12px 16px}
@@ -394,20 +396,20 @@ body::after{
     <span class="corner-tr"></span>
     <span class="corner-bl"></span>
     <p class="reveal t-light" style="font-size:clamp(11px,1.4vw,14px);letter-spacing:.2em;text-transform:uppercase;margin-bottom:clamp(24px,5vh,48px);color:var(--text-dim)">核心指標</p>
-    <div class="flex-row" style="display:flex;justify-content:center;gap:clamp(24px,6vw,80px);align-items:baseline">
+    <div class="flex-row flex-row-keep" style="display:flex;justify-content:center;gap:clamp(24px,6vw,80px);align-items:baseline">
       <div class="reveal reveal-d1" style="text-align:center">
-        <div class="num-glow"><div class="t-brand t-heavy" style="font-size:clamp(4rem,12vw,9rem);color:var(--gold-bright);line-height:1" data-count="7">0</div></div>
+        <div class="num-glow"><div class="t-brand t-heavy num-mobile" style="font-size:clamp(4rem,12vw,9rem);color:var(--gold-bright);line-height:1" data-count="7">0</div></div>
         <div class="t-brand t-light" style="font-size:clamp(10px,1.3vw,14px);letter-spacing:.15em;margin-top:clamp(4px,1vh,12px);color:var(--text-dim)">固定車位</div>
       </div>
       <div class="reveal reveal-d2" style="text-align:center">
-        <div class="num-glow"><div class="t-brand t-heavy" style="font-size:clamp(3.5rem,10vw,8rem);color:var(--gold-bright);line-height:1" data-count="360">0</div></div>
+        <div class="num-glow"><div class="t-brand t-heavy num-mobile" style="font-size:clamp(3.5rem,10vw,8rem);color:var(--gold-bright);line-height:1" data-count="360">0</div></div>
         <div style="display:flex;align-items:baseline;justify-content:center;gap:4px">
           <span class="t-brand t-light" style="font-size:clamp(10px,1.3vw,14px);letter-spacing:.15em;margin-top:clamp(4px,1vh,12px);color:var(--text-dim)">開放空間</span>
           <span class="t-brand t-ghost" style="font-size:clamp(9px,1vw,12px)">m²</span>
         </div>
       </div>
       <div class="reveal reveal-d3" style="text-align:center">
-        <div class="num-glow"><div class="t-brand t-heavy" style="font-size:clamp(4rem,12vw,9rem);color:var(--gold-bright);line-height:1" data-count="17">0</div></div>
+        <div class="num-glow"><div class="t-brand t-heavy num-mobile" style="font-size:clamp(4rem,12vw,9rem);color:var(--gold-bright);line-height:1" data-count="17">0</div></div>
         <div class="t-brand t-light" style="font-size:clamp(10px,1.3vw,14px);letter-spacing:.15em;margin-top:clamp(4px,1vh,12px);color:var(--text-dim)">最大容量</div>
       </div>
     </div>
