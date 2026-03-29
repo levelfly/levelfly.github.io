@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>320 坪多功能場地 — 停車 · 婚宴 · 活動</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   RESET & ROOT
+   ================================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-deep: #0c0b0f;
+  --bg: #12111a;
+  --card: rgba(201,168,76,0.03);
+  --card-border: rgba(201,168,76,0.1);
+  --text: #e8e4dc;
+  --text-muted: #9e9a90;
+  --text-dim: #6b6860;
+  --blue: #c9a84c;
+  --indigo: #e4c76b;
+  --gold: #c9a84c;
+  --green: #5ca8a0;
+  --amber: #c9a84c;
+  --red: #c75c5c;
+  --serif: 'Noto Serif TC', Georgia, serif;
+  --sans: 'Noto Sans TC', system-ui, sans-serif;
+  --section-gap: clamp(80px, 12vw, 160px);
+  --inner-gap: clamp(32px, 5vw, 60px);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+body::before {
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--gold);color:var(--bg)}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.12); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* ================================================================
+   UTILITIES
+   ================================================================ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--text) 20%, var(--gold) 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.section-sub {
+  font-size: clamp(13px, 1.6vw, 16px);
+  color: var(--text-muted);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  max-width: 640px;
+}
+
+.glass-card {
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: clamp(20px, 3vw, 32px);
+}
+
+.divider {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--blue), transparent);
+  margin: 24px 0;
+}
+
+/* Section ambient glow */
+.section-glow {
+  position: relative;
+}
+.section-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 600px;
+  height: 400px;
+  transform: translate(-50%, -30%);
+  background: radial-gradient(ellipse, rgba(96,165,250,0.025) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.section-glow > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Horizontal rule between sections */
+.section-hr {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04) 20%, rgba(255,255,255,0.04) 80%, transparent);
+}
+
+/* ================================================================
+   REVEAL ANIMATION
+   ================================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.15s; }
+.reveal-delay-2 { transition-delay: 0.3s; }
+.reveal-delay-3 { transition-delay: 0.45s; }
+.reveal-delay-4 { transition-delay: 0.6s; }
+
+/* ================================================================
+   SECTION 1: HERO
+   ================================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 60px 24px 80px;
+}
+
+/* Blueprint grid */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(96,165,250,0.03) 0px, rgba(96,165,250,0.03) 1px, transparent 1px, transparent 60px),
+    repeating-linear-gradient(90deg, rgba(96,165,250,0.03) 0px, rgba(96,165,250,0.03) 1px, transparent 1px, transparent 60px);
+  pointer-events: none;
+}
+/* Subtle radial glow */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 800px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(96,165,250,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(36px, 6vw, 72px);
+  letter-spacing: 0.08em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.hero h2 {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--text-muted);
+  letter-spacing: 0.35em;
+  margin-bottom: 0;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: clamp(32px, 6vw, 80px);
+  margin-top: clamp(48px, 8vw, 96px);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat-num {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(56px, 10vw, 120px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-stat-unit {
+  display: block;
+  font-size: clamp(12px, 1.4vw, 14px);
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+/* Scroll indicator */
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.scroll-hint svg {
+  width: 24px;
+  height: 24px;
+  opacity: 0.3;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.15; transform: translateY(0); }
+  50% { opacity: 0.5; transform: translateY(6px); }
+}
+
+/* ================================================================
+   SECTION 2: PLAN C2
+   ================================================================ */
+.plan-section {
+  padding: var(--section-gap) 0;
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: var(--inner-gap);
+}
+
+.plan-header .badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--blue);
+  border: 1px solid rgba(96,165,250,0.25);
+  background: rgba(96,165,250,0.08);
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.plan-spec {
+  font-size: clamp(12px, 1.5vw, 15px);
+  color: var(--text-muted);
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  margin-top: 12px;
+}
+
+/* Mode switcher */
+.mode-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: var(--inner-gap);
+  flex-wrap: wrap;
+}
+
+.mode-btn {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 12px 28px;
+  color: var(--text-muted);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  outline: none;
+}
+.mode-btn:hover {
+  background: rgba(96,165,250,0.08);
+  border-color: rgba(96,165,250,0.2);
+  color: var(--text);
+}
+.mode-btn.active {
+  background: rgba(96,165,250,0.12);
+  border-color: rgba(96,165,250,0.35);
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Plan layout */
+.plan-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .plan-layout {
+    grid-template-columns: 1fr 320px;
+  }
+}
+
+/* SVG map */
+.svg-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+}
+.svg-wrapper svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* SVG draw animation */
+.draw-line {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.draw-line.visible {
+  stroke-dashoffset: 0;
+}
+.draw-fill {
+  opacity: 0;
+  transition: opacity 1s ease 0.6s;
+}
+.draw-fill.visible {
+  opacity: 1;
+}
+
+/* Data cards */
+.data-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+@media (max-width: 899px) {
+  .data-cards {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+.data-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 14px 16px;
+  text-align: center;
+}
+.data-card-value {
+  font-size: 22px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.data-card-label {
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+
+/* ================================================================
+   SECTION 3: COMPARISON
+   ================================================================ */
+.compare-section {
+  padding: var(--section-gap) 0;
+}
+
+.compare-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+@media (min-width: 800px) {
+  .compare-layout {
+    grid-template-columns: 380px 1fr;
+    gap: 40px;
+  }
+}
+
+/* Radar chart */
+.radar-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.radar-wrap svg {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+}
+
+/* Table */
+.compare-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.compare-table th {
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.compare-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  color: var(--text-muted);
+}
+.compare-table tr.recommended td {
+  color: var(--text);
+  font-weight: 500;
+}
+.compare-table tr.recommended {
+  background: rgba(96,165,250,0.05);
+}
+.compare-table .score-bar {
+  display: inline-block;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--blue);
+  vertical-align: middle;
+  margin-left: 8px;
+  opacity: 0.5;
+}
+.compare-table tr.recommended .score-bar {
+  opacity: 1;
+  background: linear-gradient(90deg, var(--blue), var(--indigo));
+}
+
+/* ================================================================
+   SECTION 4: SWEPT PATH
+   ================================================================ */
+.swept-section {
+  padding: var(--section-gap) 0;
+  text-align: center;
+}
+
+.swept-result {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(52,211,153,0.06);
+  border: 1px solid rgba(52,211,153,0.15);
+  border-radius: 16px;
+  padding: 24px 40px;
+  margin: 32px 0;
+}
+.swept-check {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(52,211,153,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.swept-check svg {
+  width: 24px;
+  height: 24px;
+  color: var(--green);
+}
+.swept-result-text h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--green);
+  text-align: left;
+}
+.swept-result-text p {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.swept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  max-width: 700px;
+  margin: 24px auto 0;
+  text-align: left;
+}
+
+.swept-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.swept-card .pass-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(52,211,153,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+  color: var(--green);
+  font-weight: 700;
+}
+.swept-card .car-info {
+  flex: 1;
+}
+.swept-card .car-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+.swept-card .car-detail {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.swept-note {
+  font-size: 12px;
+  color: var(--text-dim);
+  max-width: 500px;
+  margin: 24px auto 0;
+  font-weight: 300;
+}
+
+/* ================================================================
+   SECTION 5: THREE MODES
+   ================================================================ */
+.modes-section {
+  padding: var(--section-gap) 0;
+}
+
+.modes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: var(--inner-gap);
+}
+@media (max-width: 700px) {
+  .modes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mode-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: clamp(24px, 3vw, 36px);
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.mode-card:hover {
+  border-color: rgba(255,255,255,0.12);
+  transform: translateY(-4px);
+}
+
+.mode-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+.mode-card-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.mode-card h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+
+.mode-card-stat {
+  font-size: 32px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  margin: 12px 0 4px;
+  line-height: 1;
+}
+.mode-card-stat-label {
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+}
+
+.mode-card-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+.mode-card-detail {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 12px;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* ================================================================
+   SECTION 6: TECHNICAL
+   ================================================================ */
+.tech-section {
+  padding: var(--section-gap) 0;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: var(--inner-gap);
+}
+@media (max-width: 700px) {
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tech-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.tech-table th {
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.tech-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  color: var(--text-muted);
+}
+.tech-table td:last-child {
+  color: var(--text);
+  font-weight: 500;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.tech-list {
+  list-style: none;
+  padding: 0;
+}
+.tech-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+.tech-list li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.canopy-box {
+  background: rgba(96,165,250,0.04);
+  border: 1px solid rgba(96,165,250,0.1);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-top: 24px;
+}
+.canopy-box h4 {
+  font-size: 13px;
+  color: var(--blue);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+.canopy-box p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+.site-footer {
+  padding: 60px 24px 40px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.footer-date {
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+.footer-links {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: 12px;
+  color: var(--text-dim);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: var(--blue);
+}
+
+/* ================================================================
+   PRINT
+   ================================================================ */
+@media print {
+  body { background: #fff !important; color: #111 !important; }
+  .hero, .compare-section, .swept-section, .modes-section { display: none; }
+  .tech-section { page-break-before: always; }
+  .glass-card, .data-card, .canopy-box {
+    background: #f9fafb !important;
+    border-color: #e5e7eb !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .section-title, .gradient-text {
+    background: none !important;
+    -webkit-text-fill-color: #111 !important;
+    color: #111 !important;
+  }
+  .tech-table td, .tech-table th, .tech-list li {
+    color: #333 !important;
+    border-color: #e5e7eb !important;
+  }
+  .canopy-box { background: #eff6ff !important; border-color: #bfdbfe !important; }
+  .canopy-box h4 { color: #2563eb !important; -webkit-text-fill-color: #2563eb !important; }
+  .site-footer { display: none; }
+  .plan-section { padding-top: 0; }
+  .scroll-hint { display: none; }
+}
+
+/* ================================================================
+   SMALL RESPONSIVE TWEAKS
+   ================================================================ */
+@media (max-width: 600px) {
+  .hero-stats { gap: 24px; }
+  .swept-result { flex-direction: column; text-align: center; padding: 20px 24px; }
+  .swept-result-text h3, .swept-result-text p { text-align: center; }
+  .mode-switcher { gap: 6px; }
+  .mode-btn { padding: 10px 18px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================================================================
+     SECTION 1: HERO
+     ================================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <p class="hero-label reveal">PARKING &middot; WEDDING &middot; EVENT</p>
+    <h1 class="reveal reveal-delay-1">
+      <span class="gradient-text">320 坪多功能場地</span>
+    </h1>
+    <h2 class="reveal reveal-delay-2">停車 &middot; 婚宴 &middot; 活動</h2>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat reveal reveal-delay-1">
+      <div class="hero-stat-num gradient-text" data-count="7">0</div>
+      <span class="hero-stat-unit">固定車位</span>
+    </div>
+    <div class="hero-stat reveal reveal-delay-2">
+      <div class="hero-stat-num gradient-text" data-count="360" data-suffix="m2">0</div>
+      <span class="hero-stat-unit">開放空間</span>
+    </div>
+    <div class="hero-stat reveal reveal-delay-3">
+      <div class="hero-stat-num gradient-text" data-count="17">0</div>
+      <span class="hero-stat-unit">最大容量</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 5v14M5 12l7 7 7-7" stroke="var(--text-muted)"/>
+    </svg>
+  </div>
+</section>
+
+<div class="section-hr"></div>
+
+<!-- ================================================================
+     SECTION 2: PLAN C2
+     ================================================================ -->
+<section class="plan-section section-glow" id="plan">
+  <div class="container">
+    <div class="plan-header reveal">
+      <div class="badge">Recommended</div>
+      <h2 class="section-title gradient-text">方案 C2 — 修正 L 型</h2>
+      <p class="plan-spec">北牆 4 位 + 東牆 3 位 = 7 固定 &emsp;|&emsp; L 型雨遮 7.5m &emsp;|&emsp; 開放區 360m&#178;</p>
+    </div>
+
+    <div class="mode-switcher reveal">
+      <button class="mode-btn active" data-mode="daily" onclick="switchMode('daily', this)">日常</button>
+      <button class="mode-btn" data-mode="wedding" onclick="switchMode('wedding', this)">婚宴</button>
+      <button class="mode-btn" data-mode="full" onclick="switchMode('full', this)">滿載</button>
+    </div>
+
+    <div class="plan-layout">
+      <div class="glass-card svg-wrapper reveal" id="svg-card">
+        <svg id="mainSvg" viewBox="0 0 480 640" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="data-cards" id="dataCards">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-hr"></div>
+
+<!-- ================================================================
+     SECTION 3: COMPARISON
+     ================================================================ -->
+<section class="compare-section section-glow" id="compare">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom: var(--inner-gap);">
+      <h2 class="section-title gradient-text">七方案 &middot; 一目了然</h2>
+      <p class="section-sub" style="margin: 12px auto 0;">五維雷達圖評估，每個方案的取捨清晰可見</p>
+    </div>
+
+    <div class="compare-layout">
+      <div class="radar-wrap reveal" id="radarWrap">
+        <svg id="radarSvg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="compare-table-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>方案</th>
+                <th>固定位</th>
+                <th>開放面積</th>
+                <th>雨遮</th>
+                <th>評分</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="recommended">
+                <td><strong>C2 推薦</strong></td>
+                <td><strong>7</strong></td>
+                <td><strong>360m&#178;</strong></td>
+                <td><strong>L 型 7.5m</strong></td>
+                <td><strong>84.5</strong><span class="score-bar" style="width:72px"></span></td>
+              </tr>
+              <tr>
+                <td>A 備選</td>
+                <td>6+1</td>
+                <td>360m&#178;</td>
+                <td>5.5m</td>
+                <td>89.5<span class="score-bar" style="width:76px"></span></td>
+              </tr>
+              <tr>
+                <td>D 備選</td>
+                <td>7</td>
+                <td>346m&#178;</td>
+                <td>L 型 6.8m</td>
+                <td>82.1<span class="score-bar" style="width:70px"></span></td>
+              </tr>
+              <tr>
+                <td>G</td>
+                <td>6</td>
+                <td>320m&#178;</td>
+                <td>7.5m</td>
+                <td>75.0<span class="score-bar" style="width:64px"></span></td>
+              </tr>
+              <tr>
+                <td>F</td>
+                <td>7</td>
+                <td>225m&#178;</td>
+                <td>差</td>
+                <td>45.0<span class="score-bar" style="width:38px"></span></td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td>7</td>
+                <td>160m&#178;</td>
+                <td>16m</td>
+                <td>36.0<span class="score-bar" style="width:30px"></span></td>
+              </tr>
+              <tr>
+                <td>E</td>
+                <td>7</td>
+                <td>280m&#178;</td>
+                <td>23.5m</td>
+                <td>50.5<span class="score-bar" style="width:43px"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-hr"></div>
+
+<!-- ================================================================
+     SECTION 4: SWEPT PATH
+     ================================================================ -->
+<section class="swept-section" id="swept">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="section-title gradient-text">每一台車都轉得進去</h2>
+      <p class="section-sub" style="margin:12px auto 0;">四種車型迴轉模擬，全部通過</p>
+    </div>
+
+    <div class="swept-result reveal reveal-delay-1">
+      <div class="swept-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <div class="swept-result-text">
+        <h3>全部 4 車型通過</h3>
+        <p>最小餘裕 0.59m -- 安全無虞</p>
+      </div>
+    </div>
+
+    <div class="swept-grid reveal reveal-delay-2">
+      <div class="swept-card">
+        <div class="pass-icon">P</div>
+        <div class="car-info">
+          <div class="car-name">Toyota Altis</div>
+          <div class="car-detail">4630 x 1780mm / 餘裕 0.90m</div>
+        </div>
+      </div>
+      <div class="swept-card">
+        <div class="pass-icon">P</div>
+        <div class="car-info">
+          <div class="car-name">Lexus RX 350</div>
+          <div class="car-detail">4890 x 1920mm / 餘裕 0.59m</div>
+        </div>
+      </div>
+      <div class="swept-card">
+        <div class="pass-icon">P</div>
+        <div class="car-info">
+          <div class="car-name">Toyota Alphard</div>
+          <div class="car-detail">4995 x 1850mm / 餘裕 0.68m</div>
+        </div>
+      </div>
+      <div class="swept-card">
+        <div class="pass-icon">P</div>
+        <div class="car-info">
+          <div class="car-name">Toyota HiAce</div>
+          <div class="car-detail">5380 x 1880mm / 餘裕 0.62m</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="swept-note reveal reveal-delay-3">
+      模擬方法：幾何掃掠路徑分析（Swept Path），以最大轉向角計算車身外擺與後內輪軌跡，
+      確認所有車型在 5.5m 通道寬度下可安全完成 90 度轉向入位。
+    </p>
+  </div>
+</section>
+
+<div class="section-hr"></div>
+
+<!-- ================================================================
+     SECTION 5: THREE MODES
+     ================================================================ -->
+<section class="modes-section section-glow" id="modes">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <h2 class="section-title gradient-text">一個空間 &middot; 三種面貌</h2>
+      <p class="section-sub" style="margin:12px auto 0;">從日常停車到百人婚宴，同一場地的三種運作模式</p>
+    </div>
+
+    <div class="modes-grid">
+      <div class="mode-card reveal reveal-delay-1">
+        <div class="mode-card-icon" style="background: rgba(96,165,250,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="7" rx="2"/>
+            <path d="M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/>
+            <circle cx="7.5" cy="15.5" r="1.5"/><circle cx="16.5" cy="15.5" r="1.5"/>
+          </svg>
+        </div>
+        <h3>日常停車</h3>
+        <div class="mode-card-stat gradient-text">7</div>
+        <div class="mode-card-stat-label">固定車位</div>
+        <div class="divider" style="margin:16px auto;"></div>
+        <div class="mode-card-desc">
+          7 輛車安穩停放於 L 型雨遮下<br>
+          南側 360m&#178; 完全開放
+        </div>
+        <div class="mode-card-detail">庭院、休閒、日常生活</div>
+      </div>
+
+      <div class="mode-card reveal reveal-delay-2">
+        <div class="mode-card-icon" style="background: rgba(251,191,36,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18"/>
+            <path d="M4 21V10l8-7 8 7v11"/>
+            <path d="M9 21v-6h6v6"/>
+            <path d="M12 3l-1-1M12 3l1-1"/>
+          </svg>
+        </div>
+        <h3>婚宴活動</h3>
+        <div class="mode-card-stat" style="color:var(--gold);">120</div>
+        <div class="mode-card-stat-label">賓客席位</div>
+        <div class="divider" style="margin:16px auto; background:linear-gradient(90deg, var(--gold), transparent);"></div>
+        <div class="mode-card-desc">
+          18 x 14m 帳篷搭設<br>
+          12 桌圓桌宴席 + 舞台
+        </div>
+        <div class="mode-card-detail">白色帳篷、星光、一生一次</div>
+      </div>
+
+      <div class="mode-card reveal reveal-delay-3">
+        <div class="mode-card-icon" style="background: rgba(245,158,11,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="11" width="22" height="7" rx="2"/>
+            <path d="M3 11V8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3"/>
+            <circle cx="6" cy="15" r="1.5"/><circle cx="18" cy="15" r="1.5"/>
+            <path d="M8 8V5M16 8V5"/>
+          </svg>
+        </div>
+        <h3>滿載停車</h3>
+        <div class="mode-card-stat" style="color:var(--amber);">17</div>
+        <div class="mode-card-stat-label">最大車輛數</div>
+        <div class="divider" style="margin:16px auto; background:linear-gradient(90deg, var(--amber), transparent);"></div>
+        <div class="mode-card-desc">
+          7 固定 + 10 溢出車位<br>
+          三角錐引導 U 型動線
+        </div>
+        <div class="mode-card-detail">團體活動、大型聚會</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-hr"></div>
+
+<!-- ================================================================
+     SECTION 6: TECHNICAL
+     ================================================================ -->
+<section class="tech-section" id="tech">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom: var(--inner-gap);">
+      <h2 class="section-title gradient-text">施工交接</h2>
+      <p class="section-sub" style="margin:12px auto 0;">關鍵尺寸與施工建議一覽</p>
+    </div>
+
+    <div class="tech-grid">
+      <div class="glass-card reveal">
+        <h3 style="font-size:13px; color:var(--blue); letter-spacing:0.08em; margin-bottom:16px; font-weight:500;">關鍵尺寸</h3>
+        <table class="tech-table">
+          <thead>
+            <tr><th>項目</th><th>數值</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>基地總面積</td><td>20m x 29m = 580m&#178;</td></tr>
+            <tr><td>車位尺寸（北牆）</td><td>2.5m x 5.5m</td></tr>
+            <tr><td>車位尺寸（東牆）</td><td>5.5m x 2.5m</td></tr>
+            <tr><td>車道寬度</td><td>4.0m</td></tr>
+            <tr><td>北側通道</td><td>5.5m（10.5m 長）</td></tr>
+            <tr><td>東側通道</td><td>5.5m（7.5m 長）</td></tr>
+            <tr><td>雨遮覆蓋（L 型）</td><td>15.5m + 7.5m</td></tr>
+            <tr><td>開放區</td><td>20m x 18m = 360m&#178;</td></tr>
+            <tr><td>最大帳篷</td><td>18m x 14m = 252m&#178;</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="glass-card reveal reveal-delay-1">
+        <h3 style="font-size:13px; color:var(--blue); letter-spacing:0.08em; margin-bottom:16px; font-weight:500;">施工建議</h3>
+        <ul class="tech-list">
+          <li>地面：RC 硬化 15cm，車位區加厚至 20cm，表面刷環氧樹脂止滑漆</li>
+          <li>雨遮：H 型鋼骨架 + 鋁合金浪板，L 型轉角以鋼梁補強</li>
+          <li>排水：雨遮內側設 U 型溝，南引至基地排水溝</li>
+          <li>電力：北牆預留 220V/30A 迴路（電動車充電預備）</li>
+          <li>照明：每車位上方 LED 投射燈，開放區預留吊燈電源點</li>
+          <li>標示：車位編號 F1-F7 地面噴漆 + 反光標誌，溢出區地面畫虛線</li>
+          <li>防撞：北牆車位前緣設橡膠擋輪器，東牆車位側緣設反光柱</li>
+        </ul>
+
+        <div class="canopy-box">
+          <h4>雨遮材質建議</h4>
+          <p>
+            主結構：H150 型鋼，間距 3m，L 型轉角以斜撐加固<br>
+            屋頂：0.5mm 鋁鋅浪板（隔熱型），坡度 3%<br>
+            預估工期：14-18 工作天<br>
+            概算：NT$ 280,000 - 350,000（含基礎）
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="site-footer">
+  <div class="footer-date">方案設計 2026-03-29</div>
+  <div class="footer-links">
+    <a href="index.html">方案總覽</a>
+    <a href="plan_c2.html">C2 詳細圖</a>
+    <a href="report.html">完整報告</a>
+  </div>
+</footer>
+
+<!-- ================================================================
+     JAVASCRIPT
+     ================================================================ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ── IntersectionObserver: reveal ── */
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        /* Trigger SVG draw animations for children */
+        e.target.querySelectorAll('.draw-line, .draw-fill').forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    obs.observe(el);
+  });
+
+  /* ── Count-up animation ── */
+  var countObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      if (el.dataset.counted) return;
+      el.dataset.counted = '1';
+      var target = parseInt(el.dataset.count, 10);
+      var suffix = el.dataset.suffix || '';
+      var displaySuffix = suffix === 'm2' ? 'm\u00B2' : suffix;
+      var duration = 1200;
+      var start = performance.now();
+
+      function step(now) {
+        var progress = Math.min((now - start) / duration, 1);
+        /* ease-out cubic */
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = Math.round(eased * target);
+        el.textContent = current + displaySuffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('[data-count]').forEach(function(el) {
+    countObs.observe(el);
+  });
+
+  /* ================================================================
+     SVG CONFIG MAP
+     ================================================================ */
+  var NS = 'http://www.w3.org/2000/svg';
+  var SCALE = 20; /* px per meter */
+  var PAD = 30;
+  var W = 20, H = 29;
+  var mainSvg = document.getElementById('mainSvg');
+  var currentMode = 'daily';
+
+  function px(m) { return PAD + m * SCALE; }
+  function sz(m) { return m * SCALE; }
+
+  function svgEl(tag, attrs, parent) {
+    var el = document.createElementNS(NS, tag);
+    for (var k in attrs) el.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(el);
+    return el;
+  }
+
+  function svgText(parent, x, y, text, size, color, anchor, weight) {
+    var el = svgEl('text', {
+      x: x, y: y,
+      'text-anchor': anchor || 'middle',
+      'font-size': size || 9,
+      'fill': color || '#94a3b8',
+      'font-weight': weight || '400',
+      'font-family': 'Noto Sans TC, sans-serif'
+    }, parent);
+    el.textContent = text;
+    return el;
+  }
+
+  /* Dimension line with arrows */
+  function dimLine(parent, x1, y1, x2, y2, label, offset) {
+    var g = svgEl('g', {class: 'draw-fill'}, parent);
+    var dx = x2 - x1, dy = y2 - y1;
+    var len = Math.sqrt(dx*dx + dy*dy);
+    var nx = -dy/len * (offset||0), ny = dx/len * (offset||0);
+    var ax1 = x1+nx, ay1 = y1+ny, ax2 = x2+nx, ay2 = y2+ny;
+
+    /* Tick marks */
+    svgEl('line', { x1: x1, y1: y1, x2: ax1, y2: ay1, stroke: '#475569', 'stroke-width': '0.5' }, g);
+    svgEl('line', { x1: x2, y1: y2, x2: ax2, y2: ay2, stroke: '#475569', 'stroke-width': '0.5' }, g);
+    /* Main line */
+    svgEl('line', { x1: ax1, y1: ay1, x2: ax2, y2: ay2, stroke: '#475569', 'stroke-width': '0.6', 'stroke-dasharray': '2,1' }, g);
+    /* Label */
+    svgText(g, (ax1+ax2)/2, (ay1+ay2)/2 - 3, label, 7, '#64748b');
+  }
+
+  /* ── Draw static base ── */
+  function drawBase() {
+    mainSvg.innerHTML = '';
+    var total = svgEl('g', {}, mainSvg);
+
+    /* Ground */
+    svgEl('rect', {
+      x: px(0), y: px(0), width: sz(W), height: sz(H),
+      fill: '#0d1525', rx: '3',
+      stroke: '#1e2d45', 'stroke-width': '1',
+      class: 'draw-line'
+    }, total);
+
+    /* Building wall (north) */
+    svgEl('line', {
+      x1: px(4), y1: px(0), x2: px(W), y2: px(0),
+      stroke: '#94a3b8', 'stroke-width': '3',
+      class: 'draw-line'
+    }, total);
+    svgText(total, px(12), px(0) - 6, 'BUILDING (NORTH WALL)', 6, '#475569', 'middle', '400');
+
+    /* Driveway */
+    svgEl('rect', {
+      x: px(0), y: px(0), width: sz(4), height: sz(11),
+      fill: '#92400e', 'fill-opacity': '0.12',
+      class: 'draw-fill'
+    }, total);
+    svgEl('rect', {
+      x: px(0), y: px(0), width: sz(4), height: sz(11),
+      fill: 'none', stroke: '#d97706', 'stroke-width': '0.5', 'stroke-opacity': '0.3',
+      class: 'draw-line'
+    }, total);
+    svgText(total, px(2), px(5.5), '4m', 7, '#92400e');
+    svgText(total, px(2), px(5.5) + 10, 'DRIVE', 5, '#92400e66');
+
+    /* North aisle */
+    svgEl('rect', {
+      x: px(4), y: px(5.5), width: sz(10.5), height: sz(5.5),
+      fill: '#1e293b', 'fill-opacity': '0.2',
+      class: 'draw-fill'
+    }, total);
+    svgText(total, px(9.25), px(8.25), '5.5m AISLE', 6, '#47556988');
+
+    /* East aisle */
+    svgEl('rect', {
+      x: px(9), y: px(0), width: sz(5.5), height: sz(7.5),
+      fill: '#1e293b', 'fill-opacity': '0.12',
+      class: 'draw-fill'
+    }, total);
+    svgText(total, px(11.75), px(3.8), '5.5m', 6, '#47556966');
+
+    /* Zone divider line */
+    svgEl('line', {
+      x1: px(0), y1: px(11), x2: px(W), y2: px(11),
+      stroke: '#334155', 'stroke-width': '0.8', 'stroke-dasharray': '4,3',
+      class: 'draw-line'
+    }, total);
+
+    /* Dimension lines */
+    dimLine(total, px(0), px(H) + 14, px(W), px(H) + 14, '20m', 0);
+    dimLine(total, px(W) + 14, px(0), px(W) + 14, px(H), '29m', 0);
+    dimLine(total, px(4), px(5.5) + sz(5.5) + 8, px(14.5), px(5.5) + sz(5.5) + 8, '10.5m', 0);
+    dimLine(total, px(14.5) + sz(5.5) + 8, px(0), px(14.5) + sz(5.5) + 8, px(7.5), '7.5m', 0);
+
+    return total;
+  }
+
+  /* ── Draw parking spot ── */
+  function drawSpot(parent, x, y, w, h, label, color, opacity) {
+    var g = svgEl('g', { opacity: opacity || 1, class: 'draw-fill' }, parent);
+    svgEl('rect', {
+      x: px(x) + 1, y: px(y) + 1,
+      width: sz(w) - 2, height: sz(h) - 2,
+      fill: 'none', stroke: color, 'stroke-width': '1', 'stroke-opacity': '0.5',
+      rx: '2'
+    }, g);
+    if (label) svgText(g, px(x + w/2), px(y + h/2) + 3, label, 7, color);
+    return g;
+  }
+
+  /* ── Draw car (vertical) ── */
+  function drawCarV(parent, x, y, w, h, color, opacity) {
+    var g = svgEl('g', { opacity: opacity || 1, class: 'draw-fill' }, parent);
+    var p = 3;
+    svgEl('rect', {
+      x: px(x) + p, y: px(y) + p,
+      width: sz(w) - p*2, height: sz(h) - p*2,
+      rx: '4', fill: color, 'fill-opacity': '0.7'
+    }, g);
+    svgEl('rect', {
+      x: px(x) + p + 2, y: px(y) + p + 2,
+      width: (sz(w) - p*2) * 0.25, height: sz(h) - p*2 - 4,
+      rx: '2', fill: 'rgba(180,220,255,0.15)'
+    }, g);
+    return g;
+  }
+
+  /* ── Draw car (horizontal) ── */
+  function drawCarH(parent, x, y, w, h, color, opacity) {
+    var g = svgEl('g', { opacity: opacity || 1, class: 'draw-fill' }, parent);
+    var p = 3;
+    var cw = sz(w) - p*2;
+    svgEl('rect', {
+      x: px(x) + p, y: px(y) + p,
+      width: cw, height: sz(h) - p*2,
+      rx: '4', fill: color, 'fill-opacity': '0.7'
+    }, g);
+    svgEl('rect', {
+      x: px(x) + p + cw * 0.72, y: px(y) + p + 2,
+      width: cw * 0.2, height: sz(h) - p*2 - 4,
+      rx: '2', fill: 'rgba(180,220,255,0.15)'
+    }, g);
+    return g;
+  }
+
+  /* ── L-shape canopy ── */
+  function drawCanopy(parent) {
+    var g = svgEl('g', { class: 'draw-fill' }, parent);
+    /* North strip */
+    svgEl('rect', {
+      x: px(4.5), y: px(0), width: sz(10), height: sz(5.5),
+      fill: '#3b82f6', 'fill-opacity': '0.05',
+      stroke: '#3b82f6', 'stroke-width': '0.6', 'stroke-dasharray': '3,2', 'stroke-opacity': '0.2',
+      rx: '2'
+    }, g);
+    /* East strip */
+    svgEl('rect', {
+      x: px(14.5), y: px(0), width: sz(5.5), height: sz(7.5),
+      fill: '#3b82f6', 'fill-opacity': '0.05',
+      stroke: '#3b82f6', 'stroke-width': '0.6', 'stroke-dasharray': '3,2', 'stroke-opacity': '0.2',
+      rx: '2'
+    }, g);
+    svgText(g, px(9.5), px(5.5) - 4, 'L CANOPY 7.5m', 5, '#3b82f644');
+    return g;
+  }
+
+  /* ── Open area ── */
+  function drawOpenArea(parent, x, y, w, h, label) {
+    var g = svgEl('g', { class: 'draw-fill' }, parent);
+    svgEl('rect', {
+      x: px(x), y: px(y), width: sz(w), height: sz(h),
+      fill: '#fef08a', 'fill-opacity': '0.03', rx: '3'
+    }, g);
+    svgEl('rect', {
+      x: px(x), y: px(y), width: sz(w), height: sz(h),
+      fill: 'none', stroke: '#fbbf24', 'stroke-width': '0.8', 'stroke-dasharray': '5,3', 'stroke-opacity': '0.12', rx: '3'
+    }, g);
+    svgText(g, px(x + w/2), px(y + h/2) - 4, label || '360m\u00B2 OPEN SPACE', 8, '#fbbf2466', 'middle', '500');
+    svgText(g, px(x + w/2), px(y + h/2) + 8, w + 'm x ' + h + 'm', 6, '#fbbf2433');
+    return g;
+  }
+
+  /* Car colors */
+  var CC = ['#3b82f6','#2563eb','#1d4ed8','#60a5fa','#6366f1','#4f46e5','#7c3aed'];
+  var OC = ['#94a3b8','#78716c','#64748b','#6b7280','#9ca3af','#71717a','#a1a1aa','#d6d3d1','#a8a29e','#78716c'];
+
+  /* Spot definitions */
+  var northSpots = [
+    {x:4.5, y:0, w:2.5, h:5.5, l:'F1'},
+    {x:7,   y:0, w:2.5, h:5.5, l:'F2'},
+    {x:9.5, y:0, w:2.5, h:5.5, l:'F3'},
+    {x:12,  y:0, w:2.5, h:5.5, l:'F4'}
+  ];
+  var eastSpots = [
+    {x:14.5, y:0,   w:5.5, h:2.5, l:'F5'},
+    {x:14.5, y:2.5, w:5.5, h:2.5, l:'F6'},
+    {x:14.5, y:5,   w:5.5, h:2.5, l:'F7'}
+  ];
+
+  /* ── Mode: Daily ── */
+  function drawDaily(base) {
+    drawCanopy(base);
+    northSpots.forEach(function(s, i) {
+      drawSpot(base, s.x, s.y, s.w, s.h, s.l, '#3b82f6');
+      drawCarV(base, s.x, s.y, s.w, s.h, CC[i]);
+    });
+    eastSpots.forEach(function(s, i) {
+      drawSpot(base, s.x, s.y, s.w, s.h, s.l, '#6366f1');
+      drawCarH(base, s.x, s.y, s.w, s.h, CC[4+i]);
+    });
+    drawOpenArea(base, 0, 11, 20, 18);
+  }
+
+  /* ── Mode: Wedding ── */
+  function drawWedding(base) {
+    drawCanopy(base);
+    northSpots.forEach(function(s, i) {
+      drawCarV(base, s.x, s.y, s.w, s.h, CC[i], 0.2);
+    });
+    eastSpots.forEach(function(s, i) {
+      drawCarH(base, s.x, s.y, s.w, s.h, CC[4+i], 0.2);
+    });
+
+    /* Tent */
+    var g = svgEl('g', { class: 'draw-fill' }, base);
+    svgEl('rect', {
+      x: px(1), y: px(12), width: sz(18), height: sz(14),
+      fill: '#fbbf24', 'fill-opacity': '0.04', rx: '4',
+      stroke: '#fbbf24', 'stroke-width': '1', 'stroke-dasharray': '5,3', 'stroke-opacity': '0.25'
+    }, g);
+    svgText(g, px(10), px(13.5), 'TENT 18m x 14m', 8, '#fbbf2466', 'middle', '500');
+    svgText(g, px(10), px(15), '12 Tables / 120 Guests', 6, '#fbbf2444');
+
+    /* Round tables */
+    var tablePositions = [
+      [3.5,17],[6.5,17],[9.5,17],[12.5,17],[15.5,17],
+      [3.5,20],[6.5,20],[9.5,20],[12.5,20],[15.5,20],
+      [6.5,23],[12.5,23]
+    ];
+    tablePositions.forEach(function(p) {
+      svgEl('circle', {
+        cx: px(p[0]), cy: px(p[1]), r: 6,
+        fill: 'none', stroke: '#fbbf24', 'stroke-width': '0.5', 'stroke-opacity': '0.3'
+      }, g);
+    });
+
+    /* Stage */
+    svgEl('rect', {
+      x: px(6), y: px(24.5), width: sz(8), height: sz(1.2),
+      fill: '#a855f7', 'fill-opacity': '0.08', rx: '2',
+      stroke: '#a855f7', 'stroke-width': '0.5', 'stroke-opacity': '0.3'
+    }, g);
+    svgText(g, px(10), px(25.2), 'STAGE', 5, '#a855f744');
+  }
+
+  /* ── Mode: Full ── */
+  function drawFull(base) {
+    drawCanopy(base);
+    northSpots.forEach(function(s, i) {
+      drawSpot(base, s.x, s.y, s.w, s.h, s.l, '#3b82f6');
+      drawCarV(base, s.x, s.y, s.w, s.h, CC[i]);
+    });
+    eastSpots.forEach(function(s, i) {
+      drawSpot(base, s.x, s.y, s.w, s.h, s.l, '#6366f1');
+      drawCarH(base, s.x, s.y, s.w, s.h, CC[4+i]);
+    });
+
+    /* Overflow aisle */
+    svgEl('rect', {
+      x: px(5.5), y: px(12), width: sz(9), height: sz(15),
+      fill: '#1e293b', 'fill-opacity': '0.15',
+      class: 'draw-fill'
+    }, base);
+    svgText(base, px(10), px(19.5), 'U-DRIVE', 6, '#47556955');
+
+    /* Overflow spots */
+    for (var r = 0; r < 2; r++) {
+      for (var i = 0; i < 5; i++) {
+        var ox = r === 0 ? 0 : 14.5;
+        var oy = 13 + i * 2.75;
+        drawSpot(base, ox, oy, 5.5, 2.5, 'O' + (r*5+i+1), '#f59e0b', 0.5);
+        drawCarH(base, ox, oy, 5.5, 2.5, OC[r*5+i], 0.4);
+      }
+    }
+
+    /* U-turn arrow */
+    var arrowG = svgEl('g', { class: 'draw-fill' }, base);
+    svgEl('path', {
+      d: 'M' + px(3) + ',' + px(13) + ' L' + px(3) + ',' + px(26) + ' L' + px(17) + ',' + px(26) + ' L' + px(17) + ',' + px(13),
+      fill: 'none', stroke: '#f59e0b', 'stroke-width': '0.8', 'stroke-dasharray': '4,3', 'stroke-opacity': '0.3',
+      'marker-end': 'url(#arrowOrange)'
+    }, arrowG);
+
+    /* Arrow marker */
+    var defs = svgEl('defs', {}, mainSvg);
+    var marker = svgEl('marker', {
+      id: 'arrowOrange', viewBox: '0 0 10 10', refX: '5', refY: '5',
+      markerWidth: '6', markerHeight: '6', orient: 'auto-start-reverse'
+    }, defs);
+    svgEl('path', { d: 'M 0 0 L 10 5 L 0 10 z', fill: '#f59e0b', 'fill-opacity': '0.4' }, marker);
+  }
+
+  /* ── Mode switching ── */
+  function renderMode(mode) {
+    var base = drawBase();
+    if (mode === 'daily') drawDaily(base);
+    else if (mode === 'wedding') drawWedding(base);
+    else drawFull(base);
+
+    /* Trigger animations for newly created elements */
+    setTimeout(function() {
+      mainSvg.querySelectorAll('.draw-line, .draw-fill').forEach(function(el) {
+        el.classList.add('visible');
+      });
+    }, 50);
+  }
+
+  /* Data cards per mode */
+  var modeData = {
+    daily: [
+      {v: '7', l: '固定車位', c: 'var(--blue)'},
+      {v: '360m\u00B2', l: '開放空間', c: 'var(--gold)'},
+      {v: '7.5m', l: 'L 型雨遮', c: 'var(--indigo)'},
+      {v: '109 坪', l: '開放面積', c: 'var(--text-muted)'},
+      {v: '5.5m', l: '通道寬度', c: 'var(--text-muted)'},
+      {v: '20x18m', l: '開放區尺寸', c: 'var(--text-muted)'}
+    ],
+    wedding: [
+      {v: '120', l: '賓客席位', c: 'var(--gold)'},
+      {v: '12 桌', l: '圓桌宴席', c: 'var(--gold)'},
+      {v: '252m\u00B2', l: '帳篷面積', c: 'var(--gold)'},
+      {v: '18x14m', l: '帳篷尺寸', c: 'var(--text-muted)'},
+      {v: '7', l: '車位不動', c: 'var(--blue)'},
+      {v: '1', l: '舞台', c: 'var(--indigo)'}
+    ],
+    full: [
+      {v: '17', l: '最大車輛', c: 'var(--amber)'},
+      {v: '7+10', l: '固定 + 溢出', c: 'var(--amber)'},
+      {v: '0', l: '開放面積', c: 'var(--text-dim)'},
+      {v: '5.5m', l: '通道寬度', c: 'var(--text-muted)'},
+      {v: 'U 型', l: '動線模式', c: 'var(--amber)'},
+      {v: '100%', l: '場地利用率', c: 'var(--text-muted)'}
+    ]
+  };
+
+  function updateDataCards(mode) {
+    var container = document.getElementById('dataCards');
+    container.innerHTML = '';
+    var items = modeData[mode] || modeData.daily;
+    items.forEach(function(d) {
+      var card = document.createElement('div');
+      card.className = 'data-card';
+      card.innerHTML = '<div class="data-card-value" style="color:' + d.c + '">' + d.v + '</div>' +
+                       '<div class="data-card-label">' + d.l + '</div>';
+      container.appendChild(card);
+    });
+  }
+
+  window.switchMode = function(mode, btn) {
+    document.querySelectorAll('.mode-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    currentMode = mode;
+    renderMode(mode);
+    updateDataCards(mode);
+  };
+
+  /* Initial render */
+  renderMode('daily');
+  updateDataCards('daily');
+
+  /* ================================================================
+     RADAR CHART
+     ================================================================ */
+  var radarSvg = document.getElementById('radarSvg');
+  var CX = 200, CY = 200, R = 140;
+  var axes = ['雨遮效率', '開放面積', '溢出容量', '動線品質', '雙用彈性'];
+  var plans = {
+    C2: { d: [1.00, 0.90, 0.75, 0.87, 0.93], color: '#60a5fa', fill: 0.15, stroke: 2, dash: '' },
+    A:  { d: [1.00, 0.90, 0.75, 0.87, 0.93], color: '#818cf8', fill: 0, stroke: 1, dash: '4,3' },
+    D:  { d: [0.88, 0.86, 0.83, 0.93, 0.53], color: '#a78bfa', fill: 0, stroke: 1, dash: '4,3' },
+    G:  { d: [0.80, 0.80, 0.60, 0.87, 0.67], color: '#475569', fill: 0, stroke: 0.6, dash: '3,3' },
+    F:  { d: [0.20, 0.56, 0.30, 0.67, 0.67], color: '#334155', fill: 0, stroke: 0.5, dash: '2,2' },
+    B:  { d: [0.16, 0.40, 0.30, 0.67, 0.40], color: '#334155', fill: 0, stroke: 0.5, dash: '2,2' },
+    E:  { d: [0.00, 0.70, 0.60, 0.60, 0.80], color: '#334155', fill: 0, stroke: 0.5, dash: '2,2' }
+  };
+
+  function radarPoint(idx, val) {
+    var angle = (Math.PI * 2 / 5) * idx - Math.PI / 2;
+    return {
+      x: CX + R * val * Math.cos(angle),
+      y: CY + R * val * Math.sin(angle)
+    };
+  }
+
+  function drawRadar() {
+    radarSvg.innerHTML = '';
+
+    /* Grid rings */
+    [0.2, 0.4, 0.6, 0.8, 1.0].forEach(function(level) {
+      var pts = [];
+      for (var i = 0; i < 5; i++) {
+        var p = radarPoint(i, level);
+        pts.push(p.x + ',' + p.y);
+      }
+      svgEl('polygon', {
+        points: pts.join(' '),
+        fill: 'none',
+        stroke: 'rgba(255,255,255,0.04)',
+        'stroke-width': '0.8'
+      }, radarSvg);
+    });
+
+    /* Axis lines */
+    for (var i = 0; i < 5; i++) {
+      var p = radarPoint(i, 1);
+      svgEl('line', {
+        x1: CX, y1: CY, x2: p.x, y2: p.y,
+        stroke: 'rgba(255,255,255,0.06)',
+        'stroke-width': '0.5'
+      }, radarSvg);
+
+      /* Labels */
+      var lp = radarPoint(i, 1.18);
+      svgText(radarSvg, lp.x, lp.y + 3, axes[i], 9, '#64748b', 'middle', '400');
+    }
+
+    /* Plan polygons (back to front, dim first) */
+    var order = ['B','F','E','G','D','A','C2'];
+    order.forEach(function(name) {
+      var plan = plans[name];
+      var pts = [];
+      for (var i = 0; i < 5; i++) {
+        var p = radarPoint(i, plan.d[i]);
+        pts.push(p.x + ',' + p.y);
+      }
+      if (plan.fill > 0) {
+        svgEl('polygon', {
+          points: pts.join(' '),
+          fill: plan.color,
+          'fill-opacity': plan.fill,
+          stroke: 'none',
+          class: 'radar-shape'
+        }, radarSvg);
+      }
+      svgEl('polygon', {
+        points: pts.join(' '),
+        fill: 'none',
+        stroke: plan.color,
+        'stroke-width': plan.stroke,
+        'stroke-dasharray': plan.dash,
+        'stroke-opacity': name === 'C2' ? 1 : 0.6,
+        class: 'radar-shape'
+      }, radarSvg);
+    });
+
+    /* Legend */
+    var legendItems = [
+      {name: 'C2 推薦', color: '#60a5fa', dash: ''},
+      {name: 'A / D', color: '#818cf8', dash: '4,3'},
+      {name: '其他', color: '#475569', dash: '2,2'}
+    ];
+    legendItems.forEach(function(item, i) {
+      var ly = 370 + i * 0;
+      var lx = CX - 80 + i * 80;
+      svgEl('line', {
+        x1: lx - 12, y1: 375, x2: lx + 2, y2: 375,
+        stroke: item.color, 'stroke-width': item.dash ? '1' : '2', 'stroke-dasharray': item.dash || ''
+      }, radarSvg);
+      svgText(radarSvg, lx + 14, 378, item.name, 8, item.color, 'start');
+    });
+  }
+
+  drawRadar();
+
+  /* Radar expand animation */
+  var radarObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!e.isIntersecting) return;
+      var shapes = radarSvg.querySelectorAll('.radar-shape');
+      shapes.forEach(function(shape) {
+        shape.style.transition = 'none';
+        shape.style.transform = 'scale(0)';
+        shape.style.transformOrigin = CX + 'px ' + CY + 'px';
+        shape.getBoundingClientRect(); /* force reflow */
+        shape.style.transition = 'transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        shape.style.transform = 'scale(1)';
+      });
+      radarObs.unobserve(e.target);
+    });
+  }, { threshold: 0.3 });
+  radarObs.observe(document.getElementById('radarWrap'));
+
+})();
+</script>
+</body>
+</html>
