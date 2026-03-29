@@ -419,14 +419,13 @@
           </pattern>
         </defs>
 
-        <!-- 比例說明 -->
-        <g transform="translate(60,40)">
-          <text x="0" y="0" fill="#475569" font-size="10" font-weight="600">比例：1:500&nbsp;&nbsp;1格=1m</text>
-          <!-- 比例尺 -->
-          <line x1="100" y1="-5" x2="200" y2="-5" stroke="#475569" stroke-width="1.5"/>
-          <line x1="100" y1="-9" x2="100" y2="-1" stroke="#475569" stroke-width="1.5"/>
-          <line x1="200" y1="-9" x2="200" y2="-1" stroke="#475569" stroke-width="1.5"/>
-          <text x="150" y="-9" fill="#475569" font-size="10" text-anchor="middle">5m</text>
+        <!-- 比例說明（移到右上角避免與入口重疊）-->
+        <g transform="translate(310,40)">
+          <text x="0" y="0" fill="#475569" font-size="9" font-weight="600">比例 1格=1m</text>
+          <line x1="80" y1="-5" x2="180" y2="-5" stroke="#475569" stroke-width="1.5"/>
+          <line x1="80" y1="-9" x2="80" y2="-1" stroke="#475569" stroke-width="1.5"/>
+          <line x1="180" y1="-9" x2="180" y2="-1" stroke="#475569" stroke-width="1.5"/>
+          <text x="130" y="-9" fill="#475569" font-size="9" text-anchor="middle">5m</text>
         </g>
 
         <!-- 座標：原點(60,65)，1m=20px -->
@@ -526,11 +525,10 @@
                 stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="8,4"/>
           <text x="4" y="216" fill="#f59e0b" font-size="10" font-weight="600">▼ 車道止 (y=11m)</text>
 
-          <!-- ─── 入口箭頭（北側，車從民宿旁進入，由上往下）─── -->
-          <line x1="40" y1="-20" x2="40" y2="30"
+          <!-- ─── 入口箭頭（北側，車從民宿旁進入）─── -->
+          <line x1="40" y1="-8" x2="40" y2="30"
                 stroke="#f59e0b" stroke-width="2" marker-end="url(#arr)"/>
-          <text x="40" y="-26" fill="#f59e0b" font-size="10" font-weight="600" text-anchor="middle">入口 ↓</text>
-          <text x="40" y="580" fill="#78716c" font-size="9" text-anchor="middle">4m 車道</text>
+          <text x="55" y="-2" fill="#f59e0b" font-size="9" font-weight="600">入口↓</text>
 
           <!-- ─── 通道方向箭頭（車道↓ → 右轉北側通道→ → 右轉東側通道↓）─── -->
           <!-- 1. 車道向南 -->
@@ -546,7 +544,7 @@
                 stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="5,3"/>
           <line x1="230" y1="195" x2="230" y2="130"
                 stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
-          <text x="120" y="168" fill="#22d3ee" font-size="9" text-anchor="middle">車輛動線</text>
+          <text x="100" y="205" fill="#22d3ee" font-size="9" text-anchor="middle">車輛動線</text>
 
           <!-- ─── 開放區標籤 ─── -->
           <text x="200" y="340" fill="rgba(254,240,58,0.55)" font-size="22" font-weight="700" text-anchor="middle">開放區</text>
@@ -575,26 +573,19 @@
           <text x="440" y="290" fill="#cbd5e1" font-size="11" font-weight="600" text-anchor="middle"
                 transform="rotate(90,440,290)">29 m</text>
 
-          <!-- 車道寬 4m（左側）-->
-          <line x1="-25" y1="0" x2="-25" y2="80"
-                stroke="#64748b" stroke-width="1"
-                marker-start="url(#arr-r)" marker-end="url(#arr)"/>
-          <text x="-32" y="40" fill="#94a3b8" font-size="10" text-anchor="middle"
-                transform="rotate(-90,-32,40)">4m</text>
-
-          <!-- 車位深 5.5m（北牆左側）-->
-          <line x1="-25" y1="0" x2="-25" y2="110"
+          <!-- 車位深 5.5m（左側外）-->
+          <line x1="-20" y1="0" x2="-20" y2="110"
                 stroke="#3b82f6" stroke-width="1"
                 marker-start="url(#arr-br)" marker-end="url(#arr-b)"/>
-          <text x="-38" y="55" fill="#60a5fa" font-size="10" text-anchor="middle"
-                transform="rotate(-90,-38,55)">5.5m</text>
+          <text x="-28" y="55" fill="#60a5fa" font-size="9" text-anchor="middle"
+                transform="rotate(-90,-28,55)">5.5m</text>
 
-          <!-- 通道寬 5.5m（北側通道）-->
-          <line x1="-25" y1="110" x2="-25" y2="220"
+          <!-- 通道寬 5.5m（左側外，下段）-->
+          <line x1="-20" y1="110" x2="-20" y2="220"
                 stroke="#3b82f6" stroke-width="1"
                 marker-start="url(#arr-br)" marker-end="url(#arr-b)"/>
-          <text x="-38" y="165" fill="#60a5fa" font-size="10" text-anchor="middle"
-                transform="rotate(-90,-38,165)">5.5m</text>
+          <text x="-28" y="165" fill="#60a5fa" font-size="9" text-anchor="middle"
+                transform="rotate(-90,-28,165)">5.5m</text>
 
           <!-- 開放區深 18m（右外側）-->
           <line x1="415" y1="220" x2="415" y2="580"
@@ -612,12 +603,12 @@
           <line x1="290" y1="-45" x2="290" y2="-35"
                 stroke="#3b82f6" stroke-width="1"/>
           <!-- 實際是垂直標注 -->
-          <!-- 雨遮深度標在右側 -->
-          <line x1="408" y1="0" x2="408" y2="150"
+          <!-- 雨遮深度標在右側（與18m錯開）-->
+          <line x1="435" y1="0" x2="435" y2="150"
                 stroke="#3b82f6" stroke-width="1"
                 marker-start="url(#arr-br)" marker-end="url(#arr-b)"/>
-          <text x="400" y="75" fill="#60a5fa" font-size="10" text-anchor="end"
-                transform="rotate(90,400,75)">7.5m 雨遮</text>
+          <text x="445" y="75" fill="#60a5fa" font-size="9" text-anchor="start"
+                transform="rotate(90,445,75)">7.5m 雨遮</text>
 
           <!-- 車位寬 2.5m (F1-F4 其中一格頂部標注) -->
           <line x1="90" y1="-18" x2="140" y2="-18"
