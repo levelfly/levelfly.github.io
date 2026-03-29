@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>320 坪多功能場地 — 方案簡報</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600;700;800&family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══ CSS CUSTOM PROPERTY FOR ROTATION ═══ */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* ═══ VIEWPORT BASE ═══ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-snap-type:y mandatory;overflow-x:hidden}
+body{overflow-x:hidden}
+.slide{
+  height:100vh;height:100dvh;overflow:hidden;
+  scroll-snap-align:start;
+  position:relative;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:clamp(24px,5vh,60px) clamp(20px,5vw,80px);
+}
+@media(max-height:600px){.slide{padding:16px 20px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ═══ DESIGN SYSTEM — Deep Space Luxury ═══ */
+:root{
+  --void:#030508;
+  --deep:#060810;
+  --panel:#10131a;
+  --card:#151923;
+  --elevated:#1e2433;
+  --gold:#d4a843;
+  --gold-bright:#f0c850;
+  --gold-dim:#a07d2e;
+  --gold-deep:#7a5e1f;
+  --gold-glow:rgba(212,168,67,0.06);
+  --gold-glow-s:rgba(212,168,67,0.12);
+  --text:#e8e4dc;
+  --text-dim:#8890a0;
+  --text-ghost:#3a4258;
+  --green:#4ade80;
+  --red:#f87171;
+  --border:rgba(212,168,67,0.1);
+  --border-s:rgba(212,168,67,0.25);
+  --serif:'Noto Serif TC',serif;
+  --sans:'Noto Sans TC',sans-serif;
+  --brand:'Outfit',sans-serif;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+}
+body{
+  background:var(--void);
+  color:var(--text);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.7;
+}
+::selection{background:var(--gold);color:var(--void)}
+
+/* Noise grain */
+body::after{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.025;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ═══ SPACE BACKGROUND ═══ */
+.bg-space{
+  position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 50% 40% at 50% 38%,rgba(212,168,67,.06) 0%,transparent 100%),
+    radial-gradient(ellipse 60% 50% at 75% 20%,rgba(20,40,100,.22) 0%,transparent 65%),
+    radial-gradient(ellipse 55% 60% at 20% 75%,rgba(50,20,80,.18) 0%,transparent 65%),
+    radial-gradient(ellipse 35% 45% at 10% 45%,rgba(15,60,70,.12) 0%,transparent 65%),
+    radial-gradient(ellipse 45% 35% at 55% 90%,rgba(70,30,20,.12) 0%,transparent 65%),
+    radial-gradient(ellipse 80% 80% at 50% 50%,rgba(6,10,22,1) 0%,rgba(3,5,8,1) 100%);
+  animation:nebula 30s ease-in-out infinite alternate;
+}
+@keyframes nebula{0%{filter:brightness(1) hue-rotate(0)}100%{filter:brightness(1.05) hue-rotate(3deg)}}
+
+/* ═══ [NEW] FLOATING PARTICLES ═══ */
+.particle{
+  position:fixed;
+  border-radius:50%;
+  background:var(--gold);
+  pointer-events:none;
+  z-index:1;
+}
+@keyframes float-1{0%,100%{transform:translate(0,0);opacity:.1}50%{transform:translate(30px,-60px);opacity:.3}}
+@keyframes float-2{0%,100%{transform:translate(0,0);opacity:.08}50%{transform:translate(-40px,-30px);opacity:.25}}
+@keyframes float-3{0%,100%{transform:translate(0,0);opacity:.12}50%{transform:translate(20px,50px);opacity:.28}}
+@keyframes float-4{0%,100%{transform:translate(0,0);opacity:.06}50%{transform:translate(-25px,-70px);opacity:.22}}
+@keyframes float-5{0%,100%{transform:translate(0,0);opacity:.1}50%{transform:translate(45px,30px);opacity:.2}}
+@keyframes float-6{0%,100%{transform:translate(0,0);opacity:.15}50%{transform:translate(-15px,-45px);opacity:.3}}
+
+@media(max-width:700px){
+  .particle{display:none}
+}
+
+/* ═══ [NEW] PER-SLIDE AMBIENT GLOW ═══ */
+.slide::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 1.2s ease;
+}
+.slide.vis-slide::before{opacity:1}
+
+#s1::before{background:radial-gradient(ellipse at 50% 40%,rgba(212,168,67,0.08),transparent 70%)}
+#s2::before{
+  background:
+    radial-gradient(ellipse 30% 40% at 20% 50%,rgba(212,168,67,0.06),transparent 60%),
+    radial-gradient(ellipse 30% 40% at 50% 50%,rgba(212,168,67,0.05),transparent 60%),
+    radial-gradient(ellipse 30% 40% at 80% 50%,rgba(212,168,67,0.06),transparent 60%);
+}
+#s3::before{background:radial-gradient(ellipse at 50% 50%,rgba(60,130,180,0.06),transparent 70%)}
+#s4::before{background:radial-gradient(ellipse at 50% 60%,rgba(200,140,60,0.06),transparent 70%)}
+#s5::before{background:radial-gradient(ellipse at 40% 45%,rgba(120,80,160,0.06),transparent 70%)}
+#s6::before{background:radial-gradient(ellipse at 50% 40%,rgba(60,180,120,0.06),transparent 70%)}
+#s7::before{background:radial-gradient(ellipse at 50% 50%,rgba(180,190,200,0.04),transparent 70%)}
+#s8::before{background:radial-gradient(ellipse at 50% 40%,rgba(212,168,67,0.08),transparent 70%)}
+
+/* ═══ [NEW] CORNER BRACKETS ═══ */
+.slide-content{
+  position:relative;
+  z-index:1;
+}
+.slide-content::before,
+.slide-content::after{
+  content:'';
+  position:absolute;
+  width:40px;height:40px;
+  pointer-events:none;
+}
+.slide-content::before{
+  top:-20px;left:-20px;
+  border-top:1px solid rgba(212,168,67,0.2);
+  border-left:1px solid rgba(212,168,67,0.2);
+}
+.slide-content::after{
+  bottom:-20px;right:-20px;
+  border-bottom:1px solid rgba(212,168,67,0.2);
+  border-right:1px solid rgba(212,168,67,0.2);
+}
+/* Extra corners via inner wrappers */
+.corner-tr,.corner-bl{
+  position:absolute;
+  width:40px;height:40px;
+  pointer-events:none;
+}
+.corner-tr{
+  top:-20px;right:-20px;
+  border-top:1px solid rgba(212,168,67,0.2);
+  border-right:1px solid rgba(212,168,67,0.2);
+}
+.corner-bl{
+  bottom:-20px;left:-20px;
+  border-bottom:1px solid rgba(212,168,67,0.2);
+  border-left:1px solid rgba(212,168,67,0.2);
+}
+
+@media(max-width:700px){
+  .slide-content::before,.slide-content::after,
+  .corner-tr,.corner-bl{display:none}
+}
+
+/* ═══ [NEW] GLOW CARD BORDER ═══ */
+.glow-card{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+.glow-card::before{
+  content:'';
+  position:absolute;
+  inset:-1px;
+  border-radius:inherit;
+  background:conic-gradient(
+    from var(--angle,0deg),
+    transparent 0%,
+    rgba(212,168,67,0.3) 10%,
+    transparent 20%,
+    transparent 80%,
+    rgba(212,168,67,0.15) 90%,
+    transparent 100%
+  );
+  z-index:-1;
+  animation:rotate-glow 8s linear infinite;
+}
+.glow-card::after{
+  content:'';
+  position:absolute;
+  inset:1px;
+  border-radius:inherit;
+  background:var(--card);
+  z-index:-1;
+}
+@keyframes rotate-glow{
+  to{--angle:360deg}
+}
+
+/* ═══ [NEW] NUMBER GLOW ═══ */
+.num-glow{
+  position:relative;
+  display:inline-block;
+}
+.num-glow::after{
+  content:'';
+  position:absolute;
+  inset:-40%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(212,168,67,0.12) 0%,transparent 70%);
+  z-index:-1;
+  animation:pulse-glow 4s ease-in-out infinite;
+}
+@keyframes pulse-glow{
+  0%,100%{opacity:0.5;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.1)}
+}
+
+/* ═══ [NEW] DECORATIVE DIVIDER WITH DIAMOND ═══ */
+.divider-fancy{
+  position:absolute;
+  bottom:0;
+  left:10%;
+  right:10%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);
+}
+.divider-fancy::after{
+  content:'\25C7';
+  position:absolute;
+  left:50%;
+  top:-8px;
+  transform:translateX(-50%);
+  color:var(--gold-dim);
+  font-size:10px;
+  background:var(--void);
+  padding:0 8px;
+}
+
+/* ═══ TYPOGRAPHY ═══ */
+.t-serif{font-family:var(--serif)}
+.t-brand{font-family:var(--brand)}
+.t-gold{color:var(--gold)}
+.t-dim{color:var(--text-dim)}
+.t-ghost{color:var(--text-ghost)}
+.t-light{font-weight:200}
+.t-heavy{font-weight:800}
+.grad-text{
+  background:linear-gradient(135deg,var(--text) 20%,var(--gold) 80%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* ═══ ANIMATIONS ═══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(clamp(20px,4vh,40px))}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:.8}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes glow-pulse{0%,100%{box-shadow:0 0 20px rgba(212,168,67,.1)}50%{box-shadow:0 0 40px rgba(212,168,67,.2)}}
+
+.reveal{opacity:0;transform:translateY(clamp(15px,3vh,30px));transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.vis{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
+.reveal-d4{transition-delay:.4s}.reveal-d5{transition-delay:.5s}.reveal-d6{transition-delay:.6s}
+
+/* ═══ COMPONENTS ═══ */
+.gold-line{
+  width:clamp(60px,15vw,200px);height:1px;margin:clamp(16px,3vh,32px) auto;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+.stat-card{
+  background:var(--card);border:1px solid var(--border);border-radius:clamp(8px,1.5vw,16px);
+  padding:clamp(16px,3vh,32px) clamp(12px,2vw,24px);text-align:center;
+  transition:border-color .3s,transform .3s;
+}
+.stat-card:hover{border-color:var(--border-s);transform:translateY(-4px)}
+
+.mode-card{
+  background:var(--card);border:1px solid var(--border);border-radius:clamp(10px,2vw,20px);
+  padding:clamp(20px,3.5vh,40px) clamp(16px,2.5vw,28px);
+  flex:1;min-width:clamp(160px,25vw,260px);text-align:center;
+  transition:border-color .4s,transform .4s,box-shadow .4s;
+}
+.mode-card:hover{border-color:var(--gold);transform:translateY(-6px);animation:glow-pulse 2s ease infinite}
+
+.data-table{width:100%;border-collapse:collapse;font-size:clamp(11px,1.5vw,14px)}
+.data-table th{
+  text-align:left;padding:clamp(6px,1vh,10px) clamp(8px,1.5vw,14px);
+  color:var(--text-dim);font-weight:500;font-size:clamp(9px,1.2vw,11px);
+  text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border);
+  background:var(--panel);
+}
+.data-table td{
+  padding:clamp(6px,1vh,10px) clamp(8px,1.5vw,14px);
+  border-bottom:1px solid rgba(212,168,67,.05);
+}
+.data-table tr.highlight td{border-left:2px solid var(--gold);background:var(--gold-glow)}
+
+.check-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:clamp(60px,10vh,100px);height:clamp(60px,10vh,100px);border-radius:50%;
+  background:rgba(74,222,128,.08);border:2px solid var(--green);
+  font-family:var(--brand);font-size:clamp(28px,5vh,48px);font-weight:800;color:var(--green);
+  box-shadow:0 0 40px rgba(74,222,128,.15);
+}
+
+/* ═══ NAV DOTS ═══ */
+.nav-dots{
+  position:fixed;right:clamp(12px,2vw,24px);top:50%;transform:translateY(-50%);
+  z-index:100;display:flex;flex-direction:column;gap:clamp(6px,1vh,10px);
+}
+.nav-dot{
+  width:clamp(6px,1vw,10px);height:clamp(6px,1vw,10px);border-radius:50%;
+  background:var(--text-ghost);border:none;cursor:pointer;transition:all .3s;padding:0;
+}
+.nav-dot.active{background:var(--gold);box-shadow:0 0 8px rgba(212,168,67,.4)}
+
+/* ═══ SLIDE COUNTER ═══ */
+.slide-num{
+  position:absolute;bottom:clamp(12px,2vh,24px);right:clamp(16px,3vw,32px);
+  font-family:var(--brand);font-size:clamp(10px,1.2vw,13px);color:var(--text-ghost);
+  letter-spacing:.1em;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:700px){
+  .flex-row{flex-direction:column!important}
+  .hide-mobile{display:none}
+  .mode-card{min-width:auto}
+}
+@media(max-height:500px){
+  .slide{padding:12px 16px}
+  .gold-line{margin:8px auto}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-space"></div>
+
+<!-- ═══ PARTICLES (generated by JS) ═══ -->
+<div id="particleLayer"></div>
+
+<!-- ═══ NAV DOTS ═══ -->
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 1 — COVER
+     ════════════════════════════════════════════ -->
+<section class="slide" id="s1">
+  <div class="slide-content" style="text-align:center">
+    <span class="corner-tr"></span>
+    <span class="corner-bl"></span>
+    <div class="reveal" style="margin-bottom:clamp(16px,3vh,32px)">
+      <span style="display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:100px;border:1px solid var(--border-s);font-size:clamp(10px,1.3vw,13px);letter-spacing:.15em;text-transform:uppercase;color:var(--gold)">
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite"></span>
+        方案設計報告
+      </span>
+    </div>
+    <h1 class="reveal reveal-d1 t-serif grad-text" style="font-size:clamp(2.8rem,7vw,5.5rem);font-weight:900;line-height:1.15;letter-spacing:-.01em">
+      320 坪<br>多功能場地
+    </h1>
+    <p class="reveal reveal-d2 t-light" style="font-size:clamp(1rem,2vw,1.4rem);margin-top:clamp(12px,2vh,24px);letter-spacing:.2em;color:var(--text-dim)">
+      停車 · 婚宴 · 活動
+    </p>
+    <div class="gold-line reveal reveal-d3"></div>
+    <p class="reveal reveal-d4 t-ghost" style="font-size:clamp(10px,1.2vw,13px);font-family:var(--brand);letter-spacing:.1em">
+      2026-03-29
+    </p>
+  </div>
+  <div class="divider-fancy"></div>
+  <div class="slide-num">01 / 08</div>
+  <!-- Scroll hint -->
+  <div style="position:absolute;bottom:clamp(32px,5vh,56px);left:50%;transform:translateX(-50%);animation:pulse 2.5s infinite">
+    <svg width="20" height="28" viewBox="0 0 20 28" fill="none"><rect x="1" y="1" width="18" height="26" rx="9" stroke="var(--gold-dim)" stroke-width="1.5"/><circle cx="10" cy="8" r="2" fill="var(--gold)"><animate attributeName="cy" values="8;18;8" dur="2s" repeatCount="indefinite"/></circle></svg>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 2 — KEY NUMBERS
+     ════════════════════════════════════════════ -->
+<section class="slide" id="s2">
+  <div class="slide-content" style="text-align:center;width:100%;max-width:900px">
+    <span class="corner-tr"></span>
+    <span class="corner-bl"></span>
+    <p class="reveal t-light" style="font-size:clamp(11px,1.4vw,14px);letter-spacing:.2em;text-transform:uppercase;margin-bottom:clamp(24px,5vh,48px);color:var(--text-dim)">核心指標</p>
+    <div class="flex-row" style="display:flex;justify-content:center;gap:clamp(24px,6vw,80px);align-items:baseline">
+      <div class="reveal reveal-d1" style="text-align:center">
+        <div class="num-glow"><div class="t-brand t-heavy" style="font-size:clamp(4rem,12vw,9rem);color:var(--gold-bright);line-height:1" data-count="7">0</div></div>
+        <div class="t-brand t-light" style="font-size:clamp(10px,1.3vw,14px);letter-spacing:.15em;margin-top:clamp(4px,1vh,12px);color:var(--text-dim)">固定車位</div>
+      </div>
+      <div class="reveal reveal-d2" style="text-align:center">
+        <div class="num-glow"><div class="t-brand t-heavy" style="font-size:clamp(3.5rem,10vw,8rem);color:var(--gold-bright);line-height:1" data-count="360">0</div></div>
+        <div style="display:flex;align-items:baseline;justify-content:center;gap:4px">
+          <span class="t-brand t-light" style="font-size:clamp(10px,1.3vw,14px);letter-spacing:.15em;margin-top:clamp(4px,1vh,12px);color:var(--text-dim)">開放空間</span>
+          <span class="t-brand t-ghost" style="font-size:clamp(9px,1vw,12px)">m²</span>
+        </div>
+      </div>
+      <div class="reveal reveal-d3" style="text-align:center">
+        <div class="num-glow"><div class="t-brand t-heavy" style="font-size:clamp(4rem,12vw,9rem);color:var(--gold-bright);line-height:1" data-count="17">0</div></div>
+        <div class="t-brand t-light" style="font-size:clamp(10px,1.3vw,14px);letter-spacing:.15em;margin-top:clamp(4px,1vh,12px);color:var(--text-dim)">最大容量</div>
+      </div>
+    </div>
+  </div>
+  <div class="divider-fancy"></div>
+  <div class="slide-num">02 / 08</div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 3 — PLAN C2
+     ════════════════════════════════════════════ -->
+<section class="slide" id="s3">
+  <div class="slide-content" style="text-align:center;width:100%;max-width:1000px">
+    <span class="corner-tr"></span>
+    <span class="corner-bl"></span>
+    <h2 class="reveal t-serif grad-text" style="font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:700;letter-spacing:.04em">方案 C2 — 修正 L 型</h2>
+    <p class="reveal reveal-d1 t-light" style="font-size:clamp(10px,1.3vw,14px);margin-top:clamp(4px,1vh,10px);margin-bottom:clamp(12px,2vh,24px);color:var(--text-dim)">
+      北牆 4 位 + 東牆 3 位 = 7 固定 ｜ L 型雨遮 7.5m ｜ 開放區 360m²
+    </p>
+    <!-- SVG Floor Plan -->
+    <div class="reveal reveal-d2" style="display:flex;justify-content:center">
+      <svg viewBox="-35 -30 350 475" style="width:100%;max-width:clamp(280px,45vw,420px);max-height:clamp(280px,50vh,420px)">
+        <defs>
+          <marker id="arr" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto"><polygon points="0,0 6,2 0,4" fill="var(--gold-dim)"/></marker>
+          <marker id="arr2" markerWidth="6" markerHeight="4" refX="0" refY="2" orient="auto"><polygon points="6,0 0,2 6,4" fill="var(--gold-dim)"/></marker>
+          <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="rgba(212,168,67,.06)" stroke-width="1"/></pattern>
+        </defs>
+        <!-- Open area -->
+        <rect x="0" y="165" width="300" height="270" fill="url(#hatch)"/>
+        <rect x="0" y="165" width="300" height="270" fill="rgba(212,168,67,.025)"/>
+        <!-- Driveway -->
+        <rect x="0" y="0" width="60" height="165" fill="rgba(212,168,67,.06)" stroke="rgba(212,168,67,.15)" stroke-width=".5"/>
+        <!-- North aisle -->
+        <rect x="60" y="82.5" width="157.5" height="82.5" fill="var(--panel)" stroke="rgba(212,168,67,.08)" stroke-width=".5"/>
+        <!-- East aisle -->
+        <rect x="135" y="0" width="82.5" height="112.5" fill="rgba(16,19,26,.6)" stroke="rgba(212,168,67,.08)" stroke-width=".5"/>
+        <!-- Rain cover L-shape -->
+        <rect x="67.5" y="0" width="232.5" height="112.5" fill="rgba(212,168,67,.04)" stroke="var(--gold-dim)" stroke-width="1" stroke-dasharray="4,3" rx="2"/>
+        <!-- F1-F4 North spots -->
+        <rect x="67.5" y="0" width="37.5" height="82.5" fill="none" stroke="var(--gold)" stroke-width="1.5" rx="2"/>
+        <text x="86" y="44" fill="var(--gold)" font-size="10" font-family="Outfit" font-weight="600" text-anchor="middle">F1</text>
+        <rect x="105" y="0" width="37.5" height="82.5" fill="none" stroke="var(--gold)" stroke-width="1.5" rx="2"/>
+        <text x="123.5" y="44" fill="var(--gold)" font-size="10" font-family="Outfit" font-weight="600" text-anchor="middle">F2</text>
+        <rect x="142.5" y="0" width="37.5" height="82.5" fill="none" stroke="var(--gold)" stroke-width="1.5" rx="2"/>
+        <text x="161" y="44" fill="var(--gold)" font-size="10" font-family="Outfit" font-weight="600" text-anchor="middle">F3</text>
+        <rect x="180" y="0" width="37.5" height="82.5" fill="none" stroke="var(--gold)" stroke-width="1.5" rx="2"/>
+        <text x="198.5" y="44" fill="var(--gold)" font-size="10" font-family="Outfit" font-weight="600" text-anchor="middle">F4</text>
+        <!-- F5-F7 East spots -->
+        <rect x="217.5" y="0" width="82.5" height="37.5" fill="none" stroke="var(--gold)" stroke-width="1.5" rx="2"/>
+        <text x="258" y="22" fill="var(--gold)" font-size="10" font-family="Outfit" font-weight="600" text-anchor="middle">F5</text>
+        <rect x="217.5" y="37.5" width="82.5" height="37.5" fill="none" stroke="var(--gold)" stroke-width="1.5" rx="2"/>
+        <text x="258" y="60" fill="var(--gold)" font-size="10" font-family="Outfit" font-weight="600" text-anchor="middle">F6</text>
+        <rect x="217.5" y="75" width="82.5" height="37.5" fill="none" stroke="var(--gold)" stroke-width="1.5" rx="2"/>
+        <text x="258" y="97" fill="var(--gold)" font-size="10" font-family="Outfit" font-weight="600" text-anchor="middle">F7</text>
+        <!-- Building wall -->
+        <line x1="60" y1="0" x2="300" y2="0" stroke="var(--gold)" stroke-width="3"/>
+        <text x="180" y="-8" fill="var(--gold)" font-size="9" text-anchor="middle" font-family="Noto Sans TC">民宿北牆</text>
+        <!-- Land boundary -->
+        <rect x="0" y="0" width="300" height="435" fill="none" stroke="rgba(232,228,220,.2)" stroke-width="1"/>
+        <!-- Open area label -->
+        <text x="150" y="300" fill="rgba(212,168,67,.4)" font-size="18" font-weight="700" text-anchor="middle" font-family="Noto Serif TC">開放區</text>
+        <text x="150" y="322" fill="rgba(212,168,67,.25)" font-size="11" text-anchor="middle" font-family="Outfit">20m × 18m = 360m²</text>
+        <!-- Driveway label -->
+        <text x="30" y="90" fill="rgba(212,168,67,.3)" font-size="8" text-anchor="middle" transform="rotate(-90,30,90)" font-family="Noto Sans TC">車道 4m</text>
+        <!-- Aisle labels -->
+        <text x="140" y="130" fill="rgba(232,228,220,.2)" font-size="8" text-anchor="middle" font-family="Noto Sans TC">北側通道</text>
+        <!-- Dimensions -->
+        <line x1="0" y1="-20" x2="300" y2="-20" stroke="var(--gold-dim)" stroke-width=".6" marker-start="url(#arr2)" marker-end="url(#arr)"/>
+        <text x="150" y="-23" fill="var(--text-dim)" font-size="9" text-anchor="middle" font-family="Outfit">20m</text>
+        <line x1="310" y1="0" x2="310" y2="435" stroke="var(--gold-dim)" stroke-width=".6" marker-start="url(#arr2)" marker-end="url(#arr)"/>
+        <text x="320" y="218" fill="var(--text-dim)" font-size="9" text-anchor="middle" font-family="Outfit" transform="rotate(90,320,218)">29m</text>
+        <!-- Zone line -->
+        <line x1="0" y1="165" x2="300" y2="165" stroke="var(--gold-dim)" stroke-width="1" stroke-dasharray="6,3"/>
+      </svg>
+    </div>
+  </div>
+  <div class="divider-fancy"></div>
+  <div class="slide-num">03 / 08</div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 4 — THREE MODES
+     ════════════════════════════════════════════ -->
+<section class="slide" id="s4">
+  <div class="slide-content" style="text-align:center;width:100%;max-width:960px">
+    <span class="corner-tr"></span>
+    <span class="corner-bl"></span>
+    <h2 class="reveal t-serif grad-text" style="font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:700;letter-spacing:.06em">一個空間 · 三種面貌</h2>
+    <div class="gold-line reveal reveal-d1"></div>
+    <div class="flex-row" style="display:flex;gap:clamp(12px,2vw,24px);margin-top:clamp(16px,3vh,32px)">
+      <div class="mode-card glow-card reveal reveal-d2" style="border-radius:clamp(10px,2vw,20px)">
+        <div style="font-size:clamp(28px,4vh,40px);margin-bottom:clamp(8px,1.5vh,16px)">&#9737;</div>
+        <h3 class="t-serif" style="font-size:clamp(16px,2vw,22px);font-weight:700;color:var(--gold);margin-bottom:clamp(8px,1.5vh,14px)">日常</h3>
+        <div class="t-brand t-heavy" style="font-size:clamp(24px,4vw,36px);color:var(--gold-bright)">7<span style="font-size:.5em;font-weight:300;color:var(--text-dim)"> 車</span></div>
+        <p class="t-dim" style="font-size:clamp(11px,1.3vw,14px);margin-top:clamp(4px,1vh,8px)">360m² 開放</p>
+        <p class="t-ghost" style="font-size:clamp(10px,1.1vw,12px);margin-top:clamp(4px,1vh,8px)">庭院 · 休閒 · 日常生活</p>
+      </div>
+      <div class="mode-card glow-card reveal reveal-d3" style="border-radius:clamp(10px,2vw,20px)">
+        <div style="font-size:clamp(28px,4vh,40px);margin-bottom:clamp(8px,1.5vh,16px)">&#9830;</div>
+        <h3 class="t-serif" style="font-size:clamp(16px,2vw,22px);font-weight:700;color:var(--gold);margin-bottom:clamp(8px,1.5vh,14px)">婚宴</h3>
+        <div class="t-brand t-heavy" style="font-size:clamp(24px,4vw,36px);color:var(--gold-bright)">120<span style="font-size:.5em;font-weight:300;color:var(--text-dim)"> 人</span></div>
+        <p class="t-dim" style="font-size:clamp(11px,1.3vw,14px);margin-top:clamp(4px,1vh,8px)">12 桌 · 18×14m 帳篷</p>
+        <p class="t-ghost" style="font-size:clamp(10px,1.1vw,12px);margin-top:clamp(4px,1vh,8px)">白色帳篷 · 星光 · 一生一次</p>
+      </div>
+      <div class="mode-card glow-card reveal reveal-d4" style="border-radius:clamp(10px,2vw,20px)">
+        <div style="font-size:clamp(28px,4vh,40px);margin-bottom:clamp(8px,1.5vh,16px)">&#9638;</div>
+        <h3 class="t-serif" style="font-size:clamp(16px,2vw,22px);font-weight:700;color:var(--gold);margin-bottom:clamp(8px,1.5vh,14px)">滿載</h3>
+        <div class="t-brand t-heavy" style="font-size:clamp(24px,4vw,36px);color:var(--gold-bright)">17<span style="font-size:.5em;font-weight:300;color:var(--text-dim)"> 車</span></div>
+        <p class="t-dim" style="font-size:clamp(11px,1.3vw,14px);margin-top:clamp(4px,1vh,8px)">三角錐引導</p>
+        <p class="t-ghost" style="font-size:clamp(10px,1.1vw,12px);margin-top:clamp(4px,1vh,8px)">團體活動 · 大型聚會</p>
+      </div>
+    </div>
+  </div>
+  <div class="divider-fancy"></div>
+  <div class="slide-num">04 / 08</div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 5 — RADAR CHART
+     ════════════════════════════════════════════ -->
+<section class="slide" id="s5">
+  <div class="slide-content" style="text-align:center;width:100%;max-width:960px">
+    <span class="corner-tr"></span>
+    <span class="corner-bl"></span>
+    <h2 class="reveal t-serif grad-text" style="font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:700;letter-spacing:.06em">七方案 · 一目了然</h2>
+    <div style="display:flex;gap:clamp(16px,3vw,40px);margin-top:clamp(12px,2vh,24px);align-items:center;flex-wrap:wrap;justify-content:center">
+      <!-- Radar -->
+      <div class="reveal reveal-d1">
+        <svg viewBox="0 0 300 280" style="width:clamp(220px,30vw,320px)">
+          <g transform="translate(150,130)">
+            <!-- Grid rings -->
+            <polygon points="0,-100 95,-31 59,81 -59,81 -95,-31" fill="none" stroke="rgba(212,168,67,.08)" stroke-width=".5"/>
+            <polygon points="0,-70 66,-22 41,57 -41,57 -66,-22" fill="none" stroke="rgba(212,168,67,.06)" stroke-width=".5"/>
+            <polygon points="0,-40 38,-12 24,32 -24,32 -38,-12" fill="none" stroke="rgba(212,168,67,.04)" stroke-width=".5"/>
+            <!-- Axes -->
+            <line x1="0" y1="0" x2="0" y2="-100" stroke="rgba(212,168,67,.12)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="95" y2="-31" stroke="rgba(212,168,67,.12)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="59" y2="81" stroke="rgba(212,168,67,.12)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="-59" y2="81" stroke="rgba(212,168,67,.12)" stroke-width=".5"/>
+            <line x1="0" y1="0" x2="-95" y2="-31" stroke="rgba(212,168,67,.12)" stroke-width=".5"/>
+            <!-- Labels -->
+            <text x="0" y="-108" fill="var(--text-dim)" font-size="9" text-anchor="middle" font-family="Noto Sans TC">雨遮效率</text>
+            <text x="103" y="-28" fill="var(--text-dim)" font-size="9" text-anchor="start" font-family="Noto Sans TC">開放面積</text>
+            <text x="66" y="95" fill="var(--text-dim)" font-size="9" text-anchor="middle" font-family="Noto Sans TC">溢出容量</text>
+            <text x="-66" y="95" fill="var(--text-dim)" font-size="9" text-anchor="middle" font-family="Noto Sans TC">動線品質</text>
+            <text x="-103" y="-28" fill="var(--text-dim)" font-size="9" text-anchor="end" font-family="Noto Sans TC">雙用彈性</text>
+            <!-- D (ghost) -->
+            <polygon points="0,-88 81,-27 49,67 -55,71 -50,-16" fill="none" stroke="rgba(232,228,220,.1)" stroke-width=".8" stroke-dasharray="3,3"/>
+            <!-- A (dim) -->
+            <polygon points="0,-100 86,-28 44,61 -52,71 -88,-29" fill="none" stroke="rgba(212,168,67,.2)" stroke-width="1" stroke-dasharray="4,2"/>
+            <!-- C2 (highlight) -->
+            <polygon points="0,-100 86,-28 44,61 -52,71 -88,-29" fill="rgba(212,168,67,.12)" stroke="var(--gold)" stroke-width="2"/>
+          </g>
+          <!-- Legend -->
+          <g transform="translate(20,260)">
+            <line x1="0" y1="0" x2="16" y2="0" stroke="var(--gold)" stroke-width="2"/><text x="20" y="4" fill="var(--text-dim)" font-size="9" font-family="Noto Sans TC">C2 推薦</text>
+            <line x1="80" y1="0" x2="96" y2="0" stroke="rgba(212,168,67,.25)" stroke-width="1" stroke-dasharray="4,2"/><text x="100" y="4" fill="var(--text-ghost)" font-size="9" font-family="Noto Sans TC">A 備選</text>
+            <line x1="155" y1="0" x2="171" y2="0" stroke="rgba(232,228,220,.12)" stroke-width="1" stroke-dasharray="3,3"/><text x="175" y="4" fill="var(--text-ghost)" font-size="9" font-family="Noto Sans TC">D 備選</text>
+          </g>
+        </svg>
+      </div>
+      <!-- Table -->
+      <div class="reveal reveal-d2" style="flex:1;min-width:clamp(200px,30vw,320px)">
+        <table class="data-table">
+          <tr><th>方案</th><th>固定</th><th>開放</th><th>雨遮</th><th>評分</th></tr>
+          <tr class="highlight"><td style="font-weight:600;color:var(--gold)">C2 推薦</td><td>7</td><td>360m²</td><td>L型 7.5m</td><td class="t-brand" style="font-weight:700;color:var(--gold-bright)">84.5</td></tr>
+          <tr><td>A 備選</td><td>6+1</td><td>360m²</td><td>5.5m</td><td class="t-brand" style="font-weight:600">89.5</td></tr>
+          <tr><td>D 備選</td><td>7</td><td>346m²</td><td>L型 6.8m</td><td class="t-brand" style="font-weight:600">82.1</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="divider-fancy"></div>
+  <div class="slide-num">05 / 08</div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 6 — VERIFICATION
+     ════════════════════════════════════════════ -->
+<section class="slide" id="s6">
+  <div class="slide-content" style="text-align:center;width:100%;max-width:800px">
+    <span class="corner-tr"></span>
+    <span class="corner-bl"></span>
+    <h2 class="reveal t-serif grad-text" style="font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:700;letter-spacing:.06em">每一台車都轉得進去</h2>
+    <p class="reveal reveal-d1 t-light" style="font-size:clamp(10px,1.3vw,13px);margin-top:clamp(4px,1vh,8px);margin-bottom:clamp(16px,3vh,32px);color:var(--text-dim)">
+      Ackermann 轉向模型 · 多路線最佳化搜索 · 碰撞檢測
+    </p>
+    <div class="reveal reveal-d2" style="margin-bottom:clamp(16px,3vh,28px)">
+      <div class="check-badge">✓</div>
+      <p style="font-size:clamp(14px,2vw,18px);font-weight:600;color:var(--green);margin-top:clamp(8px,1.5vh,14px)">4 / 4 車型全部通過</p>
+      <p class="t-dim" style="font-size:clamp(10px,1.2vw,13px);margin-top:4px">最小餘裕 0.59m — 遠超安全線</p>
+    </div>
+    <div class="flex-row reveal reveal-d3" style="display:flex;gap:clamp(8px,1.5vw,16px)">
+      <div class="stat-card glow-card" style="flex:1;border-radius:clamp(8px,1.5vw,16px)">
+        <div class="t-brand" style="font-size:clamp(10px,1.2vw,12px);color:var(--text-dim)">Altis 4.63m</div>
+        <div style="margin-top:clamp(4px,.8vh,8px)"><span style="color:var(--green);font-family:var(--brand);font-weight:700;font-size:clamp(16px,2.5vw,22px)">1.06</span><span class="t-dim" style="font-size:clamp(9px,1vw,11px)">m</span></div>
+        <div class="t-ghost" style="font-size:clamp(9px,1vw,11px)">入口</div>
+        <div style="margin-top:clamp(2px,.5vh,6px)"><span style="color:var(--green);font-family:var(--brand);font-weight:700;font-size:clamp(16px,2.5vw,22px)">0.59</span><span class="t-dim" style="font-size:clamp(9px,1vw,11px)">m</span></div>
+        <div class="t-ghost" style="font-size:clamp(9px,1vw,11px)">L轉角</div>
+      </div>
+      <div class="stat-card glow-card" style="flex:1;border-radius:clamp(8px,1.5vw,16px)">
+        <div class="t-brand" style="font-size:clamp(10px,1.2vw,12px);color:var(--text-dim)">RAV4 4.60m</div>
+        <div style="margin-top:clamp(4px,.8vh,8px)"><span style="color:var(--green);font-family:var(--brand);font-weight:700;font-size:clamp(16px,2.5vw,22px)">1.02</span><span class="t-dim" style="font-size:clamp(9px,1vw,11px)">m</span></div>
+        <div class="t-ghost" style="font-size:clamp(9px,1vw,11px)">入口</div>
+        <div style="margin-top:clamp(2px,.5vh,6px)"><span style="color:var(--green);font-family:var(--brand);font-weight:700;font-size:clamp(16px,2.5vw,22px)">0.64</span><span class="t-dim" style="font-size:clamp(9px,1vw,11px)">m</span></div>
+        <div class="t-ghost" style="font-size:clamp(9px,1vw,11px)">L轉角</div>
+      </div>
+      <div class="stat-card glow-card" style="flex:1;border-radius:clamp(8px,1.5vw,16px)">
+        <div class="t-brand" style="font-size:clamp(10px,1.2vw,12px);color:var(--text-dim)">Model Y 4.75m</div>
+        <div style="margin-top:clamp(4px,.8vh,8px)"><span style="color:var(--green);font-family:var(--brand);font-weight:700;font-size:clamp(16px,2.5vw,22px)">0.99</span><span class="t-dim" style="font-size:clamp(9px,1vw,11px)">m</span></div>
+        <div class="t-ghost" style="font-size:clamp(9px,1vw,11px)">入口</div>
+        <div style="margin-top:clamp(2px,.5vh,6px)"><span style="color:var(--green);font-family:var(--brand);font-weight:700;font-size:clamp(16px,2.5vw,22px)">0.69</span><span class="t-dim" style="font-size:clamp(9px,1vw,11px)">m</span></div>
+        <div class="t-ghost" style="font-size:clamp(9px,1vw,11px)">L轉角</div>
+      </div>
+      <div class="stat-card glow-card" style="flex:1;border-color:var(--border-s);border-radius:clamp(8px,1.5vw,16px)">
+        <div class="t-brand" style="font-size:clamp(10px,1.2vw,12px);color:var(--gold)">Lexus RX 4.89m</div>
+        <div style="margin-top:clamp(4px,.8vh,8px)"><span style="color:var(--green);font-family:var(--brand);font-weight:700;font-size:clamp(16px,2.5vw,22px)">0.98</span><span class="t-dim" style="font-size:clamp(9px,1vw,11px)">m</span></div>
+        <div class="t-ghost" style="font-size:clamp(9px,1vw,11px)">入口</div>
+        <div style="margin-top:clamp(2px,.5vh,6px)"><span style="color:var(--green);font-family:var(--brand);font-weight:700;font-size:clamp(16px,2.5vw,22px)">0.63</span><span class="t-dim" style="font-size:clamp(9px,1vw,11px)">m</span></div>
+        <div class="t-ghost" style="font-size:clamp(9px,1vw,11px)">L轉角</div>
+      </div>
+    </div>
+  </div>
+  <div class="divider-fancy"></div>
+  <div class="slide-num">06 / 08</div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 7 — TECHNICAL SPECS
+     ════════════════════════════════════════════ -->
+<section class="slide" id="s7">
+  <div class="slide-content" style="width:100%;max-width:900px">
+    <span class="corner-tr"></span>
+    <span class="corner-bl"></span>
+    <h2 class="reveal t-serif grad-text" style="font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:700;letter-spacing:.06em;text-align:center">施工交接</h2>
+    <div class="gold-line reveal reveal-d1"></div>
+    <div class="flex-row" style="display:flex;gap:clamp(16px,3vw,32px)">
+      <div class="reveal reveal-d2" style="flex:1">
+        <table class="data-table">
+          <tr><th colspan="2">關鍵尺寸</th></tr>
+          <tr><td class="t-dim">固定車位</td><td class="t-brand" style="font-weight:600">7 位 (4北+3東)</td></tr>
+          <tr><td class="t-dim">車位尺寸</td><td>2.5m × 5.5m</td></tr>
+          <tr><td class="t-dim">通道寬度</td><td><span style="color:var(--green)">5.5m</span> <span class="t-ghost">≥標準5.0m</span></td></tr>
+          <tr><td class="t-dim">雨遮</td><td>L型, 最深 7.5m</td></tr>
+          <tr><td class="t-dim">開放面積</td><td class="t-brand" style="font-weight:600">360m² (109坪)</td></tr>
+          <tr><td class="t-dim">最大容量</td><td class="t-brand" style="font-weight:600">17 車</td></tr>
+        </table>
+      </div>
+      <div class="reveal reveal-d3" style="flex:1">
+        <table class="data-table">
+          <tr><th colspan="2">施工建議</th></tr>
+          <tr><td class="t-dim">地面</td><td>全區水泥/瀝青，平整無高差</td></tr>
+          <tr><td class="t-dim">雨遮</td><td>L型鋼骨，PC板或鐵皮浪板</td></tr>
+          <tr><td class="t-dim">排水</td><td>向南微斜 0.5-1%</td></tr>
+          <tr><td class="t-dim">電力</td><td>南/東牆預留 220V×4</td></tr>
+          <tr><td class="t-dim">照明</td><td>雨遮下 LED + 四角燈柱</td></tr>
+          <tr><td class="t-dim">標示</td><td>車擋+白線，溢出位反光釘</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="divider-fancy"></div>
+  <div class="slide-num">07 / 08</div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 8 — CLOSING
+     ════════════════════════════════════════════ -->
+<section class="slide" id="s8">
+  <div class="slide-content" style="text-align:center">
+    <span class="corner-tr"></span>
+    <span class="corner-bl"></span>
+    <div class="reveal" style="margin-bottom:clamp(16px,3vh,32px)">
+      <span style="display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:100px;border:1px solid var(--border-s);font-size:clamp(10px,1.3vw,13px);letter-spacing:.15em;text-transform:uppercase;color:var(--gold)">
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite"></span>
+        推薦方案
+      </span>
+    </div>
+    <h2 class="reveal reveal-d1 t-serif grad-text" style="font-size:clamp(2.4rem,6vw,4.5rem);font-weight:900;line-height:1.15">C2 修正 L 型</h2>
+    <p class="reveal reveal-d2 t-light" style="font-size:clamp(12px,1.6vw,18px);margin-top:clamp(8px,1.5vh,16px);max-width:600px;margin-left:auto;margin-right:auto;color:var(--text-dim)">
+      兼得完整固定車位和最大開放空間的最佳方案
+    </p>
+    <div class="gold-line reveal reveal-d3"></div>
+    <div class="flex-row reveal reveal-d4" style="display:flex;justify-content:center;gap:clamp(24px,5vw,64px);margin-top:clamp(16px,3vh,32px)">
+      <div style="text-align:center">
+        <div class="num-glow"><div class="t-brand t-heavy" style="font-size:clamp(2rem,5vw,3.5rem);color:var(--gold-bright)">7</div></div>
+        <div class="t-light" style="font-size:clamp(10px,1.2vw,13px);font-family:var(--brand);letter-spacing:.1em;color:var(--text-dim)">固定位</div>
+      </div>
+      <div style="text-align:center">
+        <div class="num-glow"><div class="t-brand t-heavy" style="font-size:clamp(2rem,5vw,3.5rem);color:var(--gold-bright)">360<span style="font-size:.5em;font-weight:300;color:var(--text-dim)">m²</span></div></div>
+        <div class="t-light" style="font-size:clamp(10px,1.2vw,13px);font-family:var(--brand);letter-spacing:.1em;color:var(--text-dim)">開放</div>
+      </div>
+      <div style="text-align:center">
+        <div class="num-glow"><div class="t-brand t-heavy" style="font-size:clamp(2rem,5vw,3.5rem);color:var(--gold-bright)">17</div></div>
+        <div class="t-light" style="font-size:clamp(10px,1.2vw,13px);font-family:var(--brand);letter-spacing:.1em;color:var(--text-dim)">最大容量</div>
+      </div>
+    </div>
+  </div>
+  <div class="divider-fancy"></div>
+  <div class="slide-num">08 / 08</div>
+</section>
+
+<!-- ═══ JAVASCRIPT ═══ -->
+<script>
+/* ── Floating Particles ── */
+(function createParticles() {
+  const layer = document.getElementById('particleLayer');
+  const animations = ['float-1','float-2','float-3','float-4','float-5','float-6'];
+  const count = 18;
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = 1 + Math.random() * 2;
+    const x = Math.random() * 100;
+    const y = Math.random() * 100;
+    const dur = 15 + Math.random() * 25;
+    const delay = Math.random() * -40;
+    const anim = animations[Math.floor(Math.random() * animations.length)];
+    p.style.cssText = `
+      width:${size}px;height:${size}px;
+      left:${x}%;top:${y}%;
+      opacity:${0.06 + Math.random() * 0.15};
+      animation:${anim} ${dur}s ease-in-out ${delay}s infinite;
+    `;
+    layer.appendChild(p);
+  }
+})();
+
+/* ── Scroll reveal ── */
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ── Slide ambient glow activation ── */
+const slideObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('vis-slide');
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.slide').forEach(s => slideObs.observe(s));
+
+/* ── Count-up animation ── */
+function countUp(el, target, duration = 1200) {
+  const start = performance.now();
+  const isFloat = String(target).includes('.');
+  function update(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    const val = Math.round(ease * target);
+    el.textContent = isFloat ? (ease * target).toFixed(1) : val;
+    if (t < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+const countObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.counted) {
+      e.target.dataset.counted = '1';
+      countUp(e.target, parseFloat(e.target.dataset.count));
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+
+/* ── Nav dots ── */
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.getElementById('navDots');
+slides.forEach((s, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+  dot.onclick = () => s.scrollIntoView({ behavior: 'smooth' });
+  dotsContainer.appendChild(dot);
+});
+const dotObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const idx = Array.from(slides).indexOf(e.target);
+      document.querySelectorAll('.nav-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+  });
+}, { threshold: 0.5 });
+slides.forEach(s => dotObs.observe(s));
+
+/* ── Keyboard navigation ── */
+let currentSlide = 0;
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'ArrowRight') {
+    e.preventDefault();
+    currentSlide = Math.min(currentSlide + 1, slides.length - 1);
+    slides[currentSlide].scrollIntoView({ behavior: 'smooth' });
+  } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+    e.preventDefault();
+    currentSlide = Math.max(currentSlide - 1, 0);
+    slides[currentSlide].scrollIntoView({ behavior: 'smooth' });
+  }
+});
+</script>
+</body>
+</html>
