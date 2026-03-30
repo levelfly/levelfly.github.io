@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>320 坪多功能場地 — 完整專案報告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@200;300;400&family=Noto+Serif+TC:wght@400;700;900&family=Outfit:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════
+   Design System
+   ══════════════════════════════════════ */
+:root {
+  --void: #030508;
+  --deep: #060810;
+  --panel: #10131a;
+  --card: #151923;
+  --elevated: #1e2433;
+  --gold: #d4a843;
+  --gold-bright: #f0c850;
+  --gold-dim: #a07d2e;
+  --gold-deep: #7a5e1f;
+  --text: #e8e4dc;
+  --text-dim: #8890a0;
+  --text-ghost: #3a4258;
+  --green: #4ade80;
+  --border: rgba(212,168,67,0.1);
+  --serif: 'Noto Serif TC', serif;
+  --sans: 'Noto Sans TC', sans-serif;
+  --brand: 'Outfit', sans-serif;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Body ── */
+body {
+  background: var(--void);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Nebula Background ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 20%, rgba(212,168,67,0.03) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 30%, rgba(100,80,160,0.025) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 60% at 50% 80%, rgba(212,168,67,0.02) 0%, transparent 50%),
+    radial-gradient(ellipse 90% 40% at 10% 60%, rgba(60,80,140,0.02) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 80% at 90% 70%, rgba(212,168,67,0.015) 0%, transparent 50%);
+}
+
+/* SVG Noise Texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  pointer-events: none;
+}
+
+/* ── Main Container ── */
+.magazine {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ══════════════════════════════════════
+   Section Styles
+   ══════════════════════════════════════ */
+.section {
+  padding: 60px 0 40px;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 6.5vw;
+  color: var(--gold);
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+@media (min-width: 500px) {
+  .section-title { font-size: 28px; }
+}
+
+.body-text {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 3.8vw;
+  color: var(--text);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+@media (min-width: 500px) {
+  .body-text { font-size: 15px; }
+}
+
+/* ── Divider ── */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px 0;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+.divider-diamond {
+  color: var(--gold-dim);
+  font-size: 10px;
+  line-height: 1;
+}
+
+/* ══════════════════════════════════════
+   Section 0: Cover
+   ══════════════════════════════════════ */
+.cover {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 0 40px;
+}
+
+.cover-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--brand);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  margin-bottom: 32px;
+  text-transform: uppercase;
+}
+.cover-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid var(--text-dim);
+}
+
+.cover-title {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 11vw;
+  line-height: 1.15;
+  background: linear-gradient(180deg, var(--text) 20%, var(--gold) 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 28px;
+}
+@media (min-width: 500px) {
+  .cover-title { font-size: 52px; }
+}
+
+.cover-subtitle {
+  font-family: var(--sans);
+  font-weight: 200;
+  font-size: 3.6vw;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+}
+@media (min-width: 500px) {
+  .cover-subtitle { font-size: 15px; }
+}
+
+/* ══════════════════════════════════════
+   Cards
+   ══════════════════════════════════════ */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+  transition: border-color 0.3s ease;
+}
+@media (hover: hover) {
+  .card:hover { border-color: var(--gold-dim); }
+}
+
+.card-gold-left {
+  border-left: 3px solid var(--gold);
+}
+
+.card-label {
+  font-family: var(--brand);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.card-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 4.8vw;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+@media (min-width: 500px) {
+  .card-title { font-size: 20px; }
+}
+
+.card-body {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 3.5vw;
+  color: var(--text-dim);
+  line-height: 1.75;
+}
+@media (min-width: 500px) {
+  .card-body { font-size: 14px; }
+}
+
+/* ── Stat Cards ── */
+.stat-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.stat-number {
+  font-family: var(--brand);
+  font-weight: 800;
+  font-size: 32px;
+  color: var(--gold);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.stat-unit {
+  font-family: var(--brand);
+  font-weight: 300;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.stat-desc {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+/* ── Constraint Cards ── */
+.constraint-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.constraint {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.constraint-number {
+  font-family: var(--brand);
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--gold-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.constraint-headline {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 4.2vw;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+@media (min-width: 500px) {
+  .constraint-headline { font-size: 17px; }
+}
+
+.constraint-detail {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 3.3vw;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+@media (min-width: 500px) {
+  .constraint-detail { font-size: 13px; }
+}
+
+/* ══════════════════════════════════════
+   Section 3: Plan Cards (Horizontal Scroll)
+   ══════════════════════════════════════ */
+.plan-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 4px 0 16px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  margin: 20px -24px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.plan-scroll::-webkit-scrollbar { height: 4px; }
+.plan-scroll::-webkit-scrollbar-track { background: transparent; }
+.plan-scroll::-webkit-scrollbar-thumb { background: var(--elevated); border-radius: 2px; }
+
+.plan-card {
+  flex: 0 0 200px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  scroll-snap-align: start;
+}
+.plan-card.recommended {
+  border-color: var(--gold-dim);
+  background: linear-gradient(145deg, var(--card), rgba(212,168,67,0.05));
+}
+
+.plan-card-name {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.plan-card.recommended .plan-card-name { color: var(--gold); }
+
+.plan-card-stats {
+  font-family: var(--brand);
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.plan-card-comment {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 12px;
+  color: var(--text-ghost);
+  line-height: 1.5;
+}
+.plan-card.recommended .plan-card-comment { color: var(--gold-dim); }
+
+.plan-card-badge {
+  display: inline-block;
+  font-family: var(--brand);
+  font-weight: 600;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  background: rgba(212,168,67,0.1);
+  border: 1px solid rgba(212,168,67,0.2);
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════
+   Radar Chart
+   ══════════════════════════════════════ */
+.radar-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+/* ══════════════════════════════════════
+   Section 5: Hero Numbers
+   ══════════════════════════════════════ */
+.hero-numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 40px 0;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-num-item {
+  position: relative;
+}
+
+.hero-num-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,168,67,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-num-value {
+  font-family: var(--brand);
+  font-weight: 800;
+  font-size: 64px;
+  color: var(--gold);
+  line-height: 1;
+  position: relative;
+}
+
+.hero-num-label {
+  font-family: var(--brand);
+  font-weight: 300;
+  font-size: 13px;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+/* ══════════════════════════════════════
+   SVG Config Map
+   ══════════════════════════════════════ */
+.config-map {
+  margin: 32px 0;
+  display: flex;
+  justify-content: center;
+}
+.config-map svg {
+  width: 100%;
+  max-width: 452px;
+}
+
+.map-caption {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 3.3vw;
+  color: var(--text-dim);
+  line-height: 1.75;
+  margin-top: 20px;
+}
+@media (min-width: 500px) {
+  .map-caption { font-size: 13px; }
+}
+
+/* ══════════════════════════════════════
+   Section 6: Mode Cards
+   ══════════════════════════════════════ */
+.mode-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.mode-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.mode-card::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.mode-card.mode-daily::before {
+  background: radial-gradient(circle, rgba(212,168,67,0.08) 0%, transparent 70%);
+}
+.mode-card.mode-wedding::before {
+  background: radial-gradient(circle, rgba(240,160,60,0.08) 0%, transparent 70%);
+}
+.mode-card.mode-full::before {
+  background: radial-gradient(circle, rgba(80,140,220,0.08) 0%, transparent 70%);
+}
+
+.mode-card-number {
+  font-family: var(--brand);
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.mode-daily .mode-card-number { color: var(--gold); }
+.mode-wedding .mode-card-number { color: #f0a03c; }
+.mode-full .mode-card-number { color: #5090dc; }
+
+.mode-card-unit {
+  font-family: var(--brand);
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+.mode-card-desc {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 3.5vw;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 12px;
+  position: relative;
+}
+@media (min-width: 500px) {
+  .mode-card-desc { font-size: 14px; }
+}
+
+.mode-card-meta {
+  font-family: var(--brand);
+  font-weight: 300;
+  font-size: 11px;
+  color: var(--text-ghost);
+  letter-spacing: 0.04em;
+}
+
+/* ══════════════════════════════════════
+   Section 7: Verification
+   ══════════════════════════════════════ */
+.pass-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(74,222,128,0.06);
+  border: 1px solid rgba(74,222,128,0.15);
+  border-radius: 12px;
+  padding: 16px 24px;
+  margin: 24px 0;
+}
+.pass-badge-check {
+  font-size: 20px;
+  color: var(--green);
+}
+.pass-badge-text {
+  font-family: var(--brand);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--green);
+  letter-spacing: 0.04em;
+}
+
+.vehicle-table {
+  width: 100%;
+  margin: 20px 0;
+  font-family: var(--brand);
+  font-size: 12px;
+  border-collapse: collapse;
+}
+.vehicle-table th {
+  font-weight: 400;
+  color: var(--text-ghost);
+  text-align: left;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(212,168,67,0.06);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.vehicle-table td {
+  padding: 8px 0;
+  color: var(--text-dim);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.vehicle-table td:first-child {
+  color: var(--text);
+  font-weight: 400;
+}
+.vehicle-table td:last-child {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.sim-note {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 11px;
+  color: var(--text-ghost);
+  line-height: 1.6;
+  margin-top: 16px;
+}
+
+/* ══════════════════════════════════════
+   Section 8: Specs
+   ══════════════════════════════════════ */
+.spec-list {
+  margin: 20px 0;
+}
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.spec-key {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.spec-val {
+  font-family: var(--brand);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text);
+  text-align: right;
+}
+
+.construction-list {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.construction-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.construction-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  margin-top: 2px;
+}
+.construction-text {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+.construction-text strong {
+  color: var(--text);
+  font-weight: 400;
+}
+
+.price-table {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.price-table th {
+  font-family: var(--sans);
+  font-weight: 400;
+  color: var(--text-ghost);
+  text-align: left;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(212,168,67,0.08);
+  font-size: 11px;
+}
+.price-table td {
+  font-family: var(--sans);
+  font-weight: 300;
+  padding: 10px 0;
+  color: var(--text-dim);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.price-table td:last-child {
+  font-family: var(--brand);
+  font-weight: 400;
+  color: var(--text);
+  text-align: right;
+}
+
+/* ══════════════════════════════════════
+   Section 9: Ending
+   ══════════════════════════════════════ */
+.ending {
+  text-align: center;
+  padding: 60px 0 100px;
+}
+
+.ending-quote {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 4vw;
+  color: var(--text-dim);
+  line-height: 2;
+  margin: 32px 0;
+}
+@media (min-width: 500px) {
+  .ending-quote { font-size: 16px; }
+}
+
+.ending-highlight {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-style: normal;
+  color: var(--gold);
+}
+
+.ending-footer {
+  font-family: var(--brand);
+  font-weight: 300;
+  font-size: 11px;
+  color: var(--text-ghost);
+  letter-spacing: 0.04em;
+  margin-top: 40px;
+  line-height: 1.8;
+}
+.ending-footer a {
+  color: var(--text-ghost);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.2s, border-color 0.2s;
+}
+.ending-footer a:hover {
+  color: var(--text-dim);
+  border-color: var(--text-dim);
+}
+
+/* ══════════════════════════════════════
+   Animations
+   ══════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.reveal-stagger .reveal:nth-child(2) { transition-delay: 0.08s; }
+.reveal-stagger .reveal:nth-child(3) { transition-delay: 0.16s; }
+.reveal-stagger .reveal:nth-child(4) { transition-delay: 0.24s; }
+.reveal-stagger .reveal:nth-child(5) { transition-delay: 0.32s; }
+.reveal-stagger .reveal:nth-child(6) { transition-delay: 0.40s; }
+.reveal-stagger .reveal:nth-child(7) { transition-delay: 0.48s; }
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ── SVG typography ── */
+.svg-label { font-family: 'Outfit', sans-serif; }
+.svg-serif { font-family: 'Noto Serif TC', serif; }
+.svg-sans { font-family: 'Noto Sans TC', sans-serif; }
+
+/* ── Overview map ── */
+.overview-map {
+  margin: 28px 0;
+  display: flex;
+  justify-content: center;
+}
+.overview-map svg { width: 100%; max-width: 400px; }
+
+/* ── Subsection label ── */
+.sub-label {
+  font-family: var(--brand);
+  font-weight: 300;
+  font-size: 11px;
+  color: var(--text-ghost);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="magazine">
+
+  <!-- ════════════════════════════════════
+       Section 0: Cover
+       ════════════════════════════════════ -->
+  <section class="cover">
+    <div class="cover-badge reveal">
+      <span class="cover-badge-dot"></span>
+      專案報告 2026.03
+    </div>
+    <h1 class="cover-title reveal">320 坪<br>多功能場地</h1>
+    <p class="cover-subtitle reveal">一塊地 &middot; 三種可能 &middot; 從零到方案的完整記錄</p>
+  </section>
+
+  <div class="divider"><span class="divider-diamond">&#9671;</span></div>
+
+  <!-- ════════════════════════════════════
+       Section 1: The Land
+       ════════════════════════════════════ -->
+  <section class="section">
+    <h2 class="section-title reveal">故事從一塊地開始</h2>
+    <p class="body-text reveal">在台灣的某處，有一塊 320 坪的土地。北邊緊鄰一棟正在籌備的民宿，左側有一條 4 公尺寬的車道是唯一的進出通道。</p>
+    <p class="body-text reveal">這 320 坪要同時滿足三件事：住客停車、舉辦婚宴、日常生活。不是三選一，是三個都要。</p>
+
+    <!-- SVG Overview Map -->
+    <div class="overview-map reveal">
+      <svg viewBox="0 0 260 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background -->
+        <rect x="30" y="40" width="200" height="450" rx="3" fill="#10131a" stroke="rgba(232,228,220,0.12)" stroke-width="1"/>
+
+        <!-- Front yard zone -->
+        <rect x="30" y="40" width="200" height="85" rx="2" fill="rgba(212,168,67,0.03)" stroke="rgba(212,168,67,0.08)" stroke-width="0.5" stroke-dasharray="4 3"/>
+        <text x="130" y="87" text-anchor="middle" fill="#8890a0" font-size="10" class="svg-sans">前院區 10m</text>
+
+        <!-- Main building zone -->
+        <rect x="30" y="125" width="200" height="120" rx="2" fill="rgba(100,120,180,0.04)" stroke="rgba(100,120,180,0.1)" stroke-width="0.5" stroke-dasharray="4 3"/>
+        <text x="130" y="190" text-anchor="middle" fill="#8890a0" font-size="10" class="svg-sans">主建物 14m</text>
+
+        <!-- Rear open zone (highlight) -->
+        <rect x="30" y="245" width="200" height="245" rx="2" fill="rgba(212,168,67,0.04)" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
+        <text x="130" y="355" text-anchor="middle" fill="#d4a843" font-size="13" font-weight="700" class="svg-serif">後方空地</text>
+        <text x="130" y="378" text-anchor="middle" fill="#d4a843" font-size="11" class="svg-label">20m x 29m = 580m&#178;</text>
+
+        <!-- 4m driveway -->
+        <rect x="0" y="40" width="34" height="450" fill="rgba(212,168,67,0.04)" stroke="rgba(212,168,67,0.1)" stroke-width="0.5"/>
+        <text x="16" y="268" text-anchor="middle" fill="#a07d2e" font-size="8" transform="rotate(-90,16,268)" class="svg-label">車道 4m</text>
+
+        <!-- Dimension labels -->
+        <!-- Width -->
+        <line x1="30" y1="28" x2="230" y2="28" stroke="#3a4258" stroke-width="0.7"/>
+        <line x1="30" y1="24" x2="30" y2="32" stroke="#3a4258" stroke-width="0.7"/>
+        <line x1="230" y1="24" x2="230" y2="32" stroke="#3a4258" stroke-width="0.7"/>
+        <text x="130" y="22" text-anchor="middle" fill="#8890a0" font-size="10" class="svg-label">20m</text>
+
+        <!-- Depth -->
+        <line x1="244" y1="40" x2="244" y2="490" stroke="#3a4258" stroke-width="0.7"/>
+        <line x1="240" y1="40" x2="248" y2="40" stroke="#3a4258" stroke-width="0.7"/>
+        <line x1="240" y1="490" x2="248" y2="490" stroke="#3a4258" stroke-width="0.7"/>
+        <text x="252" y="268" text-anchor="start" fill="#8890a0" font-size="10" transform="rotate(90,252,268)" class="svg-label">53m</text>
+
+        <!-- Rear depth -->
+        <line x1="22" y1="245" x2="22" y2="490" stroke="rgba(212,168,67,0.3)" stroke-width="0.7"/>
+        <line x1="18" y1="245" x2="26" y2="245" stroke="rgba(212,168,67,0.3)" stroke-width="0.7"/>
+        <line x1="18" y1="490" x2="26" y2="490" stroke="rgba(212,168,67,0.3)" stroke-width="0.7"/>
+        <text x="12" y="370" text-anchor="middle" fill="#a07d2e" font-size="8" transform="rotate(-90,12,370)" class="svg-label">29m</text>
+
+        <!-- North wall label -->
+        <text x="130" y="52" text-anchor="middle" fill="#8890a0" font-size="9" class="svg-sans">民宿北牆</text>
+        <line x1="60" y1="40" x2="230" y2="40" stroke="#d4a843" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <div class="stat-stack reveal-stagger">
+      <div class="stat-card reveal">
+        <div>
+          <span class="stat-number">20<span style="font-size:18px;font-weight:300;color:var(--text-dim)">m</span> &times; 29<span style="font-size:18px;font-weight:300;color:var(--text-dim)">m</span></span>
+        </div>
+        <div class="stat-desc">後方空地的基地尺寸</div>
+      </div>
+      <div class="stat-card reveal">
+        <div>
+          <span class="stat-number">580<span style="font-size:18px;font-weight:300;color:var(--text-dim)"> m&#178;</span></span>
+        </div>
+        <div class="stat-desc">可運用的面積</div>
+      </div>
+      <div class="stat-card reveal">
+        <div>
+          <span class="stat-number">4<span style="font-size:18px;font-weight:300;color:var(--text-dim)">m</span></span>
+        </div>
+        <div class="stat-desc">唯一的進出車道</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-diamond">&#9671;</span></div>
+
+  <!-- ════════════════════════════════════
+       Section 2: Challenges
+       ════════════════════════════════════ -->
+  <section class="section">
+    <h2 class="section-title reveal">看似簡單的需求，其實很難</h2>
+
+    <div class="constraint-cards reveal-stagger">
+      <div class="constraint reveal">
+        <div class="constraint-number">01</div>
+        <div class="constraint-headline">至少 7 個固定車位</div>
+        <div class="constraint-detail">緊鄰民宿，附雨遮，住客下車不淋雨</div>
+      </div>
+      <div class="constraint reveal">
+        <div class="constraint-number">02</div>
+        <div class="constraint-headline">能辦 120 人婚宴</div>
+        <div class="constraint-detail">大帳篷、圓桌、舞台、外燴</div>
+      </div>
+      <div class="constraint reveal">
+        <div class="constraint-number">03</div>
+        <div class="constraint-headline">滿載停到 17 車</div>
+        <div class="constraint-detail">大型活動的臨時停車需求</div>
+      </div>
+      <div class="constraint reveal">
+        <div class="constraint-number">04</div>
+        <div class="constraint-headline">一條 4m 車道進出</div>
+        <div class="constraint-detail">進出同一條路，不能塞車</div>
+      </div>
+    </div>
+
+    <p class="body-text reveal">這四個需求互相矛盾。車位多了，開放空間就少了。帳篷大了，停車就不夠。而那條 4 公尺的車道，是所有動線的瓶頸。</p>
+  </section>
+
+  <div class="divider"><span class="divider-diamond">&#9671;</span></div>
+
+  <!-- ════════════════════════════════════
+       Section 3: Exploration
+       ════════════════════════════════════ -->
+  <section class="section">
+    <h2 class="section-title reveal">60 種配置，7 個方案</h2>
+    <p class="body-text reveal">我們寫了 Python 優化程式，窮舉搜尋了 60 多種不同的停車配置。角度（45&#176; / 60&#176; / 90&#176;）、車位寬度（2.3m 到 3.5m）、通道方向、排列方式 —— 所有可能都試過了。</p>
+    <p class="body-text reveal">最後收斂成 7 個有代表性的方案：</p>
+
+    <!-- Horizontal scroll plan cards -->
+    <div class="plan-scroll reveal">
+      <div class="plan-card recommended">
+        <div class="plan-card-badge">最終推薦</div>
+        <div class="plan-card-name">C2 修正L型</div>
+        <div class="plan-card-stats">7 位 &middot; 360m&#178;</div>
+        <div class="plan-card-comment">兼得的答案</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card-name">A 北牆一列</div>
+        <div class="plan-card-stats">6+1 位 &middot; 360m&#178;</div>
+        <div class="plan-card-comment">雨遮最短</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card-name">D 西牆斜列</div>
+        <div class="plan-card-stats">7 位 &middot; 346m&#178;</div>
+        <div class="plan-card-comment">車道零浪費</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card-name">G 北牆退縮</div>
+        <div class="plan-card-stats">6 位 &middot; 320m&#178;</div>
+        <div class="plan-card-comment">有蓋走道</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card-name">E 南牆一列</div>
+        <div class="plan-card-stats">7 位 &middot; 280m&#178;</div>
+        <div class="plan-card-comment">離民宿太遠</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card-name">F 東牆一列</div>
+        <div class="plan-card-stats">7 位 &middot; 225m&#178;</div>
+        <div class="plan-card-comment">雨遮不實際</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card-name">B 北牆雙列</div>
+        <div class="plan-card-stats">7 位 &middot; 160m&#178;</div>
+        <div class="plan-card-comment">開放區太小</div>
+      </div>
+    </div>
+
+    <!-- Radar Chart -->
+    <div class="sub-label reveal" style="margin-top:28px;">五維比較</div>
+    <div class="radar-wrap reveal">
+      <svg viewBox="0 0 300 280" width="85%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>
+            .radar-axis { stroke: rgba(232,228,220,0.06); stroke-width: 0.5; }
+            .radar-ring { fill: none; stroke: rgba(232,228,220,0.06); stroke-width: 0.5; }
+            .radar-label { font-family: 'Noto Sans TC', sans-serif; font-size: 9px; fill: #8890a0; }
+          </style>
+        </defs>
+        <!-- Center point: 150, 135 ; radius: 90 -->
+        <!-- 5 axes at 72deg apart, starting from top -->
+        <!-- Axis 0 (top): 150, 45   => 90deg up -->
+        <!-- Axis 1: 150+90*sin(72)=235.6, 135-90*cos(72)=107.2 -->
+        <!-- Axis 2: 150+90*sin(144)=202.9, 135+90*cos(144)=207.8 -->
+        <!-- Axis 3: 150-90*sin(144)=97.1, 135+90*cos(144)=207.8 -->
+        <!-- Axis 4: 150-90*sin(72)=64.4, 135-90*cos(72)=107.2 -->
+
+        <!-- Rings -->
+        <polygon class="radar-ring" points="150,90 192.8,117.1 176.5,171.4 123.5,171.4 107.2,117.1"/>
+        <polygon class="radar-ring" points="150,67.5 214.2,108.15 189.7,189.6 110.3,189.6 85.8,108.15"/>
+        <polygon class="radar-ring" points="150,45 235.6,99.2 202.9,207.8 97.1,207.8 64.4,99.2"/>
+
+        <!-- Axes -->
+        <line class="radar-axis" x1="150" y1="135" x2="150" y2="45"/>
+        <line class="radar-axis" x1="150" y1="135" x2="235.6" y2="99.2"/>
+        <line class="radar-axis" x1="150" y1="135" x2="202.9" y2="207.8"/>
+        <line class="radar-axis" x1="150" y1="135" x2="97.1" y2="207.8"/>
+        <line class="radar-axis" x1="150" y1="135" x2="64.4" y2="99.2"/>
+
+        <!-- Labels -->
+        <text class="radar-label" x="150" y="36" text-anchor="middle">雨遮效率</text>
+        <text class="radar-label" x="244" y="99" text-anchor="start">開放面積</text>
+        <text class="radar-label" x="210" y="222" text-anchor="start">溢出容量</text>
+        <text class="radar-label" x="90" y="222" text-anchor="end">動線品質</text>
+        <text class="radar-label" x="56" y="99" text-anchor="end">雙用彈性</text>
+
+        <!-- D: dashed line (compare) -->
+        <!-- D: 0.88, 0.86, 0.83, 0.93, 0.53 -->
+        <polygon
+          fill="rgba(100,140,200,0.06)"
+          stroke="rgba(100,140,200,0.3)"
+          stroke-width="1"
+          stroke-dasharray="4 3"
+          points="
+            150,55.8
+            223.8,102.3
+            194,195.3
+            99.7,202.9
+            104.6,116.2
+          "
+        />
+
+        <!-- A: dashed line (compare) -->
+        <!-- A: 1.00, 0.90, 0.75, 0.87, 0.93 -->
+        <polygon
+          fill="rgba(180,160,120,0.04)"
+          stroke="rgba(180,160,120,0.25)"
+          stroke-width="1"
+          stroke-dasharray="4 3"
+          points="
+            150,45
+            227,101.6
+            189.7,189.6
+            104.3,198.6
+            70.4,101.8
+          "
+        />
+
+        <!-- C2: solid gold fill (recommended) -->
+        <!-- C2: 1.00, 0.90, 0.75, 0.87, 0.93 -->
+        <polygon
+          fill="rgba(212,168,67,0.12)"
+          stroke="#d4a843"
+          stroke-width="1.5"
+          points="
+            150,45
+            227,101.6
+            189.7,189.6
+            104.3,198.6
+            70.4,101.8
+          "
+        />
+
+        <!-- C2 dots -->
+        <circle cx="150" cy="45" r="3" fill="#d4a843"/>
+        <circle cx="227" cy="101.6" r="3" fill="#d4a843"/>
+        <circle cx="189.7" cy="189.6" r="3" fill="#d4a843"/>
+        <circle cx="104.3" cy="198.6" r="3" fill="#d4a843"/>
+        <circle cx="70.4" cy="101.8" r="3" fill="#d4a843"/>
+
+        <!-- Legend -->
+        <line x1="40" y1="260" x2="56" y2="260" stroke="#d4a843" stroke-width="1.5"/>
+        <text x="62" y="264" fill="#d4a843" font-size="9" font-family="'Noto Sans TC', sans-serif">C2 修正L型</text>
+
+        <line x1="130" y1="260" x2="146" y2="260" stroke="rgba(180,160,120,0.4)" stroke-width="1" stroke-dasharray="4 3"/>
+        <text x="152" y="264" fill="rgba(180,160,120,0.5)" font-size="9" font-family="'Noto Sans TC', sans-serif">A 北牆</text>
+
+        <line x1="200" y1="260" x2="216" y2="260" stroke="rgba(100,140,200,0.4)" stroke-width="1" stroke-dasharray="4 3"/>
+        <text x="222" y="264" fill="rgba(100,140,200,0.5)" font-size="9" font-family="'Noto Sans TC', sans-serif">D 西牆</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-diamond">&#9671;</span></div>
+
+  <!-- ════════════════════════════════════
+       Section 4: Turning Points
+       ════════════════════════════════════ -->
+  <section class="section">
+    <h2 class="section-title reveal">兩個改變一切的發現</h2>
+
+    <div class="card card-gold-left reveal" style="margin-top:24px;">
+      <div class="card-label">發現一</div>
+      <div class="card-title">車道不用開到底</div>
+      <div class="card-body">原本的設計讓 4m 車道貫穿整個 29m，白白吃掉 72m&#178;。但仔細想想車的動線 —— 停完車就不需要往南走了。車道只要到通道（11m）就夠。</div>
+      <div style="margin-top:16px; font-family:var(--brand); font-weight:700; font-size:18px;">
+        <span style="color:var(--text-dim);">288m&#178;</span>
+        <span style="color:var(--text-ghost); margin:0 8px;">&rarr;</span>
+        <span style="color:var(--gold);">360m&#178;</span>
+        <span style="font-family:var(--brand); font-weight:300; font-size:12px; color:var(--green); margin-left:8px;">+25%</span>
+      </div>
+    </div>
+
+    <div class="card card-gold-left reveal" style="margin-top:12px;">
+      <div class="card-label">發現二</div>
+      <div class="card-title">L 型排列，把角落用起來</div>
+      <div class="card-body">北牆只有 16m，最多放 6 個車位。第 7 個怎麼辦？<br><br>把東牆也用上。北牆 4 位 + 東牆 3 位 = 7 位，形成 L 型。開放面積不變，車位全滿。<br><br>但第一版的 L 型有幾何重疊 bug —— 兩組車位在角落撞在一起。修正後把東牆車位放到 x=14.5 以後，完美解決。</div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-diamond">&#9671;</span></div>
+
+  <!-- ════════════════════════════════════
+       Section 5: The Answer — C2
+       ════════════════════════════════════ -->
+  <section class="section">
+    <h2 class="section-title reveal">最終方案</h2>
+
+    <!-- Hero numbers -->
+    <div class="hero-numbers reveal-stagger">
+      <div class="hero-num-item reveal">
+        <div class="hero-num-glow"></div>
+        <div class="hero-num-value">7</div>
+        <div class="hero-num-label">固定車位</div>
+      </div>
+      <div class="hero-num-item reveal">
+        <div class="hero-num-glow"></div>
+        <div class="hero-num-value">360</div>
+        <div class="hero-num-label">開放空間 m&#178;</div>
+      </div>
+      <div class="hero-num-item reveal">
+        <div class="hero-num-glow"></div>
+        <div class="hero-num-value">17</div>
+        <div class="hero-num-label">最大容量</div>
+      </div>
+    </div>
+
+    <!-- SVG Configuration Map (the hero visual) -->
+    <div class="config-map reveal">
+      <svg viewBox="-10 -40 340 530" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Arrow marker for dimensions -->
+          <marker id="arr" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8" fill="none" stroke="#8890a0" stroke-width="1"/>
+          </marker>
+          <marker id="arr-r" viewBox="0 0 8 8" refX="0" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M8,0 L0,4 L8,8" fill="none" stroke="#8890a0" stroke-width="1"/>
+          </marker>
+          <marker id="arr-g" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8" fill="none" stroke="#d4a843" stroke-width="1"/>
+          </marker>
+          <marker id="arr-g-r" viewBox="0 0 8 8" refX="0" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M8,0 L0,4 L8,8" fill="none" stroke="#d4a843" stroke-width="1"/>
+          </marker>
+          <!-- Hatch pattern for open area -->
+          <pattern id="hatch" patternUnits="userSpaceOnUse" width="12" height="12" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="12" stroke="rgba(212,168,67,0.06)" stroke-width="1"/>
+          </pattern>
+        </defs>
+
+        <!-- ── Title ── -->
+        <text x="150" y="-22" text-anchor="middle" fill="#d4a843" font-size="12" font-weight="700" font-family="'Noto Serif TC', serif">C2 修正 L 型配置圖</text>
+
+        <!-- Scale: 15px per meter. 20m = 300px, 29m = 435px -->
+
+        <!-- ── Base boundary ── -->
+        <rect x="0" y="0" width="300" height="435" rx="2" fill="none" stroke="rgba(232,228,220,0.12)" stroke-width="1"/>
+
+        <!-- ── Civil North Wall ── -->
+        <line x1="60" y1="0" x2="300" y2="0" stroke="#d4a843" stroke-width="3"/>
+        <text x="180" y="-8" text-anchor="middle" fill="#d4a843" font-size="9" font-family="'Noto Sans TC', sans-serif">民宿北牆</text>
+
+        <!-- ── Driveway ── -->
+        <rect x="0" y="0" width="60" height="165" fill="rgba(212,168,67,0.04)"/>
+        <rect x="0" y="0" width="60" height="165" fill="none" stroke="rgba(212,168,67,0.15)" stroke-width="0.8"/>
+        <!-- Driveway center line -->
+        <line x1="30" y1="8" x2="30" y2="157" stroke="rgba(212,168,67,0.12)" stroke-width="0.6" stroke-dasharray="6 4"/>
+        <text x="30" y="88" text-anchor="middle" fill="#a07d2e" font-size="8" font-family="'Outfit', sans-serif">車道 4m</text>
+        <!-- Driveway termination -->
+        <line x1="0" y1="165" x2="60" y2="165" stroke="rgba(212,168,67,0.25)" stroke-width="1" stroke-dasharray="4 3"/>
+
+        <!-- ── Parking spots F1-F4 (North wall, vertical) ── -->
+        <!-- Each: 2.5m wide (37.5px) x 5.5m deep (82.5px), starting at x=67.5 -->
+        <rect x="67.5" y="0" width="37.5" height="82.5" fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1" rx="1"/>
+        <text x="86.25" y="45" text-anchor="middle" fill="#d4a843" font-size="9" font-weight="600" font-family="'Outfit', sans-serif">F1</text>
+
+        <rect x="105" y="0" width="37.5" height="82.5" fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1" rx="1"/>
+        <text x="123.75" y="45" text-anchor="middle" fill="#d4a843" font-size="9" font-weight="600" font-family="'Outfit', sans-serif">F2</text>
+
+        <rect x="142.5" y="0" width="37.5" height="82.5" fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1" rx="1"/>
+        <text x="161.25" y="45" text-anchor="middle" fill="#d4a843" font-size="9" font-weight="600" font-family="'Outfit', sans-serif">F3</text>
+
+        <rect x="180" y="0" width="37.5" height="82.5" fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1" rx="1"/>
+        <text x="198.75" y="45" text-anchor="middle" fill="#d4a843" font-size="9" font-weight="600" font-family="'Outfit', sans-serif">F4</text>
+
+        <!-- ── Parking spots F5-F7 (East wall, horizontal) ── -->
+        <!-- Each: 5.5m wide (82.5px) x 2.5m deep (37.5px), starting at x=217.5 -->
+        <rect x="217.5" y="0" width="82.5" height="37.5" fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1" rx="1"/>
+        <text x="258.75" y="23" text-anchor="middle" fill="#d4a843" font-size="9" font-weight="600" font-family="'Outfit', sans-serif">F5</text>
+
+        <rect x="217.5" y="37.5" width="82.5" height="37.5" fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1" rx="1"/>
+        <text x="258.75" y="60" text-anchor="middle" fill="#d4a843" font-size="9" font-weight="600" font-family="'Outfit', sans-serif">F6</text>
+
+        <rect x="217.5" y="75" width="82.5" height="37.5" fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1" rx="1"/>
+        <text x="258.75" y="98" text-anchor="middle" fill="#d4a843" font-size="9" font-weight="600" font-family="'Outfit', sans-serif">F7</text>
+
+        <!-- ── Aisles ── -->
+        <!-- North aisle -->
+        <rect x="60" y="82.5" width="157.5" height="82.5" fill="rgba(30,36,51,0.3)" rx="1"/>
+        <text x="138.75" y="128" text-anchor="middle" fill="#3a4258" font-size="8" font-family="'Outfit', sans-serif">北側通道 5.5m</text>
+        <!-- East aisle -->
+        <rect x="135" y="0" width="82.5" height="112.5" fill="rgba(30,36,51,0.15)" rx="1"/>
+        <text x="176.25" y="108" text-anchor="middle" fill="#3a4258" font-size="8" font-family="'Outfit', sans-serif" transform="rotate(-90,176.25,108)">東側通道</text>
+
+        <!-- ── L-shaped canopy (dashed gold) ── -->
+        <polyline points="67.5,112.5 67.5,0 300,0 300,112.5 217.5,112.5 217.5,82.5 67.5,82.5"
+          fill="none" stroke="#d4a843" stroke-width="1.2" stroke-dasharray="6 4" opacity="0.4"/>
+        <text x="140" y="76" text-anchor="middle" fill="rgba(212,168,67,0.35)" font-size="7" font-family="'Noto Sans TC', sans-serif">L 型雨遮範圍</text>
+
+        <!-- ── Open area ── -->
+        <rect x="0" y="165" width="300" height="270" fill="url(#hatch)"/>
+        <rect x="0" y="165" width="300" height="270" fill="rgba(212,168,67,0.015)"/>
+        <rect x="0" y="165" width="300" height="270" fill="none" stroke="rgba(212,168,67,0.08)" stroke-width="0.8" stroke-dasharray="6 4"/>
+        <text x="150" y="295" text-anchor="middle" fill="rgba(212,168,67,0.4)" font-size="14" font-weight="700" font-family="'Noto Serif TC', serif">開放區</text>
+        <text x="150" y="315" text-anchor="middle" fill="rgba(212,168,67,0.3)" font-size="11" font-family="'Outfit', sans-serif">360m&#178; (109坪)</text>
+
+        <!-- ══ Dimension annotations ══ -->
+        <!-- Top: 20m -->
+        <line x1="0" y1="-14" x2="300" y2="-14" stroke="#8890a0" stroke-width="0.5" marker-start="url(#arr-r)" marker-end="url(#arr)"/>
+        <text x="150" y="-17" text-anchor="middle" fill="#8890a0" font-size="9" font-family="'Outfit', sans-serif">20m</text>
+
+        <!-- Right: 29m -->
+        <line x1="314" y1="0" x2="314" y2="435" stroke="#8890a0" stroke-width="0.5" marker-start="url(#arr-r)" marker-end="url(#arr)"/>
+        <text x="322" y="220" text-anchor="start" fill="#8890a0" font-size="9" font-family="'Outfit', sans-serif" transform="rotate(90,322,220)">29m</text>
+
+        <!-- Aisle width: 5.5m (north side) -->
+        <line x1="55" y1="82.5" x2="55" y2="165" stroke="rgba(212,168,67,0.3)" stroke-width="0.5" marker-start="url(#arr-g-r)" marker-end="url(#arr-g)"/>
+        <text x="48" y="127" text-anchor="end" fill="rgba(212,168,67,0.4)" font-size="7" font-family="'Outfit', sans-serif">5.5m</text>
+
+        <!-- Canopy depth: 7.5m -->
+        <line x1="310" y1="0" x2="310" y2="112.5" stroke="rgba(212,168,67,0.3)" stroke-width="0.5" marker-start="url(#arr-g-r)" marker-end="url(#arr-g)"/>
+        <text x="310" y="60" text-anchor="start" fill="rgba(212,168,67,0.4)" font-size="7" font-family="'Outfit', sans-serif" dx="4">7.5m</text>
+
+      </svg>
+    </div>
+
+    <p class="map-caption reveal">北牆 4 位 + 東牆 3 位形成 L 型。L 型雨遮從建築角落延伸 7.5m，覆蓋全部 7 個車位。開放區在南側，全寬 20m，完全淨空。</p>
+  </section>
+
+  <div class="divider"><span class="divider-diamond">&#9671;</span></div>
+
+  <!-- ════════════════════════════════════
+       Section 6: Three Modes
+       ════════════════════════════════════ -->
+  <section class="section">
+    <h2 class="section-title reveal">同一個空間，三種人生</h2>
+
+    <div class="mode-cards reveal-stagger">
+      <div class="mode-card mode-daily reveal">
+        <div class="mode-card-number">7 <span style="font-size:20px; font-weight:300;">車</span></div>
+        <div class="mode-card-unit">日常</div>
+        <div class="mode-card-desc">固定車位停滿，南側 360m&#178; 是你的後花園。曬衣服、小孩跑步、傍晚搬椅子出來坐。</div>
+        <div class="mode-card-meta">開放 360m&#178; &middot; 109 坪</div>
+      </div>
+
+      <div class="mode-card mode-wedding reveal">
+        <div class="mode-card-number">120 <span style="font-size:20px; font-weight:300;">人</span></div>
+        <div class="mode-card-unit">婚宴</div>
+        <div class="mode-card-desc">18&times;14m 的白色帳篷撐起來，12 張圓桌擺好，燈串從雨遮拉到帳篷。一生一次的場地，在你家後院。</div>
+        <div class="mode-card-meta">12 桌 &middot; 18&times;14m 帳篷 &middot; 舞台區</div>
+      </div>
+
+      <div class="mode-card mode-full reveal">
+        <div class="mode-card-number">17 <span style="font-size:20px; font-weight:300;">車</span></div>
+        <div class="mode-card-unit">滿載</div>
+        <div class="mode-card-desc">三角錐一擺，溢出車位的標線就在地上。7 固定 + 10 溢出，全部停滿也不亂。</div>
+        <div class="mode-card-meta">10 溢出位 &middot; 中央通道 &middot; U 型動線</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-diamond">&#9671;</span></div>
+
+  <!-- ════════════════════════════════════
+       Section 7: Verification
+       ════════════════════════════════════ -->
+  <section class="section">
+    <h2 class="section-title reveal">每一台車都驗證過了</h2>
+    <p class="body-text reveal">L 型轉角是這個方案最大的風險。如果車轉不過去，一切白搭。</p>
+    <p class="body-text reveal">我們用 Ackermann 轉向模型，模擬了 4 種車型在 L 型轉角的實際行駛軌跡。不是用公式估算，是真的一步一步模擬車身掃過的每一個位置。</p>
+
+    <div class="pass-badge reveal">
+      <span class="pass-badge-check">&#10003;</span>
+      <span class="pass-badge-text">4/4 車型全部通過</span>
+    </div>
+
+    <div class="reveal">
+      <table class="vehicle-table">
+        <thead>
+          <tr>
+            <th>車型</th>
+            <th>車長</th>
+            <th>入口餘裕</th>
+            <th>轉角餘裕</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Altis</td>
+            <td>4.63m</td>
+            <td>1.06m</td>
+            <td>0.59m</td>
+            <td>&#10003;</td>
+          </tr>
+          <tr>
+            <td>RAV4</td>
+            <td>4.60m</td>
+            <td>1.02m</td>
+            <td>0.64m</td>
+            <td>&#10003;</td>
+          </tr>
+          <tr>
+            <td>Model Y</td>
+            <td>4.75m</td>
+            <td>0.99m</td>
+            <td>0.69m</td>
+            <td>&#10003;</td>
+          </tr>
+          <tr>
+            <td>Lexus RX</td>
+            <td>4.89m</td>
+            <td>0.98m</td>
+            <td>0.63m</td>
+            <td>&#10003;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="body-text reveal">最小餘裕 0.59m —— 大約一個人側身的寬度。安全無虞。</p>
+
+    <p class="sim-note reveal">模擬方法：Ackermann 自行車模型 &middot; 多路線最佳化搜索 &middot; 車身四角碰撞檢測</p>
+  </section>
+
+  <div class="divider"><span class="divider-diamond">&#9671;</span></div>
+
+  <!-- ════════════════════════════════════
+       Section 8: Specs
+       ════════════════════════════════════ -->
+  <section class="section">
+    <h2 class="section-title reveal">給建築師的規格書</h2>
+
+    <div class="sub-label reveal" style="margin-top:28px;">關鍵尺寸</div>
+    <div class="spec-list reveal">
+      <div class="spec-row">
+        <span class="spec-key">固定車位</span>
+        <span class="spec-val">7 位 (4北+3東)</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">車位尺寸</span>
+        <span class="spec-val">2.5m &times; 5.5m</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">通道寬度</span>
+        <span class="spec-val">5.5m (&ge; 台灣標準 5.0m)</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">雨遮結構</span>
+        <span class="spec-val">L 型，最深 7.5m</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">開放面積</span>
+        <span class="spec-val">360m&#178; (109坪)</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">開放尺寸</span>
+        <span class="spec-val">20m &times; 18m</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">最大容量</span>
+        <span class="spec-val">17 車</span>
+      </div>
+    </div>
+
+    <div class="sub-label reveal" style="margin-top:36px;">施工建議</div>
+    <div class="construction-list reveal-stagger">
+      <div class="construction-item reveal">
+        <div class="construction-icon">&#9632;</div>
+        <div class="construction-text"><strong>地面</strong> &mdash; 全區水泥或瀝青，平整無高差</div>
+      </div>
+      <div class="construction-item reveal">
+        <div class="construction-icon">&#9650;</div>
+        <div class="construction-text"><strong>雨遮</strong> &mdash; L 型鋼骨，PC 中空板或鐵皮浪板</div>
+      </div>
+      <div class="construction-item reveal">
+        <div class="construction-icon">&#9660;</div>
+        <div class="construction-text"><strong>排水</strong> &mdash; 向南微斜 0.5-1%，南側設排水溝</div>
+      </div>
+      <div class="construction-item reveal">
+        <div class="construction-icon">&#9733;</div>
+        <div class="construction-text"><strong>電力</strong> &mdash; 南牆 / 東牆預留 220V &times; 4 插座</div>
+      </div>
+      <div class="construction-item reveal">
+        <div class="construction-icon">&#9788;</div>
+        <div class="construction-text"><strong>照明</strong> &mdash; 雨遮下 LED 燈條 + 四角立燈柱</div>
+      </div>
+      <div class="construction-item reveal">
+        <div class="construction-icon">&#9679;</div>
+        <div class="construction-text"><strong>標示</strong> &mdash; 固定位車擋 + 白線，溢出位嵌入式反光釘</div>
+      </div>
+    </div>
+
+    <div class="sub-label reveal" style="margin-top:36px;">雨遮材質估價</div>
+    <div class="reveal">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>材質</th>
+            <th style="text-align:right;">估價 (NT$)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>帆布（鋁骨架）</td>
+            <td>13 ~ 16 萬</td>
+          </tr>
+          <tr>
+            <td>PC 中空板</td>
+            <td>22 ~ 27 萬</td>
+          </tr>
+          <tr>
+            <td>鐵皮浪板</td>
+            <td>27 ~ 32 萬</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-diamond">&#9671;</span></div>
+
+  <!-- ════════════════════════════════════
+       Section 9: Ending
+       ════════════════════════════════════ -->
+  <section class="ending">
+    <div class="ending-quote reveal">
+      從一塊空地，到 60 種配置，<br>
+      到 7 個方案，到 1 個答案。<br><br>
+      <span class="ending-highlight">C2 修正 L 型。</span><br>
+      7 固定車位。360m&#178; 開放空間。17 車最大容量。<br><br>
+      兼得的方案。
+    </div>
+
+    <div class="divider"><span class="divider-diamond">&#9671;</span></div>
+
+    <div class="ending-footer reveal">
+      方案設計 2026.03<br>
+      全部資料與互動圖表見 <a href="https://levelfly.github.io/parking-plan/" target="_blank" rel="noopener">levelfly.github.io/parking-plan/</a>
+    </div>
+  </section>
+
+</div><!-- /.magazine -->
+
+<script>
+// ══════════════════════════════════════
+// IntersectionObserver for reveal animations
+// ══════════════════════════════════════
+(function() {
+  'use strict';
+
+  // Respect reduced motion preference
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      el.classList.add('visible');
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>
