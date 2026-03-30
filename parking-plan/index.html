@@ -441,6 +441,49 @@ body::after{
   </section>
 
   <!-- ════════════════════════════════════
+       SCENE: THE LAND
+       ════════════════════════════════════ -->
+  <div class="divider"></div>
+  <section class="reveal" style="padding:0 0 16px">
+    <div class="chapter-body" style="margin-bottom:14px">
+      這是一棟正在籌備的民宿。後院要停住客的車，偶爾辦場婚禮，平常就是自家的院子。
+    </div>
+    <div class="chapter-visual">
+      <svg viewBox="0 0 200 400">
+        <!-- Full property overview: 20m × 53m -->
+        <rect x="0" y="0" width="200" height="398" fill="none" stroke="rgba(232,228,220,.12)" stroke-width="1" rx="3"/>
+        <!-- Road -->
+        <text x="100" y="14" fill="var(--gold-dim)" font-size="9" text-anchor="middle" font-family="'Noto Sans TC',sans-serif">馬路（北）</text>
+        <!-- Driveway -->
+        <rect x="0" y="20" width="40" height="340" fill="rgba(212,168,67,.04)"/>
+        <text x="20" y="200" fill="rgba(212,168,67,.25)" font-size="7" text-anchor="middle" transform="rotate(-90,20,200)" font-family="'Noto Sans TC',sans-serif">車道 4m</text>
+        <!-- Zone 1: Front yard -->
+        <rect x="40" y="20" width="160" height="75" fill="rgba(74,222,128,.03)" stroke="rgba(74,222,128,.12)" stroke-width=".8" stroke-dasharray="3,2" rx="2"/>
+        <text x="120" y="62" fill="rgba(74,222,128,.4)" font-size="10" text-anchor="middle" font-family="'Noto Sans TC',sans-serif">前院 ~10m</text>
+        <!-- Zone 2: Building -->
+        <rect x="40" y="95" width="160" height="105" fill="rgba(232,228,220,.04)" stroke="rgba(232,228,220,.12)" stroke-width=".8" rx="2"/>
+        <text x="120" y="152" fill="rgba(232,228,220,.35)" font-size="11" text-anchor="middle" font-family="'Noto Serif TC',serif" font-weight="700">民宿建築</text>
+        <text x="120" y="168" fill="rgba(232,228,220,.2)" font-size="8" text-anchor="middle" font-family="Outfit">~14m</text>
+        <!-- Zone 3: Parking (highlighted) -->
+        <rect x="0" y="200" width="200" height="160" fill="rgba(212,168,67,.04)" stroke="var(--gold-dim)" stroke-width="1" rx="2"/>
+        <text x="100" y="270" fill="var(--gold)" font-size="13" text-anchor="middle" font-family="'Noto Serif TC',serif" font-weight="700">後方空地</text>
+        <text x="100" y="290" fill="var(--gold-dim)" font-size="10" text-anchor="middle" font-family="Outfit">20m × 29m = 580m²</text>
+        <text x="100" y="306" fill="var(--text-ghost)" font-size="9" text-anchor="middle" font-family="'Noto Sans TC',sans-serif">（大約一個籃球場）</text>
+        <!-- Dims -->
+        <line x1="190" y1="20" x2="190" y2="360" stroke="var(--gold-dim)" stroke-width=".5"/>
+        <text x="196" y="190" fill="var(--text-ghost)" font-size="7" font-family="Outfit" transform="rotate(90,196,190)">~53m</text>
+        <line x1="0" y1="380" x2="200" y2="380" stroke="var(--gold-dim)" stroke-width=".5"/>
+        <text x="100" y="393" fill="var(--text-ghost)" font-size="8" text-anchor="middle" font-family="Outfit">20m</text>
+        <!-- Entry arrow -->
+        <line x1="20" y1="22" x2="20" y2="50" stroke="var(--gold-dim)" stroke-width="1" marker-end="url(#aD)"/>
+      </svg>
+    </div>
+    <p style="text-align:center;font-size:clamp(11px,3vw,13px);color:var(--text-ghost);margin-top:8px">
+      金色區域就是我們要規劃的 320 坪
+    </p>
+  </section>
+
+  <!-- ════════════════════════════════════
        SCREEN 2: INTERACTIVE PLAN
        ════════════════════════════════════ -->
   <div class="divider"></div>
@@ -622,6 +665,16 @@ body::after{
 
     <!-- Hint -->
     <p class="plan-hint reveal reveal-d4">👆 點擊配置圖的任何區域探索</p>
+
+    <!-- F7 story + 360m² context -->
+    <div class="reveal" style="margin-top:20px;padding:16px;background:var(--card);border:1px solid var(--border-s);border-radius:10px">
+      <p style="font-size:clamp(12px,3.4vw,14px);color:var(--text-dim);line-height:1.8">
+        <span style="color:var(--gold-bright);font-family:var(--brand);font-weight:700">F7 ★</span> 在通道入口。最靠近車道，進出最快。最早出門的人停這裡——民宿老闆自己，或是趕早班飛機的房客。它不是第七順位。<strong style="color:var(--text)">它是最好的位置。</strong>
+      </p>
+      <p style="font-size:clamp(11px,3vw,13px);color:var(--text-ghost);margin-top:10px;line-height:1.7">
+        開放區 360m²，大約一個標準籃球場。可以擺 12 張圓桌坐 120 人，搭一座 18 米寬的帳篷，還有空間放舞台和外燴區。
+      </p>
+    </div>
   </section>
 
   <!-- ════════════════════════════════════
@@ -756,9 +809,10 @@ body::after{
       <div class="chapter-num">Chapter 3</div>
       <div class="chapter-title">破滅</div>
       <div class="chapter-body">
-        車輛模擬通過了。四種車型，每一台都轉得過 L 型轉角。我們以為結束了。<br><br>
-        然後有人問：<strong>「如果 F5 要出門，F3 和 F4 擋在出口怎麼辦？」</strong><br><br>
-        檢查才發現——東牆三台車被北牆兩台車鎖死。要出門，得先叫鄰居移車。<br><br>
+        車輛模擬跑出來：<strong>全部碰撞。</strong>四種車型，沒有一台轉得過 L 型轉角。我們以為 C2 死了。<br><br>
+        後來發現不是幾何的問題——是模擬路線不夠好。優化搜索數百條路線後，全部通過。虛驚一場。<br><br>
+        然後有人問了真正致命的問題：<strong>「如果 F5 要出門，F3 和 F4 擋在出口怎麼辦？」</strong><br><br>
+        檢查才發現——東牆三台車被北牆兩台車鎖死。早上七點趕上班，你的車在角落，得叫隔壁兩戶先移車。<br><br>
         我們以為的完美方案，獨立性只有 <em>57%</em>。
       </div>
       <!-- Visual: C2 blocking diagram -->
@@ -832,7 +886,18 @@ body::after{
           </g>
         </svg>
       </div>
-      <p class="t-center reveal" style="margin-top:20px;font-family:var(--serif);font-weight:700;font-size:clamp(4.5vw,5.5vw,22px);color:var(--gold);line-height:1.4">
+      <!-- Trade-offs -->
+      <div class="reveal" style="margin-top:16px;padding:14px;background:var(--panel);border-left:2px solid var(--gold-dim);border-radius:0 8px 8px 0">
+        <p style="font-size:clamp(11px,3vw,13px);color:var(--text-dim);line-height:1.8">
+          <span style="color:var(--text-ghost)">選 A 放棄了什麼？</span><br>
+          放棄了 L 型的「全固定」美感——但換來 100% 獨立性。<br>
+          放棄了 20 車位的最大容量——但換來 360m² 活動空間。<br>
+          F7 不是傳統的「固定車位」——但它是全場最方便的位置。<br>
+          <span style="color:var(--gold);font-style:italic">每一個取捨，都值得。</span>
+        </p>
+      </div>
+
+      <p class="t-center reveal" style="margin-top:24px;font-family:var(--serif);font-weight:700;font-size:clamp(4.5vw,5.5vw,22px);color:var(--gold);line-height:1.4">
         繞了 60 種配置，<br>回到第 1 個。
       </p>
     </div>
