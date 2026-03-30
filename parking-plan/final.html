@@ -823,6 +823,91 @@ body::after {
 @media (min-width: 500px) {
   .svg-desc { font-size: 13px; }
 }
+/* ═══ 展開式詳情 ═══ */
+.expand-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 6px 14px;
+  background: rgba(212,168,67,0.06);
+  border: 1px solid rgba(212,168,67,0.15);
+  border-radius: 20px;
+  color: var(--gold-dim);
+  font-size: 3.2vw;
+  font-family: var(--sans);
+  cursor: pointer;
+  transition: all 0.3s;
+  -webkit-tap-highlight-color: transparent;
+}
+.expand-trigger:hover, .expand-trigger:active {
+  background: rgba(212,168,67,0.12);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.expand-trigger .arrow {
+  display: inline-block;
+  transition: transform 0.3s;
+  font-size: 2.8vw;
+}
+.expand-trigger.open .arrow {
+  transform: rotate(180deg);
+}
+.expand-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+.expand-detail.open {
+  opacity: 1;
+}
+.expand-inner {
+  padding: 12px 0;
+  font-size: 3.4vw;
+  color: var(--text-dim);
+  line-height: 1.75;
+  border-top: 1px solid rgba(212,168,67,0.08);
+  margin-top: 10px;
+}
+.expand-inner .detail-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px 0;
+  font-size: 3.2vw;
+}
+.expand-inner .detail-card h4 {
+  color: var(--gold);
+  font-size: 3.4vw;
+  font-family: var(--serif);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.expand-inner .mini-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 3vw;
+  margin: 8px 0;
+}
+.expand-inner .mini-table td {
+  padding: 4px 8px;
+  border-bottom: 1px solid rgba(212,168,67,0.06);
+}
+.expand-inner .mini-table td:first-child {
+  color: var(--text-ghost);
+  width: 35%;
+}
+.expand-inner .highlight-box {
+  background: rgba(212,168,67,0.05);
+  border-left: 2px solid var(--gold-dim);
+  padding: 8px 12px;
+  margin: 8px 0;
+  font-style: italic;
+  color: var(--text-dim);
+  font-size: 3.2vw;
+}
 </style>
 </head>
 <body>
@@ -911,7 +996,7 @@ body::after {
               text-anchor="start" transform="rotate(90,338,240)" font-weight="300">~53m</text>
 
         <!-- Arrow: lane -->
-        <line x1="50" y1="440" x2="50" y2="400" stroke="#3a4258" stroke-width="0.7" marker-end="url(#arrowGhost)"/>
+        <line x1="50" y1="400" x2="50" y2="440" stroke="#3a4258" stroke-width="0.7" marker-end="url(#arrowGhost)"/>
         <defs>
           <marker id="arrowGhost" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
             <path d="M0,0 L6,3 L0,6" fill="none" stroke="#3a4258" stroke-width="0.8"/>
@@ -952,6 +1037,20 @@ body::after {
         <div class="node-title">錯誤的起點</div>
         <div class="node-body">第一個直覺：這是一個停車場最佳化問題。用 Python 窮舉搜尋 60 多種配置——不同角度、不同寬度、不同排列。找到數學最優解：20 個車位。</div>
         <div class="node-aside">但這個問題本身就問錯了。</div>
+        <div class="expand-trigger" role="button" tabindex="0">深入了解 <span class="arrow">▾</span></div>
+        <div class="expand-detail">
+          <div class="expand-inner">
+            <p>我們用 Python 寫了一個窮舉搜尋引擎，測試了以下變數的所有組合：</p>
+            <table class="mini-table">
+              <tr><td>停車角度</td><td>45° / 60° / 75° / 90°</td></tr>
+              <tr><td>車位寬度</td><td>2.30m ~ 3.50m（每 0.05m）</td></tr>
+              <tr><td>通道寬度</td><td>5.0m / 5.5m / 6.0m</td></tr>
+              <tr><td>配置模板</td><td>U型 / 中央通道 / 東西向</td></tr>
+            </table>
+            <p>數學最優解：90° 垂直、2.5m 寬、U型雙列 = <strong style="color:var(--gold)">20 車位</strong>。</p>
+            <div class="highlight-box">但「最多車位」這個目標本身就是錯的。一個平常只停 7 台車的空間，塞 20 格停車線有什麼意義？</div>
+          </div>
+        </div>
       </div>
 
       <!-- ② -->
@@ -984,6 +1083,31 @@ body::after {
           <div class="plan-mini"><div class="plan-mini-letter">F</div><div class="plan-mini-desc">雙排對向</div></div>
           <div class="plan-mini"><div class="plan-mini-letter">G</div><div class="plan-mini-desc">退縮中島</div></div>
         </div>
+        <div class="expand-trigger" role="button" tabindex="0">查看七方案 <span class="arrow">▾</span></div>
+        <div class="expand-detail">
+          <div class="expand-inner">
+            <div class="detail-card">
+              <h4>C2 修正L型（原推薦）</h4>
+              <p>北牆4位 + 東牆3位 = 7固定，360m²開放。後來發現獨立性只有4/7。</p>
+            </div>
+            <div class="detail-card">
+              <h4>A 北牆一列（最終推薦）</h4>
+              <p>6位北牆 + 1位通道入口 = 7全獨立，360m²開放。簡單但最優。</p>
+            </div>
+            <div class="detail-card">
+              <h4>D 西牆斜列 45°</h4>
+              <p>7位沿車道排列，車道=通道零浪費。但開放區僅11m寬，大帳篷擠。</p>
+            </div>
+            <div class="detail-card">
+              <h4>G 北牆退縮</h4>
+              <p>6位+2m有蓋走道，賓客體驗佳。但只有6位，開放區少40m²。</p>
+            </div>
+            <div class="detail-card">
+              <h4>B / E / F</h4>
+              <p>北牆雙列(開放區太小)、南牆(雨遮23.5m不實際)、東牆(雨遮差)。均淘汰。</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- ⑤ -->
@@ -994,6 +1118,22 @@ body::after {
         <div class="node-body" style="margin-top:8px;">仔細想想車的動線——停完車就不需要往南走了。車道只要到通道就夠。這一改，開放面積從 288m&sup2; 跳到 360m&sup2;。</div>
         <div class="gold-highlight">+72m&sup2;</div>
         <div class="node-aside">多了 25%。</div>
+        <div class="expand-trigger" role="button" tabindex="0">看計算過程 <span class="arrow">▾</span></div>
+        <div class="expand-detail">
+          <div class="expand-inner">
+            <p>車的完整動線：</p>
+            <div class="highlight-box">
+              車進來 → 車道往南 → 到通道右轉 → 倒車入庫 → 完。<br>
+              車出去 → 從車位開出 → 左轉進車道 → 往北離開 → 完。
+            </div>
+            <p>車道只需要到通道的位置（y=11m），再往南沒有車需要走。</p>
+            <table class="mini-table">
+              <tr><td>修正前</td><td>開放區 16m × 18m = 288m²</td></tr>
+              <tr><td>修正後</td><td>開放區 20m × 18m = <strong style="color:var(--gold)">360m²</strong></td></tr>
+              <tr><td>差異</td><td><strong style="color:var(--gold)">+72m²（+25%）</strong></td></tr>
+            </table>
+          </div>
+        </div>
       </div>
 
       <!-- ⑥ -->
@@ -1017,6 +1157,25 @@ body::after {
         <div class="node-body">用 Ackermann 轉向模型，模擬 4 種車型在 L 型轉角的行駛軌跡。</div>
         <div class="node-body" style="margin-top:8px;">第一次模擬：全部碰撞。原因：手動路線不夠好。路線優化搜索後：全部通過。最小餘裕 0.59m。</div>
         <div class="node-aside">差點因為模擬方法的問題，誤殺了一個可行的方案。</div>
+        <div class="expand-trigger" role="button" tabindex="0">模擬細節 <span class="arrow">▾</span></div>
+        <div class="expand-detail">
+          <div class="expand-inner">
+            <p>使用 Ackermann 自行車轉向模型，模擬參數：</p>
+            <table class="mini-table">
+              <tr><td>時間步長</td><td>0.08 秒</td></tr>
+              <tr><td>碰撞檢測</td><td>車身四角 vs 矩形邊界</td></tr>
+              <tr><td>路線搜索</td><td>多起點 × 多轉角 × 多速度</td></tr>
+            </table>
+            <p>測試了 4 種車型，從小型轎車到大型 SUV：</p>
+            <table class="mini-table">
+              <tr><td>Altis</td><td>4.63m × 1.78m · 迴轉半徑 5.3m</td></tr>
+              <tr><td>RAV4</td><td>4.60m × 1.86m · 迴轉半徑 5.5m</td></tr>
+              <tr><td>Model Y</td><td>4.75m × 1.92m · 迴轉半徑 5.8m</td></tr>
+              <tr><td>Lexus RX</td><td>4.89m × 1.92m · 迴轉半徑 5.9m</td></tr>
+            </table>
+            <div class="highlight-box">第一次模擬全部碰撞——原因是手動設定的路線不夠好，不是幾何不可行。優化搜索後全部通過。</div>
+          </div>
+        </div>
       </div>
 
       <!-- ⑨ -->
@@ -1034,6 +1193,26 @@ body::after {
         <div class="node-body" style="margin-top:8px;">仔細檢查：F3 和 F4（北牆）的位置擋住了 F5/F6/F7（東牆）的出口。東側通道（x=9~14.5）被北牆車位佔據。三台車要出來，至少兩台要先移走。</div>
         <div class="node-body" style="margin-top:8px;">C2 的獨立性只有 4/7（57%）。</div>
         <div class="node-callout">我們以為的最優解，有一個隱藏的致命缺陷。</div>
+        <div class="expand-trigger" role="button" tabindex="0">為什麼被鎖住 <span class="arrow">▾</span></div>
+        <div class="expand-detail">
+          <div class="expand-inner">
+            <p>C2 方案中，F3 和 F4（北牆）佔據了 x=9.5~14.5 的空間。而東牆車位 F5/F6/F7 的唯一出口——東側通道——也在 x=9~14.5。</p>
+            <div class="highlight-box">
+              F5 要出來 → F3 和 F4 必須先移走<br>
+              F6 要出來 → F3 和 F4 必須先移走<br>
+              F7 要出來 → 至少 F4 必須先移走<br><br>
+              獨立性：4/7（57%）
+            </div>
+            <p>嘗試過的修正方案：</p>
+            <table class="mini-table">
+              <tr><td>東側下移</td><td>7/7 獨立，但開放區少 50m²</td></tr>
+              <tr><td>全塞北牆</td><td>2.28m 太窄，開門只剩 18cm</td></tr>
+              <tr><td>斜角混搭</td><td>開放區碎片化</td></tr>
+              <tr><td>西牆L型</td><td>擋住車道</td></tr>
+            </table>
+            <p>每條路都試過了。<strong style="color:var(--gold)">L型的角落衝突是幾何本質問題，沒有優雅解。</strong></p>
+          </div>
+        </div>
       </div>
 
       <!-- ⑪ -->
@@ -1059,6 +1238,20 @@ body::after {
         </div>
         <div class="node-body" style="margin-top:8px;">它不是「退而求其次」。它是唯一同時滿足所有條件的解。</div>
         <div class="quote-block" style="margin-top:16px;">看起來少一位，用起來更好。<br>簡單的，才是最好的。</div>
+        <div class="expand-trigger" role="button" tabindex="0">A vs C2 對比 <span class="arrow">▾</span></div>
+        <div class="expand-detail">
+          <div class="expand-inner">
+            <table class="mini-table">
+              <tr><td>獨立性</td><td>A: <strong style="color:var(--green)">7/7</strong> vs C2: 4/7</td></tr>
+              <tr><td>開放面積</td><td>兩者相同 360m²</td></tr>
+              <tr><td>車位寬度</td><td>兩者相同 2.5m</td></tr>
+              <tr><td>雨遮結構</td><td>A: 直線（便宜）vs C2: L型（貴）</td></tr>
+              <tr><td>施工難度</td><td>A: 簡單 vs C2: 複雜</td></tr>
+              <tr><td>F7 位置</td><td>A: 通道入口（最方便）vs C2: 角落（被鎖）</td></tr>
+            </table>
+            <div class="highlight-box">C2 在理論上看起來更優雅（7位全「固定」），但 A 在實際使用中才是真正的贏家。F7 在通道入口處——進出最快的黃金車位。</div>
+          </div>
+        </div>
       </div>
 
     </div><!-- /.timeline -->
@@ -1428,6 +1621,24 @@ body::after {
     requestAnimationFrame(tick);
   }
 })();
+
+/* ── 展開式互動 ── */
+document.querySelectorAll('.expand-trigger').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const detail = this.nextElementSibling;
+    const isOpen = this.classList.contains('open');
+
+    if (isOpen) {
+      detail.style.maxHeight = '0px';
+      detail.classList.remove('open');
+      this.classList.remove('open');
+    } else {
+      detail.style.maxHeight = detail.scrollHeight + 'px';
+      detail.classList.add('open');
+      this.classList.add('open');
+    }
+  });
+});
 </script>
 
 </body>
