@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#030508">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>深度分析 — 七方案 · 迴轉驗證 · 技術規格</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600;700;800&family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   DESIGN SYSTEM — identical to final.html
+   ═══════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --void:#030508;
+  --deep:#060810;
+  --panel:#10131a;
+  --card:#151923;
+  --elevated:#1e2433;
+  --surface:#252d3f;
+
+  --gold:#d4a843;
+  --gold-bright:#f0c850;
+  --gold-dim:#a07d2e;
+  --gold-deep:#7a5e1f;
+  --gold-glow:rgba(212,168,67,0.06);
+  --gold-glow-s:rgba(212,168,67,0.12);
+
+  --cyan:#5ca8a0;
+  --green:#4ade80;
+  --green-dim:rgba(74,222,128,0.12);
+  --amber:#e8a030;
+  --red:#f87171;
+
+  --text:#e8e4dc;
+  --text-dim:#8890a0;
+  --text-ghost:#3a4258;
+  --text-faint:#252d3a;
+
+  --border:rgba(212,168,67,0.08);
+  --border-s:rgba(212,168,67,0.18);
+
+  --serif:'Noto Serif TC',Georgia,serif;
+  --sans:'Noto Sans TC','Helvetica Neue',sans-serif;
+  --brand:'Outfit',system-ui,sans-serif;
+
+  --ease:cubic-bezier(.25,.46,.45,.94);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+
+/* ═══ BASE ═══ */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--void);color:var(--text);
+  font-family:var(--sans);font-weight:300;font-size:15px;line-height:1.85;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+::selection{background:var(--gold);color:var(--void)}
+
+/* Noise grain */
+body::after{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.025;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(212,168,67,0.1);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold-dim)}
+
+/* ═══ SPACE BACKGROUND ═══ */
+.bg-space{
+  position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 50% 40% at 50% 30%,rgba(212,168,67,.05) 0%,transparent 100%),
+    radial-gradient(ellipse 60% 50% at 78% 18%,rgba(20,40,100,.20) 0%,transparent 65%),
+    radial-gradient(ellipse 55% 60% at 15% 75%,rgba(50,20,80,.16) 0%,transparent 65%),
+    radial-gradient(ellipse 35% 45% at 8% 40%,rgba(15,60,70,.12) 0%,transparent 65%),
+    radial-gradient(ellipse 80% 80% at 50% 50%,var(--deep) 0%,var(--void) 100%);
+  animation:nebula 30s ease-in-out infinite alternate;
+}
+@keyframes nebula{
+  0%{filter:brightness(1) hue-rotate(0)}
+  100%{filter:brightness(1.04) hue-rotate(2deg)}
+}
+
+/* ═══ LAYOUT ═══ */
+.page{
+  position:relative;z-index:1;
+  max-width:500px;margin:0 auto;padding:0 24px;
+}
+@media(min-width:520px){
+  .page{box-shadow:0 0 120px rgba(212,168,67,0.02)}
+}
+
+/* ═══ STICKY NAV ═══ */
+.top-nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(3,5,8,0.85);
+  backdrop-filter:blur(16px) saturate(1.4);
+  -webkit-backdrop-filter:blur(16px) saturate(1.4);
+  border-bottom:1px solid var(--border);
+  padding:0 24px;
+  max-width:500px;margin:0 auto;
+}
+.nav-inner{
+  display:flex;align-items:center;gap:0;
+  height:48px;overflow:hidden;
+}
+.nav-back{
+  display:flex;align-items:center;gap:4px;
+  color:var(--text-dim);text-decoration:none;
+  font-family:var(--brand);font-size:12px;font-weight:400;
+  letter-spacing:.06em;padding:0 10px 0 0;
+  border-right:1px solid var(--border);margin-right:10px;
+  transition:color .25s;
+  white-space:nowrap;flex-shrink:0;
+  min-height:44px;
+}
+.nav-back:hover{color:var(--gold)}
+.nav-links{
+  display:flex;align-items:center;gap:0;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  flex:1;
+}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-link{
+  color:var(--text-ghost);text-decoration:none;
+  font-family:var(--brand);font-size:11px;font-weight:400;
+  letter-spacing:.08em;padding:6px 10px;
+  white-space:nowrap;
+  border-radius:4px;
+  transition:color .25s, background .25s;
+  min-height:32px;display:flex;align-items:center;
+}
+.nav-link:hover{color:var(--gold);background:var(--gold-glow)}
+/* Offset nav anchor targets */
+:target{scroll-margin-top:56px}
+
+/* ═══ DIVIDER ═══ */
+.divider{text-align:center;padding:48px 0;position:relative}
+.divider::before{
+  content:'';display:block;height:1px;margin:0 auto 14px;
+  width:clamp(60px,40%,180px);
+  background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);
+}
+.divider::after{content:'◇';color:var(--gold-dim);font-size:10px}
+
+/* ═══ TYPOGRAPHY ═══ */
+.t-serif{font-family:var(--serif)}
+.t-brand{font-family:var(--brand)}
+.t-gold{color:var(--gold)}
+.t-bright{color:var(--gold-bright)}
+.t-dim{color:var(--text-dim)}
+.t-ghost{color:var(--text-ghost)}
+.t-cyan{color:var(--cyan)}
+.t-green{color:var(--green)}
+.t-amber{color:var(--amber)}
+.t-center{text-align:center}
+.grad-text{
+  background:linear-gradient(135deg,var(--text) 20%,var(--gold) 80%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* ═══ SCROLL REVEAL ═══ */
+.reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity 0.6s var(--ease-out),transform 0.6s var(--ease-out);
+}
+.reveal.vis{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.08s}
+.reveal-d2{transition-delay:.16s}
+.reveal-d3{transition-delay:.24s}
+.reveal-d4{transition-delay:.32s}
+.reveal-d5{transition-delay:.40s}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+}
+
+/* ═══ SECTION HEADERS ═══ */
+.sec-header{
+  text-align:center;
+  padding:48px 0 28px;
+}
+.sec-tag{
+  font-family:var(--brand);font-weight:200;
+  font-size:11px;letter-spacing:.2em;
+  color:var(--text-ghost);text-transform:uppercase;
+  margin-bottom:8px;
+}
+.sec-title{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(5.5vw,6.5vw,28px);
+  line-height:1.3;
+}
+.sec-title.gold{color:var(--gold)}
+.sec-title.green{color:var(--green)}
+.sec-desc{
+  font-size:clamp(12px,3.4vw,14px);
+  color:var(--text-dim);line-height:1.8;
+  margin-top:10px;
+}
+
+/* ═══ SVG WRAPPERS ═══ */
+.svg-wrap{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:12px;padding:12px 8px 8px;
+  margin-bottom:16px;overflow:hidden;
+}
+.svg-wrap svg{display:block;width:100%;height:auto}
+.svg-label{
+  text-align:center;font-size:11px;
+  color:var(--text-ghost);font-family:var(--brand);
+  letter-spacing:.08em;margin-top:6px;
+}
+
+/* ═══ RADAR LEGEND ═══ */
+.radar-legend{
+  display:flex;flex-wrap:wrap;gap:8px 16px;
+  justify-content:center;margin-top:12px;
+  padding:0 8px;
+}
+.legend-item{
+  display:flex;align-items:center;gap:6px;
+  font-family:var(--brand);font-size:11px;
+  color:var(--text-dim);
+}
+.legend-line{
+  width:20px;height:2px;border-radius:1px;flex-shrink:0;
+}
+
+/* ═══ TABLE ═══ */
+.table-scroll{
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  border:1px solid var(--border);border-radius:10px;
+  margin-bottom:8px;
+}
+.table-scroll::-webkit-scrollbar{height:3px}
+.table-scroll::-webkit-scrollbar-thumb{background:rgba(212,168,67,0.15);border-radius:2px}
+table{
+  width:100%;border-collapse:collapse;
+  font-size:11px;font-family:var(--brand);
+  white-space:nowrap;
+}
+thead tr{background:rgba(212,168,67,0.06)}
+thead th{
+  padding:8px 10px;text-align:left;
+  color:var(--text-ghost);font-weight:400;
+  letter-spacing:.06em;font-size:10px;
+  border-bottom:1px solid var(--border);
+}
+tbody tr{border-bottom:1px solid rgba(212,168,67,0.04)}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:rgba(212,168,67,0.03)}
+tbody td{padding:7px 10px;color:var(--text-dim)}
+tbody tr.highlight-row td{color:var(--gold)}
+tbody tr.highlight-row{
+  border-left:2px solid var(--gold);
+  background:rgba(212,168,67,0.04);
+}
+.td-score{font-weight:700}
+.td-best{color:var(--gold);font-weight:700}
+
+/* ═══ SIMULATION SECTION ═══ */
+.car-params-table table{min-width:340px}
+
+.verify-badge{
+  display:flex;align-items:center;justify-content:center;
+  gap:12px;margin:20px 0;
+  background:var(--green-dim);border:1px solid rgba(74,222,128,0.25);
+  border-radius:12px;padding:16px 20px;
+}
+.badge-icon{
+  font-family:var(--brand);font-weight:800;
+  font-size:32px;color:var(--green);line-height:1;
+  flex-shrink:0;
+}
+.badge-text{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(16px,4.5vw,20px);color:var(--green);
+}
+.badge-sub{
+  font-size:12px;color:rgba(74,222,128,0.6);
+  font-family:var(--brand);margin-top:2px;
+}
+
+.result-list{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:10px;overflow:hidden;margin-bottom:12px;
+}
+.result-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 14px;border-bottom:1px solid rgba(212,168,67,0.04);
+  font-size:12px;
+}
+.result-row:last-child{border-bottom:none}
+.result-car{
+  font-family:var(--brand);font-weight:600;
+  color:var(--text);min-width:90px;
+}
+.result-data{
+  color:var(--text-dim);font-family:var(--brand);
+  font-size:11px;text-align:right;
+}
+.check-mark{color:var(--green);font-weight:700;margin-left:4px}
+
+.sim-params{
+  text-align:center;font-size:10px;
+  color:var(--text-ghost);font-family:var(--brand);
+  letter-spacing:.04em;line-height:1.8;
+  padding:10px;
+  background:var(--panel);border-radius:8px;
+  border:1px solid var(--border);
+}
+
+/* ═══ SPECS SECTION ═══ */
+.spec-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:9px 0;border-bottom:1px solid var(--border);
+  font-size:clamp(12px,3.4vw,14px);
+  gap:12px;
+}
+.spec-row:last-child{border-bottom:none}
+.spec-label{color:var(--text-dim);flex-shrink:0}
+.spec-value{
+  color:var(--text);font-weight:500;font-family:var(--brand);
+  text-align:right;
+}
+.spec-value.green{color:var(--green)}
+.spec-value.gold{color:var(--gold)}
+
+.spec-block{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:10px;padding:16px;margin-bottom:16px;
+}
+
+.spec-group-title{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(13px,3.6vw,16px);
+  color:var(--gold-dim);margin:24px 0 10px;
+}
+
+/* Construction items */
+.construct-list{margin-bottom:16px}
+.construct-item{
+  display:flex;gap:10px;padding:10px 0;
+  border-bottom:1px solid rgba(212,168,67,0.04);
+  font-size:clamp(12px,3.4vw,14px);
+}
+.construct-item:last-child{border-bottom:none}
+.construct-num{
+  font-family:var(--brand);font-weight:700;
+  color:var(--gold);min-width:22px;flex-shrink:0;
+  font-size:13px;
+}
+.construct-title{
+  color:var(--text);font-weight:500;
+  margin-bottom:2px;
+  font-size:13px;
+}
+.construct-desc{
+  color:var(--text-dim);font-size:12px;
+  line-height:1.7;
+}
+
+/* Pricing table */
+.price-table table{min-width:320px}
+
+/* ═══ ENDING ═══ */
+.ending{
+  text-align:center;padding:40px 0 32px;
+}
+.back-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:11px 22px;min-height:44px;
+  background:rgba(212,168,67,.06);border:1px solid var(--border-s);
+  border-radius:24px;color:var(--gold);
+  font-size:clamp(12px,3.2vw,14px);font-family:var(--sans);
+  text-decoration:none;transition:all .3s;
+  -webkit-tap-highlight-color:transparent;
+}
+.back-btn:hover{background:rgba(212,168,67,.12)}
+.footer-note{
+  margin-top:20px;font-size:clamp(10px,2.6vw,12px);
+  color:var(--text-ghost);font-family:var(--brand);letter-spacing:.1em;
+}
+
+/* ═══ PRINT ═══ */
+@media print{
+  body{background:#fff;color:#111}
+  .bg-space,.top-nav,body::after{display:none}
+  .page{max-width:100%;box-shadow:none}
+  .reveal{opacity:1;transform:none}
+  .svg-wrap{border:1px solid #ddd}
+  table{font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-space"></div>
+
+<!-- ═══ STICKY NAV ═══ -->
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="final.html" class="nav-back">← 回主頁</a>
+    <div class="nav-links">
+      <a href="#comparison" class="nav-link">七方案</a>
+      <a href="#simulation" class="nav-link">迴轉模擬</a>
+      <a href="#specs" class="nav-link">技術規格</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- ════════════════════════════════════
+       SECTION 1: COMPARISON
+       ════════════════════════════════════ -->
+  <section id="comparison">
+    <div class="sec-header reveal">
+      <div class="sec-tag">Deep Dive · 01</div>
+      <h2 class="sec-title gold">七方案完整比較</h2>
+      <p class="sec-desc">從 60+ 配置收斂到 7 種方案，以五個維度評分排序。</p>
+    </div>
+
+    <!-- Radar Chart -->
+    <div class="svg-wrap reveal reveal-d1">
+      <svg viewBox="0 0 260 240" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Gold fill pattern for C2 highlight reference (keep for reference) -->
+          <filter id="glow-gold">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- Center: 130,120 radius:90 -->
+        <!-- 5 axes: top=雨遮效率(90deg), top-right=開放面積(162deg), bottom-right=溢出容量(234deg), bottom-left=動線品質(306deg), top-left=雙用彈性(18deg) -->
+        <!-- angle offsets: axis0=90°, axis1=162°, axis2=234°, axis3=306°, axis4=18° -->
+
+        <!-- Grid circles (5 levels) -->
+        <!-- We draw concentric pentagons. Level k = k/5 * 90 radius -->
+        <!-- Axis angles (from top, clockwise): 270,342,54,126,198 degrees in standard math -->
+        <!-- Points for pentagon at radius r, center (130,120): -->
+        <!-- p0: top = (130, 120-r) -->
+        <!-- p1: top-right (18° from top CW) = (130+r*sin(18°), 120-r*cos(18°)) -->
+        <!-- Actually: 5 axes evenly at 72° apart, starting from top (270° in SVG) -->
+        <!-- SVG y inverted so "up" is negative y -->
+        <!-- axis0: 270° → (0,-1) → (130, 120-r) -->
+        <!-- axis1: 270+72=342° → (sin342°, -cos342°) = (-sin18°, -cos18°) → (130-r*0.309, 120-r*0.951) -->
+        <!-- axis2: 270+144=54° → (sin54°, -cos54°) = wait, let me recalc properly -->
+        <!-- In SVG: x = cx + r*sin(angle), y = cy - r*cos(angle) where angle in degrees from top CW -->
+        <!-- axis0: 0° → (130, 120-r) -->
+        <!-- axis1: 72° → (130+r*sin72°, 120-r*cos72°) = (130+r*0.951, 120-r*0.309) -->
+        <!-- axis2: 144° → (130+r*sin144°, 120-r*cos144°) = (130+r*0.588, 120+r*0.809) -->
+        <!-- axis3: 216° → (130+r*sin216°, 120-r*cos216°) = (130-r*0.588, 120+r*0.809) -->
+        <!-- axis4: 288° → (130+r*sin288°, 120-r*cos288°) = (130-r*0.951, 120-r*0.309) -->
+
+        <!-- Grid pentagons at 20%, 40%, 60%, 80%, 100% of r=90 -->
+        <!-- r=18: 130,102 | 147.1,114.4 | 140.6,134.6 | 119.4,134.6 | 112.9,114.4 -->
+        <polygon points="130,102 147.1,114.4 140.6,134.6 119.4,134.6 112.9,114.4"
+          fill="none" stroke="rgba(58,66,88,0.5)" stroke-width=".6"/>
+        <!-- r=36: 130,84 | 164.2,108.9 | 151.1,149.1 | 108.9,149.1 | 95.8,108.9 -->
+        <polygon points="130,84 164.2,108.9 151.1,149.1 108.9,149.1 95.8,108.9"
+          fill="none" stroke="rgba(58,66,88,0.5)" stroke-width=".6"/>
+        <!-- r=54: 130,66 | 181.3,103.3 | 161.7,163.7 | 98.3,163.7 | 78.7,103.3 -->
+        <polygon points="130,66 181.3,103.3 161.7,163.7 98.3,163.7 78.7,103.3"
+          fill="none" stroke="rgba(58,66,88,0.5)" stroke-width=".6"/>
+        <!-- r=72: 130,48 | 198.5,97.7 | 172.3,178.2 | 87.7,178.2 | 61.5,97.7 -->
+        <polygon points="130,48 198.5,97.7 172.3,178.2 87.7,178.2 61.5,97.7"
+          fill="none" stroke="rgba(58,66,88,0.5)" stroke-width=".6"/>
+        <!-- r=90: 130,30 | 215.6,92.2 | 182.9,192.8 | 77.1,192.8 | 44.4,92.2 -->
+        <polygon points="130,30 215.6,92.2 182.9,192.8 77.1,192.8 44.4,92.2"
+          fill="none" stroke="rgba(58,66,88,0.35)" stroke-width=".8"/>
+
+        <!-- Axis lines -->
+        <line x1="130" y1="120" x2="130" y2="30" stroke="rgba(58,66,88,0.5)" stroke-width=".6"/>
+        <line x1="130" y1="120" x2="215.6" y2="92.2" stroke="rgba(58,66,88,0.5)" stroke-width=".6"/>
+        <line x1="130" y1="120" x2="182.9" y2="192.8" stroke="rgba(58,66,88,0.5)" stroke-width=".6"/>
+        <line x1="130" y1="120" x2="77.1" y2="192.8" stroke="rgba(58,66,88,0.5)" stroke-width=".6"/>
+        <line x1="130" y1="120" x2="44.4" y2="92.2" stroke="rgba(58,66,88,0.5)" stroke-width=".6"/>
+
+        <!-- Axis labels -->
+        <text x="130" y="22" fill="var(--text-dim)" font-size="8.5" text-anchor="middle" font-family="'Noto Sans TC',sans-serif">雨遮效率</text>
+        <text x="222" y="90" fill="var(--text-dim)" font-size="8.5" text-anchor="start" font-family="'Noto Sans TC',sans-serif">開放面積</text>
+        <text x="188" y="202" fill="var(--text-dim)" font-size="8.5" text-anchor="middle" font-family="'Noto Sans TC',sans-serif">溢出容量</text>
+        <text x="72" y="202" fill="var(--text-dim)" font-size="8.5" text-anchor="middle" font-family="'Noto Sans TC',sans-serif">動線品質</text>
+        <text x="37" y="90" fill="var(--text-dim)" font-size="8.5" text-anchor="end" font-family="'Noto Sans TC',sans-serif">雙用彈性</text>
+
+        <!-- Helper: scale(val, r=90) = val * 90 -->
+        <!-- Each plan: [雨遮, 開放, 溢出, 動線, 雙用] -->
+        <!-- Polygon: p0=(130,120-v0*90), p1=(130+v1*90*0.951,120-v1*90*0.309), p2=(130+v2*90*0.588,120+v2*90*0.809), p3=(130-v3*90*0.588,120+v3*90*0.809), p4=(130-v4*90*0.951,120-v4*90*0.309) -->
+
+        <!-- B: 0.16, 0.40, 0.30, 0.67, 0.40 -->
+        <!-- p0: 130,105.6 p1: 130+34.2,120-11.2=164.2,108.8 p2: 130+15.9,120+21.8=145.9,141.8 p3: 130-34.2,120+48.7=95.8,168.7 p4: 130-34.2,120-11.2=95.8,108.8 wait recalc -->
+        <!-- p0: (130, 120-0.16*90)=(130,105.6) -->
+        <!-- p1: (130+0.40*90*0.951, 120-0.40*90*0.309)=(130+34.2,120-11.1)=(164.2,108.9) -->
+        <!-- p2: (130+0.30*90*0.588, 120+0.30*90*0.809)=(130+15.9,120+21.8)=(145.9,141.8) -->
+        <!-- p3: (130-0.67*90*0.588, 120+0.67*90*0.809)=(130-35.5,120+48.9)=(94.5,168.9) -->
+        <!-- p4: (130-0.40*90*0.951, 120-0.40*90*0.309)=(130-34.2,120-11.1)=(95.8,108.9) -->
+        <polygon points="130,105.6 164.2,108.9 145.9,141.8 94.5,168.9 95.8,108.9"
+          fill="none" stroke="rgba(58,66,88,0.4)" stroke-width=".8" stroke-dasharray="3,2"/>
+
+        <!-- F: 0.20, 0.56, 0.30, 0.67, 0.67 -->
+        <!-- p0: (130,102) p1: (130+47.9,120-15.6)=(177.9,104.4) p2: (145.9,141.8) p3: (94.5,168.9) p4: (130-57.3,120-18.7)=(72.7,101.3) -->
+        <polygon points="130,102 177.9,104.4 145.9,141.8 94.5,168.9 72.7,101.3"
+          fill="none" stroke="rgba(58,66,88,0.4)" stroke-width=".8" stroke-dasharray="3,2"/>
+
+        <!-- E: 0.00, 0.70, 0.60, 0.60, 0.80 -->
+        <!-- p0: (130,120) p1: (130+59.9,120-19.5)=(189.9,100.5) p2: (130+31.8,120+43.7)=(161.8,163.7) p3: (130-31.8,120+43.7)=(98.2,163.7) p4: (130-68.5,120-22.3)=(61.5,97.7) -->
+        <polygon points="130,120 189.9,100.5 161.8,163.7 98.2,163.7 61.5,97.7"
+          fill="none" stroke="rgba(58,66,88,0.5)" stroke-width=".8" stroke-dasharray="3,2"/>
+
+        <!-- G: 0.80, 0.80, 0.60, 0.87, 0.67 -->
+        <!-- p0: (130,48) p1: (198.5,97.7) p2: (161.8,163.7) p3: (77.1 - wait recalc) -->
+        <!-- p3: (130-0.87*90*0.588,120+0.87*90*0.809)=(130-46.1,120+63.4)=(83.9,183.4) -->
+        <!-- p4: (130-0.67*90*0.951,120-0.67*90*0.309)=(130-57.3,120-18.7)=(72.7,101.3) -->
+        <polygon points="130,48 198.5,97.7 161.8,163.7 83.9,183.4 72.7,101.3"
+          fill="none" stroke="rgba(92,168,160,0.35)" stroke-width=".8" stroke-dasharray="4,2"/>
+
+        <!-- D: 0.88, 0.86, 0.83, 0.93, 0.53 -->
+        <!-- p0: (130, 120-79.2)=(130,40.8) -->
+        <!-- p1: (130+0.86*90*0.951,120-0.86*90*0.309)=(130+73.6,120-23.9)=(203.6,96.1) -->
+        <!-- p2: (130+0.83*90*0.588,120+0.83*90*0.809)=(130+43.9,120+60.4)=(173.9,180.4) -->
+        <!-- p3: (130-0.93*90*0.588,120+0.93*90*0.809)=(130-49.2,120+67.7)=(80.8,187.7) -->
+        <!-- p4: (130-0.53*90*0.951,120-0.53*90*0.309)=(130-45.4,120-14.8)=(84.6,105.2) -->
+        <polygon points="130,40.8 203.6,96.1 173.9,180.4 80.8,187.7 84.6,105.2"
+          fill="none" stroke="rgba(92,168,160,0.55)" stroke-width="1" stroke-dasharray="5,3"/>
+
+        <!-- A: 1.00, 0.90, 0.75, 0.87, 0.93 -->
+        <!-- p0: (130,30) -->
+        <!-- p1: (130+0.90*90*0.951,120-0.90*90*0.309)=(130+77.0,120-25.0)=(207,95) -->
+        <!-- p2: (130+0.75*90*0.588,120+0.75*90*0.809)=(130+39.7,120+54.6)=(169.7,174.6) -->
+        <!-- p3: (130-0.87*90*0.588,120+0.87*90*0.809)=(130-46.1,120+63.4)=(83.9,183.4) -->
+        <!-- p4: (130-0.93*90*0.951,120-0.93*90*0.309)=(130-79.6,120-25.9)=(50.4,94.1) -->
+        <polygon points="130,30 207,95 169.7,174.6 83.9,183.4 50.4,94.1"
+          fill="rgba(212,168,67,0.07)" stroke="var(--gold-dim)" stroke-width="1.2"
+          stroke-dasharray="5,3"/>
+
+        <!-- C2: same as A (1.00, 0.90, 0.75, 0.87, 0.93) — gold solid fill highlight -->
+        <polygon points="130,30 207,95 169.7,174.6 83.9,183.4 50.4,94.1"
+          fill="rgba(212,168,67,0.12)" stroke="var(--gold)" stroke-width="2"/>
+
+        <!-- Plan labels on radar -->
+        <text x="130" y="26" fill="var(--gold)" font-size="7" text-anchor="middle" font-family="Outfit" font-weight="700">A/C2</text>
+      </svg>
+    </div>
+
+    <!-- Radar Legend -->
+    <div class="radar-legend reveal reveal-d2">
+      <div class="legend-item">
+        <div class="legend-line" style="background:var(--gold);height:3px"></div>
+        <span style="color:var(--gold)">A / C2</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-line" style="background:var(--cyan);border-top:1px dashed var(--cyan)"></div>
+        <span>D</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-line" style="background:rgba(92,168,160,0.4);border-top:1px dashed rgba(92,168,160,0.5)"></div>
+        <span>G</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-line" style="background:rgba(58,66,88,0.6);border-top:1px dashed rgba(58,66,88,0.7)"></div>
+        <span>E · F · B</span>
+      </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="reveal reveal-d3" style="margin-top:24px">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>方案</th>
+              <th>固定位</th>
+              <th>開放面積</th>
+              <th>形狀</th>
+              <th>雨遮</th>
+              <th>溢出</th>
+              <th>獨立性</th>
+              <th>評分</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td><strong>A 推薦</strong></td>
+              <td class="td-best">6+1</td>
+              <td class="td-best">360m²</td>
+              <td>20×18</td>
+              <td>直線 7.5m</td>
+              <td class="td-best">+10</td>
+              <td class="td-best">7/7</td>
+              <td class="td-score td-best">89.5</td>
+            </tr>
+            <tr>
+              <td>C2</td>
+              <td>7</td>
+              <td>360m²</td>
+              <td>20×18</td>
+              <td>L型 7.5m</td>
+              <td>+10</td>
+              <td>4/7</td>
+              <td class="td-score">84.5</td>
+            </tr>
+            <tr>
+              <td>D</td>
+              <td>7</td>
+              <td>346m²</td>
+              <td>11×29</td>
+              <td>L型 6.8m</td>
+              <td>+11</td>
+              <td>7/7</td>
+              <td class="td-score">82.1</td>
+            </tr>
+            <tr>
+              <td>G</td>
+              <td>6</td>
+              <td>320m²</td>
+              <td>20×16</td>
+              <td>7.5m</td>
+              <td>+8</td>
+              <td>6/6</td>
+              <td class="td-score">75.0</td>
+            </tr>
+            <tr>
+              <td>E</td>
+              <td>7</td>
+              <td>280m²</td>
+              <td>16×17.5</td>
+              <td>23.5m</td>
+              <td>+8</td>
+              <td>7/7</td>
+              <td class="td-score">50.5</td>
+            </tr>
+            <tr>
+              <td>F</td>
+              <td>7</td>
+              <td>225m²</td>
+              <td>9×25</td>
+              <td>差</td>
+              <td>+4</td>
+              <td>7/7</td>
+              <td class="td-score">45.0</td>
+            </tr>
+            <tr>
+              <td>B</td>
+              <td>7</td>
+              <td>160m²</td>
+              <td>20×8</td>
+              <td>16m</td>
+              <td>+4</td>
+              <td>7/7</td>
+              <td class="td-score">36.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:10px;color:var(--text-ghost);font-family:var(--brand);letter-spacing:.05em;padding:4px 2px">← 左右滑動 · A 行金色高亮</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ════════════════════════════════════
+       SECTION 2: SIMULATION
+       ════════════════════════════════════ -->
+  <section id="simulation">
+    <div class="sec-header reveal">
+      <div class="sec-tag">Deep Dive · 02</div>
+      <h2 class="sec-title green">車輛迴轉驗證</h2>
+      <p class="sec-desc">使用 Ackermann 自行車轉向模型，模擬 4 種車型在方案 A 通道中的行駛軌跡。方案 A 的通道是直線，比 C2 的 L 型轉角更容易通過。</p>
+    </div>
+
+    <!-- Car params -->
+    <div class="car-params-table reveal reveal-d1">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>車型</th>
+              <th>車長</th>
+              <th>車寬</th>
+              <th>軸距</th>
+              <th>迴轉半徑</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Toyota Altis</td>
+              <td>4.63m</td>
+              <td>1.78m</td>
+              <td>2.75m</td>
+              <td>5.3m</td>
+            </tr>
+            <tr>
+              <td>Toyota RAV4</td>
+              <td>4.60m</td>
+              <td>1.86m</td>
+              <td>2.69m</td>
+              <td>5.5m</td>
+            </tr>
+            <tr>
+              <td>Tesla Model Y</td>
+              <td>4.75m</td>
+              <td>1.92m</td>
+              <td>2.89m</td>
+              <td>5.8m</td>
+            </tr>
+            <tr>
+              <td>Lexus RX</td>
+              <td>4.89m</td>
+              <td>1.92m</td>
+              <td>2.85m</td>
+              <td>5.9m</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Swept path visualization -->
+    <div class="svg-wrap reveal reveal-d2" style="margin-top:16px">
+      <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Title -->
+        <text x="140" y="14" fill="var(--text-dim)" font-size="9" text-anchor="middle" font-family="Outfit" font-weight="300">方案 A — 直線通道迴轉示意</text>
+
+        <!-- Channel boundary: 5.5m wide = ~82.5px at 15px/m -->
+        <!-- simplified: channel 60px wide, parking bays 55px deep -->
+        <!-- Layout: north wall at y=30, parking bays y=30~85, aisle y=85~140, open area below -->
+
+        <!-- North wall -->
+        <line x1="20" y1="30" x2="260" y2="30" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round"/>
+        <text x="140" y="24" fill="var(--gold-dim)" font-size="7.5" text-anchor="middle" font-family="'Noto Sans TC',sans-serif">民宿北牆</text>
+
+        <!-- Parking bays F1-F6 -->
+        <rect x="20" y="30" width="40" height="55" fill="none" stroke="var(--gold)" stroke-width="1" rx="1.5"/>
+        <text x="40" y="60" fill="var(--gold)" font-size="7.5" text-anchor="middle" font-family="Outfit" font-weight="600">F1</text>
+        <rect x="60" y="30" width="40" height="55" fill="none" stroke="var(--gold)" stroke-width="1" rx="1.5"/>
+        <text x="80" y="60" fill="var(--gold)" font-size="7.5" text-anchor="middle" font-family="Outfit" font-weight="600">F2</text>
+        <rect x="100" y="30" width="40" height="55" fill="none" stroke="var(--gold)" stroke-width="1" rx="1.5"/>
+        <text x="120" y="60" fill="var(--gold)" font-size="7.5" text-anchor="middle" font-family="Outfit" font-weight="600">F3</text>
+        <rect x="140" y="30" width="40" height="55" fill="none" stroke="var(--gold)" stroke-width="1" rx="1.5"/>
+        <text x="160" y="60" fill="var(--gold)" font-size="7.5" text-anchor="middle" font-family="Outfit" font-weight="600">F4</text>
+        <rect x="180" y="30" width="40" height="55" fill="none" stroke="var(--gold)" stroke-width="1" rx="1.5"/>
+        <text x="200" y="60" fill="var(--gold)" font-size="7.5" text-anchor="middle" font-family="Outfit" font-weight="600">F5</text>
+        <rect x="220" y="30" width="40" height="55" fill="none" stroke="var(--gold)" stroke-width="1" rx="1.5"/>
+        <text x="240" y="60" fill="var(--gold)" font-size="7.5" text-anchor="middle" font-family="Outfit" font-weight="600">F6</text>
+
+        <!-- F7 at aisle entrance -->
+        <rect x="20" y="85" width="40" height="55" fill="rgba(240,200,80,.06)" stroke="var(--gold-bright)" stroke-width="1.2" stroke-dasharray="4,2" rx="1.5"/>
+        <text x="40" y="110" fill="var(--gold-bright)" font-size="7.5" text-anchor="middle" font-family="Outfit" font-weight="700">F7★</text>
+
+        <!-- Aisle (5.5m) -->
+        <rect x="60" y="85" width="200" height="55" fill="rgba(16,19,26,0.5)" stroke="none"/>
+        <text x="160" y="116" fill="var(--text-ghost)" font-size="8" text-anchor="middle" font-family="'Noto Sans TC',sans-serif">通道 5.5m</text>
+
+        <!-- Rain cover indicator -->
+        <rect x="20" y="30" width="240" height="82" fill="none" stroke="var(--gold-dim)" stroke-width=".8" stroke-dasharray="4,3" rx="2"/>
+        <text x="250" y="72" fill="rgba(212,168,67,.3)" font-size="7" text-anchor="middle" font-family="Outfit" transform="rotate(90,250,72)">雨遮 7.5m</text>
+
+        <!-- Swept path: Altis (green) entering -->
+        <!-- Simplified arc paths for 4 cars entering the aisle -->
+        <!-- Car entering from left (driveway), turning right into aisle -->
+        <!-- Altis: inner clearance 1.06m from wall -->
+        <path d="M 10 155 Q 10 130 30 118 Q 50 108 80 113"
+          fill="none" stroke="rgba(74,222,128,0.6)" stroke-width="1.5" stroke-dasharray="none"/>
+        <!-- RAV4 -->
+        <path d="M 10 158 Q 10 132 32 120 Q 54 110 82 115"
+          fill="none" stroke="rgba(74,222,128,0.45)" stroke-width="1.2"/>
+        <!-- Model Y -->
+        <path d="M 10 161 Q 10 134 34 122 Q 56 112 84 117"
+          fill="none" stroke="rgba(74,222,128,0.3)" stroke-width="1"/>
+        <!-- Lexus RX -->
+        <path d="M 10 163 Q 10 136 36 124 Q 58 114 86 119"
+          fill="none" stroke="rgba(74,222,128,0.2)" stroke-width=".8"/>
+
+        <!-- Driveway boundary -->
+        <line x1="20" y1="140" x2="20" y2="185" stroke="var(--gold-dim)" stroke-width=".8"/>
+        <line x1="20" y1="185" x2="260" y2="185" stroke="rgba(232,228,220,.08)" stroke-width=".6"/>
+
+        <!-- Entry arrow -->
+        <defs>
+          <marker id="arr" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+            <polygon points="0,0.5 5,2.5 0,4.5" fill="var(--gold-dim)"/>
+          </marker>
+        </defs>
+        <line x1="10" y1="145" x2="10" y2="175" stroke="var(--gold-dim)" stroke-width="1" marker-end="url(#arr)"/>
+        <text x="4" y="165" fill="var(--gold-dim)" font-size="7" text-anchor="middle" font-family="Outfit" transform="rotate(-90,4,165)">入口</text>
+
+        <!-- Legend bottom -->
+        <text x="60" y="195" fill="rgba(74,222,128,0.5)" font-size="7.5" text-anchor="middle" font-family="Outfit">—— Altis · RAV4 · Model Y · RX</text>
+      </svg>
+    </div>
+    <p class="svg-label reveal reveal-d2">4 車型掃掠軌跡示意（實際模擬含 Ackermann 動力學）</p>
+
+    <!-- Verification badge -->
+    <div class="verify-badge reveal reveal-d3">
+      <div class="badge-icon">✓</div>
+      <div>
+        <div class="badge-text">4 / 4 通過</div>
+        <div class="badge-sub">全車型均可順利通行</div>
+      </div>
+    </div>
+
+    <!-- Result list -->
+    <div class="result-list reveal reveal-d4">
+      <div class="result-row">
+        <div class="result-car">Toyota Altis</div>
+        <div class="result-data">
+          入口餘裕 1.06m <span class="check-mark">✓</span>
+          &nbsp;·&nbsp; L轉角 0.59m <span class="check-mark">✓</span>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-car">Toyota RAV4</div>
+        <div class="result-data">
+          入口餘裕 1.02m <span class="check-mark">✓</span>
+          &nbsp;·&nbsp; L轉角 0.64m <span class="check-mark">✓</span>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-car">Tesla Model Y</div>
+        <div class="result-data">
+          入口餘裕 0.99m <span class="check-mark">✓</span>
+          &nbsp;·&nbsp; L轉角 0.69m <span class="check-mark">✓</span>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-car">Lexus RX</div>
+        <div class="result-data">
+          入口餘裕 0.98m <span class="check-mark">✓</span>
+          &nbsp;·&nbsp; L轉角 0.63m <span class="check-mark">✓</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sim params -->
+    <div class="sim-params reveal reveal-d5">
+      模擬參數 — 時間步長 0.08s &nbsp;·&nbsp; 碰撞檢測 車身四角 vs 矩形邊界 &nbsp;·&nbsp; 路線搜索 多起點 × 多轉角 × 多速度
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ════════════════════════════════════
+       SECTION 3: SPECS
+       ════════════════════════════════════ -->
+  <section id="specs">
+    <div class="sec-header reveal">
+      <div class="sec-tag">Deep Dive · 03</div>
+      <h2 class="sec-title gold">完整技術規格</h2>
+      <p class="sec-desc">方案 A 的精確尺寸、施工建議與材質估價。</p>
+    </div>
+
+    <!-- Precise floor plan SVG -->
+    <div class="svg-wrap reveal reveal-d1">
+      <!-- Scale: 15px/m. Total land: 20m × 29m = 300px × 435px -->
+      <!-- viewBox: include dimension annotation space -->
+      <svg viewBox="-55 -35 410 510" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="aD2" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+            <polygon points="0,0.5 5,2.5 0,4.5" fill="var(--gold-dim)"/>
+          </marker>
+          <marker id="aDr2" markerWidth="5" markerHeight="5" refX="1" refY="2.5" orient="auto">
+            <polygon points="5,0.5 0,2.5 5,4.5" fill="var(--gold-dim)"/>
+          </marker>
+          <pattern id="hatch2" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="rgba(212,168,67,.04)" stroke-width="1"/>
+          </pattern>
+        </defs>
+
+        <!-- Land boundary -->
+        <rect x="0" y="0" width="300" height="435" fill="none" stroke="rgba(232,228,220,.1)" stroke-width="1"/>
+
+        <!-- Open area (y=165~435 = 18m) -->
+        <rect x="0" y="165" width="300" height="270" fill="url(#hatch2)"/>
+        <rect x="0" y="165" width="300" height="270" fill="rgba(212,168,67,.02)"/>
+
+        <!-- Driveway (x=0~60, y=0~165 = 4m × 11m) -->
+        <rect x="0" y="0" width="60" height="165" fill="rgba(212,168,67,.05)"/>
+
+        <!-- Entry arrow -->
+        <line x1="30" y1="8" x2="30" y2="42" stroke="var(--gold-dim)" stroke-width="1.2" marker-end="url(#aD2)"/>
+        <text x="44" y="16" fill="var(--gold-dim)" font-size="8" font-family="'Noto Sans TC',sans-serif">入口 ↓</text>
+
+        <!-- Aisle (x=60~300, y=82.5~165 = 16m × 5.5m) -->
+        <rect x="60" y="82.5" width="240" height="82.5" fill="var(--panel)" fill-opacity=".5"/>
+
+        <!-- Rain cover (x=60~300, y=0~120 = 16m × 8m, covers all 7 spots) -->
+        <rect x="60" y="0" width="240" height="120" fill="rgba(212,168,67,.03)" stroke="var(--gold-dim)" stroke-width=".8" stroke-dasharray="4,3" rx="3"/>
+
+        <!-- North wall (building) -->
+        <line x1="60" y1="0" x2="300" y2="0" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"/>
+        <text x="180" y="-12" fill="var(--gold)" font-size="9" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-weight="500">民宿北牆（馬路側）</text>
+
+        <!-- Driveway stop line -->
+        <line x1="0" y1="165" x2="60" y2="165" stroke="var(--gold-dim)" stroke-width="1" stroke-dasharray="4,2"/>
+
+        <!-- F1-F6 (x=67.5~300, y=0~82.5, each 37.5px wide = 2.5m, 82.5px deep = 5.5m) -->
+        <rect x="67.5" y="0" width="37.5" height="82.5" fill="none" stroke="var(--gold)" stroke-width="1.2" rx="2"/>
+        <text x="86" y="45" fill="var(--gold)" font-size="10" text-anchor="middle" font-family="Outfit" font-weight="600">F1</text>
+        <rect x="105" y="0" width="37.5" height="82.5" fill="none" stroke="var(--gold)" stroke-width="1.2" rx="2"/>
+        <text x="123.5" y="45" fill="var(--gold)" font-size="10" text-anchor="middle" font-family="Outfit" font-weight="600">F2</text>
+        <rect x="142.5" y="0" width="37.5" height="82.5" fill="none" stroke="var(--gold)" stroke-width="1.2" rx="2"/>
+        <text x="161" y="45" fill="var(--gold)" font-size="10" text-anchor="middle" font-family="Outfit" font-weight="600">F3</text>
+        <rect x="180" y="0" width="37.5" height="82.5" fill="none" stroke="var(--gold)" stroke-width="1.2" rx="2"/>
+        <text x="198.5" y="45" fill="var(--gold)" font-size="10" text-anchor="middle" font-family="Outfit" font-weight="600">F4</text>
+        <rect x="217.5" y="0" width="37.5" height="82.5" fill="none" stroke="var(--gold)" stroke-width="1.2" rx="2"/>
+        <text x="236" y="45" fill="var(--gold)" font-size="10" text-anchor="middle" font-family="Outfit" font-weight="600">F5</text>
+        <rect x="255" y="0" width="37.5" height="82.5" fill="none" stroke="var(--gold)" stroke-width="1.2" rx="2"/>
+        <text x="273.5" y="45" fill="var(--gold)" font-size="10" text-anchor="middle" font-family="Outfit" font-weight="600">F6</text>
+
+        <!-- F7 (x=67.5~105, y=82.5~165) -->
+        <rect x="67.5" y="82.5" width="37.5" height="82.5" fill="rgba(212,168,67,.06)" rx="2"/>
+        <rect x="67.5" y="82.5" width="37.5" height="82.5" fill="none" stroke="var(--gold-bright)" stroke-width="1.5" stroke-dasharray="5,3" rx="2"/>
+        <text x="86" y="120" fill="var(--gold-bright)" font-size="10" text-anchor="middle" font-family="Outfit" font-weight="700">F7</text>
+        <text x="86" y="134" fill="var(--gold-bright)" font-size="8" text-anchor="middle">★</text>
+
+        <!-- Labels -->
+        <text x="30" y="90" fill="rgba(212,168,67,.35)" font-size="8" text-anchor="middle" transform="rotate(-90,30,90)" font-family="'Noto Sans TC',sans-serif">車道 4m</text>
+        <text x="180" y="130" fill="var(--text-ghost)" font-size="9" text-anchor="middle" font-family="'Noto Sans TC',sans-serif">通道 5.5m</text>
+        <text x="175" y="108" fill="rgba(212,168,67,.25)" font-size="8" text-anchor="middle" font-family="'Noto Sans TC',sans-serif">雨遮 7.5m</text>
+        <text x="150" y="290" fill="rgba(212,168,67,.25)" font-size="15" font-weight="700" text-anchor="middle" font-family="'Noto Serif TC',serif">開放空間</text>
+        <text x="150" y="312" fill="rgba(212,168,67,.18)" font-size="10" text-anchor="middle" font-family="Outfit">360m² · 109 坪</text>
+
+        <!-- ═══ DIMENSION ANNOTATIONS ═══ -->
+
+        <!-- Top: 20m wide (x=0~300, above) -->
+        <line x1="0" y1="-22" x2="300" y2="-22" stroke="var(--gold-dim)" stroke-width=".6" marker-start="url(#aDr2)" marker-end="url(#aD2)"/>
+        <text x="150" y="-25" fill="var(--text-dim)" font-size="9" text-anchor="middle" font-family="Outfit">20m</text>
+
+        <!-- Right: 29m tall (y=0~435, right side) -->
+        <line x1="320" y1="0" x2="320" y2="435" stroke="var(--gold-dim)" stroke-width=".6" marker-start="url(#aDr2)" marker-end="url(#aD2)"/>
+        <text x="333" y="218" fill="var(--text-dim)" font-size="9" text-anchor="middle" font-family="Outfit" transform="rotate(90,333,218)">29m</text>
+
+        <!-- Left: 5.5m aisle depth (y=82.5~165) -->
+        <line x1="-15" y1="82.5" x2="-15" y2="165" stroke="var(--gold-dim)" stroke-width=".5" marker-start="url(#aDr2)" marker-end="url(#aD2)"/>
+        <text x="-25" y="124" fill="var(--text-ghost)" font-size="7.5" text-anchor="middle" font-family="Outfit" transform="rotate(-90,-25,124)">5.5m</text>
+
+        <!-- Left: 5.5m spot depth (y=0~82.5) -->
+        <line x1="-15" y1="0" x2="-15" y2="82.5" stroke="var(--gold-dim)" stroke-width=".5" marker-start="url(#aDr2)" marker-end="url(#aD2)"/>
+        <text x="-25" y="41" fill="var(--text-ghost)" font-size="7.5" text-anchor="middle" font-family="Outfit" transform="rotate(-90,-25,41)">5.5m</text>
+
+        <!-- Spot width: 2.5m -->
+        <line x1="67.5" y1="-12" x2="105" y2="-12" stroke="var(--gold-dim)" stroke-width=".5" marker-start="url(#aDr2)" marker-end="url(#aD2)"/>
+        <text x="86" y="-14" fill="var(--text-ghost)" font-size="7.5" text-anchor="middle" font-family="Outfit">2.5m</text>
+
+        <!-- Driveway: 4m wide (x=0~60) -->
+        <line x1="0" y1="-12" x2="60" y2="-12" stroke="var(--gold-dim)" stroke-width=".5" marker-start="url(#aDr2)" marker-end="url(#aD2)"/>
+        <text x="30" y="-14" fill="var(--text-ghost)" font-size="7.5" text-anchor="middle" font-family="Outfit">4m</text>
+
+        <!-- Rain cover depth: 7.5m (from y=0 to y=112.5) -->
+        <line x1="308" y1="0" x2="308" y2="112.5" stroke="var(--gold-dim)" stroke-width=".5" marker-start="url(#aDr2)" marker-end="url(#aD2)"/>
+        <text x="318" y="56" fill="rgba(212,168,67,.4)" font-size="7.5" text-anchor="middle" font-family="Outfit" transform="rotate(90,318,56)">雨遮 7.5m</text>
+
+        <!-- Open area: 18m depth (y=165~435) -->
+        <line x1="-40" y1="165" x2="-40" y2="435" stroke="var(--gold-dim)" stroke-width=".5" marker-start="url(#aDr2)" marker-end="url(#aD2)"/>
+        <text x="-50" y="300" fill="rgba(212,168,67,.3)" font-size="7.5" text-anchor="middle" font-family="Outfit" transform="rotate(-90,-50,300)">18m</text>
+      </svg>
+    </div>
+    <p class="svg-label reveal reveal-d1">方案 A 精確配置圖 · Scale 15px/m · 全標注版</p>
+
+    <!-- Key-value specs -->
+    <div class="spec-block reveal reveal-d2">
+      <div class="spec-row">
+        <span class="spec-label">固定車位</span>
+        <span class="spec-value gold">6+1 位（F1–F7）</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">車位位置</span>
+        <span class="spec-value">F1–F6 北牆 · F7 通道入口</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">車位尺寸</span>
+        <span class="spec-value">2.5m × 5.5m（各位）</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">F7 座標</span>
+        <span class="spec-value">x=4.5m · y=5.5m（通道入口）</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">通道寬度</span>
+        <span class="spec-value green">5.5m（≥ 台灣標準 5.0m）</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">車道寬度</span>
+        <span class="spec-value">4m（到通道止，不貫穿）</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">雨遮結構</span>
+        <span class="spec-value">直線 · 最深 7.5m</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">開放面積</span>
+        <span class="spec-value gold">360m²（109 坪）</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">開放尺寸</span>
+        <span class="spec-value">20m × 18m</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">最大容量</span>
+        <span class="spec-value">17 車（7 固定 + 10 溢出）</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">獨立性</span>
+        <span class="spec-value green">7/7（100%）</span>
+      </div>
+    </div>
+
+    <!-- Construction recommendations -->
+    <h3 class="spec-group-title reveal">施工建議</h3>
+    <div class="construct-list reveal reveal-d1">
+      <div class="construct-item">
+        <div class="construct-num">1</div>
+        <div>
+          <div class="construct-title">地面鋪設</div>
+          <div class="construct-desc">全區水泥或瀝青鋪面，平整無高差，供車輛和行人共用。建議分區施工，活動區可留素面混凝土便於清潔。</div>
+        </div>
+      </div>
+      <div class="construct-item">
+        <div class="construct-num">2</div>
+        <div>
+          <div class="construct-title">雨遮結構</div>
+          <div class="construct-desc">直線鋼骨結構，PC 中空板或鐵皮浪板，從建築南牆延伸 7.5m。直線比 L 型施工難度低、造價省 15~20%。</div>
+        </div>
+      </div>
+      <div class="construct-item">
+        <div class="construct-num">3</div>
+        <div>
+          <div class="construct-title">排水系統</div>
+          <div class="construct-desc">全區向南微斜 0.5~1%，南側設截水排水溝。雨遮落水管導入溝內，活動區不積水。</div>
+        </div>
+      </div>
+      <div class="construct-item">
+        <div class="construct-num">4</div>
+        <div>
+          <div class="construct-title">電力預留</div>
+          <div class="construct-desc">南牆／東牆預留 220V 插座 ×4（外燴、音響、EV 充電使用）。建議埋管地下，避免日後明管翻修。</div>
+        </div>
+      </div>
+      <div class="construct-item">
+        <div class="construct-num">5</div>
+        <div>
+          <div class="construct-title">照明配置</div>
+          <div class="construct-desc">雨遮下方 LED 燈條（暖白 3000K）+ 四角立燈柱。開放區照度 ≥ 100 lux，符合夜間活動需求。</div>
+        </div>
+      </div>
+      <div class="construct-item">
+        <div class="construct-num">6</div>
+        <div>
+          <div class="construct-title">固定停車標示</div>
+          <div class="construct-desc">安裝車擋（高 15cm）+ 白色標線，車位號碼 F1–F7 漆於地面。提升辨識度，減少停錯位糾紛。</div>
+        </div>
+      </div>
+      <div class="construct-item">
+        <div class="construct-num">7</div>
+        <div>
+          <div class="construct-title">溢出停車標示</div>
+          <div class="construct-desc">地面嵌入式反光釘標記停車格角點，平時不礙事，滿載時引導泊車。</div>
+        </div>
+      </div>
+      <div class="construct-item">
+        <div class="construct-num">8</div>
+        <div>
+          <div class="construct-title">開放區邊界</div>
+          <div class="construct-desc">通道與開放區交界處設可移動式護欄或花槽。活動時拉起護欄，日常停車時收起，兼顧彈性與安全。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Canopy pricing table -->
+    <h3 class="spec-group-title reveal">雨遮材質估價</h3>
+    <div class="price-table reveal reveal-d1">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>材質</th>
+              <th>單價／坪</th>
+              <th>直線 27 坪 估價</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>帆布（鋁骨架）</td>
+              <td>$5,000~6,000</td>
+              <td style="color:var(--green)">NT$13~16 萬</td>
+            </tr>
+            <tr>
+              <td>PC 中空板</td>
+              <td>$8,000~10,000</td>
+              <td style="color:var(--amber)">NT$22~27 萬</td>
+            </tr>
+            <tr>
+              <td>鐵皮浪板</td>
+              <td>$10,000~12,000</td>
+              <td style="color:var(--text-dim)">NT$27~32 萬</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p style="font-size:10px;color:var(--text-ghost);font-family:var(--brand);margin-top:4px;padding:0 2px">
+      直線結構比 L 型省工 15~20%。PC 中空板為推薦選擇，兼具採光與耐候。
+    </p>
+
+  </section>
+
+  <!-- ════════════════════════════════════
+       ENDING
+       ════════════════════════════════════ -->
+  <div class="divider"></div>
+  <div class="ending reveal">
+    <a href="final.html" class="back-btn">← 回主頁</a>
+    <p class="footer-note">方案設計 2026.03</p>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+/* ═══ IntersectionObserver scroll reveal ═══ */
+(function(){
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('vis');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+
+/* ═══ Active nav link on scroll ═══ */
+(function(){
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.nav-link');
+  const io2 = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const id = e.target.id;
+        links.forEach(l=>{
+          l.style.color = l.getAttribute('href')==='#'+id
+            ? 'var(--gold)' : '';
+        });
+      }
+    });
+  },{threshold:.3,rootMargin:'-56px 0px 0px 0px'});
+  sections.forEach(s=>io2.observe(s));
+})();
+</script>
+
+</body>
+</html>
