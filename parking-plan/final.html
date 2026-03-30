@@ -823,90 +823,138 @@ body::after {
 @media (min-width: 500px) {
   .svg-desc { font-size: 13px; }
 }
-/* ═══ 展開式詳情 ═══ */
-.expand-trigger {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 10px;
-  padding: 6px 14px;
-  background: rgba(212,168,67,0.06);
-  border: 1px solid rgba(212,168,67,0.15);
-  border-radius: 20px;
-  color: var(--gold-dim);
+/* ═══ Interactive SVG Zones ═══ */
+.interactive-zone {
+  cursor: pointer;
+  transition: fill 0.3s, stroke 0.3s, opacity 0.3s;
+}
+.interactive-zone:hover {
+  opacity: 0.85;
+}
+.interactive-zone.active {
+  fill: rgba(212,168,67,0.15) !important;
+  stroke: var(--gold) !important;
+  stroke-width: 2px;
+}
+
+.plan-tooltip {
+  background: var(--card);
+  border: 1px solid var(--gold-dim);
+  border-radius: 8px;
+  padding: 10px 14px;
+  text-align: center;
+  margin-top: 8px;
+  animation: fadeUp 0.3s ease;
+}
+.plan-tooltip .tooltip-label {
+  color: var(--gold);
+  font-family: var(--brand);
+  font-weight: 700;
+  font-size: 3.8vw;
+}
+.plan-tooltip .tooltip-info {
+  color: var(--text-dim);
   font-size: 3.2vw;
+  margin-top: 2px;
+}
+@media (min-width: 500px) {
+  .plan-tooltip .tooltip-label { font-size: 16px; }
+  .plan-tooltip .tooltip-info { font-size: 13px; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══ Mode Switcher ═══ */
+.mode-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 12px 0;
+}
+.mode-btn {
+  padding: 8px 16px;
+  background: rgba(212,168,67,0.04);
+  border: 1px solid rgba(212,168,67,0.12);
+  border-radius: 20px;
+  color: var(--text-dim);
+  font-size: 3.4vw;
   font-family: var(--sans);
   cursor: pointer;
   transition: all 0.3s;
   -webkit-tap-highlight-color: transparent;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
-.expand-trigger:hover, .expand-trigger:active {
+.mode-btn.active {
   background: rgba(212,168,67,0.12);
   border-color: var(--gold);
   color: var(--gold);
 }
-.expand-trigger .arrow {
-  display: inline-block;
-  transition: transform 0.3s;
-  font-size: 2.8vw;
+@media (min-width: 500px) {
+  .mode-btn { font-size: 14px; }
 }
-.expand-trigger.open .arrow {
-  transform: rotate(180deg);
+
+/* SVG mode layers */
+.svg-mode-layer {
+  transition: opacity 0.4s ease;
 }
-.expand-detail {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease, opacity 0.4s ease;
+.svg-mode-layer.hidden {
   opacity: 0;
+  pointer-events: none;
 }
-.expand-detail.open {
-  opacity: 1;
+
+/* ═══ Before/After Compare ═══ */
+.compare-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin: 10px 0;
 }
-.expand-inner {
-  padding: 12px 0;
-  font-size: 3.4vw;
-  color: var(--text-dim);
-  line-height: 1.75;
-  border-top: 1px solid rgba(212,168,67,0.08);
-  margin-top: 10px;
-}
-.expand-inner .detail-card {
+.compare-btn {
+  padding: 6px 14px;
   background: var(--panel);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px;
-  margin: 8px 0;
-  font-size: 3.2vw;
-}
-.expand-inner .detail-card h4 {
-  color: var(--gold);
-  font-size: 3.4vw;
-  font-family: var(--serif);
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-.expand-inner .mini-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 3vw;
-  margin: 8px 0;
-}
-.expand-inner .mini-table td {
-  padding: 4px 8px;
-  border-bottom: 1px solid rgba(212,168,67,0.06);
-}
-.expand-inner .mini-table td:first-child {
-  color: var(--text-ghost);
-  width: 35%;
-}
-.expand-inner .highlight-box {
-  background: rgba(212,168,67,0.05);
-  border-left: 2px solid var(--gold-dim);
-  padding: 8px 12px;
-  margin: 8px 0;
-  font-style: italic;
+  border-radius: 16px;
   color: var(--text-dim);
   font-size: 3.2vw;
+  font-family: var(--sans);
+  cursor: pointer;
+  transition: all 0.3s;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.compare-btn.active {
+  background: rgba(212,168,67,0.1);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+@media (min-width: 500px) {
+  .compare-btn { font-size: 13px; }
+}
+.compare-view {
+  position: relative;
+  margin: 8px 0;
+}
+.compare-svg {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  overflow: hidden;
+  transition: opacity 0.4s ease;
+}
+.compare-svg svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.compare-svg.hidden {
+  display: none;
 }
 </style>
 </head>
@@ -1038,20 +1086,6 @@ body::after {
         <div class="node-title">錯誤的起點</div>
         <div class="node-body">第一個直覺：這是一個停車場最佳化問題。用 Python 窮舉搜尋 60 多種配置——不同角度、不同寬度、不同排列。找到數學最優解：20 個車位。</div>
         <div class="node-aside">但這個問題本身就問錯了。</div>
-        <div class="expand-trigger" role="button" tabindex="0">深入了解 <span class="arrow">▾</span></div>
-        <div class="expand-detail">
-          <div class="expand-inner">
-            <p>我們用 Python 寫了一個窮舉搜尋引擎，測試了以下變數的所有組合：</p>
-            <table class="mini-table">
-              <tr><td>停車角度</td><td>45° / 60° / 75° / 90°</td></tr>
-              <tr><td>車位寬度</td><td>2.30m ~ 3.50m（每 0.05m）</td></tr>
-              <tr><td>通道寬度</td><td>5.0m / 5.5m / 6.0m</td></tr>
-              <tr><td>配置模板</td><td>U型 / 中央通道 / 東西向</td></tr>
-            </table>
-            <p>數學最優解：90° 垂直、2.5m 寬、U型雙列 = <strong style="color:var(--gold)">20 車位</strong>。</p>
-            <div class="highlight-box">但「最多車位」這個目標本身就是錯的。一個平常只停 7 台車的空間，塞 20 格停車線有什麼意義？</div>
-          </div>
-        </div>
       </div>
 
       <!-- ② -->
@@ -1084,31 +1118,6 @@ body::after {
           <div class="plan-mini"><div class="plan-mini-letter">F</div><div class="plan-mini-desc">雙排對向</div></div>
           <div class="plan-mini"><div class="plan-mini-letter">G</div><div class="plan-mini-desc">退縮中島</div></div>
         </div>
-        <div class="expand-trigger" role="button" tabindex="0">查看七方案 <span class="arrow">▾</span></div>
-        <div class="expand-detail">
-          <div class="expand-inner">
-            <div class="detail-card">
-              <h4>C2 修正L型（原推薦）</h4>
-              <p>北牆4位 + 東牆3位 = 7固定，360m²開放。後來發現獨立性只有4/7。</p>
-            </div>
-            <div class="detail-card">
-              <h4>A 北牆一列（最終推薦）</h4>
-              <p>6位北牆 + 1位通道入口 = 7全獨立，360m²開放。簡單但最優。</p>
-            </div>
-            <div class="detail-card">
-              <h4>D 西牆斜列 45°</h4>
-              <p>7位沿車道排列，車道=通道零浪費。但開放區僅11m寬，大帳篷擠。</p>
-            </div>
-            <div class="detail-card">
-              <h4>G 北牆退縮</h4>
-              <p>6位+2m有蓋走道，賓客體驗佳。但只有6位，開放區少40m²。</p>
-            </div>
-            <div class="detail-card">
-              <h4>B / E / F</h4>
-              <p>北牆雙列(開放區太小)、南牆(雨遮23.5m不實際)、東牆(雨遮差)。均淘汰。</p>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- ⑤ -->
@@ -1119,20 +1128,70 @@ body::after {
         <div class="node-body" style="margin-top:8px;">仔細想想車的動線——停完車就不需要往南走了。車道只要到通道就夠。這一改，開放面積從 288m&sup2; 跳到 360m&sup2;。</div>
         <div class="gold-highlight">+72m&sup2;</div>
         <div class="node-aside">多了 25%。</div>
-        <div class="expand-trigger" role="button" tabindex="0">看計算過程 <span class="arrow">▾</span></div>
-        <div class="expand-detail">
-          <div class="expand-inner">
-            <p>車的完整動線：</p>
-            <div class="highlight-box">
-              車進來 → 車道往南 → 到通道右轉 → 倒車入庫 → 完。<br>
-              車出去 → 從車位開出 → 左轉進車道 → 往北離開 → 完。
-            </div>
-            <p>車道只需要到通道的位置（y=11m），再往南沒有車需要走。</p>
-            <table class="mini-table">
-              <tr><td>修正前</td><td>開放區 16m × 18m = 288m²</td></tr>
-              <tr><td>修正後</td><td>開放區 20m × 18m = <strong style="color:var(--gold)">360m²</strong></td></tr>
-              <tr><td>差異</td><td><strong style="color:var(--gold)">+72m²（+25%）</strong></td></tr>
-            </table>
+
+        <!-- Before/After Compare -->
+        <div class="compare-toggle" style="margin-top:14px;">
+          <button class="compare-btn active" data-compare="before">修正前</button>
+          <button class="compare-btn" data-compare="after">修正後</button>
+        </div>
+        <div class="compare-view">
+          <div class="compare-svg" id="compareBefore">
+            <svg viewBox="0 0 200 290" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0" y="0" width="200" height="290" fill="#10131a"/>
+              <!-- Site boundary -->
+              <rect x="0" y="0" width="200" height="290" rx="2" fill="none" stroke="rgba(232,228,220,0.12)" stroke-width="1"/>
+              <!-- Car lane FULL LENGTH -->
+              <rect x="0" y="0" width="40" height="290" fill="rgba(212,168,67,0.08)" stroke="none"/>
+              <text x="20" y="200" fill="rgba(212,168,67,0.5)" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" transform="rotate(-90,20,200)" letter-spacing="0.08em" font-weight="400">4m 車道 (29m 全長)</text>
+              <!-- North wall spots -->
+              <rect x="40" y="0" width="160" height="55" fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1" rx="2"/>
+              <text x="120" y="32" fill="#d4a843" font-family="'Noto Sans TC',sans-serif" font-size="9" text-anchor="middle" font-weight="400">車位 F1~F6</text>
+              <!-- Passage -->
+              <rect x="40" y="55" width="160" height="55" fill="rgba(232,228,220,0.02)" stroke="none"/>
+              <text x="120" y="86" fill="#8890a0" font-family="'Noto Sans TC',sans-serif" font-size="8" text-anchor="middle" font-weight="300">通道</text>
+              <!-- Open area (16m wide only) -->
+              <rect x="40" y="110" width="160" height="180" fill="rgba(212,168,67,0.04)" stroke="none"/>
+              <text x="120" y="195" fill="#a07d2e" font-family="'Noto Sans TC',sans-serif" font-size="12" text-anchor="middle" font-weight="400" opacity="0.8">288m2</text>
+              <text x="120" y="212" fill="#8890a0" font-family="'Noto Sans TC',sans-serif" font-size="8" text-anchor="middle" font-weight="300">16m x 18m</text>
+              <!-- Dimension: 16m width -->
+              <line x1="40" y1="280" x2="200" y2="280" stroke="#3a4258" stroke-width="0.5"/>
+              <text x="120" y="276" fill="#3a4258" font-family="'Outfit',sans-serif" font-size="7" text-anchor="middle" font-weight="300">16m</text>
+              <!-- Label -->
+              <rect x="52" y="122" width="56" height="18" rx="3" fill="rgba(248,113,113,0.12)"/>
+              <text x="80" y="134" fill="#f87171" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" font-weight="600">BEFORE</text>
+            </svg>
+          </div>
+          <div class="compare-svg hidden" id="compareAfter">
+            <svg viewBox="0 0 200 290" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0" y="0" width="200" height="290" fill="#10131a"/>
+              <!-- Site boundary -->
+              <rect x="0" y="0" width="200" height="290" rx="2" fill="none" stroke="rgba(232,228,220,0.12)" stroke-width="1"/>
+              <!-- Car lane SHORT -->
+              <rect x="0" y="0" width="40" height="110" fill="rgba(212,168,67,0.08)" stroke="none"/>
+              <text x="20" y="60" fill="rgba(212,168,67,0.5)" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" transform="rotate(-90,20,60)" letter-spacing="0.08em" font-weight="400">4m 車道</text>
+              <!-- Lane termination -->
+              <line x1="0" y1="110" x2="40" y2="110" stroke="var(--gold-dim)" stroke-width="1" stroke-dasharray="4,3"/>
+              <!-- North wall spots -->
+              <rect x="40" y="0" width="160" height="55" fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1" rx="2"/>
+              <text x="120" y="32" fill="#d4a843" font-family="'Noto Sans TC',sans-serif" font-size="9" text-anchor="middle" font-weight="400">車位 F1~F6</text>
+              <!-- Passage -->
+              <rect x="40" y="55" width="160" height="55" fill="rgba(232,228,220,0.02)" stroke="none"/>
+              <text x="120" y="86" fill="#8890a0" font-family="'Noto Sans TC',sans-serif" font-size="8" text-anchor="middle" font-weight="300">通道</text>
+              <!-- Open area FULL WIDTH -->
+              <rect x="0" y="110" width="200" height="180" fill="rgba(212,168,67,0.04)" stroke="none"/>
+              <!-- Gained area highlight -->
+              <rect x="0" y="110" width="40" height="180" fill="rgba(212,168,67,0.1)" stroke="#d4a843" stroke-width="1" stroke-dasharray="5,3" rx="1"/>
+              <text x="20" y="200" fill="#f0c850" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" transform="rotate(-90,20,200)" font-weight="700">+72m2</text>
+              <!-- Main area text -->
+              <text x="120" y="195" fill="#d4a843" font-family="'Noto Sans TC',sans-serif" font-size="13" text-anchor="middle" font-weight="700">360m2</text>
+              <text x="120" y="212" fill="#d4a843" font-family="'Noto Sans TC',sans-serif" font-size="8" text-anchor="middle" font-weight="400">20m x 18m</text>
+              <!-- Dimension: 20m width -->
+              <line x1="0" y1="280" x2="200" y2="280" stroke="#d4a843" stroke-width="0.5"/>
+              <text x="100" y="276" fill="#d4a843" font-family="'Outfit',sans-serif" font-size="7" text-anchor="middle" font-weight="400">20m</text>
+              <!-- Label -->
+              <rect x="52" y="122" width="56" height="18" rx="3" fill="rgba(74,222,128,0.12)"/>
+              <text x="80" y="134" fill="#4ade80" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" font-weight="600">AFTER</text>
+            </svg>
           </div>
         </div>
       </div>
@@ -1158,25 +1217,6 @@ body::after {
         <div class="node-body">用 Ackermann 轉向模型，模擬 4 種車型在 L 型轉角的行駛軌跡。</div>
         <div class="node-body" style="margin-top:8px;">第一次模擬：全部碰撞。原因：手動路線不夠好。路線優化搜索後：全部通過。最小餘裕 0.59m。</div>
         <div class="node-aside">差點因為模擬方法的問題，誤殺了一個可行的方案。</div>
-        <div class="expand-trigger" role="button" tabindex="0">模擬細節 <span class="arrow">▾</span></div>
-        <div class="expand-detail">
-          <div class="expand-inner">
-            <p>使用 Ackermann 自行車轉向模型，模擬參數：</p>
-            <table class="mini-table">
-              <tr><td>時間步長</td><td>0.08 秒</td></tr>
-              <tr><td>碰撞檢測</td><td>車身四角 vs 矩形邊界</td></tr>
-              <tr><td>路線搜索</td><td>多起點 × 多轉角 × 多速度</td></tr>
-            </table>
-            <p>測試了 4 種車型，從小型轎車到大型 SUV：</p>
-            <table class="mini-table">
-              <tr><td>Altis</td><td>4.63m × 1.78m · 迴轉半徑 5.3m</td></tr>
-              <tr><td>RAV4</td><td>4.60m × 1.86m · 迴轉半徑 5.5m</td></tr>
-              <tr><td>Model Y</td><td>4.75m × 1.92m · 迴轉半徑 5.8m</td></tr>
-              <tr><td>Lexus RX</td><td>4.89m × 1.92m · 迴轉半徑 5.9m</td></tr>
-            </table>
-            <div class="highlight-box">第一次模擬全部碰撞——原因是手動設定的路線不夠好，不是幾何不可行。優化搜索後全部通過。</div>
-          </div>
-        </div>
       </div>
 
       <!-- ⑨ -->
@@ -1194,26 +1234,6 @@ body::after {
         <div class="node-body" style="margin-top:8px;">仔細檢查：F3 和 F4（北牆）的位置擋住了 F5/F6/F7（東牆）的出口。東側通道（x=9~14.5）被北牆車位佔據。三台車要出來，至少兩台要先移走。</div>
         <div class="node-body" style="margin-top:8px;">C2 的獨立性只有 4/7（57%）。</div>
         <div class="node-callout">我們以為的最優解，有一個隱藏的致命缺陷。</div>
-        <div class="expand-trigger" role="button" tabindex="0">為什麼被鎖住 <span class="arrow">▾</span></div>
-        <div class="expand-detail">
-          <div class="expand-inner">
-            <p>C2 方案中，F3 和 F4（北牆）佔據了 x=9.5~14.5 的空間。而東牆車位 F5/F6/F7 的唯一出口——東側通道——也在 x=9~14.5。</p>
-            <div class="highlight-box">
-              F5 要出來 → F3 和 F4 必須先移走<br>
-              F6 要出來 → F3 和 F4 必須先移走<br>
-              F7 要出來 → 至少 F4 必須先移走<br><br>
-              獨立性：4/7（57%）
-            </div>
-            <p>嘗試過的修正方案：</p>
-            <table class="mini-table">
-              <tr><td>東側下移</td><td>7/7 獨立，但開放區少 50m²</td></tr>
-              <tr><td>全塞北牆</td><td>2.28m 太窄，開門只剩 18cm</td></tr>
-              <tr><td>斜角混搭</td><td>開放區碎片化</td></tr>
-              <tr><td>西牆L型</td><td>擋住車道</td></tr>
-            </table>
-            <p>每條路都試過了。<strong style="color:var(--gold)">L型的角落衝突是幾何本質問題，沒有優雅解。</strong></p>
-          </div>
-        </div>
       </div>
 
       <!-- ⑪ -->
@@ -1239,20 +1259,6 @@ body::after {
         </div>
         <div class="node-body" style="margin-top:8px;">它不是「退而求其次」。它是唯一同時滿足所有條件的解。</div>
         <div class="quote-block" style="margin-top:16px;">看起來少一位，用起來更好。<br>簡單的，才是最好的。</div>
-        <div class="expand-trigger" role="button" tabindex="0">A vs C2 對比 <span class="arrow">▾</span></div>
-        <div class="expand-detail">
-          <div class="expand-inner">
-            <table class="mini-table">
-              <tr><td>獨立性</td><td>A: <strong style="color:var(--green)">7/7</strong> vs C2: 4/7</td></tr>
-              <tr><td>開放面積</td><td>兩者相同 360m²</td></tr>
-              <tr><td>車位寬度</td><td>兩者相同 2.5m</td></tr>
-              <tr><td>雨遮結構</td><td>A: 直線（便宜）vs C2: L型（貴）</td></tr>
-              <tr><td>施工難度</td><td>A: 簡單 vs C2: 複雜</td></tr>
-              <tr><td>F7 位置</td><td>A: 通道入口（最方便）vs C2: 角落（被鎖）</td></tr>
-            </table>
-            <div class="highlight-box">C2 在理論上看起來更優雅（7位全「固定」），但 A 在實際使用中才是真正的贏家。F7 在通道入口處——進出最快的黃金車位。</div>
-          </div>
-        </div>
       </div>
 
     </div><!-- /.timeline -->
@@ -1282,8 +1288,15 @@ body::after {
       </div>
     </div>
 
-    <!-- Plan A SVG -->
-    <div class="svg-container reveal">
+    <!-- Mode Switcher -->
+    <div class="mode-switcher reveal">
+      <button class="mode-btn active" data-mode="daily">日常</button>
+      <button class="mode-btn" data-mode="wedding">婚宴</button>
+      <button class="mode-btn" data-mode="full">滿載</button>
+    </div>
+
+    <!-- Plan A Interactive SVG -->
+    <div class="svg-container reveal" id="planSvgContainer">
       <svg viewBox="0 -25 340 510" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="hatch" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
@@ -1313,47 +1326,98 @@ body::after {
         <!-- Car lane -->
         <rect x="20" y="10" width="60" height="155"
               fill="rgba(212,168,67,0.04)" stroke="none"/>
-        <!-- Lane termination dashed -->
         <line x1="20" y1="165" x2="80" y2="165"
               stroke="#3a4258" stroke-width="0.8" stroke-dasharray="4,3"/>
 
+        <!-- ══ Interactive click zones (transparent overlays) ══ -->
+
+        <!-- Car lane click zone -->
+        <rect x="18" y="8" width="64" height="159" rx="2"
+              class="interactive-zone" fill="transparent" stroke="transparent"
+              data-label="車道" data-info="4m 寬 · 到通道止 · 11m"/>
+
+        <!-- Passage click zone -->
+        <rect x="78" y="90.5" width="244" height="76.5" rx="2"
+              class="interactive-zone" fill="transparent" stroke="transparent"
+              data-label="通道" data-info="5.5m 寬 · >= 標準 5.0m"/>
+
+        <!-- Canopy click zone -->
+        <rect x="85.5" y="8" width="229" height="124" rx="3"
+              class="interactive-zone" fill="transparent" stroke="transparent"
+              data-label="L型雨遮" data-info="7.5m 深 · 覆蓋全部車位"/>
+
+        <!-- Open area click zone -->
+        <rect x="18" y="163" width="304" height="284" rx="2"
+              class="interactive-zone" fill="transparent" stroke="transparent"
+              data-label="開放區" data-info="20m x 18m · 360m2 · 109坪"/>
+
+        <!-- F1 click zone -->
+        <rect x="85.5" y="8" width="41.5" height="86.5" rx="2"
+              class="interactive-zone" fill="transparent" stroke="transparent"
+              data-label="F1" data-info="2.5m x 5.5m · 第1位"/>
+        <!-- F2 click zone -->
+        <rect x="123" y="8" width="41.5" height="86.5" rx="2"
+              class="interactive-zone" fill="transparent" stroke="transparent"
+              data-label="F2" data-info="2.5m x 5.5m · 第2位"/>
+        <!-- F3 click zone -->
+        <rect x="160.5" y="8" width="41.5" height="86.5" rx="2"
+              class="interactive-zone" fill="transparent" stroke="transparent"
+              data-label="F3" data-info="2.5m x 5.5m · 第3位"/>
+        <!-- F4 click zone -->
+        <rect x="198" y="8" width="41.5" height="86.5" rx="2"
+              class="interactive-zone" fill="transparent" stroke="transparent"
+              data-label="F4" data-info="2.5m x 5.5m · 第4位"/>
+        <!-- F5 click zone -->
+        <rect x="235.5" y="8" width="41.5" height="86.5" rx="2"
+              class="interactive-zone" fill="transparent" stroke="transparent"
+              data-label="F5" data-info="2.5m x 5.5m · 第5位"/>
+        <!-- F6 click zone -->
+        <rect x="273" y="8" width="41.5" height="86.5" rx="2"
+              class="interactive-zone" fill="transparent" stroke="transparent"
+              data-label="F6" data-info="2.5m x 5.5m · 第6位"/>
+        <!-- F7 click zone -->
+        <rect x="85.5" y="90.5" width="41.5" height="86.5" rx="2"
+              class="interactive-zone" fill="transparent" stroke="transparent"
+              data-label="F7" data-info="2.5m x 5.5m · 通道入口 · 黃金車位"/>
+
+        <!-- ══ Base structure (always visible) ══ -->
+
         <!-- 6 North wall spots: F1-F6 -->
-        <!-- Each: 37.5w x 82.5h (2.5m x 5.5m at 15px/m) -->
         <rect x="87.5" y="10" width="37.5" height="82.5"
-              fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1.2" rx="2"/>
+              fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1.2" rx="2" class="spot-frame"/>
         <text x="106.25" y="56" fill="#d4a843" font-family="'Outfit',sans-serif" font-size="10"
-              text-anchor="middle" font-weight="600">F1</text>
+              text-anchor="middle" font-weight="600" class="spot-label">F1</text>
 
         <rect x="125" y="10" width="37.5" height="82.5"
-              fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1.2" rx="2"/>
+              fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1.2" rx="2" class="spot-frame"/>
         <text x="143.75" y="56" fill="#d4a843" font-family="'Outfit',sans-serif" font-size="10"
-              text-anchor="middle" font-weight="600">F2</text>
+              text-anchor="middle" font-weight="600" class="spot-label">F2</text>
 
         <rect x="162.5" y="10" width="37.5" height="82.5"
-              fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1.2" rx="2"/>
+              fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1.2" rx="2" class="spot-frame"/>
         <text x="181.25" y="56" fill="#d4a843" font-family="'Outfit',sans-serif" font-size="10"
-              text-anchor="middle" font-weight="600">F3</text>
+              text-anchor="middle" font-weight="600" class="spot-label">F3</text>
 
         <rect x="200" y="10" width="37.5" height="82.5"
-              fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1.2" rx="2"/>
+              fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1.2" rx="2" class="spot-frame"/>
         <text x="218.75" y="56" fill="#d4a843" font-family="'Outfit',sans-serif" font-size="10"
-              text-anchor="middle" font-weight="600">F4</text>
+              text-anchor="middle" font-weight="600" class="spot-label">F4</text>
 
         <rect x="237.5" y="10" width="37.5" height="82.5"
-              fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1.2" rx="2"/>
+              fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1.2" rx="2" class="spot-frame"/>
         <text x="256.25" y="56" fill="#d4a843" font-family="'Outfit',sans-serif" font-size="10"
-              text-anchor="middle" font-weight="600">F5</text>
+              text-anchor="middle" font-weight="600" class="spot-label">F5</text>
 
         <rect x="275" y="10" width="37.5" height="82.5"
-              fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1.2" rx="2"/>
+              fill="rgba(212,168,67,0.06)" stroke="#d4a843" stroke-width="1.2" rx="2" class="spot-frame"/>
         <text x="293.75" y="56" fill="#d4a843" font-family="'Outfit',sans-serif" font-size="10"
-              text-anchor="middle" font-weight="600">F6</text>
+              text-anchor="middle" font-weight="600" class="spot-label">F6</text>
 
         <!-- F7: entrance spot (dashed) -->
         <rect x="87.5" y="92.5" width="37.5" height="82.5"
-              fill="rgba(212,168,67,0.03)" stroke="#d4a843" stroke-width="1.2" stroke-dasharray="5,3" rx="2"/>
+              fill="rgba(212,168,67,0.03)" stroke="#d4a843" stroke-width="1.2" stroke-dasharray="5,3" rx="2" class="spot-frame"/>
         <text x="106.25" y="132" fill="#f0c850" font-family="'Outfit',sans-serif" font-size="10"
-              text-anchor="middle" font-weight="700">F7</text>
+              text-anchor="middle" font-weight="700" class="spot-label">F7</text>
         <text x="106.25" y="144" fill="#f0c850" font-family="'Outfit',sans-serif" font-size="7"
               text-anchor="middle" font-weight="400">&#9733;</text>
 
@@ -1369,17 +1433,126 @@ body::after {
         <text x="200" y="24" fill="rgba(212,168,67,0.4)" font-family="'Noto Sans TC',sans-serif" font-size="8"
               text-anchor="middle" font-weight="300">雨遮</text>
 
-        <!-- Open area -->
+        <!-- Open area base -->
         <rect x="20" y="165" width="300" height="280"
               fill="url(#hatch)"/>
         <rect x="20" y="165" width="300" height="280"
               fill="rgba(212,168,67,0.02)"/>
-        <text x="170" y="310" fill="#a07d2e" font-family="'Noto Sans TC',sans-serif" font-size="13"
-              text-anchor="middle" font-weight="400" opacity="0.7">開放區</text>
-        <text x="170" y="328" fill="#a07d2e" font-family="'Outfit',sans-serif" font-size="11"
-              text-anchor="middle" font-weight="300" opacity="0.5">360 m&sup2;</text>
 
-        <!-- ── Dimension lines ── -->
+        <!-- ══ MODE: DAILY (default) ══ -->
+        <g class="svg-mode-layer" data-mode="daily">
+          <!-- Small car shapes inside each spot -->
+          <rect x="95" y="26" width="22" height="52" rx="6" fill="rgba(212,168,67,0.12)" stroke="rgba(212,168,67,0.3)" stroke-width="0.8"/>
+          <rect x="132.5" y="26" width="22" height="52" rx="6" fill="rgba(212,168,67,0.10)" stroke="rgba(212,168,67,0.25)" stroke-width="0.8"/>
+          <rect x="170" y="26" width="22" height="52" rx="6" fill="rgba(212,168,67,0.12)" stroke="rgba(212,168,67,0.3)" stroke-width="0.8"/>
+          <rect x="207.5" y="26" width="22" height="52" rx="6" fill="rgba(212,168,67,0.08)" stroke="rgba(212,168,67,0.2)" stroke-width="0.8"/>
+          <rect x="245" y="26" width="22" height="52" rx="6" fill="rgba(212,168,67,0.12)" stroke="rgba(212,168,67,0.3)" stroke-width="0.8"/>
+          <rect x="282.5" y="26" width="22" height="52" rx="6" fill="rgba(212,168,67,0.10)" stroke="rgba(212,168,67,0.25)" stroke-width="0.8"/>
+          <rect x="95" y="108" width="22" height="52" rx="6" fill="rgba(240,200,80,0.12)" stroke="rgba(240,200,80,0.3)" stroke-width="0.8"/>
+
+          <!-- Open area label -->
+          <text x="170" y="300" fill="#a07d2e" font-family="'Noto Sans TC',sans-serif" font-size="11"
+                text-anchor="middle" font-weight="300" opacity="0.6">360m2 開放空間</text>
+          <text x="170" y="320" fill="#a07d2e" font-family="'Outfit',sans-serif" font-size="9"
+                text-anchor="middle" font-weight="300" opacity="0.4">20m x 18m</text>
+        </g>
+
+        <!-- ══ MODE: WEDDING ══ -->
+        <g class="svg-mode-layer hidden" data-mode="wedding">
+          <!-- Tent outline -->
+          <rect x="35" y="180" width="270" height="210" rx="4"
+                fill="none" stroke="#e8a050" stroke-width="1.5" stroke-dasharray="8,4"/>
+          <text x="170" y="198" fill="#e8a050" font-family="'Noto Sans TC',sans-serif" font-size="9"
+                text-anchor="middle" font-weight="400" opacity="0.8">帳篷 18x14m</text>
+
+          <!-- 12 round tables (4 columns x 3 rows) -->
+          <circle cx="90" cy="240" r="12" fill="none" stroke="#e8a050" stroke-width="0.8" opacity="0.6"/>
+          <circle cx="150" cy="240" r="12" fill="none" stroke="#e8a050" stroke-width="0.8" opacity="0.6"/>
+          <circle cx="210" cy="240" r="12" fill="none" stroke="#e8a050" stroke-width="0.8" opacity="0.6"/>
+          <circle cx="270" cy="240" r="12" fill="none" stroke="#e8a050" stroke-width="0.8" opacity="0.6"/>
+
+          <circle cx="90" cy="290" r="12" fill="none" stroke="#e8a050" stroke-width="0.8" opacity="0.6"/>
+          <circle cx="150" cy="290" r="12" fill="none" stroke="#e8a050" stroke-width="0.8" opacity="0.6"/>
+          <circle cx="210" cy="290" r="12" fill="none" stroke="#e8a050" stroke-width="0.8" opacity="0.6"/>
+          <circle cx="270" cy="290" r="12" fill="none" stroke="#e8a050" stroke-width="0.8" opacity="0.6"/>
+
+          <circle cx="90" cy="340" r="12" fill="none" stroke="#e8a050" stroke-width="0.8" opacity="0.6"/>
+          <circle cx="150" cy="340" r="12" fill="none" stroke="#e8a050" stroke-width="0.8" opacity="0.6"/>
+          <circle cx="210" cy="340" r="12" fill="none" stroke="#e8a050" stroke-width="0.8" opacity="0.6"/>
+          <circle cx="270" cy="340" r="12" fill="none" stroke="#e8a050" stroke-width="0.8" opacity="0.6"/>
+
+          <!-- Stage -->
+          <rect x="100" y="365" width="160" height="28" rx="4"
+                fill="rgba(160,100,220,0.1)" stroke="rgba(160,100,220,0.4)" stroke-width="1"/>
+          <text x="180" y="383" fill="rgba(160,100,220,0.7)" font-family="'Noto Sans TC',sans-serif" font-size="9"
+                text-anchor="middle" font-weight="400">舞台</text>
+
+          <!-- Wedding label -->
+          <text x="170" y="420" fill="#e8a050" font-family="'Noto Sans TC',sans-serif" font-size="12"
+                text-anchor="middle" font-weight="400" opacity="0.8">12桌 120人</text>
+        </g>
+
+        <!-- ══ MODE: FULL CAPACITY ══ -->
+        <g class="svg-mode-layer hidden" data-mode="full">
+          <!-- Central passage -->
+          <rect x="102" y="180" width="136" height="250" rx="2"
+                fill="rgba(232,228,220,0.02)" stroke="rgba(232,228,220,0.06)" stroke-width="0.5"/>
+          <text x="170" y="310" fill="#3a4258" font-family="'Noto Sans TC',sans-serif" font-size="8"
+                text-anchor="middle" font-weight="300">中央通道</text>
+
+          <!-- Left column: 5 overflow spots -->
+          <rect x="25" y="185" width="72" height="40" rx="2"
+                fill="rgba(96,144,208,0.06)" stroke="#6090d0" stroke-width="0.8"/>
+          <text x="61" y="209" fill="#6090d0" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" font-weight="400">+1</text>
+
+          <rect x="25" y="232" width="72" height="40" rx="2"
+                fill="rgba(96,144,208,0.06)" stroke="#6090d0" stroke-width="0.8"/>
+          <text x="61" y="256" fill="#6090d0" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" font-weight="400">+2</text>
+
+          <rect x="25" y="279" width="72" height="40" rx="2"
+                fill="rgba(96,144,208,0.06)" stroke="#6090d0" stroke-width="0.8"/>
+          <text x="61" y="303" fill="#6090d0" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" font-weight="400">+3</text>
+
+          <rect x="25" y="326" width="72" height="40" rx="2"
+                fill="rgba(96,144,208,0.06)" stroke="#6090d0" stroke-width="0.8"/>
+          <text x="61" y="350" fill="#6090d0" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" font-weight="400">+4</text>
+
+          <rect x="25" y="373" width="72" height="40" rx="2"
+                fill="rgba(96,144,208,0.06)" stroke="#6090d0" stroke-width="0.8"/>
+          <text x="61" y="397" fill="#6090d0" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" font-weight="400">+5</text>
+
+          <!-- Right column: 5 overflow spots -->
+          <rect x="243" y="185" width="72" height="40" rx="2"
+                fill="rgba(96,144,208,0.06)" stroke="#6090d0" stroke-width="0.8"/>
+          <text x="279" y="209" fill="#6090d0" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" font-weight="400">+6</text>
+
+          <rect x="243" y="232" width="72" height="40" rx="2"
+                fill="rgba(96,144,208,0.06)" stroke="#6090d0" stroke-width="0.8"/>
+          <text x="279" y="256" fill="#6090d0" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" font-weight="400">+7</text>
+
+          <rect x="243" y="279" width="72" height="40" rx="2"
+                fill="rgba(96,144,208,0.06)" stroke="#6090d0" stroke-width="0.8"/>
+          <text x="279" y="303" fill="#6090d0" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" font-weight="400">+8</text>
+
+          <rect x="243" y="326" width="72" height="40" rx="2"
+                fill="rgba(96,144,208,0.06)" stroke="#6090d0" stroke-width="0.8"/>
+          <text x="279" y="350" fill="#6090d0" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" font-weight="400">+9</text>
+
+          <rect x="243" y="373" width="72" height="40" rx="2"
+                fill="rgba(96,144,208,0.06)" stroke="#6090d0" stroke-width="0.8"/>
+          <text x="279" y="397" fill="#6090d0" font-family="'Outfit',sans-serif" font-size="8" text-anchor="middle" font-weight="400">+10</text>
+
+          <!-- U-shaped arrow path -->
+          <path d="M170,178 L170,420 M170,420 L60,420 L60,178 M170,420 L280,420 L280,178"
+                fill="none" stroke="rgba(96,144,208,0.3)" stroke-width="1.2" stroke-dasharray="6,4"
+                marker-end="url(#arrowDim)"/>
+
+          <!-- Full capacity label -->
+          <text x="170" y="440" fill="#6090d0" font-family="'Noto Sans TC',sans-serif" font-size="12"
+                text-anchor="middle" font-weight="400" opacity="0.8">+10 溢出 = 17車</text>
+        </g>
+
+        <!-- ══ Dimension lines (always visible) ══ -->
 
         <!-- Top: 20m -->
         <line x1="20" y1="-10" x2="320" y2="-10" stroke="#3a4258" stroke-width="0.5"
@@ -1387,7 +1560,7 @@ body::after {
         <text x="170" y="-14" fill="#3a4258" font-family="'Outfit',sans-serif" font-size="8"
               text-anchor="middle" font-weight="300">20m</text>
 
-        <!-- Right: 29m (open area portion) -->
+        <!-- Right: 29m -->
         <line x1="330" y1="165" x2="330" y2="445" stroke="#3a4258" stroke-width="0.5"
               marker-start="url(#arrowDimR)" marker-end="url(#arrowDim)"/>
         <text x="330" y="310" fill="#3a4258" font-family="'Outfit',sans-serif" font-size="8"
@@ -1413,6 +1586,12 @@ body::after {
         <text x="50" y="90" fill="#3a4258" font-family="'Outfit',sans-serif" font-size="8"
               text-anchor="middle" transform="rotate(-90,50,90)" letter-spacing="0.08em">4m 車道</text>
       </svg>
+    </div>
+
+    <!-- Tooltip (fixed below SVG) -->
+    <div id="planTooltip" class="plan-tooltip" style="display:none">
+      <div class="tooltip-label"></div>
+      <div class="tooltip-info"></div>
     </div>
 
     <div class="svg-desc reveal">
@@ -1546,7 +1725,7 @@ body::after {
    IntersectionObserver Reveal
    ══════════════════════════════════════ */
 (function() {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (prefersReduced) {
     document.querySelectorAll('.reveal, .timeline-node').forEach(function(el) {
@@ -1555,8 +1734,7 @@ body::after {
     return;
   }
 
-  // General reveal
-  const revealObserver = new IntersectionObserver(function(entries) {
+  var revealObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('revealed');
@@ -1569,9 +1747,7 @@ body::after {
     revealObserver.observe(el);
   });
 
-  // Timeline nodes with stagger
-  var timelineDelay = 0;
-  const timelineObserver = new IntersectionObserver(function(entries) {
+  var timelineObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         var node = entry.target;
@@ -1589,8 +1765,7 @@ body::after {
     timelineObserver.observe(el);
   });
 
-  // Count-up animation
-  const countObserver = new IntersectionObserver(function(entries) {
+  var countObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         animateCount(entry.target);
@@ -1607,39 +1782,129 @@ body::after {
     var target = parseInt(el.dataset.target, 10);
     var duration = target > 100 ? 1200 : 800;
     var start = performance.now();
-
     function tick(now) {
       var elapsed = now - start;
       var progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
       var eased = 1 - Math.pow(1 - progress, 3);
-      var current = Math.round(eased * target);
-      el.textContent = current;
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      }
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
   }
 })();
 
-/* ── 展開式互動 ── */
-document.querySelectorAll('.expand-trigger').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const detail = this.nextElementSibling;
-    const isOpen = this.classList.contains('open');
+/* ══════════════════════════════════════
+   Interactive 1: Clickable SVG Zones
+   ══════════════════════════════════════ */
+(function() {
+  var tooltip = document.getElementById('planTooltip');
+  if (!tooltip) return;
+  var labelEl = tooltip.querySelector('.tooltip-label');
+  var infoEl = tooltip.querySelector('.tooltip-info');
 
-    if (isOpen) {
-      detail.style.maxHeight = '0px';
-      detail.classList.remove('open');
-      this.classList.remove('open');
-    } else {
-      detail.style.maxHeight = detail.scrollHeight + 'px';
-      detail.classList.add('open');
-      this.classList.add('open');
+  document.querySelectorAll('.interactive-zone').forEach(function(zone) {
+    zone.addEventListener('click', function(e) {
+      e.stopPropagation();
+
+      // If clicking the already active zone, deselect
+      if (this.classList.contains('active')) {
+        this.classList.remove('active');
+        tooltip.style.display = 'none';
+        return;
+      }
+
+      // Remove other active
+      document.querySelectorAll('.interactive-zone.active').forEach(function(z) {
+        z.classList.remove('active');
+      });
+      this.classList.add('active');
+
+      labelEl.textContent = this.dataset.label;
+      infoEl.textContent = this.dataset.info;
+      tooltip.style.display = 'block';
+    });
+  });
+
+  // Click outside SVG container to dismiss
+  document.addEventListener('click', function(e) {
+    var container = document.getElementById('planSvgContainer');
+    if (container && !container.contains(e.target)) {
+      document.querySelectorAll('.interactive-zone.active').forEach(function(z) {
+        z.classList.remove('active');
+      });
+      tooltip.style.display = 'none';
     }
   });
-});
+})();
+
+/* ══════════════════════════════════════
+   Interactive 2: Three-Mode Switcher
+   ══════════════════════════════════════ */
+(function() {
+  var buttons = document.querySelectorAll('.mode-btn[data-mode]');
+  var layers = document.querySelectorAll('.svg-mode-layer');
+  var spotFrames = document.querySelectorAll('.spot-frame');
+
+  if (!buttons.length || !layers.length) return;
+
+  buttons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var mode = this.dataset.mode;
+
+      // Update buttons
+      buttons.forEach(function(b) { b.classList.remove('active'); });
+      this.classList.add('active');
+
+      // Update SVG layers
+      layers.forEach(function(layer) {
+        if (layer.dataset.mode === mode) {
+          layer.classList.remove('hidden');
+        } else {
+          layer.classList.add('hidden');
+        }
+      });
+
+      // In wedding mode, dim the spot frames
+      var dimSpots = (mode === 'wedding');
+      spotFrames.forEach(function(frame) {
+        frame.style.opacity = dimSpots ? '0.3' : '1';
+        frame.style.transition = 'opacity 0.4s ease';
+      });
+      document.querySelectorAll('.spot-label').forEach(function(label) {
+        label.style.opacity = dimSpots ? '0.3' : '1';
+        label.style.transition = 'opacity 0.4s ease';
+      });
+    });
+  });
+})();
+
+/* ══════════════════════════════════════
+   Interactive 3: Before/After Compare
+   ══════════════════════════════════════ */
+(function() {
+  var compareBtns = document.querySelectorAll('.compare-btn[data-compare]');
+  var beforeSvg = document.getElementById('compareBefore');
+  var afterSvg = document.getElementById('compareAfter');
+
+  if (!compareBtns.length || !beforeSvg || !afterSvg) return;
+
+  compareBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var which = this.dataset.compare;
+
+      compareBtns.forEach(function(b) { b.classList.remove('active'); });
+      this.classList.add('active');
+
+      if (which === 'before') {
+        beforeSvg.classList.remove('hidden');
+        afterSvg.classList.add('hidden');
+      } else {
+        beforeSvg.classList.add('hidden');
+        afterSvg.classList.remove('hidden');
+      }
+    });
+  });
+})();
 </script>
 
 </body>
