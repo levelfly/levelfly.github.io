@@ -3493,6 +3493,9 @@ window.addEventListener('scroll', updateProgress, { passive: true });
 updateProgress();
 
 // ───────────── Reveal on Scroll ─────────────
+// NOTE: threshold must be 0 (not 0.12) because very tall .reveal blocks
+// on mobile can have max intersection ratio < 0.12, which would prevent
+// the callback from ever firing. Any intersection = reveal.
 const revealElements = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -3501,9 +3504,30 @@ const revealObserver = new IntersectionObserver((entries) => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+}, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
 
 revealElements.forEach(el => revealObserver.observe(el));
+
+// Failsafe: on load, reveal anything already in or past the viewport top.
+// Also catches tall blocks whose top has scrolled above the viewport.
+function revealInView() {
+  revealElements.forEach(el => {
+    if (el.classList.contains('visible')) return;
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('visible');
+    } else if (rect.top < 0) {
+      // Already scrolled past — reveal immediately without animation
+      el.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('load', revealInView);
+window.addEventListener('scroll', revealInView, { passive: true });
+// Ultimate safety net: if any reveal is still hidden 3s after load, force it.
+setTimeout(() => {
+  revealElements.forEach(el => el.classList.add('visible'));
+}, 3000);
 
 // ───────────── Active Nav Highlight ─────────────
 const navLinks = document.querySelectorAll('.nav-link');
