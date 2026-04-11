@@ -1,0 +1,3066 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鸚鵡繁殖學典 · Codex Psittacorum</title>
+<meta name="description" content="基於 70+ peer-reviewed 論文的和尚鸚鵡與金頭凱克世界級繁殖指南">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Noto+Serif+TC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment:       #faf4e8;
+  --parchment-light: #fdf9f0;
+  --parchment-mid:   #f3ebd9;
+  --parchment-dark:  #ede1c8;
+  --parchment-edge:  #d4c5a5;
+  --ink:             #1a1612;
+  --ink-soft:        #3d342a;
+  --ink-muted:       #6b5d4b;
+  --ink-faint:       #8a7d68;
+  --forest:          #1e3a2b;
+  --forest-deep:     #0f2418;
+  --forest-mid:      #2d5a3a;
+  --sage:            #7a8f6c;
+  --sage-light:      #a8b89a;
+  --terracotta:      #b84e28;
+  --terracotta-light:#d26b3f;
+  --rust:            #8a3a1d;
+  --ochre:           #c49830;
+  --gold:            #d4a945;
+  --gold-soft:       #e6c675;
+  --line:            rgba(61, 52, 42, 0.22);
+  --line-soft:       rgba(61, 52, 42, 0.10);
+  --line-strong:     rgba(61, 52, 42, 0.55);
+  --shadow-soft:     0 2px 20px rgba(26, 22, 18, 0.06);
+  --shadow-lift:     0 20px 60px -20px rgba(26, 22, 18, 0.20);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--parchment);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(196, 152, 48, 0.10), transparent 70%),
+    radial-gradient(ellipse 70% 60% at 100% 40%, rgba(184, 78, 40, 0.07), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 30% 80%, rgba(30, 58, 43, 0.06), transparent 70%),
+    radial-gradient(ellipse 90% 70% at 70% 110%, rgba(122, 143, 108, 0.08), transparent 70%);
+  color: var(--ink);
+  font-family: 'Fraunces', 'Noto Serif TC', Georgia, serif;
+  font-optical-sizing: auto;
+  font-feature-settings: "kern", "liga", "onum";
+  line-height: 1.75;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ───────────── Texture Overlays ───────────── */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.45;
+  z-index: 100;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(61, 52, 42, 0.08) 100%);
+}
+
+/* ───────────── Progress Bar ───────────── */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--terracotta), var(--ochre));
+  z-index: 200;
+  transition: width 0.15s ease-out;
+  box-shadow: 0 0 12px rgba(184, 78, 40, 0.5);
+}
+
+/* ───────────── Side Navigation ───────────── */
+.side-nav {
+  position: fixed;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  padding: 1.25rem 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.side-nav::before {
+  content: "";
+  position: absolute;
+  left: 0.65rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+
+.side-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.side-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--ink-muted);
+  text-decoration: none;
+  padding-left: 0.2rem;
+  transition: all 0.3s ease;
+}
+
+.side-nav a::before {
+  content: "";
+  width: 0.9rem;
+  height: 1px;
+  background: var(--line-strong);
+  transition: all 0.3s ease;
+}
+
+.side-nav a:hover,
+.side-nav a.active {
+  color: var(--terracotta);
+  letter-spacing: 0.18em;
+}
+
+.side-nav a:hover::before,
+.side-nav a.active::before {
+  width: 1.6rem;
+  background: var(--terracotta);
+  box-shadow: 0 0 8px rgba(184, 78, 40, 0.4);
+}
+
+@media (max-width: 1280px) {
+  .side-nav { display: none; }
+}
+
+/* ───────────── Layout Container ───────────── */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.column {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.wide {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+section {
+  scroll-margin-top: 2rem;
+}
+
+/* ───────────── Frontispiece ───────────── */
+.frontispiece {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+}
+
+.frontispiece::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 4rem;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 3rem;
+  background: linear-gradient(var(--ink), transparent);
+}
+
+.frontispiece-meta {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 3rem;
+}
+
+.frontispiece-meta span {
+  display: inline-block;
+  margin: 0 0.75rem;
+  color: var(--terracotta);
+}
+
+.frontispiece h1 {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 500;
+  line-height: 0.95;
+  color: var(--forest-deep);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.025em;
+}
+
+.frontispiece h1 em {
+  font-style: italic;
+  color: var(--terracotta);
+  font-weight: 400;
+}
+
+.frontispiece .latin-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+  color: var(--forest);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6rem;
+  font-weight: 400;
+}
+
+.frontispiece .edition {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 2rem;
+}
+
+.frontispiece .ornament {
+  margin: 2.5rem 0 1.5rem;
+  color: var(--terracotta);
+  opacity: 0.7;
+}
+
+.frontispiece .subtitle {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  color: var(--ink-soft);
+  max-width: 600px;
+  line-height: 1.4;
+  margin: 1rem auto 0;
+  font-weight: 400;
+}
+
+.frontispiece .subtitle .sci {
+  font-style: italic;
+  color: var(--forest);
+  font-weight: 500;
+}
+
+.scroll-hint {
+  margin-top: 4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  animation: fade-bob 3s ease-in-out infinite;
+}
+
+@keyframes fade-bob {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50%      { opacity: 1;   transform: translateY(6px); }
+}
+
+/* ───────────── Section Structure ───────────── */
+.part-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.part-label::before {
+  content: "";
+  width: 2rem;
+  height: 1px;
+  background: var(--terracotta);
+}
+
+.part-title {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 500;
+  color: var(--forest-deep);
+  line-height: 1;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.part-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--ink-muted);
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+.section-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem 0 4rem;
+  gap: 1.5rem;
+  color: var(--terracotta);
+}
+
+.section-rule::before,
+.section-rule::after {
+  content: "";
+  flex: 1;
+  max-width: 12rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+}
+
+.section-rule svg {
+  width: 2rem;
+  height: 2rem;
+  opacity: 0.8;
+}
+
+/* ───────────── Prose / Body ───────────── */
+.prose p {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  margin-bottom: 1.4rem;
+  font-weight: 400;
+}
+
+.prose p.lead {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--ink);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-style: italic;
+}
+
+.prose h3 {
+  font-size: 1.8rem;
+  color: var(--forest);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.prose h4 {
+  font-size: 1.35rem;
+  color: var(--forest-mid);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.prose strong {
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+.prose em {
+  font-style: italic;
+}
+
+.prose .sci {
+  font-style: italic;
+  color: var(--forest);
+  font-weight: 500;
+}
+
+.prose a {
+  color: var(--terracotta);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: all 0.2s;
+}
+
+.prose a:hover {
+  color: var(--rust);
+  border-bottom-color: var(--terracotta);
+}
+
+/* ───────────── Drop Cap ───────────── */
+.drop-cap::first-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 5.5rem;
+  float: left;
+  line-height: 0.82;
+  padding: 0.4rem 0.6rem 0 0;
+  color: var(--terracotta);
+  font-style: italic;
+}
+
+/* ───────────── Callout Blocks ───────────── */
+.callout {
+  position: relative;
+  margin: 2.5rem 0;
+  padding: 2rem 2.25rem;
+  background: var(--parchment-light);
+  border-left: 3px solid var(--terracotta);
+  box-shadow: var(--shadow-soft);
+}
+
+.callout::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  border: 1px solid var(--line-soft);
+  pointer-events: none;
+}
+
+.callout-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 0.75rem;
+}
+
+.callout p {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.callout p:last-child { margin-bottom: 0; }
+
+.callout.warning { border-left-color: var(--rust); }
+.callout.warning .callout-label { color: var(--rust); }
+
+.callout.evidence {
+  background: linear-gradient(135deg, var(--parchment-light), var(--parchment-mid));
+  border-left-color: var(--forest);
+}
+.callout.evidence .callout-label { color: var(--forest); }
+
+/* ───────────── Evidence Grades ───────────── */
+.grade {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0 0.2rem;
+  line-height: 1;
+  vertical-align: -0.15em;
+}
+
+.grade.a { background: var(--forest); color: var(--parchment); }
+.grade.b { background: var(--ochre); color: var(--ink); }
+.grade.c { background: var(--parchment-dark); color: var(--ink-soft); border: 1px solid var(--line); }
+.grade.d { background: var(--rust); color: var(--parchment); }
+
+/* ───────────── Key Recommendation Cards ───────────── */
+.recommendation {
+  margin: 3rem 0 4rem;
+}
+
+.rec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.rec-card {
+  background: var(--parchment-light);
+  border: 1px solid var(--line);
+  position: relative;
+  padding: 2.5rem 2rem 2rem;
+  box-shadow: var(--shadow-lift);
+  transition: transform 0.4s ease;
+}
+
+.rec-card::before {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  left: 0.6rem;
+  border: 1px solid var(--line-soft);
+  pointer-events: none;
+}
+
+.rec-card:hover {
+  transform: translateY(-4px);
+}
+
+.rec-card .species-mark {
+  position: absolute;
+  top: -1rem;
+  left: 2rem;
+  background: var(--parchment);
+  padding: 0 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.rec-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--forest-deep);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.rec-card .sci {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--terracotta);
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.rec-card .expect {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--line);
+}
+
+.rec-card ol {
+  list-style: none;
+  counter-reset: step;
+}
+
+.rec-card ol li {
+  counter-increment: step;
+  padding: 0.8rem 0 0.8rem 2.5rem;
+  position: relative;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.rec-card ol li:last-child { border-bottom: none; }
+
+.rec-card ol li::before {
+  content: counter(step, upper-roman);
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--terracotta);
+  width: 2rem;
+  text-align: right;
+  padding-right: 0.5rem;
+  border-right: 1px solid var(--line);
+  line-height: 1;
+}
+
+.rec-card.monk { border-top: 4px solid var(--sage); }
+.rec-card.caique { border-top: 4px solid var(--terracotta); }
+
+@media (max-width: 800px) {
+  .rec-grid { grid-template-columns: 1fr; }
+}
+
+/* ───────────── Comparative Table ───────────── */
+.comparative {
+  margin: 4rem 0;
+  background: var(--parchment-light);
+  border: 1px solid var(--line);
+  padding: 2.5rem;
+  position: relative;
+}
+
+.comparative::before {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  left: 0.6rem;
+  border: 1px solid var(--line-soft);
+  pointer-events: none;
+}
+
+.comparative h3 {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--forest-deep);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.97rem;
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.compare-table thead th {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--forest-deep);
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--line-strong);
+}
+
+.compare-table thead th:first-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 400;
+}
+
+.compare-table td:first-child {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+
+.compare-table td strong {
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+.compare-table tr:last-child td { border-bottom: none; }
+
+.compare-table .sci {
+  font-style: italic;
+  color: var(--forest);
+}
+
+.compare-table col.col-monk   { background: rgba(122, 143, 108, 0.06); }
+.compare-table col.col-caique { background: rgba(184, 78, 40, 0.05); }
+
+/* ───────────── Data Tables (general) ───────────── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+  background: var(--parchment-light);
+  border: 1px solid var(--line);
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.data-table thead th {
+  background: var(--parchment-mid);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--forest-deep);
+  border-bottom: 2px solid var(--line);
+  letter-spacing: 0.01em;
+}
+
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: rgba(196, 152, 48, 0.05); }
+
+.data-table .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88rem;
+  color: var(--terracotta);
+}
+
+/* ───────────── Figures ───────────── */
+.figure {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.figure svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.figure .caption {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  margin-top: 1rem;
+  padding: 0 2rem;
+  line-height: 1.5;
+}
+
+.figure .caption .fig-no {
+  font-family: 'JetBrains Mono', monospace;
+  font-style: normal;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-right: 0.5rem;
+}
+
+/* ───────────── Lever List ───────────── */
+.levers {
+  margin: 3rem 0;
+  counter-reset: lever;
+}
+
+.lever {
+  counter-increment: lever;
+  display: grid;
+  grid-template-columns: 5rem 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.lever:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.lever-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--terracotta);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.lever-num::before { content: counter(lever); }
+
+.lever-body h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--forest-deep);
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+
+.lever-body p {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.lever-grade {
+  padding-top: 0.5rem;
+}
+
+/* ───────────── Quote / Citation ───────────── */
+blockquote.citation {
+  position: relative;
+  margin: 2.5rem 0;
+  padding: 1.5rem 2rem 1.5rem 3rem;
+  background: var(--parchment-light);
+  border-left: 3px solid var(--ochre);
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+blockquote.citation::before {
+  content: """;
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  color: var(--ochre);
+  opacity: 0.5;
+  line-height: 1;
+  font-style: normal;
+}
+
+blockquote.citation footer {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  font-style: normal;
+  margin-top: 0.8rem;
+}
+
+blockquote.citation footer::before { content: "— "; }
+
+/* ───────────── Timeline / Calendar ───────────── */
+.timeline {
+  margin: 3rem 0;
+  position: relative;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: 5rem 1fr 1fr;
+  gap: 0;
+  border-top: 2px solid var(--line-strong);
+}
+
+.timeline-head {
+  display: contents;
+}
+
+.timeline-head > div {
+  padding: 1rem 1.25rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--forest-deep);
+  border-bottom: 2px solid var(--line);
+  background: var(--parchment-mid);
+}
+
+.timeline-head > div:first-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 400;
+}
+
+.timeline-row {
+  display: contents;
+}
+
+.timeline-row > div {
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.timeline-row > div:first-child {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--terracotta);
+  font-weight: 500;
+  background: var(--parchment-light);
+}
+
+.timeline-row > div:nth-child(2) {
+  background: rgba(122, 143, 108, 0.04);
+  border-right: 1px solid var(--line-soft);
+}
+
+.timeline-row > div:nth-child(3) {
+  background: rgba(184, 78, 40, 0.03);
+}
+
+.timeline-row strong {
+  color: var(--terracotta);
+}
+
+/* Timeline mobile handled in main mobile media query */
+
+/* ───────────── Key Data Grid ───────────── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+
+.stat {
+  padding: 1.5rem 1.25rem;
+  background: var(--parchment-light);
+  border: 1px solid var(--line);
+  text-align: center;
+  position: relative;
+}
+
+.stat::before {
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  bottom: 0.4rem;
+  left: 0.4rem;
+  border: 1px solid var(--line-soft);
+  pointer-events: none;
+}
+
+.stat .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--terracotta);
+  font-weight: 500;
+  font-style: italic;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.stat .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+/* ───────────── Bibliography ───────────── */
+.bibliography {
+  margin: 3rem 0;
+  counter-reset: bib;
+}
+
+.bib-group {
+  margin-bottom: 3rem;
+}
+
+.bib-group h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: var(--forest-deep);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+  font-weight: 600;
+}
+
+.bib-item {
+  counter-increment: bib;
+  padding: 0.85rem 0 0.85rem 3rem;
+  position: relative;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.bib-item:last-child { border-bottom: none; }
+
+.bib-item::before {
+  content: "§" counter(bib);
+  position: absolute;
+  left: 0;
+  top: 0.9rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--terracotta);
+  width: 2.5rem;
+}
+
+.bib-item .authors {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.bib-item .year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+  color: var(--forest);
+  margin: 0 0.3rem;
+}
+
+.bib-item .title {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.bib-item .journal {
+  color: var(--ink-muted);
+  font-size: 0.92em;
+}
+
+.bib-item .doi {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78em;
+  color: var(--terracotta);
+  display: inline-block;
+  margin-top: 0.2rem;
+}
+
+/* ───────────── Footer ───────────── */
+.colophon {
+  margin-top: 8rem;
+  padding: 5rem 2rem 4rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  background: linear-gradient(to bottom, transparent, rgba(61, 52, 42, 0.04));
+}
+
+.colophon .ornament {
+  margin: 0 auto 2rem;
+  color: var(--terracotta);
+  opacity: 0.7;
+}
+
+.colophon h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--forest);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.colophon p {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  max-width: 560px;
+  margin: 0 auto 0.5rem;
+  line-height: 1.7;
+}
+
+.colophon .credit {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 2rem;
+}
+
+/* ───────────── Reveal Animation ───────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════ Responsive / Mobile Overhaul ═══════════════ */
+
+/* Tablet */
+@media (max-width: 900px) {
+  html { font-size: 16.5px; }
+  .page { padding: 0 1.5rem; }
+  .section-rule { margin: 4rem 0 3rem; }
+  .frontispiece { padding: 5rem 1.5rem 3.5rem; }
+  .rec-grid { gap: 1.75rem; }
+  .wide { max-width: 100%; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  html { font-size: 16px; }
+  body {
+    line-height: 1.72;
+    background-image:
+      radial-gradient(ellipse 100% 50% at 50% 0%, rgba(196, 152, 48, 0.08), transparent 70%),
+      radial-gradient(ellipse 100% 60% at 100% 50%, rgba(184, 78, 40, 0.05), transparent 70%),
+      radial-gradient(ellipse 100% 60% at 0% 100%, rgba(30, 58, 43, 0.05), transparent 70%);
+  }
+
+  .page { padding: 0 1.15rem; }
+
+  /* ───── Frontispiece ───── */
+  .frontispiece {
+    min-height: 92vh;
+    padding: 4rem 1.15rem 3rem;
+  }
+  .frontispiece::before { top: 3rem; height: 2.5rem; }
+  .frontispiece-meta {
+    font-size: 0.82rem;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
+  }
+  .frontispiece-meta span { margin: 0 0.5rem; }
+  .frontispiece h1 {
+    font-size: clamp(2.8rem, 14vw, 4rem);
+    margin-bottom: 1.25rem;
+    line-height: 0.95;
+  }
+  .frontispiece .latin-title {
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+  }
+  .frontispiece .subtitle {
+    font-size: 1.08rem;
+    line-height: 1.5;
+    padding: 0 0.25rem;
+  }
+  .frontispiece .subtitle .sci { display: inline; }
+  .frontispiece .edition {
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    margin-top: 1.75rem;
+    padding: 0 0.5rem;
+  }
+  .frontispiece .ornament { margin: 2rem 0 1.25rem; }
+  .frontispiece .ornament svg { width: 120px; height: auto; }
+  .scroll-hint { margin-top: 2.5rem; font-size: 0.62rem; }
+
+  /* ───── Section Structure ───── */
+  .section-rule {
+    margin: 3rem 0 2.25rem;
+    gap: 1rem;
+  }
+  .section-rule::before,
+  .section-rule::after { max-width: 5.5rem; }
+  .section-rule svg { width: 1.5rem; height: 1.5rem; }
+
+  .part-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    margin-bottom: 0.55rem;
+  }
+  .part-label::before { width: 1.25rem; }
+  .part-title {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+    margin-bottom: 0.55rem;
+  }
+  .part-subtitle {
+    font-size: 1.08rem;
+    margin-bottom: 2rem;
+  }
+
+  /* ───── Prose ───── */
+  .prose p { font-size: 1.02rem; line-height: 1.78; margin-bottom: 1.2rem; }
+  .prose p.lead { font-size: 1.15rem; line-height: 1.55; margin-bottom: 1.6rem; }
+  .prose h3 { font-size: 1.55rem; margin-top: 2.25rem; margin-bottom: 0.85rem; }
+  .prose h4 { font-size: 1.2rem; margin-top: 1.5rem; }
+
+  .drop-cap::first-letter {
+    font-size: 4.2rem;
+    padding: 0.25rem 0.45rem 0 0;
+  }
+
+  /* ───── Recommendation Cards ───── */
+  .recommendation { margin: 2rem 0 3rem; }
+  .rec-grid { grid-template-columns: 1fr; gap: 2.75rem; }
+  .rec-card { padding: 2rem 1.4rem 1.25rem; }
+  .rec-card .species-mark { left: 1.4rem; padding: 0 0.6rem; }
+  .rec-card h3 { font-size: 1.8rem; }
+  .rec-card .sci { font-size: 0.9rem; }
+  .rec-card .expect { font-size: 0.85rem; padding-bottom: 0.85rem; margin-bottom: 1.25rem; }
+  .rec-card ol li {
+    padding: 0.75rem 0 0.75rem 2.1rem;
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+  .rec-card ol li::before {
+    font-size: 1rem;
+    width: 1.55rem;
+    top: 0.75rem;
+  }
+
+  /* ───── Comparative Table — stack into cards ───── */
+  .comparative { padding: 1.5rem 1.1rem; }
+  .comparative h3 { font-size: 1.55rem; margin-bottom: 1.5rem; }
+  .comparative::before { top: 0.4rem; right: 0.4rem; bottom: 0.4rem; left: 0.4rem; }
+
+  .compare-table,
+  .compare-table thead,
+  .compare-table tbody,
+  .compare-table tr,
+  .compare-table th,
+  .compare-table td {
+    display: block;
+    width: 100%;
+  }
+  .compare-table thead { display: none; }
+  .compare-table tbody tr {
+    margin-bottom: 1.15rem;
+    padding: 1.1rem 1.1rem 0.9rem;
+    background: var(--parchment);
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .compare-table tbody tr::before {
+    content: "";
+    position: absolute;
+    top: 0.35rem; right: 0.35rem; bottom: 0.35rem; left: 0.35rem;
+    border: 1px solid var(--line-soft);
+    pointer-events: none;
+  }
+  .compare-table tbody td {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 0.93rem;
+    line-height: 1.6;
+    position: relative;
+  }
+  .compare-table tbody td:first-child {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-style: normal;
+    font-weight: 500;
+    padding: 0 0 0.65rem;
+    margin-bottom: 0.45rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-table tbody td:nth-child(2)::before {
+    content: "和尚";
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    color: #4a5f3c;
+    background: rgba(122, 143, 108, 0.18);
+    padding: 0.18rem 0.45rem;
+    border-radius: 2px;
+    margin-right: 0.55rem;
+    vertical-align: 1px;
+    font-weight: 500;
+  }
+  .compare-table tbody td:nth-child(3)::before {
+    content: "凱克";
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    background: rgba(184, 78, 40, 0.14);
+    padding: 0.18rem 0.45rem;
+    border-radius: 2px;
+    margin-right: 0.55rem;
+    vertical-align: 1px;
+    font-weight: 500;
+  }
+  .compare-table tbody td:last-child { border-bottom: none; padding-bottom: 0; }
+  .compare-table col.col-monk,
+  .compare-table col.col-caique { background: none; }
+
+  /* ───── Data Tables ───── */
+  .data-table { font-size: 0.88rem; }
+  .data-table th, .data-table td { padding: 0.7rem 0.75rem; }
+  .data-table thead th { font-size: 0.92rem; }
+
+  /* ───── Stat Grid ───── */
+  .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .stat { padding: 1.2rem 0.7rem; }
+  .stat .num { font-size: 2rem; }
+  .stat .label { font-size: 0.6rem; letter-spacing: 0.13em; }
+
+  /* ───── Levers ───── */
+  .lever {
+    grid-template-columns: 2.8rem 1fr;
+    gap: 0.85rem;
+    padding: 1.35rem 0;
+    align-items: start;
+  }
+  .lever-num { font-size: 2rem; }
+  .lever-body h4 { font-size: 1.18rem; margin-bottom: 0.3rem; }
+  .lever-body p { font-size: 0.92rem; line-height: 1.55; }
+  .lever-grade {
+    grid-column: 1 / -1;
+    padding-top: 0.4rem;
+    padding-left: 3.65rem;
+  }
+
+  /* ───── Callouts ───── */
+  .callout { padding: 1.35rem 1.4rem; margin: 2rem 0; }
+  .callout p { font-size: 0.93rem; line-height: 1.65; }
+  .callout::before { top: 0.4rem; right: 0.4rem; bottom: 0.4rem; left: 0.4rem; }
+  .callout-label { font-size: 0.65rem; }
+
+  /* ───── Citation Blockquote ───── */
+  blockquote.citation {
+    padding: 1.25rem 1.35rem 1.25rem 2.25rem;
+    font-size: 1.02rem;
+    line-height: 1.55;
+  }
+  blockquote.citation::before {
+    font-size: 3.5rem;
+    left: 0.3rem;
+    top: -0.25rem;
+  }
+  blockquote.citation footer { font-size: 0.66rem; }
+
+  /* ───── Timeline — stack into cards per week ───── */
+  .timeline { margin: 2.5rem 0; }
+  .timeline-grid { grid-template-columns: 1fr; border-top: none; }
+  .timeline-head { display: none; }
+  .timeline-row {
+    display: block;
+    margin-bottom: 1.25rem;
+    background: var(--parchment-light);
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .timeline-row::before {
+    content: "";
+    position: absolute;
+    top: 0.35rem; right: 0.35rem; bottom: 0.35rem; left: 0.35rem;
+    border: 1px solid var(--line-soft);
+    pointer-events: none;
+  }
+  .timeline-row > div {
+    padding: 0.9rem 1.15rem;
+    background: transparent;
+    border-right: none;
+    border-bottom: none;
+    font-size: 0.93rem;
+    line-height: 1.6;
+  }
+  .timeline-row > div:first-child {
+    background: var(--forest);
+    color: var(--parchment);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-style: normal;
+    padding: 0.6rem 1.15rem;
+    font-weight: 500;
+  }
+  .timeline-row > div:nth-child(2) {
+    padding-top: 1rem;
+    padding-bottom: 0.65rem;
+  }
+  .timeline-row > div:nth-child(2)::before {
+    content: "▹ 和尚鸚鵡";
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #4a5f3c;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+  .timeline-row > div:nth-child(3) {
+    padding-top: 0.7rem;
+    padding-bottom: 1rem;
+    border-top: 1px dashed var(--line-soft);
+    margin-top: 0.2rem;
+  }
+  .timeline-row > div:nth-child(3)::before {
+    content: "▹ 金頭凱克";
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+
+  /* ───── Figures ───── */
+  .figure { margin: 2rem -0.25rem; }
+  .figure svg { width: 100%; height: auto; display: block; }
+  .figure .caption {
+    padding: 0 0.5rem;
+    font-size: 0.88rem;
+    margin-top: 0.85rem;
+  }
+
+  /* ───── Bibliography ───── */
+  .bibliography { margin: 2rem 0; }
+  .bib-item {
+    padding: 0.8rem 0 0.8rem 2.4rem;
+    font-size: 0.83rem;
+    line-height: 1.6;
+  }
+  .bib-item::before {
+    font-size: 0.66rem;
+    width: 2.05rem;
+    top: 0.85rem;
+  }
+  .bib-group { margin-bottom: 2.25rem; }
+  .bib-group h4 { font-size: 1.2rem; margin-bottom: 1rem; }
+
+  /* ───── Colophon ───── */
+  .colophon {
+    margin-top: 5rem;
+    padding: 3.5rem 1.15rem 3rem;
+  }
+  .colophon .ornament svg { width: 110px; height: auto; }
+  .colophon h3 { font-size: 1.55rem; margin-bottom: 0.85rem; }
+  .colophon p { font-size: 0.86rem; line-height: 1.65; }
+  .colophon .credit { font-size: 0.6rem; margin-top: 1.5rem; }
+
+  /* ───── Grain less aggressive on mobile ───── */
+  .grain { opacity: 0.28; }
+}
+
+/* Very narrow (iPhone SE and small devices) */
+@media (max-width: 400px) {
+  html { font-size: 15.5px; }
+  .page { padding: 0 0.95rem; }
+
+  .frontispiece { padding: 3.5rem 0.95rem 2.5rem; }
+  .frontispiece h1 { font-size: 2.55rem; }
+  .frontispiece .latin-title { font-size: 0.92rem; }
+  .frontispiece .subtitle { font-size: 1rem; }
+  .frontispiece .edition { font-size: 0.56rem; letter-spacing: 0.15em; }
+  .frontispiece .ornament svg { width: 100px; height: auto; }
+
+  .part-title { font-size: 1.85rem; }
+  .part-subtitle { font-size: 1rem; }
+
+  .drop-cap::first-letter { font-size: 3.6rem; }
+
+  .rec-card { padding: 1.75rem 1.15rem 1rem; }
+  .rec-card h3 { font-size: 1.65rem; }
+  .rec-card ol li { font-size: 0.9rem; padding-left: 1.95rem; }
+
+  .comparative { padding: 1.25rem 0.85rem; }
+
+  .lever-num { font-size: 1.75rem; }
+  .lever-body h4 { font-size: 1.05rem; }
+
+  .stat .num { font-size: 1.75rem; }
+  .stat { padding: 1rem 0.55rem; }
+
+  .timeline-row > div { font-size: 0.88rem; }
+  .timeline-row > div:first-child { font-size: 0.66rem; }
+
+  .data-table { font-size: 0.82rem; }
+  .data-table th, .data-table td { padding: 0.6rem 0.55rem; }
+}
+
+/* ───────────── Back-to-top button ───────────── */
+.to-top {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background: var(--parchment-light);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lift);
+  color: var(--terracotta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  line-height: 1;
+  text-decoration: none;
+  z-index: 90;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+.to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.to-top::before {
+  content: "";
+  position: absolute;
+  top: 0.28rem;
+  right: 0.28rem;
+  bottom: 0.28rem;
+  left: 0.28rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.to-top:hover {
+  color: var(--rust);
+  background: var(--parchment);
+}
+@media (min-width: 1281px) {
+  .to-top { display: none; }
+}
+
+/* Print */
+@media print {
+  .side-nav, .progress-bar, .grain, .vignette, .scroll-hint { display: none; }
+  body { background: white; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="progress-bar" id="progress"></div>
+
+<nav class="side-nav" aria-label="章節導覽">
+  <ul>
+    <li><a href="#frontispiece" class="nav-link">卷首</a></li>
+    <li><a href="#prologue" class="nav-link">序章</a></li>
+    <li><a href="#part-1" class="nav-link">I · 最高機率路徑</a></li>
+    <li><a href="#part-2" class="nav-link">II · 比較解剖</a></li>
+    <li><a href="#part-3" class="nav-link">III · 和尚</a></li>
+    <li><a href="#part-4" class="nav-link">IV · 凱克</a></li>
+    <li><a href="#part-5" class="nav-link">V · 照蛋</a></li>
+    <li><a href="#part-6" class="nav-link">VI · 行事曆</a></li>
+    <li><a href="#bibliography" class="nav-link">文獻</a></li>
+  </ul>
+</nav>
+
+<main class="page">
+
+<!-- ═══════════════ FRONTISPIECE ═══════════════ -->
+<section class="frontispiece" id="frontispiece">
+  <div class="frontispiece-meta">
+    MMXXVI <span>·</span> 繁殖學卷 <span>·</span> 第一版
+  </div>
+
+  <div class="latin-title">Codex Psittacorum</div>
+
+  <h1>鸚鵡繁殖<em>學典</em></h1>
+
+  <svg class="ornament" width="160" height="28" viewBox="0 0 160 28" fill="none">
+    <path d="M0 14 L60 14" stroke="currentColor" stroke-width="1"/>
+    <path d="M100 14 L160 14" stroke="currentColor" stroke-width="1"/>
+    <circle cx="80" cy="14" r="3" fill="currentColor"/>
+    <circle cx="68" cy="14" r="1.5" fill="currentColor"/>
+    <circle cx="92" cy="14" r="1.5" fill="currentColor"/>
+    <path d="M74 8 Q80 2 86 8" stroke="currentColor" stroke-width="1" fill="none"/>
+    <path d="M74 20 Q80 26 86 20" stroke="currentColor" stroke-width="1" fill="none"/>
+  </svg>
+
+  <p class="subtitle">
+    論 <span class="sci">Myiopsitta monachus</span> 與<br>
+    <span class="sci">Pionites leucogaster</span> 之繁殖
+  </p>
+
+  <div class="edition">
+    BASED ON 70+ PEER-REVIEWED PAPERS · 13 ROUNDS OF RESEARCH
+  </div>
+
+  <div class="scroll-hint">▾ 翻閱</div>
+</section>
+
+<!-- ═══════════════ PROLOGUE ═══════════════ -->
+<section id="prologue" class="column">
+  <div class="section-rule">
+    <svg viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="3" fill="currentColor"/>
+      <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1" fill="none"/>
+      <path d="M12 1 L12 4 M12 20 L12 23 M1 12 L4 12 M20 12 L23 12" stroke="currentColor" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <div class="prose reveal">
+    <div class="part-label">Prologus · 序章</div>
+    <h2 class="part-title">兩種鸚鵡，兩套世界</h2>
+    <p class="part-subtitle">On the Radical Divergence of Two South American Parrots</p>
+
+    <p class="lead drop-cap">養鸚鵡的人常假設所有鸚鵡都可以用同一套方法繁殖；但和尚鸚鵡與金頭凱克的繁殖觸發因子，在生物學上幾乎是相反方向。</p>
+
+    <p>和尚鸚鵡（<span class="sci">Myiopsitta monachus</span>）是整個鸚形目中<strong>唯一會自己用樹枝築巢的物種</strong>，以群居方式生活於南美亞熱帶乾旱草原，依賴光週期觸發繁殖。金頭凱克（<span class="sci">Pionites leucogaster</span>）則是亞馬遜雨林樹冠層的樹洞專家，幾乎不受光週期影響，依賴乾濕季與食物豐度觸發繁殖，且以<em>鸚鵡界最困難的配對行為</em>聞名——雄鳥會攻擊甚至殺害不匹配的雌鳥。</p>
+
+    <p>本學典整合 13 輪獨立研究、70 餘篇 peer-reviewed 文獻，以及 HARI、AFA Watchbird、Loro Parque、Shady Pines Aviary 等世界頂級來源的實務經驗，為這兩個具體物種撰寫各自專屬的繁殖路徑。所有建議均標註證據等級——<span class="grade a">A</span> 為直接實驗或 RCT 支持，<span class="grade b">B</span> 為觀察研究或近親外推，<span class="grade c">C</span> 為專家共識。</p>
+
+    <blockquote class="citation">
+      凡論斷須有根據。說「可能是 X」須附上推理，說「是 X」必須有數據。在 psittacine 繁殖學領域，真正的 RCT 極少，但並非沒有；分清證據層級比盲從任何單一建議更重要。
+      <footer>本學典編撰原則</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ═══════════════ PART I ═══════════════ -->
+<section id="part-1" class="wide">
+  <div class="section-rule">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z" fill="currentColor" opacity="0.8"/>
+    </svg>
+  </div>
+
+  <div class="prose reveal">
+    <div class="part-label">Pars Prima · 第一部</div>
+    <h2 class="part-title">最高機率路徑</h2>
+    <p class="part-subtitle">The Highest-Probability Path, Distilled</p>
+
+    <p>若你沒有時間閱讀全書，以下五步驟是每個物種最高成功機率的核心路徑。其順序依證據強度與因果關鍵性排列——第一步未做好，後續所有努力均無意義。</p>
+  </div>
+
+  <div class="recommendation reveal">
+    <div class="rec-grid">
+
+      <div class="rec-card monk">
+        <div class="species-mark">Species I</div>
+        <h3>和尚鸚鵡</h3>
+        <span class="sci">Myiopsitta monachus</span>
+        <div class="expect">預期時程：2–4 個月內產第一窩；年可達 2–3 窩</div>
+        <ol>
+          <li><strong>全年供應三種粗細的樹枝</strong>——粗 10–15mm 承載層、中 5–10mm 緩衝層、細 2–5mm 巢腔層。築巢行為本身是荷爾蒙觸發器。</li>
+          <li><strong>模擬春夏光週期</strong>——從 10L:14D 漸進 12 週至 16L:8D，配 UVB 燈每 6 個月更換。</li>
+          <li><strong>限脂飲食</strong>（反直覺但關鍵）——Beaufrère 2018 顯示圈養和尚最大死因是肝脂沉積症（21.2%），不是蛋白質不足。</li>
+          <li><strong>3–4 對群養製造鄰居效應</strong>——單對亦可，但視聽相鄰的同種會顯著提升產蛋。</li>
+          <li><strong>雙窩法，但一次全移雛</strong>——和尚特有的群體同步性，分批移雛會觸發整群拒絕育雛。</li>
+        </ol>
+      </div>
+
+      <div class="rec-card caique">
+        <div class="species-mark">Species II</div>
+        <h3>金頭凱克</h3>
+        <span class="sci">Pionites leucogaster</span>
+        <div class="expect">預期時程：1–2 年才產出受精蛋（此為物種特性，非操作錯誤）</div>
+        <ol>
+          <li><strong>人格相容性配對</strong>——Fox &amp; Millam 2014 RCT 證實，exploration/neophilia 分數匹配是配對成功的主要預測因子，優於性別與年齡。</li>
+          <li><strong>L 型 chamber box</strong>——入口 6cm、深 60cm，上層供雄鳥守衛、下層供雌鳥孵化，硬體層面杜絕雄鳥擾動蛋與攻擊雌鳥。</li>
+          <li><strong>乾濕季模擬取代光週期</strong>——凱克原產赤道附近，光週期年振幅 &lt;30 分鐘幾乎無效；真正觸發是每日噴霧+食物豐度切換。</li>
+          <li><strong>高脂亞馬遜飲食</strong>——棕櫚油、椰肉/椰水、熱帶水果。野外食性 55% 為花朵+果肉，與和尚鸚鵡需求完全相反。</li>
+          <li><strong>首窩預期失敗，人工接管</strong>——移入孵化機 37.5°C/56%RH，強制雌鳥 2–3 週後啟動第二窩。</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="prose column reveal">
+    <div class="callout warning">
+      <div class="callout-label">⚠ 執行前須做</div>
+      <p>不論哪個物種，所有繁殖操作前必須先完成：<strong>DNA 性別鑑定</strong>（臨床外觀誤判率約 15%）+ <strong>獸醫健康檢查</strong>（離子鈣、25(OH)D、CBC、超音波）。排除疾病前強行催產可能致死。詳見第五部關於獸醫介入的討論。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART II ═══════════════ -->
+<section id="part-2" class="wide">
+  <div class="section-rule">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M4 12 L20 12 M4 12 L8 8 M4 12 L8 16 M20 12 L16 8 M20 12 L16 16" stroke="currentColor" stroke-width="1.5"/>
+    </svg>
+  </div>
+
+  <div class="prose reveal">
+    <div class="part-label">Pars Secunda · 第二部</div>
+    <h2 class="part-title">比較解剖</h2>
+    <p class="part-subtitle">A Comparative Anatomy of Difficulty</p>
+
+    <p>兩物種的繁殖策略源自截然不同的演化壓力。和尚鸚鵡是南美亞熱帶草原的<em>機會主義者</em>——每窩多達 11 顆蛋、群居築巢、可塑性極高的光週期反應；金頭凱克則是亞馬遜雨林的<em>慢節奏專家</em>——每窩僅 2–4 顆、單對樹洞、嚴格的伴侶選擇。理解這些差異不是學術練習，而是決定你每一項操作動作方向的基礎。</p>
+  </div>
+
+  <div class="comparative reveal">
+    <h3>兩物種繁殖生物學對照</h3>
+    <table class="compare-table">
+      <colgroup>
+        <col>
+        <col class="col-monk">
+        <col class="col-caique">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>維度 / Dimension</th>
+          <th>和尚鸚鵡</th>
+          <th>金頭凱克</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>原生地</td>
+          <td>南美亞熱帶乾旱草原<br><span class="mono">25°–35° S</span></td>
+          <td>亞馬遜雨林 várzea 洪泛森林<br><span class="mono">&lt; 10° S</span></td>
+        </tr>
+        <tr>
+          <td>築巢行為</td>
+          <td><strong>唯一自築樹枝巢的鸚鵡</strong>——多層結構，核心層/緩衝層/巢腔層</td>
+          <td>樹洞 cavity nester——野外巢位約 30 公尺樹冠層頂</td>
+        </tr>
+        <tr>
+          <td>配對制度</td>
+          <td>47% 單配 + 40% extra-pair paternity + 3% 巢內寄生<br>（Martínez 2013）</td>
+          <td>嚴格單配+強領域性，雄鳥可能殺害不匹配雌鳥</td>
+        </tr>
+        <tr>
+          <td>每窩蛋數</td>
+          <td><strong>5.5–7 顆</strong>（範圍 4–11）</td>
+          <td><strong>2–4 顆</strong>（平均 3）</td>
+        </tr>
+        <tr>
+          <td>孵化期</td>
+          <td>24–26 天</td>
+          <td>25–26 天</td>
+        </tr>
+        <tr>
+          <td>離巢期</td>
+          <td>約 6 週</td>
+          <td><strong>約 10 週</strong>（為和尚的 1.7 倍）</td>
+        </tr>
+        <tr>
+          <td>性成熟</td>
+          <td>12–24 個月</td>
+          <td>2–3 歲，首窩通常失敗</td>
+        </tr>
+        <tr>
+          <td>主要繁殖觸發因子</td>
+          <td><strong>光週期</strong>（入侵族群可跨半球 180° 翻轉繁殖季）</td>
+          <td><strong>乾濕季與食物豐度</strong>（光週期幾乎無效）</td>
+        </tr>
+        <tr>
+          <td>飲食需求</td>
+          <td>低脂高鈣——過脂導致肝脂沉積症</td>
+          <td>高脂高果肉——棕櫚油、椰子、熱帶水果</td>
+        </tr>
+        <tr>
+          <td>繁殖難度</td>
+          <td>★☆☆☆☆ 易</td>
+          <td>★★★★☆ 難</td>
+        </tr>
+        <tr>
+          <td>Peer-reviewed 文獻量</td>
+          <td>豐富，15+ 篇繁殖生物學論文</td>
+          <td><strong>極稀缺</strong>，直接繁殖 peer-reviewed 研究近乎為零</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="stat-grid reveal">
+    <div class="stat">
+      <span class="num">13</span>
+      <span class="label">輪 · 深度研究</span>
+    </div>
+    <div class="stat">
+      <span class="num">70+</span>
+      <span class="label">Peer-Reviewed<br>論文引用</span>
+    </div>
+    <div class="stat">
+      <span class="num">2</span>
+      <span class="label">物種 · 專屬<br>Protocol</span>
+    </div>
+    <div class="stat">
+      <span class="num">12</span>
+      <span class="label">週 · 執行<br>行事曆</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART III · MONK ═══════════════ -->
+<section id="part-3" class="column">
+  <div class="section-rule">
+    <svg viewBox="0 0 64 32" fill="none">
+      <!-- Stylized monk parakeet silhouette -->
+      <path d="M8 18 Q10 8 22 6 Q34 4 42 10 Q48 14 52 12 L58 14 L52 18 Q46 22 38 22 L20 24 Q10 24 8 18 Z"
+            fill="currentColor" opacity="0.85"/>
+      <circle cx="44" cy="11" r="1" fill="var(--parchment)"/>
+      <path d="M52 12 L62 10 L58 14" fill="var(--terracotta)"/>
+      <path d="M18 24 L16 30 M24 24 L22 30 M30 24 L28 30" stroke="currentColor" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <div class="prose reveal">
+    <div class="part-label">Pars Tertia · 第三部</div>
+    <h2 class="part-title">論和尚鸚鵡</h2>
+    <p class="part-subtitle">On <em>Myiopsitta monachus</em></p>
+
+    <p class="lead drop-cap">和尚鸚鵡是鸚鵡界的建築師。沒有給牠樹枝，你等於沒有給牠巢箱；給了樹枝，整個繁殖啟動序列會自動展開。</p>
+
+    <p>全球家養鸚鵡中，只有和尚鸚鵡會自行用樹枝建造完整巢穴。Harrison 於 1973 年在 <em>Ibis</em> 期刊首次詳細描述其築巢行為——以「橫向頭部搖擺動作」（thatching movement）將樹枝編入基底，再以咬剪整理內腔。這個動作不只是構造，它本身就是觸發 HPG 軸的行為性刺激。</p>
+  </div>
+
+  <!-- §1 Stick Nest -->
+  <div class="prose reveal">
+    <h3>§1 · 樹枝巢系統</h3>
+    <p>Battisti &amp; Fanelli 2021 於 <em>Acta Ornithologica</em> 解剖羅馬入侵族群的巢室，發現三層功能性結構。這不是無序堆疊，是精密的熱力學設計——巢腔層的樹枝多樣化維持孵化溫度穩定，讓和尚鸚鵡得以在遠低於原生地的溫帶氣候繁殖成功。</p>
+  </div>
+
+  <div class="figure reveal">
+    <svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background frame -->
+      <rect x="20" y="20" width="600" height="280" fill="#fdf9f0" stroke="#3d342a" stroke-width="0.5" opacity="0.6"/>
+      <rect x="26" y="26" width="588" height="268" fill="none" stroke="#3d342a" stroke-width="0.3" opacity="0.4"/>
+
+      <!-- Nest cross-section : concentric layers -->
+      <g transform="translate(200, 170)">
+        <!-- Core layer (thick sticks) -->
+        <ellipse cx="0" cy="0" rx="140" ry="100" fill="#8a3a1d" opacity="0.15" stroke="#8a3a1d" stroke-width="1"/>
+        <!-- Buffer layer -->
+        <ellipse cx="0" cy="0" rx="110" ry="78" fill="#c49830" opacity="0.18" stroke="#c49830" stroke-width="1"/>
+        <!-- Chamber layer -->
+        <ellipse cx="0" cy="0" rx="80" ry="56" fill="#7a8f6c" opacity="0.25" stroke="#7a8f6c" stroke-width="1"/>
+        <!-- Chamber interior -->
+        <ellipse cx="0" cy="0" rx="52" ry="36" fill="#fdf9f0"/>
+        <!-- eggs -->
+        <ellipse cx="-18" cy="4" rx="7" ry="9" fill="#faf4e8" stroke="#8a7d68" stroke-width="0.5"/>
+        <ellipse cx="-2" cy="-6" rx="7" ry="9" fill="#faf4e8" stroke="#8a7d68" stroke-width="0.5"/>
+        <ellipse cx="14" cy="2" rx="7" ry="9" fill="#faf4e8" stroke="#8a7d68" stroke-width="0.5"/>
+        <ellipse cx="-8" cy="12" rx="7" ry="9" fill="#faf4e8" stroke="#8a7d68" stroke-width="0.5"/>
+        <ellipse cx="8" cy="14" rx="7" ry="9" fill="#faf4e8" stroke="#8a7d68" stroke-width="0.5"/>
+
+        <!-- Sticks crosshatch on rings -->
+        <g stroke="#8a3a1d" stroke-width="1.4" opacity="0.55">
+          <line x1="-140" y1="0" x2="-110" y2="0"/>
+          <line x1="140" y1="0" x2="110" y2="0"/>
+          <line x1="0" y1="-100" x2="0" y2="-78"/>
+          <line x1="0" y1="100" x2="0" y2="78"/>
+          <line x1="-98" y1="-70" x2="-78" y2="-55"/>
+          <line x1="98" y1="-70" x2="78" y2="-55"/>
+          <line x1="-98" y1="70" x2="-78" y2="55"/>
+          <line x1="98" y1="70" x2="78" y2="55"/>
+        </g>
+        <g stroke="#c49830" stroke-width="1.1" opacity="0.6">
+          <line x1="-110" y1="0" x2="-80" y2="0"/>
+          <line x1="110" y1="0" x2="80" y2="0"/>
+          <line x1="0" y1="-78" x2="0" y2="-56"/>
+          <line x1="0" y1="78" x2="0" y2="56"/>
+          <line x1="-78" y1="-55" x2="-56" y2="-40"/>
+          <line x1="78" y1="-55" x2="56" y2="-40"/>
+        </g>
+        <g stroke="#7a8f6c" stroke-width="0.8" opacity="0.7">
+          <line x1="-80" y1="0" x2="-52" y2="0"/>
+          <line x1="80" y1="0" x2="52" y2="0"/>
+          <line x1="0" y1="-56" x2="0" y2="-36"/>
+          <line x1="0" y1="56" x2="0" y2="36"/>
+          <line x1="-56" y1="-40" x2="-36" y2="-25"/>
+          <line x1="56" y1="-40" x2="36" y2="-25"/>
+          <line x1="-56" y1="40" x2="-36" y2="25"/>
+          <line x1="56" y1="40" x2="36" y2="25"/>
+        </g>
+      </g>
+
+      <!-- Labels and leader lines -->
+      <g font-family="Cormorant Garamond, serif" font-size="17" fill="#3d342a">
+        <!-- Core layer label -->
+        <line x1="360" y1="88" x2="295" y2="95" stroke="#8a3a1d" stroke-width="0.6"/>
+        <circle cx="360" cy="88" r="2.5" fill="#8a3a1d"/>
+        <text x="370" y="84" font-weight="600" fill="#8a3a1d">Ⅰ · 核心層</text>
+        <text x="370" y="104" font-size="13" font-style="italic" fill="#6b5d4b">直徑 10–15mm · 承載</text>
+
+        <!-- Buffer layer -->
+        <line x1="406" y1="152" x2="305" y2="148" stroke="#c49830" stroke-width="0.6"/>
+        <circle cx="406" cy="152" r="2.5" fill="#c49830"/>
+        <text x="416" y="148" font-weight="600" fill="#a07a20">Ⅱ · 緩衝層</text>
+        <text x="416" y="168" font-size="13" font-style="italic" fill="#6b5d4b">直徑 5–10mm · 結構</text>
+
+        <!-- Chamber layer -->
+        <line x1="428" y1="218" x2="282" y2="200" stroke="#7a8f6c" stroke-width="0.6"/>
+        <circle cx="428" cy="218" r="2.5" fill="#7a8f6c"/>
+        <text x="438" y="214" font-weight="600" fill="#4a5f3c">Ⅲ · 巢腔層</text>
+        <text x="438" y="234" font-size="13" font-style="italic" fill="#6b5d4b">直徑 2–5mm · 保溫</text>
+
+        <!-- Egg count -->
+        <line x1="95" y1="188" x2="170" y2="175" stroke="#b84e28" stroke-width="0.6"/>
+        <circle cx="95" cy="188" r="2.5" fill="#b84e28"/>
+        <text x="20" y="184" fill="#b84e28" font-weight="600">窩卵數</text>
+        <text x="20" y="204" font-size="13" font-style="italic" fill="#6b5d4b">5–11 顆 (μ=5.5–7)</text>
+      </g>
+
+      <!-- Title strip -->
+      <text x="320" y="50" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="20" fill="#1e3a2b">Myiopsitta monachus · 巢室三層結構解剖</text>
+      <line x1="185" y1="60" x2="455" y2="60" stroke="#1e3a2b" stroke-width="0.4"/>
+    </svg>
+    <div class="caption"><span class="fig-no">Fig. I</span>根據 Battisti &amp; Fanelli 2021 解剖資料繪製的和尚鸚鵡巢室剖面。三層結構的樹枝粗細遞減是演化形成的保溫設計，巢腔層多樣化的細枝維持孵化溫度穩定。</div>
+  </div>
+
+  <div class="prose reveal">
+    <p>實務上，你需要提供三種粗細的樹枝，讓鳥自行分層。樹種首選：<strong>山楂</strong>（hawthorn）、<strong>柳樹</strong>、<strong>蘋果樹</strong>、<strong>榛樹</strong>。禁用松柏類——樹脂對鳥類有害。每 2–3 天補新枝一次；鳥會持續維修鳥巢，這個維修動作本身就是 LH 刺激。若完全不提供樹枝與巢箱，和尚鸚鵡會拒絕產卵——這是 Harrison 1973 觀察確認的硬性條件。</p>
+
+    <div class="callout evidence">
+      <div class="callout-label">⊙ Evidence · 證據</div>
+      <p><strong>Shields, Yamamoto &amp; Millam 1989</strong>（<em>Hormones and Behavior</em>）玄鳳實驗證實：血漿 LH 升高<em>只在</em>光照 + 巢箱 + 伴侶三要素同時存在時發生。雖然此實驗物種是玄鳳，但「巢材/巢箱是 LH 觸發的必要條件，不是加分項」的原則已跨物種複製。和尚鸚鵡的樹枝巢是這個原則的極端版本。</p>
+    </div>
+  </div>
+
+  <!-- §2 Photoperiod -->
+  <div class="prose reveal">
+    <h3>§2 · 光週期</h3>
+    <p>和尚鸚鵡原產南半球，但入侵族群研究（Burgio 2020、Gonçalves da Silva 2010）證實：美國佛州族群的繁殖季隨著北半球春夏 180° 翻轉，證明此物種光週期反應<em>完全可塑</em>。在台灣，你應該使用北半球模式——冬末開始漸進延長光照，3–6 月達到 16L:8D。</p>
+  </div>
+
+  <div class="figure reveal">
+    <svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="10" width="700" height="200" fill="#fdf9f0" stroke="#3d342a" stroke-width="0.3" opacity="0.5"/>
+
+      <!-- Axis -->
+      <line x1="60" y1="170" x2="680" y2="170" stroke="#3d342a" stroke-width="1"/>
+      <line x1="60" y1="40" x2="60" y2="170" stroke="#3d342a" stroke-width="1"/>
+
+      <!-- Grid lines -->
+      <g stroke="#3d342a" stroke-width="0.3" opacity="0.25">
+        <line x1="60" y1="80" x2="680" y2="80"/>
+        <line x1="60" y1="120" x2="680" y2="120"/>
+      </g>
+
+      <!-- Hour labels -->
+      <g font-family="JetBrains Mono, monospace" font-size="13" fill="#6b5d4b" text-anchor="end">
+        <text x="52" y="46">16h</text>
+        <text x="52" y="86">14h</text>
+        <text x="52" y="126">12h</text>
+        <text x="52" y="176">10h</text>
+      </g>
+
+      <!-- Month labels -->
+      <g font-family="JetBrains Mono, monospace" font-size="12" fill="#6b5d4b" text-anchor="middle">
+        <text x="110" y="192">11月</text>
+        <text x="170" y="192">12月</text>
+        <text x="230" y="192">1月</text>
+        <text x="290" y="192">2月</text>
+        <text x="350" y="192">3月</text>
+        <text x="410" y="192">4月</text>
+        <text x="470" y="192">5月</text>
+        <text x="530" y="192">6月</text>
+        <text x="590" y="192">7月</text>
+        <text x="650" y="192">8月</text>
+      </g>
+
+      <!-- Curve: photoperiod progression -->
+      <path d="M 110 170 Q 170 170 200 150 Q 250 125 290 100 Q 330 75 380 55 Q 450 45 530 50 Q 580 55 620 90 Q 650 140 680 170"
+            fill="none" stroke="#b84e28" stroke-width="3"/>
+
+      <!-- Fill under curve -->
+      <path d="M 110 170 Q 170 170 200 150 Q 250 125 290 100 Q 330 75 380 55 Q 450 45 530 50 Q 580 55 620 90 Q 650 140 680 170 L 680 170 L 110 170 Z"
+            fill="#b84e28" opacity="0.08"/>
+
+      <!-- Breeding peak zone -->
+      <rect x="330" y="40" width="220" height="130" fill="#c49830" opacity="0.12"/>
+      <text x="440" y="62" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="17" fill="#a07a20" font-weight="600">繁殖高峰</text>
+
+      <!-- Phase labels -->
+      <g font-family="Cormorant Garamond, serif" font-size="15" fill="#3d342a" font-weight="500">
+        <text x="155" y="162" text-anchor="middle" font-style="italic">重置</text>
+        <text x="260" y="110" text-anchor="middle" font-style="italic">爬升</text>
+        <text x="620" y="132" text-anchor="middle" font-style="italic">退場</text>
+      </g>
+
+      <!-- Title -->
+      <text x="360" y="28" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="19" fill="#1e3a2b" font-weight="500">北半球模式 · 年度光週期</text>
+    </svg>
+    <div class="caption"><span class="fig-no">Fig. II</span>和尚鸚鵡在台灣的年度光週期模擬曲線。每週漸進延長 30–60 分鐘，總長 12 週。光源建議 ZooMed ReptiSun 5.0 或 Arcadia Bird Lamp，距籠頂 30–45 cm，每六個月更換一次以維持 UVB 輸出。</div>
+  </div>
+
+  <!-- §3 Beaufrère Paradox -->
+  <div class="prose reveal">
+    <h3>§3 · Beaufrère 悖論</h3>
+    <p>傳統鸚鵡繁殖知識告訴你繁殖期要增加能量攝取。對和尚鸚鵡，這個建議<em>會直接殺死你的母鳥</em>。</p>
+
+    <p>Beaufrère 等人於 2018 年發表在 <em>Veterinary Pathology</em> 的 652 隻圈養和尚鸚鵡病理解剖研究，揭示了一個驚人的數字：最常見死因是<strong>肝脂沉積症</strong>（hepatic lipidosis），占 21.2%；其次是急性胰腺壞死，12.9%。換言之——和尚鸚鵡在圈養環境下的頭號健康威脅是脂肪過量，不是蛋白質不足。</p>
+  </div>
+
+  <div class="figure reveal">
+    <svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="20" width="600" height="260" fill="#fdf9f0" stroke="#3d342a" stroke-width="0.3" opacity="0.5"/>
+
+      <text x="320" y="48" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="20" fill="#1e3a2b" font-weight="500">圈養和尚鸚鵡死因分布 · n=652</text>
+      <text x="320" y="68" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#6b5d4b" letter-spacing="1">BEAUFRÈRE ET AL. 2018 · VET PATHOL</text>
+
+      <!-- Bars -->
+      <g font-family="Cormorant Garamond, serif" font-size="16" fill="#3d342a">
+
+        <!-- Bar 1 -->
+        <rect x="180" y="92" width="232" height="26" fill="#b84e28" opacity="0.85"/>
+        <rect x="412" y="92" width="76" height="26" fill="#b84e28" opacity="0.15"/>
+        <text x="172" y="110" text-anchor="end" font-weight="600">肝脂沉積症</text>
+        <text x="500" y="110" font-family="JetBrains Mono, monospace" font-size="14" fill="#b84e28" font-weight="600">21.2%</text>
+
+        <!-- Bar 2 -->
+        <rect x="180" y="132" width="149" height="26" fill="#c49830" opacity="0.85"/>
+        <rect x="329" y="132" width="159" height="26" fill="#c49830" opacity="0.15"/>
+        <text x="172" y="150" text-anchor="end" font-weight="500">急性胰腺壞死</text>
+        <text x="500" y="150" font-family="JetBrains Mono, monospace" font-size="14" fill="#a07a20" font-weight="600">12.9%</text>
+
+        <!-- Bar 3 -->
+        <rect x="180" y="172" width="110" height="26" fill="#7a8f6c" opacity="0.85"/>
+        <rect x="290" y="172" width="198" height="26" fill="#7a8f6c" opacity="0.15"/>
+        <text x="172" y="190" text-anchor="end" font-weight="500">動脈硬化</text>
+        <text x="500" y="190" font-family="JetBrains Mono, monospace" font-size="14" fill="#4a5f3c" font-weight="600">9.0%</text>
+
+        <!-- Bar 4 -->
+        <rect x="180" y="212" width="80" height="26" fill="#6b5d4b" opacity="0.85"/>
+        <rect x="260" y="212" width="228" height="26" fill="#6b5d4b" opacity="0.15"/>
+        <text x="172" y="230" text-anchor="end" font-weight="500">其他</text>
+        <text x="500" y="230" font-family="JetBrains Mono, monospace" font-size="14" fill="#6b5d4b" font-weight="600">6.0%</text>
+      </g>
+
+      <line x1="180" y1="82" x2="548" y2="82" stroke="#3d342a" stroke-width="0.4"/>
+      <line x1="180" y1="250" x2="548" y2="250" stroke="#3d342a" stroke-width="0.4"/>
+
+      <text x="320" y="270" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" font-style="italic" fill="#8a3a1d" font-weight="500">→ 頭號殺手是過脂，不是缺蛋白</text>
+    </svg>
+    <div class="caption"><span class="fig-no">Fig. III</span>圈養和尚鸚鵡的病理解剖顯示，高脂飲食導致的代謝疾病占死因前兩位。這意味著繁殖期營養策略應該<em>限脂而非增脂</em>。</div>
+  </div>
+
+  <div class="prose reveal">
+    <p>正確的繁殖期飲食組合：</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>項目</th><th>做</th><th>不做</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>基礎飼料</td>
+          <td>低脂顆粒 Roudybush Breeder / Harrison HP</td>
+          <td>葵花籽主食、高脂堅果混合</td>
+        </tr>
+        <tr>
+          <td>蛋白來源</td>
+          <td>熟蛋 + 熟豆（大豆/鷹嘴豆/黑豆）+ 糙米</td>
+          <td>純種子</td>
+        </tr>
+        <tr>
+          <td>蔬果</td>
+          <td>胡蘿蔔、紅椒、嫩玉米、羽衣甘藍</td>
+          <td>高糖水果過量</td>
+        </tr>
+        <tr>
+          <td>鈣補充</td>
+          <td>墨魚骨常備 + Cal-Mag+D 液劑每週 3 次</td>
+          <td>單補鈣不補鎂（Kirchgessner 2012 案例）</td>
+        </tr>
+        <tr>
+          <td>觸發食物</td>
+          <td>發芽種子（小米/燕麥）+ 軟食 birdie bread</td>
+          <td>椰子油或棕櫚油（這是給凱克的）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- §4 Colony Effect -->
+  <div class="prose reveal">
+    <h3>§4 · 群居效應</h3>
+    <p>Martínez et al. 2013 於 <em>Frontiers in Zoology</em> 的基因研究揭示一個反直覺事實：阿根廷野外和尚鸚鵡的巢中，僅 47% 為嚴格單配，40% 存在 extra-pair paternity，3% 是巢內寄生（intraspecific brood parasitism）。這意味著和尚鸚鵡的「配對」比大多數人想像得更<em>社會化</em>——牠們並非演化上嚴格的一夫一妻制。</p>
+
+    <p>實務層面，這推翻了「一對一獨立籠養」是和尚鸚鵡最佳做法的假設。反而是 3–4 對同群或視聽相鄰的配置，更能複製自然觸發條件。Cornell 大學 1982 年 AFA Watchbird 研究記錄：18 隻和尚鸚鵡在 400 平方英尺鳥舍中，合作築成一個直徑 4 英尺、高 5 英尺、內含 5 個獨立巢腔的巨型公共巢——這是鸚鵡界首度被記錄的合作繁殖行為，1–2 歲的後代會以成鳥 1/3 的頻率餵食下一窩雛鳥。</p>
+
+    <div class="callout">
+      <div class="callout-label">△ Colony Ceiling</div>
+      <p>群養並非越多越好。超過 4 對的大群反而導致資源爭奪、產卵量與幼雛存活率雙降。最佳區間是 <strong>3–4 對</strong>，或者單對 + 視聽相鄰的其他對。</p>
+    </div>
+  </div>
+
+  <!-- §5 Double Clutching -->
+  <div class="prose reveal">
+    <h3>§5 · 雙窩法的群體同步陷阱</h3>
+    <p>和尚鸚鵡理論上可達每年 3 窩，實際操作中必須遵守一條<em>只適用於此物種</em>的規則：</p>
+
+    <blockquote class="citation">
+      移走幼雛時必須一次全部移走，且必須確認當時沒有任何蛋正在孵化。若分批移雛，整個繁殖群（包括鄰近籠）會同時停止餵食和孵蛋——這是和尚鸚鵡獨有的群體敏感行為。
+      <footer>Birds'n'Ways 和尚鸚鵡繁殖指南</footer>
+    </blockquote>
+
+    <p>做對了，一對和尚鸚鵡的年產量可達 <strong>15–21 顆蛋</strong>（3 窩 × 5–7 顆），是所有常見家養鸚鵡中最高的。建議在幼雛 2 週齡時統一移走進行人工育雛，讓親鳥能立刻啟動下一個繁殖週期。</p>
+  </div>
+
+  <div class="prose reveal">
+    <h3>和尚鸚鵡 · 五大槓桿</h3>
+  </div>
+
+  <div class="levers reveal">
+    <div class="lever">
+      <div class="lever-num"></div>
+      <div class="lever-body">
+        <h4>全年供應三種粗細的樹枝</h4>
+        <p>核心層 10–15mm + 緩衝層 5–10mm + 巢腔層 2–5mm，每 2–3 天補新枝。這是觸發整個繁殖序列的必要條件。</p>
+      </div>
+      <div class="lever-grade"><span class="grade b">B</span></div>
+    </div>
+    <div class="lever">
+      <div class="lever-num"></div>
+      <div class="lever-body">
+        <h4>北半球春夏光週期模擬</h4>
+        <p>12 週漸進從 10L:14D → 16L:8D，全光譜 UVB 燈每六個月換。入侵族群研究證實此物種光週期完全可塑。</p>
+      </div>
+      <div class="lever-grade"><span class="grade b">B</span></div>
+    </div>
+    <div class="lever">
+      <div class="lever-num"></div>
+      <div class="lever-body">
+        <h4>限脂飲食 + 高鈣補充</h4>
+        <p>Beaufrère 2018 顯示肝脂沉積症是圈養和尚頭號死因。繁殖期的營養重點是補蛋白、限脂肪、強化鈣鎂 D3。</p>
+      </div>
+      <div class="lever-grade"><span class="grade a">A</span></div>
+    </div>
+    <div class="lever">
+      <div class="lever-num"></div>
+      <div class="lever-body">
+        <h4>3–4 對群養或視聽鄰居效應</h4>
+        <p>單對亦可，但視聽可及的同種鄰居能複製自然社會刺激，Martínez 2013 基因研究支持。</p>
+      </div>
+      <div class="lever-grade"><span class="grade b">B</span></div>
+    </div>
+    <div class="lever">
+      <div class="lever-num"></div>
+      <div class="lever-body">
+        <h4>雙窩法一次全移雛</h4>
+        <p>幼雛 2 週齡時全部移走進人工育雛；絕不可分批。違反此規則會觸發整個繁殖群同步崩潰。</p>
+      </div>
+      <div class="lever-grade"><span class="grade c">C</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART IV · CAIQUE ═══════════════ -->
+<section id="part-4" class="column">
+  <div class="section-rule">
+    <svg viewBox="0 0 64 32" fill="none">
+      <!-- Stylized caique silhouette -->
+      <path d="M6 20 Q10 10 24 8 Q38 6 46 10 Q52 12 58 14 L54 18 Q48 20 42 18 L22 24 Q10 26 6 20 Z"
+            fill="currentColor" opacity="0.85"/>
+      <path d="M18 16 Q28 13 42 16 L42 22 Q30 24 18 22 Z" fill="var(--parchment)"/>
+      <circle cx="48" cy="12" r="1" fill="var(--parchment)"/>
+      <path d="M52 12 L62 10 L56 16" fill="var(--ochre)"/>
+    </svg>
+  </div>
+
+  <div class="prose reveal">
+    <div class="part-label">Pars Quarta · 第四部</div>
+    <h2 class="part-title">論金頭凱克</h2>
+    <p class="part-subtitle">On <em>Pionites leucogaster</em></p>
+
+    <p class="lead drop-cap">凱克的繁殖難度並非源自生理瓶頸，而是源自個體人格的極端個別化。這不是你錯，是這個物種如此。</p>
+
+    <p>金頭凱克是亞馬遜雨林的樹洞專家，性成熟緩慢（2–3 歲），每窩僅產 2–4 顆蛋，離巢期長達 70 天。最關鍵的是——Pair bonding 困難度在整個鸚形目中名列前茅。已有記錄雄鳥殺死不匹配的雌鳥的案例，強制配對在實務上是高風險操作。截至 2026 年，<em>凱克繁殖生物學的 peer-reviewed 論文數量接近於零</em>——所有可靠資料均來自 Shady Pines Aviary、AFA Watchbird、HARI 等頂級飼育者的實務經驗。</p>
+
+    <p>本章的核心武器是一篇 2014 年發表於 <em>Zoo Biology</em> 的論文——它不是專門研究凱克，但提供了解決凱克配對困境的唯一科學路徑。</p>
+  </div>
+
+  <!-- §1 Personality Compatibility - HERO -->
+  <div class="prose reveal">
+    <h3>§1 · 人格相容性配對（核心武器）</h3>
+
+    <blockquote class="citation">
+      圈養鸚鵡的個體「人格特質」相容性，特別是探索性（exploration）與好奇心（neophilia）分數的匹配程度，而非性別或年齡，是預測圈養鸚鵡配對成功率與繁殖產量的主要因子。
+      <footer>Fox &amp; Millam · Zoo Biology 33:2 (2014) · DOI: 10.1002/zoo.21121</footer>
+    </blockquote>
+
+    <p>這篇論文的意義，是把凱克的「配對看運氣」變成可以測量、可以預測的操作。實施方法是一個簡單的 <strong>novel object test</strong>（新奇物體測試）：</p>
+  </div>
+
+  <div class="figure reveal">
+    <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="20" width="680" height="260" fill="#fdf9f0" stroke="#3d342a" stroke-width="0.3" opacity="0.5"/>
+
+      <text x="360" y="48" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="20" fill="#1e3a2b" font-weight="500">Novel Object Test · 人格相容性評估</text>
+
+      <!-- Left: High explorer -->
+      <g transform="translate(120, 92)">
+        <rect x="-90" y="0" width="180" height="140" fill="none" stroke="#3d342a" stroke-width="0.6" opacity="0.5"/>
+        <!-- Bird -->
+        <ellipse cx="-40" cy="55" rx="20" ry="13" fill="#7a8f6c" opacity="0.75"/>
+        <circle cx="-53" cy="48" r="6" fill="#7a8f6c" opacity="0.75"/>
+        <!-- Object -->
+        <circle cx="45" cy="78" r="12" fill="#b84e28" opacity="0.6"/>
+        <circle cx="45" cy="78" r="7" fill="#c49830" opacity="0.75"/>
+        <!-- Arrow -->
+        <path d="M -22 55 Q 0 50 32 76" stroke="#1e3a2b" stroke-width="1.2" fill="none" stroke-dasharray="3 2"/>
+        <polygon points="32,76 25,70 29,78" fill="#1e3a2b"/>
+        <!-- Label -->
+        <text x="0" y="-8" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="17" fill="#1e3a2b" font-weight="600">高探索型</text>
+        <text x="0" y="160" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#b84e28" font-weight="500">&lt; 60 秒接觸</text>
+      </g>
+
+      <!-- Middle: Low explorer -->
+      <g transform="translate(360, 92)">
+        <rect x="-90" y="0" width="180" height="140" fill="none" stroke="#3d342a" stroke-width="0.6" opacity="0.5"/>
+        <!-- Bird -->
+        <ellipse cx="-65" cy="45" rx="20" ry="13" fill="#7a8f6c" opacity="0.75"/>
+        <circle cx="-78" cy="38" r="6" fill="#7a8f6c" opacity="0.75"/>
+        <!-- Object -->
+        <circle cx="55" cy="85" r="12" fill="#b84e28" opacity="0.6"/>
+        <circle cx="55" cy="85" r="7" fill="#c49830" opacity="0.75"/>
+        <!-- No arrow - just wavy line of hesitation -->
+        <path d="M -46 48 Q -25 42 -8 48 Q 12 56 26 68" stroke="#8a3a1d" stroke-width="1" fill="none" stroke-dasharray="2 3" opacity="0.55"/>
+        <text x="0" y="-8" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="17" fill="#1e3a2b" font-weight="600">低探索型</text>
+        <text x="0" y="160" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#b84e28" font-weight="500">&gt; 10 分鐘 或不接觸</text>
+      </g>
+
+      <!-- Right: Matching rule -->
+      <g transform="translate(600, 92)">
+        <rect x="-90" y="0" width="180" height="140" fill="none" stroke="#3d342a" stroke-width="0.6" opacity="0.5"/>
+        <!-- Two birds matching -->
+        <ellipse cx="-35" cy="60" rx="17" ry="11" fill="#7a8f6c" opacity="0.75"/>
+        <circle cx="-46" cy="55" r="5" fill="#7a8f6c" opacity="0.75"/>
+        <ellipse cx="30" cy="60" rx="17" ry="11" fill="#7a8f6c" opacity="0.75"/>
+        <circle cx="41" cy="55" r="5" fill="#7a8f6c" opacity="0.75"/>
+        <!-- Heart -->
+        <path d="M-6 40 Q-12 30 -2 32 L0 38 L2 32 Q12 30 6 40 L0 48 Z" fill="#b84e28" opacity="0.85"/>
+        <text x="0" y="-8" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="17" fill="#1e3a2b" font-weight="600">相似者配對</text>
+        <text x="0" y="160" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#b84e28" font-weight="500">分數接近 = 高成功率</text>
+      </g>
+
+      <!-- Bottom text -->
+      <line x1="80" y1="268" x2="640" y2="268" stroke="#3d342a" stroke-width="0.4"/>
+    </svg>
+    <div class="caption"><span class="fig-no">Fig. IV</span>將陌生彩色物體（玩具、塑膠球）放在籠外一米處，計時兩鳥從注意到接觸的秒數。高探索者 60 秒內主動接觸，低探索者 10 分鐘後仍不接觸。<strong>配對兩鳥的分數應相近</strong>——高配高、低配低。</div>
+  </div>
+
+  <div class="prose reveal">
+    <p>實施 SOP：</p>
+    <ol style="padding-left: 1.5rem; margin: 1rem 0;">
+      <li style="margin-bottom: 0.5rem;">在籠外 1 公尺放陌生彩色物體（玩具、塑膠球、水果色物品）</li>
+      <li style="margin-bottom: 0.5rem;">計時鳥從「注意到物體」到「實際接觸物體」的秒數</li>
+      <li style="margin-bottom: 0.5rem;">重複測試 3 天取平均值</li>
+      <li style="margin-bottom: 0.5rem;">依分數分為高/中/低探索型</li>
+      <li style="margin-bottom: 0.5rem;"><strong>匹配原則：相似分數者配在一起</strong>——高探索配高探索、低探索配低探索。錯配會導致慢性壓力與攻擊</li>
+    </ol>
+
+    <p>這個方法最強大的地方在於它把凱克配對從「看運氣」變成「可預測」。在此之上，實際引入 SOP 還要依循 Shady Pines Aviary 的四階段程序——隔網相鄰期 → 中性全新籠舍同時放入 → 同籠磨合期 → 巢箱啟用，每階段可能需要 4–8 週。</p>
+
+    <div class="callout warning">
+      <div class="callout-label">⚠ 時程現實</div>
+      <p>即使用最佳方法，從開始相鄰到產出第一顆受精蛋，<strong>新手對可能需要 1–2 年</strong>。這是凱克生物學特性，不是你操作錯誤。接受這個現實有助於不在錯誤時機換伴或放棄。</p>
+    </div>
+  </div>
+
+  <!-- §2 L-Chamber Box -->
+  <div class="prose reveal">
+    <h3>§2 · L 型 Chamber Box</h3>
+    <p>Shady Pines Aviary 多年驗證的凱克專屬巢箱設計。關鍵創新是將巢箱分為上下兩層：雄鳥在上層前室守衛，雌鳥在下層後室孵化。這在硬體層面直接解決了凱克最常見的兩個繁殖失敗原因——雄鳥踩破蛋、雄鳥攻擊孵蛋中的雌鳥。</p>
+  </div>
+
+  <div class="figure reveal">
+    <svg viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="20" width="600" height="300" fill="#fdf9f0" stroke="#3d342a" stroke-width="0.3" opacity="0.5"/>
+
+      <text x="320" y="48" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="20" fill="#1e3a2b" font-weight="500">L 型 Chamber Box · 凱克繁殖巢箱</text>
+
+      <!-- L-shape box -->
+      <g transform="translate(220, 80)">
+        <!-- Outer L shape -->
+        <path d="M 0 0 L 120 0 L 120 90 L 200 90 L 200 220 L 0 220 Z"
+              fill="#ede1c8" stroke="#3d342a" stroke-width="1.5"/>
+
+        <!-- Inner chamber lines -->
+        <line x1="0" y1="90" x2="120" y2="90" stroke="#3d342a" stroke-width="0.8" stroke-dasharray="4 3"/>
+        <line x1="120" y1="0" x2="120" y2="90" stroke="#3d342a" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+        <!-- Entrance hole -->
+        <circle cx="60" cy="15" r="8" fill="#1a1612"/>
+        <circle cx="60" cy="15" r="6" fill="#faf4e8"/>
+
+        <!-- Male perch (upper chamber) -->
+        <ellipse cx="60" cy="55" rx="15" ry="10" fill="#7a8f6c" opacity="0.75"/>
+        <circle cx="48" cy="50" r="4" fill="#7a8f6c" opacity="0.75"/>
+
+        <!-- Female with eggs (lower chamber) -->
+        <ellipse cx="100" cy="170" rx="20" ry="14" fill="#c49830" opacity="0.7"/>
+        <circle cx="86" cy="163" r="5" fill="#c49830" opacity="0.7"/>
+
+        <!-- Eggs -->
+        <g fill="#faf4e8" stroke="#8a7d68" stroke-width="0.5">
+          <ellipse cx="130" cy="188" rx="4" ry="5"/>
+          <ellipse cx="138" cy="184" rx="4" ry="5"/>
+          <ellipse cx="134" cy="193" rx="4" ry="5"/>
+        </g>
+
+        <!-- Shavings indicator -->
+        <path d="M 10 195 L 190 195" stroke="#8a7d68" stroke-width="0.5" opacity="0.5"/>
+        <path d="M 10 200 L 190 200" stroke="#8a7d68" stroke-width="0.5" opacity="0.5"/>
+        <path d="M 10 205 L 190 205" stroke="#8a7d68" stroke-width="0.5" opacity="0.5"/>
+      </g>
+
+      <!-- Dimensions on the right -->
+      <g font-family="JetBrains Mono, monospace" font-size="13" fill="#6b5d4b">
+        <!-- Width -->
+        <line x1="220" y1="308" x2="420" y2="308" stroke="#3d342a" stroke-width="0.5"/>
+        <line x1="220" y1="302" x2="220" y2="314" stroke="#3d342a" stroke-width="0.5"/>
+        <line x1="420" y1="302" x2="420" y2="314" stroke="#3d342a" stroke-width="0.5"/>
+        <text x="320" y="326" text-anchor="middle" fill="#3d342a" font-weight="500">30 cm</text>
+
+        <!-- Height -->
+        <line x1="440" y1="80" x2="440" y2="300" stroke="#3d342a" stroke-width="0.5"/>
+        <line x1="434" y1="80" x2="446" y2="80" stroke="#3d342a" stroke-width="0.5"/>
+        <line x1="434" y1="300" x2="446" y2="300" stroke="#3d342a" stroke-width="0.5"/>
+        <text x="455" y="194" fill="#3d342a" font-weight="500">60 cm</text>
+      </g>
+
+      <!-- Labels -->
+      <g font-family="Cormorant Garamond, serif" font-size="16" fill="#3d342a">
+        <!-- Entrance -->
+        <line x1="275" y1="95" x2="155" y2="128" stroke="#b84e28" stroke-width="0.6"/>
+        <circle cx="275" cy="95" r="2.5" fill="#b84e28"/>
+        <text x="70" y="132" fill="#b84e28" font-weight="600">入口 6 cm</text>
+
+        <!-- Upper chamber -->
+        <line x1="285" y1="125" x2="155" y2="160" stroke="#1e3a2b" stroke-width="0.6"/>
+        <circle cx="285" cy="125" r="2.5" fill="#1e3a2b"/>
+        <text x="70" y="164" fill="#1e3a2b" font-weight="600" font-style="italic">上層：雄守衛</text>
+
+        <!-- Lower chamber -->
+        <line x1="318" y1="245" x2="158" y2="260" stroke="#b84e28" stroke-width="0.6"/>
+        <circle cx="318" cy="245" r="2.5" fill="#b84e28"/>
+        <text x="68" y="264" fill="#b84e28" font-weight="600" font-style="italic">下層：雌孵化</text>
+
+        <!-- Material -->
+        <line x1="420" y1="200" x2="492" y2="140" stroke="#7a8f6c" stroke-width="0.6"/>
+        <circle cx="492" cy="140" r="2.5" fill="#7a8f6c"/>
+        <text x="500" y="138" fill="#4a5f3c" font-weight="600">松木刨花</text>
+        <text x="500" y="156" font-style="italic" font-size="13" fill="#6b5d4b">5–8 cm 深</text>
+      </g>
+    </svg>
+    <div class="caption"><span class="fig-no">Fig. V</span>L 型 Chamber Box 構造圖（Shady Pines Aviary 規格）。雄鳥可在上層前室守衛而不進入下層打擾孵蛋中的雌鳥，這個設計差異直接降低破蛋率與雌鳥受傷率。</div>
+  </div>
+
+  <div class="prose reveal">
+    <table class="data-table">
+      <thead>
+        <tr><th>規格</th><th>數值</th><th>備註</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>內部尺寸</td>
+          <td class="num">30 × 30 × 60 cm</td>
+          <td>或 27.9 × 27.9 × 55.9 cm (Worth 1998)</td>
+        </tr>
+        <tr>
+          <td>入口直徑</td>
+          <td class="num">6 cm</td>
+          <td>剛好能擠入，觸發最強安全感</td>
+        </tr>
+        <tr>
+          <td>材質</td>
+          <td>3/4 吋松木板</td>
+          <td>絕對不用金屬</td>
+        </tr>
+        <tr>
+          <td>鋪料</td>
+          <td class="num">5–8 cm</td>
+          <td>松木或 aspen 刨花，禁用 cedar</td>
+        </tr>
+        <tr>
+          <td>檢查口</td>
+          <td>側面外開</td>
+          <td>可從走道檢查，不需伸手入籠</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- §3 Wet/Dry Season -->
+  <div class="prose reveal">
+    <h3>§3 · 乾濕季模擬（不是光週期）</h3>
+    <p>凱克原產赤道附近（&lt;10° S），光週期年振幅 &lt;30 分鐘——這對熱帶鳥類是無效信號。Sampedro 等人 2020 年對同亞科 <em>Pionus</em> 屬的研究指出，此類熱帶鸚鵡的繁殖高峰對應<em>乾季向濕季的轉換</em>，驅動因子是降雨啟動後食物豐度的突然增加。</p>
+
+    <p>因此，對凱克的環境操作重點不是光照時數，而是水分與食物豐度的季節性切換：</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>階段</th><th>時長</th><th>操作</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>乾季期</td>
+          <td>3 週</td>
+          <td>最低噴霧（每週 1 次）、一般飼料、籠內濕度 45–55%</td>
+        </tr>
+        <tr>
+          <td>雨季轉換期</td>
+          <td>3 週</td>
+          <td>每日早晨噴霧、棕櫚油加入軟食、椰肉/椰水每日、濕度拉至 60%</td>
+        </tr>
+        <tr>
+          <td>雨季繁殖期</td>
+          <td>持續</td>
+          <td>每日強力淋浴、濕度 <strong>65–75%</strong>、高糖熱帶水果豐富供應</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- §4 Amazonian Diet -->
+  <div class="prose reveal">
+    <h3>§4 · 亞馬遜飲食</h3>
+    <p>野外金頭凱克食性組成：花朵 24%、種籽 34%、果肉 31%、整果 11%——共記錄 44 種植物。與和尚鸚鵡的種子為主完全相反，凱克需要<em>高脂肪的熱帶水果與棕櫚果實</em>。這個需求源自其生活在 várzea 洪泛雨林的亞馬遜盆地。</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>項目</th><th>非繁殖期</th><th>繁殖期</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>顆粒飼料</td>
+          <td class="num">60–80%</td>
+          <td class="num">50–60%</td>
+        </tr>
+        <tr>
+          <td>新鮮水果</td>
+          <td class="num">20%</td>
+          <td class="num">30–40%</td>
+        </tr>
+        <tr>
+          <td>棕櫚油</td>
+          <td>無</td>
+          <td>每日加入軟食</td>
+        </tr>
+        <tr>
+          <td>椰肉/椰水</td>
+          <td>每週 1 次</td>
+          <td>每日</td>
+        </tr>
+        <tr>
+          <td>堅果</td>
+          <td>每週 2 次</td>
+          <td>每週 3–4 次</td>
+        </tr>
+        <tr>
+          <td>熟蛋 + 豆類</td>
+          <td>少量</td>
+          <td>每日</td>
+        </tr>
+        <tr>
+          <td>偏好水果</td>
+          <td colspan="2">芒果、木瓜、荔枝、無花果、香蕉（熱帶高能水果）</td>
+        </tr>
+        <tr>
+          <td>禁忌</td>
+          <td colspan="2">酪梨、巧克力、咖啡因、高鹽、蘋果種子</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- §5 First Clutch Protocol -->
+  <div class="prose reveal">
+    <h3>§5 · 首窩預期失敗協議</h3>
+    <p>凱克的<em>首窩通常失敗</em>——這是物種特性，不是意外。常見失敗模式包括破蛋、棄蛋、親鳥拒哺、雄鳥踩蛋。頂級繁殖場的做法是接受這個現實，並把首窩轉為加速第二窩的<em>手段</em>。</p>
+
+    <div class="callout evidence">
+      <div class="callout-label">⊙ Double Clutch 加速</div>
+      <p>首窩蛋產完後立即移入孵化機（<span class="mono">37.5°C / 56% RH / 25–26 天</span>），親鳥通常在 2–3 週後啟動第二窩。年產量從 1 窩提升至 2–3 窩。Charlie &amp; Jitterbug 案例（Shady Pines）證明，若兩隻都有充分社會化背景，成對後 24 小時內即可穩定。</p>
+    </div>
+
+    <p>這個「首窩接管」策略對凱克尤其重要，因為其每窩蛋數僅 2–4 顆，若全年只有 1 窩意味年產量極低（2–4 顆蛋）。雙窩法讓同一對的年產量提升至 4–12 顆，是三倍的差距。</p>
+  </div>
+
+  <div class="prose reveal">
+    <h3>金頭凱克 · 五大槓桿</h3>
+  </div>
+
+  <div class="levers reveal">
+    <div class="lever">
+      <div class="lever-num"></div>
+      <div class="lever-body">
+        <h4>人格相容性配對</h4>
+        <p>Fox &amp; Millam 2014 RCT，novel object test 測量 exploration/neophilia 分數，相近者配對。此為凱克最大槓桿，有唯一一篇 peer-reviewed 論文支持。</p>
+      </div>
+      <div class="lever-grade"><span class="grade a">A</span></div>
+    </div>
+    <div class="lever">
+      <div class="lever-num"></div>
+      <div class="lever-body">
+        <h4>L 型 Chamber Box</h4>
+        <p>30 × 30 × 60 cm、入口 6cm、上下分層設計。Shady Pines Aviary 多年實務驗證，降低雄鳥擾動蛋與攻擊雌鳥的風險。</p>
+      </div>
+      <div class="lever-grade"><span class="grade b">B</span></div>
+    </div>
+    <div class="lever">
+      <div class="lever-num"></div>
+      <div class="lever-body">
+        <h4>乾濕季模擬取代光週期</h4>
+        <p>9 週三階段：乾季 → 雨季轉換 → 雨季繁殖期。噴霧頻率與濕度是核心變量，光週期幾乎無效。</p>
+      </div>
+      <div class="lever-grade"><span class="grade b">B</span></div>
+    </div>
+    <div class="lever">
+      <div class="lever-num"></div>
+      <div class="lever-body">
+        <h4>高脂亞馬遜飲食</h4>
+        <p>棕櫚油、椰肉、熱帶水果是繁殖觸發食物。野外食性 55% 為花朵+果肉，與家禽型建議完全相反。</p>
+      </div>
+      <div class="lever-grade"><span class="grade b">B</span></div>
+    </div>
+    <div class="lever">
+      <div class="lever-num"></div>
+      <div class="lever-body">
+        <h4>首窩人工接管 + 強制第二窩</h4>
+        <p>接受首窩失敗為常態，立即移入孵化機，加速雌鳥啟動第二窩。年產量從 1 窩提升至 2–3 窩。</p>
+      </div>
+      <div class="lever-grade"><span class="grade c">C</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART V · CANDLING ═══════════════ -->
+<section id="part-5" class="column">
+  <div class="section-rule">
+    <svg viewBox="0 0 32 32" fill="none">
+      <ellipse cx="16" cy="16" rx="10" ry="13" fill="#c49830" opacity="0.5"/>
+      <ellipse cx="16" cy="16" rx="10" ry="13" stroke="currentColor" stroke-width="1" fill="none"/>
+      <circle cx="16" cy="18" r="4" fill="currentColor" opacity="0.8"/>
+    </svg>
+  </div>
+
+  <div class="prose reveal">
+    <div class="part-label">Pars Quinta · 第五部</div>
+    <h2 class="part-title">照蛋之術</h2>
+    <p class="part-subtitle">The Universal Art of Candling</p>
+
+    <p class="lead">頂級繁殖場與家庭繁殖者之間最大、也最容易彌補的能力差距——就是能不能分辨「未受精蛋」「受精發育中」「早期胚胎死亡」這三種狀況。</p>
+
+    <p>Assersohn, Brekke &amp; Hemmings 在 2021 年發表於 <em>Royal Society Open Science</em> 的系統性綜述中指出一個關鍵事實：在圈養鸚鵡中，<strong>真正的「不受精」其實很罕見</strong>，大多數被歸類為「臭蛋」的失敗蛋實際上是<em>早期胚胎死亡</em>（embryo mortality）。這兩者的處理方法完全不同——不受精指向配對或精子品質問題，早期胚胎死亡指向環境、溫度或遺傳問題。</p>
+  </div>
+
+  <div class="figure reveal">
+    <svg viewBox="0 0 720 310" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="20" width="680" height="270" fill="#fdf9f0" stroke="#3d342a" stroke-width="0.3" opacity="0.5"/>
+
+      <text x="360" y="50" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="20" fill="#1e3a2b" font-weight="500">第 5–7 天照蛋 · 三種狀態辨識</text>
+
+      <!-- Egg 1: Infertile (clear) -->
+      <g transform="translate(140, 145)">
+        <ellipse cx="0" cy="0" rx="48" ry="62" fill="#fdf9f0" stroke="#3d342a" stroke-width="1.5"/>
+        <!-- Slight yolk shadow -->
+        <ellipse cx="-5" cy="5" rx="15" ry="20" fill="#c49830" opacity="0.2"/>
+        <text x="0" y="98" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="18" fill="#3d342a">未受精</text>
+        <text x="0" y="118" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#6b5d4b" letter-spacing="0.5">INFERTILE</text>
+        <text x="0" y="138" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="15" fill="#6b5d4b">透明 · 無血管</text>
+      </g>
+
+      <!-- Egg 2: Fertile developing -->
+      <g transform="translate(360, 145)">
+        <ellipse cx="0" cy="0" rx="48" ry="62" fill="#fdf9f0" stroke="#b84e28" stroke-width="2"/>
+        <!-- Dark spot -->
+        <circle cx="0" cy="0" r="8" fill="#3d342a" opacity="0.85"/>
+        <!-- Veins radiating -->
+        <g stroke="#b84e28" stroke-width="1.4" fill="none" opacity="0.85">
+          <path d="M 0 -8 Q 10 -20 15 -35"/>
+          <path d="M 7 -5 Q 22 -5 35 -15"/>
+          <path d="M 8 2 Q 25 10 38 8"/>
+          <path d="M 5 8 Q 15 25 12 40"/>
+          <path d="M -3 8 Q -12 22 -18 35"/>
+          <path d="M -8 3 Q -22 8 -35 2"/>
+          <path d="M -8 -4 Q -22 -12 -32 -20"/>
+          <path d="M -5 -8 Q -10 -22 -8 -38"/>
+        </g>
+        <!-- Sub-veins -->
+        <g stroke="#b84e28" stroke-width="0.6" fill="none" opacity="0.65">
+          <path d="M 15 -35 L 20 -42"/>
+          <path d="M 15 -35 L 10 -45"/>
+          <path d="M 35 -15 L 42 -20"/>
+          <path d="M 38 8 L 45 12"/>
+          <path d="M 12 40 L 18 48"/>
+          <path d="M -18 35 L -22 45"/>
+          <path d="M -35 2 L -42 0"/>
+          <path d="M -32 -20 L -40 -25"/>
+        </g>
+        <text x="0" y="98" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="18" fill="#b84e28">受精發育中</text>
+        <text x="0" y="118" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#6b5d4b" letter-spacing="0.5">DEVELOPING</text>
+        <text x="0" y="138" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="15" fill="#6b5d4b">胚芽 + 放射狀血管</text>
+      </g>
+
+      <!-- Egg 3: Early embryo death -->
+      <g transform="translate(580, 145)">
+        <ellipse cx="0" cy="0" rx="48" ry="62" fill="#fdf9f0" stroke="#8a3a1d" stroke-width="2"/>
+        <!-- Blood ring -->
+        <circle cx="0" cy="0" r="30" fill="none" stroke="#8a3a1d" stroke-width="3" opacity="0.85"/>
+        <circle cx="0" cy="0" r="30" fill="#8a3a1d" opacity="0.15"/>
+        <!-- Small remnant -->
+        <circle cx="3" cy="-2" r="4" fill="#8a3a1d" opacity="0.6"/>
+        <text x="0" y="98" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="18" fill="#8a3a1d">早期胚胎死亡</text>
+        <text x="0" y="118" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#6b5d4b" letter-spacing="0.5">EARLY DEATH</text>
+        <text x="0" y="138" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="15" fill="#6b5d4b">血環 · 無持續發育</text>
+      </g>
+
+      <!-- Separators -->
+      <line x1="250" y1="82" x2="250" y2="225" stroke="#3d342a" stroke-width="0.4" stroke-dasharray="2 3"/>
+      <line x1="470" y1="82" x2="470" y2="225" stroke="#3d342a" stroke-width="0.4" stroke-dasharray="2 3"/>
+
+      <!-- Interpretation below -->
+      <g font-family="Cormorant Garamond, serif" font-style="italic" font-size="15" fill="#1e3a2b" text-anchor="middle" font-weight="500">
+        <text x="140" y="275">→ 檢討配對 / 精子</text>
+        <text x="360" y="275">→ 繼續孵化</text>
+        <text x="580" y="275">→ 檢討環境 / 溫度</text>
+      </g>
+    </svg>
+    <div class="caption"><span class="fig-no">Fig. VI</span>三種照蛋狀態對應完全不同的根本原因與對策。在強光 LED 照蛋燈下於產蛋後 5–7 天檢查，是家庭繁殖者能夠<em>診斷繁殖問題出在哪裡</em>的唯一方法。</div>
+  </div>
+
+  <div class="prose reveal">
+    <div class="callout evidence">
+      <div class="callout-label">⊙ Diagnostic Value</div>
+      <p>這個技能的真正價值是<strong>轉化資訊</strong>——把「這窩失敗了」轉為「配對精子不足 / 孵化溫度波動 / 鈣不足導致蛋殼滲透性異常」等具體診斷。頂級繁殖場與家庭最大差距不在設備，在此。</p>
+    </div>
+
+    <p>實施非常簡單：強光 LED 照蛋燈（約 NT$300 即可購得）+ 暗房 + 5–7 天後趁親鳥離巢時快速檢查。動作要輕、時間要短（&lt;10 秒）、不要在巢口停留。記錄每顆蛋的狀態，累積數據你就會開始看到模式。</p>
+  </div>
+</section>
+
+<!-- ═══════════════ PART VI · CALENDAR ═══════════════ -->
+<section id="part-6" class="wide">
+  <div class="section-rule">
+    <svg viewBox="0 0 32 32" fill="none">
+      <rect x="6" y="8" width="20" height="20" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <line x1="6" y1="14" x2="26" y2="14" stroke="currentColor" stroke-width="1"/>
+      <line x1="12" y1="6" x2="12" y2="10" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="20" y1="6" x2="20" y2="10" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="11" cy="19" r="1.5" fill="currentColor"/>
+      <circle cx="21" cy="23" r="1.5" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <div class="prose reveal">
+    <div class="part-label">Pars Sexta · 第六部</div>
+    <h2 class="part-title">12 週行事曆</h2>
+    <p class="part-subtitle">A Parallel Execution Calendar</p>
+
+    <p>兩物種可以並行執行，因為操作完全不同、不會互相干擾。此行事曆以「Week 0 獸醫檢查完成、配對 DNA 鑑定完畢」為起點。</p>
+  </div>
+
+  <div class="timeline reveal">
+    <div class="timeline-grid">
+      <div class="timeline-head">
+        <div>週次</div>
+        <div>和尚鸚鵡</div>
+        <div>金頭凱克</div>
+      </div>
+
+      <div class="timeline-row">
+        <div>W 0</div>
+        <div>獸醫檢查（離子鈣 · D3 · CBC · 超音波）</div>
+        <div>獸醫檢查 + <strong>novel object test</strong> 人格評估</div>
+      </div>
+
+      <div class="timeline-row">
+        <div>W 1–2</div>
+        <div>光週期 10L:14D 起、裝 UVB 燈、移除舊巢材</div>
+        <div><strong>隔網相鄰期開始</strong>（無光週期操作、基礎飲食降脂）</div>
+      </div>
+
+      <div class="timeline-row">
+        <div>W 3–4</div>
+        <div>光週期 11h→12h、開始供應三種粗細樹枝</div>
+        <div>繼續相鄰、觀察互動行為（梳羽、靠近隔板）</div>
+      </div>
+
+      <div class="timeline-row">
+        <div>W 5–6</div>
+        <div>光週期 13–14h、軟食 + 發芽種子、監察築巢行為</div>
+        <div><strong>引入全新籠舍同時放入</strong>、監視 30 分鐘</div>
+      </div>
+
+      <div class="timeline-row">
+        <div>W 7–8</div>
+        <div>光週期 14–15h、高鈣 Cal-Mag+D 強化</div>
+        <div>同籠磨合、安靜環境、前任伴侶完全隔離</div>
+      </div>
+
+      <div class="timeline-row">
+        <div>W 9–10</div>
+        <div>光週期 15–16h、放備用巢箱（若樹枝巢未成）</div>
+        <div><strong>進入 L 型 chamber box</strong>、開放探索不強迫</div>
+      </div>
+
+      <div class="timeline-row">
+        <div>W 11–12</div>
+        <div>觀察配對行為、巢箱維修動作</div>
+        <div><strong>乾季期開始</strong>（低噴霧、一般飼料、為雨季切換鋪路）</div>
+      </div>
+
+      <div class="timeline-row">
+        <div>W 13+</div>
+        <div>首次產蛋可能發生、準備照蛋 + 限脂維持</div>
+        <div><strong>雨季轉換期</strong>：每日噴霧 + 棕櫚油 + 椰子</div>
+      </div>
+
+      <div class="timeline-row">
+        <div>Month 4+</div>
+        <div>第一窩孵化、Beaufrère 限脂原則不可鬆懈</div>
+        <div>持續磨合期（可能仍未產蛋，為正常）</div>
+      </div>
+
+      <div class="timeline-row">
+        <div>Month 6–12</div>
+        <div>啟動雙窩法，幼雛 2 週齡一次全移</div>
+        <div>第一窩可能出現（若配對順利），準備接管人工孵化</div>
+      </div>
+
+      <div class="timeline-row">
+        <div>Year 2</div>
+        <div>進入穩定繁殖週期，年 2–3 窩</div>
+        <div>可能出現首顆受精蛋（首窩預期失敗不要換伴）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BIBLIOGRAPHY ═══════════════ -->
+<section id="bibliography" class="column">
+  <div class="section-rule">
+    <svg viewBox="0 0 32 32" fill="none">
+      <path d="M8 6 L8 26 L24 26 L24 10 L20 6 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <line x1="8" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="20" y1="6" x2="24" y2="10" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="12" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="0.8"/>
+      <line x1="12" y1="16" x2="20" y2="16" stroke="currentColor" stroke-width="0.8"/>
+      <line x1="12" y1="20" x2="20" y2="20" stroke="currentColor" stroke-width="0.8"/>
+    </svg>
+  </div>
+
+  <div class="prose reveal">
+    <div class="part-label">Bibliographia · 文獻目錄</div>
+    <h2 class="part-title">關鍵文獻</h2>
+    <p class="part-subtitle">Selected Peer-Reviewed Sources</p>
+
+    <p>以下按主題分組列出本學典的主要引用來源。完整 70+ 篇文獻在各章節內文中均有原位引用。證據等級標記反映該研究對相關主題的支持強度。</p>
+  </div>
+
+  <div class="bibliography reveal">
+
+    <div class="bib-group">
+      <h4>鸚鵡內分泌與光週期</h4>
+
+      <div class="bib-item">
+        <span class="authors">Yoshimura T, Yasuo S, Watanabe M, et al.</span>
+        <span class="year">2003</span>
+        <span class="title">Light-induced hormone conversion of T4 to T3 regulates photoperiodic response of gonads in birds.</span>
+        <span class="journal">Nature 426(6963): 178–181.</span>
+        <span class="doi">DOI: 10.1038/nature02117 · PMID: 14614506</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Shields KM, Yamamoto JT, Millam JR.</span>
+        <span class="year">1989</span>
+        <span class="title">Reproductive behavior and LH levels of cockatiels associated with photostimulation, nest-box presentation, and degree of mate access.</span>
+        <span class="journal">Hormones and Behavior 23(1): 68–82.</span>
+        <span class="doi">DOI: 10.1016/0018-506x(89)90075-5 · PMID: 2925187</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Maitra SK, Dey M.</span>
+        <span class="year">1992</span>
+        <span class="title">Importance of photoperiods in determining temporal pattern of annual testicular events in rose-ringed parakeet.</span>
+        <span class="journal">Journal of Biological Rhythms 7(1): 13–25.</span>
+        <span class="doi">DOI: 10.1177/074873049200700102</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Herrera-Barragán JA, et al.</span>
+        <span class="year">2020</span>
+        <span class="title">Testicular development induced by GnRH-IS in budgerigar (Melopsittacus undulatus).</span>
+        <span class="journal">Animal Reproduction 17(1): e20190103.</span>
+        <span class="doi">DOI: 10.21451/1984-3143-AR2019-0103</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">García-Fernández JM, et al.</span>
+        <span class="year">2015</span>
+        <span class="title">The hypothalamic photoreceptors regulating seasonal reproduction in birds: a prime role for VA opsin.</span>
+        <span class="journal">Frontiers in Neuroendocrinology 37: 13–28.</span>
+        <span class="doi">DOI: 10.1016/j.yfrne.2014.11.001</span>
+      </div>
+    </div>
+
+    <div class="bib-group">
+      <h4>和尚鸚鵡繁殖生物學</h4>
+
+      <div class="bib-item">
+        <span class="authors">Peris SJ, Aramburú R.</span>
+        <span class="year">1995</span>
+        <span class="title">Reproductive phenology and breeding success of the Monk Parakeet in Argentina.</span>
+        <span class="journal">Ornitología Neotropical.</span>
+        <span class="doi">DOI: 10.1080/01650529509360948</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Harrison CJO.</span>
+        <span class="year">1973</span>
+        <span class="title">Nest-building behaviour of Quaker Parrots Myiopsitta monachus.</span>
+        <span class="journal">Ibis 115(1): 124–128.</span>
+        <span class="doi">DOI: 10.1111/j.1474-919x.1973.tb02628.x</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Battisti C, Fanelli G.</span>
+        <span class="year">2021</span>
+        <span class="title">A fine-grained analysis of a Monk parakeet nest: architectural pattern and functional layering.</span>
+        <span class="journal">Acta Ornithologica.</span>
+        <span class="doi">DOI: 10.35513/21658005.2021.1.6</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Martínez JJ, et al.</span>
+        <span class="year">2013</span>
+        <span class="title">Genetic evidence of extra-pair paternity and intraspecific brood parasitism in the Monk Parakeet.</span>
+        <span class="journal">Frontiers in Zoology 10: 68.</span>
+        <span class="doi">DOI: 10.1186/1742-9994-10-68</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Gonçalves da Silva A, et al.</span>
+        <span class="year">2010</span>
+        <span class="title">Genetic evidence for high propagule pressure and long-distance dispersal in Monk Parakeet invasive populations.</span>
+        <span class="journal">Molecular Ecology 19(16): 3336–3350.</span>
+        <span class="doi">DOI: 10.1111/j.1365-294X.2010.04749.x</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Beaufrère H, et al.</span>
+        <span class="year">2018</span>
+        <span class="title">Lipid-related lesions in captive Quaker Parrots: a retrospective pathology study of 652 cases.</span>
+        <span class="journal">Veterinary Pathology.</span>
+        <span class="doi">DOI: 10.1177/0300985818800025</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Spreyer MF, Bucher EH.</span>
+        <span class="year">1998</span>
+        <span class="title">Monk Parakeet (Myiopsitta monachus), Birds of North America.</span>
+        <span class="journal">Cornell Lab of Ornithology.</span>
+        <span class="doi">DOI: 10.2173/bna.322</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Morales J, et al.</span>
+        <span class="year">2020</span>
+        <span class="title">Subtle sexual plumage color dimorphism and size dimorphism in a South American colonial breeder.</span>
+        <span class="journal">Avian Research 11: 30.</span>
+        <span class="doi">DOI: 10.1186/s40657-020-00204-x</span>
+      </div>
+    </div>
+
+    <div class="bib-group">
+      <h4>凱克與鸚鵡配對行為學</h4>
+
+      <div class="bib-item">
+        <span class="authors">Fox RA, Millam JR.</span>
+        <span class="year">2014</span>
+        <span class="title">Personality traits of pair members predict pair compatibility and reproductive success in a socially monogamous parrot.</span>
+        <span class="journal">Zoo Biology 33(2): 166–172.</span>
+        <span class="doi">DOI: 10.1002/zoo.21121</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Collar N, et al.</span>
+        <span class="year">2020</span>
+        <span class="title">White-bellied Parrot (Pionites leucogaster).</span>
+        <span class="journal">Birds of the World, Cornell Lab of Ornithology.</span>
+        <span class="doi">DOI: 10.2173/bow.whbpar1.01</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Worth GJ.</span>
+        <span class="year">1998</span>
+        <span class="title">Breeding aspects of Caiques and Pionus parrots.</span>
+        <span class="journal">AFA Watchbird 25(3).</span>
+        <span class="doi">TDL Open Journal System</span>
+      </div>
+    </div>
+
+    <div class="bib-group">
+      <h4>鸚鵡繁殖醫學與獸醫介入</h4>
+
+      <div class="bib-item">
+        <span class="authors">Summa NM, Sanchez-Migallon Guzman D, et al.</span>
+        <span class="year">2017</span>
+        <span class="title">Evaluation of the effects of a 4.7-mg deslorelin acetate implant on egg laying in cockatiels.</span>
+        <span class="journal">American Journal of Veterinary Research 78(6): 745–751.</span>
+        <span class="doi">DOI: 10.2460/ajvr.78.6.745 · PMID: 28541153</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Klaphake E, Fecteau K, DeWit M, et al.</span>
+        <span class="year">2009</span>
+        <span class="title">Effects of leuprolide acetate on selected blood and fecal sex hormones in Hispaniolan Amazon parrots.</span>
+        <span class="journal">Journal of Avian Medicine and Surgery 23(4): 253–262.</span>
+        <span class="doi">DOI: 10.1647/2008-061R.1 · PMID: 20235456</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Stanford M.</span>
+        <span class="year">2007</span>
+        <span class="title">Clinical pathology of hypocalcaemia in adult grey parrots.</span>
+        <span class="journal">Veterinary Record 161(13): 456–457.</span>
+        <span class="doi">DOI: 10.1136/vr.161.13.456</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Nightengale M, Stout RW, Tully TN.</span>
+        <span class="year">2022</span>
+        <span class="title">Plasma vitamin D levels in Hispaniolan Amazon parrots housed indoors over time.</span>
+        <span class="journal">Avian Diseases 66(2): 148–154.</span>
+        <span class="doi">DOI: 10.1637/aviandiseases-D-21-00117</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Kirchgessner MS, Tully TN Jr, Nevarez J, et al.</span>
+        <span class="year">2012</span>
+        <span class="title">Magnesium therapy in a hypocalcemic African grey parrot.</span>
+        <span class="journal">Journal of Avian Medicine and Surgery 26(1): 17–21.</span>
+        <span class="doi">DOI: 10.1647/2009-021.1</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Assersohn K, Brekke P, Hemmings N.</span>
+        <span class="year">2021</span>
+        <span class="title">Physiological factors influencing female fertility in birds.</span>
+        <span class="journal">Royal Society Open Science 8(7): 202274.</span>
+        <span class="doi">DOI: 10.1098/rsos.202274</span>
+      </div>
+    </div>
+
+    <div class="bib-group">
+      <h4>營養介入與植物雌激素</h4>
+
+      <div class="bib-item">
+        <span class="authors">Leopold AS, Erwin M, Oh J, Browning B.</span>
+        <span class="year">1976</span>
+        <span class="title">Phytoestrogens: adverse effects on reproduction in California Quail.</span>
+        <span class="journal">Science 191(4222): 98–100.</span>
+        <span class="doi">DOI: 10.1126/science.1246602</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Bălăceanu RA, et al.</span>
+        <span class="year">2022</span>
+        <span class="title">Vitamin E and selenium dietary supplementation improve reproductive parameters in Red Cornish.</span>
+        <span class="journal">Journal of Poultry Science 59(1): 96–103.</span>
+        <span class="doi">DOI: 10.2141/jpsa.0200069</span>
+      </div>
+
+      <div class="bib-item">
+        <span class="authors">Taylor EJ, Nott HMR, Earle KE.</span>
+        <span class="year">1994</span>
+        <span class="title">Dietary glycine: its importance in growth and development of the budgerigar.</span>
+        <span class="journal">Journal of Nutrition 124(12 Suppl): 2555S–2558S.</span>
+        <span class="doi">DOI: 10.1093/jn/124.suppl_12.2555S</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ COLOPHON ═══════════════ -->
+<footer class="colophon">
+  <svg class="ornament" width="140" height="24" viewBox="0 0 140 24" fill="none">
+    <path d="M0 12 L50 12" stroke="currentColor" stroke-width="1"/>
+    <path d="M90 12 L140 12" stroke="currentColor" stroke-width="1"/>
+    <circle cx="70" cy="12" r="2.5" fill="currentColor"/>
+    <circle cx="60" cy="12" r="1" fill="currentColor"/>
+    <circle cx="80" cy="12" r="1" fill="currentColor"/>
+  </svg>
+
+  <h3>Colophon · 版權頁</h3>
+
+  <p>本學典的內容基於 13 輪獨立研究、共派遣 13 個子 agent 使用 PubMed、Semantic Scholar、CrossRef、Paper Search MCP、EXA 等工具，整合 70+ 篇 peer-reviewed 論文、HARI/AFA Watchbird/World Parrot Trust/Loro Parque Foundation/Shady Pines Aviary 等頂級來源的實務經驗而成。</p>
+
+  <p>所有科學引用均可透過各章節的 DOI/PMID 追溯至原文。證據等級標記反映當前學術界對該主題的研究強度——A 代表有直接 RCT 或實驗證據，B 代表觀察研究或近親外推，C 代表專家共識。凱克繁殖學的大部分建議目前只能達到 B/C 等級，因此物種的 peer-reviewed 文獻尚未足夠。</p>
+
+  <p>本文件不構成獸醫建議。任何具體繁殖操作前，請諮詢 ABVP 認證禽類獸醫。</p>
+
+  <div class="credit">
+    CODEX PSITTACORUM · MMXXVI · EDITIO PRIMA
+  </div>
+</footer>
+
+</main>
+
+<a href="#frontispiece" class="to-top" id="toTop" aria-label="回到頂部">↑</a>
+
+<script>
+// ───────────── Progress Bar + Back-to-Top ─────────────
+const progress = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function updateProgress() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progress.style.width = pct + '%';
+  if (toTop) {
+    toTop.classList.toggle('visible', scrollTop > window.innerHeight * 0.6);
+  }
+}
+window.addEventListener('scroll', updateProgress, { passive: true });
+updateProgress();
+
+// ───────────── Reveal on Scroll ─────────────
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// ───────────── Active Nav Highlight ─────────────
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = Array.from(navLinks).map(link => {
+  const id = link.getAttribute('href').slice(1);
+  return document.getElementById(id);
+}).filter(Boolean);
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { threshold: 0.25, rootMargin: '-30% 0px -50% 0px' });
+
+sections.forEach(s => navObserver.observe(s));
+</script>
+
+</body>
+</html>
