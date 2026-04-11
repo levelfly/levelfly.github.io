@@ -1,0 +1,1481 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codex Turdi Rufiventris — 巴西國鳥繁殖志</title>
+<meta name="description" content="Sabiá-laranjeira (Turdus rufiventris) 繁殖可行性完整考察：法律、疾病、經濟、實務 SOP。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=JetBrains+Mono:wght@300..700&family=Noto+Serif+TC:wght@300..900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Parchment substrate */
+    --parchment: #faf4e8;
+    --parchment-light: #fdf9f0;
+    --parchment-mid: #f3ebd9;
+    --parchment-dark: #ede1c8;
+    --parchment-edge: #d4c5a5;
+    /* Ink */
+    --ink: #1a1612;
+    --ink-soft: #3d342a;
+    --ink-muted: #6b5d4b;
+    --ink-faint: #8a7d68;
+    /* Accents */
+    --terra: #b84e28;
+    --terra-light: #d26b3f;
+    --rust: #8a3a1d;
+    --forest-deep: #1e3a2b;
+    --forest: #2f5840;
+    --sage: #7a8f6c;
+    --ochre: #c49830;
+    --gold: #d4a945;
+    /* Lines */
+    --line: rgba(61, 52, 42, 0.22);
+    --line-soft: rgba(61, 52, 42, 0.12);
+    --line-strong: rgba(61, 52, 42, 0.4);
+    /* Shadows */
+    --shadow-soft: 0 2px 12px rgba(26, 22, 18, 0.06);
+    --shadow-lift: 0 6px 28px rgba(26, 22, 18, 0.12);
+    --shadow-deep: 0 12px 48px rgba(26, 22, 18, 0.18);
+
+    --serif-display: "Fraunces", "Noto Serif TC", Georgia, serif;
+    --serif-classical: "Cormorant Garamond", "Noto Serif TC", Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0;
+    font-family: var(--serif-display);
+    font-feature-settings: "kern", "liga", "onum";
+    color: var(--ink);
+    background: var(--parchment);
+    background-image:
+      radial-gradient(ellipse 85% 90% at 30% 20%, rgba(212, 197, 165, 0.25), transparent 60%),
+      radial-gradient(ellipse 75% 80% at 80% 85%, rgba(184, 78, 40, 0.06), transparent 55%);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0.35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    mix-blend-mode: multiply;
+    opacity: 0.4;
+    z-index: 1000;
+  }
+
+  /* Vignette */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(26, 22, 18, 0.12) 100%);
+    z-index: 999;
+  }
+
+  /* Reading progress bar */
+  .progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--terra), var(--ochre));
+    box-shadow: 0 0 12px rgba(184, 78, 40, 0.5);
+    z-index: 2000;
+    transition: width 0.15s ease-out;
+  }
+
+  /* Side nav (desktop only) */
+  .side-nav {
+    position: fixed;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .side-nav a {
+    color: var(--ink-faint);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    transition: color 0.3s;
+  }
+  .side-nav a::before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1px;
+    background: var(--ink-faint);
+    transition: width 0.3s, box-shadow 0.3s;
+  }
+  .side-nav a:hover, .side-nav a.active {
+    color: var(--terra);
+  }
+  .side-nav a:hover::before, .side-nav a.active::before {
+    width: 1.6rem;
+    background: var(--terra);
+    box-shadow: 0 0 8px rgba(184, 78, 40, 0.4);
+  }
+  @media (max-width: 1280px) {
+    .side-nav { display: none; }
+  }
+
+  /* Page container */
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 10;
+  }
+  .column { max-width: 720px; margin: 0 auto; }
+  .wide { max-width: 980px; margin: 0 auto; }
+
+  /* ============ FRONTISPIECE ============ */
+  .frontispiece {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem 6rem;
+    position: relative;
+  }
+  .frontispiece::before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 6rem;
+    background: linear-gradient(to bottom, transparent, var(--line-strong));
+    margin-bottom: 3rem;
+  }
+  .frontis-meta {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+  }
+  .frontis-meta em {
+    font-family: var(--serif-classical);
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0.04em;
+    font-size: 0.95rem;
+    color: var(--terra);
+  }
+  h1.frontis-title {
+    font-family: var(--serif-display);
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 400;
+    line-height: 0.95;
+    margin: 0 0 1.5rem;
+    color: var(--forest-deep);
+    letter-spacing: -0.02em;
+  }
+  .frontis-subtitle {
+    font-family: var(--serif-classical);
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    color: var(--terra);
+    font-weight: 400;
+    margin: 0 0 3rem;
+    max-width: 620px;
+  }
+  .frontis-latin {
+    font-family: var(--serif-classical);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-muted);
+    margin: 0 0 2.5rem;
+    max-width: 520px;
+  }
+  .ornament {
+    width: 120px;
+    height: 24px;
+    opacity: 0.7;
+    margin: 1rem 0;
+  }
+  .frontis-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-top: 2.5rem;
+  }
+  .frontis-tags span {
+    padding: 0.35rem 0.85rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    animation: fade-bob 2.6s ease-in-out infinite;
+  }
+  @keyframes fade-bob {
+    0%, 100% { opacity: 0.4; transform: translate(-50%, 0); }
+    50% { opacity: 1; transform: translate(-50%, 6px); }
+  }
+
+  /* ============ SECTION ============ */
+  section { padding: 5rem 0; position: relative; }
+  .section-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 3rem 0;
+  }
+  .section-rule::before, .section-rule::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    max-width: 240px;
+    background: linear-gradient(to right, transparent, var(--line-strong), transparent);
+  }
+  .section-rule span {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .section-label .num {
+    color: var(--ink-muted);
+    margin-right: 0.6rem;
+  }
+  h2.section-title {
+    font-family: var(--serif-display);
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    font-weight: 400;
+    line-height: 1.05;
+    margin: 0 0 1rem;
+    color: var(--forest-deep);
+    letter-spacing: -0.015em;
+  }
+  .section-subtitle {
+    font-family: var(--serif-classical);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-muted);
+    margin: 0 0 3rem;
+    max-width: 680px;
+  }
+  .lead {
+    font-family: var(--serif-classical);
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 2rem 0 3rem;
+  }
+  p { margin: 0 0 1.4rem; color: var(--ink-soft); }
+  p strong { color: var(--ink); font-weight: 600; }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============ CARDS ============ */
+  .rec-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  @media (max-width: 900px) {
+    .rec-grid { grid-template-columns: 1fr; }
+  }
+  .rec-card {
+    position: relative;
+    background: var(--parchment-light);
+    border: 1px solid var(--line);
+    padding: 2.5rem 2rem 2rem;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .rec-card::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1px solid var(--line-soft);
+    pointer-events: none;
+  }
+  .rec-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+  }
+  .species-mark {
+    position: absolute;
+    top: -0.85rem;
+    left: 1.5rem;
+    background: var(--parchment);
+    padding: 0.25rem 0.85rem;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--terra);
+    border: 1px solid var(--line);
+  }
+  .rec-card h3 {
+    font-family: var(--serif-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0.4rem 0 1rem;
+    color: var(--forest-deep);
+  }
+  .rec-card .sci {
+    font-family: var(--serif-classical);
+    font-style: italic;
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+    margin: 0 0 1.2rem;
+  }
+  .rec-card p { font-size: 0.98rem; margin-bottom: 1rem; }
+
+  /* ============ CALLOUTS ============ */
+  .callout {
+    position: relative;
+    background: var(--parchment-light);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--terra);
+    padding: 2rem 2.25rem;
+    margin: 3rem 0;
+  }
+  .callout::before {
+    content: "";
+    position: absolute;
+    inset: 6px 6px 6px 0;
+    border: 1px solid var(--line-soft);
+    pointer-events: none;
+  }
+  .callout.forest { border-left-color: var(--forest); }
+  .callout.rust { border-left-color: var(--rust); }
+  .callout.ochre { border-left-color: var(--ochre); }
+  .callout-label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 0.8rem;
+  }
+  .callout.forest .callout-label { color: var(--forest); }
+  .callout.rust .callout-label { color: var(--rust); }
+  .callout.ochre .callout-label { color: var(--ochre); }
+  .callout h4 {
+    font-family: var(--serif-display);
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0 0 1rem;
+    color: var(--forest-deep);
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ============ DATA TABLES ============ */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2.5rem 0;
+    font-size: 0.95rem;
+  }
+  .data-table thead th {
+    font-family: var(--serif-classical);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    text-align: left;
+    padding: 1rem 1.2rem;
+    background: var(--parchment-mid);
+    border-bottom: 2px solid var(--line-strong);
+  }
+  .data-table tbody td {
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--ink-soft);
+    vertical-align: top;
+  }
+  .data-table tbody tr:hover {
+    background: rgba(196, 152, 48, 0.06);
+  }
+  .data-table td strong { color: var(--ink); }
+  .data-table td .sci {
+    font-family: var(--serif-classical);
+    font-style: italic;
+    color: var(--ink-muted);
+    font-size: 0.88rem;
+  }
+  .data-table .num-cell {
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    color: var(--terra);
+    white-space: nowrap;
+  }
+
+  /* ============ STAT GRID ============ */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+  }
+  .stat {
+    padding: 1.8rem 1.5rem;
+    background: var(--parchment-light);
+    border: 1px solid var(--line-soft);
+    text-align: center;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .stat-value {
+    font-family: var(--serif-display);
+    font-size: 2.2rem;
+    line-height: 1;
+    color: var(--forest-deep);
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+  }
+  .stat-value.terra { color: var(--terra); }
+  .stat-value.rust { color: var(--rust); }
+  .stat-unit {
+    font-family: var(--serif-classical);
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+  }
+
+  /* ============ TIMELINE / DECISION TREE ============ */
+  .decision {
+    margin: 3rem 0;
+    background: var(--parchment-light);
+    border: 1px solid var(--line);
+    padding: 2.5rem 2rem;
+    position: relative;
+  }
+  .decision::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1px solid var(--line-soft);
+    pointer-events: none;
+  }
+  .decision-title {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .tree {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    white-space: pre;
+    color: var(--ink-soft);
+    line-height: 1.9;
+    overflow-x: auto;
+    padding: 0.5rem;
+  }
+  .tree .node-ok { color: var(--forest); font-weight: 600; }
+  .tree .node-warn { color: var(--ochre); font-weight: 600; }
+  .tree .node-bad { color: var(--rust); font-weight: 600; }
+
+  /* ============ SIGNATURE MOMENT ============ */
+  .plasmodium-hero {
+    background: linear-gradient(135deg, #1a1612 0%, #3d342a 100%);
+    color: var(--parchment);
+    padding: 5rem 3rem;
+    margin: 5rem 0;
+    border: 1px solid var(--line-strong);
+    position: relative;
+    overflow: hidden;
+  }
+  .plasmodium-hero::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(250, 244, 232, 0.1);
+    pointer-events: none;
+  }
+  .plasmodium-hero .section-label { color: var(--terra-light); }
+  .plasmodium-hero h2 {
+    font-family: var(--serif-display);
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.05;
+    margin: 0 0 1rem;
+    color: var(--parchment);
+  }
+  .plasmodium-hero .pct {
+    font-family: var(--serif-display);
+    font-size: clamp(5rem, 14vw, 10rem);
+    line-height: 0.9;
+    color: var(--terra-light);
+    margin: 2rem 0 1rem;
+    font-weight: 300;
+  }
+  .plasmodium-hero p { color: rgba(250, 244, 232, 0.85); }
+  .plasmodium-hero strong { color: var(--parchment); }
+
+  /* ============ LISTS ============ */
+  ul.marked, ol.marked {
+    padding-left: 0;
+    list-style: none;
+    margin: 2rem 0;
+  }
+  ul.marked li, ol.marked li {
+    position: relative;
+    padding: 0.6rem 0 0.6rem 2.5rem;
+    color: var(--ink-soft);
+    border-bottom: 1px dashed var(--line-soft);
+  }
+  ul.marked li::before {
+    content: "✦";
+    position: absolute;
+    left: 0.5rem;
+    top: 0.65rem;
+    color: var(--terra);
+    font-size: 0.9rem;
+  }
+  ol.marked {
+    counter-reset: step;
+  }
+  ol.marked li {
+    counter-increment: step;
+  }
+  ol.marked li::before {
+    content: counter(step, upper-roman);
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--terra);
+    font-weight: 600;
+  }
+
+  /* ============ COMPARE TABLE ============ */
+  .compare {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2.5rem 0;
+  }
+  .compare th {
+    font-family: var(--serif-classical);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    padding: 1rem;
+    text-align: left;
+    background: var(--parchment-mid);
+    border-bottom: 2px solid var(--line-strong);
+  }
+  .compare td {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid var(--line-soft);
+    vertical-align: top;
+    font-size: 0.95rem;
+  }
+  .compare .tick { color: var(--forest); font-weight: 600; }
+  .compare .cross { color: var(--rust); font-weight: 600; }
+  .compare .warn { color: var(--ochre); font-weight: 600; }
+
+  /* ============ FOOTER ============ */
+  footer {
+    text-align: center;
+    padding: 5rem 2rem 4rem;
+    border-top: 1px solid var(--line);
+    margin-top: 5rem;
+  }
+  .colophon {
+    font-family: var(--serif-classical);
+    font-style: italic;
+    color: var(--ink-muted);
+    font-size: 1rem;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+  .meta-footer {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ============ SOURCES ============ */
+  .sources {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    columns: 2;
+    column-gap: 2rem;
+    margin: 2rem 0;
+  }
+  @media (max-width: 720px) {
+    .sources { columns: 1; }
+  }
+  .sources a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-soft);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .sources a:hover {
+    color: var(--terra);
+    border-bottom-color: var(--terra);
+  }
+  .sources li {
+    break-inside: avoid;
+    margin-bottom: 0.6rem;
+    list-style: none;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .sources li::before {
+    content: "§";
+    position: absolute;
+    left: 0;
+    color: var(--terra);
+    font-family: var(--serif-classical);
+  }
+  .sources ul { padding: 0; margin: 0; }
+
+  /* ============ BACK TO TOP ============ */
+  .back-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 48px;
+    height: 48px;
+    background: var(--parchment);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s, transform 0.4s;
+    z-index: 900;
+    color: var(--terra);
+    font-family: var(--serif-classical);
+    font-size: 1.3rem;
+  }
+  .back-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .back-top:hover {
+    background: var(--terra);
+    color: var(--parchment);
+  }
+
+  @media (max-width: 900px) {
+    section { padding: 3.5rem 0; }
+    .page { padding: 0 1.5rem; }
+  }
+  @media (max-width: 640px) {
+    body { font-size: 1rem; line-height: 1.75; }
+    .page { padding: 0 1.15rem; }
+    .rec-card { padding: 2rem 1.25rem 1.5rem; }
+    .callout { padding: 1.5rem 1.5rem; }
+    .plasmodium-hero { padding: 3rem 1.5rem; }
+    .tree { font-size: 0.7rem; }
+    body::before { opacity: 0.28; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="side-nav" id="sideNav">
+  <a href="#prologus" class="active">I · Prologus</a>
+  <a href="#species">II · Species</a>
+  <a href="#biologia">III · Biologia</a>
+  <a href="#lex">IV · Lex</a>
+  <a href="#morbi">V · Morbi</a>
+  <a href="#ars">VI · Ars</a>
+  <a href="#economia">VII · Economia</a>
+  <a href="#criatoria">VIII · Criatoria</a>
+  <a href="#arbor">IX · Arbor</a>
+  <a href="#alternativae">X · Alternativae</a>
+  <a href="#fontes">XI · Fontes</a>
+</nav>
+
+<!-- ===================== FRONTISPIECE ===================== -->
+<div class="frontispiece">
+  <div class="frontis-meta">
+    Breviarium Avis Brasiliae · <em>MMXXVI</em> · Version III
+  </div>
+  <h1 class="frontis-title">Codex<br>Turdi Rufiventris</h1>
+  <svg class="ornament" viewBox="0 0 120 24" fill="none">
+    <line x1="0" y1="12" x2="48" y2="12" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+    <line x1="72" y1="12" x2="120" y2="12" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+    <circle cx="60" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.7"/>
+    <circle cx="60" cy="12" r="1" fill="currentColor" opacity="0.9"/>
+  </svg>
+  <p class="frontis-subtitle">
+    Da criação do pássaro-símbolo do Brasil<br>
+    —— 論巴西國鳥的繁殖、法律與疾病
+  </p>
+  <p class="frontis-latin">
+    De arte avicultoria · De lege brasiliensi · De morbis avium · De oeconomia
+  </p>
+  <div class="frontis-tags">
+    <span>Turdus rufiventris</span>
+    <span>IBAMA IN 10/2011</span>
+    <span>Anexo I · 4.0 mm</span>
+    <span>IUCN · LC</span>
+  </div>
+  <div class="scroll-hint">Descende ↓</div>
+</div>
+
+<!-- ===================== I · PROLOGUS ===================== -->
+<section id="prologus" class="reveal">
+  <div class="page column">
+    <div class="section-rule"><span>Incipit</span></div>
+    <span class="section-label"><span class="num">I.</span> Prologus</span>
+    <h2 class="section-title">先說結論</h2>
+    <p class="section-subtitle">Conclusio ante omnia — 在技術、法律、經濟、疾病四個面向都看清楚之後。</p>
+
+    <p class="lead">
+      技術上可行、巴西法律上合法、台灣進口幾乎死路、真正的殺手不是人類是鳥瘧疾——這四件事決定了整個計畫。
+    </p>
+
+    <p>
+      巴西國鳥 Sabiá-laranjeira 是巴西家庭最常飼養的鳴禽之一。它在 IBAMA 的 IN 10/2011 Anexo I 裡，業餘與商業繁殖者都可以合法飼養、繁殖、交易。單對母鳥一季最多產 3 窩、共 6–9 隻雛鳥。有 30 年經驗的商業繁殖場至今仍在營運。
+    </p>
+
+    <p>
+      然而真正的瓶頸不是法律也不是技術，是兩件隱形的事：<strong>圈養 Plasmodium（鳥瘧疾）盛行率 44.4%</strong>，以及這個物種在巴西黑市排名前 6，合法繁殖者長期與低價野捕洗白市場競爭。
+    </p>
+
+    <p>
+      對台灣人而言還有另一層：巴西端幾乎不核發活體出口許可，從零建立合法種鳥群在實務上走不通。本 Codex 給出完整數據，讓讀者自行判斷。
+    </p>
+  </div>
+</section>
+
+<!-- ===================== II · SPECIES ===================== -->
+<section id="species" class="reveal">
+  <div class="page">
+    <div class="section-rule"><span>De Specie</span></div>
+    <div class="column">
+      <span class="section-label"><span class="num">II.</span> Species Descriptio</span>
+      <h2 class="section-title">物種身份</h2>
+      <p class="section-subtitle">De avis symbolo Brasiliae — 巴西共和國 1968 年官方選定的國鳥，詩人 Gonçalves Dias《流亡之歌》主角。</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <span class="stat-label">Genus · Species</span>
+        <div class="stat-value" style="font-family: var(--serif-classical); font-style: italic; font-size: 1.4rem;">Turdus<br>rufiventris</div>
+        <span class="stat-unit">Vieillot, 1818</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">IUCN Status</span>
+        <div class="stat-value">LC</div>
+        <span class="stat-unit">Least Concern</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">CITES</span>
+        <div class="stat-value">—</div>
+        <span class="stat-unit">未列附錄</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Anilha IBAMA</span>
+        <div class="stat-value terra">4.0</div>
+        <span class="stat-unit">mm 不銹鋼</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Vita · Longevitas</span>
+        <div class="stat-value">10–13</div>
+        <span class="stat-unit">年（野外／圈養）</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Ave Symbolo</span>
+        <div class="stat-value" style="font-size: 1.3rem;">1968</div>
+        <span class="stat-unit">巴西國鳥正式認定</span>
+      </div>
+    </div>
+
+    <div class="column">
+      <p>
+        Sabiá-laranjeira 分佈於巴西、玻利維亞、巴拉圭、烏拉圭、阿根廷中部，是南美廣布種，族群穩定。有 3 個亞種：名義亞種 <em>T. r. rufiventris</em>（中南部）、<em>T. r. juensis</em>（東北 Ceará）、<em>T. r. jamacaii</em>（可能為獨立種）。
+      </p>
+      <p>
+        不同地理族群的歌聲存在<strong>方言（dialeto）</strong>，Nordeste 與 Sul 血統在玩家社群被視為不同風格——這是 sabiá 特有的文化與市場分層。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== III · BIOLOGIA ===================== -->
+<section id="biologia" class="reveal">
+  <div class="page">
+    <div class="section-rule"><span>Biologia Reproductionis</span></div>
+    <div class="column">
+      <span class="section-label"><span class="num">III.</span> Biologia Reproductionis</span>
+      <h2 class="section-title">繁殖生物學</h2>
+      <p class="section-subtitle">Quot ova, quot dies, quot pulli — 決定量產上限的硬性物理常數。</p>
+    </div>
+
+    <div class="wide">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:32%">Parameter</th>
+            <th>Valor</th>
+            <th style="width:22%">Font</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>繁殖季</strong><br><span class="sci">Tempus reproductionis</span></td><td>9 月–1 月（南半球春夏雨季起始）</td><td class="num-cell">Fiocruz · UFPR</td></tr>
+          <tr><td><strong>成熟年齡</strong></td><td>9–12 個月齡</td><td class="num-cell">LAGOPAS</td></tr>
+          <tr><td><strong>每窩卵數</strong><br><span class="sci">Ova per nidum</span></td><td>2–4 枚（通常 2–3），淡綠底褐斑</td><td class="num-cell">Wikipedia · UFPR</td></tr>
+          <tr><td><strong>卵尺寸</strong></td><td>27–28 × 20 mm · 5.7–5.9 g</td><td class="num-cell">Birds of the World</td></tr>
+          <tr><td><strong>孵化期</strong><br><span class="sci">Incubatio</span></td><td>12–15 日 · <strong>僅由母鳥孵</strong></td><td class="num-cell">Wikipedia</td></tr>
+          <tr><td><strong>離巢時間</strong></td><td>孵化後 13–15 日</td><td class="num-cell">UFPR</td></tr>
+          <tr><td><strong>獨立時間</strong></td><td>35 日可離母鳥</td><td class="num-cell">Portal dos Pássaros</td></tr>
+          <tr><td><strong>年產窩數</strong></td><td>一季最多 <strong>3 窩</strong> · 共 6–9 隻雛鳥/對</td><td class="num-cell">Portal dos Pássaros</td></tr>
+          <tr><td><strong>野外成功率</strong></td><td>2.57 卵 → 1.57 雛（~61%）</td><td class="num-cell">UFPR thesis</td></tr>
+          <tr><td><strong>開始學唱</strong></td><td>約 7 個月齡 <em>abrir canto</em></td><td class="num-cell">巴西賣家標記</td></tr>
+          <tr><td><strong>配對模式</strong></td><td>一夫一妻，強烈領域性</td><td class="num-cell">UFPR</td></tr>
+          <tr><td><strong>巢材</strong></td><td>泥 + 細枝 + 苔蘚 + 根，杯狀</td><td class="num-cell">UFPR</td></tr>
+          <tr><td><strong>築巢高度</strong></td><td>平均 3.86 m（2–20 m）</td><td class="num-cell">UFPR</td></tr>
+          <tr><td><strong>餵雛頻率</strong></td><td>離巢前每 5–7 分鐘一次，雙親共餵</td><td class="num-cell">Birds of the World</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="column">
+      <div class="callout ochre">
+        <span class="callout-label">Calculum · 量產潛力的真實天花板</span>
+        <h4>100 對 × 6 隻 × 60% ≈ 360 隻/年</h4>
+        <p>
+          生物學理想值是 600 隻/年，但實務扣除疾病、夭折、氣溫，大約 60% 成功率——<strong>穩態產能約 360 隻/年</strong>。這是量產規模必須以此為基準規劃的數字，不是更高的浪漫估計。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== IV · LEX ===================== -->
+<section id="lex" class="reveal">
+  <div class="page">
+    <div class="section-rule"><span>Lex Brasiliae</span></div>
+    <div class="column">
+      <span class="section-label"><span class="num">IV.</span> Lex Brasiliae</span>
+      <h2 class="section-title">巴西法律框架</h2>
+      <p class="section-subtitle">De iure silvestri — IBAMA IN 10/2011 主法規，2011 年以來未被整體取代。</p>
+
+      <p class="lead">
+        *T. rufiventris* 在 IN 10/2011 Anexo I 的 Turdidae 科，與 5 個其他 Turdus 屬物種同列——業餘與商業繁殖者都可合法飼養、繁殖、交易。
+      </p>
+    </div>
+
+    <div class="wide">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Scientific Name</th>
+            <th>Nome Popular</th>
+            <th class="num-cell">Anilha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="sci">Turdus albicollis</span></td><td>Carachué-coleira</td><td class="num-cell">4.0 mm</td></tr>
+          <tr><td><span class="sci">Turdus amaurochalinus</span></td><td>Sabiá-pocá</td><td class="num-cell">4.0 mm</td></tr>
+          <tr><td><span class="sci">Turdus fumigatus</span></td><td>Sabiá-da-mata</td><td class="num-cell">4.0 mm</td></tr>
+          <tr style="background: rgba(184, 78, 40, 0.06);"><td><strong><span class="sci">Turdus rufiventris</span></strong></td><td><strong>Sabiá-laranjeira</strong> ✦</td><td class="num-cell">4.0 mm</td></tr>
+          <tr><td><span class="sci">Turdus leucomelas</span></td><td>Sabiá-barranco</td><td class="num-cell">4.0 mm</td></tr>
+          <tr><td><span class="sci">Turdus flavipes</span></td><td>Sabiá-una</td><td class="num-cell">4.0 mm</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rec-grid">
+      <div class="rec-card">
+        <span class="species-mark">Criador Amador · CAP</span>
+        <h3>業餘繁殖者</h3>
+        <p class="sci">Non-commercial amateur status</p>
+        <ul class="marked">
+          <li>18 歲以上自然人</li>
+          <li>CTF/APP → SISPASS 註冊</li>
+          <li><strong>90 天</strong>等待期才可繁殖</li>
+          <li>Plantel 上限 <strong>100 隻</strong></li>
+          <li>出殼 8 天內上銹鋼腳環</li>
+          <li>授權期 8/1 – 7/31</li>
+          <li>非商業：不可販售，僅可 permuta</li>
+          <li>年轉移上限 10 anilhas</li>
+        </ul>
+      </div>
+      <div class="rec-card">
+        <span class="species-mark">Criador Comercial · CCP</span>
+        <h3>商業繁殖者</h3>
+        <p class="sci">Commercial breeder authorization</p>
+        <ul class="marked">
+          <li>透過州級環境廳另行申請</li>
+          <li>可開發票販售後代</li>
+          <li>交易全數登錄 SISPASS</li>
+          <li>不可販售初始種鳥</li>
+          <li>特例：無合法供給時可野捕做種<br><span class="sci">(IAT/PR IN 05/2025 art 47)</span></li>
+          <li>遺傳改良可從業餘場引種</li>
+          <li>受實地稽查控管</li>
+          <li>升級路徑明確<br><span class="sci">(IAT/PR IN 06/2025)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="callout rust">
+        <span class="callout-label">Errata · v2 的五個修正</span>
+        <h4>之前寫錯的地方</h4>
+        <p>
+          <strong>① 等待期：</strong>「註冊後 6 個月才能繁殖」→ 實際是 <strong>90 天</strong>（IEMA ES 官方 2025/1 公告）<br>
+          <strong>② 年產上限：</strong>「35 隻/年」→ IBAMA 與 LegisWeb 文本衝突，實務以 plantel 100 隻 + 10 anilhas 轉移為硬性限制<br>
+          <strong>③ 禁止野捕：</strong>「絕對禁止」→ 商業場在「無合法供給」特例下可申請野捕做種<br>
+          <strong>④ Anexo I 內容：</strong>「無法驗證」→ 已直接從 IN 10/2011 原文抓取<br>
+          <strong>⑤ 繁殖場案例：</strong>「沒有」→ 至少 4 家公開營運中
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== V · MORBI (PLASMODIUM HERO) ===================== -->
+<section id="morbi" class="reveal">
+  <div class="page">
+    <div class="section-rule"><span>Morbi et Cura</span></div>
+    <div class="column">
+      <span class="section-label"><span class="num">V.</span> Morbi Avis</span>
+      <h2 class="section-title">隱形的頭號殺手</h2>
+      <p class="section-subtitle">De morbo aviario — 你以為是營養或空間，其實是瘧疾。</p>
+    </div>
+  </div>
+
+  <div class="page wide">
+    <div class="plasmodium-hero reveal">
+      <span class="section-label">Malaria Aviaria · Plasmodium spp.</span>
+      <h2>圈養 Sabiá 最被低估的單點殺手</h2>
+      <div class="pct">44.4%</div>
+      <p style="max-width: 620px;">
+        SciELO Zoologia 學術研究顯示 <strong><em>Turdus rufiventris</em> 圈養 Plasmodium 盛行率達 44.4%</strong>。蚊蟲傳播、症狀隱匿、以 carrier 狀態擴散，而且這是這個物種特有的高風險——其他 passeriforme 沒有這麼高的背景率。
+      </p>
+      <p style="max-width: 620px;">
+        <strong>唯一有效預防</strong>是鳥舍全蚊帳覆蓋 + 消除積水 + 新進鳥血檢。大量 v1/v2 的研究報告完全遺漏這條，直接決定量產規模的底線風險。
+      </p>
+    </div>
+  </div>
+
+  <div class="page column">
+    <p>
+      Faunalytics 匯總研究指出：巴西圈養與野生調查中，<strong>感染性疾病佔 73% 的死亡原因</strong>、約 18% 為多重感染。Sabiá 的主要威脅除 Plasmodium 外還有：
+    </p>
+
+    <div class="wide">
+      <table class="data-table">
+        <thead>
+          <tr><th>Morbus</th><th>Agens</th><th>Praeventio</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Atoxoplasmose</strong><br><span class="sci">系統性 Isospora</span></td><td>Isospora sp. 腸外型感染（肝、脾、血球）</td><td>每日清潔、糞便乾燥、30 天隔離檢疫</td></tr>
+          <tr><td><strong>Coccidiose</strong></td><td>Eimeria spp. / Isospora</td><td>Toltrazuril / Amprólio 飼料添加</td></tr>
+          <tr><td><strong>Sarcocistose</strong></td><td>Sarcocystis spp.（肌肉組織）</td><td>鳥舍防鼠、防蛇</td></tr>
+          <tr><td><strong>Aspergilose</strong></td><td><em>Aspergillus fumigatus</em></td><td>通風、濕度 ≤80%、墊料週更換</td></tr>
+          <tr><td><strong>Cnemidocoptose</strong></td><td>Knemidokoptes 疥蟎</td><td>Ivermectina 滴背</td></tr>
+          <tr><td><strong>腸道蠕蟲</strong></td><td>Ascaridia, Capillaria</td><td>定期糞檢 + 驅蟲</td></tr>
+          <tr><td><strong>細菌性</strong></td><td>Salmonella, E. coli, Pseudomonas</td><td>飲水每日更換 + UV 消毒</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout forest">
+      <span class="callout-label">Cura Praeventiva · 量產必備獸醫配套</span>
+      <h4>每月糞檢 · 每季血檢 · 蚊帳全覆蓋 · 隔離病房獨立空氣循環</h4>
+      <p>
+        量產規模的生存關鍵不是技術，是<strong>疫病防治預算</strong>。100 對種鳥規模下建議每年編列 R$ 15,000 獸醫費用；一次 Plasmodium 群體爆發可能直接損失 50% 鳥群。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VI · ARS ===================== -->
+<section id="ars" class="reveal">
+  <div class="page column">
+    <div class="section-rule"><span>Ars Reproductionis</span></div>
+    <span class="section-label"><span class="num">VI.</span> Ars Reproductionis</span>
+    <h2 class="section-title">繁殖技術 SOP</h2>
+    <p class="section-subtitle">Praxis criandi — 從配對、築巢、孵化、到人工育雛。</p>
+
+    <div class="callout">
+      <span class="callout-label">Environmental · 環境觸發</span>
+      <h4>模擬南半球春夏雨季</h4>
+      <p>
+        <strong>日照</strong> 13–14 小時/日（定時燈） · <strong>溫度</strong> 25–30°C（上限 30°C，過熱致死） · <strong>濕度</strong> 40–80% · <strong>晨間陽光</strong>必要 · <strong>禁止</strong>與其他鳥種混養
+      </p>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-size: 1.5rem; margin-top: 3rem;">人工孵化曲線</h3>
+
+    <div class="wide">
+      <table class="data-table">
+        <thead>
+          <tr><th>Parameter</th><th>Day 1–14（孵化期）</th><th>Post-hatch Day 1–3</th><th>Day 4+</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>溫度</strong></td><td class="num-cell">37.0–37.8°C</td><td class="num-cell">維持孵化溫度</td><td class="num-cell">每日降 1°C</td></tr>
+          <tr><td><strong>濕度</strong></td><td class="num-cell">55–65%</td><td>—</td><td>—</td></tr>
+          <tr><td><strong>翻蛋</strong></td><td class="num-cell">每 2–3 小時（8–12×/日）</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-size: 1.5rem; margin-top: 3rem;">Papinha 人工育雛</h3>
+
+    <p>
+      商品 papinha（Alcon / Pássaro Forte / Nutropica）以 <strong>1 : 3（papinha : 溫水 38–39°C）</strong>比例混勻呈均質糊狀。餵食頻率：
+    </p>
+
+    <ul class="marked">
+      <li><strong>0–3 天齡</strong> 每 30 分鐘一次</li>
+      <li><strong>4–7 天</strong> 每 1 小時一次</li>
+      <li><strong>8–14 天</strong> 每 2 小時一次</li>
+      <li><strong>15 天+</strong> 每 3 小時一次</li>
+    </ul>
+
+    <div class="callout ochre">
+      <span class="callout-label">Secretum Cantoris · 鳴叫訓練（sabiá 獨有）</span>
+      <h4>家教鳥制度是商業價值的核心</h4>
+      <p>
+        市場上公鳥 R$ 3,000 vs 母鳥 R$ 1,000 的 3 倍價差完全由歌聲決定。商業繁殖場的做法：①選擇方言（Nordeste / Sul / MG / RJ 各區不同） ②把幼鳥放在成年冠軍公鳥隔壁籠聽 6 個月 ③ 7 個月齡 <em>abrir canto</em> 時調整環境刺激 ④ 高品質錄音 + 家教鳥雙管齊下。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VII · ECONOMIA ===================== -->
+<section id="economia" class="reveal">
+  <div class="page">
+    <div class="section-rule"><span>Economia</span></div>
+    <div class="column">
+      <span class="section-label"><span class="num">VII.</span> De Oeconomia</span>
+      <h2 class="section-title">市場與經濟模型</h2>
+      <p class="section-subtitle">Pretia et impendia — 100 對種鳥規模的商業繁殖場推算。</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <span class="stat-label">Pullus Masculus</span>
+        <div class="stat-value terra">R$ 3,000</div>
+        <span class="stat-unit">公鳥雛鳥 ≈ NT$ 18,000</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Pulla Feminina</span>
+        <div class="stat-value">R$ 1,000</div>
+        <span class="stat-unit">母鳥雛鳥 ≈ NT$ 6,000</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Cantador Magnus</span>
+        <div class="stat-value terra">R$ 5k–10k+</div>
+        <span class="stat-unit">冠軍級成鳥</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Adultus Communis</span>
+        <div class="stat-value">R$ 800–1,500</div>
+        <span class="stat-unit">普通成鳥</span>
+      </div>
+    </div>
+
+    <div class="wide">
+      <h3 style="font-family: var(--serif-display); font-size: 1.8rem; margin-top: 4rem; color: var(--forest-deep);">初始投資模型（100 對種鳥）</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Impensa · 項目</th><th class="num-cell">R$ (BRL)</th><th class="num-cell">NT$ 約</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>種鳥（100 對 × R$ 1,500/對）</td><td class="num-cell">150,000</td><td class="num-cell">900,000</td></tr>
+          <tr><td>鳥舍 + 隔離室 + 檢疫房</td><td class="num-cell">100,000</td><td class="num-cell">600,000</td></tr>
+          <tr><td>孵化器、育雛器、蚊帳系統</td><td class="num-cell">20,000</td><td class="num-cell">120,000</td></tr>
+          <tr><td>初年飼料與耗材</td><td class="num-cell">30,000</td><td class="num-cell">180,000</td></tr>
+          <tr><td>獸醫血檢排程（年）</td><td class="num-cell">15,000</td><td class="num-cell">90,000</td></tr>
+          <tr><td>IBAMA / 州級申請與年費</td><td class="num-cell">5,000</td><td class="num-cell">30,000</td></tr>
+          <tr><td>人力（1 全職，CBO 6133-05）</td><td class="num-cell">23,000</td><td class="num-cell">138,000</td></tr>
+          <tr style="background: rgba(46, 88, 64, 0.08); font-weight: 600;"><td><strong>Summa · 合計初年</strong></td><td class="num-cell"><strong>~343,000</strong></td><td class="num-cell"><strong>~2,058,000</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="column">
+      <div class="callout forest">
+        <span class="callout-label">Reditus · 年度收益試算（順風）</span>
+        <h4>毛利約 R$ 479,000 · 回本週期 1 年</h4>
+        <p>
+          100 對 × 6 隻/季 × 60% 成功率 = 360 隻 → 扣 10% Plasmodium 損失、15% 雛鳥夭折 = <strong>275 隻/年</strong>。性別比 1:1 下：137 公 × R$ 3,000 + 138 母 × R$ 1,000 = R$ 549,000，扣運營成本 ~R$ 70,000，毛利約 R$ 479,000 ≈ NT$ 2.87M。
+        </p>
+      </div>
+
+      <div class="callout rust">
+        <span class="callout-label">Periculum · 結構性風險</span>
+        <h4>Cambridge BCI 論文：sabiá 是黑市前 6 名</h4>
+        <p>
+          巴西野生鳥類黑市 12 地區調查中，sabiá-laranjeira 被記錄在全部 12 個地區，<strong>交易量排名第 6</strong>。合法繁殖者長期面對低價野捕洗白的市場壓力——這是經濟模型裡最容易被忽略的結構性變數，單隻公鳥實際成交價可能從 R$ 3,000 被壓到 R$ 2,500 甚至更低。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VIII · CRIATORIA EXEMPLA ===================== -->
+<section id="criatoria" class="reveal">
+  <div class="page">
+    <div class="section-rule"><span>Criatoria Exempla</span></div>
+    <div class="column">
+      <span class="section-label"><span class="num">VIII.</span> Criatoria Exempla</span>
+      <h2 class="section-title">實名繁殖場案例</h2>
+      <p class="section-subtitle">Quatuor exempla concreta — 這不是統計，是實際可聯絡的營運中繁殖場。</p>
+    </div>
+
+    <div class="rec-grid">
+      <div class="rec-card">
+        <span class="species-mark">São Paulo · SP</span>
+        <h3>Criadouro Planeta Pássaros</h3>
+        <p class="sci">CTF 114437 · SMA 19911 · Jaboticabal</p>
+        <p>30+ 年經驗的商業場，專精 Curió、Bicudo、Sabiá-laranjeira。網站公開 IBAMA 授權編號，可作為研究實戰數據的首選訪談對象。</p>
+      </div>
+      <div class="rec-card">
+        <span class="species-mark">Minas Gerais · MG</span>
+        <h3>Criadouro Harmonia</h3>
+        <p class="sci">IBAMA 授權 · 多物種商業場</p>
+        <p>授權販售 Azulão、Coleiro、Trinca-Ferro、Bicudo、Curió、Sabiá-laranjeira。有公開基因血統宣稱（Van Goch、WPS、Sobe Sobe 等家族）。</p>
+      </div>
+      <div class="rec-card">
+        <span class="species-mark">São Carlos · SP</span>
+        <h3>Criadouro RF</h3>
+        <p class="sci">AM SIGAM 66364 · 28243</p>
+        <p>自 1980 年代起家，兩個獨立授權編號代表雙棟運營。專精 fibra 選育（Fantoche RF、Jon Jones、Goia 家族），有完整的 GTA、atestado sanitário 流程記錄。</p>
+      </div>
+      <div class="rec-card">
+        <span class="species-mark">Plantel Público</span>
+        <h3>Criadouro Araçá</h3>
+        <p class="sci">完整血統頁 · 公開 SISPASS 編號</p>
+        <p>網站公開每隻 sabiá 的 anilha 編號、出生日期、父母名字、generation 樹。這是血統管理的實務模板，也是外界最容易學到 studbook 操作的範本。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== IX · ARBOR DECISIONIS ===================== -->
+<section id="arbor" class="reveal">
+  <div class="page">
+    <div class="section-rule"><span>Arbor Decisionis</span></div>
+    <div class="column">
+      <span class="section-label"><span class="num">IX.</span> Arbor Decisionis</span>
+      <h2 class="section-title">決策樹</h2>
+      <p class="section-subtitle">Si, si, si — 根據所在地和目標規模的行動路徑。</p>
+    </div>
+
+    <div class="wide">
+      <div class="decision">
+        <div class="decision-title">Decision Tree · 量產可行性</div>
+<pre class="tree">
+你人在巴西嗎？
+├── <span class="node-ok">是</span>
+│   └── 想量產（plantel &gt; 100 或商業販售）嗎？
+│       ├── <span class="node-ok">是</span> → 必須升級為商業繁殖者（Criador Comercial）
+│       │       ├── 準備 R$ 30–50 萬初始資本
+│       │       ├── 先完成業餘階段建立 SISPASS 歷史
+│       │       ├── 走 IAT/PR IN 06/2025 升級路徑
+│       │       ├── 聘用獸醫：血檢 + 蚊帳全覆蓋
+│       │       ├── 100 對種鳥 + 血統登記
+│       │       ├── 實地拜訪 Planeta Pássaros / RF 學實戰
+│       │       └── 3–5 年進入穩定期
+│       │
+│       └── <span class="node-warn">否</span>（只養幾對自娛）→ 業餘繁殖者路徑（90 天等待期）
+│
+└── <span class="node-bad">否（人在台灣）</span>
+    └── 你想要的真的是 sabiá 嗎？
+        ├── <span class="node-bad">是</span> → 台灣合法路徑幾乎不存在
+        │       └── 跨國合作（巴西註冊 + 台灣遠端支援）
+        │
+        └── <span class="node-warn">否</span>（想要會唱的鳴禽）
+                └── 金絲雀 · 胡錦鳥 · 綠繡眼 · 十姊妹 · 文鳥
+</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== X · ALTERNATIVAE ===================== -->
+<section id="alternativae" class="reveal">
+  <div class="page column">
+    <div class="section-rule"><span>Alternativae</span></div>
+    <span class="section-label"><span class="num">X.</span> Alternativae</span>
+    <h2 class="section-title">替代路徑總盤點</h2>
+    <p class="section-subtitle">Si prohibitus es, si distans es — 如果你不在巴西，或者不能量產。</p>
+
+    <div class="wide">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>情境</th>
+            <th>可行性</th>
+            <th>路徑</th>
+            <th>瓶頸</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>巴西 · 業餘</strong></td><td class="warn">⚠ 不能量產</td><td>CTF/APP → SISPASS → 90 天 → 購種</td><td>plantel 100 隻上限</td></tr>
+          <tr><td><strong>巴西 · 商業</strong></td><td class="tick">✓ 可行</td><td>從業餘升級 + R$ 30–50 萬投入</td><td>資本 + 黑市競爭 + Plasmodium</td></tr>
+          <tr><td><strong>台灣 · 合法持有</strong></td><td class="cross">✗ 死路</td><td>無合法來源</td><td>巴西不核發活體出口</td></tr>
+          <tr><td><strong>台灣 · 替代物種</strong></td><td class="tick">✓ 可行</td><td>金絲雀 / 胡錦鳥 / 綠繡眼合法場</td><td>非 sabiá 歌聲</td></tr>
+          <tr><td><strong>跨國合作</strong></td><td class="warn">⚠ 複雜</td><td>巴西註冊 + 台灣遠端</td><td>信任、金流、稽查</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout forest">
+      <span class="callout-label">Substituta Formosana · 台灣合法平替</span>
+      <h4>會唱的鳴禽其實有很多選擇</h4>
+      <p>
+        <strong>金絲雀</strong>：非野保法 55 條管制，技術成熟、飼料齊全、可比賽 · <strong>胡錦鳥（七彩文鳥）</strong>：合法、有孵化器教學 · <strong>綠繡眼</strong>：合法場一對一年可產 21 隻幼鳥 · <strong>十姊妹、文鳥</strong>：門檻最低、完全合法。真正想要大型鶇科歌聲者可研究 *Turdus merula*（歐洲烏鶇）的進口狀態。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== XI · LACUNAE ===================== -->
+<section id="lacunae" class="reveal">
+  <div class="page column">
+    <div class="section-rule"><span>Lacunae et Dubia</span></div>
+    <span class="section-label"><span class="num">XI.</span> Lacunae et Dubia</span>
+    <h2 class="section-title">未解問題</h2>
+    <p class="section-subtitle">Quod adhuc nescimus — 誠實盤點：v3 仍然沒拿到實戰數據的地方。</p>
+
+    <ol class="marked">
+      <li><strong>35 vs 10 filhotes/年的真相：</strong>IBAMA 官方網站與 LegisWeb 的條文衝突，需直接查 DOU 的 consolidado</li>
+      <li><strong>Plasmodium 圈養實戰死亡率：</strong>只有 44.4% 感染率，沒有群體爆發時的實際死亡率數據</li>
+      <li><strong>Cambridge BCI 論文全文：</strong>黑市精確數據在 paywall 後面</li>
+      <li><strong>實戰繁殖場 3+ 年經濟數據：</strong>只能靠直接訪談 Planeta Pássaros 或 RF 取得</li>
+      <li><strong>Sabiá cantador 市場分級機制：</strong>需 Facebook 社團田野調查</li>
+      <li><strong>台灣進口歷史案例：</strong>需向林業保育署 + 動植物防檢疫署直接去信</li>
+      <li><strong>檢疫期黃金時間與重大疫病暴發史：</strong>需查 BJVM 巴西獸醫學會期刊</li>
+    </ol>
+
+    <p class="lead">
+      如果要推進到 v4，最高 ROI 的單一動作是直接打 WhatsApp 訪談 Planeta Pássaros，一次拿到疾病管理、實際死亡率、黑市壓價三條關鍵數據。
+    </p>
+  </div>
+</section>
+
+<!-- ===================== XII · FONTES ===================== -->
+<section id="fontes" class="reveal">
+  <div class="page column">
+    <div class="section-rule"><span>Fontes</span></div>
+    <span class="section-label"><span class="num">XII.</span> Fontes</span>
+    <h2 class="section-title">參考資料</h2>
+    <p class="section-subtitle">Fontes principales — 以 Tavily Research Pro + WebSearch 三語交叉驗證。</p>
+  </div>
+
+  <div class="page wide">
+    <h3 style="font-family: var(--serif-display); font-size: 1.3rem; color: var(--forest-deep); margin-top: 2rem;">生物學與繁殖</h3>
+    <div class="sources"><ul>
+      <li><a href="https://en.wikipedia.org/wiki/Rufous-bellied_thrush">Rufous-bellied thrush — Wikipedia</a></li>
+      <li><a href="https://birdsoftheworld.org/bow/species/rubthr1/cur/introduction">Birds of the World · Rufous-bellied Thrush</a></li>
+      <li><a href="https://acervodigital.ufpr.br/handle/1884/33606">UFPR · Comportamento reprodutivo em sabiá-laranjeira</a></li>
+      <li><a href="https://www.iucnredlist.org/species/22708882/36824036">IUCN Red List · Turdus rufiventris (2008)</a></li>
+      <li><a href="http://www.invivo.fiocruz.br/biodiversidade/sabia-laranjeira/">Fiocruz InVivo · Sabiá-Laranjeira</a></li>
+      <li><a href="https://pt.wikipedia.org/wiki/Sabi%C3%A1-laranjeira">Sabiá-laranjeira — Wikipedia PT</a></li>
+      <li><a href="https://datazone.birdlife.org/species/factsheet/rufous-bellied-thrush-turdus-rufiventris">BirdLife DataZone · Factsheet</a></li>
+      <li><a href="https://vidadebicho.globo.com/comportamento/noticia/2022/10/10-curiosidades-sobre-o-sabia-laranjeira-ave-simbolo-do-brasil.ghtml">Vida de Bicho (Globo) · 10 curiosidades</a></li>
+    </ul></div>
+
+    <h3 style="font-family: var(--serif-display); font-size: 1.3rem; color: var(--forest-deep); margin-top: 2.5rem;">巴西聯邦與州級法規</h3>
+    <div class="sources"><ul>
+      <li><a href="https://central3.to.gov.br/arquivo/509494/">IN 10/2011 完整文本（TO）</a></li>
+      <li><a href="https://www.gov.br/ibama/pt-br/assuntos/biodiversidade/fauna-silvestre/passaros-silvestres">IBAMA · SISPASS Passeriformes</a></li>
+      <li><a href="https://legisweb.com.br/legislacao/?id=78867">IN 10/2011 — LegisWeb</a></li>
+      <li><a href="https://www.iat.pr.gov.br/sites/agua-terra/arquivos_restritos/files/documento/2022-01/manual_do_criador_amador_de_passeriformes.pdf">Manual do Criador Amador — IAT PR</a></li>
+      <li><a href="https://www.iat.pr.gov.br/sites/agua-terra/arquivos_restritos/files/documento/2025-05/instrucao_normativa_05-2025_-_lic._amb._de_criadouros_comerciais_de_fauna_silvestre_nativa_e-ou_exotica_-_23.758.761-8.pdf">IN IAT PR 05/2025</a></li>
+      <li><a href="https://www.legisweb.com.br/legislacao/?id=477348">IN IAT PR 06/2025 — 升級路徑</a></li>
+      <li><a href="https://iema.es.gov.br/Media/iema/FAUNA/Portaria%20conjunta%2015-R_2024%20-%20lista%20pet.pdf">Portaria conjunta 15-R/2024 IEMA ES</a></li>
+      <li><a href="https://iema.es.gov.br/Not%C3%ADcia/iema-divulga-direitos-e-deveres-de-criadores-amadoristas-de-passeriformes">IEMA ES · direitos e deveres</a></li>
+      <li><a href="https://oeco.org.br/salada-verde/24798-novas-regras-para-criadores-de-passaros/">O Eco · Novas regras para criadores</a></li>
+      <li><a href="https://www.gov.br/ibama/phocadownload/fauna/faunasilvestre/2019-ibama-diagnostico-criacao-animais-silvestres-brasil.pdf">IBAMA Diagnóstico 2019</a></li>
+    </ul></div>
+
+    <h3 style="font-family: var(--serif-display); font-size: 1.3rem; color: var(--forest-deep); margin-top: 2.5rem;">疾病與獸醫</h3>
+    <div class="sources"><ul>
+      <li><a href="https://faunalytics.org/diseases-in-captive-wild-and-trafficked-birds-brazilian-portuguese/">Faunalytics · Diseases in Captive Wild Birds</a></li>
+      <li><a href="https://scielo.br/j/zool/a/t77jYz9tXcG86Fq6tVBC8cM/?lang=en">SciELO Zoologia · Plasmodium em Turdus</a></li>
+      <li><a href="https://www.bvs-vet.org.br/vetindex/periodicos/pesquisa-veterinaria-brasileira/37-(2017)-11/coccidiose-extraintestinal-causando-atoxoplasmose-em-trinca-ferros-de-/">Atoxoplasmose em trinca-ferros — PVB</a></li>
+      <li><a href="https://ri.unipac.br/repositorio/trabalhos-academicos/coccidiose-em-passeriformes-silvestres-criados-em-cativeiro/">Coccidiose em passeriformes — UNIPAC</a></li>
+      <li><a href="https://agrariacad.com/2025/02/07/diversidade-parasitaria-em-aves-domesticas-e-silvestres-em-reabilitacao/">Diversidade parasitária em aves</a></li>
+    </ul></div>
+
+    <h3 style="font-family: var(--serif-display); font-size: 1.3rem; color: var(--forest-deep); margin-top: 2.5rem;">實務 SOP 與繁殖場</h3>
+    <div class="sources"><ul>
+      <li><a href="https://lagopas.com.br/var/userfiles/arquivos242/documentos/728/CriarSabia.pdf">Criar Sabiá — Criadouro LAGOPAS</a></li>
+      <li><a href="https://criadouroplanetapassaros.com.br/">Criadouro Planeta Pássaros (SP)</a></li>
+      <li><a href="https://www.criadouroharmonia.com.br/criadouro">Criadouro Harmonia (MG)</a></li>
+      <li><a href="https://www.criadourorf.com.br/quem-somos">Criadouro RF (São Carlos)</a></li>
+      <li><a href="https://www.criadouroaraca.com.br/sabia-laranjeira/plantel/machos">Criadouro Araçá · Plantel Sabiá</a></li>
+      <li><a href="https://criadourofinco.webnode.page/nativos/sabia-laranjeira/">Criadouro Finco · Sabiá-laranjeira</a></li>
+      <li><a href="https://nacaodosperiquitos.forumeiros.com/t35-como-reproduzir-o-sabia-laranjeira-em-cativeiro">Fórum nacaodosperiquitos · SOP</a></li>
+      <li><a href="https://galogigante.com/como-regular-a-sua-chocadeira-temperatura-e-umidade/">Tabela de temperatura chocadeira</a></li>
+    </ul></div>
+
+    <h3 style="font-family: var(--serif-display); font-size: 1.3rem; color: var(--forest-deep); margin-top: 2.5rem;">市場與黑市</h3>
+    <div class="sources"><ul>
+      <li><a href="https://www.cambridge.org/core/journals/bird-conservation-international/article/live-bird-trade-in-brazil-and-its-conservation-implications-an-overview/31F71BEEEF88DCD9C938B333C4200DC1">Cambridge BCI · Live Bird Trade in Brazil</a></li>
+      <li><a href="https://www.avesecia.com.br/sabia-laranjeira">Aves & Cia · Criadores Sabiá</a></li>
+      <li><a href="https://lista.mercadolivre.com.br/filhote-de-sabia-laranjeira-a-venda-aves">Mercado Livre · Filhote Sabiá</a></li>
+      <li><a href="https://salario.com.br/profissao/criador-de-aves-cbo-613305/">Salário.com.br · Criador de Aves CBO</a></li>
+      <li><a href="https://comunidadeambiental.com.br/artigo/conheca-das-categorias-de-criacao-e-comercio-de-aves-silvestres/">Comunidade Ambiental · Categorias</a></li>
+    </ul></div>
+
+    <h3 style="font-family: var(--serif-display); font-size: 1.3rem; color: var(--forest-deep); margin-top: 2.5rem;">台灣法規與平替路徑</h3>
+    <div class="sources"><ul>
+      <li><a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0120001">野生動物保育法 · 全國法規</a></li>
+      <li><a href="https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040100111001600-0810701">野生動植物進出口管理作業規範</a></li>
+      <li><a href="https://web.customs.gov.tw/keelung/singlehtml/179?cntId=f8f899ca93ae4be8aaaf42eaeca5d3da">基隆關 · CITES 輸出入注意事項</a></li>
+      <li><a href="https://conservation.forest.gov.tw/0002116">林業保育署 · 人工飼養陸域物種</a></li>
+      <li><a href="https://isabellalife.tw/articles-3986">綠繡眼飼養完整指南</a></li>
+      <li><a href="https://sites.google.com/view/japanese-white-eye/">綠繡眼守護島</a></li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <svg class="ornament" viewBox="0 0 120 24" fill="none" style="color: var(--terra); margin-bottom: 1.5rem;">
+    <line x1="0" y1="12" x2="48" y2="12" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+    <line x1="72" y1="12" x2="120" y2="12" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+    <circle cx="60" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="0.8"/>
+    <circle cx="60" cy="12" r="1" fill="currentColor"/>
+  </svg>
+  <p class="colophon">
+    Codex compositus anno MMXXVI · Aprilis XI · Version III<br>
+    Ars investigationis: Tavily Research Pro + WebSearch · Portugaliano, Anglico, Sinensi linguis confectus.<br>
+    Fons primarius IN 10/2011 Anexo I Turdidae.
+  </p>
+  <div class="meta-footer">Finis · 終</div>
+</footer>
+
+<div class="back-top" id="backTop">↑</div>
+
+<script>
+  // Progress bar
+  const progress = document.getElementById('progress');
+  const backTop = document.getElementById('backTop');
+  const sideNavLinks = document.querySelectorAll('.side-nav a');
+  const sections = document.querySelectorAll('section[id]');
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = Math.min(100, (scrollTop / docHeight) * 100);
+    progress.style.width = pct + '%';
+
+    // Back to top visibility
+    if (scrollTop > window.innerHeight * 0.6) {
+      backTop.classList.add('visible');
+    } else {
+      backTop.classList.remove('visible');
+    }
+
+    // Active nav section
+    let current = 'prologus';
+    sections.forEach(sec => {
+      const top = sec.offsetTop - window.innerHeight * 0.35;
+      if (scrollTop >= top) current = sec.id;
+    });
+    sideNavLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  });
+
+  backTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
