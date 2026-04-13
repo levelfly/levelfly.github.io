@@ -991,6 +991,115 @@ section {
 }
 
 /* ═══════════════════════════════════════════════════
+   SVG DIAGRAMS — Responsive + Lightbox
+═══════════════════════════════════════════════════ */
+.svg-diagram {
+  margin: 2rem 0;
+  text-align: center;
+  cursor: zoom-in;
+  position: relative;
+}
+
+.svg-diagram svg {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--parchment-edge);
+  border-radius: 6px;
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.2s ease;
+}
+
+.svg-diagram:hover svg {
+  box-shadow: var(--shadow-lift);
+}
+
+/* Tap-to-enlarge hint */
+.svg-diagram::after {
+  content: "🔍 點擊放大";
+  display: block;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(26, 22, 18, 0.88);
+  cursor: zoom-out;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+}
+
+.lightbox-overlay svg,
+.lightbox-overlay img {
+  max-width: 95vw;
+  max-height: 90vh;
+  background: var(--parchment);
+  border-radius: 8px;
+  box-shadow: 0 8px 60px rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 10000;
+  background: var(--parchment);
+  color: var(--ink);
+  border: none;
+  font-size: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-family: serif;
+}
+
+.lightbox-overlay.active + .lightbox-close,
+.lightbox-close.active {
+  display: flex;
+}
+
+/* Pinch-to-zoom hint on mobile */
+.lightbox-hint {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  background: rgba(26, 22, 18, 0.7);
+  color: var(--parchment-light);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.8rem;
+  display: none;
+  pointer-events: none;
+}
+
+.lightbox-overlay.active ~ .lightbox-hint {
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════════
    CALLOUT BOXES
 ═══════════════════════════════════════════════════ */
 .callout {
@@ -1962,6 +2071,17 @@ blockquote.citation footer::before { content: "— "; }
 ═══════════════════════════════════════════════════ */
 @media (max-width: 640px) {
   html { font-size: 16px; }
+
+  /* SVG diagrams: force responsive on mobile */
+  .svg-diagram svg {
+    max-width: 100% !important;
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  .svg-diagram::after {
+    content: "🔍 點擊可放大 · 雙指可縮放";
+  }
 
   /* Wide tables: horizontal scroll wrapper on mobile */
   .chapter-block table,
@@ -8930,6 +9050,59 @@ document.addEventListener('keydown', (e) => {
     closeMobileNav();
   }
 });
+
+/* ═══════════ SVG Lightbox ═══════════ */
+(function() {
+  // Create overlay elements
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  document.body.appendChild(overlay);
+
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'lightbox-close';
+  closeBtn.innerHTML = '✕';
+  closeBtn.setAttribute('aria-label', '關閉');
+  document.body.appendChild(closeBtn);
+
+  const hint = document.createElement('div');
+  hint.className = 'lightbox-hint';
+  hint.textContent = '雙指縮放 · 點擊任意處關閉';
+  document.body.appendChild(hint);
+
+  function openLightbox(svgEl) {
+    const clone = svgEl.cloneNode(true);
+    clone.removeAttribute('width');
+    clone.removeAttribute('height');
+    clone.style.maxWidth = '95vw';
+    clone.style.maxHeight = '90vh';
+    overlay.innerHTML = '';
+    overlay.appendChild(clone);
+    overlay.classList.add('active');
+    closeBtn.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    overlay.classList.remove('active');
+    closeBtn.classList.remove('active');
+    overlay.innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  // Attach click to all svg-diagram figures
+  document.querySelectorAll('.svg-diagram').forEach(function(fig) {
+    fig.addEventListener('click', function(e) {
+      const svg = fig.querySelector('svg');
+      if (svg) openLightbox(svg);
+    });
+  });
+
+  overlay.addEventListener('click', closeLightbox);
+  closeBtn.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
 </script>
 
 </body>
