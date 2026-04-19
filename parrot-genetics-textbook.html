@@ -377,6 +377,153 @@ details p:last-child { margin-bottom: 4px; }
     details { background: white; box-shadow: none; }
     details summary::before { display: none; }
     details[open] summary { font-weight: 700; }
+    .calculator { display: none; }
+}
+
+/* ─── 互動式配對計算器 ─── */
+.calculator {
+    background: linear-gradient(135deg, #fff 0%, #fefcf7 100%);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 32px 0;
+    box-shadow: var(--shadow-lg);
+}
+.calc-bird {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+.calc-bird:nth-of-type(2) { border-bottom: none; }
+.calc-bird h4 {
+    color: var(--accent);
+    margin: 0 0 14px 0;
+    font-size: 17px;
+    text-transform: none;
+    letter-spacing: 0;
+}
+.calc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+}
+.calc-locus label {
+    display: block;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+.calc-locus select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 6px;
+    background: white;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23b8845a'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 32px;
+}
+.calc-locus select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(184, 132, 90, 0.15);
+}
+.calc-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 8px;
+    transition: all 0.15s;
+    -webkit-tap-highlight-color: transparent;
+}
+.calc-btn:hover, .calc-btn:active {
+    background: #8b5a2a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(184, 132, 90, 0.3);
+}
+.calc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+.calc-result-block {
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid var(--border);
+}
+.calc-result-block h4 {
+    margin: 0 0 12px 0;
+    font-size: 15px;
+    color: var(--text);
+    text-transform: none;
+    letter-spacing: 0;
+}
+.calc-male h4 { color: #3870c4; }
+.calc-female h4 { color: #c44848; }
+.calc-result-block table {
+    width: 100%;
+    margin: 0;
+    background: white;
+    font-size: 14px;
+}
+.calc-result-block th { background: var(--table-header); padding: 8px 10px; }
+.calc-result-block td { padding: 8px 10px; }
+.calc-result-note {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 16px;
+    font-style: italic;
+}
+.calc-note {
+    margin-top: 16px;
+    padding: 10px 14px;
+    background: #fff7e6;
+    border-left: 3px solid #d4791e;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: var(--text);
+}
+
+@media (max-width: 768px) {
+    .calculator {
+        padding: 18px 18px;
+        margin: 24px -8px;
+        border-radius: 10px;
+    }
+    .calc-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .calc-locus select {
+        font-size: 15px;
+        padding: 12px 32px 12px 14px;
+    }
+    .calc-btn {
+        font-size: 15px;
+        padding: 13px 24px;
+    }
+    .calc-result-grid {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 </head>
@@ -406,7 +553,7 @@ details p:last-child { margin-bottom: 4px; }
 <li><a href="#_13">附錄</a></li>
 </ul>
 </li>
-<li><a href="#_14">序：為什麼要花時間學這個</a><ul>
+<li><a href="#_14">序：為什麼這本書值得花時間讀</a><ul>
 <li><a href="#30">30 秒掌握全書核心</a></li>
 </ul>
 </li>
@@ -475,7 +622,7 @@ details p:last-child { margin-bottom: 4px; }
 <li><a href="#_47">反直覺現象</a></li>
 <li><a href="#_48">為什麼叫「隱性互補」</a></li>
 <li><a href="#_49">實務含義</a></li>
-<li><a href="#_50">真實案例：叔叔的綠色公母之謎</a></li>
+<li><a href="#_50">真實案例：綠色公母之謎案例</a></li>
 <li><a href="#_51">回顧</a></li>
 <li><a href="#_52">思考題</a></li>
 </ul>
@@ -712,8 +859,17 @@ details p:last-child { margin-bottom: 4px; }
 <li><a href="#_157">自家工具</a></li>
 </ul>
 </li>
-<li><a href="#_158">結語</a><ul>
-<li><a href="#5-action-plan">明天可以做的 5 件事（Action Plan）</a></li>
+<li><a href="#e">附錄 E：互動式配對計算器</a></li>
+<li><a href="#f">附錄 F：常見配對速查表</a><ul>
+<li><a href="#a_2">同色純合配對（A 線：現金流）</a></li>
+<li><a href="#b-split">雙隱性互補（B 線：建立 split 庫存）</a></li>
+<li><a href="#_158">性聯顯現（性別連鎖鑑定法 — 用顏色判性別）</a></li>
+<li><a href="#c_2">進階配對（C 線：探索）</a></li>
+<li><a href="#_159">看到後代反推父母（疑案排查）</a></li>
+</ul>
+</li>
+<li><a href="#_160">結語</a><ul>
+<li><a href="#5_3">下一步可以做的 5 件事</a></li>
 </ul>
 </li>
 </ul>
@@ -729,9 +885,10 @@ details p:last-child { margin-bottom: 4px; }
 以和尚鸚鵡（Monk Parakeet, <em>Myiopsitta monachus</em>）為主軸，原則通用於所有鸚鵡</p>
 </blockquote>
 <p><strong>整理者</strong>：Jay Hung（與 Claude 共同整理）<br />
-<strong>對象</strong>：和尚鸚鵡繁殖場業者、遺傳學初學者、想跟叔叔或繁殖者深入討論的家屬<br />
-<strong>版本</strong>：v1.0，2026-04-19<br />
-<strong>閱讀時間</strong>：認真讀完約 2-3 小時；會配對計算約 5 小時</p>
+<strong>獻給</strong>：所有想把多年繁殖經驗系統化的資深養鳥人<br />
+<strong>對象</strong>：和尚鸚鵡繁殖者、希望跟國際繁殖社群接軌的人、想用學術方法驗證經驗的同行<br />
+<strong>版本</strong>：v1.1，2026-04-19<br />
+<strong>閱讀時間</strong>：認真讀完約 2-3 小時；學會配對計算約 5 小時</p>
 <hr />
 <h2 id="_2">目錄</h2>
 <h3 id="_3">序章</h3>
@@ -800,23 +957,18 @@ details p:last-child { margin-bottom: 4px; }
 <li><a href="#附錄-d推薦延伸資源">附錄 D：推薦延伸資源</a></li>
 </ul>
 <hr />
-<h2 id="_14">序：為什麼要花時間學這個</h2>
-<p>如果你的家人在養和尚鸚鵡，你大概聽過這些對話：</p>
-<blockquote>
-<p>「這隻是 split blue 的黃化公。」<br />
-「派洛配黃化會出什麼？」<br />
-「銀絲母不能 split，所以只有公鳥能藏。」</p>
-</blockquote>
-<p>這些話都不長，但每一句都壓縮了大量資訊。沒學過遺傳學的人聽起來像暗號；學過的人能立刻判斷一隻鳥的價值跟它能配出什麼。</p>
-<p><strong>這本書的目的</strong>：用最少的數學、最多的比喻，把這套「暗號系統」教會你。</p>
-<p>讀完之後你能做到：
-- 看懂任何鸚鵡基因型寫法（如 <code>ino/+, Z^+ Z^op</code>）
-- 自己用紙筆算配對後代分布
-- 跟繁殖者討論 split、等位基因、性聯這些術語
-- 評估一隻外觀普通的綠鳥是不是「隱形寶藏」
-- 理解為什麼有些配對價值高、有些是浪費籠位</p>
-<p>我們會用<strong>撲克牌</strong>跟<strong>門牌地址</strong>兩個比喻當主軸。從「鳥羽毛為什麼有顏色」開始，慢慢爬到「基因座的座標系統」，最後用真實配對範例把所有東西串起來。</p>
-<p>每章末尾都有一句<strong>回顧</strong>和一個<strong>思考題</strong>（點開可看答案）。讀的時候不要跳——這套知識是階梯式的，後面每一章都建立在前面的概念上。</p>
+<h2 id="_14">序：為什麼這本書值得花時間讀</h2>
+<p>養和尚鸚鵡多年的繁殖者，憑經驗都能判斷「這對配出來會出什麼色」——但通常說不清楚<strong>為什麼</strong>。</p>
+<p>知道「藍配黃化會出綠色」是一回事；知道<strong>為什麼</strong>這些綠色雛鳥其實是「double split」、配回去可以拿到 25% 純藍 + 25% 黃化、是您場上<strong>最有價值的種鳥候選</strong>——是另一回事。</p>
+<p>這本書的目的：把您原本就會但說不出原理的東西<strong>系統化</strong>，再補上幾個關鍵的新觀念，讓您能：</p>
+<ul>
+<li><strong>跟國際接軌</strong>：把場上的「銀絲」「派洛」「肉桂」對應到 Opaline、Pallid、Cinnamon，跟國外繁殖者直接溝通</li>
+<li><strong>看見隱形資產</strong>：場上一定有幾隻外觀普通的綠鳥其實藏著稀有 split——學會這套系統就能挖出來</li>
+<li><strong>算複雜配對</strong>：三重突變的配對結果不用憑感覺，可以紙筆算出機率分布</li>
+<li><strong>驗證經驗</strong>：對照理論後代分布跟您實際的配對紀錄，知道哪些直覺是對的、哪些其實有更好的選擇</li>
+</ul>
+<p><strong>寫法上的承諾</strong>：用最少的數學、最多的比喻。我們會用<strong>撲克牌</strong>跟<strong>門牌地址</strong>兩個比喻當主軸，從「鳥羽毛為什麼有顏色」開始，慢慢爬到「基因座的座標系統」，最後用真實配對範例把所有東西串起來。</p>
+<p>每章末尾都有<strong>回顧</strong>跟<strong>思考題</strong>（點開可看答案）。如果您是資深繁殖者，很多章節的內容您會覺得「對啊本來就是這樣」——這是好事，代表您的經驗已經摸到了原理；本書只是把您腦中的東西寫成系統。<strong>真正會帶來新東西的章節是性聯遺傳（第四篇）跟基因座座標系統（第五篇）</strong>——這兩篇值得讀慢一點。</p>
 <div class="summary-card">
 <h3 id="30">30 秒掌握全書核心</h3>
 <p>如果你只有 30 秒，記住這 7 句話就夠了：</p>
@@ -1186,7 +1338,7 @@ details p:last-child { margin-bottom: 4px; }
 <p><strong>Punnett square</strong>（龐尼特方格）由英國遺傳學家 Reginald Punnett 在 1905 年發明，用來視覺化孟德爾的遺傳規律。一個世紀過去，這仍然是繁殖者最常用的工具。</p>
 <h3 id="_39">結論</h3>
 <p>兩隻外觀都是綠色的鳥配對，<strong>可能生出 25% 藍色小孩</strong>。</p>
-<p>這個看似魔法的現象，叔叔場每天都在發生。</p>
+<p>這個看似魔法的現象，繁殖場每天都在發生。</p>
 <h3 id="_40">回顧</h3>
 <p>配對 = 爸媽各抽一張牌給小孩。Punnett 方格幫你列出所有組合，算出機率。</p>
 <h3 id="_41">思考題</h3>
@@ -1306,13 +1458,13 @@ details p:last-child { margin-bottom: 4px; }
   <text class="fig-label" x="200" y="488" font-weight="700" fill="#b8845a" font-size="15">這就是「隱性互補」</text>
 </svg><figcaption>圖 6：兩個不同位點的隱性突變配對，後代外觀回到野生型綠色，但藏著雙重 split。</figcaption></figure>
 
-<h3 id="_50">真實案例：叔叔的綠色公母之謎</h3>
-<p>如果叔叔場曾經有 Blue × NSL Lutino 配對，那一窩雛鳥<strong>整窩都是綠色</strong>——一公一母完全合理（性別本來就 1:1）。叔叔說「沒買過綠色」是真的，因為<strong>這是自己場內生的</strong>，不是買的。</p>
+<h3 id="_50">真實案例：綠色公母之謎案例</h3>
+<p>假設場上曾經有 Blue × NSL Lutino 配對，那一窩雛鳥<strong>整窩都是綠色</strong>——一公一母完全合理（性別本來就 1:1）。所以「沒買過綠色」這個記憶不見得錯——很可能那兩隻綠色是<strong>自己場內生的</strong>，不是買的，只是當時沒特別記住。</p>
 <h3 id="_51">回顧</h3>
 <p>兩個不同位點的隱性突變配對，後代外觀全綠（隱性互補），但是 double split 是黃金資產。</p>
 <h3 id="_52">思考題</h3>
 <blockquote>
-<p>❓ 如果叔叔場有「藍色 × 銀絲」這個配對（注意銀絲是性聯），會出什麼？跟「藍色 × 黃化」一樣全綠嗎？</p>
+<p>❓ 如果場上有「藍色 × 銀絲」這個配對（注意銀絲是性聯），會出什麼？跟「藍色 × 黃化」一樣全綠嗎？</p>
 </blockquote>
 <details>
 <summary>查看答案</summary>
@@ -1741,7 +1893,7 @@ details p:last-child { margin-bottom: 4px; }
 </blockquote>
 <details>
 <summary>查看答案</summary>
-<p>不會一樣。雖然兩個都是綠色（tur 跟 bl 都是隱性，被 + 壓住），但理論上 tur 對黃色素只是部分減少，仔細看可能有微妙差異。實務上叔叔場大概看不出來。但<strong>它們攜帶的「武器」不同</strong>：跟 Blue 母配，前者出 Aqua/Turquoise 後代，後者出純藍後代。</p>
+<p>不會一樣。雖然兩個都是綠色（tur 跟 bl 都是隱性，被 + 壓住），但理論上 tur 對黃色素只是部分減少，仔細看可能有微妙差異。實務上大概看不出來。但<strong>它們攜帶的「武器」不同</strong>：跟 Blue 母配，前者出 Aqua/Turquoise 後代，後者出純藍後代。</p>
 </details>
 <hr />
 <h2 id="13">第 13 章 多位點的獨立分配</h2>
@@ -2058,11 +2210,11 @@ details p:last-child { margin-bottom: 4px; }
 <p>SL = 性聯，NSL = 常染色體。同名突變（如 Lutino）可能位於不同位點。看不懂寫法時，標籤幫你判斷遺傳模式。</p>
 <h3 id="_104">思考題</h3>
 <blockquote>
-<p>❓ 如果叔叔場有 5 隻黃化鳥，你怎麼測試牠們是 SL 還是 NSL？（提示：不用 DNA 檢測，用配種就能知道）</p>
+<p>❓ 如果場上有 5 隻黃化鳥，你怎麼測試牠們是 SL 還是 NSL？（提示：不用 DNA 檢測，用配種就能知道）</p>
 </blockquote>
 <details>
 <summary>查看答案</summary>
-<p>拿其中一隻黃化（假設是公）配普通綠母。<strong>如果是 NSL Ino</strong>：後代全部綠色 split。<strong>如果是 SL Ino</strong>：兒子全綠 split、女兒全 SL Lutino（直接顯色）。看後代「公母顏色是否分離」就能判斷——這是性聯遺傳的指紋。叔叔做一窩就能驗證，不用花 DNA 鑑定費。</p>
+<p>拿其中一隻黃化（假設是公）配普通綠母。<strong>如果是 NSL Ino</strong>：後代全部綠色 split。<strong>如果是 SL Ino</strong>：兒子全綠 split、女兒全 SL Lutino（直接顯色）。看後代「公母顏色是否分離」就能判斷——這是性聯遺傳的指紋。做一窩就能驗證，不用花 DNA 鑑定費。</p>
 </details>
 <hr />
 <h2 id="17">第 17 章 基因型寫法逐字解讀</h2>
@@ -2250,7 +2402,7 @@ details p:last-child { margin-bottom: 4px; }
 </blockquote>
 <details>
 <summary>查看答案</summary>
-<p><strong>公鳥</strong>（兩條 Z），<strong>外觀銀絲</strong>（Opaline 純合），<strong>藏一張藍 split</strong>。配藍色母鳥會出藍銀絲後代——這是叔叔場最有商業價值的突變之一。這種鳥外觀漂亮 + split 隱形資產，是雙效種公的典型代表。</p>
+<p><strong>公鳥</strong>（兩條 Z），<strong>外觀銀絲</strong>（Opaline 純合），<strong>藏一張藍 split</strong>。配藍色母鳥會出藍銀絲後代——這是場上最有商業價值的突變之一。這種鳥外觀漂亮 + split 隱形資產，是雙效種公的典型代表。</p>
 </details>
 <hr />
 <h1 id="_109">第七篇：和尚鸚鵡的具體應用</h1>
@@ -2320,7 +2472,7 @@ details p:last-child { margin-bottom: 4px; }
 </tbody>
 </table></div>
 <h3 id="_111">基因型組合計算</h3>
-<p>以叔叔場常見的 5 個位點計算：</p>
+<p>以一個典型繁殖場常見的 5 個位點計算：</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -2733,7 +2885,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </blockquote>
 <details>
 <summary>查看答案</summary>
-<p>NSL Ino 位點：ino/+ × +/+ → 50% ino/+、50% +/+。<strong>Opaline 位點（性聯）</strong>：公親 Z^+ Z^op × 母親 Z^op W：公雛拿爸的 Z（一半 Z^+ 一半 Z^op）+ 媽的 Z^op → 25% Z^+ Z^op（綠 split）+ 25% Z^op Z^op（<strong>銀絲公</strong>）；母雛拿爸的 Z + 媽的 W → 25% Z^+ W（綠）+ 25% Z^op W（銀絲）。所以<strong>有 25% 機率出銀絲公</strong>——這是叔叔場急需的種公！</p>
+<p>NSL Ino 位點：ino/+ × +/+ → 50% ino/+、50% +/+。<strong>Opaline 位點（性聯）</strong>：公親 Z^+ Z^op × 母親 Z^op W：公雛拿爸的 Z（一半 Z^+ 一半 Z^op）+ 媽的 Z^op → 25% Z^+ Z^op（綠 split）+ 25% Z^op Z^op（<strong>銀絲公</strong>）；母雛拿爸的 Z + 媽的 W → 25% Z^+ W（綠）+ 25% Z^op W（銀絲）。所以<strong>有 25% 機率出銀絲公</strong>——這是場上可能急需的種公！</p>
 </details>
 <hr />
 <h2 id="22-2">第 22 章 實例 2：藍色公 × 黃化母</h2>
@@ -2797,10 +2949,10 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p>性別：公母比例 1:1，基因型相同。</p>
 <h3 id="_126">結論</h3>
 <p>「藍色 × 黃化」配對，<strong>整窩全部綠色 double split</strong>。</p>
-<p>這是經典的隱性互補。叔叔場可能就因為類似配對才出現「沒買過綠色卻冒出來綠色一公一母」的謎題。</p>
+<p>這是經典的隱性互補。場上可能就因為類似配對才出現「沒買過綠色卻冒出來綠色一公一母」的謎題。</p>
 <h3 id="_127">實務啟示</h3>
 <p>這對配對對「賣蛋」是低收益（綠色蛋價最低），但<strong>對建立 split 庫存是黃金組合</strong>。</p>
-<p>如果叔叔目標是培育「藍 + 黃化」的雙重突變後代（即 Albino 白化效果），這對是 F1，下一代 F2 才會開始出現純合雙重突變。</p>
+<p>如果您的目標是培育「藍 + 黃化」的雙重突變後代（即 Albino 白化效果），這對是 F1，下一代 F2 才會開始出現純合雙重突變。</p>
 <h3 id="_128">思考題</h3>
 <blockquote>
 <p>❓ 如果這對配出的綠色 F1 互相配對（兄妹近親），F2 會出什麼比例？</p>
@@ -2893,7 +3045,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <pre><code>公親：藍銀絲和尚（Blue + Opaline 雙重突變公鳥）
 母親：黃化和尚（NSL Lutino 純合母鳥）
 </code></pre>
-<p>這是叔叔場常見的進階配對。</p>
+<p>這是進階繁殖者常見的配對。</p>
 <h3 id="1_4">第 1 步：寫出基因型</h3>
 <p><strong>公親</strong>：<code>bl/bl, +/+, Z^op Z^op</code>（Blue 位點純合 + NSL Ino 正常 + Opaline 位點純合）<br />
 <strong>母親</strong>：<code>+/+, ino/ino, Z^+ W</code>（Blue 正常 + NSL Ino 純合 + Opaline 正常）</p>
@@ -3069,7 +3221,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p>公鳥是遺傳資產儲存庫，母鳥是展示與驗證工具。「養公 split 母」是進階策略。</p>
 <h3 id="_144">思考題</h3>
 <blockquote>
-<p>❓ 如果叔叔場有 5 隻派洛母（直接顯色）跟 5 隻派洛公（純合），哪邊的「遺傳價值」比較高？為什麼？</p>
+<p>❓ 如果場上有 5 隻派洛母（直接顯色）跟 5 隻派洛公（純合），哪邊的「遺傳價值」比較高？為什麼？</p>
 </blockquote>
 <details>
 <summary>查看答案</summary>
@@ -3161,7 +3313,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p>三線策略平衡短中長期。A 線供現金，B 線投資未來，C 線賭爆款。</p>
 <h3 id="_147">思考題</h3>
 <blockquote>
-<p>❓ 如果叔叔場有 90 對種鳥，按 A/B/C = 60/30/10 分配，每線各幾對？實務上要怎麼判斷一對該屬於哪一線？</p>
+<p>❓ 如果場上有 90 對種鳥，按 A/B/C = 60/30/10 分配，每線各幾對？實務上要怎麼判斷一對該屬於哪一線？</p>
 </blockquote>
 <details>
 <summary>查看答案</summary>
@@ -3586,40 +3738,361 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <li><code>基因血統報告_範本.html</code>（同上）</li>
 </ul>
 <hr />
-<h2 id="_158">結語</h2>
-<p>這本書到此結束。如果你完整讀完，現在你應該能：</p>
+<h2 id="e">附錄 E：互動式配對計算器</h2>
+<p>不用再拿紙筆算——選好公母兩隻的基因型，按「計算」就會列出後代分布。涵蓋叔叔場最常用的 5 個位點：Blue / NSL Ino / Opaline / Cinnamon / Pallid。</p>
+
+<div class="calculator">
+  <div class="calc-bird">
+    <h4>♂ 公鳥基因型</h4>
+    <div class="calc-grid">
+      <div class="calc-locus">
+        <label>Blue 位點</label>
+        <select data-bird="dad" data-locus="bl">
+          <option value="+,+">+/+ 正常綠</option>
+          <option value="bl,+">bl/+ split blue</option>
+          <option value="bl,bl">bl/bl 藍色</option>
+        </select>
+      </div>
+      <div class="calc-locus">
+        <label>NSL Ino 位點</label>
+        <select data-bird="dad" data-locus="ino">
+          <option value="+,+">+/+ 正常</option>
+          <option value="ino,+">ino/+ split 黃化</option>
+          <option value="ino,ino">ino/ino 黃化</option>
+        </select>
+      </div>
+      <div class="calc-locus">
+        <label>Opaline 位點 (性聯)</label>
+        <select data-bird="dad" data-locus="op">
+          <option value="+,+">Z+ Z+ 正常</option>
+          <option value="op,+">Z^op Z+ split 銀絲</option>
+          <option value="op,op">Z^op Z^op 銀絲</option>
+        </select>
+      </div>
+      <div class="calc-locus">
+        <label>Cinnamon 位點 (性聯)</label>
+        <select data-bird="dad" data-locus="cin">
+          <option value="+,+">Z+ Z+ 正常</option>
+          <option value="cin,+">Z^cin Z+ split 肉桂</option>
+          <option value="cin,cin">Z^cin Z^cin 肉桂</option>
+        </select>
+      </div>
+      <div class="calc-locus">
+        <label>Pallid 位點 (性聯)</label>
+        <select data-bird="dad" data-locus="pal">
+          <option value="+,+">Z+ Z+ 正常</option>
+          <option value="pal,+">Z^pal Z+ split 派洛</option>
+          <option value="pal,pal">Z^pal Z^pal 派洛</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-bird">
+    <h4>♀ 母鳥基因型</h4>
+    <div class="calc-grid">
+      <div class="calc-locus">
+        <label>Blue 位點</label>
+        <select data-bird="mom" data-locus="bl">
+          <option value="+,+">+/+ 正常綠</option>
+          <option value="bl,+">bl/+ split blue</option>
+          <option value="bl,bl">bl/bl 藍色</option>
+        </select>
+      </div>
+      <div class="calc-locus">
+        <label>NSL Ino 位點</label>
+        <select data-bird="mom" data-locus="ino">
+          <option value="+,+">+/+ 正常</option>
+          <option value="ino,+">ino/+ split 黃化</option>
+          <option value="ino,ino">ino/ino 黃化</option>
+        </select>
+      </div>
+      <div class="calc-locus">
+        <label>Opaline 位點 (性聯, 母鳥只一條 Z)</label>
+        <select data-bird="mom" data-locus="op">
+          <option value="+">Z+ W 正常</option>
+          <option value="op">Z^op W 銀絲</option>
+        </select>
+      </div>
+      <div class="calc-locus">
+        <label>Cinnamon 位點 (性聯, 母鳥只一條 Z)</label>
+        <select data-bird="mom" data-locus="cin">
+          <option value="+">Z+ W 正常</option>
+          <option value="cin">Z^cin W 肉桂</option>
+        </select>
+      </div>
+      <div class="calc-locus">
+        <label>Pallid 位點 (性聯, 母鳥只一條 Z)</label>
+        <select data-bird="mom" data-locus="pal">
+          <option value="+">Z+ W 正常</option>
+          <option value="pal">Z^pal W 派洛</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <button class="calc-btn" id="calc-btn">計算後代分布</button>
+
+  <div id="calc-result"></div>
+
+  <p class="calc-note">⚠️ 涵蓋 5 個常見位點。Pallid 跟 SL Ino 實際上在同位點互斥，本計算器簡化為獨立位點處理。Dark Factor、Parblue 系列暫不支援。</p>
+</div>
+
+
+<hr />
+<h2 id="f">附錄 F：常見配對速查表</h2>
+<p>不想算的時候直接查這張表。30+ 種叔叔場常見配對的後代分布。</p>
+<h3 id="a_2">同色純合配對（A 線：現金流）</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>公親</th>
+<th>母親</th>
+<th>後代</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>藍 (bl/bl)</td>
+<td>藍 (bl/bl)</td>
+<td>100% 藍</td>
+<td>最穩定的現金流</td>
+</tr>
+<tr>
+<td>黃化 (ino/ino)</td>
+<td>黃化 (ino/ino)</td>
+<td>100% 黃化</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>珊瑚藍 (tur/tur)</td>
+<td>珊瑚藍 (tur/tur)</td>
+<td>100% 珊瑚藍</td>
+<td>中價位穩定線</td>
+</tr>
+<tr>
+<td>銀絲公 (Z^op Z^op)</td>
+<td>銀絲母 (Z^op W)</td>
+<td>公母 100% 銀絲</td>
+<td>性聯純合配性聯半合</td>
+</tr>
+<tr>
+<td>派洛公 (Z^pal Z^pal)</td>
+<td>派洛母 (Z^pal W)</td>
+<td>公母 100% 派洛</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>肉桂公 (Z^cin Z^cin)</td>
+<td>肉桂母 (Z^cin W)</td>
+<td>公母 100% 肉桂</td>
+<td>同上</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="b-split">雙隱性互補（B 線：建立 split 庫存）</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>公親</th>
+<th>母親</th>
+<th>後代</th>
+<th>隱形價值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>藍 (bl/bl)</td>
+<td>黃化 (ino/ino)</td>
+<td><strong>100% 綠 double split</strong> (bl/+, ino/+)</td>
+<td>F1 是黃金種鳥，F2 出 1/16 白化</td>
+</tr>
+<tr>
+<td>藍 (bl/bl)</td>
+<td>肉桂母 (Z^cin W)</td>
+<td>公雛全綠 split bl + Cin；母雛全綠 split bl</td>
+<td>公雛是 double split 寶藏</td>
+</tr>
+<tr>
+<td>藍 (bl/bl)</td>
+<td>銀絲母 (Z^op W)</td>
+<td>公雛全綠 split bl + Op；母雛全綠 split bl</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>藍 (bl/bl)</td>
+<td>派洛母 (Z^pal W)</td>
+<td>公雛全綠 split bl + Pal；母雛全綠 split bl</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>黃化 (ino/ino)</td>
+<td>銀絲母 (Z^op W)</td>
+<td>公雛全綠 split ino + Op；母雛全綠 split ino</td>
+<td>F1 拿去配可出黃化銀絲</td>
+</tr>
+<tr>
+<td>珊瑚藍 (tur/tur)</td>
+<td>黃化 (ino/ino)</td>
+<td>100% 綠 split tur + ino</td>
+<td>F2 出 1/16 黃珊瑚藍（稀有）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="_158">性聯顯現（性別連鎖鑑定法 — 用顏色判性別）</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>公親</th>
+<th>母親</th>
+<th>公雛</th>
+<th>母雛</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>派洛公</strong> (Z^pal Z^pal)</td>
+<td>普通綠 (Z+ W)</td>
+<td>全綠 split Pal</td>
+<td><strong>全派洛</strong></td>
+<td>✅ 顏色判性別：綠=公、派洛=母</td>
+</tr>
+<tr>
+<td><strong>SL Lutino 公</strong> (Z^ino Z^ino)</td>
+<td>普通綠 (Z+ W)</td>
+<td>全綠 split SL Ino</td>
+<td><strong>全 SL Lutino</strong></td>
+<td>✅ 同上</td>
+</tr>
+<tr>
+<td><strong>肉桂公</strong> (Z^cin Z^cin)</td>
+<td>普通綠 (Z+ W)</td>
+<td>全綠 split Cin</td>
+<td><strong>全肉桂</strong></td>
+<td>✅ 同上</td>
+</tr>
+<tr>
+<td><strong>銀絲公</strong> (Z^op Z^op)</td>
+<td>普通綠 (Z+ W)</td>
+<td>全綠 split Op</td>
+<td><strong>全銀絲</strong></td>
+<td>✅ 同上</td>
+</tr>
+<tr>
+<td>普通綠公</td>
+<td><strong>派洛母</strong> (Z^pal W)</td>
+<td><strong>全綠 split Pal</strong></td>
+<td>全綠</td>
+<td>❌ 公母都綠，無法用顏色判性別</td>
+</tr>
+<tr>
+<td>普通綠公</td>
+<td><strong>銀絲母</strong> (Z^op W)</td>
+<td><strong>全綠 split Op</strong></td>
+<td>全綠</td>
+<td>❌ 同上</td>
+</tr>
+</tbody>
+</table></div>
+<p>⚠️ <strong>重要</strong>：性別連鎖鑑定要用「<strong>顯現性聯突變的公</strong> × <strong>正常綠母</strong>」，方向反過來就無效。</p>
+<h3 id="c_2">進階配對（C 線：探索）</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>公親</th>
+<th>母親</th>
+<th>後代分布</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>藍銀絲公 (bl/bl, Z^op Z^op)</td>
+<td>黃化 (ino/ino)</td>
+<td>公雛全綠 triple split；母雛全銀絲 double split</td>
+</tr>
+<tr>
+<td>淡白銀絲公 (bl/bl, Z^cin Z^cin, Z^pal Z^pal? — 不可能在 INO 同位點)</td>
+<td>普通綠母</td>
+<td>視配置而定</td>
+</tr>
+<tr>
+<td>黃化 split blue (ino/ino, bl/+)</td>
+<td>藍 (bl/bl)</td>
+<td>50% 藍黃化（白化）+ 50% 黃化 split blue</td>
+</tr>
+<tr>
+<td>銀絲 split blue 公 (bl/+, Z^op Z^op)</td>
+<td>藍 (bl/bl)</td>
+<td>公雛 50% 藍 split Op + 50% 綠 split bl 0個Op；複雜</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="_159">看到後代反推父母（疑案排查）</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>看到</th>
+<th>可能原因</th>
+<th>怎麼驗證</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>「沒買過綠色卻場上出現綠色」</td>
+<td>雙隱性配對的 F1（藍 × 黃化）</td>
+<td>查那對種鳥的配對紀錄</td>
+</tr>
+<tr>
+<td>「兩隻黃化配出來有藍色」</td>
+<td>兩隻其實都是 split blue</td>
+<td>該對歸入 B 線</td>
+</tr>
+<tr>
+<td>「藍 × 黃化配出來有黃化」</td>
+<td>公母其中一隻 split 您不知道</td>
+<td>做基因檢測</td>
+</tr>
+<tr>
+<td>「綠色公鳥配藍母，後代有肉桂母」</td>
+<td>公鳥是 split Cinnamon</td>
+<td>該綠公升級為高價 split 種公</td>
+</tr>
+<tr>
+<td>「派洛公配派洛母，後代有黃化（SL Ino）」</td>
+<td>Pallid 跟 SL Ino 在同位點，配出 Z^ino 等位</td>
+<td>等位基因系列現象</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="_160">結語</h2>
+<p>讀完整本書，您應該能：</p>
 <ol>
-<li>看懂任何鸚鵡基因型寫法</li>
-<li>自己用紙筆算配對後代</li>
-<li>理解 split / 隱性互補 / 性聯遺傳</li>
-<li>區分常見的命名混淆</li>
-<li>跟叔叔或繁殖者深入討論血統與策略</li>
-<li>評估一隻外觀普通的綠鳥是不是隱形寶藏</li>
+<li>看懂任何鸚鵡基因型寫法（包括國際社群的英文簡寫）</li>
+<li>自己用紙筆算複雜配對的理論後代分布</li>
+<li>理解 split / 隱性互補 / 性聯遺傳的內部邏輯</li>
+<li>把場上「銀絲、派洛、肉桂」等俗名對應到國際學術名（Opaline / Pallid / Cinnamon）</li>
+<li>跟國際繁殖社群或學術同行用共同語言溝通</li>
+<li>一眼看出哪隻綠色鳥是「隱形寶藏」，避免低估自己的種鳥</li>
 </ol>
 <div class="summary-card">
-<h3 id="5-action-plan">明天可以做的 5 件事（Action Plan）</h3>
-<p>理論學完了，最關鍵的是<strong>真的去做</strong>。下面是低門檻、高 ROI 的五件事，按順序做就好：</p>
-<p><strong>1. 拿三隻鳥來「翻譯」基因型</strong></p>
-<p>選叔叔場最重要的三對種鳥（例如黃化公、藍銀絲母、淡白銀絲公），用本書教的符號寫出牠們的基因型。寫不出來就翻第 17 章對照。<strong>目標</strong>：能用 <code>bl/bl, Z^op Z^op</code> 這種寫法表達牠們，不依賴中文俗名。</p>
-<p><strong>2. 算一對配對的後代分布</strong></p>
-<p>挑一對你最好奇的配對（例如「黃化公 × 藍銀絲母」），用第八篇的步驟算後代外觀分布，列出公雛/母雛各幾種顏色、機率多少。算完問叔叔「實際配出來是不是這樣？」——驗證你的計算對不對。</p>
-<p><strong>3. 用「綠色 split 測試」找出隱形資產</strong></p>
-<p>找叔叔場所有外觀綠色的鳥，問叔叔「這隻爸媽是誰？」回推可能的 split 基因。寫成清單。<strong>這個動作可能立刻發現幾隻被低估的種鳥</strong>——綠色 + 雙重 split = 黃金 F1。</p>
-<p><strong>4. 跟叔叔討論一個策略問題</strong></p>
-<p>例如：「我們有 X 對藍 × 黃化的 F1，要不要互配出 F2 的 1/16 白化？」或「淡白銀絲公值不值得買回來配派洛母？」用本書的概念跟叔叔對話。<strong>不是去教他</strong>，是讓他知道你開始懂了——這會改變你們的對話品質。</p>
-<p><strong>5. 開始建立血統表</strong></p>
-<p>最簡單的版本：Excel 一列一隻鳥，欄位 = 編號 / 性別 / 外觀 / 基因型 / 父母編號 / 出生日。連續記三個月就能看出哪些 split 線值得繼續，哪些是浪費籠位。長期下來這份表的價值遠超過任何單一品種的鳥。</p>
+<h3 id="5_3">下一步可以做的 5 件事</h3>
+<p>理論看完了，但<strong>真正的價值在於套到現場的鳥群</strong>。下面是五個從容易到深入的行動：</p>
+<p><strong>1. 為核心種鳥做一份「基因型清單」</strong></p>
+<p>挑場上最重要的 10 對種鳥，用本書教的符號寫出基因型（例如黃化公寫成 <code>ino/ino</code>，藍銀絲母寫成 <code>bl/bl, Z^op W</code>）。<strong>不是要取代您原本的紀錄</strong>，而是建立一份「跟國際標準接軌」的清單，未來跟外國買家或社群交流時直接能用。寫不出來就翻第 17 章對照。</p>
+<p><strong>2. 算一對複雜配對的理論後代</strong></p>
+<p>挑一對最難預測的配對（例如「淡白銀絲公 × 派洛母」），用第八篇的步驟算理論後代分布。算完之後<strong>對照您過去三窩的實際結果</strong>——如果差很多，可能種鳥藏的 split 基因您不知道；如果差不多，代表您的經驗判斷其實已經符合遺傳學原理，只是沒用學術術語講而已。</p>
+<p><strong>3. 找出場上被低估的「綠色 split」種鳥</strong></p>
+<p>走一圈場上所有外觀綠色的鳥，根據牠們的爸媽是什麼配對，回推可能藏的 split 基因。<strong>很可能會發現幾隻看似普通的綠鳥其實是 double 或 triple split</strong>——這些是隱形資產，配對價值遠高於外觀價格。可以特別標記起來，配對策略重新調整。</p>
+<p><strong>4. 跟國際繁殖社群分享一個配對結果</strong></p>
+<p>到 Facebook「Quaker Parrot Mutations」群組或類似國際社群，用本書教的學術術語（Lutino、Opaline、Pallid 等）發一篇配對分享，例如「Cinnamon ♂ × Blue Opaline ♀ 的這窩 F1 結果」。<strong>這個動作可能讓您接觸到台灣沒有的稀有突變線</strong>——很多國際繁殖者願意交換或交流種鳥。</p>
+<p><strong>5. 開始建立電子血統紀錄表</strong></p>
+<p>最簡單的版本：Excel 一列一隻鳥，欄位 = 編號 / 性別 / 外觀 / 基因型 / 父母編號 / 出生日 / 配對歷史。連續記三個月就能看出哪些 split 線值得繼續、哪些對該淘汰。<strong>這份表三年後價值會超過場上任何單一隻鳥</strong>——也是傳給下一代或要轉手鳥場時最有價值的資產。</p>
 </div>
-<p>學完後你應該能：</p>
-<ol>
-<li>看懂任何鸚鵡基因型寫法</li>
-<li>自己用紙筆算配對後代</li>
-<li>理解 split / 隱性互補 / 性聯遺傳</li>
-<li>區分常見的命名混淆</li>
-<li>跟叔叔或繁殖者深入討論血統與策略</li>
-<li>評估一隻外觀普通的綠鳥是不是隱形寶藏</li>
-</ol>
-<p>學會這套系統，叔叔場的「未公開的隱性資產」就能被你看見。下次他說「這對配出來會是什麼？」你能在 5 分鐘內給出答案。</p>
+<p>把這套系統用起來，場上原本看不見的隱性資產會浮現。下次有人問「這對配出來會是什麼？」您能在 5 分鐘內給出機率分布——不是憑經驗猜，是憑遺傳學算出來的。</p>
+<p>幾十年的繁殖經驗，加上這本書的系統化框架，足以讓您的場跟國際接軌、把隱形資產轉成實際營收。</p>
 <p>祝繁殖順利。</p>
 <hr />
 <p><em>本書版本 v1.0，2026-04-19。如果發現錯誤或想補充章節，請更新本檔。</em></p>
@@ -3713,6 +4186,171 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+</script>
+    <script>
+function setupCalculator() {
+    const btn = document.getElementById('calc-btn');
+    if (!btn) return;
+    btn.addEventListener('click', calculateOffspring);
+}
+
+function calculateOffspring() {
+    function getVal(bird, locus) {
+        const el = document.querySelector(`[data-bird="${bird}"][data-locus="${locus}"]`);
+        return el.value;
+    }
+
+    const dad = {
+        bl: getVal('dad', 'bl').split(','),
+        ino: getVal('dad', 'ino').split(','),
+        op: getVal('dad', 'op').split(','),
+        cin: getVal('dad', 'cin').split(','),
+        pal: getVal('dad', 'pal').split(','),
+    };
+    const mom = {
+        bl: getVal('mom', 'bl').split(','),
+        ino: getVal('mom', 'ino').split(','),
+        op: getVal('mom', 'op').split(','),
+        cin: getVal('mom', 'cin').split(','),
+        pal: getVal('mom', 'pal').split(','),
+    };
+
+    // 常染色體 Punnett
+    const distBl = punnettAuto(dad.bl, mom.bl);
+    const distIno = punnettAuto(dad.ino, mom.ino);
+
+    // 性聯 Punnett（分公母）
+    const distOp = punnettSex(dad.op, mom.op);
+    const distCin = punnettSex(dad.cin, mom.cin);
+    const distPal = punnettSex(dad.pal, mom.pal);
+
+    // 笛卡爾積
+    const maleResults = combineLocus(distBl, distIno, distOp.male, distCin.male, distPal.male);
+    const femaleResults = combineLocus(distBl, distIno, distOp.female, distCin.female, distPal.female);
+
+    // 聚合外觀
+    const malePheno = aggregateByPhenotype(maleResults, 'male');
+    const femalePheno = aggregateByPhenotype(femaleResults, 'female');
+
+    renderResult(malePheno, femalePheno);
+}
+
+function punnettAuto(dadAlleles, momAlleles) {
+    // 常染色體：兩個 alleles 各拿一個
+    const dist = new Map();
+    for (const a of dadAlleles) {
+        for (const b of momAlleles) {
+            const sorted = [a, b].sort();
+            const key = sorted.join('/');
+            dist.set(key, (dist.get(key) || 0) + 0.25);
+        }
+    }
+    return dist;
+}
+
+function punnettSex(dadAlleles, momAlleles) {
+    // dadAlleles = ["op", "+"]（兩條 Z）
+    // momAlleles = ["op"] 或 ["+"]（一條 Z）
+    const male = new Map();
+    const female = new Map();
+
+    for (const da of dadAlleles) {
+        for (const ma of momAlleles) {
+            const sorted = [da, ma].sort();
+            const key = `Z^${sorted[0]}/Z^${sorted[1]}`;
+            const prob = (1 / dadAlleles.length) * (1 / momAlleles.length);
+            male.set(key, (male.get(key) || 0) + prob);
+        }
+    }
+    for (const da of dadAlleles) {
+        const key = `Z^${da}/W`;
+        female.set(key, (female.get(key) || 0) + 1 / dadAlleles.length);
+    }
+    return { male, female };
+}
+
+function combineLocus(...dists) {
+    let result = new Map([[[], 1]]);
+    for (const dist of dists) {
+        const next = new Map();
+        for (const [key1Arr, prob1] of result) {
+            for (const [key2, prob2] of dist) {
+                const newKey = [...key1Arr, key2];
+                const newProb = prob1 * prob2;
+                const mapKey = newKey.join('|');
+                next.set(mapKey, (next.get(mapKey) || 0) + newProb);
+            }
+        }
+        // 把 string key 轉回 array
+        const restored = new Map();
+        for (const [k, v] of next) {
+            restored.set(k.split('|'), v);
+        }
+        result = restored;
+    }
+    return result;
+}
+
+function describePhenotype(parts, sex) {
+    // parts = [bl, ino, op, cin, pal]
+    const [bl, ino, op, cin, pal] = parts;
+
+    const colors = [];
+    // 常染色體
+    if (bl === 'bl/bl') colors.push('藍');
+    if (ino === 'ino/ino') colors.push('黃化');
+
+    // 性聯（公鳥要兩條都突變、母鳥一條突變即顯現）
+    if (sex === 'male') {
+        if (op === 'Z^op/Z^op') colors.push('銀絲');
+        if (cin === 'Z^cin/Z^cin') colors.push('肉桂');
+        if (pal === 'Z^pal/Z^pal') colors.push('派洛');
+    } else {
+        if (op === 'Z^op/W') colors.push('銀絲');
+        if (cin === 'Z^cin/W') colors.push('肉桂');
+        if (pal === 'Z^pal/W') colors.push('派洛');
+    }
+
+    if (colors.length === 0) return '綠色（野生型）';
+    return colors.join(' + ');
+}
+
+function aggregateByPhenotype(dist, sex) {
+    const map = new Map();
+    for (const [parts, prob] of dist) {
+        const pheno = describePhenotype(parts, sex);
+        map.set(pheno, (map.get(pheno) || 0) + prob);
+    }
+    return [...map.entries()].sort((a, b) => b[1] - a[1]);
+}
+
+function renderResult(male, female) {
+    function tableRows(phenoList) {
+        return phenoList.map(([pheno, prob]) => {
+            const pct = (prob * 100).toFixed(1);
+            return `<tr><td>${pheno}</td><td><strong>${pct}%</strong></td></tr>`;
+        }).join('');
+    }
+
+    const html = `
+        <div class="calc-result-grid">
+            <div class="calc-result-block calc-male">
+                <h4>♂ 公雛分布（佔總後代 50%）</h4>
+                <table><thead><tr><th>外觀</th><th>機率</th></tr></thead>
+                <tbody>${tableRows(male)}</tbody></table>
+            </div>
+            <div class="calc-result-block calc-female">
+                <h4>♀ 母雛分布（佔總後代 50%）</h4>
+                <table><thead><tr><th>外觀</th><th>機率</th></tr></thead>
+                <tbody>${tableRows(female)}</tbody></table>
+            </div>
+        </div>
+        <p class="calc-result-note">機率以「在該性別中」為基準（公雛/母雛各自加總 = 100%）。</p>
+    `;
+    document.getElementById('calc-result').innerHTML = html;
+}
+
+document.addEventListener('DOMContentLoaded', setupCalculator);
 </script>
 </body>
 </html>
