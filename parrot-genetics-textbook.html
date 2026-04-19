@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#2d2a26">
     <meta name="description" content="從色素物理到實戰配對計算的鸚鵡遺傳學完整教程">
-    <title>鸚鵡遺傳學自學教科書</title>
+    <title>鸚鵡遺傳學完整指南 — 給資深繁殖者</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -22,13 +22,58 @@
     --border: #e8e2d6;
     --border-strong: #c9c1b3;
     --accent: #b8845a;
+    --accent-strong: #8b5a2a;
     --accent-light: #f5e6d3;
     --code-bg: #f3eee3;
+    --code-text: #8b4513;
     --table-header: #ebe3d3;
     --table-zebra: #f7f3ea;
     --shadow: 0 1px 3px rgba(45, 42, 38, 0.06);
     --shadow-lg: 0 4px 16px rgba(45, 42, 38, 0.08);
     --mobile-bar-height: 56px;
+    --strong-text: #1a1815;
+    --grad-warm: linear-gradient(135deg, #fff 0%, #f5e6d3 100%);
+}
+
+/* ─── 暗黑模式（data-theme="dark"）─── */
+[data-theme="dark"] {
+    --bg: #1a1815;
+    --bg-card: #252220;
+    --bg-sidebar: #0f0e0c;
+    --bg-sidebar-hover: #2a2722;
+    --text: #e8e2d6;
+    --text-muted: #a8a298;
+    --text-sidebar: #b8b2a8;
+    --text-sidebar-active: #f5d76e;
+    --border: #3d3934;
+    --border-strong: #5d574f;
+    --accent: #d49a6a;
+    --accent-strong: #f0b888;
+    --accent-light: #3d3128;
+    --code-bg: #2d2a26;
+    --code-text: #e8a874;
+    --table-header: #2d2a26;
+    --table-zebra: #1f1d1a;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --strong-text: #f5f0e6;
+    --grad-warm: linear-gradient(135deg, #252220 0%, #3d3128 100%);
+}
+
+[data-theme="dark"] strong { color: var(--strong-text); }
+[data-theme="dark"] code { color: var(--code-text); }
+[data-theme="dark"] figure svg { background: white; }
+[data-theme="dark"] .calc-result-block { background: var(--bg); }
+[data-theme="dark"] .calc-result-block table { background: var(--bg-card); }
+[data-theme="dark"] .pc-breakdown table { background: var(--bg-card); }
+[data-theme="dark"] details[open] { background: var(--bg-card); }
+[data-theme="dark"] .pc-final {
+    background: linear-gradient(135deg, var(--accent) 0%, #6b3e1c 100%);
+}
+[data-theme="dark"] .calc-locus select,
+[data-theme="dark"] .calc-examples select {
+    background-color: var(--bg-card);
+    color: var(--text);
 }
 
 * { box-sizing: border-box; }
@@ -330,7 +375,7 @@ p { margin: 14px 0; }
 ul, ol { margin: 14px 0; padding-left: 28px; }
 li { margin: 6px 0; }
 li > ul, li > ol { margin: 4px 0; }
-strong { font-weight: 700; color: #1a1815; }
+strong { font-weight: 700; color: var(--strong-text); }
 em { font-style: italic; }
 
 /* ─── 引用 ─── */
@@ -348,7 +393,7 @@ blockquote p:last-child { margin-bottom: 0; }
 code {
     font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
     font-size: 14px; background: var(--code-bg);
-    padding: 2px 6px; border-radius: 4px; color: #8b4513;
+    padding: 2px 6px; border-radius: 4px; color: var(--code-text);
     border: 1px solid var(--border); word-break: break-word;
 }
 pre {
@@ -406,6 +451,7 @@ hr {
 /* ─── 圖示（figure + svg）─── */
 figure {
     margin: 28px 0; text-align: center;
+    position: relative;
 }
 figure svg {
     max-width: 100%; height: auto;
@@ -415,6 +461,28 @@ figure svg {
     box-shadow: var(--shadow-lg);
     display: block;
     margin: 0 auto;
+    cursor: zoom-in;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+figure svg:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 20px rgba(45, 42, 38, 0.12);
+}
+figure::before {
+    content: '🔍 點圖放大';
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: rgba(184, 132, 90, 0.92);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 600;
+    pointer-events: none;
+    z-index: 2;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 figcaption {
     margin-top: 12px;
@@ -464,6 +532,79 @@ details > *:not(summary) {
 }
 details p:first-of-type { margin-top: 12px; }
 details p:last-child { margin-bottom: 4px; }
+
+/* ─── 快速入口卡片 ─── */
+.quick-access {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 28px 0 36px;
+}
+.quick-access a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 22px 16px;
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--accent-light) 100%);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    transition: all 0.2s;
+    text-decoration: none;
+    border-bottom: 2px solid var(--border);
+    box-shadow: var(--shadow);
+    -webkit-tap-highlight-color: transparent;
+    color: var(--text);
+}
+.quick-access a:hover, .quick-access a:active {
+    border-color: var(--accent);
+    border-bottom-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+.quick-access .qa-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+.quick-access .qa-title {
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--accent);
+    margin-bottom: 6px;
+}
+.quick-access .qa-desc {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+@media (max-width: 768px) {
+    .quick-access {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin: 20px 0 28px;
+    }
+    .quick-access a {
+        flex-direction: row;
+        text-align: left;
+        padding: 14px 16px;
+        gap: 14px;
+    }
+    .quick-access .qa-icon {
+        font-size: 32px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+    .quick-access a > div:not(.qa-icon) {
+        flex: 1;
+    }
+    .quick-access .qa-title {
+        font-size: 16px;
+        margin-bottom: 2px;
+    }
+}
 
 /* ─── 摘要卡（30 秒掌握）─── */
 .summary-card {
@@ -556,6 +697,52 @@ details p:last-child { margin-bottom: 4px; }
     details summary::before { display: none; }
     details[open] summary { font-weight: 700; }
     .calculator { display: none; }
+}
+
+/* ─── 計算器範例選單 ─── */
+.calc-examples {
+    background: var(--accent-light);
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    border: 1px dashed var(--accent);
+}
+.calc-examples label {
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 14.5px;
+    margin: 0;
+}
+.calc-examples select {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--accent);
+    border-radius: 6px;
+    background: white;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--text);
+}
+.calc-examples select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(184, 132, 90, 0.2);
+}
+@media (max-width: 480px) {
+    .calc-examples {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px 14px;
+    }
+    .calc-examples select {
+        width: 100%;
+    }
 }
 
 /* ─── 互動式配對計算器 ─── */
@@ -803,7 +990,7 @@ details p:last-child { margin-bottom: 4px; }
 <body>
     <div id="mobile-bar">
         <button id="menu-toggle" aria-label="開啟目錄">☰</button>
-        <div class="title">鸚鵡遺傳學自學教科書</div>
+        <div class="title">鸚鵡遺傳學完整指南</div>
     </div>
     <div id="sidebar-overlay"></div>
     <div id="font-fab" aria-label="工具">
@@ -812,6 +999,9 @@ details p:last-child { margin-bottom: 4px; }
             <button data-size="M"><span class="size-demo">A</span>中</button>
             <button data-size="L"><span class="size-demo">A</span>大</button>
             <button data-size="XL"><span class="size-demo">A</span>特大</button>
+            <div class="fab-divider"></div>
+            <button data-theme="light" class="fab-util"><span class="util-icon">☀️</span>淺色模式</button>
+            <button data-theme="dark" class="fab-util"><span class="util-icon">🌙</span>深色模式</button>
             <div class="fab-divider"></div>
             <button id="fab-print" class="fab-util"><span class="util-icon">🖨</span>列印 / 存 PDF</button>
             <button id="fab-top" class="fab-util"><span class="util-icon">↑</span>回到最上方</button>
@@ -823,213 +1013,222 @@ details p:last-child { margin-bottom: 4px; }
             <h2>目錄</h2>
             <div class="toc">
 <ul>
-<li><a href="#_1">鸚鵡遺傳學自學教科書</a><ul>
-<li><a href="#_2">目錄</a><ul>
-<li><a href="#_3">序章</a></li>
-<li><a href="#_4">第一篇：顏色從哪來</a></li>
-<li><a href="#_5">第二篇：基因的最基本概念</a></li>
-<li><a href="#_6">第三篇：藏起來的牌</a></li>
-<li><a href="#_7">第四篇：性染色體</a></li>
-<li><a href="#_8">第五篇：基因座的座標系統</a></li>
-<li><a href="#_9">第六篇：命名系統與書寫規範</a></li>
-<li><a href="#_10">第七篇：和尚鸚鵡的具體應用</a></li>
-<li><a href="#_11">第八篇：實戰配對計算</a></li>
-<li><a href="#_12">第九篇：商業策略應用</a></li>
-<li><a href="#_13">附錄</a></li>
+<li><a href="#_1">鸚鵡遺傳學完整指南</a><ul>
+<li><a href="#_2">致叔叔</a></li>
+<li><a href="#3">⚡ 快速入口（最常用的 3 個工具）</a></li>
+<li><a href="#5">⚡ 5 分鐘快速通道</a><ul>
+<li><a href="#5-5">5 個關鍵概念（記住這 5 句話就掌握全書）</a></li>
+<li><a href="#4">場上立即可用的 4 個觀察</a></li>
+<li><a href="#3_1">立即可用的 3 個工具</a></li>
+<li><a href="#_3">想再深入時的閱讀路徑</a></li>
 </ul>
 </li>
-<li><a href="#_14">序：為什麼這本書值得花時間讀</a><ul>
+<li><a href="#_4">目錄</a><ul>
+<li><a href="#_5">序章</a></li>
+<li><a href="#_6">第一篇：顏色從哪來</a></li>
+<li><a href="#_7">第二篇：基因的最基本概念</a></li>
+<li><a href="#_8">第三篇：藏起來的牌</a></li>
+<li><a href="#_9">第四篇：性染色體</a></li>
+<li><a href="#_10">第五篇：基因座的座標系統</a></li>
+<li><a href="#_11">第六篇：命名系統與書寫規範</a></li>
+<li><a href="#_12">第七篇：和尚鸚鵡的具體應用</a></li>
+<li><a href="#_13">第八篇：實戰配對計算</a></li>
+<li><a href="#_14">第九篇：商業策略應用</a></li>
+<li><a href="#_15">附錄</a></li>
+</ul>
+</li>
+<li><a href="#_16">序：為什麼這本書值得花時間讀</a><ul>
 <li><a href="#30">30 秒掌握全書核心</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_15">第一篇：顏色從哪來</a><ul>
+<li><a href="#_17">第一篇：顏色從哪來</a><ul>
 <li><a href="#1">第 1 章 鳥羽毛顏色的物理基礎</a><ul>
-<li><a href="#_16">鳥羽毛只用兩種色素 + 一種光學結構</a></li>
-<li><a href="#_17">綠色不是色素，是疊出來的</a></li>
-<li><a href="#_18">排列組合解釋四大色</a></li>
-<li><a href="#_19">回顧</a></li>
-<li><a href="#_20">思考題</a></li>
+<li><a href="#_18">鳥羽毛只用兩種色素 + 一種光學結構</a></li>
+<li><a href="#_19">綠色不是色素，是疊出來的</a></li>
+<li><a href="#_20">排列組合解釋四大色</a></li>
+<li><a href="#_21">回顧</a></li>
+<li><a href="#_22">思考題</a></li>
 </ul>
 </li>
 <li><a href="#2">第 2 章 突變的本質：加減色素</a><ul>
-<li><a href="#_21">突變只做三件事</a></li>
-<li><a href="#_22">用減法理解所有顏色</a></li>
-<li><a href="#_23">為什麼不是全部突變都這麼直白？</a></li>
-<li><a href="#_24">回顧</a></li>
-<li><a href="#_25">思考題</a></li>
+<li><a href="#_23">突變只做三件事</a></li>
+<li><a href="#_24">用減法理解所有顏色</a></li>
+<li><a href="#_25">為什麼不是全部突變都這麼直白？</a></li>
+<li><a href="#_26">回顧</a></li>
+<li><a href="#_27">思考題</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_26">第二篇：基因的最基本概念</a><ul>
-<li><a href="#3">第 3 章 每隻鳥的「兩張牌」</a><ul>
+<li><a href="#_28">第二篇：基因的最基本概念</a><ul>
+<li><a href="#3_2">第 3 章 每隻鳥的「兩張牌」</a><ul>
 <li><a href="#gene">基因（gene）= 一條決定某個特徵的指令</a></li>
-<li><a href="#_27">關鍵規則：每個基因都有兩份</a></li>
-<li><a href="#_28">為什麼是兩份不是一份？</a></li>
-<li><a href="#_29">例外：性染色體上的基因</a></li>
-<li><a href="#_30">回顧</a></li>
-<li><a href="#_31">思考題</a></li>
+<li><a href="#_29">關鍵規則：每個基因都有兩份</a></li>
+<li><a href="#_30">為什麼是兩份不是一份？</a></li>
+<li><a href="#_31">例外：性染色體上的基因</a></li>
+<li><a href="#_32">回顧</a></li>
+<li><a href="#_33">思考題</a></li>
 </ul>
 </li>
-<li><a href="#4">第 4 章 顯性與隱性</a><ul>
-<li><a href="#_32">牌跟牌之間有強弱關係</a></li>
-<li><a href="#_33">和尚鸚鵡的例子</a></li>
-<li><a href="#_34">重點觀察</a></li>
+<li><a href="#4_1">第 4 章 顯性與隱性</a><ul>
+<li><a href="#_34">牌跟牌之間有強弱關係</a></li>
+<li><a href="#_35">和尚鸚鵡的例子</a></li>
+<li><a href="#_36">重點觀察</a></li>
 <li><a href="#vs">顯性 vs 隱性的記憶法</a></li>
-<li><a href="#_35">例外：半顯性與共顯性</a></li>
-<li><a href="#_36">回顧</a></li>
-<li><a href="#_37">思考題</a></li>
+<li><a href="#_37">例外：半顯性與共顯性</a></li>
+<li><a href="#_38">回顧</a></li>
+<li><a href="#_39">思考題</a></li>
 </ul>
 </li>
 <li><a href="#5-punnett">第 5 章 配對的數學：Punnett 方格</a><ul>
-<li><a href="#_38">基本原理</a></li>
+<li><a href="#_40">基本原理</a></li>
 <li><a href="#punnett">Punnett 方格的歷史</a></li>
-<li><a href="#_39">結論</a></li>
-<li><a href="#_40">回顧</a></li>
-<li><a href="#_41">思考題</a></li>
+<li><a href="#_41">結論</a></li>
+<li><a href="#_42">回顧</a></li>
+<li><a href="#_43">思考題</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_42">第三篇：藏起來的牌</a><ul>
+<li><a href="#_44">第三篇：藏起來的牌</a><ul>
 <li><a href="#6-split">第 6 章 split 是什麼</a><ul>
-<li><a href="#_43">定義</a></li>
+<li><a href="#_45">定義</a></li>
 <li><a href="#split">為什麼 split 重要</a></li>
-<li><a href="#_44">繁殖者的算盤</a></li>
+<li><a href="#_46">繁殖者的算盤</a></li>
 <li><a href="#vs_1">純合 vs 雜合的對照</a></li>
-<li><a href="#_45">回顧</a></li>
-<li><a href="#_46">思考題</a></li>
+<li><a href="#_47">回顧</a></li>
+<li><a href="#_48">思考題</a></li>
 </ul>
 </li>
 <li><a href="#7">第 7 章 隱性互補：兩個突變反而生出綠色</a><ul>
-<li><a href="#_47">反直覺現象</a></li>
-<li><a href="#_48">為什麼叫「隱性互補」</a></li>
-<li><a href="#_49">實務含義</a></li>
-<li><a href="#_50">真實案例：綠色公母之謎案例</a></li>
-<li><a href="#_51">回顧</a></li>
-<li><a href="#_52">思考題</a></li>
+<li><a href="#_49">反直覺現象</a></li>
+<li><a href="#_50">為什麼叫「隱性互補」</a></li>
+<li><a href="#_51">實務含義</a></li>
+<li><a href="#_52">真實案例：綠色公母之謎案例</a></li>
+<li><a href="#_53">回顧</a></li>
+<li><a href="#_54">思考題</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_53">第四篇：性染色體</a><ul>
+<li><a href="#_55">第四篇：性染色體</a><ul>
 <li><a href="#8-zw">第 8 章 鸚鵡的 ZW 系統</a><ul>
-<li><a href="#_54">鸚鵡跟人類相反</a></li>
+<li><a href="#_56">鸚鵡跟人類相反</a></li>
 <li><a href="#w">W 染色體的特殊性</a></li>
-<li><a href="#_55">為什麼這個結構決定了一切</a></li>
+<li><a href="#_57">為什麼這個結構決定了一切</a></li>
 <li><a href="#zw">鸚鵡為什麼是 ZW？</a></li>
-<li><a href="#_56">回顧</a></li>
-<li><a href="#_57">思考題</a></li>
+<li><a href="#_58">回顧</a></li>
+<li><a href="#_59">思考題</a></li>
 </ul>
 </li>
 <li><a href="#9-vs">第 9 章 常染色體 vs 性聯</a><ul>
-<li><a href="#_58">兩種基因位置</a></li>
+<li><a href="#_60">兩種基因位置</a></li>
 <li><a href="#hemizygous">母鳥的特殊狀態：半合（hemizygous）</a></li>
-<li><a href="#_59">半合的後果</a></li>
-<li><a href="#_60">對比表</a></li>
-<li><a href="#_61">和尚鸚鵡的性聯突變</a></li>
-<li><a href="#_62">回顧</a></li>
-<li><a href="#_63">思考題</a></li>
+<li><a href="#_61">半合的後果</a></li>
+<li><a href="#_62">對比表</a></li>
+<li><a href="#_63">和尚鸚鵡的性聯突變</a></li>
+<li><a href="#_64">回顧</a></li>
+<li><a href="#_65">思考題</a></li>
 </ul>
 </li>
 <li><a href="#10">第 10 章 性聯遺傳的跨代跳躍</a><ul>
-<li><a href="#_64">兩條規則</a></li>
-<li><a href="#_65">圖解：場景一</a></li>
-<li><a href="#_66">圖解：場景二</a></li>
-<li><a href="#_67">性聯遺傳的「隔代跳躍」</a></li>
-<li><a href="#_68">反推血統的判斷技巧</a></li>
-<li><a href="#_69">回顧</a></li>
-<li><a href="#_70">思考題</a></li>
+<li><a href="#_66">兩條規則</a></li>
+<li><a href="#_67">圖解：場景一</a></li>
+<li><a href="#_68">圖解：場景二</a></li>
+<li><a href="#_69">性聯遺傳的「隔代跳躍」</a></li>
+<li><a href="#_70">反推血統的判斷技巧</a></li>
+<li><a href="#_71">回顧</a></li>
+<li><a href="#_72">思考題</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_71">第五篇：基因座的座標系統</a><ul>
+<li><a href="#_73">第五篇：基因座的座標系統</a><ul>
 <li><a href="#11-locus">第 11 章 基因座（locus）：一切的根本</a><ul>
-<li><a href="#_72">三層概念區分</a></li>
-<li><a href="#_73">用門牌比喻</a></li>
-<li><a href="#_74">關鍵理解</a></li>
-<li><a href="#_75">染色體 = 街道</a></li>
-<li><a href="#_76">回顧</a></li>
-<li><a href="#_77">思考題</a></li>
+<li><a href="#_74">三層概念區分</a></li>
+<li><a href="#_75">用門牌比喻</a></li>
+<li><a href="#_76">關鍵理解</a></li>
+<li><a href="#_77">染色體 = 街道</a></li>
+<li><a href="#_78">回顧</a></li>
+<li><a href="#_79">思考題</a></li>
 </ul>
 </li>
 <li><a href="#12">第 12 章 等位基因系列（同位點互斥）</a><ul>
-<li><a href="#_78">同位點上的競爭</a></li>
-<li><a href="#_79">重要結論</a></li>
-<li><a href="#_80">互斥規則</a></li>
+<li><a href="#_80">同位點上的競爭</a></li>
+<li><a href="#_81">重要結論</a></li>
+<li><a href="#_82">互斥規則</a></li>
 <li><a href="#blue">Blue 位點也是等位基因系列</a></li>
-<li><a href="#_81">顯隱性的等級</a></li>
-<li><a href="#_82">回顧</a></li>
-<li><a href="#_83">思考題</a></li>
+<li><a href="#_83">顯隱性的等級</a></li>
+<li><a href="#_84">回顧</a></li>
+<li><a href="#_85">思考題</a></li>
 </ul>
 </li>
 <li><a href="#13">第 13 章 多位點的獨立分配</a><ul>
-<li><a href="#_84">孟德爾第二定律</a></li>
-<li><a href="#_85">計算範例</a></li>
-<li><a href="#_86">為什麼基因型數量會爆炸</a></li>
-<li><a href="#_87">實務算法</a></li>
-<li><a href="#_88">回顧</a></li>
-<li><a href="#_89">思考題</a></li>
+<li><a href="#_86">孟德爾第二定律</a></li>
+<li><a href="#_87">計算範例</a></li>
+<li><a href="#_88">為什麼基因型數量會爆炸</a></li>
+<li><a href="#_89">實務算法</a></li>
+<li><a href="#_90">回顧</a></li>
+<li><a href="#_91">思考題</a></li>
 </ul>
 </li>
 <li><a href="#14">第 14 章 連鎖：同條染色體的捆綁</a><ul>
-<li><a href="#_90">例外：同條染色體上的基因不獨立</a></li>
+<li><a href="#_92">例外：同條染色體上的基因不獨立</a></li>
 <li><a href="#z">Z 上的連鎖實例</a></li>
 <li><a href="#crossing-over">重組（crossing over）</a></li>
-<li><a href="#_91">實務含義</a></li>
-<li><a href="#_92">染色體配置不同的後代差異</a></li>
-<li><a href="#_93">回顧</a></li>
-<li><a href="#_94">思考題</a></li>
+<li><a href="#_93">實務含義</a></li>
+<li><a href="#_94">染色體配置不同的後代差異</a></li>
+<li><a href="#_95">回顧</a></li>
+<li><a href="#_96">思考題</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_95">第六篇：命名系統與書寫規範</a><ul>
+<li><a href="#_97">第六篇：命名系統與書寫規範</a><ul>
 <li><a href="#15">第 15 章 突變命名的詞源</a><ul>
 <li><a href="#-ino">-ino 家族（破壞色素的突變）</a></li>
-<li><a href="#_96">結構色家族</a></li>
-<li><a href="#_97">改色家族</a></li>
-<li><a href="#_98">強度家族</a></li>
-<li><a href="#_99">回顧</a></li>
-<li><a href="#_100">思考題</a></li>
+<li><a href="#_98">結構色家族</a></li>
+<li><a href="#_99">改色家族</a></li>
+<li><a href="#_100">強度家族</a></li>
+<li><a href="#_101">回顧</a></li>
+<li><a href="#_102">思考題</a></li>
 </ul>
 </li>
 <li><a href="#16-sl-nsl">第 16 章 SL / NSL 標籤的意義</a><ul>
-<li><a href="#_101">標籤系統</a></li>
+<li><a href="#_103">標籤系統</a></li>
 <li><a href="#lutino-sl-nsl">為什麼要在 Lutino 前面加 SL 或 NSL</a></li>
-<li><a href="#_102">不分清楚的後果</a></li>
-<li><a href="#_103">回顧</a></li>
-<li><a href="#_104">思考題</a></li>
+<li><a href="#_104">不分清楚的後果</a></li>
+<li><a href="#_105">回顧</a></li>
+<li><a href="#_106">思考題</a></li>
 </ul>
 </li>
 <li><a href="#17">第 17 章 基因型寫法逐字解讀</a><ul>
-<li><a href="#_105">基本符號</a></li>
+<li><a href="#_107">基本符號</a></li>
 <li><a href="#ino-z-zop">案例拆解：ino/+, Z^+ Z^op</a></li>
 <li><a href="#z_1">為什麼性聯寫法要寫出 Z</a></li>
-<li><a href="#_106">對照表：常見寫法</a></li>
-<li><a href="#_107">回顧</a></li>
-<li><a href="#_108">思考題</a></li>
+<li><a href="#_108">對照表：常見寫法</a></li>
+<li><a href="#_109">回顧</a></li>
+<li><a href="#_110">思考題</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_109">第七篇：和尚鸚鵡的具體應用</a><ul>
+<li><a href="#_111">第七篇：和尚鸚鵡的具體應用</a><ul>
 <li><a href="#18">第 18 章 和尚的基因座完整地圖</a><ul>
 <li><a href="#z-3">Z 染色體上的基因座（性聯，3 個獨立位點）</a></li>
-<li><a href="#_110">常染色體上的基因座</a></li>
-<li><a href="#_111">基因型組合計算</a></li>
-<li><a href="#_112">回顧</a></li>
-<li><a href="#_113">思考題</a></li>
+<li><a href="#_112">常染色體上的基因座</a></li>
+<li><a href="#_113">基因型組合計算</a></li>
+<li><a href="#_114">回顧</a></li>
+<li><a href="#_115">思考題</a></li>
 </ul>
 </li>
 <li><a href="#19">第 19 章 台灣俗名與英文對照</a><ul>
-<li><a href="#_114">完整對照表</a></li>
-<li><a href="#_115">重大命名修正</a></li>
-<li><a href="#_116">回顧</a></li>
-<li><a href="#_117">思考題</a></li>
+<li><a href="#_116">完整對照表</a></li>
+<li><a href="#_117">重大命名修正</a></li>
+<li><a href="#_118">回顧</a></li>
+<li><a href="#_119">思考題</a></li>
 </ul>
 </li>
 <li><a href="#20">第 20 章 常見混淆與陷阱</a><ul>
@@ -1038,161 +1237,161 @@ details p:last-child { margin-bottom: 4px; }
 <li><a href="#3aqua-vs-turquoise">混淆 3：Aqua vs Turquoise</a></li>
 <li><a href="#4-split">混淆 4：「綠色 split」的迷思</a></li>
 <li><a href="#5-split-sl-ino">陷阱 5：「黃化母鳥 split SL Ino」這種寫法是錯的</a></li>
-<li><a href="#_118">回顧</a></li>
-<li><a href="#_119">思考題</a></li>
+<li><a href="#_120">回顧</a></li>
+<li><a href="#_121">思考題</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_120">第八篇：實戰配對計算</a><ul>
+<li><a href="#_122">第八篇：實戰配對計算</a><ul>
 <li><a href="#21-1">第 21 章 實例 1：黃化公 × 銀絲母</a><ul>
-<li><a href="#_121">設定情境</a></li>
+<li><a href="#_123">設定情境</a></li>
 <li><a href="#1_1">第 1 步：寫出基因型</a></li>
 <li><a href="#2_1">第 2 步：列出涉及的位點</a></li>
 <li><a href="#3-nsl-ino">第 3 步：算 NSL Ino 位點</a></li>
 <li><a href="#4-opaline">第 4 步：算 Opaline 位點</a></li>
-<li><a href="#5">第 5 步：組合結果</a></li>
-<li><a href="#_122">結論</a></li>
-<li><a href="#_123">實務啟示</a></li>
-<li><a href="#_124">思考題</a></li>
+<li><a href="#5_1">第 5 步：組合結果</a></li>
+<li><a href="#_124">結論</a></li>
+<li><a href="#_125">實務啟示</a></li>
+<li><a href="#_126">思考題</a></li>
 </ul>
 </li>
 <li><a href="#22-2">第 22 章 實例 2：藍色公 × 黃化母</a><ul>
-<li><a href="#_125">設定情境</a></li>
+<li><a href="#_127">設定情境</a></li>
 <li><a href="#1_2">第 1 步：寫出基因型</a></li>
 <li><a href="#2_2">第 2 步：列出涉及的位點</a></li>
 <li><a href="#3-blue">第 3 步：算 Blue 位點</a></li>
 <li><a href="#4-nsl-ino">第 4 步：算 NSL Ino 位點</a></li>
-<li><a href="#5_1">第 5 步：組合結果</a></li>
-<li><a href="#_126">結論</a></li>
-<li><a href="#_127">實務啟示</a></li>
-<li><a href="#_128">思考題</a></li>
+<li><a href="#5_2">第 5 步：組合結果</a></li>
+<li><a href="#_128">結論</a></li>
+<li><a href="#_129">實務啟示</a></li>
+<li><a href="#_130">思考題</a></li>
 </ul>
 </li>
 <li><a href="#23-3">第 23 章 實例 3：派洛公 × 黃化母（等位基因系列）</a><ul>
-<li><a href="#_129">設定情境</a></li>
+<li><a href="#_131">設定情境</a></li>
 <li><a href="#1_3">第 1 步：寫出基因型</a></li>
 <li><a href="#2_3">第 2 步：列出涉及的位點</a></li>
 <li><a href="#3-nsl-ino_1">第 3 步：算 NSL Ino 位點</a></li>
 <li><a href="#4-ino">第 4 步：算 INO 位點（性聯）</a></li>
-<li><a href="#5_2">第 5 步：組合結果</a></li>
-<li><a href="#_130">結論</a></li>
-<li><a href="#_131">實務啟示</a></li>
-<li><a href="#_132">思考題</a></li>
+<li><a href="#5_3">第 5 步：組合結果</a></li>
+<li><a href="#_132">結論</a></li>
+<li><a href="#_133">實務啟示</a></li>
+<li><a href="#_134">思考題</a></li>
 </ul>
 </li>
 <li><a href="#24-4">第 24 章 實例 4：藍銀絲公 × 黃化母（多重突變）</a><ul>
-<li><a href="#_133">設定情境</a></li>
+<li><a href="#_135">設定情境</a></li>
 <li><a href="#1_4">第 1 步：寫出基因型</a></li>
 <li><a href="#2_4">第 2 步：列出涉及的位點</a></li>
-<li><a href="#3_1">第 3 步：分位點獨立計算</a></li>
-<li><a href="#4_1">第 4 步：組合結果</a></li>
-<li><a href="#_134">結論</a></li>
-<li><a href="#_135">實務啟示</a></li>
-<li><a href="#_136">思考題</a></li>
+<li><a href="#3_3">第 3 步：分位點獨立計算</a></li>
+<li><a href="#4_2">第 4 步：組合結果</a></li>
+<li><a href="#_136">結論</a></li>
+<li><a href="#_137">實務啟示</a></li>
+<li><a href="#_138">思考題</a></li>
 </ul>
 </li>
 <li><a href="#24a-5-parblue">第 24a 章 實例 5：藍色公 × 珊瑚藍母（Parblue 等位基因系列）</a><ul>
-<li><a href="#_137">設定情境</a></li>
+<li><a href="#_139">設定情境</a></li>
 <li><a href="#1_5">第 1 步：寫出基因型</a></li>
 <li><a href="#2-blueparblue">第 2 步：算 Blue/Parblue 位點</a></li>
-<li><a href="#3_2">第 3 步：等位基因系列的顯隱關係</a></li>
-<li><a href="#4_2">第 4 步：後代外觀</a></li>
+<li><a href="#3_4">第 3 步：等位基因系列的顯隱關係</a></li>
+<li><a href="#4_3">第 4 步：後代外觀</a></li>
 <li><a href="#5-f1">第 5 步：F1 配回去出什麼？</a></li>
-<li><a href="#_138">實務啟示</a></li>
-<li><a href="#_139">思考題</a></li>
+<li><a href="#_140">實務啟示</a></li>
+<li><a href="#_141">思考題</a></li>
 </ul>
 </li>
 <li><a href="#24b-6-sl-lutino-pallidino">第 24b 章 實例 6：派洛公 × SL Lutino 母（Pallidino — 同位點等位基因互動）</a><ul>
-<li><a href="#_140">設定情境</a></li>
+<li><a href="#_142">設定情境</a></li>
 <li><a href="#1_6">第 1 步：寫出基因型</a></li>
 <li><a href="#2-ino">第 2 步：算 INO 位點（性聯）</a></li>
 <li><a href="#3-pallidino">第 3 步：Pallidino 是什麼樣子？</a></li>
-<li><a href="#4_3">第 4 步：後代外觀</a></li>
-<li><a href="#5_3">第 5 步：性別連鎖鑑定的另一種版本</a></li>
-<li><a href="#_141">實務啟示</a></li>
-<li><a href="#_142">思考題</a></li>
+<li><a href="#4_4">第 4 步：後代外觀</a></li>
+<li><a href="#5_4">第 5 步：性別連鎖鑑定的另一種版本</a></li>
+<li><a href="#_143">實務啟示</a></li>
+<li><a href="#_144">思考題</a></li>
 </ul>
 </li>
 <li><a href="#24c-7dark-factor">第 24c 章 實例 7：橄欖綠和尚（Dark Factor 半顯性遺傳）</a><ul>
-<li><a href="#_143">設定情境</a></li>
+<li><a href="#_145">設定情境</a></li>
 <li><a href="#1_7">第 1 步：什麼是半顯性？</a></li>
 <li><a href="#2_5">第 2 步：寫出基因型</a></li>
 <li><a href="#3-dark-factor">第 3 步：算 Dark Factor 位點</a></li>
 <li><a href="#4-d-d">第 4 步：如果兩隻都是橄欖綠（D/+ × D/+）會出什麼？</a></li>
 <li><a href="#5-df">第 5 步：DF 跟其他突變組合</a></li>
-<li><a href="#_144">實務啟示</a></li>
-<li><a href="#_145">思考題</a></li>
+<li><a href="#_146">實務啟示</a></li>
+<li><a href="#_147">思考題</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_146">第九篇：商業策略應用</a><ul>
+<li><a href="#_148">第九篇：商業策略應用</a><ul>
 <li><a href="#25-split">第 25 章 split 鳥的隱形價值</a><ul>
 <li><a href="#split_1">為什麼 split 鳥重要</a></li>
 <li><a href="#split_2">三種 split 策略</a></li>
 <li><a href="#split_3">Split 鳥的命名</a></li>
-<li><a href="#_147">回顧</a></li>
-<li><a href="#_148">思考題</a></li>
+<li><a href="#_149">回顧</a></li>
+<li><a href="#_150">思考題</a></li>
 </ul>
 </li>
 <li><a href="#26">第 26 章 為什麼公鳥是遺傳資產</a><ul>
-<li><a href="#_149">數學上的不對稱</a></li>
+<li><a href="#_151">數學上的不對稱</a></li>
 <li><a href="#split_4">進階繁殖策略：「養公 split 母」</a></li>
-<li><a href="#_150">公鳥的另一個優勢</a></li>
-<li><a href="#_151">母鳥的不可替代性</a></li>
-<li><a href="#_152">回顧</a></li>
-<li><a href="#_153">思考題</a></li>
+<li><a href="#_152">公鳥的另一個優勢</a></li>
+<li><a href="#_153">母鳥的不可替代性</a></li>
+<li><a href="#_154">回顧</a></li>
+<li><a href="#_155">思考題</a></li>
 </ul>
 </li>
 <li><a href="#27-abc">第 27 章 配對線規劃（A/B/C 三線策略）</a><ul>
-<li><a href="#_154">三線分配原則</a></li>
+<li><a href="#_156">三線分配原則</a></li>
 <li><a href="#a">A 線範例（現金流）</a></li>
 <li><a href="#b">B 線範例（中期投資）</a></li>
 <li><a href="#c">C 線範例（長期探索）</a></li>
 <li><a href="#50-60-30-40-10">比例為什麼是 50-60 / 30-40 / 10</a></li>
-<li><a href="#_155">回顧</a></li>
-<li><a href="#_156">思考題</a></li>
+<li><a href="#_157">回顧</a></li>
+<li><a href="#_158">思考題</a></li>
 </ul>
 </li>
 <li><a href="#27a">第 27a 章 定價邏輯深入</a><ul>
 <li><a href="#50">為什麼「蛋價 = 鳥價 × 50%」？</a></li>
 <li><a href="#50_1">異色配對的「低價鳥 × 50%」規則</a></li>
-<li><a href="#_157">罕見色定價公式（建議框架）</a></li>
-<li><a href="#_158">三個常被忽略的加成</a></li>
-<li><a href="#_159">思考題</a></li>
+<li><a href="#_159">罕見色定價公式（建議框架）</a></li>
+<li><a href="#_160">三個常被忽略的加成</a></li>
+<li><a href="#_161">思考題</a></li>
 </ul>
 </li>
 <li><a href="#27b">第 27b 章 淘汰決策框架</a><ul>
-<li><a href="#_160">五個淘汰指標（任一觸發都要評估）</a></li>
-<li><a href="#_161">三類淘汰處理方式</a></li>
-<li><a href="#_162">淘汰前的「重整測試」</a></li>
+<li><a href="#_162">五個淘汰指標（任一觸發都要評估）</a></li>
+<li><a href="#_163">三類淘汰處理方式</a></li>
+<li><a href="#_164">淘汰前的「重整測試」</a></li>
 <li><a href="#abc">跟 A/B/C 線的淘汰邏輯不同</a></li>
-<li><a href="#_163">淘汰後的籠位再分配</a></li>
+<li><a href="#_165">淘汰後的籠位再分配</a></li>
 </ul>
 </li>
 <li><a href="#27c">第 27c 章 近親繁殖風險量化</a><ul>
 <li><a href="#coi">COI（近交係數）速查</a></li>
-<li><a href="#_164">鸚鵡的近親繁殖容忍度</a></li>
-<li><a href="#_165">隱形近親的危險</a></li>
-<li><a href="#_166">為什麼有時要刻意近親（固定性狀）</a></li>
-<li><a href="#_167">量化監控</a></li>
-<li><a href="#_168">思考題</a></li>
+<li><a href="#_166">鸚鵡的近親繁殖容忍度</a></li>
+<li><a href="#_167">隱形近親的危險</a></li>
+<li><a href="#_168">為什麼有時要刻意近親（固定性狀）</a></li>
+<li><a href="#_169">量化監控</a></li>
+<li><a href="#_170">思考題</a></li>
 </ul>
 </li>
 <li><a href="#27d">第 27d 章 配對線停損點</a><ul>
-<li><a href="#_169">三類停損點</a></li>
-<li><a href="#4_4">絕對停損的 4 個信號</a></li>
-<li><a href="#_170">機會成本停損的計算</a></li>
-<li><a href="#_171">長期投資停損</a></li>
-<li><a href="#_172">「沉沒成本陷阱」</a></li>
-<li><a href="#_173">停損後的心理重建</a></li>
-<li><a href="#_174">思考題</a></li>
+<li><a href="#_171">三類停損點</a></li>
+<li><a href="#4_5">絕對停損的 4 個信號</a></li>
+<li><a href="#_172">機會成本停損的計算</a></li>
+<li><a href="#_173">長期投資停損</a></li>
+<li><a href="#_174">「沉沒成本陷阱」</a></li>
+<li><a href="#_175">停損後的心理重建</a></li>
+<li><a href="#_176">思考題</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_175">第十篇：跨物種應用（凱克 + 大金黃）</a><ul>
+<li><a href="#_177">第十篇：跨物種應用（凱克 + 大金黃）</a><ul>
 <li><a href="#28">第 28 章 金頭凱克補充：「沒有突變的物種」怎麼經營</a><ul>
 <li><a href="#281">28.1 跟和尚的根本差異</a></li>
 <li><a href="#282">28.2 兩個亞種絕對不能混</a></li>
@@ -1200,7 +1399,7 @@ details p:last-child { margin-bottom: 4px; }
 <li><a href="#284">28.4 凱克的商業策略：賣親養 + 純種血統</a></li>
 <li><a href="#285-split">28.5 凱克可以「split 什麼」嗎？</a></li>
 <li><a href="#286">28.6 跟和尚並行養的時間管理</a></li>
-<li><a href="#_176">思考題</a></li>
+<li><a href="#_178">思考題</a></li>
 </ul>
 </li>
 <li><a href="#29-cites-i">第 29 章 大金黃鸚鵡補充：「CITES I 高難度高利潤」物種</a><ul>
@@ -1210,52 +1409,52 @@ details p:last-child { margin-bottom: 4px; }
 <li><a href="#294">29.4 商業價值結構</a></li>
 <li><a href="#295">29.5 跟和尚/凱克並行養的策略意義</a></li>
 <li><a href="#296">29.6 三條紀律（避免毀掉投資）</a></li>
-<li><a href="#_177">思考題</a></li>
+<li><a href="#_179">思考題</a></li>
 </ul>
 </li>
 <li><a href="#30_1">第 30 章 三物種跨物種比較表</a><ul>
-<li><a href="#_178">全面比較</a></li>
-<li><a href="#_179">三物種「應該怎麼分配資源」的決策框架</a></li>
-<li><a href="#_180">三條黃金原則（適用所有物種）</a></li>
+<li><a href="#_180">全面比較</a></li>
+<li><a href="#_181">三物種「應該怎麼分配資源」的決策框架</a></li>
+<li><a href="#_182">三條黃金原則（適用所有物種）</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_181">附錄</a><ul>
+<li><a href="#_183">附錄</a><ul>
 <li><a href="#a_1">附錄 A：符號對照卡（速查）</a><ul>
-<li><a href="#_182">縮寫快查</a></li>
-<li><a href="#_183">術語快查</a></li>
+<li><a href="#_184">縮寫快查</a></li>
+<li><a href="#_185">術語快查</a></li>
 </ul>
 </li>
 <li><a href="#b_1">附錄 B：和尚突變完整對照表</a></li>
 <li><a href="#c_1">附錄 C：練習題與解答</a><ul>
-<li><a href="#_184">基礎題</a></li>
-<li><a href="#_185">進階題</a></li>
-<li><a href="#_186">陷阱題</a></li>
+<li><a href="#_186">基礎題</a></li>
+<li><a href="#_187">進階題</a></li>
+<li><a href="#_188">陷阱題</a></li>
 </ul>
 </li>
 <li><a href="#d">附錄 D：推薦延伸資源</a><ul>
-<li><a href="#_187">線上工具</a></li>
-<li><a href="#_188">國際社群</a></li>
-<li><a href="#_189">推薦書籍</a></li>
-<li><a href="#_190">自家工具</a></li>
+<li><a href="#_189">線上工具</a></li>
+<li><a href="#_190">國際社群</a></li>
+<li><a href="#_191">推薦書籍</a></li>
+<li><a href="#_192">自家工具</a></li>
 </ul>
 </li>
 <li><a href="#e">附錄 E：互動式配對計算器</a></li>
 <li><a href="#f">附錄 F：常見配對速查表</a><ul>
 <li><a href="#a_2">同色純合配對（A 線：現金流）</a></li>
 <li><a href="#b-split">雙隱性互補（B 線：建立 split 庫存）</a></li>
-<li><a href="#_191">性聯顯現（性別連鎖鑑定法 — 用顏色判性別）</a></li>
+<li><a href="#_193">性聯顯現（性別連鎖鑑定法 — 用顏色判性別）</a></li>
 <li><a href="#c_2">進階配對（C 線：探索）</a></li>
-<li><a href="#_192">看到後代反推父母（疑案排查）</a></li>
+<li><a href="#_194">看到後代反推父母（疑案排查）</a></li>
 </ul>
 </li>
 <li><a href="#g-excel">附錄 G：血統紀錄表 Excel 範本</a><ul>
-<li><a href="#_193">為什麼要做血統紀錄</a></li>
+<li><a href="#_195">為什麼要做血統紀錄</a></li>
 <li><a href="#13_1">13 個欄位設計</a></li>
-<li><a href="#4_5">範例 4 隻看怎麼填</a></li>
+<li><a href="#4_6">範例 4 隻看怎麼填</a></li>
 <li><a href="#excel">怎麼用（Excel 操作）</a></li>
-<li><a href="#_194">三個容易忽略但要記的東西</a></li>
+<li><a href="#_196">三個容易忽略但要記的東西</a></li>
 <li><a href="#google-sheets-excel">進階：用 Google Sheets 取代 Excel 的好處</a></li>
 </ul>
 </li>
@@ -1289,11 +1488,11 @@ details p:last-child { margin-bottom: 4px; }
 </ul>
 </li>
 <li><a href="#k">附錄 K：版本更新日誌</a><ul>
-<li><a href="#_195">後續可能的方向</a></li>
+<li><a href="#_197">後續可能的方向</a></li>
 </ul>
 </li>
-<li><a href="#_196">結語</a><ul>
-<li><a href="#5_4">下一步可以做的 5 件事</a></li>
+<li><a href="#_198">結語</a><ul>
+<li><a href="#5_5">下一步可以做的 5 件事</a></li>
 </ul>
 </li>
 </ul>
@@ -1303,77 +1502,173 @@ details p:last-child { margin-bottom: 4px; }
 
         </aside>
         <main>
-            <h1 id="_1">鸚鵡遺傳學自學教科書</h1>
+            <h1 id="_1">鸚鵡遺傳學完整指南</h1>
 <blockquote>
-<p>從「鳥羽毛為什麼有顏色」到「能讀懂任何鸚鵡基因型」的完整教程<br />
+<p><strong>給資深繁殖者的系統化參考書</strong><br />
+從「鳥羽毛為什麼有顏色」到「能讀懂任何鸚鵡基因型」<br />
 以和尚鸚鵡（Monk Parakeet, <em>Myiopsitta monachus</em>）為主軸，原則通用於所有鸚鵡</p>
 </blockquote>
 <p><strong>整理者</strong>：Jay Hung（與 Claude 共同整理）<br />
 <strong>獻給</strong>：所有想把多年繁殖經驗系統化的資深養鳥人<br />
 <strong>對象</strong>：和尚鸚鵡繁殖者、希望跟國際繁殖社群接軌的人、想用學術方法驗證經驗的同行<br />
-<strong>版本</strong>：v1.1，2026-04-19<br />
-<strong>閱讀時間</strong>：認真讀完約 2-3 小時；學會配對計算約 5 小時</p>
+<strong>版本</strong>：v1.6，2026-04-19<br />
+<strong>閱讀時間</strong>：完整讀完約 2-3 小時；只想看重點 5 分鐘（見「快速通道」）</p>
 <hr />
-<h2 id="_2">目錄</h2>
-<h3 id="_3">序章</h3>
+<h2 id="_2">致叔叔</h2>
+<p>這本書是我整理給您的。</p>
+<p>您養和尚鸚鵡幾十年，<strong>我知道您腦中很多東西比書上的還準</strong>——什麼配什麼會出什麼、哪隻有問題、哪一窩值得留種，這些經驗是書教不出來的。</p>
+<p>但我發現一個有趣的事：您腦中的這些經驗，<strong>其實有完整的科學原理在背後</strong>——只是沒人用學術術語幫您整理過。國際的繁殖社群（特別是歐美）已經把這套系統化好幾十年了，台灣的資深繁殖者大多沒接觸到。所以這本書不是「教您新東西」，是把您本來就會的東西<strong>翻譯成國際通用的語言</strong>——讓您：</p>
+<ul>
+<li><strong>跟國外買家溝通</strong>時直接用 Lutino、Opaline、Pallid 這些術語，不需翻譯</li>
+<li><strong>判斷一隻看似普通的綠鳥</strong>到底藏了什麼隱形價值</li>
+<li><strong>遇到複雜配對</strong>不用憑感覺，可以紙筆算機率</li>
+<li><strong>把幾十年的經驗系統化整理</strong>，讓未來的買家、合作夥伴、甚至接班人能直接接手</li>
+</ul>
+<p>書整理得有點長，但<strong>您不需要從頭讀</strong>。建議用法：</p>
+<ol>
+<li><strong>先看「⚡ 快速通道」</strong>（5 分鐘）——抓核心觀念</li>
+<li><strong>試試「附錄 E 配對計算器」</strong>——馬上玩一個自家配對驗證</li>
+<li><strong>挑一個感興趣的章節讀</strong>（例如「第 22 章 藍 × 黃化」最常見的場上現象）</li>
+<li><strong>手機老花眼看不清</strong> → 右下角 ⚙ 按鈕選「特大」字體</li>
+</ol>
+<p>這本書會持續更新。您讀的時候有任何問題、覺得哪裡寫錯、想補哪個主題，都告訴我。</p>
+<p>—— Jay Hung，2026-04-19</p>
+<hr />
+<h2 id="3">⚡ 快速入口（最常用的 3 個工具）</h2>
+<div class="quick-access">
+<a href="#e">
+<div class="qa-icon">📊</div>
+<div><div class="qa-title">算配對</div><div class="qa-desc">輸入兩隻鳥的基因型，自動算後代外觀分布</div></div>
+</a>
+<a href="#i">
+<div class="qa-icon">💰</div>
+<div><div class="qa-title">查行情</div><div class="qa-desc">輸入物種、顏色、月齡，算建議價格區間</div></div>
+</a>
+<a href="#f">
+<div class="qa-icon">📚</div>
+<div><div class="qa-title">速查表</div><div class="qa-desc">30+ 種常見配對的結果直接查</div></div>
+</a>
+</div>
+
+<hr />
+<h2 id="5">⚡ 5 分鐘快速通道</h2>
+<p>如果您只想抓核心、不想讀完整本書，這 5 分鐘版本就夠了。後面的詳細內容是給想深入時用的參考書。</p>
+<h3 id="5-5">5 個關鍵概念（記住這 5 句話就掌握全書）</h3>
+<ol>
+<li><strong>基因 = 兩張牌</strong>：每個位置上有兩張等位基因。顯性 1 張就表現，隱性要 2 張湊齊才表現。</li>
+<li><strong>Split = 隱形資產</strong>：一張隱性 + 一張正常 = 外觀普通但身上帶基因。配對時會跑出來。</li>
+<li><strong>公母不對稱</strong>：公鳥 ZZ 可以藏所有 split；母鳥 ZW 在性聯位點只有一張，<strong>永遠不能 split</strong> 性聯。</li>
+<li><strong>隱性互補</strong>：兩個不同位點的隱性突變配對 → 後代 <strong>100% 綠色但是 double split</strong>（黃金 F1）。</li>
+<li><strong>等位基因系列</strong>：同基因座可以有多種等位基因互斥（例如 INO 位點上的 SL Ino vs Pallid，配出來會是 Pallidino 中間色）。</li>
+</ol>
+<h3 id="4">場上立即可用的 4 個觀察</h3>
+<ul>
+<li><strong>看到綠色雛鳥先別賣便宜</strong> — 爸媽是什麼配對？很可能是 double / triple split 寶藏</li>
+<li><strong>黃化配藍 = F1 全綠</strong> — F2 兄妹配出 1/16 機率是白化（Albino）</li>
+<li><strong>公鳥的價值通常被低估</strong> — 尤其外觀普通的綠色公鳥可能藏多個性聯 split</li>
+<li><strong>「銀絲母 split blue」這種寫法是錯的</strong> — Opaline 是性聯，母鳥不能 split</li>
+</ul>
+<h3 id="3_1">立即可用的 3 個工具</h3>
+<p>📊 <a href="#e">配對計算器</a> — 算後代分布<br />
+💰 <a href="#i">定價計算器</a> — 算建議價格<br />
+📚 <a href="#f">速查表</a> — 30+ 配對結果</p>
+<p>點上面任一個直接跳到工具頁面，馬上試試自家某對鳥的配對結果。</p>
+<h3 id="_3">想再深入時的閱讀路徑</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>目標</th>
+<th>讀哪些</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>完整理解原理</td>
+<td>從「序章」往下讀</td>
+</tr>
+<tr>
+<td>只想懂核心、看 5 張圖就好</td>
+<td>第 4、8、10、18、22 章（含 SVG 圖示）</td>
+</tr>
+<tr>
+<td>跟外國人溝通用得上的英文術語</td>
+<td>附錄 J（完整詞典）</td>
+</tr>
+<tr>
+<td>凱克跟大金黃的策略差異</td>
+<td>第 28-30 章</td>
+</tr>
+<tr>
+<td>商業面（定價/淘汰/近親）</td>
+<td>第 27a-27d 章</td>
+</tr>
+<tr>
+<td>客戶問問題怎麼回答</td>
+<td>附錄 H（20 問速查）</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="_4">目錄</h2>
+<h3 id="_5">序章</h3>
 <ul>
 <li><a href="#序為什麼要花時間學這個">序：為什麼要花時間學這個</a></li>
 </ul>
-<h3 id="_4">第一篇：顏色從哪來</h3>
+<h3 id="_6">第一篇：顏色從哪來</h3>
 <ul>
 <li><a href="#第-1-章-鳥羽毛顏色的物理基礎">第 1 章 鳥羽毛顏色的物理基礎</a></li>
 <li><a href="#第-2-章-突變的本質加減色素">第 2 章 突變的本質：加減色素</a></li>
 </ul>
-<h3 id="_5">第二篇：基因的最基本概念</h3>
+<h3 id="_7">第二篇：基因的最基本概念</h3>
 <ul>
 <li><a href="#第-3-章-每隻鳥的兩張牌">第 3 章 每隻鳥的「兩張牌」</a></li>
 <li><a href="#第-4-章-顯性與隱性">第 4 章 顯性與隱性</a></li>
 <li><a href="#第-5-章-配對的數學punnett-方格">第 5 章 配對的數學：Punnett 方格</a></li>
 </ul>
-<h3 id="_6">第三篇：藏起來的牌</h3>
+<h3 id="_8">第三篇：藏起來的牌</h3>
 <ul>
 <li><a href="#第-6-章-split-是什麼">第 6 章 split 是什麼</a></li>
 <li><a href="#第-7-章-隱性互補兩個突變反而生出綠色">第 7 章 隱性互補：兩個突變反而生出綠色</a></li>
 </ul>
-<h3 id="_7">第四篇：性染色體</h3>
+<h3 id="_9">第四篇：性染色體</h3>
 <ul>
 <li><a href="#第-8-章-鸚鵡的-zw-系統">第 8 章 鸚鵡的 ZW 系統</a></li>
 <li><a href="#第-9-章-常染色體-vs-性聯">第 9 章 常染色體 vs 性聯</a></li>
 <li><a href="#第-10-章-性聯遺傳的跨代跳躍">第 10 章 性聯遺傳的跨代跳躍</a></li>
 </ul>
-<h3 id="_8">第五篇：基因座的座標系統</h3>
+<h3 id="_10">第五篇：基因座的座標系統</h3>
 <ul>
 <li><a href="#第-11-章-基因座locus一切的根本">第 11 章 基因座（locus）：一切的根本</a></li>
 <li><a href="#第-12-章-等位基因系列同位點互斥">第 12 章 等位基因系列（同位點互斥）</a></li>
 <li><a href="#第-13-章-多位點的獨立分配">第 13 章 多位點的獨立分配</a></li>
 <li><a href="#第-14-章-連鎖同條染色體的捆綁">第 14 章 連鎖：同條染色體的捆綁</a></li>
 </ul>
-<h3 id="_9">第六篇：命名系統與書寫規範</h3>
+<h3 id="_11">第六篇：命名系統與書寫規範</h3>
 <ul>
 <li><a href="#第-15-章-突變命名的詞源">第 15 章 突變命名的詞源</a></li>
 <li><a href="#第-16-章-sl--nsl-標籤的意義">第 16 章 SL / NSL 標籤的意義</a></li>
 <li><a href="#第-17-章-基因型寫法逐字解讀">第 17 章 基因型寫法逐字解讀</a></li>
 </ul>
-<h3 id="_10">第七篇：和尚鸚鵡的具體應用</h3>
+<h3 id="_12">第七篇：和尚鸚鵡的具體應用</h3>
 <ul>
 <li><a href="#第-18-章-和尚的基因座完整地圖">第 18 章 和尚的基因座完整地圖</a></li>
 <li><a href="#第-19-章-台灣俗名與英文對照">第 19 章 台灣俗名與英文對照</a></li>
 <li><a href="#第-20-章-常見混淆與陷阱">第 20 章 常見混淆與陷阱</a></li>
 </ul>
-<h3 id="_11">第八篇：實戰配對計算</h3>
+<h3 id="_13">第八篇：實戰配對計算</h3>
 <ul>
 <li><a href="#第-21-章-實例-1黃化公--銀絲母">第 21 章 實例 1：黃化公 × 銀絲母</a></li>
 <li><a href="#第-22-章-實例-2藍色公--黃化母">第 22 章 實例 2：藍色公 × 黃化母</a></li>
 <li><a href="#第-23-章-實例-3派洛公--黃化母等位基因系列">第 23 章 實例 3：派洛公 × 黃化母（等位基因系列）</a></li>
 <li><a href="#第-24-章-實例-4藍銀絲公--黃化母多重突變">第 24 章 實例 4：藍銀絲公 × 黃化母（多重突變）</a></li>
 </ul>
-<h3 id="_12">第九篇：商業策略應用</h3>
+<h3 id="_14">第九篇：商業策略應用</h3>
 <ul>
 <li><a href="#第-25-章-split-鳥的隱形價值">第 25 章 split 鳥的隱形價值</a></li>
 <li><a href="#第-26-章-為什麼公鳥是遺傳資產">第 26 章 為什麼公鳥是遺傳資產</a></li>
 <li><a href="#第-27-章-配對線規劃abc-三線策略">第 27 章 配對線規劃（A/B/C 三線策略）</a></li>
 </ul>
-<h3 id="_13">附錄</h3>
+<h3 id="_15">附錄</h3>
 <ul>
 <li><a href="#附錄-a符號對照卡速查">附錄 A：符號對照卡（速查）</a></li>
 <li><a href="#附錄-b和尚突變完整對照表">附錄 B：和尚突變完整對照表</a></li>
@@ -1381,7 +1676,7 @@ details p:last-child { margin-bottom: 4px; }
 <li><a href="#附錄-d推薦延伸資源">附錄 D：推薦延伸資源</a></li>
 </ul>
 <hr />
-<h2 id="_14">序：為什麼這本書值得花時間讀</h2>
+<h2 id="_16">序：為什麼這本書值得花時間讀</h2>
 <p>養和尚鸚鵡多年的繁殖者，憑經驗都能判斷「這對配出來會出什麼色」——但通常說不清楚<strong>為什麼</strong>。</p>
 <p>知道「藍配黃化會出綠色」是一回事；知道<strong>為什麼</strong>這些綠色雛鳥其實是「double split」、配回去可以拿到 25% 純藍 + 25% 黃化、是您場上<strong>最有價值的種鳥候選</strong>——是另一回事。</p>
 <p>這本書的目的：把您原本就會但說不出原理的東西<strong>系統化</strong>，再補上幾個關鍵的新觀念，讓您能：</p>
@@ -1409,10 +1704,10 @@ details p:last-child { margin-bottom: 4px; }
 </div>
 <p>開始吧。</p>
 <hr />
-<h1 id="_15">第一篇：顏色從哪來</h1>
+<h1 id="_17">第一篇：顏色從哪來</h1>
 <h2 id="1">第 1 章 鳥羽毛顏色的物理基礎</h2>
 <p>要理解突變，先理解「正常的顏色是怎麼產生的」。</p>
-<h3 id="_16">鳥羽毛只用兩種色素 + 一種光學結構</h3>
+<h3 id="_18">鳥羽毛只用兩種色素 + 一種光學結構</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -1443,7 +1738,7 @@ details p:last-child { margin-bottom: 4px; }
 </tr>
 </tbody>
 </table></div>
-<h3 id="_17">綠色不是色素，是疊出來的</h3>
+<h3 id="_19">綠色不是色素，是疊出來的</h3>
 <p><strong>這是整套系統的核心</strong>：</p>
 <blockquote>
 <p><strong>綠色 = 黃色素 + 藍結構</strong></p>
@@ -1451,7 +1746,7 @@ details p:last-child { margin-bottom: 4px; }
 <p>把這個記下來。所有突變都圍繞這個式子來理解。</p>
 <pre><code>看到的顏色 = 結構色（藍）+ 鸚鵡黃（黃/紅）+ 黑色素（暗色調）
 </code></pre>
-<h3 id="_18">排列組合解釋四大色</h3>
+<h3 id="_20">排列組合解釋四大色</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -1474,9 +1769,9 @@ details p:last-child { margin-bottom: 4px; }
 </tbody>
 </table></div>
 <p>四大色都不是單一物質，<strong>而是「有沒有某種色素」的組合</strong>。</p>
-<h3 id="_19">回顧</h3>
+<h3 id="_21">回顧</h3>
 <p>鳥的顏色由三件事決定：黑色素的有無、鸚鵡黃的有無、結構色（藍）。綠色 = 黃 + 藍結構。</p>
-<h3 id="_20">思考題</h3>
+<h3 id="_22">思考題</h3>
 <blockquote>
 <p>❓ 為什麼孔雀的尾羽是藍色卻會「閃」？（提示：跟結構色有關）</p>
 </blockquote>
@@ -1486,7 +1781,7 @@ details p:last-child { margin-bottom: 4px; }
 </details>
 <hr />
 <h2 id="2">第 2 章 突變的本質：加減色素</h2>
-<h3 id="_21">突變只做三件事</h3>
+<h3 id="_23">突變只做三件事</h3>
 <p>把上一章的元件記在腦中，所有「突變」都是在做以下三件事之一：</p>
 <div class="table-wrapper"><table>
 <thead>
@@ -1514,7 +1809,7 @@ details p:last-child { margin-bottom: 4px; }
 </tr>
 </tbody>
 </table></div>
-<h3 id="_22">用減法理解所有顏色</h3>
+<h3 id="_24">用減法理解所有顏色</h3>
 <p>回到第 1 章的式子：</p>
 <pre><code>綠色（野生型）= 黃色素 + 藍結構
 </code></pre>
@@ -1527,7 +1822,7 @@ details p:last-child { margin-bottom: 4px; }
 <p><strong>Albino 突變</strong>（<strong>alb-</strong> 拉丁文 <em>albus</em> = 白色）：兩個都關掉</p>
 <pre><code>綠 - 黃色素 - 黑色素 = 只剩結構（變透明）→ 看起來白色
 </code></pre>
-<h3 id="_23">為什麼不是全部突變都這麼直白？</h3>
+<h3 id="_25">為什麼不是全部突變都這麼直白？</h3>
 <p>因為自然界的突變不只「全部關掉」——有些是「<strong>部分關掉</strong>」：</p>
 <ul>
 <li><strong>Turquoise</strong>（綠松石色）：黃色素只剩 25%</li>
@@ -1535,9 +1830,9 @@ details p:last-child { margin-bottom: 4px; }
 <li><strong>Pallid</strong>（拉丁文 <em>pallidus</em> = 蒼白的）：黑色素濃度大幅降低</li>
 </ul>
 <p>這些「部分」狀態產生了豐富的色階。所有怪異的鸚鵡顏色，本質都是這三件事的組合。</p>
-<h3 id="_24">回顧</h3>
+<h3 id="_26">回顧</h3>
 <p>突變只做三件事：拿掉、改變、重新分布色素。Blue 拿掉黃色素，Lutino 拿掉黑色素，Albino 兩個都拿掉。</p>
-<h3 id="_25">思考題</h3>
+<h3 id="_27">思考題</h3>
 <blockquote>
 <p>❓ 如果一隻鳥同時有 Blue 突變跟 Lutino 突變，你預測牠看起來什麼顏色？（提示：用減法算）</p>
 </blockquote>
@@ -1546,11 +1841,11 @@ details p:last-child { margin-bottom: 4px; }
 <p>Blue 拿掉黃色素、Lutino 拿掉黑色素。<strong>兩個都拿掉 = 沒色素 = 白色</strong>。這就是 Albino（白化）的成因：Blue + Lutino 雙重純合。</p>
 </details>
 <hr />
-<h1 id="_26">第二篇：基因的最基本概念</h1>
-<h2 id="3">第 3 章 每隻鳥的「兩張牌」</h2>
+<h1 id="_28">第二篇：基因的最基本概念</h1>
+<h2 id="3_2">第 3 章 每隻鳥的「兩張牌」</h2>
 <h3 id="gene">基因（gene）= 一條決定某個特徵的指令</h3>
 <p>例如「羽毛要塗什麼顏色」就是一個基因。「眼睛要什麼顏色」也是一個基因。</p>
-<h3 id="_27">關鍵規則：每個基因都有兩份</h3>
+<h3 id="_29">關鍵規則：每個基因都有兩份</h3>
 <blockquote>
 <p><strong>每隻鳥的每個基因都有兩份，一份從爸爸來，一份從媽媽來。</strong></p>
 </blockquote>
@@ -1563,13 +1858,13 @@ details p:last-child { margin-bottom: 4px; }
 顏色基因：[藍] [藍]
 </code></pre>
 <p>兩張藍牌，所以是藍色。</p>
-<h3 id="_28">為什麼是兩份不是一份？</h3>
+<h3 id="_30">為什麼是兩份不是一份？</h3>
 <p>因為<strong>有性生殖</strong>——爸媽各給一份，後代才能混合兩邊的特徵。這個機制叫<strong>減數分裂</strong>（meiosis，「減半的分裂」），會在後面講配對計算時詳細說明。</p>
-<h3 id="_29">例外：性染色體上的基因</h3>
+<h3 id="_31">例外：性染色體上的基因</h3>
 <p>母鳥的某些位置只有「一份」（不是兩份）。這是後面第 8 章才會講的特殊情況，先記住「常見情況是兩份」。</p>
-<h3 id="_30">回顧</h3>
+<h3 id="_32">回顧</h3>
 <p>每隻鳥每個基因兩份，一份來自爸、一份來自媽。組合決定外觀。</p>
-<h3 id="_31">思考題</h3>
+<h3 id="_33">思考題</h3>
 <blockquote>
 <p>❓ 如果爸爸的兩張牌都是綠，媽媽的兩張牌都是藍，子代會拿到什麼組合？</p>
 </blockquote>
@@ -1578,14 +1873,14 @@ details p:last-child { margin-bottom: 4px; }
 <p>爸爸只能給綠（兩張都是綠），媽媽只能給藍。所以子代 100% 是 [綠][藍]——外觀全綠 split blue。這是經典的 F1 現象：親代純合配對，子代全部雜合。</p>
 </details>
 <hr />
-<h2 id="4">第 4 章 顯性與隱性</h2>
-<h3 id="_32">牌跟牌之間有強弱關係</h3>
+<h2 id="4_1">第 4 章 顯性與隱性</h2>
+<h3 id="_34">牌跟牌之間有強弱關係</h3>
 <p>不是所有牌都同等大聲。鸚鵡的等位基因（同一個位置上不同版本的牌）分兩種：</p>
 <ul>
 <li><strong>顯性</strong>（dominant，主導的）= <strong>大聲的牌</strong>，只要有一張就會表現</li>
 <li><strong>隱性</strong>（recessive，退讓的，<em>recess</em> = 退讓）= <strong>害羞的牌</strong>，要<strong>兩張一起</strong>才敢表現</li>
 </ul>
-<h3 id="_33">和尚鸚鵡的例子</h3>
+<h3 id="_35">和尚鸚鵡的例子</h3>
 <p>「綠色」是顯性，「藍色」是隱性。所以：</p>
 <div class="table-wrapper"><table>
 <thead>
@@ -1632,7 +1927,7 @@ details p:last-child { margin-bottom: 4px; }
   <text class="fig-label" x="200" y="245" font-weight="700">→ 外觀：綠色（藏一張藍 = split）</text>
 </svg><figcaption>圖 1：基因有兩份，一份來自爸、一份來自媽。組合決定外觀。</figcaption></figure>
 
-<h3 id="_34">重點觀察</h3>
+<h3 id="_36">重點觀察</h3>
 <p>[綠][藍] 這隻鳥<strong>外觀是綠色</strong>，但牠<strong>身上帶著一張藍牌</strong>。</p>
 <p>牠看起來跟 [綠][綠] 完全一樣，但實際基因型不同。這個概念是後面所有「split」討論的基礎。</p>
 <h3 id="vs">顯性 vs 隱性的記憶法</h3>
@@ -1662,16 +1957,16 @@ details p:last-child { margin-bottom: 4px; }
 </tr>
 </tbody>
 </table></div>
-<h3 id="_35">例外：半顯性與共顯性</h3>
+<h3 id="_37">例外：半顯性與共顯性</h3>
 <p>少數突變不是純顯性也不是純隱性：</p>
 <ul>
 <li><strong>半顯性</strong>（semi-dominant）：一張牌就部分表現，兩張牌完全表現。例：和尚的 Dark Factor</li>
 <li><strong>共顯性</strong>（co-dominant）：兩種牌都同時表現</li>
 </ul>
 <p>這些是進階主題，初學階段可以先忽略。</p>
-<h3 id="_36">回顧</h3>
+<h3 id="_38">回顧</h3>
 <p>顯性 1 張就表現；隱性 2 張才表現。外觀相同的鳥可能基因型不同。</p>
-<h3 id="_37">思考題</h3>
+<h3 id="_39">思考題</h3>
 <blockquote>
 <p>❓ 如果有一個突變需要 1 張牌就能完全表現，配對時這個突變會怎麼遺傳？</p>
 </blockquote>
@@ -1681,7 +1976,7 @@ details p:last-child { margin-bottom: 4px; }
 </details>
 <hr />
 <h2 id="5-punnett">第 5 章 配對的數學：Punnett 方格</h2>
-<h3 id="_38">基本原理</h3>
+<h3 id="_40">基本原理</h3>
 <p>兩隻鳥配對時，每隻爸媽<strong>從自己手上的兩張牌隨機抽一張</strong>給小孩。</p>
 <p>例：[綠][藍] 公 × [綠][藍] 母</p>
 <p>爸爸可能給：綠 或 藍（各 50%）<br />
@@ -1760,12 +2055,12 @@ details p:last-child { margin-bottom: 4px; }
 
 <h3 id="punnett">Punnett 方格的歷史</h3>
 <p><strong>Punnett square</strong>（龐尼特方格）由英國遺傳學家 Reginald Punnett 在 1905 年發明，用來視覺化孟德爾的遺傳規律。一個世紀過去，這仍然是繁殖者最常用的工具。</p>
-<h3 id="_39">結論</h3>
+<h3 id="_41">結論</h3>
 <p>兩隻外觀都是綠色的鳥配對，<strong>可能生出 25% 藍色小孩</strong>。</p>
 <p>這個看似魔法的現象，繁殖場每天都在發生。</p>
-<h3 id="_40">回顧</h3>
+<h3 id="_42">回顧</h3>
 <p>配對 = 爸媽各抽一張牌給小孩。Punnett 方格幫你列出所有組合，算出機率。</p>
-<h3 id="_41">思考題</h3>
+<h3 id="_43">思考題</h3>
 <blockquote>
 <p>❓ 如果爸是 [綠][綠]，媽是 [藍][藍]，後代會是什麼？再下一代（後代彼此配對）會出現什麼比例？</p>
 </blockquote>
@@ -1774,9 +2069,9 @@ details p:last-child { margin-bottom: 4px; }
 <p>F1：100% [綠][藍]，外觀全綠 split blue。<strong>F2（兄妹配）</strong>：用 Punnett 方格算 [綠][藍] × [綠][藍]，得到 25% [綠][綠]、50% [綠][藍]、25% [藍][藍]。也就是 75% 綠（含 split）、<strong>25% 藍</strong>。隱性藍色突變在 F2「重新出現」。</p>
 </details>
 <hr />
-<h1 id="_42">第三篇：藏起來的牌</h1>
+<h1 id="_44">第三篇：藏起來的牌</h1>
 <h2 id="6-split">第 6 章 split 是什麼</h2>
-<h3 id="_43">定義</h3>
+<h3 id="_45">定義</h3>
 <p><strong>split</strong>（英文「分裂」、「夾帶」的意思）= <strong>雜合子</strong>（heterozygous，雜=混雜的；hetero- 希臘文「不同的」）= 帶一張突變牌但沒表現出來的狀態。</p>
 <p>[綠][藍] 這種「外觀綠但帶一張藍」的鳥，繁殖者叫牠 <strong>「綠色 split blue」</strong>，寫作 <strong>green/blue</strong>。</p>
 <h3 id="split">為什麼 split 重要</h3>
@@ -1786,7 +2081,7 @@ details p:last-child { margin-bottom: 4px; }
 <li><strong>配對策略</strong>：兩隻 split 互配 = 25% 機率出隱性色</li>
 <li><strong>價格落差</strong>：split 的鳥便宜（外觀普通），但生出來的小孩貴</li>
 </ol>
-<h3 id="_44">繁殖者的算盤</h3>
+<h3 id="_46">繁殖者的算盤</h3>
 <p>買一隻便宜的 green/blue split 種鳥，跟自家藍鳥配，每窩可以拿到 50% 藍色雛鳥。投資報酬率比買純藍配對好。</p>
 <h3 id="vs_1">純合 vs 雜合的對照</h3>
 <div class="table-wrapper"><table>
@@ -1813,9 +2108,9 @@ details p:last-child { margin-bottom: 4px; }
 </tr>
 </tbody>
 </table></div>
-<h3 id="_45">回顧</h3>
+<h3 id="_47">回顧</h3>
 <p>split = 雜合 = 帶一張隱性牌但沒表現。是「隱形資產」，繁殖策略的核心。</p>
-<h3 id="_46">思考題</h3>
+<h3 id="_48">思考題</h3>
 <blockquote>
 <p>❓ 外觀綠色的鳥有幾種可能基因型？（提示：考慮可能的所有組合）</p>
 </blockquote>
@@ -1825,7 +2120,7 @@ details p:last-child { margin-bottom: 4px; }
 </details>
 <hr />
 <h2 id="7">第 7 章 隱性互補：兩個突變反而生出綠色</h2>
-<h3 id="_47">反直覺現象</h3>
+<h3 id="_49">反直覺現象</h3>
 <p>兩隻<strong>外觀有色</strong>的鳥配對，<strong>後代可能全部變綠</strong>。</p>
 <p>例：藍色 × 黃化</p>
 <pre><code>公親：藍色  [bl][bl]   （Blue 位點純合）
@@ -1836,10 +2131,10 @@ details p:last-child { margin-bottom: 4px; }
 - <strong>Blue 位點</strong>：小孩拿到 [bl][+]（一張藍 + 一張正常）→ split blue，外觀綠
 - <strong>NSL Ino 位點</strong>：小孩拿到 [ino][+]（一張黃化 + 一張正常）→ split ino，外觀綠</p>
 <p><strong>結果</strong>：100% 後代外觀<strong>綠色</strong>，但全都是 <strong>double split</strong>（雙重攜帶）。</p>
-<h3 id="_48">為什麼叫「隱性互補」</h3>
+<h3 id="_50">為什麼叫「隱性互補」</h3>
 <p><strong>complementation</strong>（互補）= 兩個不同隱性突變湊在一起，反而<strong>恢復</strong>野生型外觀。</p>
 <p>因為各自的「壞」在不同位置，互不影響——子代每個位點都至少有一張正常牌，所以表型回到綠色。</p>
-<h3 id="_49">實務含義</h3>
+<h3 id="_51">實務含義</h3>
 <p>繁殖者看到「藍 × 黃化 → 全綠」<strong>不要慌</strong>——這些綠色 F1（First filial generation，第一代後代）是<strong>遺傳寶藏</strong>：</p>
 <ul>
 <li>牠們同時藏著 blue 跟 ino 兩個 split</li>
@@ -1882,11 +2177,11 @@ details p:last-child { margin-bottom: 4px; }
   <text class="fig-label" x="200" y="488" font-weight="700" fill="#b8845a" font-size="15">這就是「隱性互補」</text>
 </svg><figcaption>圖 6：兩個不同位點的隱性突變配對，後代外觀回到野生型綠色，但藏著雙重 split。</figcaption></figure>
 
-<h3 id="_50">真實案例：綠色公母之謎案例</h3>
+<h3 id="_52">真實案例：綠色公母之謎案例</h3>
 <p>假設場上曾經有 Blue × NSL Lutino 配對，那一窩雛鳥<strong>整窩都是綠色</strong>——一公一母完全合理（性別本來就 1:1）。所以「沒買過綠色」這個記憶不見得錯——很可能那兩隻綠色是<strong>自己場內生的</strong>，不是買的，只是當時沒特別記住。</p>
-<h3 id="_51">回顧</h3>
+<h3 id="_53">回顧</h3>
 <p>兩個不同位點的隱性突變配對，後代外觀全綠（隱性互補），但是 double split 是黃金資產。</p>
-<h3 id="_52">思考題</h3>
+<h3 id="_54">思考題</h3>
 <blockquote>
 <p>❓ 如果場上有「藍色 × 銀絲」這個配對（注意銀絲是性聯），會出什麼？跟「藍色 × 黃化」一樣全綠嗎？</p>
 </blockquote>
@@ -1896,9 +2191,9 @@ details p:last-child { margin-bottom: 4px; }
 </details>
 <p>（這個題目要等讀完第四篇才會算，先記下來）</p>
 <hr />
-<h1 id="_53">第四篇：性染色體</h1>
+<h1 id="_55">第四篇：性染色體</h1>
 <h2 id="8-zw">第 8 章 鸚鵡的 ZW 系統</h2>
-<h3 id="_54">鸚鵡跟人類相反</h3>
+<h3 id="_56">鸚鵡跟人類相反</h3>
 <p>人類：女生 XX，男生 XY。<br />
 <strong>鸚鵡：公鳥 ZZ，母鳥 ZW。</strong></p>
 <p>記憶法：母鳥比較特別，配 W。</p>
@@ -1955,13 +2250,13 @@ details p:last-child { margin-bottom: 4px; }
   <text class="fig-label" x="200" y="290" font-weight="700" fill="#b8845a">→ 遺傳資產主要儲存在公鳥</text>
 </svg><figcaption>圖 2：鸚鵡公鳥 ZZ（兩個保險箱），母鳥 ZW（一個保險箱 + 一個空盒）。</figcaption></figure>
 
-<h3 id="_55">為什麼這個結構決定了一切</h3>
+<h3 id="_57">為什麼這個結構決定了一切</h3>
 <p>所有「性聯」（位於 Z 上的基因）的奇怪行為，都源自這個結構。下一章就會展開。</p>
 <h3 id="zw">鸚鵡為什麼是 ZW？</h3>
 <p>ZW 系統在所有鳥類、爬蟲類、某些昆蟲都存在。XY 系統則在哺乳類跟某些昆蟲。這是兩條獨立演化的路徑——大約在 3 億年前分家。</p>
-<h3 id="_56">回顧</h3>
+<h3 id="_58">回顧</h3>
 <p>公鳥 ZZ（兩個保險箱），母鳥 ZW（一個保險箱 + 一個空盒）。</p>
-<h3 id="_57">思考題</h3>
+<h3 id="_59">思考題</h3>
 <blockquote>
 <p>❓ 如果有一個基因恰好位於 W 上，它會怎麼遺傳？只有公鳥還是只有母鳥會拿到？</p>
 </blockquote>
@@ -1971,7 +2266,7 @@ details p:last-child { margin-bottom: 4px; }
 </details>
 <hr />
 <h2 id="9-vs">第 9 章 常染色體 vs 性聯</h2>
-<h3 id="_58">兩種基因位置</h3>
+<h3 id="_60">兩種基因位置</h3>
 <p>鳥的基因位置分兩類：</p>
 <div class="table-wrapper"><table>
 <thead>
@@ -1999,14 +2294,14 @@ details p:last-child { margin-bottom: 4px; }
 </table></div>
 <h3 id="hemizygous">母鳥的特殊狀態：半合（hemizygous）</h3>
 <p><strong>hemi-</strong> 希臘文「一半」。母鳥在性聯位點上只有一張牌，不是純合也不是雜合，而是<strong>半合</strong>。</p>
-<h3 id="_59">半合的後果</h3>
+<h3 id="_61">半合的後果</h3>
 <p>母鳥對性聯基因只有兩種狀態：</p>
 <ul>
 <li>那張 Z 上是正常 → 不顯現突變</li>
 <li>那張 Z 上是突變 → <strong>直接顯現</strong>（因為沒有第二張牌可以遮蓋）</li>
 </ul>
 <p><strong>母鳥永遠不能 split 性聯基因</strong>。這是生物學上的硬限制。</p>
-<h3 id="_60">對比表</h3>
+<h3 id="_62">對比表</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -2033,7 +2328,7 @@ details p:last-child { margin-bottom: 4px; }
 </tr>
 </tbody>
 </table></div>
-<h3 id="_61">和尚鸚鵡的性聯突變</h3>
+<h3 id="_63">和尚鸚鵡的性聯突變</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -2080,9 +2375,9 @@ details p:last-child { margin-bottom: 4px; }
 </tr>
 </tbody>
 </table></div>
-<h3 id="_62">回顧</h3>
+<h3 id="_64">回顧</h3>
 <p>常染色體公母都兩張可 split，性聯母鳥只一張不能 split。母鳥是性聯突變的「展示台」，公鳥是「儲存庫」。</p>
-<h3 id="_63">思考題</h3>
+<h3 id="_65">思考題</h3>
 <blockquote>
 <p>❓ 如果你想保留「Pallid 派洛」這個性聯突變的隱形資產，你應該保留公鳥還是母鳥？</p>
 </blockquote>
@@ -2092,7 +2387,7 @@ details p:last-child { margin-bottom: 4px; }
 </details>
 <hr />
 <h2 id="10">第 10 章 性聯遺傳的跨代跳躍</h2>
-<h3 id="_64">兩條規則</h3>
+<h3 id="_66">兩條規則</h3>
 <p>性聯基因的傳遞只要記住兩條規則：</p>
 <p><strong>規則 A：父親的 Z 一定會傳給女兒。</strong></p>
 <ul>
@@ -2104,7 +2399,7 @@ details p:last-child { margin-bottom: 4px; }
 <li>兒子需要兩條 Z：一條從爸來、一條從媽來</li>
 <li>如果媽媽的 Z 帶突變，兒子拿到後就會 split</li>
 </ul>
-<h3 id="_65">圖解：場景一</h3>
+<h3 id="_67">圖解：場景一</h3>
 <p>「SL Lutino 媽媽」配「普通綠公」：</p>
 <pre><code>爸：Z+ Z+        媽：Z^ino W
        \          /
@@ -2113,7 +2408,7 @@ details p:last-child { margin-bottom: 4px; }
         - 女兒（ZW）：爸給 Z+, 媽給 W → Z+ W → 綠（性聯沒事）
 </code></pre>
 <p><strong>現象</strong>：媽媽的性聯突變傳給<strong>兒子</strong>讓他變 split，<strong>女兒沒拿到</strong>。</p>
-<h3 id="_66">圖解：場景二</h3>
+<h3 id="_68">圖解：場景二</h3>
 <p>「SL Lutino 公（純合）」配「普通綠母」：</p>
 <pre><code>爸：Z^ino Z^ino        媽：Z+ W
         \              /
@@ -2164,14 +2459,14 @@ details p:last-child { margin-bottom: 4px; }
   <text class="fig-label" x="200" y="540" font-weight="700" fill="#b8845a" font-size="16">性聯遺傳會「跨代跳躍」！</text>
 </svg><figcaption>圖 4：性聯突變從父→女直接顯現、從母→子變 split。母鳥永遠不能 split 性聯基因。</figcaption></figure>
 
-<h3 id="_67">性聯遺傳的「隔代跳躍」</h3>
+<h3 id="_69">性聯遺傳的「隔代跳躍」</h3>
 <p>有趣現象：性聯突變會「隔代跳躍」——從爸傳給女兒（女兒直接顯現）、從媽傳給兒子（兒子變 split）。</p>
-<h3 id="_68">反推血統的判斷技巧</h3>
+<h3 id="_70">反推血統的判斷技巧</h3>
 <p>如果你看到一窩雛鳥裡<strong>只有母鳥變色、公鳥都是綠</strong>，幾乎可以肯定是性聯遺傳，而且<strong>爸爸是 split 或純合</strong>。</p>
 <p>如果有人賣你「綠色母鳥 split SL Ino」，馬上就知道是騙——母鳥不能 split 性聯。</p>
-<h3 id="_69">回顧</h3>
+<h3 id="_71">回顧</h3>
 <p>性聯遺傳會跨代跳躍：父→女（直接顯現），母→子（split）。母鳥不能 split 性聯，這是判斷血統的硬規則。</p>
-<h3 id="_70">思考題</h3>
+<h3 id="_72">思考題</h3>
 <blockquote>
 <p>❓ 如果一隻綠色公鳥配藍色母鳥，後代有一隻是肉桂母鳥，這代表什麼？</p>
 </blockquote>
@@ -2180,16 +2475,16 @@ details p:last-child { margin-bottom: 4px; }
 <p>肉桂是性聯隱性。母鳥要顯現肉桂，必須 Z 上有 Z^cin。<strong>母鳥的 Z 一定來自父親</strong>，所以父親（外觀綠色）一定是 split Cinnamon（Z^cin Z^+）。這是反推血統的經典例子——藏起來的 split 透過子代的性聯表現「現形」了。</p>
 </details>
 <hr />
-<h1 id="_71">第五篇：基因座的座標系統</h1>
+<h1 id="_73">第五篇：基因座的座標系統</h1>
 <h2 id="11-locus">第 11 章 基因座（locus）：一切的根本</h2>
-<h3 id="_72">三層概念區分</h3>
+<h3 id="_74">三層概念區分</h3>
 <p>最關鍵的一句話：</p>
 <blockquote>
 <p><strong>基因座</strong>（locus，拉丁文「位置」，複數 loci）= 染色體上某個固定的位置。<br />
 <strong>基因</strong>（gene）= 住在那個位置上的「指令」。<br />
 <strong>等位基因</strong>（allele，「同位點不同版本」）= 同一個位置上「指令的不同版本」。</p>
 </blockquote>
-<h3 id="_73">用門牌比喻</h3>
+<h3 id="_75">用門牌比喻</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -2216,7 +2511,7 @@ details p:last-child { margin-bottom: 4px; }
 </tr>
 </tbody>
 </table></div>
-<h3 id="_74">關鍵理解</h3>
+<h3 id="_76">關鍵理解</h3>
 <ul>
 <li><strong>地址固定不變</strong>——每隻鳥每個基因座的位置都一樣</li>
 <li><strong>住戶會變</strong>——不同個體住的人（等位基因）不同</li>
@@ -2224,7 +2519,7 @@ details p:last-child { margin-bottom: 4px; }
 </ul>
 <p>如果這個地址住著「米其林 + 學徒」，這隻鳥在這個基因座上是 <strong>雜合 = split</strong>。<br />
 如果住著「米其林 + 米其林」或「學徒 + 學徒」，是 <strong>純合</strong>。</p>
-<h3 id="_75">染色體 = 街道</h3>
+<h3 id="_77">染色體 = 街道</h3>
 <p>染色體<strong>是一條長長的 DNA</strong>，上面<strong>串著好幾千個基因座</strong>。</p>
 <pre><code>    常染色體第 N 對的一條：
     ─[Blue 基因座]──[Cinnamon (NSL?) 基因座]──[NSL Ino 基因座]─...
@@ -2233,9 +2528,9 @@ details p:last-child { margin-bottom: 4px; }
     ─[INO 基因座]──[Cinnamon (SL) 基因座]──[Opaline 基因座]─...
 </code></pre>
 <p>鸚鵡有約 <strong>35 對染色體</strong>，上面有<strong>幾萬個基因座</strong>，但<strong>影響顏色的關鍵基因座只有不到 20 個</strong>。這 20 個就是要記的。</p>
-<h3 id="_76">回顧</h3>
+<h3 id="_78">回顧</h3>
 <p>基因座 = 地址；基因 = 住戶；等位基因 = 同職業不同人。一個地址兩張牌（公）或一張牌（母性聯）。</p>
-<h3 id="_77">思考題</h3>
+<h3 id="_79">思考題</h3>
 <blockquote>
 <p>❓ 「基因座」跟「基因」最大的差別在哪？為什麼要分開講？</p>
 </blockquote>
@@ -2245,7 +2540,7 @@ details p:last-child { margin-bottom: 4px; }
 </details>
 <hr />
 <h2 id="12">第 12 章 等位基因系列（同位點互斥）</h2>
-<h3 id="_78">同位點上的競爭</h3>
+<h3 id="_80">同位點上的競爭</h3>
 <p><strong>等位基因系列</strong>（allelic series）= 同一個基因座上<strong>好幾個競爭的等位基因</strong>。</p>
 <p><strong>INO 位點</strong>是和尚鸚鵡最複雜的例子。這個位點上可能的等位基因：</p>
 <pre><code>Z 染色體上的 INO 位點，可能住的「住戶」：
@@ -2256,14 +2551,14 @@ details p:last-child { margin-bottom: 4px; }
 - Z^cb   （Clearbody 透體）
 ... 等
 </code></pre>
-<h3 id="_79">重要結論</h3>
+<h3 id="_81">重要結論</h3>
 <p>一條 Z 染色體上的 INO 位點<strong>只能住一個</strong>。所以：</p>
 <ul>
 <li>一隻公鳥<strong>不可能同時</strong> <code>Z^ino</code> 跟 <code>Z^pal</code> 在同一條 Z 上</li>
 <li>但可以是 <code>Z^ino Z^pal</code>（一條 Z 帶 ino，另一條帶 pal）</li>
 <li>這隻鳥外觀會是兩種突變的「中間型」（叫 Pallidino）</li>
 </ul>
-<h3 id="_80">互斥規則</h3>
+<h3 id="_82">互斥規則</h3>
 <pre><code>✅ 可疊加：Blue + Cinnamon（不同位點）
 ✅ 可疊加：Blue + Opaline + NSL Ino（三個不同位點）
 ❌ 不可疊加：SL Ino + Pallid（同一個 INO 位點）
@@ -2303,15 +2598,15 @@ details p:last-child { margin-bottom: 4px; }
 </table></div>
 <p>這四個都在<strong>同一個基因座</strong>上互斥。一隻鳥兩張牌只能從中選兩個（可重複）。</p>
 <p>例如 <code>tur/bl</code>（一張 Turquoise + 一張 Blue）會表現為<strong>中間色</strong>。</p>
-<h3 id="_81">顯隱性的等級</h3>
+<h3 id="_83">顯隱性的等級</h3>
 <p>等位基因系列裡有顯隱性等級：</p>
 <pre><code>+ &gt; aq &gt; tur &gt; bl
 （綠是最顯性，藍是最隱性）
 </code></pre>
 <p>所以 <code>+/bl</code> = 綠（綠贏藍），<code>aq/bl</code> = Aqua（Aqua 贏 Blue）。</p>
-<h3 id="_82">回顧</h3>
+<h3 id="_84">回顧</h3>
 <p>同一基因座可以有多個等位基因競爭，但一次只能裝兩個（公）或一個（母性聯）。同位點互斥，不同位點可疊加。</p>
-<h3 id="_83">思考題</h3>
+<h3 id="_85">思考題</h3>
 <blockquote>
 <p>❓ <code>tur/+</code> 跟 <code>bl/+</code> 看起來會一樣嗎？為什麼？</p>
 </blockquote>
@@ -2321,12 +2616,12 @@ details p:last-child { margin-bottom: 4px; }
 </details>
 <hr />
 <h2 id="13">第 13 章 多位點的獨立分配</h2>
-<h3 id="_84">孟德爾第二定律</h3>
+<h3 id="_86">孟德爾第二定律</h3>
 <p><strong>Mendel's second law</strong>（孟德爾第二定律，由奧地利修士 Gregor Mendel 在 1865 年提出）：</p>
 <blockquote>
 <p>位於<strong>不同染色體</strong>的基因座，<strong>遺傳時互相獨立</strong>。</p>
 </blockquote>
-<h3 id="_85">計算範例</h3>
+<h3 id="_87">計算範例</h3>
 <p>例：Blue（在常染色體 5 號）+ NSL Ino（在常染色體 8 號）</p>
 <pre><code>公親：bl/+, ino/+  （兩個位點都是 split）
 媽親：bl/+, ino/+
@@ -2338,7 +2633,7 @@ details p:last-child { margin-bottom: 4px; }
 兩個位點獨立組合（笛卡爾積）：
 3 × 3 = 9 種基因型組合
 </code></pre>
-<h3 id="_86">為什麼基因型數量會爆炸</h3>
+<h3 id="_88">為什麼基因型數量會爆炸</h3>
 <p>每多一個位點，可能性 <strong>×3</strong>（純合突變、純合正常、雜合）。</p>
 <div class="table-wrapper"><table>
 <thead>
@@ -2371,7 +2666,7 @@ details p:last-child { margin-bottom: 4px; }
 </tbody>
 </table></div>
 <p>加上性聯位點（公鳥 ×4、母鳥 ×2），組合數很快超過 100。</p>
-<h3 id="_87">實務算法</h3>
+<h3 id="_89">實務算法</h3>
 <p>複雜配對的算法：</p>
 <ol>
 <li>列出所有涉及的位點</li>
@@ -2379,9 +2674,9 @@ details p:last-child { margin-bottom: 4px; }
 <li>把所有位點結果用「乘法原理」組合</li>
 </ol>
 <p>複雜的會用線上計算器（GenCalc-Online）幫忙。但理解原理才能驗證計算器有沒有出錯。</p>
-<h3 id="_88">回顧</h3>
+<h3 id="_90">回顧</h3>
 <p>不同位點獨立分配。基因型組合數隨位點數指數成長。</p>
-<h3 id="_89">思考題</h3>
+<h3 id="_91">思考題</h3>
 <blockquote>
 <p>❓ 如果一對種鳥涉及 4 個位點，後代基因型理論上有多少種？</p>
 </blockquote>
@@ -2391,7 +2686,7 @@ details p:last-child { margin-bottom: 4px; }
 </details>
 <hr />
 <h2 id="14">第 14 章 連鎖：同條染色體的捆綁</h2>
-<h3 id="_90">例外：同條染色體上的基因不獨立</h3>
+<h3 id="_92">例外：同條染色體上的基因不獨立</h3>
 <p>如果<strong>兩個基因座在同一條染色體上</strong>，它們<strong>不會獨立分配</strong>——會傾向「<strong>一起傳</strong>」。</p>
 <p>這個現象叫 <strong>linkage</strong>（連鎖）。</p>
 <h3 id="z">Z 上的連鎖實例</h3>
@@ -2407,9 +2702,9 @@ details p:last-child { margin-bottom: 4px; }
 <h3 id="crossing-over">重組（crossing over）</h3>
 <p>但偶爾會發生<strong>重組</strong>（recombination，染色體交換片段；發生在減數分裂時）。</p>
 <p>距離越遠的基因，重組機率越高。實務上，繁殖者通常假設性聯基因「<strong>完全連鎖</strong>」算近似值，誤差不大。</p>
-<h3 id="_91">實務含義</h3>
+<h3 id="_93">實務含義</h3>
 <p>性聯多重突變的傳遞需要看 <strong>Z 染色體上的「拼盤」</strong>，不能單獨計算。這是為什麼性聯計算特別複雜。</p>
-<h3 id="_92">染色體配置不同的後代差異</h3>
+<h3 id="_94">染色體配置不同的後代差異</h3>
 <p>兩隻外觀都是「SL Lutino + Cinnamon 雙重突變」的公鳥可能有兩種配置：</p>
 <p><strong>配置 A（cis 順式）</strong>：</p>
 <pre><code>條 1：Z^ino─Z^cin
@@ -2420,9 +2715,9 @@ details p:last-child { margin-bottom: 4px; }
 條 2：Z^+ ─Z^cin
 </code></pre>
 <p>外觀完全一樣，但<strong>後代不同</strong>。配置 A 容易產出純的雙重突變雛鳥；配置 B 不容易（除非重組）。</p>
-<h3 id="_93">回顧</h3>
+<h3 id="_95">回顧</h3>
 <p>同條染色體上的基因連鎖一起傳。重組偶爾發生。性聯多重突變要看整條 Z 的配置。</p>
-<h3 id="_94">思考題</h3>
+<h3 id="_96">思考題</h3>
 <blockquote>
 <p>❓ 為什麼常染色體配置 A 跟 B 沒差別？（提示：跟染色體配對方式有關）</p>
 </blockquote>
@@ -2431,7 +2726,7 @@ details p:last-child { margin-bottom: 4px; }
 <p>常染色體成對存在，但兩條是「同源染色體」，遺傳時各給一條。如果兩個基因座在同一條常染色體上，配置 cis 跟 trans 的後代分布只在「重組」發生時才有差別。<strong>對 Z 上的基因有差別</strong>，是因為 Z 染色體在公鳥成對、在母鳥單條，傳遞行為更有方向性，配置不同會直接影響子代性聯表現。</p>
 </details>
 <hr />
-<h1 id="_95">第六篇：命名系統與書寫規範</h1>
+<h1 id="_97">第六篇：命名系統與書寫規範</h1>
 <h2 id="15">第 15 章 突變命名的詞源</h2>
 <h3 id="-ino">-ino 家族（破壞色素的突變）</h3>
 <p><code>-ino</code> 是<strong>拉丁字根後綴</strong>，意思是「<strong>化</strong>」（變成那樣）：</p>
@@ -2462,7 +2757,7 @@ details p:last-child { margin-bottom: 4px; }
 </tbody>
 </table></div>
 <p>當你看到 <strong>INO</strong> 三個字母大寫時，繁殖者通常指的是「<strong>INO 基因座</strong>」——一個負責製造黑色素的酵素基因。它壞掉，鳥就變黃化或白化。</p>
-<h3 id="_96">結構色家族</h3>
+<h3 id="_98">結構色家族</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -2494,7 +2789,7 @@ details p:last-child { margin-bottom: 4px; }
 </tr>
 </tbody>
 </table></div>
-<h3 id="_97">改色家族</h3>
+<h3 id="_99">改色家族</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -2536,7 +2831,7 @@ details p:last-child { margin-bottom: 4px; }
 </tr>
 </tbody>
 </table></div>
-<h3 id="_98">強度家族</h3>
+<h3 id="_100">強度家族</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -2554,9 +2849,9 @@ details p:last-child { margin-bottom: 4px; }
 </tbody>
 </table></div>
 <p>DF 比較特別——它<strong>不是隱性，是半顯性</strong>：一張 DF 牌讓綠變橄欖綠，兩張 DF 牌讓綠變森林綠。</p>
-<h3 id="_99">回顧</h3>
+<h3 id="_101">回顧</h3>
 <p>突變命名的詞源大多來自拉丁文/英文/法文，描述顏色或機制。-ino 後綴 = 「化」。記住詞源，看到陌生突變就能猜出意思。</p>
-<h3 id="_100">思考題</h3>
+<h3 id="_102">思考題</h3>
 <blockquote>
 <p>❓ 如果有一個新發現的鸚鵡突變叫 "Rubrino"，你猜它的外觀會是什麼？</p>
 </blockquote>
@@ -2566,7 +2861,7 @@ details p:last-child { margin-bottom: 4px; }
 </details>
 <hr />
 <h2 id="16-sl-nsl">第 16 章 SL / NSL 標籤的意義</h2>
-<h3 id="_101">標籤系統</h3>
+<h3 id="_103">標籤系統</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -2625,14 +2920,14 @@ details p:last-child { margin-bottom: 4px; }
 </tbody>
 </table></div>
 <p><strong>外觀根本分不出來</strong>，但<strong>配種結果天差地遠</strong>。台灣主流是 NSL Ino。</p>
-<h3 id="_102">不分清楚的後果</h3>
+<h3 id="_104">不分清楚的後果</h3>
 <p>賣家把 SL 標成 NSL（或反過來），買家配種會出意料之外的結果：
 - 以為是 NSL 配 NSL → 期待全部黃化
 - 結果其中一隻是 SL → 後代分布完全不同</p>
 <p>所以<strong>SL/NSL 不是學究在計較，是真金白銀的差異</strong>。</p>
-<h3 id="_103">回顧</h3>
+<h3 id="_105">回顧</h3>
 <p>SL = 性聯，NSL = 常染色體。同名突變（如 Lutino）可能位於不同位點。看不懂寫法時，標籤幫你判斷遺傳模式。</p>
-<h3 id="_104">思考題</h3>
+<h3 id="_106">思考題</h3>
 <blockquote>
 <p>❓ 如果場上有 5 隻黃化鳥，你怎麼測試牠們是 SL 還是 NSL？（提示：不用 DNA 檢測，用配種就能知道）</p>
 </blockquote>
@@ -2642,7 +2937,7 @@ details p:last-child { margin-bottom: 4px; }
 </details>
 <hr />
 <h2 id="17">第 17 章 基因型寫法逐字解讀</h2>
-<h3 id="_105">基本符號</h3>
+<h3 id="_107">基本符號</h3>
 <pre><code>═══════════════════════════════════════════
   字符        意思
 ═══════════════════════════════════════════
@@ -2729,7 +3024,7 @@ details p:last-child { margin-bottom: 4px; }
 </tr>
 </tbody>
 </table></div>
-<h3 id="_106">對照表：常見寫法</h3>
+<h3 id="_108">對照表：常見寫法</h3>
 <p><strong>常染色體位點</strong>：</p>
 <div class="table-wrapper"><table>
 <thead>
@@ -2817,9 +3112,9 @@ details p:last-child { margin-bottom: 4px; }
 </tbody>
 </table></div>
 <p>⚠️ 不存在 <code>Z^op W</code> 的 split 寫法——W 不帶這個位點，沒有第二張牌可以放。</p>
-<h3 id="_107">回顧</h3>
+<h3 id="_109">回顧</h3>
 <p>每個符號都有固定意思，學會這套就能讀懂任何鸚鵡基因型。性聯寫法隱含性別資訊。</p>
-<h3 id="_108">思考題</h3>
+<h3 id="_110">思考題</h3>
 <blockquote>
 <p>❓ <code>bl/+, Z^op Z^op</code> 是什麼？
 答案：公鳥，外觀銀絲，藏一張藍 split → 配藍母會出藍銀絲。</p>
@@ -2829,7 +3124,7 @@ details p:last-child { margin-bottom: 4px; }
 <p><strong>公鳥</strong>（兩條 Z），<strong>外觀銀絲</strong>（Opaline 純合），<strong>藏一張藍 split</strong>。配藍色母鳥會出藍銀絲後代——這是場上最有商業價值的突變之一。這種鳥外觀漂亮 + split 隱形資產，是雙效種公的典型代表。</p>
 </details>
 <hr />
-<h1 id="_109">第七篇：和尚鸚鵡的具體應用</h1>
+<h1 id="_111">第七篇：和尚鸚鵡的具體應用</h1>
 <h2 id="18">第 18 章 和尚的基因座完整地圖</h2>
 <h3 id="z-3">Z 染色體上的基因座（性聯，3 個獨立位點）</h3>
 <div class="table-wrapper"><table>
@@ -2858,7 +3153,7 @@ details p:last-child { margin-bottom: 4px; }
 </tr>
 </tbody>
 </table></div>
-<h3 id="_110">常染色體上的基因座</h3>
+<h3 id="_112">常染色體上的基因座</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -2895,7 +3190,7 @@ details p:last-child { margin-bottom: 4px; }
 </tr>
 </tbody>
 </table></div>
-<h3 id="_111">基因型組合計算</h3>
+<h3 id="_113">基因型組合計算</h3>
 <p>以一個典型繁殖場常見的 5 個位點計算：</p>
 <div class="table-wrapper"><table>
 <thead>
@@ -2976,9 +3271,9 @@ details p:last-child { margin-bottom: 4px; }
   <text class="fig-label" x="200" y="525" text-anchor="middle" font-size="12" fill="#6b6660">● 彩色基因座（住戶 = 等位基因）</text>
 </svg><figcaption>圖 5：和尚鸚鵡有 5+ 個彩色基因座。常染色體 2 個 + 性聯 3 個（INO 位點是等位基因系列）。</figcaption></figure>
 
-<h3 id="_112">回顧</h3>
+<h3 id="_114">回顧</h3>
 <p>和尚有 5-7 個重要基因座。公鳥基因型空間遠大於母鳥。</p>
-<h3 id="_113">思考題</h3>
+<h3 id="_115">思考題</h3>
 <blockquote>
 <p>❓ 如果完全不考慮 split（只看外觀），公鳥跟母鳥的「外觀變化數」會一樣嗎？</p>
 </blockquote>
@@ -2988,7 +3283,7 @@ details p:last-child { margin-bottom: 4px; }
 </details>
 <hr />
 <h2 id="19">第 19 章 台灣俗名與英文對照</h2>
-<h3 id="_114">完整對照表</h3>
+<h3 id="_116">完整對照表</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -3072,7 +3367,7 @@ details p:last-child { margin-bottom: 4px; }
 </tr>
 </tbody>
 </table></div>
-<h3 id="_115">重大命名修正</h3>
+<h3 id="_117">重大命名修正</h3>
 <p>台灣繁殖圈有些常見的命名混淆：</p>
 <div class="table-wrapper"><table>
 <thead>
@@ -3105,9 +3400,9 @@ details p:last-child { margin-bottom: 4px; }
 </tr>
 </tbody>
 </table></div>
-<h3 id="_116">回顧</h3>
+<h3 id="_118">回顧</h3>
 <p>學會中英對照才能跟國際繁殖者溝通。台灣某些俗名跟英文不是直譯，要小心對應。</p>
-<h3 id="_117">思考題</h3>
+<h3 id="_119">思考題</h3>
 <blockquote>
 <p>❓ 如果有人說「我有一隻 Pallid 派洛公」，他應該怎麼寫基因型？</p>
 </blockquote>
@@ -3194,9 +3489,9 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p>每次說 split，<strong>必須指明 split 的是什麼</strong>。</p>
 <h3 id="5-split-sl-ino">陷阱 5：「黃化母鳥 split SL Ino」這種寫法是錯的</h3>
 <p><strong>母鳥不能 split 性聯基因</strong>。如果有人這樣標，要嘛是寫錯，要嘛是 NSL Ino（不是性聯）。</p>
-<h3 id="_118">回顧</h3>
+<h3 id="_120">回顧</h3>
 <p>命名混淆很多，記住「機制」而不只是「俗名」。母鳥不能 split 性聯——這是判斷血統真偽的鐵則。</p>
-<h3 id="_119">思考題</h3>
+<h3 id="_121">思考題</h3>
 <blockquote>
 <p>❓ 如果賣家標「綠色母鳥 split Opaline」，你應該如何回應？</p>
 </blockquote>
@@ -3205,9 +3500,9 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p>明確指出這個寫法是錯的。<strong>Opaline 是性聯隱性，母鳥不能 split 性聯基因</strong>。可能性：(1) 賣家不懂遺傳學寫錯；(2) 實際是綠色母鳥但完全沒有 Opaline 基因；(3) 賣家想騙價。可以禮貌詢問「請問是哪份遺傳檢測報告標的？」測試對方是否懂行。如果對方支吾，幾乎可以確定有問題。</p>
 </details>
 <hr />
-<h1 id="_120">第八篇：實戰配對計算</h1>
+<h1 id="_122">第八篇：實戰配對計算</h1>
 <h2 id="21-1">第 21 章 實例 1：黃化公 × 銀絲母</h2>
-<h3 id="_121">設定情境</h3>
+<h3 id="_123">設定情境</h3>
 <pre><code>公親：黃化和尚（Lutino, NSL Ino 純合）
 母親：銀絲和尚（Opaline 半合）
 </code></pre>
@@ -3275,7 +3570,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 - 爸給：<code>Z^+</code>（100%）
 - 媽給：W
 - → <code>Z^+ W</code>（綠色，沒有 Opaline 基因）</p>
-<h3 id="5">第 5 步：組合結果</h3>
+<h3 id="5_1">第 5 步：組合結果</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -3297,13 +3592,13 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_122">結論</h3>
+<h3 id="_124">結論</h3>
 <p><strong>所有後代外觀都是綠色！</strong> 這是「隱性互補」現象。</p>
 <p>但這些綠色<strong>藏著黃化跟銀絲兩個寶藏</strong>，是建立 split 庫存的黃金 F1。</p>
-<h3 id="_123">實務啟示</h3>
+<h3 id="_125">實務啟示</h3>
 <p>短期：賣外觀綠色，價值較低。<br />
 中期：保留當種鳥，配回黃化或銀絲都能拿出突變後代。</p>
-<h3 id="_124">思考題</h3>
+<h3 id="_126">思考題</h3>
 <blockquote>
 <p>❓ 如果這對配出的綠色公雛 <code>ino/+, Z^+ Z^op</code> 拿去配銀絲母 <code>Z^op W</code>，後代會出什麼？</p>
 </blockquote>
@@ -3313,7 +3608,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </details>
 <hr />
 <h2 id="22-2">第 22 章 實例 2：藍色公 × 黃化母</h2>
-<h3 id="_125">設定情境</h3>
+<h3 id="_127">設定情境</h3>
 <pre><code>公親：藍色和尚（Blue 純合）
 母親：黃化和尚（Lutino, NSL Ino 純合）
 </code></pre>
@@ -3368,16 +3663,16 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tbody>
 </table></div>
 <p><strong>結果</strong>：100% <code>ino/+</code>（split NSL Ino，外觀綠）。</p>
-<h3 id="5_1">第 5 步：組合結果</h3>
+<h3 id="5_2">第 5 步：組合結果</h3>
 <p>所有後代：<code>bl/+, ino/+</code> → <strong>綠色 double split</strong>（split Blue + split NSL Ino）</p>
 <p>性別：公母比例 1:1，基因型相同。</p>
-<h3 id="_126">結論</h3>
+<h3 id="_128">結論</h3>
 <p>「藍色 × 黃化」配對，<strong>整窩全部綠色 double split</strong>。</p>
 <p>這是經典的隱性互補。場上可能就因為類似配對才出現「沒買過綠色卻冒出來綠色一公一母」的謎題。</p>
-<h3 id="_127">實務啟示</h3>
+<h3 id="_129">實務啟示</h3>
 <p>這對配對對「賣蛋」是低收益（綠色蛋價最低），但<strong>對建立 split 庫存是黃金組合</strong>。</p>
 <p>如果您的目標是培育「藍 + 黃化」的雙重突變後代（即 Albino 白化效果），這對是 F1，下一代 F2 才會開始出現純合雙重突變。</p>
-<h3 id="_128">思考題</h3>
+<h3 id="_130">思考題</h3>
 <blockquote>
 <p>❓ 如果這對配出的綠色 F1 互相配對（兄妹近親），F2 會出什麼比例？</p>
 </blockquote>
@@ -3387,7 +3682,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </details>
 <hr />
 <h2 id="23-3">第 23 章 實例 3：派洛公 × 黃化母（等位基因系列）</h2>
-<h3 id="_129">設定情境</h3>
+<h3 id="_131">設定情境</h3>
 <pre><code>公親：派洛公鳥（Pallid 純合）
 母親：黃化母鳥（NSL Lutino 純合）
 </code></pre>
@@ -3428,7 +3723,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 - 爸給：<code>Z^pal</code>（100%）
 - 媽給：W
 - → <code>Z^pal W</code>（<strong>直接顯現 Pallid</strong>！）</p>
-<h3 id="5_2">第 5 步：組合結果</h3>
+<h3 id="5_3">第 5 步：組合結果</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -3450,12 +3745,12 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_130">結論</h3>
+<h3 id="_132">結論</h3>
 <p><strong>公雛全綠、母雛全派洛！</strong> 這是性聯遺傳的「父→女直接顯現」現象。</p>
 <p>性別可以<strong>用顏色判斷</strong>——這對配對是<strong>性別連鎖鑑定法</strong>（sex-linked sexing）的經典應用。</p>
-<h3 id="_131">實務啟示</h3>
+<h3 id="_133">實務啟示</h3>
 <p>不需要 DNA 鑑定就能分辨公母——綠色一定是公，派洛一定是母。可以節省鑑定費用。</p>
-<h3 id="_132">思考題</h3>
+<h3 id="_134">思考題</h3>
 <blockquote>
 <p>❓ 如果反過來——「黃化公 × 派洛母」會出什麼？是否還能用顏色判性別？</p>
 </blockquote>
@@ -3465,7 +3760,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </details>
 <hr />
 <h2 id="24-4">第 24 章 實例 4：藍銀絲公 × 黃化母（多重突變）</h2>
-<h3 id="_133">設定情境</h3>
+<h3 id="_135">設定情境</h3>
 <pre><code>公親：藍銀絲和尚（Blue + Opaline 雙重突變公鳥）
 母親：黃化和尚（NSL Lutino 純合母鳥）
 </code></pre>
@@ -3501,13 +3796,13 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tbody>
 </table></div>
 <p>三個位點，工作量增加，但邏輯不變。</p>
-<h3 id="3_1">第 3 步：分位點獨立計算</h3>
+<h3 id="3_3">第 3 步：分位點獨立計算</h3>
 <p><strong>Blue 位點</strong>：100% <code>bl/+</code>（split Blue）<br />
 <strong>NSL Ino 位點</strong>：100% <code>ino/+</code>（split NSL Ino）</p>
 <p><strong>Opaline 位點</strong>（性聯）：
 - 公雛：<code>Z^op Z^+</code> → 綠 split Opaline
 - 母雛：<code>Z^op W</code> → <strong>直接顯現銀絲</strong></p>
-<h3 id="4_1">第 4 步：組合結果</h3>
+<h3 id="4_2">第 4 步：組合結果</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -3529,13 +3824,13 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_134">結論</h3>
+<h3 id="_136">結論</h3>
 <p>公雛全綠（外觀普通但是 triple split 寶藏），母雛全銀絲（直接出彩色）。</p>
-<h3 id="_135">實務啟示</h3>
+<h3 id="_137">實務啟示</h3>
 <p><strong>公雛</strong>：外觀無彩，但<strong>藏著三個 split</strong>——最高價值的種公儲備。配某些母鳥可以一次出現多種顏色後代。</p>
 <p><strong>母雛</strong>：直接出銀絲（外觀有色可賣），同時還藏著藍跟黃化兩個 split。是「<strong>雙效</strong>種母」——既有外觀價值，又有遺傳資產。</p>
 <p>如果這對配對的 F1 母（銀絲 split blue + ino）拿去配 F1 公（綠 triple split），F2 後代外觀組合會非常多元——可能出現藍銀絲、黃化銀絲、白銀絲等台灣稀有色。</p>
-<h3 id="_136">思考題</h3>
+<h3 id="_138">思考題</h3>
 <blockquote>
 <p>❓ F1 公（<code>bl/+, ino/+, Z^op Z^+</code>）配 F1 母（<code>bl/+, ino/+, Z^op W</code>），算出 F2 的部分外觀分布（不用全算，挑藍銀絲一種就好）。</p>
 </blockquote>
@@ -3545,7 +3840,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </details>
 <hr />
 <h2 id="24a-5-parblue">第 24a 章 實例 5：藍色公 × 珊瑚藍母（Parblue 等位基因系列）</h2>
-<h3 id="_137">設定情境</h3>
+<h3 id="_139">設定情境</h3>
 <pre><code>公親：藍色和尚（Blue 純合）
 母親：珊瑚藍和尚（Turquoise 純合）
 </code></pre>
@@ -3576,12 +3871,12 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tbody>
 </table></div>
 <p><strong>結果</strong>：100% 後代是 <code>bl/tur</code>（雜合 Parblue，介於 Blue 跟 Turquoise 之間）。</p>
-<h3 id="3_2">第 3 步：等位基因系列的顯隱關係</h3>
+<h3 id="3_4">第 3 步：等位基因系列的顯隱關係</h3>
 <p>Blue 位點上的等位基因顯隱等級：</p>
 <pre><code>+ (野生型，全黃)  &gt;  aq (Aqua, 50%黃)  &gt;  tur (Turquoise, 25%黃)  &gt;  bl (Blue, 0%黃)
 </code></pre>
 <p><code>tur</code> 比 <code>bl</code> 顯性，所以 <code>bl/tur</code> 的外觀<strong>比較接近 Turquoise</strong>——但仍會比純 Turquoise 稍微再藍一點點。這是「<strong>部分顯性</strong>」現象。</p>
-<h3 id="4_2">第 4 步：後代外觀</h3>
+<h3 id="4_3">第 4 步：後代外觀</h3>
 <p><strong>所有後代都是 bl/tur</strong>：外觀像 Turquoise 但略偏藍。國際繁殖圈會寫作 <strong>「Turquoise/Blue」</strong> 或 <strong>「Tur split Blue」</strong>——但要小心，這個 split 跟一般 split（雜合不顯現）不同：tur 跟 bl 是<strong>同位點</strong>，沒有「藏起來」的概念，雙方都部分表現。</p>
 <h3 id="5-f1">第 5 步：F1 配回去出什麼？</h3>
 <div class="table-wrapper"><table>
@@ -3606,9 +3901,9 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_138">實務啟示</h3>
+<h3 id="_140">實務啟示</h3>
 <p><strong>Parblue 系列在台灣統稱「珊瑚藍」</strong>，但實際上有 Aqua（偏綠）跟 Turquoise（偏藍）兩種，加上跟 Blue 的中間色，理論上有 6 種表型可區分。如果您能訓練自己用顏色辨識，<strong>價格分層的空間更大</strong>——「純 Turquoise vs Turquoise/Blue」可以差 NT$2,000–3,000。</p>
-<h3 id="_139">思考題</h3>
+<h3 id="_141">思考題</h3>
 <blockquote>
 <p>❓ 如果手上一隻 Aqua（aq/aq）配一隻 Blue（bl/bl），後代會是什麼表型？跟 Turquoise × Blue 比起來哪個更接近藍？</p>
 </blockquote>
@@ -3618,7 +3913,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </details>
 <hr />
 <h2 id="24b-6-sl-lutino-pallidino">第 24b 章 實例 6：派洛公 × SL Lutino 母（Pallidino — 同位點等位基因互動）</h2>
-<h3 id="_140">設定情境</h3>
+<h3 id="_142">設定情境</h3>
 <pre><code>公親：派洛公鳥（Pallid 純合）
 母親：SL Lutino 母鳥（性聯黃化）
 </code></pre>
@@ -3642,7 +3937,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 - 比 SL Lutino 更不黃（保留一點點淡褐色細紋）
 - 國際社群叫 <strong>「Pallidino」</strong> 或 <strong>「Pallid Ino」</strong>
 - 國外 Pallidino 在虎皮鸚鵡很常見（也是同位點等位基因互動）</p>
-<h3 id="4_3">第 4 步：後代外觀</h3>
+<h3 id="4_4">第 4 步：後代外觀</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -3667,17 +3962,17 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="5_3">第 5 步：性別連鎖鑑定的另一種版本</h3>
+<h3 id="5_4">第 5 步：性別連鎖鑑定的另一種版本</h3>
 <p>公母<strong>全部都顯現突變</strong>——但<strong>顏色不同</strong>！可以<strong>用顏色判性別</strong>：
 - 顏色比較淡 + 還有點黃 = <strong>公</strong>（Pallidino）
 - 顏色是標準派洛 = <strong>母</strong>（Pallid）</p>
 <p>這是性別連鎖鑑定法的進階版本。</p>
-<h3 id="_141">實務啟示</h3>
+<h3 id="_143">實務啟示</h3>
 <p>如果場上有「派洛 × SL 黃化」配對，後代有兩個高價產品線：
 - 公雛 Pallidino 在台灣可能沒人見過（極稀有），可以開新價格帶
 - 母雛 Pallid 也是常見高價色</p>
 <p>但<strong>前提是母親確實是 SL Ino 不是 NSL Ino</strong>——如果母親其實是 NSL Ino，後代會變成完全不同的結果（NSL Ino 是常染色體，跟 Pallid 不同位點，會獨立分配）。</p>
-<h3 id="_142">思考題</h3>
+<h3 id="_144">思考題</h3>
 <blockquote>
 <p>❓ 如果反過來——「SL Lutino 公（Z^ino Z^ino）× 派洛母（Z^pal W）」會出什麼？</p>
 </blockquote>
@@ -3689,7 +3984,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </details>
 <hr />
 <h2 id="24c-7dark-factor">第 24c 章 實例 7：橄欖綠和尚（Dark Factor 半顯性遺傳）</h2>
-<h3 id="_143">設定情境</h3>
+<h3 id="_145">設定情境</h3>
 <pre><code>公親：橄欖綠和尚（綠色 + 一張 Dark Factor）
 母親：普通綠和尚（沒有 Dark Factor）
 </code></pre>
@@ -3810,14 +4105,14 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tbody>
 </table></div>
 <p><strong>Dark Factor 是「色階放大器」</strong>——可以把任何顏色升級一到兩階。</p>
-<h3 id="_144">實務啟示</h3>
+<h3 id="_146">實務啟示</h3>
 <p><strong>台灣俗稱「紫和尚」</strong>，根據國際資料判斷，最有可能是 <strong>「藍 + 1 DF」（鈷藍）</strong>或 <strong>「藍 + 2 DF」（紫羅蘭藍）</strong>。如果您場上有所謂「紫和尚」，理論上配對普通藍可以驗證：</p>
 <ul>
 <li>「紫和尚」公 × 普通藍母：如果出 50% 紫 + 50% 藍 → 是 D/+</li>
 <li>如果出 100% 紫 → 是 D/D</li>
 </ul>
 <p>商業價值：DF 系列在國際社群價格比一般高 1.5-2 倍，因為<strong>外觀有區分但繁殖結果可預測</strong>（半顯性可控）。</p>
-<h3 id="_145">思考題</h3>
+<h3 id="_147">思考題</h3>
 <blockquote>
 <p>❓ 兩隻森林綠（D/D）和尚配對，後代會是什麼？</p>
 </blockquote>
@@ -3826,7 +4121,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p><code>D/D × D/D</code>：兩隻都只能給 D，所以 100% 後代是 <code>D/D</code>，全部森林綠。<strong>這就是「純合 DF 配純合 DF 出純合 DF」的固定線</strong>——一旦建立 D/D 純合配對，所有後代都是 D/D，色彩穩定。但代價是基因池窄，長期容易近親問題。</p>
 </details>
 <hr />
-<h1 id="_146">第九篇：商業策略應用</h1>
+<h1 id="_148">第九篇：商業策略應用</h1>
 <h2 id="25-split">第 25 章 split 鳥的隱形價值</h2>
 <h3 id="split_1">為什麼 split 鳥重要</h3>
 <p>繁殖事業的核心不是「賣現有的」，而是「<strong>建立未來能配出什麼的能力</strong>」。Split 鳥就是這個能力的儲存體。</p>
@@ -3871,9 +4166,9 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tbody>
 </table></div>
 <p><code>/</code> 後面的是「藏起來的」。</p>
-<h3 id="_147">回顧</h3>
+<h3 id="_149">回顧</h3>
 <p>split 鳥是繁殖事業的「隱形資本」。會看 split 才會賺錢。</p>
-<h3 id="_148">思考題</h3>
+<h3 id="_150">思考題</h3>
 <blockquote>
 <p>❓ 如果你只能買一隻種公，預算固定，你應該買「外觀漂亮的純合突變」還是「外觀普通的 triple split」？</p>
 </blockquote>
@@ -3883,7 +4178,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </details>
 <hr />
 <h2 id="26">第 26 章 為什麼公鳥是遺傳資產</h2>
-<h3 id="_149">數學上的不對稱</h3>
+<h3 id="_151">數學上的不對稱</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -3914,18 +4209,18 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 - 公：綠色 <code>Z^ino Z^pal</code>（split SL Ino + split Pallid）→ 看不出來是什麼，但藏兩個性聯 split
 - 母：純合 SL Lutino <code>Z^ino W</code>（直接顯示 SL Ino）</p>
 <p>配對結果可以<strong>從後代顏色反推父系基因型</strong>——母鳥變成「驗證工具」。</p>
-<h3 id="_150">公鳥的另一個優勢</h3>
+<h3 id="_152">公鳥的另一個優勢</h3>
 <p>公鳥的<strong>繁殖年限通常比母鳥長</strong>。母鳥到 7-8 歲產蛋率下降，公鳥可以用到 10+ 歲。</p>
 <p>所以投資<strong>頂級公種</strong>的回報週期更長。</p>
-<h3 id="_151">母鳥的不可替代性</h3>
+<h3 id="_153">母鳥的不可替代性</h3>
 <p>當然母鳥也有不可替代性：
 - 直接生蛋（公鳥不會）
 - 性聯突變的「展示」必須靠母鳥（一張就顯現）
 - 母鳥多 = 配對組合多</p>
 <p>實務上<strong>公母都重要</strong>，只是策略角色不同。</p>
-<h3 id="_152">回顧</h3>
+<h3 id="_154">回顧</h3>
 <p>公鳥是遺傳資產儲存庫，母鳥是展示與驗證工具。「養公 split 母」是進階策略。</p>
-<h3 id="_153">思考題</h3>
+<h3 id="_155">思考題</h3>
 <blockquote>
 <p>❓ 如果場上有 5 隻派洛母（直接顯色）跟 5 隻派洛公（純合），哪邊的「遺傳價值」比較高？為什麼？</p>
 </blockquote>
@@ -3935,7 +4230,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </details>
 <hr />
 <h2 id="27-abc">第 27 章 配對線規劃（A/B/C 三線策略）</h2>
-<h3 id="_154">三線分配原則</h3>
+<h3 id="_156">三線分配原則</h3>
 <p>把所有繁殖籠位分三類：</p>
 <div class="table-wrapper"><table>
 <thead>
@@ -4015,9 +4310,9 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <li>太多 C → 風險太高</li>
 </ul>
 <p>實務上的「健康比例」是 5:3:1 或 6:3:1。</p>
-<h3 id="_155">回顧</h3>
+<h3 id="_157">回顧</h3>
 <p>三線策略平衡短中長期。A 線供現金，B 線投資未來，C 線賭爆款。</p>
-<h3 id="_156">思考題</h3>
+<h3 id="_158">思考題</h3>
 <blockquote>
 <p>❓ 如果場上有 90 對種鳥，按 A/B/C = 60/30/10 分配，每線各幾對？實務上要怎麼判斷一對該屬於哪一線？</p>
 </blockquote>
@@ -4069,7 +4364,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 - 蛋價 = MIN(6000, 10000) × 50% = NT$3,000
 - 不是 (6000+10000)/2 × 50% = NT$4,000</p>
 <p>理由：買家最多「期待」拿到藍色（最差也應該值 NT$3,000），不應為「可能出銀絲」的不確定性付溢價。</p>
-<h3 id="_157">罕見色定價公式（建議框架）</h3>
+<h3 id="_159">罕見色定價公式（建議框架）</h3>
 <pre><code>建議鳥價 = 基礎色價 × 罕見度係數 × 突變數係數 × 性別係數
 </code></pre>
 <div class="table-wrapper"><table>
@@ -4104,7 +4399,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 - 突變數 × 1.6（雙突變）= NT$14,400
 - 性別 × 1.0（公）= <strong>NT$14,400</strong></p>
 <p>對照您現有的「藍銀絲」報價 NT$9,500-11,500——意味著您可能<strong>低估雙突變組合的市場價值</strong>。</p>
-<h3 id="_158">三個常被忽略的加成</h3>
+<h3 id="_160">三個常被忽略的加成</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -4132,7 +4427,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tbody>
 </table></div>
 <p>這三個加成「<strong>疊加生效</strong>」。一隻有完整血統+基因檢測+健康證明的「綠色 triple split」公鳥，可以從外觀價 NT$5,000 升級到 NT$15,000-20,000。</p>
-<h3 id="_159">思考題</h3>
+<h3 id="_161">思考題</h3>
 <blockquote>
 <p>❓ 一隻「淡白銀絲」（藍+肉桂+派洛三重突變）公鳥，按罕見度 4.0、突變數 1.9、性別 1.0 計算，建議定價多少？</p>
 </blockquote>
@@ -4142,7 +4437,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p>您的報價 NT$15,000-17,000，意味著<strong>淡白銀絲在台灣可能被嚴重低估</strong>。可能原因：(1) 國內買家對三重突變的價值認識不足，(2) 沒有跟國際接軌定價。如果加上血統紀錄+基因檢測加成（再 ×1.5），可上看 NT$70,000——這是國際社群的合理價。</p>
 </details>
 <h2 id="27b">第 27b 章 淘汰決策框架</h2>
-<h3 id="_160">五個淘汰指標（任一觸發都要評估）</h3>
+<h3 id="_162">五個淘汰指標（任一觸發都要評估）</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -4179,7 +4474,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_161">三類淘汰處理方式</h3>
+<h3 id="_163">三類淘汰處理方式</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -4206,7 +4501,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_162">淘汰前的「重整測試」</h3>
+<h3 id="_164">淘汰前的「重整測試」</h3>
 <p>不要直接淘汰，先嘗試：</p>
 <ol>
 <li><strong>環境變動</strong>：搬籠、加新巢箱、改變光週期</li>
@@ -4239,7 +4534,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tbody>
 </table></div>
 <p><strong>常見錯誤</strong>：用 A 線標準淘汰 B/C 線，導致長期投資被砍斷。</p>
-<h3 id="_163">淘汰後的籠位再分配</h3>
+<h3 id="_165">淘汰後的籠位再分配</h3>
 <p>每淘汰一對，<strong>立刻問三個問題</strong>：</p>
 <ol>
 <li>這個籠位該繼續同物種嗎？或可以升級到凱克/大金黃？</li>
@@ -4284,7 +4579,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_164">鸚鵡的近親繁殖容忍度</h3>
+<h3 id="_166">鸚鵡的近親繁殖容忍度</h3>
 <p>科學共識：</p>
 <div class="table-wrapper"><table>
 <thead>
@@ -4313,19 +4608,19 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tbody>
 </table></div>
 <p><strong>實務上的「3 代規則」</strong>：3 代內不要重複配對（COI 應 &lt; 0.125）。</p>
-<h3 id="_165">隱形近親的危險</h3>
+<h3 id="_167">隱形近親的危險</h3>
 <p>「<strong>沒紀錄的場最危險</strong>」——以為兩隻不相關，實際可能是同窩兄妹流轉。</p>
 <p>預防方法：
 1. <strong>強制血統紀錄</strong>（附錄 G 範本）
 2. <strong>足環從雛鳥開始戴</strong>
 3. <strong>賣出與買入都記錄來源</strong>
 4. <strong>每 2-3 年引入新血</strong>（買進外場個體）</p>
-<h3 id="_166">為什麼有時要刻意近親（固定性狀）</h3>
+<h3 id="_168">為什麼有時要刻意近親（固定性狀）</h3>
 <p>近親不全是壞事——固定突變需要近親繁殖。例：
 - 「藍黃化」雙隱性，要從藍 × 黃化 F1 互配 F2 才能拿到（F2 是兄妹近親，COI 0.25）
 - 這是必要的「<strong>短期近親</strong>」，但不能連續多代</p>
 <p>策略：固定後立刻引入外血，讓 COI 從 0.25 跳回 0。</p>
-<h3 id="_167">量化監控</h3>
+<h3 id="_169">量化監控</h3>
 <p>每年計算場上<strong>平均 COI</strong>：</p>
 <pre><code>場平均 COI = 所有配對對的 COI 加總 / 配對對數
 </code></pre>
@@ -4351,7 +4646,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_168">思考題</h3>
+<h3 id="_170">思考題</h3>
 <blockquote>
 <p>❓ 您場上有 30 對種鳥，其中 5 對是兄妹配（COI = 0.25），其他 25 對是不相關配對（COI ≈ 0）。場平均 COI 是多少？要不要擔心？</p>
 </blockquote>
@@ -4361,7 +4656,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p>數字看起來在「健康」範圍，<strong>但要警覺</strong>：5 對兄妹配中如果再出兄妹配的後代，下一代 COI 會疊加到 0.375 以上（嚴重區）。<strong>短期可接受，3 年內必須引入新血</strong>將這 5 對的後代跟外血配。</p>
 </details>
 <h2 id="27d">第 27d 章 配對線停損點</h2>
-<h3 id="_169">三類停損點</h3>
+<h3 id="_171">三類停損點</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -4388,7 +4683,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="4_4">絕對停損的 4 個信號</h3>
+<h3 id="4_5">絕對停損的 4 個信號</h3>
 <ol>
 <li>確診重大疾病（PBFD、APV、PDD）</li>
 <li>卵巢/睪丸驗證不孕</li>
@@ -4396,7 +4691,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <li>連續 5 窩 0 受精卵 + 重整測試全失敗</li>
 </ol>
 <p>絕對停損不能等。每多一週都在浪費飼料+籠位。</p>
-<h3 id="_170">機會成本停損的計算</h3>
+<h3 id="_172">機會成本停損的計算</h3>
 <p>問題：我手上有對 A，還行但不亮眼；現在有對 B 想引進，但籠位滿了。要不要淘汰 A 換 B？</p>
 <p><strong>簡化公式</strong>：</p>
 <pre><code>換對的條件：B 的預期年產雛鳥價值 &gt; A 的預期年產雛鳥價值 × 1.5
@@ -4406,7 +4701,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 - A 對：年產 4 隻雛鳥 × NT$5,000 = NT$20,000
 - B 對：年產預期 3 隻雛鳥 × NT$15,000 = NT$45,000</p>
 <p>NT$45,000 &gt; NT$20,000 × 1.5 = NT$30,000 → <strong>應該換</strong></p>
-<h3 id="_171">長期投資停損</h3>
+<h3 id="_173">長期投資停損</h3>
 <p><strong>B 線跟 C 線的長期停損標準</strong>：</p>
 <div class="table-wrapper"><table>
 <thead>
@@ -4430,12 +4725,12 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tbody>
 </table></div>
 <p>5 年是極限——超過這個時間，機會成本太高，幾乎不可能回本。</p>
-<h3 id="_172">「沉沒成本陷阱」</h3>
+<h3 id="_174">「沉沒成本陷阱」</h3>
 <p>最危險的不是真的停損，是<strong>因為已經投入太多而不肯停</strong>。</p>
 <p>警示句：「我已經養他們 4 年了，再給他們一年看看吧。」<br />
 真實情況：那一年又會變成「再給一年」，無限循環。</p>
 <p><strong>對抗方法</strong>：每年 1 月做「<strong>強制清算</strong>」——假設您今天是新場主，會繼續這對嗎？答案是「不會」就停損。</p>
-<h3 id="_173">停損後的心理重建</h3>
+<h3 id="_175">停損後的心理重建</h3>
 <p>很多繁殖者捨不得淘汰是情感原因（這對是初期的鳥、有感情）。處理方法：</p>
 <ol>
 <li><strong>重新分類</strong>：從「淘汰」改稱「退役安養」</li>
@@ -4444,7 +4739,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <li><strong>明確告別儀式</strong>（給自己心理結束感）</li>
 </ol>
 <p>繁殖場長期經營，<strong>情感管理跟財務管理一樣重要</strong>。</p>
-<h3 id="_174">思考題</h3>
+<h3 id="_176">思考題</h3>
 <blockquote>
 <p>❓ 您有一對 C 線種鳥，5 年來只生過 2 窩雛鳥（其他都是空巢期），但其中一窩出了非常稀有的色（值 NT$30,000）。要不要繼續？</p>
 </blockquote>
@@ -4455,7 +4750,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p>關鍵問題：「<strong>這對的基因價值能不能被其他配對取代？</strong>」如果可以 → 停損。如果不行（獨家來源）→ 即使虧錢也要留。</p>
 </details>
 <hr />
-<h1 id="_175">第十篇：跨物種應用（凱克 + 大金黃）</h1>
+<h1 id="_177">第十篇：跨物種應用（凱克 + 大金黃）</h1>
 <p>到目前為止本書都以和尚鸚鵡為主軸。但本書讀者通常也養其他物種——尤其是金頭凱克跟大金黃鸚鵡。<strong>這兩個物種的遺傳邏輯跟和尚截然不同</strong>，不能用同一套思維。</p>
 <p>這篇用兩章補完三物種的差異，再用一張比較表幫您決定哪個物種該用哪套策略。</p>
 <h2 id="28">第 28 章 金頭凱克補充：「沒有突變的物種」怎麼經營</h2>
@@ -4656,7 +4951,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tbody>
 </table></div>
 <p>意思是：<strong>凱克是長線投資</strong>，不要用和尚的節奏判斷它的進度。前 3 年看不到雛鳥很正常，第 4 年才會開始穩定產卵。</p>
-<h3 id="_176">思考題</h3>
+<h3 id="_178">思考題</h3>
 <blockquote>
 <p>❓ 如果有人說「我有一隻 Lutino 黑頭凱克」要賣您 10 萬，您應該問什麼問題判斷真假？</p>
 </blockquote>
@@ -4774,7 +5069,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </table></div>
 <p><strong>群養的本質</strong>：大金黃在野外是<strong>集體繁殖物種</strong>（cooperative breeding），看見其他配對在繁殖會強烈刺激自己也想繁殖。隔離養剝奪這個訊號。</p>
 <p>實務做法：籠舍鄰接，可視覺/聽覺互動，但不共籠。</p>
-<h4 id="3_3">難關 3：性腺刺激</h4>
+<h4 id="3_5">難關 3：性腺刺激</h4>
 <blockquote>
 <p>「巢箱填木塊（不是木屑）可刺激性腺發育」 — Silva 用腹腔鏡驗證</p>
 </blockquote>
@@ -4850,7 +5145,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <li><strong>足環從雛鳥就要佩戴</strong>——成鳥才戴會傷腳，且驗證困難</li>
 <li><strong>健康篩檢年年做</strong>——一隻發病可能毀掉整窩 + 整年計畫</li>
 </ol>
-<h3 id="_177">思考題</h3>
+<h3 id="_179">思考題</h3>
 <blockquote>
 <p>❓ 大金黃 90 對年產 600 隻（Weinzettl 數據），平均每對年產 0.83 隻。為什麼比和尚（每對年產 5-10 隻）少這麼多，但商業上仍然成立？</p>
 </blockquote>
@@ -4862,7 +5157,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </details>
 <h2 id="30_1">第 30 章 三物種跨物種比較表</h2>
 <p>整本書讀完，這張表就是您決定「哪個物種用哪套策略」的最終參考：</p>
-<h3 id="_178">全面比較</h3>
+<h3 id="_180">全面比較</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -4989,7 +5284,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_179">三物種「應該怎麼分配資源」的決策框架</h3>
+<h3 id="_181">三物種「應該怎麼分配資源」的決策框架</h3>
 <p>如果您的場：</p>
 <p><strong>規模 50-100 對</strong>：
 - 70% 和尚（現金流）
@@ -5007,14 +5302,14 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 - 100% 和尚先做（學習成本最低）
 - 等場穩定有現金流再考慮加入凱克
 - 大金黃需要先 5 年和尚經驗</p>
-<h3 id="_180">三條黃金原則（適用所有物種）</h3>
+<h3 id="_182">三條黃金原則（適用所有物種）</h3>
 <ol>
 <li><strong>血統紀錄優先於外觀</strong>——時間會放大「有紀錄場」跟「無紀錄場」的價值差距</li>
 <li><strong>單對深入優於多對淺嚐</strong>——5 對配對熟悉的鳥比 20 對陌生的更賺錢</li>
 <li><strong>健康篩檢的成本永遠低於疾病爆發</strong>——年年做，跨物種都做</li>
 </ol>
 <hr />
-<h1 id="_181">附錄</h1>
+<h1 id="_183">附錄</h1>
 <h2 id="a_1">附錄 A：符號對照卡（速查）</h2>
 <pre><code>═══════════════════════════════════════════
   字符        意思
@@ -5031,7 +5326,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
   ♀           母鳥符號
 ═══════════════════════════════════════════
 </code></pre>
-<h3 id="_182">縮寫快查</h3>
+<h3 id="_184">縮寫快查</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -5113,7 +5408,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_183">術語快查</h3>
+<h3 id="_185">術語快查</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -5327,7 +5622,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </table></div>
 <hr />
 <h2 id="c_1">附錄 C：練習題與解答</h2>
-<h3 id="_184">基礎題</h3>
+<h3 id="_186">基礎題</h3>
 <p><strong>1.</strong> 寫出「綠色 split blue」公鳥的基因型。</p>
 <p><strong>答</strong>：<code>bl/+</code>（沒有指明性別也可以，因為 Blue 是常染色體）</p>
 <hr />
@@ -5341,7 +5636,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <li>母雛：拿爸 <code>Z^op</code> + 媽 W → <code>Z^op W</code> → 銀絲母</li>
 </ul>
 <p>100% 後代都是銀絲。</p>
-<h3 id="_185">進階題</h3>
+<h3 id="_187">進階題</h3>
 <p><strong>4.</strong> 配對方格題：藍色公（<code>bl/bl</code>）× 綠色 split blue 母（<code>bl/+</code>），後代分布？</p>
 <p><strong>答</strong>：</p>
 <div class="table-wrapper"><table>
@@ -5377,7 +5672,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p><strong>答</strong>：</p>
 <p>公雛：<code>bl/+, ino/+, Z^op Z^+</code> → 綠色 triple split（藍+黃化+銀絲）<br />
 母雛：<code>bl/+, ino/+, Z^op W</code> → 銀絲 double split（藍+黃化）</p>
-<h3 id="_186">陷阱題</h3>
+<h3 id="_188">陷阱題</h3>
 <p><strong>7.</strong> 賣家標「綠色母鳥 split SL Lutino」，這合理嗎？</p>
 <p><strong>答</strong>：<strong>不合理</strong>。SL Lutino 是性聯，母鳥只有一條 Z，不能 split 性聯基因。可能性：(a) 賣家寫錯，(b) 實際是 NSL Lutino 而非 SL，(c) 故意誤導。</p>
 <hr />
@@ -5388,7 +5683,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p><strong>答</strong>：藍跟黃化是不同基因座的隱性突變。子代每個位點各拿一張隱性 + 一張正常，<strong>都是 split 但都不顯現</strong>。子代外觀回到野生型綠色，這叫「隱性互補」。</p>
 <hr />
 <h2 id="d">附錄 D：推薦延伸資源</h2>
-<h3 id="_187">線上工具</h3>
+<h3 id="_189">線上工具</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -5415,18 +5710,18 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_188">國際社群</h3>
+<h3 id="_190">國際社群</h3>
 <ul>
 <li>Facebook 「Quaker Parrot Mutations」群組（英文）</li>
 <li>dsyquaker（台灣繁殖者，FB 影片有大量品種解說）</li>
 <li>台灣鸚鵡小木屋 Jack（基因科普權威）</li>
 </ul>
-<h3 id="_189">推薦書籍</h3>
+<h3 id="_191">推薦書籍</h3>
 <ul>
 <li><em>A Guide to Mutations and Genetics of Parrots</em> by Terry Martin（鸚鵡突變遺傳學標準教科書）</li>
 <li>個人事業內檔案：<code>和尚鸚鵡144種組合.md</code>、<code>鸚鵡繁殖事業完整報告.md</code></li>
 </ul>
-<h3 id="_190">自家工具</h3>
+<h3 id="_192">自家工具</h3>
 <ul>
 <li><code>和尚鸚鵡遺傳計算器.html</code>（位於 <code>鸚鵡繁殖事業/</code>）</li>
 <li><code>基因血統報告_範本.html</code>（同上）</li>
@@ -5436,6 +5731,18 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p>不用再拿紙筆算——選好公母兩隻的基因型，按「計算」就會列出後代分布。涵蓋場上最常用的 5 個位點：Blue / NSL Ino / Opaline / Cinnamon / Pallid。</p>
 
 <div class="calculator">
+  <div class="calc-examples">
+    <label for="calc-example">📋 載入範例配對：</label>
+    <select id="calc-example">
+      <option value="">— 選一個範例自動填入 —</option>
+      <option value="blue_x_lutino">範例 1：藍公 × 黃化母（隱性互補經典）</option>
+      <option value="pallid_x_green">範例 2：派洛公 × 普通綠母（性別連鎖鑑定）</option>
+      <option value="blue_opaline_x_lutino">範例 3：藍銀絲公 × 黃化母（多重突變組合）</option>
+      <option value="green_split_x_blue">範例 4：綠 split blue 公 × 藍母（split 變現）</option>
+      <option value="lutino_x_lutino">範例 5：黃化 × 黃化（同色純合 A 線）</option>
+    </select>
+  </div>
+
   <div class="calc-bird">
     <h4>♂ 公鳥基因型</h4>
     <div class="calc-grid">
@@ -5634,7 +5941,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_191">性聯顯現（性別連鎖鑑定法 — 用顏色判性別）</h3>
+<h3 id="_193">性聯顯現（性別連鎖鑑定法 — 用顏色判性別）</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -5723,7 +6030,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_192">看到後代反推父母（疑案排查）</h3>
+<h3 id="_194">看到後代反推父母（疑案排查）</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -5765,7 +6072,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <blockquote>
 <p>📥 <strong>下載</strong>：<a href="parrot-pedigree-template.csv">parrot-pedigree-template.csv</a>（CSV 格式，可直接在 Excel / Google Sheets 開啟，UTF-8 編碼支援中文）</p>
 </blockquote>
-<h3 id="_193">為什麼要做血統紀錄</h3>
+<h3 id="_195">為什麼要做血統紀錄</h3>
 <p>繁殖場做久了，最大的隱形成本不是飼料，是「<strong>忘了某對的後代品質如何</strong>」。三年前覺得這對配出來的雛鳥很好，現在記不清楚到底好在哪、跟哪隻交叉效果最好。血統紀錄表是把這些經驗<strong>外部化</strong>，讓您 5 年後還能查、讓接手的人也能用。</p>
 <p><strong>這份表 3 年後會比場上任何一隻鳥更有價值。</strong> 真的轉手鳥場時，買家最在意的是「血統紀錄是否完整」——沒紀錄的場再好的鳥也賣不到好價。</p>
 <h3 id="13_1">13 個欄位設計</h3>
@@ -5845,7 +6152,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="4_5">範例 4 隻看怎麼填</h3>
+<h3 id="4_6">範例 4 隻看怎麼填</h3>
 <pre><code>編號     物種  性別  外觀俗名     基因型                           備註
 M001    和尚  公    黃化         ino/ino                         主力黃化線種公
 F005    和尚  母    銀絲         +/+, Z^op W                     來源：高雄某場
@@ -5862,7 +6169,7 @@ J051    和尚  公    綠色split    bl/+, ino/+, Z^op Z^+           triple spl
 <p>要找「所有 split blue 的母鳥」？篩選 → 基因型欄位 → 包含 <code>bl/+</code> AND 性別 = 母。一秒列出所有候選母鳥。</p>
 <p><strong>進階 4：年度回顧用「狀態」欄位</strong></p>
 <p>每年底篩出「已售」的雛鳥 → 看哪個配對組合產出最多收入 → 決定來年加碼/減碼哪些線。</p>
-<h3 id="_194">三個容易忽略但要記的東西</h3>
+<h3 id="_196">三個容易忽略但要記的東西</h3>
 <ol>
 <li><strong>足環編號</strong>寫進「備註」欄。CITES 物種尤其重要，買家會問。</li>
 <li><strong>健康異常</strong>寫進「備註」。某隻孵化率低、某對打架、某隻啄羽——這些訊號 6 個月後您會忘記。</li>
@@ -6012,7 +6319,7 @@ Will pay premium for documented bloodlines.
 DM if you have available stock or know breeders. 
 Pictures + recent health screening preferred.
 </code></pre>
-<h4 id="3_4">範本 3：分享疑案（請社群幫忙判斷）</h4>
+<h4 id="3_6">範本 3：分享疑案（請社群幫忙判斷）</h4>
 <p><strong>英文版</strong>：</p>
 <pre><code>Genetic puzzle - need community input:
 
@@ -6271,7 +6578,7 @@ What would you do to verify?
 </tr>
 </tbody>
 </table></div>
-<h3 id="_195">後續可能的方向</h3>
+<h3 id="_197">後續可能的方向</h3>
 <p>如果需要再擴充，下面是值得考慮的章節：</p>
 <ul>
 <li><strong>第 31 章</strong> 鸚鵡常見疾病速覽（PBFD/APV/PDD/Chlamydia 識別與處置）</li>
@@ -6281,7 +6588,7 @@ What would you do to verify?
 </ul>
 <p>歡迎叔叔讀完後告訴我哪個方向最值得寫。</p>
 <hr />
-<h2 id="_196">結語</h2>
+<h2 id="_198">結語</h2>
 <p>讀完整本書，您應該能：</p>
 <ol>
 <li>看懂任何鸚鵡基因型寫法（包括國際社群的英文簡寫）</li>
@@ -6292,7 +6599,7 @@ What would you do to verify?
 <li>一眼看出哪隻綠色鳥是「隱形寶藏」，避免低估自己的種鳥</li>
 </ol>
 <div class="summary-card">
-<h3 id="5_4">下一步可以做的 5 件事</h3>
+<h3 id="5_5">下一步可以做的 5 件事</h3>
 <p>理論看完了，但<strong>真正的價值在於套到現場的鳥群</strong>。下面是五個從容易到深入的行動：</p>
 <p><strong>1. 為核心種鳥做一份「基因型清單」</strong></p>
 <p>挑場上最重要的 10 對種鳥，用本書教的符號寫出基因型（例如黃化公寫成 <code>ino/ino</code>，藍銀絲母寫成 <code>bl/bl, Z^op W</code>）。<strong>不是要取代您原本的紀錄</strong>，而是建立一份「跟國際標準接軌」的清單，未來跟外國買家或社群交流時直接能用。寫不出來就翻第 17 章對照。</p>
@@ -6300,8 +6607,8 @@ What would you do to verify?
 <p>挑一對最難預測的配對（例如「淡白銀絲公 × 派洛母」），用第八篇的步驟算理論後代分布。算完之後<strong>對照您過去三窩的實際結果</strong>——如果差很多，可能種鳥藏的 split 基因您不知道；如果差不多，代表您的經驗判斷其實已經符合遺傳學原理，只是沒用學術術語講而已。</p>
 <p><strong>3. 找出場上被低估的「綠色 split」種鳥</strong></p>
 <p>走一圈場上所有外觀綠色的鳥，根據牠們的爸媽是什麼配對，回推可能藏的 split 基因。<strong>很可能會發現幾隻看似普通的綠鳥其實是 double 或 triple split</strong>——這些是隱形資產，配對價值遠高於外觀價格。可以特別標記起來，配對策略重新調整。</p>
-<p><strong>4. 跟國際繁殖社群分享一個配對結果</strong></p>
-<p>到 Facebook「Quaker Parrot Mutations」群組或類似國際社群，用本書教的學術術語（Lutino、Opaline、Pallid 等）發一篇配對分享，例如「Cinnamon ♂ × Blue Opaline ♀ 的這窩 F1 結果」。<strong>這個動作可能讓您接觸到台灣沒有的稀有突變線</strong>——很多國際繁殖者願意交換或交流種鳥。</p>
+<p><strong>4. 在中文鸚鵡社群用學術術語發一篇配對分享</strong></p>
+<p>從台灣的 FB 鸚鵡社群（例如「台灣鸚鵡愛好者」「鸚鵡突變育種」相關群組）開始，用本書教的學術術語發文，例如：「Cinnamon Opaline ♂（肉桂銀絲公）× Blue Lutino ♀（藍黃化母）的這窩 F1 結果」。<strong>這個動作有兩個價值</strong>：(1) 中文圈用學術術語的繁殖者很少，您會立刻顯得專業；(2) 接觸到同樣在學系統化的同行，建立國內的高品質交流圈。等熟悉之後再進階到國際英文社群（FB「Quaker Parrot Mutations」），門檻會低很多。</p>
 <p><strong>5. 開始建立電子血統紀錄表</strong></p>
 <p>最簡單的版本：Excel 一列一隻鳥，欄位 = 編號 / 性別 / 外觀 / 基因型 / 父母編號 / 出生日 / 配對歷史。連續記三個月就能看出哪些 split 線值得繼續、哪些對該淘汰。<strong>這份表三年後價值會超過場上任何單一隻鳥</strong>——也是傳給下一代或要轉手鳥場時最有價值的資產。</p>
 </div>
@@ -6416,6 +6723,42 @@ document.addEventListener('DOMContentLoaded', () => {
         if (fab && !fab.contains(e.target)) fab.classList.remove('open');
     });
 
+    // ─── 暗黑模式 ───
+    const THEME_KEY = 'parrot-genetics-theme';
+    const themeBtns = document.querySelectorAll('#font-fab button[data-theme]');
+
+    function applyTheme(theme, save) {
+        document.documentElement.dataset.theme = theme;
+        if (save) localStorage.setItem(THEME_KEY, theme);
+        themeBtns.forEach(b => b.classList.toggle('active', b.dataset.theme === theme));
+        // 動態更新 mobile-bar 跟 theme-color meta
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.content = theme === 'dark' ? '#0f0e0c' : '#2d2a26';
+    }
+
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    if (savedTheme) {
+        applyTheme(savedTheme, false);
+    } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : 'light', false);
+    }
+
+    // 系統偏好變化（用戶沒手動設時跟隨）
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem(THEME_KEY)) {
+            applyTheme(e.matches ? 'dark' : 'light', false);
+        }
+    });
+
+    themeBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            applyTheme(btn.dataset.theme, true);
+            setTimeout(() => fab.classList.remove('open'), 150);
+        });
+    });
+
     // ─── PDF 列印按鈕 ───
     document.getElementById('fab-print')?.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -6477,10 +6820,57 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
     <script>
+const CALC_EXAMPLES = {
+    blue_x_lutino: {
+        dad: { bl: 'bl,bl', ino: '+,+', op: '+,+', cin: '+,+', pal: '+,+' },
+        mom: { bl: '+,+', ino: 'ino,ino', op: '+', cin: '+', pal: '+' }
+    },
+    pallid_x_green: {
+        dad: { bl: '+,+', ino: '+,+', op: '+,+', cin: '+,+', pal: 'pal,pal' },
+        mom: { bl: '+,+', ino: '+,+', op: '+', cin: '+', pal: '+' }
+    },
+    blue_opaline_x_lutino: {
+        dad: { bl: 'bl,bl', ino: '+,+', op: 'op,op', cin: '+,+', pal: '+,+' },
+        mom: { bl: '+,+', ino: 'ino,ino', op: '+', cin: '+', pal: '+' }
+    },
+    green_split_x_blue: {
+        dad: { bl: 'bl,+', ino: '+,+', op: '+,+', cin: '+,+', pal: '+,+' },
+        mom: { bl: 'bl,bl', ino: '+,+', op: '+', cin: '+', pal: '+' }
+    },
+    lutino_x_lutino: {
+        dad: { bl: '+,+', ino: 'ino,ino', op: '+,+', cin: '+,+', pal: '+,+' },
+        mom: { bl: '+,+', ino: 'ino,ino', op: '+', cin: '+', pal: '+' }
+    }
+};
+
 function setupCalculator() {
     const btn = document.getElementById('calc-btn');
     if (!btn) return;
     btn.addEventListener('click', calculateOffspring);
+
+    const exampleSel = document.getElementById('calc-example');
+    exampleSel?.addEventListener('change', (e) => {
+        const key = e.target.value;
+        if (!key) return;
+        const ex = CALC_EXAMPLES[key];
+        if (!ex) return;
+
+        Object.entries(ex.dad).forEach(([locus, val]) => {
+            const sel = document.querySelector(`[data-bird="dad"][data-locus="${locus}"]`);
+            if (sel) sel.value = val;
+        });
+        Object.entries(ex.mom).forEach(([locus, val]) => {
+            const sel = document.querySelector(`[data-bird="mom"][data-locus="${locus}"]`);
+            if (sel) sel.value = val;
+        });
+
+        // 自動算
+        calculateOffspring();
+        // scroll 到結果
+        setTimeout(() => {
+            document.getElementById('calc-result')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+    });
 }
 
 function calculateOffspring() {
