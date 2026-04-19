@@ -515,7 +515,7 @@ details p:last-child { margin-bottom: 4px; }
 }
 
 @media (max-width: 768px) {
-    body { font-size: 15.5px; line-height: 1.8; }
+    body { line-height: 1.8; }
     main { padding: calc(var(--mobile-bar-height) + 16px) 18px 40px; }
     h1 { font-size: 24px; margin-top: 50px; padding-bottom: 12px; }
     h2 { font-size: 20px; margin-top: 40px; padding-left: 10px; border-left-width: 4px; }
@@ -6390,7 +6390,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const FONT_KEY = 'parrot-genetics-font-size';
     const fab = document.getElementById('font-fab');
     const fabMain = fab?.querySelector('.fab-main');
-    const fabBtns = fab ? fab.querySelectorAll('.fab-options button') : [];
+    const fabBtns = fab ? fab.querySelectorAll('.fab-options button[data-size]') : [];
 
     function applyFontSize(size) {
         document.body.dataset.fontSize = size;
