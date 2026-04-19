@@ -604,6 +604,101 @@ details p:last-child { margin-bottom: 4px; }
     color: var(--text);
 }
 
+/* ─── 定價計算器特殊樣式 ─── */
+.pricing-calc .pc-checkboxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
+    padding: 16px;
+    background: var(--bg);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+.pc-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 14px;
+    padding: 4px 0;
+    user-select: none;
+}
+.pc-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--accent);
+    flex-shrink: 0;
+}
+.pc-breakdown {
+    margin-top: 24px;
+    padding: 20px;
+    background: var(--bg);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+.pc-breakdown h4 {
+    margin: 0 0 14px 0;
+    color: var(--accent);
+    font-size: 15px;
+    text-transform: none;
+    letter-spacing: 0;
+}
+.pc-breakdown table {
+    width: 100%;
+    margin: 0 0 20px 0;
+    background: white;
+    font-size: 14px;
+}
+.pc-breakdown table td {
+    padding: 8px 12px;
+}
+.pc-breakdown table td:first-child {
+    color: var(--text-muted);
+}
+.pc-breakdown table td:last-child {
+    text-align: right;
+    font-family: "JetBrains Mono", monospace;
+    color: var(--text);
+}
+.pc-final {
+    background: linear-gradient(135deg, var(--accent) 0%, #8b5a2a 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.pc-label {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+    font-family: "Noto Sans TC", sans-serif;
+}
+.pc-price {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 6px 0;
+    font-family: "JetBrains Mono", monospace;
+    letter-spacing: -0.5px;
+}
+.pc-mid {
+    font-size: 13px;
+    opacity: 0.85;
+    margin-top: 6px;
+    font-family: "Noto Sans TC", sans-serif;
+}
+
+@media (max-width: 768px) {
+    .pricing-calc .pc-checkboxes {
+        grid-template-columns: 1fr;
+        padding: 12px;
+    }
+    .pc-price { font-size: 20px; }
+    .pc-breakdown { padding: 14px; }
+}
+
 @media (max-width: 768px) {
     .calculator {
         padding: 18px 18px;
@@ -980,9 +1075,44 @@ details p:last-child { margin-bottom: 4px; }
 <li><a href="#_156">思考題</a></li>
 </ul>
 </li>
+<li><a href="#27a">第 27a 章 定價邏輯深入</a><ul>
+<li><a href="#50">為什麼「蛋價 = 鳥價 × 50%」？</a></li>
+<li><a href="#50_1">異色配對的「低價鳥 × 50%」規則</a></li>
+<li><a href="#_157">罕見色定價公式（建議框架）</a></li>
+<li><a href="#_158">三個常被忽略的加成</a></li>
+<li><a href="#_159">思考題</a></li>
 </ul>
 </li>
-<li><a href="#_157">第十篇：跨物種應用（凱克 + 大金黃）</a><ul>
+<li><a href="#27b">第 27b 章 淘汰決策框架</a><ul>
+<li><a href="#_160">五個淘汰指標（任一觸發都要評估）</a></li>
+<li><a href="#_161">三類淘汰處理方式</a></li>
+<li><a href="#_162">淘汰前的「重整測試」</a></li>
+<li><a href="#abc">跟 A/B/C 線的淘汰邏輯不同</a></li>
+<li><a href="#_163">淘汰後的籠位再分配</a></li>
+</ul>
+</li>
+<li><a href="#27c">第 27c 章 近親繁殖風險量化</a><ul>
+<li><a href="#coi">COI（近交係數）速查</a></li>
+<li><a href="#_164">鸚鵡的近親繁殖容忍度</a></li>
+<li><a href="#_165">隱形近親的危險</a></li>
+<li><a href="#_166">為什麼有時要刻意近親（固定性狀）</a></li>
+<li><a href="#_167">量化監控</a></li>
+<li><a href="#_168">思考題</a></li>
+</ul>
+</li>
+<li><a href="#27d">第 27d 章 配對線停損點</a><ul>
+<li><a href="#_169">三類停損點</a></li>
+<li><a href="#4_4">絕對停損的 4 個信號</a></li>
+<li><a href="#_170">機會成本停損的計算</a></li>
+<li><a href="#_171">長期投資停損</a></li>
+<li><a href="#_172">「沉沒成本陷阱」</a></li>
+<li><a href="#_173">停損後的心理重建</a></li>
+<li><a href="#_174">思考題</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_175">第十篇：跨物種應用（凱克 + 大金黃）</a><ul>
 <li><a href="#28">第 28 章 金頭凱克補充：「沒有突變的物種」怎麼經營</a><ul>
 <li><a href="#281">28.1 跟和尚的根本差異</a></li>
 <li><a href="#282">28.2 兩個亞種絕對不能混</a></li>
@@ -990,7 +1120,7 @@ details p:last-child { margin-bottom: 4px; }
 <li><a href="#284">28.4 凱克的商業策略：賣親養 + 純種血統</a></li>
 <li><a href="#285-split">28.5 凱克可以「split 什麼」嗎？</a></li>
 <li><a href="#286">28.6 跟和尚並行養的時間管理</a></li>
-<li><a href="#_158">思考題</a></li>
+<li><a href="#_176">思考題</a></li>
 </ul>
 </li>
 <li><a href="#29-cites-i">第 29 章 大金黃鸚鵡補充：「CITES I 高難度高利潤」物種</a><ul>
@@ -1000,56 +1130,64 @@ details p:last-child { margin-bottom: 4px; }
 <li><a href="#294">29.4 商業價值結構</a></li>
 <li><a href="#295">29.5 跟和尚/凱克並行養的策略意義</a></li>
 <li><a href="#296">29.6 三條紀律（避免毀掉投資）</a></li>
-<li><a href="#_159">思考題</a></li>
+<li><a href="#_177">思考題</a></li>
 </ul>
 </li>
 <li><a href="#30_1">第 30 章 三物種跨物種比較表</a><ul>
-<li><a href="#_160">全面比較</a></li>
-<li><a href="#_161">三物種「應該怎麼分配資源」的決策框架</a></li>
-<li><a href="#_162">三條黃金原則（適用所有物種）</a></li>
+<li><a href="#_178">全面比較</a></li>
+<li><a href="#_179">三物種「應該怎麼分配資源」的決策框架</a></li>
+<li><a href="#_180">三條黃金原則（適用所有物種）</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_163">附錄</a><ul>
+<li><a href="#_181">附錄</a><ul>
 <li><a href="#a_1">附錄 A：符號對照卡（速查）</a><ul>
-<li><a href="#_164">縮寫快查</a></li>
-<li><a href="#_165">術語快查</a></li>
+<li><a href="#_182">縮寫快查</a></li>
+<li><a href="#_183">術語快查</a></li>
 </ul>
 </li>
 <li><a href="#b_1">附錄 B：和尚突變完整對照表</a></li>
 <li><a href="#c_1">附錄 C：練習題與解答</a><ul>
-<li><a href="#_166">基礎題</a></li>
-<li><a href="#_167">進階題</a></li>
-<li><a href="#_168">陷阱題</a></li>
+<li><a href="#_184">基礎題</a></li>
+<li><a href="#_185">進階題</a></li>
+<li><a href="#_186">陷阱題</a></li>
 </ul>
 </li>
 <li><a href="#d">附錄 D：推薦延伸資源</a><ul>
-<li><a href="#_169">線上工具</a></li>
-<li><a href="#_170">國際社群</a></li>
-<li><a href="#_171">推薦書籍</a></li>
-<li><a href="#_172">自家工具</a></li>
+<li><a href="#_187">線上工具</a></li>
+<li><a href="#_188">國際社群</a></li>
+<li><a href="#_189">推薦書籍</a></li>
+<li><a href="#_190">自家工具</a></li>
 </ul>
 </li>
 <li><a href="#e">附錄 E：互動式配對計算器</a></li>
 <li><a href="#f">附錄 F：常見配對速查表</a><ul>
 <li><a href="#a_2">同色純合配對（A 線：現金流）</a></li>
 <li><a href="#b-split">雙隱性互補（B 線：建立 split 庫存）</a></li>
-<li><a href="#_173">性聯顯現（性別連鎖鑑定法 — 用顏色判性別）</a></li>
+<li><a href="#_191">性聯顯現（性別連鎖鑑定法 — 用顏色判性別）</a></li>
 <li><a href="#c_2">進階配對（C 線：探索）</a></li>
-<li><a href="#_174">看到後代反推父母（疑案排查）</a></li>
+<li><a href="#_192">看到後代反推父母（疑案排查）</a></li>
 </ul>
 </li>
 <li><a href="#g-excel">附錄 G：血統紀錄表 Excel 範本</a><ul>
-<li><a href="#_175">為什麼要做血統紀錄</a></li>
+<li><a href="#_193">為什麼要做血統紀錄</a></li>
 <li><a href="#13_1">13 個欄位設計</a></li>
-<li><a href="#4_4">範例 4 隻看怎麼填</a></li>
+<li><a href="#4_5">範例 4 隻看怎麼填</a></li>
 <li><a href="#excel">怎麼用（Excel 操作）</a></li>
-<li><a href="#_176">三個容易忽略但要記的東西</a></li>
+<li><a href="#_194">三個容易忽略但要記的東西</a></li>
 <li><a href="#google-sheets-excel">進階：用 Google Sheets 取代 Excel 的好處</a></li>
 </ul>
 </li>
-<li><a href="#_177">結語</a><ul>
+<li><a href="#h">附錄 H：客戶／國際社群對話手冊</a><ul>
+<li><a href="#h1-20">H.1 客戶常見 20 問與專業回答</a></li>
+<li><a href="#h2-fb">H.2 國際 FB 社群發文範本（中英對照）</a></li>
+<li><a href="#h3">H.3 處理客戶質疑的話術</a></li>
+<li><a href="#h4">H.4 跟新買家「教育式銷售」的三步話術</a></li>
+</ul>
+</li>
+<li><a href="#i">附錄 I：定價邏輯計算器</a></li>
+<li><a href="#_195">結語</a><ul>
 <li><a href="#5_4">下一步可以做的 5 件事</a></li>
 </ul>
 </li>
@@ -3782,8 +3920,437 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <summary>查看答案</summary>
 <p><strong>A 線 54 對、B 線 27 對、C 線 9 對</strong>。判斷方法：(1) <strong>A 線</strong>：兩隻外觀相同的純合突變，後代可預測（配對結果單一）；(2) <strong>B 線</strong>：兩隻外觀不同但都是常見突變，後代是 split 庫存培育（如藍 × 黃化）；(3) <strong>C 線</strong>：涉及多重突變或稀有色，後代結果有不確定性但可能爆款（如淡白銀絲 × Aqua）。<strong>每年回顧一次</strong>，根據實際後代效益調整分配。某對 A 線連續三窩異常 → 可能升 B 線重培育。</p>
 </details>
+<h2 id="27a">第 27a 章 定價邏輯深入</h2>
+<h3 id="50">為什麼「蛋價 = 鳥價 × 50%」？</h3>
+<p>這個公式不是憑感覺，背後有兩個邏輯支撐：</p>
+<p><strong>邏輯 1：風險分擔</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>階段</th>
+<th>風險方</th>
+<th>已耗成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>蛋</td>
+<td>買家承擔孵化風險（孵不出來損失全部）</td>
+<td>您：飼料+受精</td>
+</tr>
+<tr>
+<td>雛鳥</td>
+<td>您承擔孵化風險，買家承擔離乳前風險</td>
+<td>您：+ 25 天孵化</td>
+</tr>
+<tr>
+<td>離乳鳥</td>
+<td>雙方共擔成鳥前小風險</td>
+<td>您：+ 60 天育雛</td>
+</tr>
+<tr>
+<td>成鳥</td>
+<td>您承擔到成鳥幾乎全部風險</td>
+<td>您：+ 4-6 月飼養</td>
+</tr>
+</tbody>
+</table></div>
+<p>蛋的風險最高，所以價格 50%；雛鳥 60-70%；離乳鳥 80-90%；成鳥 100%。</p>
+<p><strong>邏輯 2：時間成本</strong></p>
+<p>蛋從產出到孵化只要 25 天，但成鳥要養 6 個月以上。<strong>蛋價 = 鳥價 × 50%</strong> 大約對應「<strong>孵化 + 育雛時間佔總週期的一半</strong>」這個經驗法則。</p>
+<h3 id="50_1">異色配對的「低價鳥 × 50%」規則</h3>
+<p>當公母不同色配對，蛋的後代結果不確定（可能出兩種色）。買家不知道會出什麼，<strong>所以按照低價那隻定價</strong>——這是合理的「保守估計」。</p>
+<p>例：藍公（NT$6,000）× 銀絲母（NT$10,000）：
+- 蛋價 = MIN(6000, 10000) × 50% = NT$3,000
+- 不是 (6000+10000)/2 × 50% = NT$4,000</p>
+<p>理由：買家最多「期待」拿到藍色（最差也應該值 NT$3,000），不應為「可能出銀絲」的不確定性付溢價。</p>
+<h3 id="_157">罕見色定價公式（建議框架）</h3>
+<pre><code>建議鳥價 = 基礎色價 × 罕見度係數 × 突變數係數 × 性別係數
+</code></pre>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>係數</th>
+<th>數值範圍</th>
+<th>範例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>罕見度</strong></td>
+<td>1.0 - 5.0</td>
+<td>普藍 = 1.0、淡白銀絲 = 3.5、藍黃化（白化）= 5.0</td>
+</tr>
+<tr>
+<td><strong>突變數</strong></td>
+<td>1.0 + (突變數 × 0.3)</td>
+<td>單突變 1.0、雙突變 1.6、三突變 1.9</td>
+</tr>
+<tr>
+<td><strong>性別</strong></td>
+<td>公=1.0、母=1.1-1.2</td>
+<td>母鳥稀少色微高（性聯顯現特性）</td>
+</tr>
+</tbody>
+</table></div>
+<p>範例計算：「藍銀絲公」（雙突變）：
+- 基礎色（藍）：NT$6,000
+- 罕見度 × 1.5（藍銀絲在台灣中等稀有）= NT$9,000
+- 突變數 × 1.6（雙突變）= NT$14,400
+- 性別 × 1.0（公）= <strong>NT$14,400</strong></p>
+<p>對照您現有的「藍銀絲」報價 NT$9,500-11,500——意味著您可能<strong>低估雙突變組合的市場價值</strong>。</p>
+<h3 id="_158">三個常被忽略的加成</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>加成因素</th>
+<th>加多少</th>
+<th>條件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>完整血統紀錄</strong></td>
+<td>+20-30%</td>
+<td>三代以上有記錄</td>
+</tr>
+<tr>
+<td><strong>基因檢測報告</strong></td>
+<td>+30-50%</td>
+<td>DNA 驗證 split</td>
+</tr>
+<tr>
+<td><strong>健康篩檢全套</strong></td>
+<td>+10-15%</td>
+<td>PBFD/APV/PDD/Chlamydia 陰性</td>
+</tr>
+</tbody>
+</table></div>
+<p>這三個加成「<strong>疊加生效</strong>」。一隻有完整血統+基因檢測+健康證明的「綠色 triple split」公鳥，可以從外觀價 NT$5,000 升級到 NT$15,000-20,000。</p>
+<h3 id="_159">思考題</h3>
+<blockquote>
+<p>❓ 一隻「淡白銀絲」（藍+肉桂+派洛三重突變）公鳥，按罕見度 4.0、突變數 1.9、性別 1.0 計算，建議定價多少？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>基礎色（藍）NT$6,000 × 4.0（罕見度）× 1.9（三突變）× 1.0（公）= <strong>NT$45,600</strong>。</p>
+<p>您的報價 NT$15,000-17,000，意味著<strong>淡白銀絲在台灣可能被嚴重低估</strong>。可能原因：(1) 國內買家對三重突變的價值認識不足，(2) 沒有跟國際接軌定價。如果加上血統紀錄+基因檢測加成（再 ×1.5），可上看 NT$70,000——這是國際社群的合理價。</p>
+</details>
+<h2 id="27b">第 27b 章 淘汰決策框架</h2>
+<h3 id="_160">五個淘汰指標（任一觸發都要評估）</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>指標</th>
+<th>量化標準</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>產蛋率持續下降</strong></td>
+<td>連續 3 窩 &lt; 平均的 70%</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>後代存活率異常低</strong></td>
+<td>連續 2 窩存活 &lt; 50%</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>後代品質下降</strong></td>
+<td>連續 3 窩無法賣到合理價（健康/外觀問題）</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>配對行為衝突</strong></td>
+<td>互啄、不孵蛋、棄雛持續</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>年齡達上限</strong></td>
+<td>母鳥 8+ 歲、公鳥 10+ 歲</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="_161">三類淘汰處理方式</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>類型</th>
+<th>觸發</th>
+<th>處理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>重組型</strong></td>
+<td>配對行為問題（指標 4）</td>
+<td>拆對重新配，給雙方 6 個月觀察期</td>
+</tr>
+<tr>
+<td><strong>降級型</strong></td>
+<td>產蛋率/品質問題（1, 2, 3）</td>
+<td>從 A 線降到 B 線，或從繁殖鳥降為寵物賣</td>
+</tr>
+<tr>
+<td><strong>完全淘汰</strong></td>
+<td>健康問題、年齡 + 多項組合</td>
+<td>賣作寵物（不繁殖）、退役安養、最後考慮安樂</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="_162">淘汰前的「重整測試」</h3>
+<p>不要直接淘汰，先嘗試：</p>
+<ol>
+<li><strong>環境變動</strong>：搬籠、加新巢箱、改變光週期</li>
+<li><strong>營養強化</strong>：4 週的繁殖前營養補充</li>
+<li><strong>拆對冷卻</strong>：分開 6-8 週再合籠（製造繁殖刺激）</li>
+<li><strong>健康檢查</strong>：可能是潛在疾病導致</li>
+</ol>
+<p>如果上述全做了還是不行，再考慮淘汰。</p>
+<h3 id="abc">跟 A/B/C 線的淘汰邏輯不同</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>線</th>
+<th>淘汰決策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A 線（現金流）</strong></td>
+<td>標準嚴格——產蛋率 &lt; 70% 立即淘汰，籠位太貴不能浪費</td>
+</tr>
+<tr>
+<td><strong>B 線（中期投資）</strong></td>
+<td>標準寬鬆——可能 1-2 年才見成果，多給時間</td>
+</tr>
+<tr>
+<td><strong>C 線（探索）</strong></td>
+<td>標準最寬——失敗本來就是預期，淘汰決策按 5 年計算</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>常見錯誤</strong>：用 A 線標準淘汰 B/C 線，導致長期投資被砍斷。</p>
+<h3 id="_163">淘汰後的籠位再分配</h3>
+<p>每淘汰一對，<strong>立刻問三個問題</strong>：</p>
+<ol>
+<li>這個籠位該繼續同物種嗎？或可以升級到凱克/大金黃？</li>
+<li>該升 A 還是 B 線？（根據場上現金流狀況）</li>
+<li>該不該嘗試新品種突變引入？</li>
+</ol>
+<p>淘汰是「<strong>戰略重整機會</strong>」，不只是減法。</p>
+<h2 id="27c">第 27c 章 近親繁殖風險量化</h2>
+<h3 id="coi">COI（近交係數）速查</h3>
+<p><strong>COI</strong>（Coefficient of Inbreeding）= 後代某基因座兩個等位基因「同源」的機率。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>配對</th>
+<th>COI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>父配女、母配子（一級近親）</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>兄妹配</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>半兄妹（同父異母）</td>
+<td>0.125</td>
+</tr>
+<tr>
+<td>祖父配孫女、姑姑配姪</td>
+<td>0.125</td>
+</tr>
+<tr>
+<td>表兄妹</td>
+<td>0.0625</td>
+</tr>
+<tr>
+<td>兩代不相關</td>
+<td>接近 0</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="_164">鸚鵡的近親繁殖容忍度</h3>
+<p>科學共識：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>COI 範圍</th>
+<th>風險評估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 – 0.05</td>
+<td>安全，無問題</td>
+</tr>
+<tr>
+<td>0.05 – 0.125</td>
+<td>偶爾可接受（固定有用性狀時）</td>
+</tr>
+<tr>
+<td>0.125 – 0.25</td>
+<td><strong>有風險</strong>——出現孵化率下降、雛鳥免疫弱</td>
+</tr>
+<tr>
+<td>&gt; 0.25</td>
+<td><strong>嚴重</strong>——畸形、不孕、早夭顯著增加</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>實務上的「3 代規則」</strong>：3 代內不要重複配對（COI 應 &lt; 0.125）。</p>
+<h3 id="_165">隱形近親的危險</h3>
+<p>「<strong>沒紀錄的場最危險</strong>」——以為兩隻不相關，實際可能是同窩兄妹流轉。</p>
+<p>預防方法：
+1. <strong>強制血統紀錄</strong>（附錄 G 範本）
+2. <strong>足環從雛鳥開始戴</strong>
+3. <strong>賣出與買入都記錄來源</strong>
+4. <strong>每 2-3 年引入新血</strong>（買進外場個體）</p>
+<h3 id="_166">為什麼有時要刻意近親（固定性狀）</h3>
+<p>近親不全是壞事——固定突變需要近親繁殖。例：
+- 「藍黃化」雙隱性，要從藍 × 黃化 F1 互配 F2 才能拿到（F2 是兄妹近親，COI 0.25）
+- 這是必要的「<strong>短期近親</strong>」，但不能連續多代</p>
+<p>策略：固定後立刻引入外血，讓 COI 從 0.25 跳回 0。</p>
+<h3 id="_167">量化監控</h3>
+<p>每年計算場上<strong>平均 COI</strong>：</p>
+<pre><code>場平均 COI = 所有配對對的 COI 加總 / 配對對數
+</code></pre>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>場平均 COI</th>
+<th>健康狀態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt; 0.05</td>
+<td>健康</td>
+</tr>
+<tr>
+<td>0.05 – 0.10</td>
+<td>注意</td>
+</tr>
+<tr>
+<td>&gt; 0.10</td>
+<td><strong>必須引入新血</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="_168">思考題</h3>
+<blockquote>
+<p>❓ 您場上有 30 對種鳥，其中 5 對是兄妹配（COI = 0.25），其他 25 對是不相關配對（COI ≈ 0）。場平均 COI 是多少？要不要擔心？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>場平均 COI = (5 × 0.25 + 25 × 0) / 30 = <strong>0.0417</strong></p>
+<p>數字看起來在「健康」範圍，<strong>但要警覺</strong>：5 對兄妹配中如果再出兄妹配的後代，下一代 COI 會疊加到 0.375 以上（嚴重區）。<strong>短期可接受，3 年內必須引入新血</strong>將這 5 對的後代跟外血配。</p>
+</details>
+<h2 id="27d">第 27d 章 配對線停損點</h2>
+<h3 id="_169">三類停損點</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>停損類型</th>
+<th>觸發</th>
+<th>反應時間</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>絕對停損</strong></td>
+<td>健康問題（發病、不孕證實）</td>
+<td>立即（&lt; 1 週）</td>
+</tr>
+<tr>
+<td><strong>機會成本停損</strong></td>
+<td>籠位有更好的替代用途</td>
+<td>中期（1-3 個月）</td>
+</tr>
+<tr>
+<td><strong>長期投資停損</strong></td>
+<td>5 年無實質進展</td>
+<td>長期（每年回顧）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="4_4">絕對停損的 4 個信號</h3>
+<ol>
+<li>確診重大疾病（PBFD、APV、PDD）</li>
+<li>卵巢/睪丸驗證不孕</li>
+<li>行為極端攻擊持續傷害伴侶</li>
+<li>連續 5 窩 0 受精卵 + 重整測試全失敗</li>
+</ol>
+<p>絕對停損不能等。每多一週都在浪費飼料+籠位。</p>
+<h3 id="_170">機會成本停損的計算</h3>
+<p>問題：我手上有對 A，還行但不亮眼；現在有對 B 想引進，但籠位滿了。要不要淘汰 A 換 B？</p>
+<p><strong>簡化公式</strong>：</p>
+<pre><code>換對的條件：B 的預期年產雛鳥價值 &gt; A 的預期年產雛鳥價值 × 1.5
+</code></pre>
+<p>(× 1.5 是「轉換成本緩衝」——換對有風險，新對需要建立期)</p>
+<p>範例：
+- A 對：年產 4 隻雛鳥 × NT$5,000 = NT$20,000
+- B 對：年產預期 3 隻雛鳥 × NT$15,000 = NT$45,000</p>
+<p>NT$45,000 &gt; NT$20,000 × 1.5 = NT$30,000 → <strong>應該換</strong></p>
+<h3 id="_171">長期投資停損</h3>
+<p><strong>B 線跟 C 線的長期停損標準</strong>：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>線</th>
+<th>停損年限</th>
+<th>停損條件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B 線</td>
+<td>3 年</td>
+<td>無法成功 F2 拿到目標突變</td>
+</tr>
+<tr>
+<td>C 線</td>
+<td>5 年</td>
+<td>無任何階段性成果（連 split 庫存都沒建立）</td>
+</tr>
+</tbody>
+</table></div>
+<p>5 年是極限——超過這個時間，機會成本太高，幾乎不可能回本。</p>
+<h3 id="_172">「沉沒成本陷阱」</h3>
+<p>最危險的不是真的停損，是<strong>因為已經投入太多而不肯停</strong>。</p>
+<p>警示句：「我已經養他們 4 年了，再給他們一年看看吧。」<br />
+真實情況：那一年又會變成「再給一年」，無限循環。</p>
+<p><strong>對抗方法</strong>：每年 1 月做「<strong>強制清算</strong>」——假設您今天是新場主，會繼續這對嗎？答案是「不會」就停損。</p>
+<h3 id="_173">停損後的心理重建</h3>
+<p>很多繁殖者捨不得淘汰是情感原因（這對是初期的鳥、有感情）。處理方法：</p>
+<ol>
+<li><strong>重新分類</strong>：從「淘汰」改稱「退役安養」</li>
+<li><strong>保留為非繁殖伴侶鳥</strong>（如果空間允許）</li>
+<li><strong>轉送給朋友/同行</strong>（不為錢）</li>
+<li><strong>明確告別儀式</strong>（給自己心理結束感）</li>
+</ol>
+<p>繁殖場長期經營，<strong>情感管理跟財務管理一樣重要</strong>。</p>
+<h3 id="_174">思考題</h3>
+<blockquote>
+<p>❓ 您有一對 C 線種鳥，5 年來只生過 2 窩雛鳥（其他都是空巢期），但其中一窩出了非常稀有的色（值 NT$30,000）。要不要繼續？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>5 年產出 NT$30,000 ÷ 5 = 年均 NT$6,000，遠低於 A 線標準（年產 NT$20,000+）。<strong>標準答案是停損</strong>。</p>
+<p>但有兩個例外可以續：(1) 那隻稀有後代如果是「種鳥級」可以建立新線，這對的「<strong>血統價值</strong>」遠高於直接收入；(2) 如果這對是該稀有色的<strong>台灣唯一來源</strong>，淘汰後您再也接不到這個基因，可能要保留作「種源儲備」。</p>
+<p>關鍵問題：「<strong>這對的基因價值能不能被其他配對取代？</strong>」如果可以 → 停損。如果不行（獨家來源）→ 即使虧錢也要留。</p>
+</details>
 <hr />
-<h1 id="_157">第十篇：跨物種應用（凱克 + 大金黃）</h1>
+<h1 id="_175">第十篇：跨物種應用（凱克 + 大金黃）</h1>
 <p>到目前為止本書都以和尚鸚鵡為主軸。但本書讀者通常也養其他物種——尤其是金頭凱克跟大金黃鸚鵡。<strong>這兩個物種的遺傳邏輯跟和尚截然不同</strong>，不能用同一套思維。</p>
 <p>這篇用兩章補完三物種的差異，再用一張比較表幫您決定哪個物種該用哪套策略。</p>
 <h2 id="28">第 28 章 金頭凱克補充：「沒有突變的物種」怎麼經營</h2>
@@ -3984,7 +4551,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tbody>
 </table></div>
 <p>意思是：<strong>凱克是長線投資</strong>，不要用和尚的節奏判斷它的進度。前 3 年看不到雛鳥很正常，第 4 年才會開始穩定產卵。</p>
-<h3 id="_158">思考題</h3>
+<h3 id="_176">思考題</h3>
 <blockquote>
 <p>❓ 如果有人說「我有一隻 Lutino 黑頭凱克」要賣您 10 萬，您應該問什麼問題判斷真假？</p>
 </blockquote>
@@ -4178,7 +4745,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <li><strong>足環從雛鳥就要佩戴</strong>——成鳥才戴會傷腳，且驗證困難</li>
 <li><strong>健康篩檢年年做</strong>——一隻發病可能毀掉整窩 + 整年計畫</li>
 </ol>
-<h3 id="_159">思考題</h3>
+<h3 id="_177">思考題</h3>
 <blockquote>
 <p>❓ 大金黃 90 對年產 600 隻（Weinzettl 數據），平均每對年產 0.83 隻。為什麼比和尚（每對年產 5-10 隻）少這麼多，但商業上仍然成立？</p>
 </blockquote>
@@ -4190,7 +4757,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </details>
 <h2 id="30_1">第 30 章 三物種跨物種比較表</h2>
 <p>整本書讀完，這張表就是您決定「哪個物種用哪套策略」的最終參考：</p>
-<h3 id="_160">全面比較</h3>
+<h3 id="_178">全面比較</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -4317,7 +4884,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_161">三物種「應該怎麼分配資源」的決策框架</h3>
+<h3 id="_179">三物種「應該怎麼分配資源」的決策框架</h3>
 <p>如果您的場：</p>
 <p><strong>規模 50-100 對</strong>：
 - 70% 和尚（現金流）
@@ -4335,14 +4902,14 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 - 100% 和尚先做（學習成本最低）
 - 等場穩定有現金流再考慮加入凱克
 - 大金黃需要先 5 年和尚經驗</p>
-<h3 id="_162">三條黃金原則（適用所有物種）</h3>
+<h3 id="_180">三條黃金原則（適用所有物種）</h3>
 <ol>
 <li><strong>血統紀錄優先於外觀</strong>——時間會放大「有紀錄場」跟「無紀錄場」的價值差距</li>
 <li><strong>單對深入優於多對淺嚐</strong>——5 對配對熟悉的鳥比 20 對陌生的更賺錢</li>
 <li><strong>健康篩檢的成本永遠低於疾病爆發</strong>——年年做，跨物種都做</li>
 </ol>
 <hr />
-<h1 id="_163">附錄</h1>
+<h1 id="_181">附錄</h1>
 <h2 id="a_1">附錄 A：符號對照卡（速查）</h2>
 <pre><code>═══════════════════════════════════════════
   字符        意思
@@ -4359,7 +4926,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
   ♀           母鳥符號
 ═══════════════════════════════════════════
 </code></pre>
-<h3 id="_164">縮寫快查</h3>
+<h3 id="_182">縮寫快查</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -4441,7 +5008,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_165">術語快查</h3>
+<h3 id="_183">術語快查</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -4655,7 +5222,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </table></div>
 <hr />
 <h2 id="c_1">附錄 C：練習題與解答</h2>
-<h3 id="_166">基礎題</h3>
+<h3 id="_184">基礎題</h3>
 <p><strong>1.</strong> 寫出「綠色 split blue」公鳥的基因型。</p>
 <p><strong>答</strong>：<code>bl/+</code>（沒有指明性別也可以，因為 Blue 是常染色體）</p>
 <hr />
@@ -4669,7 +5236,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <li>母雛：拿爸 <code>Z^op</code> + 媽 W → <code>Z^op W</code> → 銀絲母</li>
 </ul>
 <p>100% 後代都是銀絲。</p>
-<h3 id="_167">進階題</h3>
+<h3 id="_185">進階題</h3>
 <p><strong>4.</strong> 配對方格題：藍色公（<code>bl/bl</code>）× 綠色 split blue 母（<code>bl/+</code>），後代分布？</p>
 <p><strong>答</strong>：</p>
 <div class="table-wrapper"><table>
@@ -4705,7 +5272,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p><strong>答</strong>：</p>
 <p>公雛：<code>bl/+, ino/+, Z^op Z^+</code> → 綠色 triple split（藍+黃化+銀絲）<br />
 母雛：<code>bl/+, ino/+, Z^op W</code> → 銀絲 double split（藍+黃化）</p>
-<h3 id="_168">陷阱題</h3>
+<h3 id="_186">陷阱題</h3>
 <p><strong>7.</strong> 賣家標「綠色母鳥 split SL Lutino」，這合理嗎？</p>
 <p><strong>答</strong>：<strong>不合理</strong>。SL Lutino 是性聯，母鳥只有一條 Z，不能 split 性聯基因。可能性：(a) 賣家寫錯，(b) 實際是 NSL Lutino 而非 SL，(c) 故意誤導。</p>
 <hr />
@@ -4716,7 +5283,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p><strong>答</strong>：藍跟黃化是不同基因座的隱性突變。子代每個位點各拿一張隱性 + 一張正常，<strong>都是 split 但都不顯現</strong>。子代外觀回到野生型綠色，這叫「隱性互補」。</p>
 <hr />
 <h2 id="d">附錄 D：推薦延伸資源</h2>
-<h3 id="_169">線上工具</h3>
+<h3 id="_187">線上工具</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -4743,18 +5310,18 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_170">國際社群</h3>
+<h3 id="_188">國際社群</h3>
 <ul>
 <li>Facebook 「Quaker Parrot Mutations」群組（英文）</li>
 <li>dsyquaker（台灣繁殖者，FB 影片有大量品種解說）</li>
 <li>台灣鸚鵡小木屋 Jack（基因科普權威）</li>
 </ul>
-<h3 id="_171">推薦書籍</h3>
+<h3 id="_189">推薦書籍</h3>
 <ul>
 <li><em>A Guide to Mutations and Genetics of Parrots</em> by Terry Martin（鸚鵡突變遺傳學標準教科書）</li>
 <li>個人事業內檔案：<code>和尚鸚鵡144種組合.md</code>、<code>鸚鵡繁殖事業完整報告.md</code></li>
 </ul>
-<h3 id="_172">自家工具</h3>
+<h3 id="_190">自家工具</h3>
 <ul>
 <li><code>和尚鸚鵡遺傳計算器.html</code>（位於 <code>鸚鵡繁殖事業/</code>）</li>
 <li><code>基因血統報告_範本.html</code>（同上）</li>
@@ -4962,7 +5529,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_173">性聯顯現（性別連鎖鑑定法 — 用顏色判性別）</h3>
+<h3 id="_191">性聯顯現（性別連鎖鑑定法 — 用顏色判性別）</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -5051,7 +5618,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="_174">看到後代反推父母（疑案排查）</h3>
+<h3 id="_192">看到後代反推父母（疑案排查）</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -5093,7 +5660,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <blockquote>
 <p>📥 <strong>下載</strong>：<a href="parrot-pedigree-template.csv">parrot-pedigree-template.csv</a>（CSV 格式，可直接在 Excel / Google Sheets 開啟，UTF-8 編碼支援中文）</p>
 </blockquote>
-<h3 id="_175">為什麼要做血統紀錄</h3>
+<h3 id="_193">為什麼要做血統紀錄</h3>
 <p>繁殖場做久了，最大的隱形成本不是飼料，是「<strong>忘了某對的後代品質如何</strong>」。三年前覺得這對配出來的雛鳥很好，現在記不清楚到底好在哪、跟哪隻交叉效果最好。血統紀錄表是把這些經驗<strong>外部化</strong>，讓您 5 年後還能查、讓接手的人也能用。</p>
 <p><strong>這份表 3 年後會比場上任何一隻鳥更有價值。</strong> 真的轉手鳥場時，買家最在意的是「血統紀錄是否完整」——沒紀錄的場再好的鳥也賣不到好價。</p>
 <h3 id="13_1">13 個欄位設計</h3>
@@ -5173,7 +5740,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
-<h3 id="4_4">範例 4 隻看怎麼填</h3>
+<h3 id="4_5">範例 4 隻看怎麼填</h3>
 <pre><code>編號     物種  性別  外觀俗名     基因型                           備註
 M001    和尚  公    黃化         ino/ino                         主力黃化線種公
 F005    和尚  母    銀絲         +/+, Z^op W                     來源：高雄某場
@@ -5190,7 +5757,7 @@ J051    和尚  公    綠色split    bl/+, ino/+, Z^op Z^+           triple spl
 <p>要找「所有 split blue 的母鳥」？篩選 → 基因型欄位 → 包含 <code>bl/+</code> AND 性別 = 母。一秒列出所有候選母鳥。</p>
 <p><strong>進階 4：年度回顧用「狀態」欄位</strong></p>
 <p>每年底篩出「已售」的雛鳥 → 看哪個配對組合產出最多收入 → 決定來年加碼/減碼哪些線。</p>
-<h3 id="_176">三個容易忽略但要記的東西</h3>
+<h3 id="_194">三個容易忽略但要記的東西</h3>
 <ol>
 <li><strong>足環編號</strong>寫進「備註」欄。CITES 物種尤其重要，買家會問。</li>
 <li><strong>健康異常</strong>寫進「備註」。某隻孵化率低、某對打架、某隻啄羽——這些訊號 6 個月後您會忘記。</li>
@@ -5205,7 +5772,248 @@ J051    和尚  公    綠色split    bl/+, ino/+, Z^op Z^+           triple spl
 </ul>
 <p>📥 <strong>再次提醒下載連結</strong>：<a href="parrot-pedigree-template.csv">parrot-pedigree-template.csv</a></p>
 <hr />
-<h2 id="_177">結語</h2>
+<h2 id="h">附錄 H：客戶／國際社群對話手冊</h2>
+<h3 id="h1-20">H.1 客戶常見 20 問與專業回答</h3>
+<p>把這 20 問背熟，下次客戶問起來不用想——直接回答。<strong>用「為什麼這樣定價」來建立專業形象，不要只給數字</strong>。</p>
+<p><strong>價格類問題（1-7）</strong></p>
+<details>
+<summary>Q1：「為什麼這隻黃化要 14,000，網路上才 5,000？」</summary>
+<p>「網路上 5,000 那種多半沒做基因檢測，不確定是 SL 還是 NSL Ino，配種結果不可預測；也通常沒有血統紀錄、沒做過 PBFD/APV 健康篩檢。我這隻可以提供完整紀錄，配種結果可預期，所以差別在『可不可以拿來配種』，不只是『這隻鳥本身』。」</p>
+</details>
+<details>
+<summary>Q2：「藍色 × 黃化 為什麼會生綠色，不是搞錯了嗎？」</summary>
+<p>「沒錯，這叫『隱性互補』——藍跟黃化是不同基因座的隱性突變，後代各拿一張，外觀回到野生型綠色，但身上同時帶著藍 + 黃化兩個 split。這些綠色雛鳥配回去，可以出 25% 藍 + 25% 黃化，是非常有價值的種鳥候選。」</p>
+</details>
+<details>
+<summary>Q3：「我朋友說公鳥不能 split 銀絲，你寫 split blue 公鳥可以嗎？」</summary>
+<p>「您朋友講的是『性聯』split——銀絲是性聯隱性，母鳥確實不能 split。但 Blue 是常染色體隱性，公母都可以 split。所以這隻是『Blue 位點 split』，跟銀絲沒關係，不衝突。」</p>
+</details>
+<details>
+<summary>Q4：「淡白銀絲那麼貴是因為稀有嗎？」</summary>
+<p>「不只是稀有——它是『藍 + 肉桂 + 派洛』三重突變的結合，每多一個位點純合，難度倍增。三個位點同時純合的機率在繁殖學上是『罕見事件』，加上每個突變都需要建立 split 庫存才能配出，整個培育週期 3-5 年。價格反映的是這個培育時間。」</p>
+</details>
+<details>
+<summary>Q5：「為什麼蛋價是鳥價的 50% 不是 30%？」</summary>
+<p>「蛋的『單位風險』比例是這樣算的：孵化 25 天 + 育雛 60 天 + 養到出售月齡 60 天，總共大約 145 天。蛋階段佔總週期約 1/4-1/3。但加上孵化失敗的『風險溢價』（買家可能孵不出來），合理是 50%。低於 50% 我虧本。」</p>
+</details>
+<details>
+<summary>Q6：「能不能便宜一點？」</summary>
+<p>「我這個價格已經是按市場行情訂的，不是亂喊的。您看價格的關鍵不是『多少錢』，是『這隻能為您做什麼』——如果只是想要寵物，便宜一點的鳥就夠了；如果是要配種建立自己的線，這隻的血統紀錄跟基因檢測就值這個錢。」</p>
+</details>
+<details>
+<summary>Q7：「我能不能先帶回家看看，不行再退？」</summary>
+<p>「鸚鵡有 60 天隔離期的標準，您帶回家接觸過其他鳥之後再退回來，會把您家的微生物帶進我場，整窩雛鳥可能感染。所以業界標準是不接受退換。但我可以提供 7 天健康保證——確診重大疾病可以全額退或換鳥。」</p>
+</details>
+<p><strong>繁殖類問題（8-14）</strong></p>
+<details>
+<summary>Q8：「我配出來的雛鳥跟你說的不一樣，是不是賣錯了？」</summary>
+<p>「先確認三件事：(1) 您配的母鳥是哪一隻？(2) 雛鳥外觀拍照給我看；(3) 兩窩都這樣還是只有一窩？很多時候不是『賣錯』，是雙親其中一隻有 split 沒被發現。我可以幫您算一次理論結果，看哪個基因型最可能。」</p>
+</details>
+<details>
+<summary>Q9：「為什麼我的母鳥不下蛋？」</summary>
+<p>「最常見原因排序：(1) 配對不相容（觀察兩隻有沒有互相理羽）；(2) 鈣 + D3 不足（特別是冬天日照少）；(3) 環境壓力（搬家、噪音、其他鳥太近）；(4) 巢箱不對（位置/方向/大小）；(5) 年齡問題（未成熟或老化）。建議從 1 開始排查。」</p>
+</details>
+<details>
+<summary>Q10：「我可以兄妹配嗎？」</summary>
+<p>「短期可以，長期不行。一次兄妹配的後代 COI 是 0.25，理論上會有點影響但通常還能接受。但<strong>第二次再兄妹配那一窩就嚴重了</strong>——孵化率下降、雛鳥免疫弱、畸形率上升。如果是要固定某個突變組合可以做一次，下一代立刻引入新血。」</p>
+</details>
+<details>
+<summary>Q11：「血統紀錄真的有差嗎？」</summary>
+<p>「3 年內看不太出來，但 5 年後差距明顯。沒紀錄的場無法判斷哪些 split 在哪些鳥上，無意間會配出近親；有紀錄的場可以做精確配對策略。<strong>轉手鳥場時</strong>，有紀錄的場價格至少高 50%，買家最在意這個。」</p>
+</details>
+<details knownmd="1">
+<summary>Q12：「我的鳥到底是 SL Ino 還是 NSL Ino？」</summary>
+
+「最便宜的測試法：拿這隻配普通綠色異性。如果是 NSL Ino → 後代全綠 split。如果是 SL Ino → 公雛綠 split、母雛直接是 SL Lutino（可用顏色判性別）。一窩就能驗證，不用花 DNA 鑑定費。」
+
+</details>
+
+<details>
+<summary>Q13：「我聽說近親會出畸形，是真的嗎？」</summary>
+<p>「不是『一定』，是『機率提高』。COI（近交係數）超過 0.25 開始有風險，0.5 以上嚴重。一次兄妹配 COI 0.25 算可接受邊緣，但如果連續兩代都近親，後代基本上不能用。實務原則：3 代內不要重複配對。」</p>
+</details>
+<details>
+<summary>Q14：「凱克為什麼那麼難繁殖？」</summary>
+<p>「凱克的『難』在配對相容——兩隻不喜歡彼此就永遠不繁殖，不像和尚那麼隨便。建議方法：(1) 買 4+ 隻幼鳥一起養到 2 歲讓牠們自己選伴侶；(2) 成鳥配對要有 4 週相鄰熟悉期；(3) 成功配對後也要 1-2 年才會產卵。<strong>耐心是凱克的最大成本</strong>。」</p>
+</details>
+<p><strong>法規/物種類問題（15-20）</strong></p>
+<details>
+<summary>Q15：「大金黃可以買嗎？合法嗎？」</summary>
+<p>「大金黃是 CITES I 物種，可以擁有但<strong>必須是合法繁殖場個體</strong>（足環編號可追溯）+ 飼養登記。買賣都需要主管機關核准。如果有人賣您『便宜的大金黃沒有證書』那是非法野生個體，可能被沒收還受罰。」</p>
+</details>
+<details>
+<summary>Q16：「黑頭凱克跟白腹凱克可以混嗎？」</summary>
+<p>「絕對不能。牠們是<strong>不同物種</strong>（<em>P. melanocephalus</em> vs <em>P. leucogaster</em>），混血雛鳥沒有市場價值，國際買家會驗 DNA 拒收。台灣很多新手不知道這點，無意間配出混血就毀了血統線。」</p>
+</details>
+<details>
+<summary>Q17：「能不能出口到日本/韓國？」</summary>
+<p>「和尚可以，但需要農業部林業署的『活鳥輸出許可』，加上對方國家的進口許可，整個流程 2-3 個月。大金黃 CITES I 出口幾乎不可能，需要兩國的 CITES 主管機關核可。凱克 CITES II 可出口但程序繁複。建議第一次出口先找有經驗的代辦公司。」</p>
+</details>
+<details>
+<summary>Q18：「我的鳥不肯吃顆粒料怎麼辦？」</summary>
+<p>「鸚鵡換食是長期戰，不是一週能解決。技巧：(1) 早上飢餓時只給顆粒料 30 分鐘，沒吃也收走；(2) 中午給少量水果蔬菜；(3) 晚上才給少量種子。一個月後大部分鳥會接受。<strong>不要因為心軟一直給種子</strong>，否則永遠不會換。」</p>
+</details>
+<details>
+<summary>Q19：「您的鳥有沒有做疾病篩檢？」</summary>
+<p>「我所有種鳥每年做完整篩檢：PBFD（鸚鵡喙羽病）、APV（鸚鵡多瘤病毒）、PDD（前胃擴張症）、Chlamydia（披衣菌）。雛鳥出窩前驗一次。報告我都留檔，買家要看可以提供。」</p>
+</details>
+<details>
+<summary>Q20：「我的鳥拔自己羽毛怎麼辦？」</summary>
+<p>「先排除醫療原因——皮膚病、寄生蟲、營養缺乏（特別是維生素 A、Omega-3）。確認沒醫療問題就是行為原因：通常是壓力、無聊、或繁殖荷爾蒙循環。改善：增加豐富化、洗澡、固定的光週期。如果是長期啄羽超過 6 個月，建議找鸚鵡專科獸醫看。」</p>
+</details>
+<h3 id="h2-fb">H.2 國際 FB 社群發文範本（中英對照）</h3>
+<p>加入「<strong>Quaker Parrot Mutations</strong>」「<strong>International Parrot Genetics</strong>」等英文社群，能接觸國際買家跟稀有突變線。但發文要符合社群文化。</p>
+<h4 id="1_8">範本 1：分享配對結果</h4>
+<p><strong>英文版</strong>：</p>
+<pre><code>Sharing my recent pairing result:
+
+Parents:
+♂ Cinnamon Opaline (Z^cin Z^op) split blue
+♀ Lutino Blue (bl/bl, ino/ino)
+
+This clutch (4 chicks):
+- 2 ♂ green split blue + split ino + split cin/op
+- 2 ♀ Cinnamon Opaline split blue
+
+Anyone has experience with these triple-split males 
+when paired back to Blue? Would love to hear your F2 expectations.
+
+#QuakerMutations #MonkParakeet #ParrotGenetics
+</code></pre>
+<p><strong>中文版（您理解用）</strong>：</p>
+<pre><code>分享最近的配對結果：
+
+雙親：
+公：肉桂銀絲 split blue
+母：藍黃化（Blue + Lutino 雙隱性）
+
+這窩 4 隻雛鳥：
+- 2 隻公雛：綠色 split blue + split 黃化 + split cin/op
+- 2 隻母雛：肉桂銀絲 split blue
+
+請問各位，這些 triple split 公雛跟 Blue 母配，
+F2 通常會出什麼？想參考經驗。
+
+#鸚鵡突變 #和尚鸚鵡 #遺傳學
+</code></pre>
+<h4 id="2_6">範本 2：尋求稀有突變血統</h4>
+<p><strong>英文版</strong>：</p>
+<pre><code>Looking for: True NSL Lutino Quaker hens with verified pedigree, 
+ideally split for Cinnamon. 
+
+I'm based in Taiwan, can arrange CITES export from your end.
+Will pay premium for documented bloodlines.
+
+DM if you have available stock or know breeders. 
+Pictures + recent health screening preferred.
+</code></pre>
+<h4 id="3_4">範本 3：分享疑案（請社群幫忙判斷）</h4>
+<p><strong>英文版</strong>：</p>
+<pre><code>Genetic puzzle - need community input:
+
+Background:
+- Pair: green ♂ × Blue ♀
+- 5 clutches over 2 years
+- Latest clutch (8 chicks total across 2 broods):
+  - 4 green
+  - 2 blue
+  - 2 unexpected: cinnamon ♀
+
+The Cinnamon hens are unexpected. 
+My hypothesis: ♂ is split Cinnamon (Z^cin Z^+).
+
+Anyone seen similar hidden splits in their lines? 
+What would you do to verify?
+</code></pre>
+<h3 id="h3">H.3 處理客戶質疑的話術</h3>
+<p><strong>情境 A：客戶質疑價格</strong></p>
+<p>❌ 不要說：「我成本就這樣，不能少」<br />
+✅ 應該說：「您看價格的關鍵是『這隻能為您做什麼』——是當寵物還是當種鳥用途完全不同。我可以推薦適合您預算的選擇。」</p>
+<p><strong>情境 B：客戶說「別人有更便宜的」</strong></p>
+<p>❌ 不要說：「他賣那麼便宜一定有問題」<br />
+✅ 應該說：「市場有不同價格區間是正常的。差別通常在血統紀錄、基因檢測、健康篩檢。如果您不需要這些，便宜的選擇也行；如果未來想要用來繁殖，這些紀錄就影響很大。」</p>
+<p><strong>情境 C：客戶要殺價</strong></p>
+<p>❌ 不要說：「絕對不能少」（會讓對話結束）<br />
+✅ 應該說：「這個價格我不能少，但如果您一次帶兩隻，我可以做一個禮包價／送一份血統證明影印本／提供首年免費諮詢。」</p>
+<p><strong>情境 D：客戶抱怨配出的雛鳥不如預期</strong></p>
+<p>❌ 不要說：「應該是您養的方式有問題」（防衛性）<br />
+✅ 應該說：「我們一起來看看哪裡不一樣——您把雛鳥拍照給我，我用基因型算理論結果。如果是基因問題我會負責。如果是飼養問題我可以建議改善方式。」</p>
+<h3 id="h4">H.4 跟新買家「教育式銷售」的三步話術</h3>
+<p><strong>第 1 步：確認需求</strong></p>
+<p>「您是要當寵物陪伴，還是要做繁殖？兩種需要的鳥不一樣，價格差很多。」</p>
+<p><strong>第 2 步：給選擇但有引導</strong></p>
+<p>「按您的需求，我建議這兩個選擇——A 是 NT$XX 適合純粹當寵物，B 是 NT$YY 雖然貴一點但有完整繁殖紀錄。」</p>
+<p><strong>第 3 步：提供決策資訊</strong></p>
+<p>「我給您看一下這隻的血統紀錄跟健康證明，您回去考慮一下。如果決定要，記得我們有 60 天隔離標準作業，怎麼配合您的環境我們再討論。」</p>
+<p><strong>目的</strong>：把銷售從「殺價戰」變成「<strong>諮詢服務</strong>」，建立長期客戶關係。</p>
+<hr />
+<h2 id="i">附錄 I：定價邏輯計算器</h2>
+<p>輸入物種、顏色、性別、月齡、加成條件，自動算建議價格。</p>
+
+<div class="calculator pricing-calc">
+  <div class="calc-grid">
+    <div class="calc-locus">
+      <label>物種</label>
+      <select id="pc-species">
+        <option value="6000">和尚鸚鵡（基礎 NT$6,000）</option>
+        <option value="35000">金頭凱克（基礎 NT$35,000）</option>
+        <option value="300000">大金黃（基礎 NT$300,000）</option>
+      </select>
+    </div>
+    <div class="calc-locus">
+      <label>顏色 / 罕見度</label>
+      <select id="pc-rarity">
+        <option value="1.0">普通（藍綠、純種野生型）</option>
+        <option value="1.3">常見突變（黃化、銀絲、肉桂、藍）</option>
+        <option value="2.0">中等稀有（藍銀絲、白銀絲、珊瑚藍）</option>
+        <option value="3.5">稀有（淡白銀絲、Pallidino）</option>
+        <option value="5.0">極稀有（白化、新組合）</option>
+      </select>
+    </div>
+    <div class="calc-locus">
+      <label>突變數量</label>
+      <select id="pc-mutations">
+        <option value="1.0">無突變或單突變</option>
+        <option value="1.6">雙突變組合</option>
+        <option value="1.9">三重突變組合</option>
+        <option value="2.2">四重以上突變</option>
+      </select>
+    </div>
+    <div class="calc-locus">
+      <label>月齡 / 階段</label>
+      <select id="pc-age">
+        <option value="0.5">蛋（孵化前）</option>
+        <option value="0.7">雛鳥（離乳前）</option>
+        <option value="0.9">離乳鳥（2-4 月）</option>
+        <option value="1.0" selected>成鳥（6+ 月）</option>
+      </select>
+    </div>
+    <div class="calc-locus">
+      <label>性別</label>
+      <select id="pc-sex">
+        <option value="1.0" selected>公</option>
+        <option value="1.1">母（性聯突變顯現微高）</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="pc-checkboxes">
+    <label class="pc-check"><input type="checkbox" id="pc-pedigree"> <span>完整血統紀錄（+25%）</span></label>
+    <label class="pc-check"><input type="checkbox" id="pc-dna"> <span>DNA 基因型驗證（+40%）</span></label>
+    <label class="pc-check"><input type="checkbox" id="pc-health"> <span>完整健康篩檢報告（+12%）</span></label>
+    <label class="pc-check"><input type="checkbox" id="pc-tame"> <span>手養社會化（+50%，寵物市場）</span></label>
+  </div>
+
+  <button class="calc-btn" id="pc-btn">計算建議價</button>
+
+  <div id="pc-result"></div>
+
+  <p class="calc-note">⚠️ 此公式根據叔叔場現有報價推算，僅供參考。罕見色/特殊組合的「真實市場價」需參考實際成交紀錄。國際市場通常比台灣高 30-50%。</p>
+</div>
+
+
+<hr />
+<h2 id="_195">結語</h2>
 <p>讀完整本書，您應該能：</p>
 <ol>
 <li>看懂任何鸚鵡基因型寫法（包括國際社群的英文簡寫）</li>
@@ -5519,6 +6327,57 @@ function renderResult(male, female) {
 }
 
 document.addEventListener('DOMContentLoaded', setupCalculator);
+</script>
+    <script>
+function setupPricingCalc() {
+    const btn = document.getElementById('pc-btn');
+    if (!btn) return;
+    btn.addEventListener('click', calcPrice);
+}
+
+function calcPrice() {
+    const base = parseFloat(document.getElementById('pc-species').value);
+    const rarity = parseFloat(document.getElementById('pc-rarity').value);
+    const mut = parseFloat(document.getElementById('pc-mutations').value);
+    const age = parseFloat(document.getElementById('pc-age').value);
+    const sex = parseFloat(document.getElementById('pc-sex').value);
+
+    const pedigree = document.getElementById('pc-pedigree').checked ? 1.25 : 1.0;
+    const dna = document.getElementById('pc-dna').checked ? 1.40 : 1.0;
+    const health = document.getElementById('pc-health').checked ? 1.12 : 1.0;
+    const tame = document.getElementById('pc-tame').checked ? 1.50 : 1.0;
+
+    const result = base * rarity * mut * age * sex * pedigree * dna * health * tame;
+    const lower = result * 0.85;
+    const upper = result * 1.15;
+
+    function fmt(n) { return Math.round(n).toLocaleString('zh-TW'); }
+    function row(label, val) { return `<tr><td>${label}</td><td><strong>${val}</strong></td></tr>`; }
+
+    document.getElementById('pc-result').innerHTML = `
+        <div class="pc-breakdown">
+            <h4>📊 計算細節</h4>
+            <table>
+                ${row('基礎色價', 'NT$ ' + fmt(base))}
+                ${row('× 罕見度', rarity + 'x')}
+                ${row('× 突變數', mut + 'x')}
+                ${row('× 月齡', age + 'x')}
+                ${row('× 性別', sex + 'x')}
+                ${row('× 血統紀錄', pedigree + 'x')}
+                ${row('× 基因檢測', dna + 'x')}
+                ${row('× 健康篩檢', health + 'x')}
+                ${row('× 手養社會化', tame + 'x')}
+            </table>
+            <div class="pc-final">
+                <div class="pc-label">建議價區間</div>
+                <div class="pc-price">NT$ ${fmt(lower)} – ${fmt(upper)}</div>
+                <div class="pc-mid">中位數：NT$ ${fmt(result)}</div>
+            </div>
+        </div>
+    `;
+}
+
+document.addEventListener('DOMContentLoaded', setupPricingCalc);
 </script>
 </body>
 </html>
