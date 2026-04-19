@@ -136,6 +136,83 @@ body[data-font-size="XL"] { --reading-font: 20.5px; }
 #font-fab .fab-options button[data-size="M"]  .size-demo { font-size: 15px; }
 #font-fab .fab-options button[data-size="L"]  .size-demo { font-size: 18px; }
 #font-fab .fab-options button[data-size="XL"] .size-demo { font-size: 22px; }
+#font-fab .fab-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 4px 8px;
+}
+#font-fab .fab-util {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+}
+#font-fab .fab-util .util-icon {
+    font-size: 16px;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+}
+#font-fab .fab-util:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+/* ─── 章節導航（上一章 / 下一章）─── */
+.chapter-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 50px 0 0 0;
+    padding: 24px 0 0 0;
+    border-top: 2px dashed var(--border);
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 14px;
+    gap: 12px;
+}
+.chapter-nav a {
+    flex: 1;
+    padding: 14px 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: all 0.15s;
+    text-decoration: none;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.chapter-nav a:hover {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    border-bottom-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+.chapter-nav .chap-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+.chap-prev { text-align: left; }
+.chap-next { text-align: right; }
+.chapter-nav .chap-prev:empty,
+.chapter-nav .chap-next:empty {
+    background: transparent;
+    border: 1px dashed var(--border);
+    pointer-events: none;
+}
+@media (max-width: 600px) {
+    .chapter-nav {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+@media print {
+    .chapter-nav { display: none; }
+}
 @media (max-width: 480px) {
     #font-fab { bottom: 16px; right: 16px; }
     #font-fab .fab-main { width: 48px; height: 48px; font-size: 20px; }
@@ -729,14 +806,17 @@ details p:last-child { margin-bottom: 4px; }
         <div class="title">鸚鵡遺傳學自學教科書</div>
     </div>
     <div id="sidebar-overlay"></div>
-    <div id="font-fab" aria-label="字體大小">
+    <div id="font-fab" aria-label="工具">
         <div class="fab-options">
             <button data-size="S"><span class="size-demo">A</span>小</button>
             <button data-size="M"><span class="size-demo">A</span>中</button>
             <button data-size="L"><span class="size-demo">A</span>大</button>
             <button data-size="XL"><span class="size-demo">A</span>特大</button>
+            <div class="fab-divider"></div>
+            <button id="fab-print" class="fab-util"><span class="util-icon">🖨</span>列印 / 存 PDF</button>
+            <button id="fab-top" class="fab-util"><span class="util-icon">↑</span>回到最上方</button>
         </div>
-        <button class="fab-main" aria-label="調整字體大小">A<sup style="font-size:14px">±</sup></button>
+        <button class="fab-main" aria-label="調整工具">⚙</button>
     </div>
     <div id="layout">
         <aside id="sidebar">
@@ -1187,7 +1267,32 @@ details p:last-child { margin-bottom: 4px; }
 </ul>
 </li>
 <li><a href="#i">附錄 I：定價邏輯計算器</a></li>
-<li><a href="#_195">結語</a><ul>
+<li><a href="#jglossary">附錄 J：完整術語詞典（Glossary）</a><ul>
+<li><a href="#a_3">A</a></li>
+<li><a href="#b_2">B</a></li>
+<li><a href="#c_3">C</a></li>
+<li><a href="#d_1">D</a></li>
+<li><a href="#f_1">F</a></li>
+<li><a href="#g">G</a></li>
+<li><a href="#h_1">H</a></li>
+<li><a href="#i_1">I</a></li>
+<li><a href="#l">L</a></li>
+<li><a href="#m">M</a></li>
+<li><a href="#n">N</a></li>
+<li><a href="#o">O</a></li>
+<li><a href="#p">P</a></li>
+<li><a href="#r">R</a></li>
+<li><a href="#s">S</a></li>
+<li><a href="#t">T</a></li>
+<li><a href="#w_1">W</a></li>
+<li><a href="#z_2">Z</a></li>
+</ul>
+</li>
+<li><a href="#k">附錄 K：版本更新日誌</a><ul>
+<li><a href="#_195">後續可能的方向</a></li>
+</ul>
+</li>
+<li><a href="#_196">結語</a><ul>
 <li><a href="#5_4">下一步可以做的 5 件事</a></li>
 </ul>
 </li>
@@ -6013,7 +6118,170 @@ What would you do to verify?
 
 
 <hr />
-<h2 id="_195">結語</h2>
+<h2 id="jglossary">附錄 J：完整術語詞典（Glossary）</h2>
+<p>按英文字母排序，含中文 + 簡述 + 出現章節。手機建議用瀏覽器搜尋（Ctrl+F / 長按工具列「在頁面內搜尋」）。</p>
+<h3 id="a_3">A</h3>
+<ul>
+<li><strong>Albino</strong>（白化）— 同時拿掉黑色素跟黃色素的雙重突變，外觀全白。第 2 章 / 22 章</li>
+<li><strong>Allele</strong>（等位基因）— 同一基因座上「指令的不同版本」。第 11 章</li>
+<li><strong>Aqua</strong>（水色，珊瑚藍偏綠）— Parblue 系列的等位基因，黃色素保留 50%。第 12, 24a 章</li>
+<li><strong>Autosome</strong>（常染色體）— 非性染色體，公母都成對存在。第 9 章</li>
+</ul>
+<h3 id="b_2">B</h3>
+<ul>
+<li><strong>Blue</strong>（藍）— 拿掉鸚鵡黃的常染色體隱性突變。第 2, 19 章</li>
+</ul>
+<h3 id="c_3">C</h3>
+<ul>
+<li><strong>Cinnamon</strong>（肉桂）— 黑色素變褐色的性聯隱性突變。第 19 章</li>
+<li><strong>CITES</strong>（華盛頓公約）— 國際野生動植物貿易公約。附錄 I 最嚴格。第 29 章</li>
+<li><strong>COI</strong>（Coefficient of Inbreeding，近交係數）— 後代某基因座兩個等位基因「同源」的機率。第 27c 章</li>
+<li><strong>Cooperative breeding</strong>（集體育雛）— 大金黃野外的繁殖策略。第 29 章</li>
+<li><strong>Crossing over / Recombination</strong>（重組）— 染色體交換片段，發生在減數分裂。第 14 章</li>
+</ul>
+<h3 id="d_1">D</h3>
+<ul>
+<li><strong>Dark Factor (DF)</strong>（深色因子）— 半顯性突變，加深顏色強度。第 15, 24c 章</li>
+<li><strong>DEC</strong>（Dark Eye Clear，暗眼淡）— 類似 Lutino 但暗眼。第 15 章</li>
+<li><strong>Dominant</strong>（顯性）— 一張就會表現的等位基因。第 4 章</li>
+<li><strong>DNA sexing</strong>（DNA 性別鑑定）— 用血液或羽毛驗證性別。凱克強制。第 28 章</li>
+</ul>
+<h3 id="f_1">F</h3>
+<ul>
+<li><strong>F1 / F2</strong>（First / Second filial generation）— 第一代 / 第二代後代。第 21, 22 章</li>
+<li><strong>Fallow</strong>（紅眼淡）— 黑色素被氧化的常染色體隱性突變。第 15 章</li>
+</ul>
+<h3 id="g">G</h3>
+<ul>
+<li><strong>Gene</strong>（基因）— 一條決定某特徵的指令。第 3, 11 章</li>
+<li><strong>Genotype</strong>（基因型）— 鳥的實際基因組合。第 17 章</li>
+<li><strong>Glossary</strong>（詞典）— 您正在看的這個。本附錄</li>
+</ul>
+<h3 id="h_1">H</h3>
+<ul>
+<li><strong>Hemizygous</strong>（半合）— 母鳥在性聯位點上只有一張牌的狀態。第 9 章</li>
+<li><strong>Heterozygous</strong>（雜合 / split）— 帶一張突變一張正常的狀態。第 6 章</li>
+<li><strong>Homozygous</strong>（純合）— 兩張等位基因相同的狀態。第 6 章</li>
+</ul>
+<h3 id="i_1">I</h3>
+<ul>
+<li><strong>INO 位點</strong>— Z 染色體上的等位基因系列位點，含 SL Ino、Pallid、Lacewing 等。第 12, 18 章</li>
+</ul>
+<h3 id="l">L</h3>
+<ul>
+<li><strong>Linkage</strong>（連鎖）— 同條染色體上的基因傾向「一起傳」。第 14 章</li>
+<li><strong>Locus / Loci</strong>（基因座，複數）— 染色體上某個固定的位置。第 11 章</li>
+<li><strong>Lutino</strong>（路提諾，黃化）— 拿掉黑色素的突變。NSL（常染色體）跟 SL（性聯）兩種。第 2, 16 章</li>
+</ul>
+<h3 id="m">M</h3>
+<ul>
+<li><strong>Meiosis</strong>（減數分裂）— 產生精子卵子的細胞分裂，染色體數量減半。第 3 章</li>
+<li><strong>Melanin</strong>（黑色素）— 鳥羽毛的黑/灰/褐色素。第 1 章</li>
+<li><strong>Mendel</strong>（孟德爾）— 遺傳學之父。第二定律 = 不同位點獨立分配。第 13 章</li>
+<li><strong>Mutation</strong>（突變）— 基因的變異版本。第 2 章</li>
+</ul>
+<h3 id="n">N</h3>
+<ul>
+<li><strong>NSL</strong>（Non-Sex-Linked，非性聯 / 常染色體）— 對應「常染色體」遺傳模式。第 16 章</li>
+<li><strong>NSL Ino</strong>— 台灣主流黃化（常染色體版）。配對結果跟 SL Ino 完全不同。第 16, 18 章</li>
+</ul>
+<h3 id="o">O</h3>
+<ul>
+<li><strong>Opaline</strong>（蛋白石，銀絲）— 色素重分配的性聯隱性突變。台灣稱「銀絲」。第 19 章</li>
+</ul>
+<h3 id="p">P</h3>
+<ul>
+<li><strong>Pallid</strong>（蒼白，派洛）— 黑色素濃度降低的性聯隱性突變。台灣稱「派洛」。第 19 章</li>
+<li><strong>Pallidino</strong>— Pallid + SL Ino 同位點等位基因雜合的中間色。第 24b 章</li>
+<li><strong>Parblue</strong>（Partial Blue）— Aqua 跟 Turquoise 統稱，「部分藍化」系列。第 12, 24a 章</li>
+<li><strong>PBFD</strong>（Psittacine Beak and Feather Disease，鸚鵡喙羽病）— 嚴重傳染病，繁殖場必篩。附錄 H</li>
+<li><strong>Phenotype</strong>（表現型 / 表型）— 鳥的外觀。附錄 A</li>
+<li><strong>Pied</strong>（花斑）— 隨機色素缺失。台灣未見。第 15 章</li>
+<li><strong>Psittacofulvin</strong>（鸚鵡黃）— 鸚鵡特有色素，產生黃/橙/紅。第 1 章</li>
+<li><strong>Punnett square</strong>（龐尼特方格 / 配對方格）— 視覺化遺傳組合的工具。第 5 章</li>
+</ul>
+<h3 id="r">R</h3>
+<ul>
+<li><strong>Recessive</strong>（隱性）— 兩張湊齊才會表現的等位基因。第 4 章</li>
+</ul>
+<h3 id="s">S</h3>
+<ul>
+<li><strong>Sex-linked</strong>（性聯）— 位於 Z 染色體上的基因。第 9 章</li>
+<li><strong>SL Ino</strong>— 性聯黃化。配對結果跟 NSL Ino 完全不同。第 16 章</li>
+<li><strong>Split</strong>（雜合 / 攜帶者）— 外觀普通但身上帶一張隱性等位基因的狀態。整本書核心概念。第 6 章</li>
+<li><strong>Studbook</strong>（血統紀錄簿）— 追蹤族群血統避免近親。第 16 章 / 附錄 G</li>
+</ul>
+<h3 id="t">T</h3>
+<ul>
+<li><strong>Tony Silva</strong>— 美國/巴西鸚鵡繁殖權威。大金黃群養法的提出者。第 29 章</li>
+<li><strong>Turquoise</strong>（綠松石，珊瑚藍偏藍）— Parblue 系列等位基因，黃色素保留 25%。第 12, 24a 章</li>
+</ul>
+<h3 id="w_1">W</h3>
+<ul>
+<li><strong>W chromosome</strong>（W 染色體）— 母鳥才有的小染色體，幾乎不帶基因。第 8 章</li>
+<li><strong>Weinzettl, Márcia</strong>— 巴西大金黃繁殖權威。半人工策略提出者。第 29 章</li>
+<li><strong>Wild type</strong>（野生型）— 沒有任何突變的標準形態，記為 <code>+</code>。第 17 章</li>
+</ul>
+<h3 id="z_2">Z</h3>
+<ul>
+<li><strong>Z chromosome</strong>（Z 染色體）— 公鳥兩條、母鳥一條的性染色體。第 8 章</li>
+<li><strong>ZW system</strong>（ZW 性別系統）— 鳥類的性別決定系統，公鳥 ZZ 母鳥 ZW，跟人類 XY 相反。第 8 章</li>
+</ul>
+<hr />
+<h2 id="k">附錄 K：版本更新日誌</h2>
+<p>本書持續更新。如果叔叔讀到舊版，每次重新整理網頁就會看到新內容。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>版本</th>
+<th>日期</th>
+<th>主要變動</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>v1.0</strong></td>
+<td>2026-04-19</td>
+<td>初版發布。9 篇 27 章 + 附錄 A-D。建立和尚遺傳學完整教學框架。</td>
+</tr>
+<tr>
+<td><strong>v1.1</strong></td>
+<td>2026-04-19</td>
+<td>修辭翻轉為「給叔叔讀」視角；新增附錄 E 互動配對計算器、附錄 F 常見配對速查表。</td>
+</tr>
+<tr>
+<td><strong>v1.2</strong></td>
+<td>2026-04-19</td>
+<td>階段 A：字體放大 FAB（S/M/L/XL）；附錄 G 血統紀錄表 Excel 範本（CSV 下載）；補完三個進階配對實例（24a/b/c：Parblue、Pallidino、Dark Factor）。</td>
+</tr>
+<tr>
+<td><strong>v1.3</strong></td>
+<td>2026-04-19</td>
+<td>階段 B：新增第十篇跨物種應用（28 凱克、29 大金黃、30 三物種比較表）。書從「和尚教科書」升級為「叔叔三物種全指引」。</td>
+</tr>
+<tr>
+<td><strong>v1.4</strong></td>
+<td>2026-04-19</td>
+<td>階段 C：商業策略擴充（27a 定價深入、27b 淘汰、27c 近親量化、27d 停損）；附錄 H 客戶/社群對話手冊（20 問 + 國際發文範本）；附錄 I 定價邏輯計算器。</td>
+</tr>
+<tr>
+<td><strong>v1.5</strong></td>
+<td>2026-04-19</td>
+<td>階段 D：附錄 J 完整詞典 Glossary；章節上下篇導航；PDF 列印按鈕；本更新日誌。</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="_195">後續可能的方向</h3>
+<p>如果需要再擴充，下面是值得考慮的章節：</p>
+<ul>
+<li><strong>第 31 章</strong> 鸚鵡常見疾病速覽（PBFD/APV/PDD/Chlamydia 識別與處置）</li>
+<li><strong>第 32 章</strong> 巢箱工程深入（不同物種的尺寸、材質、安裝最佳實踐）</li>
+<li><strong>第 33 章</strong> 場上日常 SOP（每日/每週/每月/每年該做的事）</li>
+<li><strong>第 34 章</strong> 接班人培訓框架（如何把 30 年經驗傳給下一代）</li>
+</ul>
+<p>歡迎叔叔讀完後告訴我哪個方向最值得寫。</p>
+<hr />
+<h2 id="_196">結語</h2>
 <p>讀完整本書，您應該能：</p>
 <ol>
 <li>看懂任何鸚鵡基因型寫法（包括國際社群的英文簡寫）</li>
@@ -6147,6 +6415,51 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (e) => {
         if (fab && !fab.contains(e.target)) fab.classList.remove('open');
     });
+
+    // ─── PDF 列印按鈕 ───
+    document.getElementById('fab-print')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        fab.classList.remove('open');
+        setTimeout(() => window.print(), 200);
+    });
+
+    // ─── 回到頂部 ───
+    document.getElementById('fab-top')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        fab.classList.remove('open');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ─── 章節導航（上一章 / 下一章）───
+    function setupChapterNav() {
+        const main = document.querySelector('main');
+        if (!main) return;
+        const chapters = Array.from(main.querySelectorAll('h2[id]'));
+        if (chapters.length < 2) return;
+
+        chapters.forEach((chapter, i) => {
+            const prev = i > 0 ? chapters[i - 1] : null;
+            const next = i < chapters.length - 1 ? chapters[i + 1] : null;
+
+            const nav = document.createElement('div');
+            nav.className = 'chapter-nav';
+            const prevHTML = prev
+                ? `<a href="#${prev.id}" class="chap-prev"><span class="chap-label">← 上一章</span><span>${prev.textContent}</span></a>`
+                : '<a class="chap-prev"></a>';
+            const nextHTML = next
+                ? `<a href="#${next.id}" class="chap-next"><span class="chap-label">下一章 →</span><span>${next.textContent}</span></a>`
+                : '<a class="chap-next"></a>';
+            nav.innerHTML = prevHTML + nextHTML;
+
+            // 插在下一個 H2 之前（每章結尾）
+            if (next) {
+                next.parentNode.insertBefore(nav, next);
+            } else {
+                main.appendChild(nav);
+            }
+        });
+    }
+    setupChapterNav();
 
     // ─── 圖示點擊放大（lightbox-lite）───
     document.querySelectorAll('figure svg').forEach(svg => {
