@@ -27,41 +27,28 @@
     --table-header: #ebe3d3;
     --table-zebra: #f7f3ea;
     --shadow: 0 1px 3px rgba(45, 42, 38, 0.06);
+    --shadow-lg: 0 4px 16px rgba(45, 42, 38, 0.08);
     --mobile-bar-height: 56px;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
     font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", "Microsoft JhengHei", serif;
-    font-size: 16px;
-    line-height: 1.85;
-    color: var(--text);
-    background: var(--bg);
+    font-size: 16px; line-height: 1.85;
+    color: var(--text); background: var(--bg);
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
 }
 
-#layout {
-    display: flex;
-    min-height: 100vh;
-}
+#layout { display: flex; min-height: 100vh; }
 
 /* ─── 頂部行動列（mobile only）─── */
 #mobile-bar {
     display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    position: fixed; top: 0; left: 0; right: 0;
     height: var(--mobile-bar-height);
     background: var(--bg-sidebar);
     color: var(--text-sidebar-active);
@@ -72,509 +59,324 @@ body {
 }
 
 #menu-toggle {
-    background: none;
-    border: none;
+    background: none; border: none;
     color: var(--text-sidebar-active);
-    font-size: 22px;
-    cursor: pointer;
-    padding: 8px 12px;
-    margin-right: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    transition: background 0.15s;
+    font-size: 22px; cursor: pointer;
+    padding: 8px 12px; margin-right: 8px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 6px; transition: background 0.15s;
     -webkit-tap-highlight-color: transparent;
 }
-
-#menu-toggle:hover, #menu-toggle:active {
-    background: var(--bg-sidebar-hover);
-}
+#menu-toggle:hover, #menu-toggle:active { background: var(--bg-sidebar-hover); }
 
 #mobile-bar .title {
-    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    flex: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 15px; font-weight: 600; flex: 1;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     color: #f0eae0;
 }
 
 /* ─── 遮罩 ─── */
 #sidebar-overlay {
     display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.55);
-    z-index: 999;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.55); z-index: 999;
+    backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);
     animation: fadeIn 0.2s ease;
 }
-
-#sidebar-overlay.show {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+#sidebar-overlay.show { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 /* ─── 側邊欄目錄 ─── */
 #sidebar {
-    width: 320px;
-    background: var(--bg-sidebar);
-    color: var(--text-sidebar);
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    overflow-y: auto;
-    padding: 28px 24px;
-    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-    font-size: 13.5px;
-    line-height: 1.5;
+    width: 320px; background: var(--bg-sidebar); color: var(--text-sidebar);
+    position: fixed; top: 0; left: 0; bottom: 0;
+    overflow-y: auto; padding: 28px 24px;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 13.5px; line-height: 1.5;
     -webkit-overflow-scrolling: touch;
 }
-
 #sidebar h2 {
     color: var(--text-sidebar-active);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin: 0 0 18px 0;
-    padding-bottom: 12px;
+    font-size: 14px; font-weight: 700; letter-spacing: 2px;
+    margin: 0 0 18px 0; padding-bottom: 12px;
     border-bottom: 1px solid #4d473f;
     text-transform: uppercase;
 }
-
-#sidebar .toc > ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-}
-
-#sidebar .toc ul {
-    list-style: none;
-    padding-left: 16px;
-    margin: 0;
-}
-
-#sidebar .toc li {
-    margin: 4px 0;
-}
-
+#sidebar .toc > ul { list-style: none; padding-left: 0; margin: 0; }
+#sidebar .toc ul { list-style: none; padding-left: 16px; margin: 0; }
+#sidebar .toc li { margin: 4px 0; }
 #sidebar .toc a {
-    color: var(--text-sidebar);
-    text-decoration: none;
-    display: block;
-    padding: 6px 10px;
-    border-radius: 4px;
-    transition: all 0.15s ease;
-    border-left: 2px solid transparent;
+    color: var(--text-sidebar); text-decoration: none;
+    display: block; padding: 6px 10px; border-radius: 4px;
+    transition: all 0.15s ease; border-left: 2px solid transparent;
 }
-
 #sidebar .toc a:hover, #sidebar .toc a:active {
     background: var(--bg-sidebar-hover);
     color: var(--text-sidebar-active);
     border-left-color: var(--accent);
 }
-
 #sidebar .toc > ul > li > a {
-    font-weight: 600;
-    color: #f0eae0;
-    margin-top: 8px;
+    font-weight: 600; color: #f0eae0; margin-top: 8px;
 }
 
 /* ─── 主內容區 ─── */
 main {
-    margin-left: 320px;
-    flex: 1;
-    padding: 60px 80px 100px;
-    max-width: 880px;
+    margin-left: 320px; flex: 1;
+    padding: 60px 80px 100px; max-width: 880px;
 }
 
 /* ─── 標題層級 ─── */
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-    color: var(--text);
-    font-weight: 700;
-    line-height: 1.4;
+    font-family: "Noto Sans TC", "PingFang TC", sans-serif;
+    color: var(--text); font-weight: 700; line-height: 1.4;
 }
-
 h1 {
-    font-size: 32px;
-    border-bottom: 3px solid var(--accent);
-    padding-bottom: 16px;
-    margin-top: 80px;
-    margin-bottom: 32px;
+    font-size: 32px; border-bottom: 3px solid var(--accent);
+    padding-bottom: 16px; margin-top: 80px; margin-bottom: 32px;
     color: var(--accent);
 }
-
-h1:first-child {
-    margin-top: 0;
-}
-
+h1:first-child { margin-top: 0; }
 h2 {
-    font-size: 26px;
-    margin-top: 60px;
-    margin-bottom: 24px;
-    padding-left: 14px;
-    border-left: 5px solid var(--accent);
+    font-size: 26px; margin-top: 60px; margin-bottom: 24px;
+    padding-left: 14px; border-left: 5px solid var(--accent);
 }
-
-h3 {
-    font-size: 21px;
-    margin-top: 40px;
-    margin-bottom: 16px;
-    color: var(--text);
-}
-
+h3 { font-size: 21px; margin-top: 40px; margin-bottom: 16px; }
 h4 {
-    font-size: 17px;
-    margin-top: 28px;
-    margin-bottom: 12px;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 17px; margin-top: 28px; margin-bottom: 12px;
+    color: var(--accent); text-transform: uppercase; letter-spacing: 1px;
 }
 
 /* ─── 段落、列表 ─── */
-p {
-    margin: 14px 0;
-}
-
-ul, ol {
-    margin: 14px 0;
-    padding-left: 28px;
-}
-
-li {
-    margin: 6px 0;
-}
-
-li > ul, li > ol {
-    margin: 4px 0;
-}
-
-/* ─── 強調 ─── */
-strong {
-    font-weight: 700;
-    color: #1a1815;
-}
-
-em {
-    color: var(--text);
-    font-style: italic;
-}
+p { margin: 14px 0; }
+ul, ol { margin: 14px 0; padding-left: 28px; }
+li { margin: 6px 0; }
+li > ul, li > ol { margin: 4px 0; }
+strong { font-weight: 700; color: #1a1815; }
+em { font-style: italic; }
 
 /* ─── 引用 ─── */
 blockquote {
-    margin: 20px 0;
-    padding: 16px 24px;
+    margin: 20px 0; padding: 16px 24px;
     background: var(--accent-light);
     border-left: 4px solid var(--accent);
     border-radius: 0 8px 8px 0;
-    color: var(--text);
-    font-style: normal;
 }
-
-blockquote p {
-    margin: 8px 0;
-}
-
+blockquote p { margin: 8px 0; }
 blockquote p:first-child { margin-top: 0; }
 blockquote p:last-child { margin-bottom: 0; }
 
 /* ─── 程式碼 ─── */
 code {
     font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
-    font-size: 14px;
-    background: var(--code-bg);
-    padding: 2px 6px;
-    border-radius: 4px;
-    color: #8b4513;
-    border: 1px solid var(--border);
-    word-break: break-word;
+    font-size: 14px; background: var(--code-bg);
+    padding: 2px 6px; border-radius: 4px; color: #8b4513;
+    border: 1px solid var(--border); word-break: break-word;
 }
-
 pre {
-    background: var(--code-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 18px 22px;
-    overflow-x: auto;
-    margin: 20px 0;
-    box-shadow: var(--shadow);
-    -webkit-overflow-scrolling: touch;
+    background: var(--code-bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 18px 22px;
+    overflow-x: auto; margin: 20px 0;
+    box-shadow: var(--shadow); -webkit-overflow-scrolling: touch;
 }
-
 pre code {
-    background: none;
-    padding: 0;
-    border: none;
-    color: var(--text);
-    white-space: pre;
-    font-size: 13.5px;
-    line-height: 1.7;
+    background: none; padding: 0; border: none;
+    color: var(--text); white-space: pre;
+    font-size: 13.5px; line-height: 1.7;
 }
 
-/* ─── 表格 wrapper（橫向捲動）─── */
+/* ─── 表格 wrapper ─── */
 .table-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 24px 0;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    margin: 24px 0; border-radius: 8px;
+    border: 1px solid var(--border); box-shadow: var(--shadow);
     background: var(--bg-card);
 }
-
 .table-wrapper table {
-    margin: 0;
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
-    min-width: 100%;
+    margin: 0; border: none; box-shadow: none; border-radius: 0; min-width: 100%;
 }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--bg-card);
-}
-
+table { width: 100%; border-collapse: collapse; background: var(--bg-card); }
 th, td {
-    padding: 12px 16px;
-    text-align: left;
+    padding: 12px 16px; text-align: left;
     border-bottom: 1px solid var(--border);
-    font-size: 14.5px;
-    line-height: 1.6;
-    vertical-align: top;
+    font-size: 14.5px; line-height: 1.6; vertical-align: top;
 }
-
 th {
-    background: var(--table-header);
-    font-weight: 700;
-    color: var(--text);
+    background: var(--table-header); font-weight: 700;
     font-family: "Noto Sans TC", sans-serif;
-    border-bottom: 2px solid var(--border-strong);
-    white-space: nowrap;
+    border-bottom: 2px solid var(--border-strong); white-space: nowrap;
 }
-
-tr:nth-child(even) td {
-    background: var(--table-zebra);
-}
-
-tr:last-child td {
-    border-bottom: none;
-}
-
-td code, th code {
-    font-size: 13px;
-    background: rgba(184, 132, 90, 0.1);
-}
+tr:nth-child(even) td { background: var(--table-zebra); }
+tr:last-child td { border-bottom: none; }
+td code, th code { font-size: 13px; background: rgba(184, 132, 90, 0.1); }
 
 /* ─── 連結 ─── */
 a {
-    color: var(--accent);
-    text-decoration: none;
+    color: var(--accent); text-decoration: none;
     border-bottom: 1px dotted var(--accent);
     transition: all 0.15s ease;
 }
-
-a:hover, a:active {
-    color: #8b5a2a;
-    border-bottom-style: solid;
-}
+a:hover, a:active { color: #8b5a2a; border-bottom-style: solid; }
 
 /* ─── 分隔線 ─── */
 hr {
-    border: none;
-    height: 2px;
+    border: none; height: 2px;
     background: linear-gradient(to right, transparent, var(--border-strong), transparent);
     margin: 50px 0;
 }
 
-/* ─── Anchor 跳轉時頂部留空 ─── */
-:target {
-    scroll-margin-top: 24px;
+/* ─── 圖示（figure + svg）─── */
+figure {
+    margin: 28px 0; text-align: center;
+}
+figure svg {
+    max-width: 100%; height: auto;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px;
+    box-shadow: var(--shadow-lg);
+    display: block;
+    margin: 0 auto;
+}
+figcaption {
+    margin-top: 12px;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 13.5px; color: var(--text-muted);
+    line-height: 1.6;
+    padding: 0 8px;
 }
 
-/* ─── 滾動條美化（webkit）─── */
-#sidebar::-webkit-scrollbar {
-    width: 8px;
+/* ─── 思考題答案（details/summary）─── */
+details {
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+    padding: 12px 18px;
+    transition: all 0.2s;
+}
+details[open] {
+    background: #fff;
+    box-shadow: var(--shadow);
+}
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--accent);
+    user-select: none;
+    list-style: none;
+    padding: 4px 0;
+    -webkit-tap-highlight-color: transparent;
+    font-family: "Noto Sans TC", sans-serif;
+}
+summary::-webkit-details-marker { display: none; }
+summary::before {
+    content: "▶";
+    display: inline-block;
+    transition: transform 0.2s;
+    margin-right: 8px;
+    color: var(--accent);
+    font-size: 11px;
+}
+details[open] summary::before {
+    transform: rotate(90deg);
+}
+details > *:not(summary) {
+    margin-top: 12px;
+}
+details p:first-of-type { margin-top: 12px; }
+details p:last-child { margin-bottom: 4px; }
+
+/* ─── 摘要卡（30 秒掌握）─── */
+.summary-card {
+    background: linear-gradient(135deg, #fff 0%, var(--accent-light) 100%);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 32px 0 40px;
+    box-shadow: var(--shadow-lg);
+}
+.summary-card h3 {
+    margin-top: 0;
+    color: var(--accent);
+    border-bottom: 2px dashed var(--border-strong);
+    padding-bottom: 12px;
+    font-size: 18px;
 }
 
-#sidebar::-webkit-scrollbar-track {
-    background: var(--bg-sidebar);
-}
+/* ─── Anchor 跳轉留空 ─── */
+:target { scroll-margin-top: 24px; }
 
-#sidebar::-webkit-scrollbar-thumb {
-    background: #4d473f;
-    border-radius: 4px;
-}
-
-#sidebar::-webkit-scrollbar-thumb:hover {
-    background: #5d574f;
-}
+/* ─── 滾動條 ─── */
+#sidebar::-webkit-scrollbar { width: 8px; }
+#sidebar::-webkit-scrollbar-track { background: var(--bg-sidebar); }
+#sidebar::-webkit-scrollbar-thumb { background: #4d473f; border-radius: 4px; }
+#sidebar::-webkit-scrollbar-thumb:hover { background: #5d574f; }
 
 /* ════════════════════════════════════════════ */
 /* ─── 響應式：平板 & 手機 ─── */
 /* ════════════════════════════════════════════ */
 
 @media (max-width: 1024px) {
-    /* 顯示頂部 bar */
-    #mobile-bar {
-        display: flex;
-    }
-
-    /* 側邊欄變抽屜 */
+    #mobile-bar { display: flex; }
     #sidebar {
         transform: translateX(-100%);
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1000;
-        width: min(85vw, 320px);
+        z-index: 1000; width: min(85vw, 320px);
         padding-top: calc(var(--mobile-bar-height) + 16px);
         box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
     }
-
-    #sidebar.open {
-        transform: translateX(0);
-    }
-
-    /* 主內容讓出頂部空間 + 收回 margin */
+    #sidebar.open { transform: translateX(0); }
     main {
         margin-left: 0;
         padding: calc(var(--mobile-bar-height) + 24px) 32px 60px;
         max-width: 100%;
     }
-
-    #layout {
-        display: block;
-    }
-
-    :target {
-        scroll-margin-top: calc(var(--mobile-bar-height) + 16px);
-    }
+    #layout { display: block; }
+    :target { scroll-margin-top: calc(var(--mobile-bar-height) + 16px); }
 }
 
 @media (max-width: 768px) {
-    body {
-        font-size: 15.5px;
-        line-height: 1.8;
-    }
-
-    main {
-        padding: calc(var(--mobile-bar-height) + 16px) 18px 40px;
-    }
-
-    h1 {
-        font-size: 24px;
-        margin-top: 50px;
-        padding-bottom: 12px;
-    }
-
-    h2 {
-        font-size: 20px;
-        margin-top: 40px;
-        padding-left: 10px;
-        border-left-width: 4px;
-    }
-
-    h3 {
-        font-size: 17.5px;
-        margin-top: 28px;
-    }
-
-    h4 {
-        font-size: 14.5px;
-    }
-
-    /* 表格在手機上的 wrapper */
-    .table-wrapper {
-        margin: 18px -8px;
-        border-radius: 6px;
-    }
-
-    table {
-        font-size: 13.5px;
-    }
-
-    th, td {
-        padding: 10px 12px;
-    }
-
-    /* code block 邊到邊 */
-    pre {
-        margin: 16px -8px;
-        padding: 14px 16px;
-        border-radius: 6px;
-        font-size: 12.5px;
-    }
-
-    blockquote {
-        margin: 16px -8px;
-        padding: 12px 18px;
-        border-radius: 0 6px 6px 0;
-    }
-
-    code {
-        font-size: 13px;
-    }
-
-    /* 段落間距收緊 */
-    p {
-        margin: 12px 0;
-    }
+    body { font-size: 15.5px; line-height: 1.8; }
+    main { padding: calc(var(--mobile-bar-height) + 16px) 18px 40px; }
+    h1 { font-size: 24px; margin-top: 50px; padding-bottom: 12px; }
+    h2 { font-size: 20px; margin-top: 40px; padding-left: 10px; border-left-width: 4px; }
+    h3 { font-size: 17.5px; margin-top: 28px; }
+    h4 { font-size: 14.5px; }
+    .table-wrapper { margin: 18px -8px; border-radius: 6px; }
+    table { font-size: 13.5px; }
+    th, td { padding: 10px 12px; }
+    pre { margin: 16px -8px; padding: 14px 16px; border-radius: 6px; font-size: 12.5px; }
+    blockquote { margin: 16px -8px; padding: 12px 18px; border-radius: 0 6px 6px 0; }
+    code { font-size: 13px; }
+    p { margin: 12px 0; }
+    figure { margin: 24px -8px; }
+    figure svg { padding: 12px; border-radius: 8px; }
+    figcaption { font-size: 12.5px; padding: 0 12px; }
+    details { margin: 14px -8px; padding: 10px 16px; border-radius: 0 6px 6px 0; }
+    summary { font-size: 14.5px; }
+    .summary-card { margin: 24px -8px 32px; padding: 18px 20px; border-radius: 10px; }
+    .summary-card h3 { font-size: 16px; }
 }
 
 @media (max-width: 480px) {
-    main {
-        padding-left: 14px;
-        padding-right: 14px;
-    }
-
+    main { padding-left: 14px; padding-right: 14px; }
     h1 { font-size: 22px; }
     h2 { font-size: 18.5px; }
     h3 { font-size: 16.5px; }
-
-    th, td {
-        padding: 9px 10px;
-        font-size: 13px;
-    }
-
-    #mobile-bar .title {
-        font-size: 14px;
-    }
+    th, td { padding: 9px 10px; font-size: 13px; }
+    #mobile-bar .title { font-size: 14px; }
 }
 
-/* ─── 列印樣式 ─── */
 @media print {
-    #sidebar, #mobile-bar, #sidebar-overlay {
-        display: none !important;
-    }
-    main {
-        margin-left: 0;
-        max-width: 100%;
-        padding: 20px;
-    }
-    h1, h2, h3 {
-        break-after: avoid;
-    }
-    table, pre, blockquote, .table-wrapper {
-        break-inside: avoid;
-    }
-    a {
-        border-bottom: none;
-        color: var(--text);
-    }
+    #sidebar, #mobile-bar, #sidebar-overlay { display: none !important; }
+    main { margin-left: 0; max-width: 100%; padding: 20px; }
+    h1, h2, h3 { break-after: avoid; }
+    table, pre, blockquote, .table-wrapper, figure { break-inside: avoid; }
+    a { border-bottom: none; color: var(--text); }
+    details { background: white; box-shadow: none; }
+    details summary::before { display: none; }
+    details[open] summary { font-weight: 700; }
 }
 </style>
 </head>
@@ -604,7 +406,10 @@ hr {
 <li><a href="#_13">附錄</a></li>
 </ul>
 </li>
-<li><a href="#_14">序：為什麼要花時間學這個</a></li>
+<li><a href="#_14">序：為什麼要花時間學這個</a><ul>
+<li><a href="#30">30 秒掌握全書核心</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_15">第一篇：顏色從哪來</a><ul>
@@ -907,7 +712,10 @@ hr {
 <li><a href="#_157">自家工具</a></li>
 </ul>
 </li>
-<li><a href="#_158">結語</a></li>
+<li><a href="#_158">結語</a><ul>
+<li><a href="#5-action-plan">明天可以做的 5 件事（Action Plan）</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1008,7 +816,21 @@ hr {
 - 評估一隻外觀普通的綠鳥是不是「隱形寶藏」
 - 理解為什麼有些配對價值高、有些是浪費籠位</p>
 <p>我們會用<strong>撲克牌</strong>跟<strong>門牌地址</strong>兩個比喻當主軸。從「鳥羽毛為什麼有顏色」開始，慢慢爬到「基因座的座標系統」，最後用真實配對範例把所有東西串起來。</p>
-<p>每章末尾都有一句<strong>回顧</strong>和一個<strong>思考題</strong>。寫完一篇就會有<strong>小考</strong>。讀的時候不要跳——這套知識是階梯式的，後面每一章都建立在前面的概念上。</p>
+<p>每章末尾都有一句<strong>回顧</strong>和一個<strong>思考題</strong>（點開可看答案）。讀的時候不要跳——這套知識是階梯式的，後面每一章都建立在前面的概念上。</p>
+<div class="summary-card">
+<h3 id="30">30 秒掌握全書核心</h3>
+<p>如果你只有 30 秒，記住這 7 句話就夠了：</p>
+<ol>
+<li><strong>基因 = 兩張牌</strong>：每隻鳥每個位置上有兩張等位基因，組合決定外觀。</li>
+<li><strong>顯性大聲，隱性害羞</strong>：顯性基因 1 張就表現，隱性要 2 張湊齊才表現。</li>
+<li><strong>Split = 藏起來的牌</strong>：外觀普通但帶一張隱性 = 隱形資產。</li>
+<li><strong>鸚鵡相反</strong>：公鳥 ZZ（兩張牌），母鳥 ZW（一張牌 + 空盒）。</li>
+<li><strong>母鳥不能 split 性聯</strong>：性聯基因母鳥要嘛顯現要嘛沒有，沒有「藏起來」的選項。</li>
+<li><strong>隱性互補</strong>：兩個不同位點的隱性突變配對，後代外觀回到綠色（但是雙重 split 寶藏）。</li>
+<li><strong>基因座 = 地址</strong>：染色體上的固定位置；同位點互斥，不同位點獨立。</li>
+</ol>
+<p>讀完整本書後，你會懂這 7 句話為什麼成立、實戰如何應用。</p>
+</div>
 <p>開始吧。</p>
 <hr />
 <h1 id="_15">第一篇：顏色從哪來</h1>
@@ -1079,7 +901,13 @@ hr {
 <h3 id="_19">回顧</h3>
 <p>鳥的顏色由三件事決定：黑色素的有無、鸚鵡黃的有無、結構色（藍）。綠色 = 黃 + 藍結構。</p>
 <h3 id="_20">思考題</h3>
-<p>為什麼孔雀的尾羽是藍色卻會「閃」？（提示：跟結構色有關）</p>
+<blockquote>
+<p>❓ 為什麼孔雀的尾羽是藍色卻會「閃」？（提示：跟結構色有關）</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>孔雀羽毛的「藍」是<strong>結構色</strong>——羽毛上的微小結構讓特定波長的藍光散射出來。從不同角度看，反射的光線不同，就會閃出不同色調。這跟皮膚色素「在那就是那個色」完全不同——結構色是一種光學效應。</p>
+</details>
 <hr />
 <h2 id="2">第 2 章 突變的本質：加減色素</h2>
 <h3 id="_21">突變只做三件事</h3>
@@ -1134,7 +962,13 @@ hr {
 <h3 id="_24">回顧</h3>
 <p>突變只做三件事：拿掉、改變、重新分布色素。Blue 拿掉黃色素，Lutino 拿掉黑色素，Albino 兩個都拿掉。</p>
 <h3 id="_25">思考題</h3>
-<p>如果一隻鳥同時有 Blue 突變跟 Lutino 突變，你預測牠看起來什麼顏色？（提示：用減法算）</p>
+<blockquote>
+<p>❓ 如果一隻鳥同時有 Blue 突變跟 Lutino 突變，你預測牠看起來什麼顏色？（提示：用減法算）</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>Blue 拿掉黃色素、Lutino 拿掉黑色素。<strong>兩個都拿掉 = 沒色素 = 白色</strong>。這就是 Albino（白化）的成因：Blue + Lutino 雙重純合。</p>
+</details>
 <hr />
 <h1 id="_26">第二篇：基因的最基本概念</h1>
 <h2 id="3">第 3 章 每隻鳥的「兩張牌」</h2>
@@ -1160,7 +994,13 @@ hr {
 <h3 id="_30">回顧</h3>
 <p>每隻鳥每個基因兩份，一份來自爸、一份來自媽。組合決定外觀。</p>
 <h3 id="_31">思考題</h3>
-<p>如果爸爸的兩張牌都是綠，媽媽的兩張牌都是藍，子代會拿到什麼組合？</p>
+<blockquote>
+<p>❓ 如果爸爸的兩張牌都是綠，媽媽的兩張牌都是藍，子代會拿到什麼組合？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>爸爸只能給綠（兩張都是綠），媽媽只能給藍。所以子代 100% 是 [綠][藍]——外觀全綠 split blue。這是經典的 F1 現象：親代純合配對，子代全部雜合。</p>
+</details>
 <hr />
 <h2 id="4">第 4 章 顯性與隱性</h2>
 <h3 id="_32">牌跟牌之間有強弱關係</h3>
@@ -1197,6 +1037,25 @@ hr {
 </tr>
 </tbody>
 </table></div>
+<figure><svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="兩張牌的比喻">
+  <style>
+    .fig-card { fill: white; stroke: #c9c1b3; stroke-width: 2.5; }
+    .fig-label { font-family: 'Noto Sans TC', sans-serif; font-size: 17px; fill: #2d2a26; text-anchor: middle; }
+    .fig-small { font-size: 14px; fill: #6b6660; }
+    .fig-gene { font-family: 'JetBrains Mono', monospace; font-size: 36px; font-weight: 700; text-anchor: middle; }
+    .fig-plus { font-family: serif; font-size: 36px; text-anchor: middle; fill: #b8845a; font-weight: 700; }
+  </style>
+  <text class="fig-label" x="200" y="28" font-weight="700" font-size="18">每隻鳥的兩張牌</text>
+  <rect class="fig-card" x="60" y="65" width="100" height="140" rx="10" />
+  <text class="fig-gene" x="110" y="150" fill="#3870c4">bl</text>
+  <text class="fig-label fig-small" x="110" y="180">藍突變（隱性）</text>
+  <text class="fig-plus" x="200" y="150">＋</text>
+  <rect class="fig-card" x="240" y="65" width="100" height="140" rx="10" />
+  <text class="fig-gene" x="290" y="150" fill="#22a24a">+</text>
+  <text class="fig-label fig-small" x="290" y="180">野生型（正常）</text>
+  <text class="fig-label" x="200" y="245" font-weight="700">→ 外觀：綠色（藏一張藍 = split）</text>
+</svg><figcaption>圖 1：基因有兩份，一份來自爸、一份來自媽。組合決定外觀。</figcaption></figure>
+
 <h3 id="_34">重點觀察</h3>
 <p>[綠][藍] 這隻鳥<strong>外觀是綠色</strong>，但牠<strong>身上帶著一張藍牌</strong>。</p>
 <p>牠看起來跟 [綠][綠] 完全一樣，但實際基因型不同。這個概念是後面所有「split」討論的基礎。</p>
@@ -1237,7 +1096,13 @@ hr {
 <h3 id="_36">回顧</h3>
 <p>顯性 1 張就表現；隱性 2 張才表現。外觀相同的鳥可能基因型不同。</p>
 <h3 id="_37">思考題</h3>
-<p>如果有一個突變需要 1 張牌就能完全表現，配對時這個突變會怎麼遺傳？</p>
+<blockquote>
+<p>❓ 如果有一個突變需要 1 張牌就能完全表現，配對時這個突變會怎麼遺傳？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>這是顯性突變。父母任一方帶這個基因，後代有 50% 機率拿到並<strong>直接表現</strong>。不需要等「兩張湊齊」。這也是為什麼顯性突變沒辦法 split——一張就會表現。和尚的 Dark Factor 就接近這個模式（嚴格說是半顯性）。</p>
+</details>
 <hr />
 <h2 id="5-punnett">第 5 章 配對的數學：Punnett 方格</h2>
 <h3 id="_38">基本原理</h3>
@@ -1271,6 +1136,52 @@ hr {
 - 25% [綠][綠] → 綠
 - 50% [綠][藍] → 綠（但帶藍牌）
 - 25% [藍][藍] → 藍</p>
+<figure><svg viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Punnett 方格示例">
+  <style>
+    .fig-label { font-family: 'Noto Sans TC', sans-serif; font-size: 15px; fill: #2d2a26; text-anchor: middle; }
+    .fig-title { font-size: 17px; font-weight: 700; }
+    .fig-gene { font-family: 'JetBrains Mono', monospace; font-size: 19px; font-weight: 700; text-anchor: middle; }
+    .fig-cell { fill: white; stroke: #c9c1b3; stroke-width: 2; }
+    .fig-header { fill: #ebe3d3; stroke: #c9c1b3; stroke-width: 2; }
+    .fig-blue { fill: #c8d8ee; stroke: #3870c4; stroke-width: 2; }
+    .fig-green { fill: #d4ebd0; stroke: #4ca84e; stroke-width: 2; }
+    .fig-stat { font-size: 13px; fill: #6b6660; text-anchor: middle; }
+    .fig-tag { font-size: 11px; text-anchor: middle; }
+  </style>
+  <text class="fig-label fig-title" x="200" y="28">綠 split blue × 綠 split blue</text>
+  <text class="fig-label" x="200" y="50" font-size="13" fill="#6b6660">bl/+ × bl/+</text>
+  <rect class="fig-header" x="80" y="70" width="80" height="60" />
+  <text class="fig-tag" x="120" y="95" font-size="11">爸 ↓</text>
+  <text class="fig-tag" x="120" y="115" font-size="11">媽 →</text>
+  <rect class="fig-header" x="160" y="70" width="80" height="60" />
+  <text class="fig-gene" x="200" y="110">bl</text>
+  <rect class="fig-header" x="240" y="70" width="80" height="60" />
+  <text class="fig-gene" x="280" y="110">+</text>
+  <rect class="fig-header" x="80" y="130" width="80" height="80" />
+  <text class="fig-gene" x="120" y="180">bl</text>
+  <rect class="fig-header" x="80" y="210" width="80" height="80" />
+  <text class="fig-gene" x="120" y="260">+</text>
+  <rect class="fig-cell fig-blue" x="160" y="130" width="80" height="80" />
+  <text class="fig-gene" x="200" y="178">bl/bl</text>
+  <text class="fig-stat" x="200" y="198">藍</text>
+  <rect class="fig-cell fig-green" x="240" y="130" width="80" height="80" />
+  <text class="fig-gene" x="280" y="178">bl/+</text>
+  <text class="fig-stat" x="280" y="198">綠 split</text>
+  <rect class="fig-cell fig-green" x="160" y="210" width="80" height="80" />
+  <text class="fig-gene" x="200" y="258">+/bl</text>
+  <text class="fig-stat" x="200" y="278">綠 split</text>
+  <rect class="fig-cell" x="240" y="210" width="80" height="80" />
+  <text class="fig-gene" x="280" y="258">+/+</text>
+  <text class="fig-stat" x="280" y="278">純綠</text>
+  <text class="fig-label" x="200" y="335" font-weight="700">後代分布</text>
+  <rect x="60" y="350" width="20" height="20" fill="#c8d8ee" stroke="#3870c4" stroke-width="2" />
+  <text class="fig-label" x="200" y="365">25% 藍色（bl/bl）</text>
+  <rect x="60" y="380" width="20" height="20" fill="#d4ebd0" stroke="#4ca84e" stroke-width="2" />
+  <text class="fig-label" x="200" y="395">50% 綠 split blue（bl/+）</text>
+  <rect x="60" y="410" width="20" height="20" fill="white" stroke="#c9c1b3" stroke-width="2" />
+  <text class="fig-label" x="200" y="425">25% 純綠（+/+）</text>
+</svg><figcaption>圖 3：Punnett 方格——每個爸媽各抽一張牌給子代，列出所有可能組合。</figcaption></figure>
+
 <h3 id="punnett">Punnett 方格的歷史</h3>
 <p><strong>Punnett square</strong>（龐尼特方格）由英國遺傳學家 Reginald Punnett 在 1905 年發明，用來視覺化孟德爾的遺傳規律。一個世紀過去，這仍然是繁殖者最常用的工具。</p>
 <h3 id="_39">結論</h3>
@@ -1279,7 +1190,13 @@ hr {
 <h3 id="_40">回顧</h3>
 <p>配對 = 爸媽各抽一張牌給小孩。Punnett 方格幫你列出所有組合，算出機率。</p>
 <h3 id="_41">思考題</h3>
-<p>如果爸是 [綠][綠]，媽是 [藍][藍]，後代會是什麼？再下一代（後代彼此配對）會出現什麼比例？</p>
+<blockquote>
+<p>❓ 如果爸是 [綠][綠]，媽是 [藍][藍]，後代會是什麼？再下一代（後代彼此配對）會出現什麼比例？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>F1：100% [綠][藍]，外觀全綠 split blue。<strong>F2（兄妹配）</strong>：用 Punnett 方格算 [綠][藍] × [綠][藍]，得到 25% [綠][綠]、50% [綠][藍]、25% [藍][藍]。也就是 75% 綠（含 split）、<strong>25% 藍</strong>。隱性藍色突變在 F2「重新出現」。</p>
+</details>
 <hr />
 <h1 id="_42">第三篇：藏起來的牌</h1>
 <h2 id="6-split">第 6 章 split 是什麼</h2>
@@ -1323,7 +1240,13 @@ hr {
 <h3 id="_45">回顧</h3>
 <p>split = 雜合 = 帶一張隱性牌但沒表現。是「隱形資產」，繁殖策略的核心。</p>
 <h3 id="_46">思考題</h3>
-<p>外觀綠色的鳥有幾種可能基因型？（提示：考慮可能的所有組合）</p>
+<blockquote>
+<p>❓ 外觀綠色的鳥有幾種可能基因型？（提示：考慮可能的所有組合）</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>至少兩種：[+][+]（純綠）或 [+][bl]（split blue）。如果考慮其他位點（NSL Ino、Turquoise 等）組合更多。<strong>光看外觀無法判斷基因型</strong>——這就是 split 是「隱形資產」的真正含義。</p>
+</details>
 <hr />
 <h2 id="7">第 7 章 隱性互補：兩個突變反而生出綠色</h2>
 <h3 id="_47">反直覺現象</h3>
@@ -1348,12 +1271,53 @@ hr {
 <li>牠們配回 lutino 母 → 50% 黃化雛鳥</li>
 <li>牠們互配 → 可能出「藍黃化」雙重突變後代（叫 Albino 白化）</li>
 </ul>
+<figure><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="隱性互補機制">
+  <style>
+    .fig-blue { fill: #c8d8ee; stroke: #3870c4; stroke-width: 2.5; }
+    .fig-yellow { fill: #f7e9c8; stroke: #d4a843; stroke-width: 2.5; }
+    .fig-green { fill: #d4ebd0; stroke: #4ca84e; stroke-width: 2.5; }
+    .fig-label { font-family: 'Noto Sans TC', sans-serif; font-size: 14px; fill: #2d2a26; text-anchor: middle; }
+    .fig-title { font-size: 17px; font-weight: 700; }
+    .fig-gene { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; text-anchor: middle; }
+    .fig-arrow { stroke: #b8845a; stroke-width: 3; fill: none; marker-end: url(#arrowhead6); }
+  </style>
+  <defs>
+    <marker id="arrowhead6" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#b8845a" />
+    </marker>
+  </defs>
+  <text class="fig-label fig-title" x="200" y="28">藍 × 黃化 → 100% 綠色 double split</text>
+  <ellipse class="fig-blue" cx="100" cy="100" rx="70" ry="48" />
+  <text class="fig-label" x="100" y="92" font-weight="700">公（藍）</text>
+  <text class="fig-gene" x="100" y="115">bl/bl, +/+</text>
+  <ellipse class="fig-yellow" cx="300" cy="100" rx="70" ry="48" />
+  <text class="fig-label" x="300" y="92" font-weight="700">母（黃化）</text>
+  <text class="fig-gene" x="300" y="115">+/+, ino/ino</text>
+  <path class="fig-arrow" d="M 200 165 L 200 245" />
+  <text class="fig-label" x="225" y="210" text-anchor="start" font-size="13" fill="#6b6660">配對</text>
+  <ellipse class="fig-green" cx="200" cy="295" rx="135" ry="58" />
+  <text class="fig-label" x="200" y="285" font-weight="700">100% 綠色雛鳥</text>
+  <text class="fig-gene" x="200" y="310">bl/+, ino/+</text>
+  <text class="fig-label" x="200" y="332" font-size="12" fill="#6b6660">外觀普通綠，藏雙突變</text>
+  <line x1="40" y1="385" x2="360" y2="385" stroke="#e8e2d6" stroke-dasharray="3 3" />
+  <text class="fig-label" x="200" y="412" font-weight="700">為什麼是綠色？</text>
+  <text class="fig-label" x="200" y="435" font-size="12">每個位點各拿一張隱性 + 一張正常</text>
+  <text class="fig-label" x="200" y="455" font-size="12">兩個位點都 split，都不顯現</text>
+  <text class="fig-label" x="200" y="488" font-weight="700" fill="#b8845a" font-size="15">這就是「隱性互補」</text>
+</svg><figcaption>圖 6：兩個不同位點的隱性突變配對，後代外觀回到野生型綠色，但藏著雙重 split。</figcaption></figure>
+
 <h3 id="_50">真實案例：叔叔的綠色公母之謎</h3>
 <p>如果叔叔場曾經有 Blue × NSL Lutino 配對，那一窩雛鳥<strong>整窩都是綠色</strong>——一公一母完全合理（性別本來就 1:1）。叔叔說「沒買過綠色」是真的，因為<strong>這是自己場內生的</strong>，不是買的。</p>
 <h3 id="_51">回顧</h3>
 <p>兩個不同位點的隱性突變配對，後代外觀全綠（隱性互補），但是 double split 是黃金資產。</p>
 <h3 id="_52">思考題</h3>
-<p>如果叔叔場有「藍色 × 銀絲」這個配對（注意銀絲是性聯），會出什麼？跟「藍色 × 黃化」一樣全綠嗎？</p>
+<blockquote>
+<p>❓ 如果叔叔場有「藍色 × 銀絲」這個配對（注意銀絲是性聯），會出什麼？跟「藍色 × 黃化」一樣全綠嗎？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>全綠的結論成立，但子代基因型公母不同。Blue 是常染色體、Opaline 是性聯。「藍公 × 銀絲母」結果：所有後代外觀全綠 split blue，但公雛還會 split Opaline，母雛只有 split blue（因為性聯 W 不帶基因）。這個題目的關鍵是看出「常 + 性聯」混合配對的不對稱性。</p>
+</details>
 <p>（這個題目要等讀完第四篇才會算，先記下來）</p>
 <hr />
 <h1 id="_53">第四篇：性染色體</h1>
@@ -1388,6 +1352,33 @@ hr {
 </tr>
 </tbody>
 </table></div>
+<figure><svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="公母性染色體比較">
+  <style>
+    .fig-z { fill: #b8845a; stroke: #8b5a2a; stroke-width: 2; }
+    .fig-w { fill: #d4cfc6; stroke: #6b6660; stroke-width: 2; stroke-dasharray: 5 4; }
+    .fig-label { font-family: 'Noto Sans TC', sans-serif; font-size: 16px; fill: #2d2a26; text-anchor: middle; }
+    .fig-title { font-size: 20px; font-weight: 700; }
+    .fig-small { font-size: 13px; fill: #6b6660; }
+    .fig-chrom { font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 700; text-anchor: middle; fill: white; }
+  </style>
+  <text class="fig-label fig-title" x="100" y="38">公鳥 ♂</text>
+  <rect class="fig-z" x="50" y="65" width="40" height="120" rx="6" />
+  <rect class="fig-z" x="110" y="65" width="40" height="120" rx="6" />
+  <text class="fig-chrom" x="70" y="135">Z</text>
+  <text class="fig-chrom" x="130" y="135">Z</text>
+  <text class="fig-label fig-small" x="100" y="215">兩張牌</text>
+  <text class="fig-label fig-small" x="100" y="235">（藏 split 沒問題）</text>
+  <text class="fig-label fig-title" x="300" y="38">母鳥 ♀</text>
+  <rect class="fig-z" x="250" y="65" width="40" height="120" rx="6" />
+  <rect class="fig-w" x="310" y="100" width="40" height="60" rx="6" />
+  <text class="fig-chrom" x="270" y="135">Z</text>
+  <text class="fig-chrom" x="330" y="138" fill="#6b6660" font-size="20">W</text>
+  <text class="fig-label fig-small" x="300" y="215">一張牌 + 空盒</text>
+  <text class="fig-label fig-small" x="300" y="235">（性聯不能 split）</text>
+  <line x1="200" y1="55" x2="200" y2="255" stroke="#e8e2d6" stroke-dasharray="3 3" />
+  <text class="fig-label" x="200" y="290" font-weight="700" fill="#b8845a">→ 遺傳資產主要儲存在公鳥</text>
+</svg><figcaption>圖 2：鸚鵡公鳥 ZZ（兩個保險箱），母鳥 ZW（一個保險箱 + 一個空盒）。</figcaption></figure>
+
 <h3 id="_55">為什麼這個結構決定了一切</h3>
 <p>所有「性聯」（位於 Z 上的基因）的奇怪行為，都源自這個結構。下一章就會展開。</p>
 <h3 id="zw">鸚鵡為什麼是 ZW？</h3>
@@ -1395,7 +1386,13 @@ hr {
 <h3 id="_56">回顧</h3>
 <p>公鳥 ZZ（兩個保險箱），母鳥 ZW（一個保險箱 + 一個空盒）。</p>
 <h3 id="_57">思考題</h3>
-<p>如果有一個基因恰好位於 W 上，它會怎麼遺傳？只有公鳥還是只有母鳥會拿到？</p>
+<blockquote>
+<p>❓ 如果有一個基因恰好位於 W 上，它會怎麼遺傳？只有公鳥還是只有母鳥會拿到？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p><strong>只有母鳥會拿到</strong>。W 染色體只在母鳥身上有，且母鳥的 W 一定來自媽媽（不是爸爸）。所以 W 上的基因只會「母 → 女」傳遞，公鳥永遠拿不到。實際上 W 染色體很小、基因很少，這種「W 連鎖遺傳」在鸚鵡彩色突變中幾乎不存在，主要影響性別決定本身。</p>
+</details>
 <hr />
 <h2 id="9-vs">第 9 章 常染色體 vs 性聯</h2>
 <h3 id="_58">兩種基因位置</h3>
@@ -1510,7 +1507,13 @@ hr {
 <h3 id="_62">回顧</h3>
 <p>常染色體公母都兩張可 split，性聯母鳥只一張不能 split。母鳥是性聯突變的「展示台」，公鳥是「儲存庫」。</p>
 <h3 id="_63">思考題</h3>
-<p>如果你想保留「Pallid 派洛」這個性聯突變的隱形資產，你應該保留公鳥還是母鳥？</p>
+<blockquote>
+<p>❓ 如果你想保留「Pallid 派洛」這個性聯突變的隱形資產，你應該保留公鳥還是母鳥？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p><strong>保留公鳥</strong>。Pallid 是性聯，公鳥可以「split Pallid」（Z^pal Z^+，外觀綠色但藏一張派洛）。母鳥對 Pallid 只有兩種狀態：直接顯現派洛（Z^pal W）或完全沒有（Z^+ W），無法藏。要在不顯露的情況下儲存派洛基因，必須靠 split 公鳥。</p>
+</details>
 <hr />
 <h2 id="10">第 10 章 性聯遺傳的跨代跳躍</h2>
 <h3 id="_64">兩條規則</h3>
@@ -1543,6 +1546,48 @@ hr {
          - 女兒（ZW）：爸給 Z^ino, 媽給 W → Z^ino W → 直接顯現 SL Lutino！
 </code></pre>
 <p><strong>現象</strong>：爸爸的性聯突變<strong>直接傳給女兒讓她變色</strong>，兒子變 split。</p>
+<figure><svg viewBox="0 0 400 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="性聯遺傳跨代跳躍">
+  <style>
+    .fig-label { font-family: 'Noto Sans TC', sans-serif; font-size: 14px; fill: #2d2a26; text-anchor: middle; }
+    .fig-title { font-size: 16px; font-weight: 700; }
+    .fig-gene { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; text-anchor: middle; }
+    .fig-male { fill: #c8d8ee; stroke: #3870c4; stroke-width: 2.5; }
+    .fig-female { fill: #f5d7d7; stroke: #c44848; stroke-width: 2.5; }
+    .fig-ino { fill: #f7e9c8; stroke: #d4a843; stroke-width: 2.5; }
+    .fig-arrow { stroke: #b8845a; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead4); }
+    .fig-small { font-size: 12px; fill: #6b6660; }
+  </style>
+  <defs>
+    <marker id="arrowhead4" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#b8845a" />
+    </marker>
+  </defs>
+  <text class="fig-label fig-title" x="200" y="25">SL Lutino 公 × 普通綠母</text>
+  <ellipse class="fig-ino" cx="100" cy="85" rx="70" ry="40" />
+  <text class="fig-label" x="100" y="78" font-weight="700">爸（黃化）</text>
+  <text class="fig-gene" x="100" y="100">Z^ino Z^ino</text>
+  <ellipse class="fig-female" cx="300" cy="85" rx="70" ry="40" />
+  <text class="fig-label" x="300" y="78" font-weight="700">媽（綠）</text>
+  <text class="fig-gene" x="300" y="100">Z^+ W</text>
+  <path class="fig-arrow" d="M 130 130 Q 110 175 110 215" />
+  <path class="fig-arrow" d="M 280 130 Q 295 175 295 215" />
+  <ellipse class="fig-male" cx="100" cy="265" rx="80" ry="50" />
+  <text class="fig-label" x="100" y="252" font-weight="700">兒子（全綠）</text>
+  <text class="fig-gene" x="100" y="278">Z^ino Z^+</text>
+  <text class="fig-label fig-small" x="100" y="298">爸 Z^ino + 媽 Z^+</text>
+  <ellipse class="fig-ino" cx="300" cy="265" rx="80" ry="50" />
+  <text class="fig-label" x="300" y="252" font-weight="700">女兒（黃化）</text>
+  <text class="fig-gene" x="300" y="278">Z^ino W</text>
+  <text class="fig-label fig-small" x="300" y="298">爸 Z^ino + 媽 W</text>
+  <line x1="40" y1="350" x2="360" y2="350" stroke="#e8e2d6" stroke-dasharray="3 3" />
+  <text class="fig-label" x="200" y="385" font-weight="700">為什麼會這樣？</text>
+  <text class="fig-label" x="200" y="415">兒子拿到爸的 Z^ino，但媽給 Z^+</text>
+  <text class="fig-label" x="200" y="435">→ 兩張牌一張突變一張正常 = split</text>
+  <text class="fig-label" x="200" y="475">女兒拿到爸的 Z^ino + 媽的 W（空盒）</text>
+  <text class="fig-label" x="200" y="495">→ 沒第二張牌掩蓋，直接顯現</text>
+  <text class="fig-label" x="200" y="540" font-weight="700" fill="#b8845a" font-size="16">性聯遺傳會「跨代跳躍」！</text>
+</svg><figcaption>圖 4：性聯突變從父→女直接顯現、從母→子變 split。母鳥永遠不能 split 性聯基因。</figcaption></figure>
+
 <h3 id="_67">性聯遺傳的「隔代跳躍」</h3>
 <p>有趣現象：性聯突變會「隔代跳躍」——從爸傳給女兒（女兒直接顯現）、從媽傳給兒子（兒子變 split）。</p>
 <h3 id="_68">反推血統的判斷技巧</h3>
@@ -1551,7 +1596,13 @@ hr {
 <h3 id="_69">回顧</h3>
 <p>性聯遺傳會跨代跳躍：父→女（直接顯現），母→子（split）。母鳥不能 split 性聯，這是判斷血統的硬規則。</p>
 <h3 id="_70">思考題</h3>
-<p>如果一隻綠色公鳥配藍色母鳥，後代有一隻是肉桂母鳥，這代表什麼？</p>
+<blockquote>
+<p>❓ 如果一隻綠色公鳥配藍色母鳥，後代有一隻是肉桂母鳥，這代表什麼？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>肉桂是性聯隱性。母鳥要顯現肉桂，必須 Z 上有 Z^cin。<strong>母鳥的 Z 一定來自父親</strong>，所以父親（外觀綠色）一定是 split Cinnamon（Z^cin Z^+）。這是反推血統的經典例子——藏起來的 split 透過子代的性聯表現「現形」了。</p>
+</details>
 <hr />
 <h1 id="_71">第五篇：基因座的座標系統</h1>
 <h2 id="11-locus">第 11 章 基因座（locus）：一切的根本</h2>
@@ -1609,7 +1660,13 @@ hr {
 <h3 id="_76">回顧</h3>
 <p>基因座 = 地址；基因 = 住戶；等位基因 = 同職業不同人。一個地址兩張牌（公）或一張牌（母性聯）。</p>
 <h3 id="_77">思考題</h3>
-<p>「基因座」跟「基因」最大的差別在哪？為什麼要分開講？</p>
+<blockquote>
+<p>❓ 「基因座」跟「基因」最大的差別在哪？為什麼要分開講？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>基因座是「<strong>位置</strong>」（地址），基因是「<strong>內容</strong>」（住戶）。同一個地址在不同個體可能住不同的人（等位基因）。分開講的理由：(1) 同一基因座可以有多種等位基因競爭（如 INO 位點上有 ino、pal、lw 等）；(2) 不同基因座位於不同位置，遺傳時獨立分配。混在一起講會無法解釋等位基因系列跟孟德爾第二定律。</p>
+</details>
 <hr />
 <h2 id="12">第 12 章 等位基因系列（同位點互斥）</h2>
 <h3 id="_78">同位點上的競爭</h3>
@@ -1679,7 +1736,13 @@ hr {
 <h3 id="_82">回顧</h3>
 <p>同一基因座可以有多個等位基因競爭，但一次只能裝兩個（公）或一個（母性聯）。同位點互斥，不同位點可疊加。</p>
 <h3 id="_83">思考題</h3>
-<p><code>tur/+</code> 跟 <code>bl/+</code> 看起來會一樣嗎？為什麼？</p>
+<blockquote>
+<p>❓ <code>tur/+</code> 跟 <code>bl/+</code> 看起來會一樣嗎？為什麼？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>不會一樣。雖然兩個都是綠色（tur 跟 bl 都是隱性，被 + 壓住），但理論上 tur 對黃色素只是部分減少，仔細看可能有微妙差異。實務上叔叔場大概看不出來。但<strong>它們攜帶的「武器」不同</strong>：跟 Blue 母配，前者出 Aqua/Turquoise 後代，後者出純藍後代。</p>
+</details>
 <hr />
 <h2 id="13">第 13 章 多位點的獨立分配</h2>
 <h3 id="_84">孟德爾第二定律</h3>
@@ -1743,7 +1806,13 @@ hr {
 <h3 id="_88">回顧</h3>
 <p>不同位點獨立分配。基因型組合數隨位點數指數成長。</p>
 <h3 id="_89">思考題</h3>
-<p>如果一對種鳥涉及 4 個位點，後代基因型理論上有多少種？</p>
+<blockquote>
+<p>❓ 如果一對種鳥涉及 4 個位點，後代基因型理論上有多少種？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>每個位點有 3 種基因型（純合突變、純合正常、雜合），4 個位點獨立 = <strong>3^4 = 81 種</strong>。如果其中有性聯位點，公雛跟母雛分開算數量會不同（公鳥位點變化更多）。這就是為什麼複雜配對通常用線上計算器跑。</p>
+</details>
 <hr />
 <h2 id="14">第 14 章 連鎖：同條染色體的捆綁</h2>
 <h3 id="_90">例外：同條染色體上的基因不獨立</h3>
@@ -1778,7 +1847,13 @@ hr {
 <h3 id="_93">回顧</h3>
 <p>同條染色體上的基因連鎖一起傳。重組偶爾發生。性聯多重突變要看整條 Z 的配置。</p>
 <h3 id="_94">思考題</h3>
-<p>為什麼常染色體配置 A 跟 B 沒差別？（提示：跟染色體配對方式有關）</p>
+<blockquote>
+<p>❓ 為什麼常染色體配置 A 跟 B 沒差別？（提示：跟染色體配對方式有關）</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>常染色體成對存在，但兩條是「同源染色體」，遺傳時各給一條。如果兩個基因座在同一條常染色體上，配置 cis 跟 trans 的後代分布只在「重組」發生時才有差別。<strong>對 Z 上的基因有差別</strong>，是因為 Z 染色體在公鳥成對、在母鳥單條，傳遞行為更有方向性，配置不同會直接影響子代性聯表現。</p>
+</details>
 <hr />
 <h1 id="_95">第六篇：命名系統與書寫規範</h1>
 <h2 id="15">第 15 章 突變命名的詞源</h2>
@@ -1906,7 +1981,13 @@ hr {
 <h3 id="_99">回顧</h3>
 <p>突變命名的詞源大多來自拉丁文/英文/法文，描述顏色或機制。-ino 後綴 = 「化」。記住詞源，看到陌生突變就能猜出意思。</p>
 <h3 id="_100">思考題</h3>
-<p>如果有一個新發現的鸚鵡突變叫 "Rubrino"，你猜它的外觀會是什麼？</p>
+<blockquote>
+<p>❓ 如果有一個新發現的鸚鵡突變叫 "Rubrino"，你猜它的外觀會是什麼？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>用詞源拆字：rub- 來自拉丁文 <em>ruber</em> = 紅色；-ino 後綴 = 「化」。所以 Rubrino 字面是「<strong>紅化</strong>」——預期外觀全紅，可能是「鸚鵡黃變紅 + 黑色素消失」的結果。實際上 Rubrino 是某些南美鸚鵡的真實突變名稱，跟猜測接近。詞源比死背更有用。</p>
+</details>
 <hr />
 <h2 id="16-sl-nsl">第 16 章 SL / NSL 標籤的意義</h2>
 <h3 id="_101">標籤系統</h3>
@@ -1976,7 +2057,13 @@ hr {
 <h3 id="_103">回顧</h3>
 <p>SL = 性聯，NSL = 常染色體。同名突變（如 Lutino）可能位於不同位點。看不懂寫法時，標籤幫你判斷遺傳模式。</p>
 <h3 id="_104">思考題</h3>
-<p>如果叔叔場有 5 隻黃化鳥，你怎麼測試牠們是 SL 還是 NSL？（提示：不用 DNA 檢測，用配種就能知道）</p>
+<blockquote>
+<p>❓ 如果叔叔場有 5 隻黃化鳥，你怎麼測試牠們是 SL 還是 NSL？（提示：不用 DNA 檢測，用配種就能知道）</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>拿其中一隻黃化（假設是公）配普通綠母。<strong>如果是 NSL Ino</strong>：後代全部綠色 split。<strong>如果是 SL Ino</strong>：兒子全綠 split、女兒全 SL Lutino（直接顯色）。看後代「公母顏色是否分離」就能判斷——這是性聯遺傳的指紋。叔叔做一窩就能驗證，不用花 DNA 鑑定費。</p>
+</details>
 <hr />
 <h2 id="17">第 17 章 基因型寫法逐字解讀</h2>
 <h3 id="_105">基本符號</h3>
@@ -2157,8 +2244,14 @@ hr {
 <h3 id="_107">回顧</h3>
 <p>每個符號都有固定意思，學會這套就能讀懂任何鸚鵡基因型。性聯寫法隱含性別資訊。</p>
 <h3 id="_108">思考題</h3>
-<p><code>bl/+, Z^op Z^op</code> 是什麼？
+<blockquote>
+<p>❓ <code>bl/+, Z^op Z^op</code> 是什麼？
 答案：公鳥，外觀銀絲，藏一張藍 split → 配藍母會出藍銀絲。</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p><strong>公鳥</strong>（兩條 Z），<strong>外觀銀絲</strong>（Opaline 純合），<strong>藏一張藍 split</strong>。配藍色母鳥會出藍銀絲後代——這是叔叔場最有商業價值的突變之一。這種鳥外觀漂亮 + split 隱形資產，是雙效種公的典型代表。</p>
+</details>
 <hr />
 <h1 id="_109">第七篇：和尚鸚鵡的具體應用</h1>
 <h2 id="18">第 18 章 和尚的基因座完整地圖</h2>
@@ -2267,10 +2360,56 @@ hr {
 <p><strong>總組合數（公）</strong>：6 × 3 × 4 × 3 × 3 = <strong>648 種</strong><br />
 <strong>總組合數（母）</strong>：6 × 3 × 2 × 2 × 2 = <strong>144 種</strong></p>
 <p>公鳥比母鳥多 4.5 倍——這就是「<strong>遺傳資產主要儲存在公鳥身上</strong>」的數學表現。</p>
+<figure><svg viewBox="0 0 400 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="和尚鸚鵡基因座地圖">
+  <style>
+    .fig-bg { fill: #ebe3d3; stroke: #c9c1b3; stroke-width: 2; }
+    .fig-bg-z { fill: #c8d8ee; stroke: #3870c4; stroke-width: 2; }
+    .fig-bg-w { fill: #d4cfc6; stroke: #6b6660; stroke-width: 2; stroke-dasharray: 4 4; }
+    .fig-locus { fill: #b8845a; }
+    .fig-label { font-family: 'Noto Sans TC', sans-serif; font-size: 13px; fill: #2d2a26; }
+    .fig-name { font-size: 14px; }
+    .fig-title-text { font-size: 16px; font-weight: 700; text-anchor: middle; }
+    .fig-chrom-name { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; fill: #2d2a26; }
+    .fig-allele { font-size: 11px; fill: #6b6660; text-anchor: middle; font-family: 'JetBrains Mono', monospace; }
+  </style>
+  <text class="fig-label fig-title-text" x="200" y="28">和尚鸚鵡彩色基因座地圖</text>
+  <text class="fig-chrom-name" x="20" y="78">常染 5</text>
+  <rect class="fig-bg" x="20" y="88" width="360" height="36" rx="18" />
+  <circle class="fig-locus" cx="100" cy="106" r="11" />
+  <text class="fig-label fig-name" x="100" y="148" text-anchor="middle">Blue 位點</text>
+  <text class="fig-allele" x="100" y="165">+ / bl / tur / aq</text>
+  <text class="fig-chrom-name" x="20" y="200">常染 8</text>
+  <rect class="fig-bg" x="20" y="210" width="360" height="36" rx="18" />
+  <circle class="fig-locus" cx="180" cy="228" r="11" />
+  <text class="fig-label fig-name" x="180" y="270" text-anchor="middle">NSL Ino 位點</text>
+  <text class="fig-allele" x="180" y="287">+ / ino</text>
+  <text class="fig-chrom-name" x="20" y="320" fill="#3870c4">Z 染（公兩條／母一條）</text>
+  <rect class="fig-bg-z" x="20" y="330" width="360" height="36" rx="18" />
+  <circle class="fig-locus" cx="100" cy="348" r="11" />
+  <circle class="fig-locus" cx="200" cy="348" r="11" />
+  <circle class="fig-locus" cx="300" cy="348" r="11" />
+  <text class="fig-label fig-name" x="100" y="390" text-anchor="middle">INO 位點</text>
+  <text class="fig-allele" x="100" y="407">+ / ino / pal</text>
+  <text class="fig-label fig-name" x="200" y="390" text-anchor="middle">Cinnamon</text>
+  <text class="fig-allele" x="200" y="407">+ / cin</text>
+  <text class="fig-label fig-name" x="300" y="390" text-anchor="middle">Opaline</text>
+  <text class="fig-allele" x="300" y="407">+ / op</text>
+  <text class="fig-chrom-name" x="20" y="450" fill="#6b6660">W 染（僅母鳥有）</text>
+  <rect class="fig-bg-w" x="20" y="460" width="100" height="28" rx="14" />
+  <text class="fig-label" x="70" y="478" text-anchor="middle" font-size="11" fill="#6b6660">幾乎沒基因</text>
+  <text class="fig-label" x="200" y="525" text-anchor="middle" font-size="12" fill="#6b6660">● 彩色基因座（住戶 = 等位基因）</text>
+</svg><figcaption>圖 5：和尚鸚鵡有 5+ 個彩色基因座。常染色體 2 個 + 性聯 3 個（INO 位點是等位基因系列）。</figcaption></figure>
+
 <h3 id="_112">回顧</h3>
 <p>和尚有 5-7 個重要基因座。公鳥基因型空間遠大於母鳥。</p>
 <h3 id="_113">思考題</h3>
-<p>如果完全不考慮 split（只看外觀），公鳥跟母鳥的「外觀變化數」會一樣嗎？</p>
+<blockquote>
+<p>❓ 如果完全不考慮 split（只看外觀），公鳥跟母鳥的「外觀變化數」會一樣嗎？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p><strong>單看外觀變化數一樣</strong>（公母都是「綠 vs 顯現突變」）。但<strong>基因型空間</strong>公鳥大很多——因為性聯位點公鳥多了「split」這個中間狀態，看不出來。母鳥只有「綠」或「直接顯現」兩種，沒有第三種選項。所以公母外觀數相同，但隱形資訊量公鳥遠勝。</p>
+</details>
 <hr />
 <h2 id="19">第 19 章 台灣俗名與英文對照</h2>
 <h3 id="_114">完整對照表</h3>
@@ -2393,7 +2532,13 @@ hr {
 <h3 id="_116">回顧</h3>
 <p>學會中英對照才能跟國際繁殖者溝通。台灣某些俗名跟英文不是直譯，要小心對應。</p>
 <h3 id="_117">思考題</h3>
-<p>如果有人說「我有一隻 Pallid 派洛公」，他應該怎麼寫基因型？</p>
+<blockquote>
+<p>❓ 如果有人說「我有一隻 Pallid 派洛公」，他應該怎麼寫基因型？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>Pallid 是性聯隱性。公鳥要顯現派洛，必須兩條 Z 都帶 pal：<strong><code>Z^pal Z^pal</code></strong>。如果只有一條 Z 是 pal、另一條正常，那是 split（外觀綠不是派洛）。所以「派洛公」的標準寫法是 <code>Z^pal Z^pal</code>。寫成 <code>Z^pal Z^+</code> 就只是綠 split Pallid，不是派洛公。</p>
+</details>
 <hr />
 <h2 id="20">第 20 章 常見混淆與陷阱</h2>
 <h3 id="1opalinevs-pallid">混淆 1：銀絲（Opaline）vs 派洛（Pallid）</h3>
@@ -2476,7 +2621,13 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <h3 id="_118">回顧</h3>
 <p>命名混淆很多，記住「機制」而不只是「俗名」。母鳥不能 split 性聯——這是判斷血統真偽的鐵則。</p>
 <h3 id="_119">思考題</h3>
-<p>如果賣家標「綠色母鳥 split Opaline」，你應該如何回應？</p>
+<blockquote>
+<p>❓ 如果賣家標「綠色母鳥 split Opaline」，你應該如何回應？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>明確指出這個寫法是錯的。<strong>Opaline 是性聯隱性，母鳥不能 split 性聯基因</strong>。可能性：(1) 賣家不懂遺傳學寫錯；(2) 實際是綠色母鳥但完全沒有 Opaline 基因；(3) 賣家想騙價。可以禮貌詢問「請問是哪份遺傳檢測報告標的？」測試對方是否懂行。如果對方支吾，幾乎可以確定有問題。</p>
+</details>
 <hr />
 <h1 id="_120">第八篇：實戰配對計算</h1>
 <h2 id="21-1">第 21 章 實例 1：黃化公 × 銀絲母</h2>
@@ -2577,7 +2728,13 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p>短期：賣外觀綠色，價值較低。<br />
 中期：保留當種鳥，配回黃化或銀絲都能拿出突變後代。</p>
 <h3 id="_124">思考題</h3>
-<p>如果這對配出的綠色公雛 <code>ino/+, Z^+ Z^op</code> 拿去配銀絲母 <code>Z^op W</code>，後代會出什麼？</p>
+<blockquote>
+<p>❓ 如果這對配出的綠色公雛 <code>ino/+, Z^+ Z^op</code> 拿去配銀絲母 <code>Z^op W</code>，後代會出什麼？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>NSL Ino 位點：ino/+ × +/+ → 50% ino/+、50% +/+。<strong>Opaline 位點（性聯）</strong>：公親 Z^+ Z^op × 母親 Z^op W：公雛拿爸的 Z（一半 Z^+ 一半 Z^op）+ 媽的 Z^op → 25% Z^+ Z^op（綠 split）+ 25% Z^op Z^op（<strong>銀絲公</strong>）；母雛拿爸的 Z + 媽的 W → 25% Z^+ W（綠）+ 25% Z^op W（銀絲）。所以<strong>有 25% 機率出銀絲公</strong>——這是叔叔場急需的種公！</p>
+</details>
 <hr />
 <h2 id="22-2">第 22 章 實例 2：藍色公 × 黃化母</h2>
 <h3 id="_125">設定情境</h3>
@@ -2645,7 +2802,13 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p>這對配對對「賣蛋」是低收益（綠色蛋價最低），但<strong>對建立 split 庫存是黃金組合</strong>。</p>
 <p>如果叔叔目標是培育「藍 + 黃化」的雙重突變後代（即 Albino 白化效果），這對是 F1，下一代 F2 才會開始出現純合雙重突變。</p>
 <h3 id="_128">思考題</h3>
-<p>如果這對配出的綠色 F1 互相配對（兄妹近親），F2 會出什麼比例？</p>
+<blockquote>
+<p>❓ 如果這對配出的綠色 F1 互相配對（兄妹近親），F2 會出什麼比例？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>兩個 double split 互配（bl/+, ino/+ × bl/+, ino/+），每位點 3:1（顯性外觀:隱性表現）。<strong>F2 外觀比例</strong>：9/16 純綠 + 3/16 藍 + 3/16 黃化 + <strong>1/16 藍黃化</strong>（即 Albino 白化）。<strong>第一次出現 Albino 白色和尚雛鳥</strong>！這就是雙隱性配對「等待 F2 才開花」的典型案例——所以買 split 種鳥要有耐心，回收期是兩代不是一代。</p>
+</details>
 <hr />
 <h2 id="23-3">第 23 章 實例 3：派洛公 × 黃化母（等位基因系列）</h2>
 <h3 id="_129">設定情境</h3>
@@ -2717,7 +2880,13 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <h3 id="_131">實務啟示</h3>
 <p>不需要 DNA 鑑定就能分辨公母——綠色一定是公，派洛一定是母。可以節省鑑定費用。</p>
 <h3 id="_132">思考題</h3>
-<p>如果反過來——「黃化公 × 派洛母」會出什麼？是否還能用顏色判性別？</p>
+<blockquote>
+<p>❓ 如果反過來——「黃化公 × 派洛母」會出什麼？是否還能用顏色判性別？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>黃化公 ino/ino, Z^+ Z^+ × 派洛母 +/+, Z^pal W。NSL Ino 位點：100% ino/+。Opaline/INO 性聯：公雛拿爸 Z^+ + 媽 Z^pal → Z^pal Z^+（綠 split Pallid）；母雛拿爸 Z^+ + 媽 W → Z^+ W（綠）。<strong>公母全部綠色，無法用顏色判性別</strong>——這個方向反過來就不行了。<strong>性別連鎖鑑定的方向性很重要</strong>：父代帶性聯顯現的那邊，才能讓子代「公母不同色」。</p>
+</details>
 <hr />
 <h2 id="24-4">第 24 章 實例 4：藍銀絲公 × 黃化母（多重突變）</h2>
 <h3 id="_133">設定情境</h3>
@@ -2791,7 +2960,13 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p><strong>母雛</strong>：直接出銀絲（外觀有色可賣），同時還藏著藍跟黃化兩個 split。是「<strong>雙效</strong>種母」——既有外觀價值，又有遺傳資產。</p>
 <p>如果這對配對的 F1 母（銀絲 split blue + ino）拿去配 F1 公（綠 triple split），F2 後代外觀組合會非常多元——可能出現藍銀絲、黃化銀絲、白銀絲等台灣稀有色。</p>
 <h3 id="_136">思考題</h3>
-<p>F1 公（<code>bl/+, ino/+, Z^op Z^+</code>）配 F1 母（<code>bl/+, ino/+, Z^op W</code>），算出 F2 的部分外觀分布（不用全算，挑藍銀絲一種就好）。</p>
+<blockquote>
+<p>❓ F1 公（<code>bl/+, ino/+, Z^op Z^+</code>）配 F1 母（<code>bl/+, ino/+, Z^op W</code>），算出 F2 的部分外觀分布（不用全算，挑藍銀絲一種就好）。</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>藍銀絲 = bl/bl + Opaline 顯現。Blue 位點 bl/+ × bl/+：1/4 機率 bl/bl。<strong>Opaline 位點</strong>：公親 Z^op Z^+ × 母親 Z^op W：公雛拿到 Z^op Z^op 機率 1/4（銀絲公）；母雛拿到 Z^op W 機率 1/2（銀絲母）。<strong>藍銀絲機率</strong>：公雛 1/4 × 1/4 = <strong>1/16（藍銀絲公）</strong>；母雛 1/4 × 1/2 = <strong>1/8（藍銀絲母）</strong>。每窩 4-6 顆蛋大概能出 0-1 隻藍銀絲——稀有但有機會。</p>
+</details>
 <hr />
 <h1 id="_137">第九篇：商業策略應用</h1>
 <h2 id="25-split">第 25 章 split 鳥的隱形價值</h2>
@@ -2841,7 +3016,13 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <h3 id="_138">回顧</h3>
 <p>split 鳥是繁殖事業的「隱形資本」。會看 split 才會賺錢。</p>
 <h3 id="_139">思考題</h3>
-<p>如果你只能買一隻種公，預算固定，你應該買「外觀漂亮的純合突變」還是「外觀普通的 triple split」？</p>
+<blockquote>
+<p>❓ 如果你只能買一隻種公，預算固定，你應該買「外觀漂亮的純合突變」還是「外觀普通的 triple split」？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p>除非你只想短期賣外觀有色雛鳥，不然應該買 <strong>triple split</strong>。理由：(1) Triple split 配多種母鳥都能出多色後代（彈性高）；(2) 外觀普通＝市場價格低＝同預算可能買到品質更好的 split；(3) 純合突變雛鳥外觀相同，後代基因型空間窄。<strong>但前提是賣家可信</strong>（split 看不出來，容易被騙）——一定要看血統紀錄或做基因檢測。沒紀錄的 triple split 就是賭運氣。</p>
+</details>
 <hr />
 <h2 id="26">第 26 章 為什麼公鳥是遺傳資產</h2>
 <h3 id="_140">數學上的不對稱</h3>
@@ -2887,7 +3068,13 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <h3 id="_143">回顧</h3>
 <p>公鳥是遺傳資產儲存庫，母鳥是展示與驗證工具。「養公 split 母」是進階策略。</p>
 <h3 id="_144">思考題</h3>
-<p>如果叔叔場有 5 隻派洛母（直接顯色）跟 5 隻派洛公（純合），哪邊的「遺傳價值」比較高？為什麼？</p>
+<blockquote>
+<p>❓ 如果叔叔場有 5 隻派洛母（直接顯色）跟 5 隻派洛公（純合），哪邊的「遺傳價值」比較高？為什麼？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p><strong>派洛公純合 <code>Z^pal Z^pal</code> 遺傳價值比較高</strong>。因為公鳥可以<strong>藏其他性聯 split</strong>（例如同時 split Opaline、split Cinnamon），但母鳥只有一條 Z，要嘛是 Pallid 要嘛不是，無法疊加其他性聯突變。實務上「純合派洛公」如果還能驗出 split Cinnamon、split Opaline，那是頂級種公；母鳥純粹是派洛，配種角色比較單純（顯色用 + 提供 W 給女兒）。</p>
+</details>
 <hr />
 <h2 id="27-abc">第 27 章 配對線規劃（A/B/C 三線策略）</h2>
 <h3 id="_145">三線分配原則</h3>
@@ -2922,6 +3109,35 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 </tr>
 </tbody>
 </table></div>
+<figure><svg viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A/B/C 三線策略圓餅">
+  <style>
+    .fig-label { font-family: 'Noto Sans TC', sans-serif; font-size: 13px; fill: #2d2a26; }
+    .fig-title { font-size: 16px; font-weight: 700; text-anchor: middle; }
+    .fig-pct { font-size: 20px; font-weight: 700; fill: white; text-anchor: middle; font-family: 'Noto Sans TC', sans-serif; }
+    .fig-key { font-size: 13px; fill: white; font-weight: 600; text-anchor: middle; font-family: 'Noto Sans TC', sans-serif; }
+  </style>
+  <text class="fig-label fig-title" x="200" y="28">配對線分配（A/B/C 三線策略）</text>
+  <path d="M 200 180 L 200 60 A 120 120 0 1 1 162.9 294.1 Z" fill="#d4a843" />
+  <path d="M 200 180 L 162.9 294.1 A 120 120 0 0 1 129.5 82.9 Z" fill="#b8845a" />
+  <path d="M 200 180 L 129.5 82.9 A 120 120 0 0 1 200 60 Z" fill="#c44848" />
+  <text class="fig-pct" x="265" y="195">55%</text>
+  <text class="fig-key" x="265" y="215">A 線</text>
+  <text class="fig-pct" x="135" y="200">35%</text>
+  <text class="fig-key" x="135" y="220">B 線</text>
+  <text class="fig-pct" x="180" y="105" font-size="14">10%</text>
+  <text class="fig-key" x="180" y="122" font-size="11">C 線</text>
+  <line x1="40" y1="335" x2="360" y2="335" stroke="#e8e2d6" />
+  <rect x="40" y="352" width="14" height="14" fill="#d4a843" />
+  <text class="fig-label" x="62" y="364" font-weight="700">A 線：</text>
+  <text class="fig-label" x="105" y="364">每月穩定收入（同色純合配對）</text>
+  <rect x="40" y="385" width="14" height="14" fill="#b8845a" />
+  <text class="fig-label" x="62" y="397" font-weight="700">B 線：</text>
+  <text class="fig-label" x="105" y="397">建立 split 庫存（雙隱性配對）</text>
+  <rect x="40" y="418" width="14" height="14" fill="#c44848" />
+  <text class="fig-label" x="62" y="430" font-weight="700">C 線：</text>
+  <text class="fig-label" x="105" y="430">培育新組合（多重突變探索）</text>
+</svg><figcaption>圖 7：A/B/C 三線策略——平衡短期現金流、中期投資、長期探索。</figcaption></figure>
+
 <h3 id="a">A 線範例（現金流）</h3>
 <p><strong>藍 × 藍</strong>：100% 藍色雛鳥，每窩穩定 4-6 顆蛋直接賣。</p>
 <p>優點：可預測、現金流穩定。<br />
@@ -2944,7 +3160,13 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <h3 id="_146">回顧</h3>
 <p>三線策略平衡短中長期。A 線供現金，B 線投資未來，C 線賭爆款。</p>
 <h3 id="_147">思考題</h3>
-<p>如果叔叔場有 90 對種鳥，按 A/B/C = 60/30/10 分配，每線各幾對？實務上要怎麼判斷一對該屬於哪一線？</p>
+<blockquote>
+<p>❓ 如果叔叔場有 90 對種鳥，按 A/B/C = 60/30/10 分配，每線各幾對？實務上要怎麼判斷一對該屬於哪一線？</p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p><strong>A 線 54 對、B 線 27 對、C 線 9 對</strong>。判斷方法：(1) <strong>A 線</strong>：兩隻外觀相同的純合突變，後代可預測（配對結果單一）；(2) <strong>B 線</strong>：兩隻外觀不同但都是常見突變，後代是 split 庫存培育（如藍 × 黃化）；(3) <strong>C 線</strong>：涉及多重突變或稀有色，後代結果有不確定性但可能爆款（如淡白銀絲 × Aqua）。<strong>每年回顧一次</strong>，根據實際後代效益調整分配。某對 A 線連續三窩異常 → 可能升 B 線重培育。</p>
+</details>
 <hr />
 <h1 id="_148">附錄</h1>
 <h2 id="a_1">附錄 A：符號對照卡（速查）</h2>
@@ -3374,12 +3596,29 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <li>跟叔叔或繁殖者深入討論血統與策略</li>
 <li>評估一隻外觀普通的綠鳥是不是隱形寶藏</li>
 </ol>
-<p><strong>下一步建議</strong>：</p>
-<ul>
-<li>拿叔叔場真實的配對紀錄，套用你學的東西算一次</li>
-<li>讀附錄 D 的延伸資源</li>
-<li>開始建立自己的「血統紀錄表」（每隻鳥都標基因型）</li>
-</ul>
+<div class="summary-card">
+<h3 id="5-action-plan">明天可以做的 5 件事（Action Plan）</h3>
+<p>理論學完了，最關鍵的是<strong>真的去做</strong>。下面是低門檻、高 ROI 的五件事，按順序做就好：</p>
+<p><strong>1. 拿三隻鳥來「翻譯」基因型</strong></p>
+<p>選叔叔場最重要的三對種鳥（例如黃化公、藍銀絲母、淡白銀絲公），用本書教的符號寫出牠們的基因型。寫不出來就翻第 17 章對照。<strong>目標</strong>：能用 <code>bl/bl, Z^op Z^op</code> 這種寫法表達牠們，不依賴中文俗名。</p>
+<p><strong>2. 算一對配對的後代分布</strong></p>
+<p>挑一對你最好奇的配對（例如「黃化公 × 藍銀絲母」），用第八篇的步驟算後代外觀分布，列出公雛/母雛各幾種顏色、機率多少。算完問叔叔「實際配出來是不是這樣？」——驗證你的計算對不對。</p>
+<p><strong>3. 用「綠色 split 測試」找出隱形資產</strong></p>
+<p>找叔叔場所有外觀綠色的鳥，問叔叔「這隻爸媽是誰？」回推可能的 split 基因。寫成清單。<strong>這個動作可能立刻發現幾隻被低估的種鳥</strong>——綠色 + 雙重 split = 黃金 F1。</p>
+<p><strong>4. 跟叔叔討論一個策略問題</strong></p>
+<p>例如：「我們有 X 對藍 × 黃化的 F1，要不要互配出 F2 的 1/16 白化？」或「淡白銀絲公值不值得買回來配派洛母？」用本書的概念跟叔叔對話。<strong>不是去教他</strong>，是讓他知道你開始懂了——這會改變你們的對話品質。</p>
+<p><strong>5. 開始建立血統表</strong></p>
+<p>最簡單的版本：Excel 一列一隻鳥，欄位 = 編號 / 性別 / 外觀 / 基因型 / 父母編號 / 出生日。連續記三個月就能看出哪些 split 線值得繼續，哪些是浪費籠位。長期下來這份表的價值遠超過任何單一品種的鳥。</p>
+</div>
+<p>學完後你應該能：</p>
+<ol>
+<li>看懂任何鸚鵡基因型寫法</li>
+<li>自己用紙筆算配對後代</li>
+<li>理解 split / 隱性互補 / 性聯遺傳</li>
+<li>區分常見的命名混淆</li>
+<li>跟叔叔或繁殖者深入討論血統與策略</li>
+<li>評估一隻外觀普通的綠鳥是不是隱形寶藏</li>
+</ol>
 <p>學會這套系統，叔叔場的「未公開的隱性資產」就能被你看見。下次他說「這對配出來會是什麼？」你能在 5 分鐘內給出答案。</p>
 <p>祝繁殖順利。</p>
 <hr />
@@ -3388,7 +3627,7 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
     </div>
     <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // ─── 漢堡選單 toggle ───
+    // ─── 漢堡選單 ───
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('sidebar-overlay');
@@ -3398,13 +3637,11 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.classList.add('show');
         document.body.style.overflow = 'hidden';
     }
-
     function closeMenu() {
         sidebar.classList.remove('open');
         overlay.classList.remove('show');
         document.body.style.overflow = '';
     }
-
     function toggleMenu() {
         if (sidebar.classList.contains('open')) closeMenu();
         else openMenu();
@@ -3413,24 +3650,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
     if (overlay) overlay.addEventListener('click', closeMenu);
 
-    // 點目錄連結後自動關閉（手機）
     document.querySelectorAll('#sidebar .toc a').forEach(a => {
         a.addEventListener('click', () => {
             if (window.innerWidth <= 1024) closeMenu();
         });
     });
 
-    // ESC 關閉
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeMenu();
     });
 
-    // 視窗放大時自動關閉抽屜
     window.addEventListener('resize', () => {
         if (window.innerWidth > 1024) closeMenu();
     });
 
-    // ─── 高亮目前正在閱讀的章節 ───
+    // ─── 高亮目前章節 ───
     const headings = document.querySelectorAll('main h1[id], main h2[id], main h3[id]');
     const tocLinks = document.querySelectorAll('#sidebar .toc a');
     const linkMap = new Map();
@@ -3463,8 +3697,21 @@ document.addEventListener('DOMContentLoaded', () => {
         rootMargin: '-20% 0px -75% 0px',
         threshold: 0
     });
-
     headings.forEach(h => observer.observe(h));
+
+    // ─── 圖示點擊放大（lightbox-lite）───
+    document.querySelectorAll('figure svg').forEach(svg => {
+        svg.style.cursor = 'zoom-in';
+        svg.addEventListener('click', () => {
+            const overlay = document.createElement('div');
+            overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;cursor:zoom-out;backdrop-filter:blur(4px);';
+            const clone = svg.cloneNode(true);
+            clone.style.cssText = 'max-width:95vw;max-height:90vh;background:white;border-radius:8px;padding:20px;box-shadow:0 8px 32px rgba(0,0,0,0.5);';
+            overlay.appendChild(clone);
+            overlay.addEventListener('click', () => overlay.remove());
+            document.body.appendChild(overlay);
+        });
+    });
 });
 </script>
 </body>
