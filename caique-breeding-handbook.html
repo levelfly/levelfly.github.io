@@ -3,8 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>金頭凱克商業繁殖完整手冊 v1.0</title>
-    <meta name="description" content="金頭凱克 (Pionites leucogaster) 商業繁殖完整手冊：整合 4 輪跨物種借鑑研究、SOP v0.6.1、R5 ultrathink 槓桿，20 章 + 8 附錄的系統性教學書。">
+    <title>金頭凱克商業繁殖完整手冊 v2.0</title>
+    <meta name="description" content="金頭凱克 (Pionites leucogaster) 商業繁殖完整手冊：整合 4 輪跨物種借鑑研究、SOP v0.6.1、R5 ultrathink 槓桿，20 章 + 10 附錄 + 5 張 SVG 視覺化的系統性教學書。">
+    <meta name="author" content="Curator + 6 Agent Team + Jay">
+
+    <!-- Favicon: 🦜 SVG data URL -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A6%9C%3C/text%3E%3C/svg%3E">
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content="金頭凱克商業繁殖完整手冊 v2.0">
+    <meta property="og:description" content="金頭凱克 (Pionites leucogaster) 商業繁殖完整手冊：整合 4 輪跨物種借鑑研究、SOP v0.6.1、R5 ultrathink 槓桿，20 章 + 10 附錄 + 5 張 SVG 視覺化的系統性教學書。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://levelfly.github.io/caique-breeding-handbook.html">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:site_name" content="levelfly.github.io">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="金頭凱克商業繁殖完整手冊 v2.0">
+    <meta name="twitter:description" content="金頭凱克 (Pionites leucogaster) 商業繁殖完整手冊：整合 4 輪跨物種借鑑研究、SOP v0.6.1、R5 ultrathink 槓桿，20 章 + 10 附錄 + 5 張 SVG 視覺化的系統性教學書。">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -369,26 +387,314 @@ hr {
     border-radius: 4px;
 }
 #sidebar::-webkit-scrollbar-thumb:hover { background: #5d574f; }
+
+/* ═══════════════════════════════════════════════════════
+   v2 HTML 功能增強（C1 / C2 / C3）
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── 閱讀時間 badge ─── */
+.reading-time-badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: #8b5a2a;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-family: "Noto Sans TC", sans-serif;
+    margin: 0 8px 4px 0;
+    border: 1px solid var(--accent);
+}
+
+#book-meta-bar {
+    margin: -16px 0 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--border);
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* ─── 回頂部按鈕 ─── */
+#back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(45, 42, 38, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.15s;
+    z-index: 200;
+    font-family: "Noto Sans TC", sans-serif;
+    line-height: 1;
+}
+#back-to-top.visible {
+    opacity: 0.9;
+    pointer-events: auto;
+}
+#back-to-top:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    background: #8b5a2a;
+}
+
+/* ─── Code copy button ─── */
+pre {
+    position: relative;
+}
+.copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 11px;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-family: "Noto Sans TC", sans-serif;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+pre:hover .copy-btn { opacity: 1; }
+.copy-btn:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+.copy-btn.copied {
+    background: #5a9e5a;
+    color: #fff;
+    border-color: #5a9e5a;
+    opacity: 1;
+}
+
+/* ─── 搜尋框（全書搜尋）─── */
+#search-container {
+    margin: 12px 0 20px;
+    position: relative;
+}
+#search-input {
+    width: 100%;
+    padding: 8px 12px;
+    background: #3d3934;
+    color: #f0eae0;
+    border: 1px solid #4d473f;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: "Noto Sans TC", sans-serif;
+    box-sizing: border-box;
+}
+#search-input::placeholder {
+    color: #8a827a;
+    font-size: 12px;
+}
+#search-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: #4d473f;
+}
+#search-results {
+    display: none;
+    background: #3d3934;
+    border: 1px solid #4d473f;
+    border-radius: 4px;
+    margin-top: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+    font-size: 12px;
+}
+#search-results.visible { display: block; }
+#search-results .result-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #4d473f;
+    color: var(--text-sidebar);
+    transition: background 0.1s;
+}
+#search-results .result-item:hover {
+    background: var(--bg-sidebar-hover);
+    color: var(--text-sidebar-active);
+}
+#search-results .result-item:last-child { border-bottom: none; }
+#search-results .result-item .match-heading {
+    display: block;
+    font-size: 11px;
+    color: #8a827a;
+    margin-bottom: 2px;
+}
+#search-results .result-item mark {
+    background: #f5d76e;
+    color: #2d2a26;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+#search-results .no-results {
+    padding: 12px;
+    text-align: center;
+    color: #8a827a;
+    font-style: italic;
+}
+
+.search-highlight {
+    background: #f5d76e !important;
+    color: #2d2a26 !important;
+    padding: 2px 4px;
+    border-radius: 2px;
+    animation: flash-highlight 1.6s ease;
+}
+@keyframes flash-highlight {
+    0% { background: #ffb347 !important; }
+    100% { background: #f5d76e !important; }
+}
+
+/* ─── 漢堡選單（僅手機顯示）─── */
+#hamburger {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    width: 44px;
+    height: 44px;
+    background: var(--bg-sidebar);
+    color: #f0eae0;
+    border: none;
+    border-radius: 6px;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 150;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    line-height: 1;
+    font-family: "Noto Sans TC", sans-serif;
+}
+
+/* ─── SVG figure 容器 ─── */
+figure.svg-diagram {
+    margin: 28px 0;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+figure.svg-diagram svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ─── 手機版漢堡覆蓋模式（C2）─── */
+@media (max-width: 1024px) {
+    #hamburger { display: block; }
+
+    #sidebar {
+        position: fixed !important;
+        width: 85vw !important;
+        max-width: 320px;
+        max-height: none !important;
+        height: 100vh !important;
+        top: 0;
+        left: -100%;
+        transition: left 0.3s ease;
+        z-index: 140;
+        padding-top: 72px;
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+    }
+    #sidebar.open {
+        left: 0;
+    }
+
+    main {
+        margin-left: 0 !important;
+        padding: 72px 24px 60px !important;
+    }
+
+    #layout {
+        flex-direction: column;
+    }
+
+    /* 點擊 main 時關閉側邊欄 */
+    #sidebar.open + main::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 130;
+    }
+}
+
+@media (max-width: 600px) {
+    #back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+    }
+    #hamburger {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
+/* ─── 列印增強（C1 #6 列印章節分頁）─── */
+@media print {
+    #back-to-top, #hamburger, #search-container, .copy-btn { display: none !important; }
+
+    /* 每個頂級章節（h1）從新頁開始 */
+    main h1:not(:first-of-type) {
+        page-break-before: always;
+    }
+
+    h1, h2, h3, h4 {
+        page-break-after: avoid;
+    }
+
+    figure.svg-diagram {
+        page-break-inside: avoid;
+    }
+
+    body {
+        font-size: 11pt;
+    }
+}
 </style>
 </head>
 <body>
+    <button id="hamburger" aria-label="切換目錄">☰</button>
+
     <div id="layout">
         <aside id="sidebar">
             <h2>目錄</h2>
             <div class="book-meta">
-                <strong>金頭凱克商業繁殖完整手冊 v1.0</strong><br>
+                <strong>金頭凱克商業繁殖完整手冊 v2.0</strong><br>
                 Research base: Round 0-4（166 cells）+ R5 ultrathink<br>
-                產出日期：2026-04-19
+                產出日期：2026-04-19 ｜ 版本 v2.0
+            </div>
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="🔍 搜尋關鍵字（至少 2 字）" aria-label="搜尋全書">
+                <div id="search-results"></div>
             </div>
             <div class="toc">
 <ul>
-<li><a href="#v10">金頭凱克商業繁殖完整手冊 v1.0</a><ul>
+<li><a href="#v20">金頭凱克商業繁殖完整手冊 v2.0</a><ul>
 <li><a href="#_1">序：這本書是寫給誰的</a></li>
 <li><a href="#_2">目錄</a></li>
 <li><a href="#0">第 0 章｜使用指南</a><ul>
 <li><a href="#01">0.1 三種讀者，三種路徑</a></li>
 <li><a href="#02">0.2 與既有檔案的關係</a></li>
-<li><a href="#03">0.3 信心等級標記</a></li>
+<li><a href="#03-6">0.3 讀本書前先認識：研究救不了你的 6 件事</a></li>
+<li><a href="#04">0.4 信心等級標記</a></li>
 </ul>
 </li>
 <li><a href="#1">第 1 章｜為什麼做金頭凱克繁殖？（商業定位）</a><ul>
@@ -396,6 +702,7 @@ hr {
 <li><a href="#12-leucogaster-997-confirmed-90">1.2 全球 leucogaster 99.7% 圈養繁殖 ★ Confirmed 90</a></li>
 <li><a href="#13">1.3 你的選項（四條路徑）</a></li>
 <li><a href="#14">1.4 品質定位的機會</a></li>
+<li><a href="#takeaway">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#2">第 2 章｜認識你要繁殖的物種</a><ul>
@@ -404,6 +711,7 @@ hr {
 <li><a href="#23">2.3 生殖特徵</a></li>
 <li><a href="#24">2.4 性情（影響繁殖管理）</a></li>
 <li><a href="#25">2.5 野外生態（對繁殖的啟示）</a></li>
+<li><a href="#takeaway_1">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#3">第 3 章｜三個改變認知的心智模型</a><ul>
@@ -411,12 +719,14 @@ hr {
 <li><a href="#32-working">3.2 互梳頻率是配對品質早期指標 ★★ Working</a></li>
 <li><a href="#33-pbfd-p0-confirmed">3.3 PBFD 疫苗已商用，P0 防疫 ★ Confirmed</a></li>
 <li><a href="#34">3.4 為什麼這三個比其他建議重要</a></li>
+<li><a href="#takeaway_2">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#4-8">第 4 章｜產蛋率的乘法模型（8 環節）</a><ul>
 <li><a href="#41">4.1 不要把「產蛋率」當單一指標</a></li>
 <li><a href="#42-baseline">4.2 從 baseline 到天花板的對照</a></li>
 <li><a href="#43">4.3 診斷法：卡在哪個環節？</a></li>
+<li><a href="#takeaway_3">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#5">第 5 章｜硬體與環境設計</a><ul>
@@ -424,6 +734,7 @@ hr {
 <li><a href="#52-working-75">5.2 巢箱（★★ Working 75）</a></li>
 <li><a href="#53-uvb-preliminary-v061">5.3 UVB 與光照（★★★ Preliminary → v0.6.1 補強）</a></li>
 <li><a href="#54-r5-sop-v06">5.4 R5 挖出的環境槓桿（SOP v0.6 未涵蓋）</a></li>
+<li><a href="#takeaway_4">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#6">第 6 章｜鈣循環與營養</a><ul>
@@ -434,6 +745,7 @@ hr {
 <li><a href="#65-working-83">6.5 鈣具體劑量（★★ Working 83）</a></li>
 <li><a href="#66-egg-binding-p0">6.6 Egg Binding 急救（P0）</a></li>
 <li><a href="#67-d3">6.7 D3 雙重補充陷阱</a></li>
+<li><a href="#takeaway_5">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#7">第 7 章｜配對的藝術與科學</a><ul>
@@ -442,6 +754,7 @@ hr {
 <li><a href="#73-day-14">7.3 互梳評估決策樹（Day 14 必做）</a></li>
 <li><a href="#74-p0">7.4 健康體檢（配對前必檢 P0）</a></li>
 <li><a href="#75-r5-outcrossing">7.5 R5 新：近親迴避與 outcrossing</a></li>
+<li><a href="#takeaway_6">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#8-r4">第 8 章｜公鳥精子品質管理（R4 新章節）</a><ul>
@@ -451,6 +764,7 @@ hr {
 <li><a href="#84">8.4 異常判讀閾值</a></li>
 <li><a href="#85-preliminary-58-pionites">8.5 基線參數（Preliminary 58 — Pionites 屬零文獻）</a></li>
 <li><a href="#86-l1">8.6 場內 L1 設備與學習</a></li>
+<li><a href="#takeaway_7">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#9">第 9 章｜啟動繁殖 — 觸發機制</a><ul>
@@ -458,6 +772,7 @@ hr {
 <li><a href="#92">9.2 溫度</a></li>
 <li><a href="#93-r5-sop-v06-2">9.3 R5 新發現：SOP v0.6 漏掉的 2 個觸發機制</a></li>
 <li><a href="#94">9.4 巢箱引入時機</a></li>
+<li><a href="#takeaway_8">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#10">第 10 章｜產蛋期管理</a><ul>
@@ -465,6 +780,7 @@ hr {
 <li><a href="#102">10.2 觀察不干擾三原則</a></li>
 <li><a href="#103-egg-binding">10.3 Egg Binding 辨識</a></li>
 <li><a href="#104-r5">10.4 R5 新：母鳥體重追蹤</a></li>
+<li><a href="#takeaway_9">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#11">第 11 章｜孵化的科學</a><ul>
@@ -475,6 +791,7 @@ hr {
 <li><a href="#115-v06-working-78">11.5 胚胎早死環境保護（v0.6 新增 Working 78）</a></li>
 <li><a href="#116-assisted-hatching">11.6 Assisted Hatching（僅在特定情況介入）</a></li>
 <li><a href="#117">11.7 蛋重減損</a></li>
+<li><a href="#takeaway_10">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#12">第 12 章｜雙窩技術與年產量最大化</a><ul>
@@ -482,6 +799,7 @@ hr {
 <li><a href="#122-preliminary">12.2 窩間間隔（★★★ Preliminary）</a></li>
 <li><a href="#123">12.3 年上限</a></li>
 <li><a href="#124">12.4 執行條件</a></li>
+<li><a href="#takeaway_11">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#13-day-by-day">第 13 章｜手養 Day-by-Day</a><ul>
@@ -491,6 +809,7 @@ hr {
 <li><a href="#134-p0">13.4 P0 警示（手養致死主因）</a></li>
 <li><a href="#135">13.5 斷奶</a></li>
 <li><a href="#136">13.6 育雛暖箱溫度</a></li>
+<li><a href="#takeaway_12">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#14_1">第 14 章｜疾病防治全覽</a><ul>
@@ -501,12 +820,14 @@ hr {
 <li><a href="#145-giardia">14.5 Giardia</a></li>
 <li><a href="#146-uvb">14.6 光性結膜炎（UVB 過量）</a></li>
 <li><a href="#147-r5">14.7 R5 新：年度深度健檢</a></li>
+<li><a href="#takeaway_13">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#15">第 15 章｜種鳥管理與血統</a><ul>
 <li><a href="#151-young-2012-isis">15.1 年齡曲線（Young 2012 ISIS）</a></li>
 <li><a href="#152">15.2 年度換血比例</a></li>
 <li><a href="#153-r5-outcrossing">15.3 R5 新：血統紀錄與 outcrossing</a></li>
+<li><a href="#takeaway_14">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#16">第 16 章｜商業策略三條路徑</a><ul>
@@ -514,6 +835,17 @@ hr {
 <li><a href="#162-b">16.2 路徑 B：出口中東（藍海輔助）</a></li>
 <li><a href="#163-cxanthurus-xanthomerius">16.3 路徑 C：xanthurus / xanthomerius 差異化（藍海主推）</a></li>
 <li><a href="#164-d-p-melanocephalus">16.4 路徑 D：避開 — P. melanocephalus 擴產</a></li>
+<li><a href="#takeaway_15">本章 Takeaway</a></li>
+</ul>
+</li>
+<li><a href="#165">第 16.5 章｜商業財務模型（算一次帳再決定要做多大）</a><ul>
+<li><a href="#1651">16.5.1 基本假設（所有試算共用）</a></li>
+<li><a href="#1652-roi-10-3">16.5.2 三方案 ROI 對比（10 對規模、3 年）</a></li>
+<li><a href="#1653-vs">16.5.3 單窩 vs 雙窩方案對比</a></li>
+<li><a href="#1654">16.5.4 損益平衡點</a></li>
+<li><a href="#1655-b-target-5">16.5.5 規模化試算（方案 B 上段，target 5 雛/對/年）</a></li>
+<li><a href="#1656-xanthomerius">16.5.6 xanthomerius 引入回本期試算</a></li>
+<li><a href="#1657-takeaway">16.5.7 本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#17-kpi">第 17 章｜紀錄與 KPI</a><ul>
@@ -521,6 +853,7 @@ hr {
 <li><a href="#172-kpi-1-1">17.2 KPI 儀表板（每月 1 號花 1 小時）</a></li>
 <li><a href="#173-3">17.3 3 年後這份紀錄會告訴你</a></li>
 <li><a href="#174-r5">17.4 R5 新：自動化監控（長期資產）</a></li>
+<li><a href="#takeaway_16">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#18">第 18 章｜跨物種借鑑方法論</a><ul>
@@ -528,10 +861,12 @@ hr {
 <li><a href="#182-6-tier">18.2 6 Tier 借鑑強度矩陣</a></li>
 <li><a href="#183">18.3 反直覺事實</a></li>
 <li><a href="#184-gap">18.4 如何用這方法論繼續補 gap</a></li>
+<li><a href="#takeaway_17">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#19">第 19 章｜三年進路圖</a><ul>
 <li><a href="#_4">關鍵決策點</a></li>
+<li><a href="#takeaway_18">本章 Takeaway</a></li>
 </ul>
 </li>
 <li><a href="#20">第 20 章｜實證階段 — 球在你手上</a><ul>
@@ -539,6 +874,7 @@ hr {
 <li><a href="#202">20.2 剩下的只能實證</a></li>
 <li><a href="#203-30-90-365">20.3 30 / 90 / 365 天作戰時程</a></li>
 <li><a href="#204">20.4 最後提醒</a></li>
+<li><a href="#takeaway_19">本章 Takeaway</a></li>
 </ul>
 </li>
 </ul>
@@ -555,7 +891,29 @@ hr {
 <li><a href="#e">附錄 E：核心文獻清單（按本書章節）</a></li>
 <li><a href="#f">附錄 F：名詞表</a></li>
 <li><a href="#g">附錄 G：版本歷史與下次升版觸發</a></li>
-<li><a href="#h">附錄 H：給下一個讀這本書的人</a></li>
+<li><a href="#h">附錄 H：台灣法規合規（商業繁殖必讀）</a><ul>
+<li><a href="#h1-22">H.1 寵物業登記（動物保護法第 22 條）</a></li>
+<li><a href="#h2">H.2 動物保護法核心條文</a></li>
+<li><a href="#h3-cites-xanthomerius-xanthurus-p0">H.3 CITES 進口申請（xanthomerius / xanthurus 引入路徑 P0）</a></li>
+<li><a href="#h4-chlamydia-psittaci">H.4 衣原體（Chlamydia psittaci）通報義務</a></li>
+<li><a href="#h5">H.5 稅務結構比較</a></li>
+<li><a href="#h6">H.6 飼料 / 寵物食品販售法規（若附帶賣飼料）</a></li>
+<li><a href="#h7-checklist">H.7 合規最低 checklist（開業前檢查）</a></li>
+<li><a href="#h8">H.8 灰區與自我保護</a></li>
+</ul>
+</li>
+<li><a href="#i">附錄 I：急救速查卡（列印貼場內牆上）</a><ul>
+<li><a href="#_6">緊急連絡（請填入）</a></li>
+<li><a href="#1egg-binding">🥚 場景 1：Egg Binding（卡蛋）</a></li>
+<li><a href="#2sour-crop-crop-stasis">🐣 場景 2：雛鳥嗉囊不排空（Sour Crop / Crop Stasis）</a></li>
+<li><a href="#3uvb">🔥 場景 3：UVB 灼傷 / 眼周泛紅</a></li>
+<li><a href="#4">⚡ 場景 4：孵化機斷電</a></li>
+<li><a href="#5-massage">🚫 場景 5：公鳥拒絕 massage 採精</a></li>
+<li><a href="#6_1">💩 場景 6：雛鳥腹瀉</a></li>
+<li><a href="#7-bleeding-feather">🩸 場景 7：出血 / 羽毛血管斷（bleeding feather）</a></li>
+</ul>
+</li>
+<li><a href="#j">附錄 J：給下一個讀這本書的人</a></li>
 </ul>
 </li>
 </ul>
@@ -563,16 +921,17 @@ hr {
 
         </aside>
         <main>
+            <div id="book-meta-bar"></div>
             <hr />
 <p>title: 金頭凱克商業繁殖完整手冊
-version: 1.0
+version: 2.0
 date: 2026-04-19
 author: Curator + 6 Agent Team + Jay
 research_base: Round 0-4（166 cells, avg quality 59.2, Tier S 70.71%）+ R5 ultrathink 槓桿挖掘
 purpose: 把整個研究從零整合成可從頭讀到尾的系統性教學手冊
-status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據進來後升 v2.0</p>
+status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、20 章 Takeaway、HTML 體驗增強</p>
 <hr />
-<h1 id="v10">金頭凱克商業繁殖完整手冊 v1.0</h1>
+<h1 id="v20">金頭凱克商業繁殖完整手冊 v2.0</h1>
 <blockquote>
 <p><strong>"Don't breed from zero — learn from 195 species, validate on your own."</strong></p>
 </blockquote>
@@ -611,11 +970,12 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 第 14 章   疾病防治全覽
 第 15 章   種鳥管理與血統
 第 16 章   商業策略三條路徑
+第 16.5 章 商業財務模型（新增 v2）
 第 17 章   紀錄與 KPI
 第 18 章   跨物種借鑑方法論
 第 19 章   三年進路圖
 第 20 章   實證階段 — 球在你手上
-附錄 A-H   清單、工具、聯絡、文獻
+附錄 A-J   清單、採購、獸醫、種源、文獻、名詞、版本、法規、急救、給下一個讀者
 </code></pre>
 <hr />
 <h2 id="0">第 0 章｜使用指南</h2>
@@ -674,7 +1034,51 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 </tr>
 </tbody>
 </table>
-<h3 id="03">0.3 信心等級標記</h3>
+<h3 id="03-6">0.3 讀本書前先認識：研究救不了你的 6 件事</h3>
+<p>這本書整合了 166 cells + 20 篇 peer-reviewed 文獻，<strong>但仍有 6 項關鍵事實研究階段無法給你答案，只能靠你場內累積</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>研究救不了的項目</th>
+<th>為什麼</th>
+<th>誰來補</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pionites 真實受精率 baseline</td>
+<td>學術空白</td>
+<td>場內 3 個月</td>
+</tr>
+<tr>
+<td>精液品質 vs D3 血管率關係</td>
+<td>全球無人做</td>
+<td>場內 6-12 個月</td>
+</tr>
+<tr>
+<td>凱克年齡 vs 產量曲線</td>
+<td>ISIS 是園區不是商繁</td>
+<td>場內 3 年</td>
+</tr>
+<tr>
+<td>台灣 photoperiod 校準</td>
+<td>無台灣實測</td>
+<td>場內 + 台灣同業</td>
+</tr>
+<tr>
+<td>凱克專屬鈣耗盡臨界</td>
+<td>跨物種共識保守推估</td>
+<td>場內 5+ 年</td>
+</tr>
+<tr>
+<td>雨季濕度觸發</td>
+<td>凱克零驗證</td>
+<td>場內對照實驗</td>
+</tr>
+</tbody>
+</table>
+<p><strong>這意味著</strong>：本書的 SOP 是「已知最強起點」，但你的 KPI 必須自己測。不要把本書當聖經，<strong>你的數據永遠是最高真實</strong>。第 20 章會深入談這件事。</p>
+<h3 id="04">0.4 信心等級標記</h3>
 <p>每項建議帶標記，告訴你<strong>這句話有多可靠</strong>：</p>
 <table>
 <thead>
@@ -792,8 +1196,18 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 - 轉食完成才出售
 - 售後諮詢服務</p>
 <p>做到這些 = 差異化的同時也是自動淘汰低品質業者的護城河。</p>
+<h3 id="takeaway">本章 Takeaway</h3>
+<ul>
+<li>台灣 leucogaster 2020 後進口歸零，<strong>市場已飽和於中低段</strong></li>
+<li><strong>上段（25-35K NTD）空白</strong> = 品質差異化藍海</li>
+<li>99.7% 圈養繁殖 = CITES 風險低，選 leucogaster 不選 melanocephalus</li>
+<li>xanthurus / xanthomerius 是<strong>台灣零庫存</strong>的藍海主推</li>
+</ul>
 <hr />
 <h2 id="2">第 2 章｜認識你要繁殖的物種</h2>
+<blockquote>
+<p>承上章我們確認了「為什麼選 leucogaster」。本章建立物種本身的生理基線，這些數字是所有 SOP 的起點。</p>
+</blockquote>
 <h3 id="21">2.1 分類學</h3>
 <p><strong>學名</strong>：<em>Pionites leucogaster leucogaster</em>（指名亞種）<br />
 <strong>科/族/亞科</strong>：Psittacidae &gt; Arinae &gt; Arini &gt; Pionini（與 <em>Pionus</em>、<em>Deroptyus</em>、<em>Pyrilia</em> 同亞科）<br />
@@ -895,8 +1309,18 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 </tr>
 </tbody>
 </table>
+<h3 id="takeaway_1">本章 Takeaway</h3>
+<ul>
+<li>體重 <strong>155-170 g</strong>、窩蛋 <strong>2-4 顆</strong>、孵化 <strong>25-26 天</strong>、性成熟 <strong>3-4 年</strong></li>
+<li><strong>一夫一妻 + 母鳥單抱 + 強互梳傾向</strong> = 配對品質優先</li>
+<li><strong>飛行需求 1-5 km/日</strong> + 雜食 30+ 植物 + 雨季繁殖 → 圈養要對應模擬</li>
+<li>性情活躍 + 攻擊傾向 → 硬體（籠舍、墨魚骨、巢箱）要夠抗破壞</li>
+</ul>
 <hr />
 <h2 id="3">第 3 章｜三個改變認知的心智模型</h2>
+<blockquote>
+<p>承上章我們建立了物種生理基線。本章揭示三個<strong>顛覆常識</strong>的 peer-reviewed 發現，直接決定你 SOP 的方向。</p>
+</blockquote>
 <p>照舊經驗養凱克會踩雷。先內化這三個 peer-reviewed 研究揭示的反直覺發現。</p>
 <h3 id="31-40-60-confirmed">3.1 不育率 40-60% 的主因是<strong>胚胎早死</strong>，不是<strong>不受精</strong> ★ Confirmed</h3>
 <p><strong>來源</strong>：Assersohn et al. 2021, <em>Animal Conservation</em>（authority 25）</p>
@@ -928,68 +1352,194 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 <p>→ 第 14 章處理這個。</p>
 <h3 id="34">3.4 為什麼這三個比其他建議重要</h3>
 <p>這三個是<strong>peer-reviewed 有 authority 25 權威證據</strong>的鐵三角。其他的 SOP 多半是 Working / Preliminary，不是不可信，而是「照做有效，但背後的為什麼不像這三個那麼穩」。</p>
+<h3 id="takeaway_2">本章 Takeaway</h3>
+<ul>
+<li><strong>不育率主因是胚胎早死</strong>（D1-7），不是公鳥問題 → 解方在孵化環境，不是換公鳥</li>
+<li><strong>互梳頻率</strong>是配對品質最早指標，2 週無互梳就拆對</li>
+<li>PBFD 疫苗已商用，<strong>所有親鳥每季接種 + 新進鳥 30 天隔離 PCR 陰性</strong></li>
+<li>這三個有 authority 25 證據，其他建議是 Working/Preliminary</li>
+</ul>
 <hr />
 <h2 id="4-8">第 4 章｜產蛋率的乘法模型（8 環節）</h2>
+<blockquote>
+<p>承上章的心智模型告訴你「該往哪想」，本章給你<strong>可量化的診斷工具</strong>：把產蛋率拆成 6 個環節，找到最弱那環就是你最大的 ROI。</p>
+</blockquote>
 <h3 id="41">4.1 不要把「產蛋率」當單一指標</h3>
 <p>產蛋率其實是一條鏈：</p>
 <pre><code>年斷奶雛鳥數 / 對 = 年窩數 × 窩蛋數 × 受精率 × 孵化率 × D30 存活 × 斷奶率
 </code></pre>
 <p>每個環節獨立有槓桿，乘起來才是結果。</p>
 <h3 id="42-baseline">4.2 從 baseline 到天花板的對照</h3>
+<p>⚠️ <strong>下表「假設 baseline」是 Curator 為了示範乘法模型而保守推估的數字，不是你場實測。</strong><br />
+<strong>真正有意義的做法</strong>：把你場近 1-2 年的實際 KPI 填進「你自家實測」欄，再用第 4.3 節診斷法找卡在哪環節。</p>
 <table>
 <thead>
 <tr>
 <th>環節</th>
-<th>你目前估算</th>
+<th>假設 baseline（示範用）</th>
+<th><strong>你自家實測</strong>（請填入）</th>
 <th>研究指向上限</th>
-<th>倍數</th>
+<th>倍數上限</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>年窩數</td>
 <td>1.5</td>
+<td>___</td>
 <td>2.5-3</td>
-<td><strong>1.67-2x</strong> ⬅ 最大</td>
+<td><strong>1.67-2x</strong> ⬅ 最大槓桿</td>
 </tr>
 <tr>
 <td>窩蛋數</td>
 <td>3.5</td>
+<td>___</td>
 <td>3.8</td>
 <td>1.09x</td>
 </tr>
 <tr>
-<td>受精率</td>
+<td>受精率（D3 血管率）</td>
 <td>70%</td>
+<td>___</td>
 <td>90%</td>
 <td>1.29x</td>
 </tr>
 <tr>
 <td>孵化率</td>
 <td>70%</td>
+<td>___</td>
 <td>85%</td>
 <td>1.21x</td>
 </tr>
 <tr>
 <td>D30 存活</td>
 <td>85%</td>
+<td>___</td>
 <td>95%</td>
 <td>1.12x</td>
 </tr>
 <tr>
 <td>斷奶率</td>
 <td>95%</td>
+<td>___</td>
 <td>95%</td>
 <td>1x</td>
 </tr>
 <tr>
-<td><strong>乘積</strong></td>
-<td><strong>2.92 雛/對/年</strong></td>
-<td><strong>6.55 雛/對/年</strong></td>
+<td><strong>乘積（雛/對/年）</strong></td>
+<td><strong>2.92</strong></td>
+<td><strong>___</strong></td>
+<td><strong>6.55</strong></td>
 <td><strong>2.24x</strong></td>
 </tr>
 </tbody>
 </table>
+<p><strong>怎麼填</strong>：
+- 沒數據的欄位先填「—」或保守估算，然後在下個繁殖季實測
+- 第 17 章給了完整紀錄模板，每窩記一次就累積了
+- 填完乘一下，就知道你的 baseline 到天花板還差幾倍
+- 乘積落差最大的一欄 → 就是你該優先攻擊的環節（見 4.3）</p>
+<figure class="svg-diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" width="100%" style="max-width:900px;height:auto;display:block;margin:24px auto;">
+  <title>產蛋率乘法模型：6 環節 baseline → target 對照</title>
+  <defs>
+    <linearGradient id="boxGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#faf4e8"/>
+      <stop offset="100%" stop-color="#f0e4cc"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#b8845a"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="340" fill="#fbf9f4"/>
+  <text x="450" y="28" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="18" font-weight="700" fill="#b8845a">產蛋率乘法模型（年斷奶雛鳥/對）</text>
+  <text x="450" y="50" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="12" fill="#6b6660">任一環節弱 → 整串縮水；最大槓桿在「年窩數」</text>
+
+  <!-- 6 boxes -->
+  <g font-family="'Noto Sans TC',sans-serif">
+    <!-- Box 1: 年窩數 -->
+    <g transform="translate(20,90)">
+      <rect width="130" height="110" fill="url(#boxGrad)" stroke="#b8845a" stroke-width="2" rx="8"/>
+      <text x="65" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2a26">年窩數</text>
+      <text x="65" y="50" text-anchor="middle" font-size="11" fill="#6b6660">baseline</text>
+      <text x="65" y="68" text-anchor="middle" font-size="20" font-weight="700" fill="#2d2a26">1.5</text>
+      <text x="65" y="84" text-anchor="middle" font-size="11" fill="#b8845a">↓ target</text>
+      <text x="65" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#8b5a2a">2.5-3</text>
+      <text x="65" y="128" text-anchor="middle" font-size="10" fill="#c65d20" font-weight="700">×1.67-2 最大</text>
+    </g>
+    <!-- × -->
+    <text x="160" y="155" text-anchor="middle" font-size="20" font-weight="700" fill="#b8845a">×</text>
+    <!-- Box 2: 窩蛋數 -->
+    <g transform="translate(175,90)">
+      <rect width="110" height="110" fill="url(#boxGrad)" stroke="#b8845a" stroke-width="2" rx="8"/>
+      <text x="55" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2a26">窩蛋數</text>
+      <text x="55" y="50" text-anchor="middle" font-size="11" fill="#6b6660">baseline</text>
+      <text x="55" y="68" text-anchor="middle" font-size="20" font-weight="700" fill="#2d2a26">3.5</text>
+      <text x="55" y="84" text-anchor="middle" font-size="11" fill="#b8845a">↓ target</text>
+      <text x="55" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#8b5a2a">3.8</text>
+      <text x="55" y="128" text-anchor="middle" font-size="10" fill="#6b6660">×1.09</text>
+    </g>
+    <text x="295" y="155" text-anchor="middle" font-size="20" font-weight="700" fill="#b8845a">×</text>
+    <!-- Box 3: 受精率 -->
+    <g transform="translate(310,90)">
+      <rect width="110" height="110" fill="url(#boxGrad)" stroke="#b8845a" stroke-width="2" rx="8"/>
+      <text x="55" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2a26">受精率</text>
+      <text x="55" y="50" text-anchor="middle" font-size="11" fill="#6b6660">baseline</text>
+      <text x="55" y="68" text-anchor="middle" font-size="20" font-weight="700" fill="#2d2a26">70%</text>
+      <text x="55" y="84" text-anchor="middle" font-size="11" fill="#b8845a">↓ target</text>
+      <text x="55" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#8b5a2a">90%</text>
+      <text x="55" y="128" text-anchor="middle" font-size="10" fill="#6b6660">×1.29</text>
+    </g>
+    <text x="430" y="155" text-anchor="middle" font-size="20" font-weight="700" fill="#b8845a">×</text>
+    <!-- Box 4: 孵化率 -->
+    <g transform="translate(445,90)">
+      <rect width="110" height="110" fill="url(#boxGrad)" stroke="#b8845a" stroke-width="2" rx="8"/>
+      <text x="55" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2a26">孵化率</text>
+      <text x="55" y="50" text-anchor="middle" font-size="11" fill="#6b6660">baseline</text>
+      <text x="55" y="68" text-anchor="middle" font-size="20" font-weight="700" fill="#2d2a26">70%</text>
+      <text x="55" y="84" text-anchor="middle" font-size="11" fill="#b8845a">↓ target</text>
+      <text x="55" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#8b5a2a">85%</text>
+      <text x="55" y="128" text-anchor="middle" font-size="10" fill="#6b6660">×1.21</text>
+    </g>
+    <text x="565" y="155" text-anchor="middle" font-size="20" font-weight="700" fill="#b8845a">×</text>
+    <!-- Box 5: D30 -->
+    <g transform="translate(580,90)">
+      <rect width="110" height="110" fill="url(#boxGrad)" stroke="#b8845a" stroke-width="2" rx="8"/>
+      <text x="55" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2a26">D30 存活</text>
+      <text x="55" y="50" text-anchor="middle" font-size="11" fill="#6b6660">baseline</text>
+      <text x="55" y="68" text-anchor="middle" font-size="20" font-weight="700" fill="#2d2a26">85%</text>
+      <text x="55" y="84" text-anchor="middle" font-size="11" fill="#b8845a">↓ target</text>
+      <text x="55" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#8b5a2a">95%</text>
+      <text x="55" y="128" text-anchor="middle" font-size="10" fill="#6b6660">×1.12</text>
+    </g>
+    <text x="700" y="155" text-anchor="middle" font-size="20" font-weight="700" fill="#b8845a">×</text>
+    <!-- Box 6: 斷奶率 -->
+    <g transform="translate(715,90)">
+      <rect width="110" height="110" fill="url(#boxGrad)" stroke="#b8845a" stroke-width="2" rx="8"/>
+      <text x="55" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2a26">斷奶率</text>
+      <text x="55" y="50" text-anchor="middle" font-size="11" fill="#6b6660">baseline</text>
+      <text x="55" y="68" text-anchor="middle" font-size="20" font-weight="700" fill="#2d2a26">95%</text>
+      <text x="55" y="84" text-anchor="middle" font-size="11" fill="#b8845a">↓ target</text>
+      <text x="55" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#8b5a2a">95%</text>
+      <text x="55" y="128" text-anchor="middle" font-size="10" fill="#6b6660">×1.00</text>
+    </g>
+  </g>
+
+  <!-- Arrow to result -->
+  <line x1="60" y1="250" x2="840" y2="250" stroke="#b8845a" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+
+  <!-- Result box -->
+  <g transform="translate(300,275)" font-family="'Noto Sans TC',sans-serif">
+    <rect x="0" y="0" width="300" height="55" fill="#b8845a" rx="8"/>
+    <text x="150" y="22" text-anchor="middle" font-size="12" fill="#faf4e8">乘積（年斷奶雛鳥/對）</text>
+    <text x="75" y="44" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">2.92</text>
+    <text x="150" y="44" text-anchor="middle" font-size="16" fill="#faf4e8">→</text>
+    <text x="225" y="44" text-anchor="middle" font-size="18" font-weight="700" fill="#f5d76e">6.55 （×2.24）</text>
+  </g>
+</svg>
+<p style="text-align:center;font-size:13px;color:#6b6660;margin-top:-8px;">圖 4.1｜產蛋率乘法模型。最大槓桿在左端「年窩數」（雙窩技術）。</p>
+</figure>
+
 <h3 id="43">4.3 診斷法：卡在哪個環節？</h3>
 <p>下次繁殖季結束後，算出各環節數字，跟上表對照：</p>
 <ul>
@@ -999,8 +1549,18 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 <li>如果 <strong>D30 存活</strong> 低 → 第 13 章（手養）+ 第 14 章（疾病）</li>
 </ul>
 <p><strong>不要亂改全部</strong>。先診斷，再對症下藥。</p>
+<h3 id="takeaway_3">本章 Takeaway</h3>
+<ul>
+<li>產蛋率 = <strong>年窩數 × 窩蛋數 × 受精率 × 孵化率 × D30 × 斷奶率</strong>，任一環節弱則整串縮水</li>
+<li>baseline 2.92 雛/對/年 → target 6.55（上限 ×2.24）</li>
+<li>最大槓桿在<strong>年窩數</strong>（1.5→2.5-3，×1.67-2）→ 雙窩技術是商業生命線</li>
+<li>先填你場實測再診斷，<strong>對症下藥不亂改</strong></li>
+</ul>
 <hr />
 <h2 id="5">第 5 章｜硬體與環境設計</h2>
+<blockquote>
+<p>乘法模型告訴你卡在哪，本章開始進入<strong>實體層</strong>：籠舍、巢箱、UVB、視覺屏蔽 — 這些是產蛋率的「地基」，地基不穩其他一切白搭。</p>
+</blockquote>
 <h3 id="51-preliminary">5.1 籠舍（★★★ Preliminary→升級建議）</h3>
 <p><strong>SOP v0.6 寫法</strong>（維持級）：
 - 單對 ≥ 120×60×90 cm、離地 ≥ 80 cm
@@ -1101,8 +1661,18 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 </ul>
 <h4 id="544-full-spectrum">5.4.4 完整光譜日光燈（full-spectrum）⭐⭐</h4>
 <p>UVB 燈旁加 full-spectrum 燈管（Chromalux、Solar Glo），模擬完整日光（UVA + 可見光）。鳥看得見紫外，視覺豐富化 → 社交行為 → 繁殖啟動。</p>
+<h3 id="takeaway_4">本章 Takeaway</h3>
+<ul>
+<li><strong>籠舍升級到 flight aviary ≥ 200×100×200 cm</strong> — 真飛 ≠ 跳</li>
+<li>巢箱 28×28×56 cm + <strong>入口 6 cm</strong>（剛好能擠過 = 安全感最強）</li>
+<li><strong>鐵皮屋 UVB 嚴重不足</strong>（估 1-5 vs 需求 10-30 μW/cm²）→ 必裝 UVB 燈 + 安全 7 原則</li>
+<li><strong>籠間視覺屏蔽</strong> + 降低人為干擾 = 產蛋率 +15-30%（低成本高 ROI）</li>
+</ul>
 <hr />
 <h2 id="6">第 6 章｜鈣循環與營養</h2>
+<blockquote>
+<p>硬體就位後，下一個關鍵環節是<strong>內循環</strong>：鈣 / D3 / UVB / 墨魚骨 + 繁殖期飲食切換。這是防 egg binding 與薄殼早死的護城河。</p>
+</blockquote>
 <h3 id="61">6.1 鈣循環三件套（缺一失效）</h3>
 <pre><code>日常主力：每日早餐 Ca/P 粉撒蔬菜（劑量精準、易吸收）
 吸收條件：UVB 燈每日 4-6h 距 30cm（D3 合成）
@@ -1226,8 +1796,19 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 <p>臨床劑量：<strong>Calcium gluconate 50-100 mg/kg SC/IM</strong>（等量生理鹽水稀釋）。來源：LafeberVet（Eric Klaphake DVM）。</p>
 <h3 id="67-d3">6.7 D3 雙重補充陷阱</h3>
 <p>UVB 燈 + 含 D3 鈣粉<strong>同時加重劑量</strong> → D3 中毒（軟組織鈣化）。<strong>選一個給足，不要兩邊都加</strong>。</p>
+<h3 id="takeaway_5">本章 Takeaway</h3>
+<ul>
+<li><strong>鈣循環三件套</strong>：Ca/P 粉（日常）+ UVB 燈（吸收）+ 墨魚骨（自救），<strong>缺一失效</strong></li>
+<li><strong>墨魚骨是保險絲不是主開關</strong>，不能只靠它</li>
+<li>繁殖期飲食 Ca <strong>1.0-1.5%</strong> / Ca:P = <strong>2:1</strong> / 每日 Ca/P 粉撒早餐</li>
+<li>Egg binding 第一時間：升溫 + 礦物油 + <strong>Ca gluconate 50-100 mg/kg</strong> + 送獸醫</li>
+<li><strong>D3 不要雙重補充</strong>（UVB + D3 鈣粉只選一邊）</li>
+</ul>
 <hr />
 <h2 id="7">第 7 章｜配對的藝術與科學</h2>
+<blockquote>
+<p>硬體與鈣就位後，下一個環節是<strong>配對本身</strong>。配對錯了，再好的 SOP 也是浪費繁殖季。本章結合 DNA 性別、年齡曲線、互梳評估、健檢、近親迴避。</p>
+</blockquote>
 <h3 id="71-confirmed">7.1 性別鑑定（★ Confirmed）</h3>
 <ul>
 <li>凱克<strong>無外觀性二型</strong>，目測錯配率 30-40%</li>
@@ -1320,9 +1901,18 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 - 所有種鳥 <strong>DNA 血統鑑定</strong>（不只性別，要親緣）
 - 每 3-5 年引入 <strong>2-4 隻無血緣新公鳥</strong>
 - 紀錄 pedigree 3 代追溯</p>
+<h3 id="takeaway_6">本章 Takeaway</h3>
+<ul>
+<li><strong>DNA 性別鑑定必做</strong>（目測錯配率 30-40%）</li>
+<li>首次繁殖 <strong>3-4 年齡起</strong> / 黃金期 <strong>4-8 年</strong></li>
+<li><strong>Day 14 互梳評估決策樹</strong> — 紅燈立即分開，不要拖</li>
+<li>合籠前必檢：PBFD/BFD/衣原體 PCR + CBC + 糞檢</li>
+<li><strong>每 3-5 年引入新公鳥</strong>避免近親衰退</li>
+</ul>
 <hr />
 <h2 id="8-r4">第 8 章｜公鳥精子品質管理（R4 新章節）</h2>
 <blockquote>
+<p>配對完成後，下一個關鍵是<strong>受精率</strong>。v1 Round 4 新增此章 — 從 Pionus chalcopterus 借鑑 massage 採精，解決「D3 無血管時分不清環境問題 vs 公鳥問題」的瓶頸。</p>
 <p>完整 SOP 見 <code>data/veterinary/round04_male_fertility_sop.md</code>；本章給教學版。</p>
 </blockquote>
 <h3 id="81">8.1 為什麼需要這章</h3>
@@ -1342,6 +1932,83 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 <li>毛細管立即吸取；2 分鐘無反應就停，<strong>不強取</strong></li>
 </ol>
 <p><strong>訓練期</strong>：頭 3-5 次多半失敗，需 4 週每週 2 次訓練公鳥不恐懼。繁殖季前 6-8 週開始。</p>
+<figure class="svg-diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 440" width="100%" style="max-width:660px;height:auto;display:block;margin:24px auto;">
+  <title>Massage 採精手勢：泄殖腔 3/9 點 + 中指薦骨按壓（腹面朝上）</title>
+  <rect x="0" y="0" width="660" height="440" fill="#fbf9f4"/>
+  <text x="330" y="30" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="17" font-weight="700" fill="#b8845a">Massage 採精手勢示意（公鳥腹面朝上，由上俯視）</text>
+  <text x="330" y="50" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="11" fill="#6b6660">雙人操作：一握持、一按壓收集 / 需 JoVE 影片對照實地學習，本圖僅概念示意</text>
+
+  <!-- Bird body oval (ventral view, head up) -->
+  <ellipse cx="330" cy="230" rx="110" ry="150" fill="#f0e4cc" stroke="#8b5a2a" stroke-width="2"/>
+
+  <!-- Head circle -->
+  <circle cx="330" cy="100" r="32" fill="#faf4e8" stroke="#8b5a2a" stroke-width="2"/>
+  <text x="330" y="94" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="9" fill="#8b5a2a">頭部</text>
+  <text x="330" y="108" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="9" fill="#8b5a2a">（毛巾半包覆）</text>
+
+  <!-- Neck -->
+  <rect x="320" y="125" width="20" height="15" fill="#f0e4cc" stroke="#8b5a2a" stroke-width="1"/>
+
+  <!-- Sacrum label (center back mid) -->
+  <circle cx="330" cy="260" r="24" fill="#f5d76e" stroke="#8b5a2a" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="330" y="256" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="10" font-weight="700" fill="#8b5a2a">薦骨</text>
+  <text x="330" y="270" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="9" fill="#8b5a2a">中指按壓區</text>
+
+  <!-- Cloaca (vent) - near tail bottom -->
+  <ellipse cx="330" cy="360" rx="28" ry="18" fill="#faf4e8" stroke="#c65d20" stroke-width="2.5"/>
+  <text x="330" y="364" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="9" font-weight="700" fill="#c65d20">泄殖腔</text>
+
+  <!-- Clock positions: 3 and 9 o'clock around cloaca -->
+  <!-- Cloaca center (330, 360), radius 28 -->
+  <!-- 9 o'clock = left side (302, 360) -->
+  <!-- 3 o'clock = right side (358, 360) -->
+  <circle cx="302" cy="360" r="8" fill="#c65d20"/>
+  <text x="285" y="364" text-anchor="end" font-family="'Noto Sans TC',sans-serif" font-size="11" font-weight="700" fill="#c65d20">9 點</text>
+  <text x="285" y="378" text-anchor="end" font-family="'Noto Sans TC',sans-serif" font-size="9" fill="#c65d20">拇指</text>
+
+  <circle cx="358" cy="360" r="8" fill="#c65d20"/>
+  <text x="375" y="364" text-anchor="start" font-family="'Noto Sans TC',sans-serif" font-size="11" font-weight="700" fill="#c65d20">3 點</text>
+  <text x="375" y="378" text-anchor="start" font-family="'Noto Sans TC',sans-serif" font-size="9" fill="#c65d20">食指</text>
+
+  <!-- Arrow from middle finger (sacrum area) -->
+  <line x1="330" y1="285" x2="330" y2="340" stroke="#8b5a2a" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowMass)"/>
+  <defs>
+    <marker id="arrowMass" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#8b5a2a"/>
+    </marker>
+  </defs>
+
+  <!-- Rhythm indicator -->
+  <g transform="translate(70,250)">
+    <rect width="150" height="110" fill="#faf4e8" stroke="#b8845a" stroke-width="1.5" rx="6"/>
+    <text x="75" y="22" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="12" font-weight="700" fill="#2d2a26">按壓節奏</text>
+    <text x="75" y="44" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="11" fill="#c65d20" font-weight="700">1-2 Hz 律動</text>
+    <text x="75" y="60" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="10" fill="#2d2a26">（約每秒 1-2 下）</text>
+    <text x="75" y="80" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="10" fill="#2d2a26">持續 5-20 秒</text>
+    <text x="75" y="96" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="10" fill="#c65d20">泄殖腔外翻 → 立即吸取</text>
+  </g>
+
+  <!-- Collection timing -->
+  <g transform="translate(440,250)">
+    <rect width="150" height="110" fill="#faf4e8" stroke="#b8845a" stroke-width="1.5" rx="6"/>
+    <text x="75" y="22" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="12" font-weight="700" fill="#2d2a26">採集要點</text>
+    <text x="8" y="44" font-family="'Noto Sans TC',sans-serif" font-size="10" fill="#2d2a26">• 毛細管垂直吸取</text>
+    <text x="8" y="60" font-family="'Noto Sans TC',sans-serif" font-size="10" fill="#2d2a26">• 2 分鐘無反應停止</text>
+    <text x="8" y="76" font-family="'Noto Sans TC',sans-serif" font-size="10" fill="#c65d20" font-weight="700">• 絕不強取</text>
+    <text x="8" y="94" font-family="'Noto Sans TC',sans-serif" font-size="10" fill="#2d2a26">• 清晨起床後 2h 內</text>
+  </g>
+
+  <!-- Warning panel -->
+  <g font-family="'Noto Sans TC',sans-serif">
+    <rect x="60" y="390" width="540" height="40" fill="#fdf1cc" stroke="#c65d20" stroke-width="1.5" rx="6"/>
+    <text x="330" y="408" text-anchor="middle" font-size="11" font-weight="700" fill="#c65d20">⚠️ 本圖僅示意位置。實地學習請看 JoVE 採集影片 + 獸醫 30 分鐘帶領</text>
+    <text x="330" y="424" text-anchor="middle" font-size="10" fill="#2d2a26">公鳥掙扎時立即停止，重回訓練期 4 週後再試（見附錄 I 場景 5）</text>
+  </g>
+</svg>
+<p style="text-align:center;font-size:13px;color:#6b6660;margin-top:-8px;">圖 8.1｜Massage 採精手勢（Stelzer 2005 方法改良版）。拇＋食指於泄殖腔 3/9 點側邊，中指律動按壓薦骨。</p>
+</figure>
+
 <h3 id="84">8.4 異常判讀閾值</h3>
 <table>
 <thead>
@@ -1380,8 +2047,19 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 <h3 id="86-l1">8.6 場內 L1 設備與學習</h3>
 <p>需要 <strong>400× 顯微鏡 + Neubauer 計數板 &lt; NT$10K</strong>。詳見 <code>data/veterinary/semen_evaluation_learning_resources.md</code>。</p>
 <p><strong>學習 pathway</strong>：JoVE 鳥類採集影片 + Neubauer 通用教學 + Lierz 2016 AAVAC proceedings，加起來 2-3 小時 + 獸醫實地教 30 分鐘。</p>
+<h3 id="takeaway_7">本章 Takeaway</h3>
+<ul>
+<li><strong>Massage 採精可行</strong>（Stelzer 2005 <em>Pionus chalcopterus</em> 姐妹屬證據）</li>
+<li>3/9 點泄殖腔 + 中指按壓薦骨 + <strong>1-2 Hz 律動 5-20 秒</strong></li>
+<li>訓練期 4 週 / 頭 3-5 次多半失敗是正常</li>
+<li>你場累積 6-12 個月 = <strong>Pionites 屬學術首發 baseline</strong></li>
+<li>設備只需 400× 顯微鏡 + Neubauer 計數板 <strong>&lt; NT$10K</strong></li>
+</ul>
 <hr />
 <h2 id="9">第 9 章｜啟動繁殖 — 觸發機制</h2>
+<blockquote>
+<p>有配對、有精子、有硬體、有鈣 — 接下來需要<strong>訊號</strong>告訴鳥「繁殖季到了」。本章處理光週期、溫度、濕度、巢箱引入時機。</p>
+</blockquote>
 <h3 id="91">9.1 光週期漸進（觸發關鍵）</h3>
 <table>
 <thead>
@@ -1425,8 +2103,19 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 <p><strong>快速補法</strong>：打電話給台灣同業 + 自家近 3 年首蛋月份分布 → cell quality 立即 48 → 80+。</p>
 <h3 id="94">9.4 巢箱引入時機</h3>
 <p>繁殖前 <strong>4 週</strong>整理全年開放的巢箱（換新墊材）。不要配對後才放 — 鳥需要 3-4 週熟悉。<strong>觀察母鳥進巢整窩 = 準備產蛋</strong>。</p>
+<h3 id="takeaway_8">本章 Takeaway</h3>
+<ul>
+<li><strong>光週期漸進</strong> 4-5 週升到 14h（不要一次跳）</li>
+<li>溫度 <strong>25-28°C</strong> 穩定，溫差 &gt;5°C 停產</li>
+<li><strong>雨季濕度觸發</strong>（凱克零驗證，你做就是學術首創）</li>
+<li>台灣首蛋月份 gap → <strong>打電話給同業 + 自家紀錄</strong>即升級 quality 48→80</li>
+<li>巢箱<strong>繁殖前 4 週</strong>整理好，不要拖</li>
+</ul>
 <hr />
 <h2 id="10">第 10 章｜產蛋期管理</h2>
+<blockquote>
+<p>觸發成功，母鳥進巢開始產蛋 — 這 6-12 天是<strong>介入頻率最需要克制</strong>的時期。過度觀察會讓母鳥棄巢。</p>
+</blockquote>
 <h3 id="101">10.1 產蛋節奏</h3>
 <ul>
 <li>窩蛋 2-4 顆（平均 3）</li>
@@ -1451,8 +2140,19 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 <li>體重異常 = 病徵早期指標</li>
 <li><strong>每週秤每隻母鳥</strong>（訓練站秤 + 獎勵食物）</li>
 </ul>
+<h3 id="takeaway_9">本章 Takeaway</h3>
+<ul>
+<li>窩蛋 2-4 顆，<strong>每 3 天一顆，整窩 6-12 天</strong></li>
+<li>母鳥<strong>第 2 顆後才抱窩</strong>（孵化天數從第 2 顆算）</li>
+<li>觀察不干擾三原則：<strong>側邊檢查 / 白天離巢正常 / 公鳥餵母鳥 = 好訊號</strong></li>
+<li>Egg binding 辨識：蹲姿 + 尾下垂 + 24h 未排卵 → <strong>立即送獸醫</strong></li>
+<li>每週秤母鳥 = 產蛋前 48h 徵兆 + 病徵早期指標</li>
+</ul>
 <hr />
 <h2 id="11">第 11 章｜孵化的科學</h2>
+<blockquote>
+<p>蛋產出來了 — 現在是 25-26 天的高密度技術工作。本章處理溫濕度、D3 候蛋診斷、胚胎早死環境保護、assisted hatching 時機。這章的操作<strong>直接決定孵化率</strong>（第 4 章環節 4）。</p>
+</blockquote>
 <h3 id="111-vs">11.1 自然 vs 人工孵化決策</h3>
 <pre><code>新手配對：
 ├── 產完 7 天候蛋 → 有血管 → 母鳥繼續抱
@@ -1504,6 +2204,99 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 </tr>
 </tbody>
 </table>
+<figure class="svg-diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="100%" style="max-width:820px;height:auto;display:block;margin:24px auto;">
+  <title>孵化溫濕度曲線 D0-D26（含 lockdown 區）</title>
+  <rect x="0" y="0" width="820" height="420" fill="#fbf9f4"/>
+  <text x="410" y="28" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="18" font-weight="700" fill="#b8845a">孵化溫濕度雙軸曲線（D0 - D26）</text>
+
+  <!-- Plot area: x from 80 to 760, y from 70 to 320 -->
+  <!-- Lockdown shaded region: D23-D26 -->
+  <rect x="675" y="70" width="85" height="250" fill="#f5d76e" opacity="0.2"/>
+  <text x="718" y="64" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="11" fill="#8b5a2a" font-weight="700">LOCKDOWN</text>
+  <text x="718" y="340" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="10" fill="#8b5a2a">停止翻蛋</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="320" x2="760" y2="320" stroke="#2d2a26" stroke-width="1.5"/>
+  <line x1="80" y1="70" x2="80" y2="320" stroke="#c65d20" stroke-width="1.5"/>
+  <line x1="760" y1="70" x2="760" y2="320" stroke="#2a6ba8" stroke-width="1.5"/>
+
+  <!-- Left Y axis: Temperature 36.5-37.5°C -->
+  <g font-family="'Noto Sans TC',sans-serif" font-size="11" fill="#c65d20">
+    <text x="70" y="75" text-anchor="end">37.5°C</text>
+    <line x1="76" y1="70" x2="80" y2="70" stroke="#c65d20"/>
+    <text x="70" y="138" text-anchor="end">37.2</text>
+    <line x1="76" y1="133" x2="80" y2="133" stroke="#c65d20"/>
+    <text x="70" y="201" text-anchor="end">36.9</text>
+    <line x1="76" y1="196" x2="80" y2="196" stroke="#c65d20"/>
+    <text x="70" y="265" text-anchor="end">36.5</text>
+    <line x1="76" y1="260" x2="80" y2="260" stroke="#c65d20"/>
+    <text x="20" y="200" font-weight="700" font-size="12" fill="#c65d20">溫度 (°C)</text>
+  </g>
+
+  <!-- Right Y axis: Humidity 40-80% -->
+  <g font-family="'Noto Sans TC',sans-serif" font-size="11" fill="#2a6ba8">
+    <text x="770" y="75" text-anchor="start">80%</text>
+    <line x1="760" y1="70" x2="764" y2="70" stroke="#2a6ba8"/>
+    <text x="770" y="138" text-anchor="start">70</text>
+    <line x1="760" y1="133" x2="764" y2="133" stroke="#2a6ba8"/>
+    <text x="770" y="201" text-anchor="start">60</text>
+    <line x1="760" y1="196" x2="764" y2="196" stroke="#2a6ba8"/>
+    <text x="770" y="265" text-anchor="start">50</text>
+    <line x1="760" y1="260" x2="764" y2="260" stroke="#2a6ba8"/>
+    <text x="790" y="200" font-weight="700" font-size="12" fill="#2a6ba8">濕度 (%)</text>
+  </g>
+
+  <!-- X axis ticks: D0, D5, D10, D15, D20, D23, D26 -->
+  <g font-family="'Noto Sans TC',sans-serif" font-size="11" fill="#2d2a26">
+    <text x="95" y="340" text-anchor="middle">D0</text>
+    <text x="211" y="340" text-anchor="middle">D5</text>
+    <text x="326" y="340" text-anchor="middle">D10</text>
+    <text x="442" y="340" text-anchor="middle">D15</text>
+    <text x="558" y="340" text-anchor="middle">D20</text>
+    <text x="675" y="340" text-anchor="middle" font-weight="700" fill="#8b5a2a">D23</text>
+    <text x="758" y="340" text-anchor="middle" font-weight="700" fill="#8b5a2a">D26</text>
+    <text x="410" y="395" text-anchor="middle" font-weight="700" font-size="13">孵化日齡</text>
+  </g>
+
+  <!-- Temperature line (red): 37.3 from D0-D22, drop to 36.9 at D23 -->
+  <!-- y for 37.3 = 70 + (37.5-37.3)*(320-70)/(37.5-36.5) = 70 + 50 = 120 -->
+  <!-- y for 36.9 = 70 + (37.5-36.9)*250/1.0 = 70 + 150 = 220 → approx 196 for 36.9 (per ticks) -->
+  <polyline fill="none" stroke="#c65d20" stroke-width="3" stroke-linejoin="round" points="95,120 675,120 675,196 760,196"/>
+  <circle cx="95" cy="120" r="4" fill="#c65d20"/>
+  <circle cx="675" cy="196" r="5" fill="#c65d20"/>
+  <text x="350" y="108" font-family="'Noto Sans TC',sans-serif" font-size="11" fill="#c65d20" font-weight="700">溫度 37.2-37.4°C（恆定）</text>
+  <text x="700" y="180" font-family="'Noto Sans TC',sans-serif" font-size="10" fill="#c65d20" font-weight="700">→ 36.9</text>
+
+  <!-- Humidity line (blue): 52% from D0-D22, rise to 70% at D23 -->
+  <!-- y for 52% = 70 + (80-52)*250/40 = 70 + 175 = 245 -->
+  <!-- y for 70% = 70 + (80-70)*250/40 = 70 + 62.5 = 132.5 ≈ 133 -->
+  <polyline fill="none" stroke="#2a6ba8" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8,3" points="95,245 675,245 675,133 760,108"/>
+  <circle cx="95" cy="245" r="4" fill="#2a6ba8"/>
+  <circle cx="675" cy="133" r="5" fill="#2a6ba8"/>
+  <circle cx="760" cy="108" r="5" fill="#2a6ba8"/>
+  <text x="350" y="262" font-family="'Noto Sans TC',sans-serif" font-size="11" fill="#2a6ba8" font-weight="700">濕度 50-55%（恆定）</text>
+  <text x="700" y="120" font-family="'Noto Sans TC',sans-serif" font-size="10" fill="#2a6ba8" font-weight="700">→ 65-80%</text>
+
+  <!-- D3 candling annotation -->
+  <line x1="164" y1="70" x2="164" y2="320" stroke="#8b5a2a" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="164" y="62" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="10" fill="#8b5a2a" font-weight="700">D3 首次候蛋</text>
+
+  <!-- Legend -->
+  <g transform="translate(100,372)" font-family="'Noto Sans TC',sans-serif" font-size="11">
+    <line x1="0" y1="8" x2="24" y2="8" stroke="#c65d20" stroke-width="3"/>
+    <text x="30" y="12" fill="#2d2a26">溫度</text>
+    <line x1="90" y1="8" x2="114" y2="8" stroke="#2a6ba8" stroke-width="3" stroke-dasharray="8,3"/>
+    <text x="120" y="12" fill="#2d2a26">濕度</text>
+    <rect x="180" y="2" width="14" height="14" fill="#f5d76e" opacity="0.5"/>
+    <text x="200" y="12" fill="#2d2a26">Lockdown 區</text>
+    <line x1="290" y1="8" x2="304" y2="8" stroke="#8b5a2a" stroke-dasharray="3,3"/>
+    <text x="310" y="12" fill="#2d2a26">關鍵候蛋日</text>
+  </g>
+</svg>
+<p style="text-align:center;font-size:13px;color:#6b6660;margin-top:-8px;">圖 11.1｜孵化機溫濕度雙軸曲線。D23 進入 lockdown：溫降 0.3°C、濕升 15-20%、停翻蛋。</p>
+</figure>
+
 <h3 id="113">11.3 候蛋時程</h3>
 <table>
 <thead>
@@ -1595,8 +2388,19 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 <p>每 3-5 天秤一次。<strong>目標孵化全程減 12-16%</strong>。
 - &lt;12% → 通風不足，開孵化機小孔
 - &gt;16% → 太乾，增加水盤</p>
+<h3 id="takeaway_10">本章 Takeaway</h3>
+<ul>
+<li>孵化 <strong>37.2-37.4°C / 50-55% RH</strong>，lockdown D23-26 改 <strong>36.9°C / 65-75% RH</strong></li>
+<li><strong>D3 候蛋是關鍵區分</strong>：血管網（有胚胎）vs 蛋黃清晰（不受精）vs 蛋黃附壁（早死）</li>
+<li>胚胎早死環境保護：<strong>UPS + 穩定位置 + 母鳥鈣</strong> = 救 30-50% 存活</li>
+<li>Assisted hatching 原則：<strong>看到血管絕對停手</strong></li>
+<li>蛋重減 <strong>12-16%</strong> 為目標範圍，異常時調通風或水盤</li>
+</ul>
 <hr />
 <h2 id="12">第 12 章｜雙窩技術與年產量最大化</h2>
+<blockquote>
+<p>孵化成功後，面臨商業關鍵決策：<strong>抽蛋還是讓親鳥帶？</strong> 本章用三方案決策樹平衡「年產量最大化」vs「種鳥壽命保護」。</p>
+</blockquote>
 <h3 id="121">12.1 三方案決策樹</h3>
 <pre><code>目標：最大年產量（商業模式）
 ├── 方案 A：全窩抽蛋
@@ -1644,8 +2448,18 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 </ul>
 <h3 id="124">12.4 執行條件</h3>
 <p><strong>必須先有</strong>第 6 章鈣循環 + 第 11.5 胚胎環境基礎，否則雙窩會榨乾母鳥 → egg binding 頻發。</p>
+<h3 id="takeaway_11">本章 Takeaway</h3>
+<ul>
+<li>三方案：<strong>全窩抽（A）/ 抽 D10-14 雛（B，商業推薦）/ 不抽（C，保守）</strong></li>
+<li>窩間間隔：抽蛋 <strong>3-4 週</strong> / 抽雛 <strong>4-6 週</strong> / 自然帶 <strong>8-12 週</strong></li>
+<li>年上限 <strong>3 窩</strong>，達限強制休養 4-6 個月</li>
+<li><strong>必須先有鈣循環 + 胚胎環境基礎</strong>再上雙窩，否則 egg binding 頻發</li>
+</ul>
 <hr />
 <h2 id="13-day-by-day">第 13 章｜手養 Day-by-Day</h2>
+<blockquote>
+<p>雙窩方案 B 抽 D10-14 雛後，雛鳥進入人工育幼階段。本章逐日給出餵食配方、溫度、濃度、頻率 — 操作失誤成本高（燒傷嗉囊致死），精準是關鍵。</p>
+</blockquote>
 <h3 id="131">13.1 何時抽雛</h3>
 <table>
 <thead>
@@ -1784,8 +2598,19 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 </tr>
 </tbody>
 </table>
+<h3 id="takeaway_12">本章 Takeaway</h3>
+<ul>
+<li>抽雛時機：賣蛋直接抽 / 賣雛 <strong>親育 10-14 天再接手</strong></li>
+<li>配方 <strong>Kaytee Exact 5 + CéDé Lorifood 1</strong>（重量比）+ 少量嬰兒食品酶</li>
+<li>稀釋比漸進 90:10 → 70:30，<strong>餵食溫度絕不超過 108°F（42.2°C）</strong></li>
+<li><strong>13-14 週完全斷奶</strong>（群養比單養快）</li>
+<li>嗉囊不排空 = 停餵 + 保溫 + 獸醫</li>
+</ul>
 <hr />
 <h2 id="14_1">第 14 章｜疾病防治全覽</h2>
+<blockquote>
+<p>手養成功率也受疾病威脅。本章覆蓋 P0 致命（PBFD、衣原體）、常見雛鳥疾病（giardia、aspergillus）、UVB 安全、年度深度健檢。</p>
+</blockquote>
 <h3 id="141-pbfdcircovirus-p0">14.1 PBFD（Circovirus）🚫 P0</h3>
 <table>
 <thead>
@@ -1868,8 +2693,19 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 - 肝功能（AST/ALT）
 - 成本 NT$2-5K/隻/年</p>
 <p>提早發現「看起來健康但繁殖衰退」的鳥。</p>
+<h3 id="takeaway_13">本章 Takeaway</h3>
+<ul>
+<li><strong>P0 雙保命</strong>：PBFD 疫苗每季接種 + 衣原體 PCR（人畜共患法規通報）</li>
+<li>新進鳥 <strong>30 天隔離 + PBFD/BFD/衣原體 PCR</strong> 三陰性</li>
+<li>主要疾病：PBFD / 衣原體 / 黴菌 / PDD / giardia / UVB 灼傷</li>
+<li><strong>年度深度健檢</strong>（CBC/生化/寄生蟲/甲狀腺/肝）= 提早發現繁殖衰退</li>
+<li>成本 NT$2-5K/隻/年，比損失一隻種鳥便宜太多</li>
+</ul>
 <hr />
 <h2 id="15">第 15 章｜種鳥管理與血統</h2>
+<blockquote>
+<p>疾病防治守住生命底線。接下來是<strong>長期生命週期管理</strong>：年齡曲線、換血、血統紀錄、outcrossing — 這是保證 5 年、10 年持續有產量的基本功。</p>
+</blockquote>
 <h3 id="151-young-2012-isis">15.1 年齡曲線（Young 2012 ISIS）</h3>
 <table>
 <thead>
@@ -1921,8 +2757,18 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 <li>Pedigree <strong>3 代追溯</strong></li>
 <li>新鳥 30 天隔離 + 三病毒陰性</li>
 </ul>
+<h3 id="takeaway_14">本章 Takeaway</h3>
+<ul>
+<li>黃金產出期 <strong>4-8 歲</strong>，13-20 歲轉寵物銷售，20+ 安養</li>
+<li><strong>年度換血 15-20%</strong>，3 年循環換完整批</li>
+<li><strong>DNA 血統鑑定不只性別</strong>（要親緣），每 3-5 年引入新公鳥</li>
+<li>Pedigree 3 代追溯是長期資產</li>
+</ul>
 <hr />
 <h2 id="16">第 16 章｜商業策略三條路徑</h2>
+<blockquote>
+<p>技術面完備 — 現在是<strong>商業層</strong>。路徑選錯會白費所有技術努力。本章從 CITES 貿易數據出發，給你三條路徑的定位與優先序。</p>
+</blockquote>
 <h3 id="161-a">16.1 路徑 A：內需品質差異化（淺紅海，仍可做）</h3>
 <p><strong>定位</strong>：上段 25-35K NTD。<br />
 <strong>差異化</strong>：
@@ -1979,8 +2825,377 @@ status: v1.0 初版 — 研究端到本日為止的完整合成；實證數據�
 <p><strong>執行順序</strong>：指名亞種建系統 → 12 個月後加 xanthomerius → 24 個月後試 xanthurus。</p>
 <h3 id="164-d-p-melanocephalus">16.4 路徑 D：避開 — P. melanocephalus 擴產</h3>
 <p>47.7% 野捕供應，未來 CITES 收緊風險高。不要建立高度依賴進口 melanocephalus 的業務模型。</p>
+<h3 id="takeaway_15">本章 Takeaway</h3>
+<ul>
+<li><strong>路徑 A（內需上段差異化）</strong>：淺紅海但可做，護城河 = 雙病毒卡 + DNA + 完整紀錄</li>
+<li><strong>路徑 B（出口中東）</strong>：輔助策略，已驗證 950 隻管道</li>
+<li><strong>路徑 C（xanthomerius / xanthurus 差異化）⭐</strong>：藍海主推，執行順序 leuco → xantho → xanthurus</li>
+<li><strong>避開 melanocephalus 擴產</strong> — 47.7% 野捕 CITES 風險高</li>
+</ul>
+<hr />
+<h2 id="165">第 16.5 章｜商業財務模型（算一次帳再決定要做多大）</h2>
+<blockquote>
+<p><strong>為什麼有這章</strong>：v1 曾有讀者讀完第 16 章三條路徑後問「所以我該投多少？多久回本？」書沒答案。本章把研究端已知的<strong>售價區間</strong>、<strong>成本結構</strong>、<strong>產量乘法模型</strong>整合成可量化的 ROI 試算。</p>
+<p><strong>本章數字為推估</strong>，實際請以你自家 KPI 校準。信心等級：★★★ Preliminary（需實證驗證）。</p>
+</blockquote>
+<h3 id="1651">16.5.1 基本假設（所有試算共用）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>數值</th>
+<th>來源 / 備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>售價 — 中段 leuco（一般市場）</td>
+<td><strong>15-25K NTD/隻</strong></td>
+<td>第 1 章 T-M-01；FB 社團慣行</td>
+</tr>
+<tr>
+<td>售價 — 上段 leuco（品質差異化）</td>
+<td><strong>25-35K NTD/隻</strong></td>
+<td>第 16.1 路徑 A</td>
+</tr>
+<tr>
+<td>售價 — xanthomerius 稀有亞種</td>
+<td><strong>50-80K NTD/隻</strong></td>
+<td>第 16.3 + 台灣零庫存推估</td>
+</tr>
+<tr>
+<td>售價 — xanthurus（黃尾）</td>
+<td><strong>80-150K+ NTD/隻</strong></td>
+<td>歐洲 €2,000/隻推估，台灣首批溢價</td>
+</tr>
+<tr>
+<td>種鳥落地成本 — leuco</td>
+<td>10-20K NTD/隻</td>
+<td>台灣市場</td>
+</tr>
+<tr>
+<td>種鳥落地成本 — xanthomerius</td>
+<td><strong>30-40K NTD/隻</strong></td>
+<td>歐洲 €300 + 運費 + CITES</td>
+</tr>
+<tr>
+<td>產量 baseline（未優化場）</td>
+<td><strong>3 雛/對/年</strong></td>
+<td>第 4 章乘法模型</td>
+</tr>
+<tr>
+<td>產量 target（SOP v0.6.1 + 雙窩 B）</td>
+<td><strong>5 雛/對/年</strong></td>
+<td>第 4 章 ×1.67</td>
+</tr>
+<tr>
+<td>產量 天花板（所有槓桿到位）</td>
+<td><strong>6.5 雛/對/年</strong></td>
+<td>第 4 章 ×2.24</td>
+</tr>
+</tbody>
+</table>
+<p><strong>單對月運轉成本</strong>（附錄 B 整理）：</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>NTD/對/月</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>飼料 + 鈣 + D3 粉</td>
+<td>300-500</td>
+</tr>
+<tr>
+<td>墨魚骨 + UVB 燈管攤提</td>
+<td>100-200</td>
+</tr>
+<tr>
+<td>醫療（疫苗、篩檢攤提）</td>
+<td>200-400</td>
+</tr>
+<tr>
+<td><strong>小計（變動成本）</strong></td>
+<td><strong>600-1100</strong></td>
+</tr>
+</tbody>
+</table>
+<p>本章用 <strong>NT$850/對/月 ≈ 10K/對/年</strong> 做中位數。</p>
+<h3 id="1652-roi-10-3">16.5.2 三方案 ROI 對比（10 對規模、3 年）</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>方案 A 量產內需</th>
+<th>方案 B 品質上段 ★</th>
+<th>方案 C xanthomerius 差異化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>定位</strong></td>
+<td>中低段量產</td>
+<td>雙病毒卡＋DNA＋手養</td>
+<td>稀有亞種藍海</td>
+</tr>
+<tr>
+<td><strong>售價（平均）</strong></td>
+<td>15K</td>
+<td>28K</td>
+<td>leuco 28K + xantho 60K 混合</td>
+</tr>
+<tr>
+<td><strong>組合</strong></td>
+<td>10 對 leuco</td>
+<td>10 對 leuco</td>
+<td>6 對 leuco + 4 對 xantho</td>
+</tr>
+<tr>
+<td><strong>年 1 雛鳥數</strong>（baseline 3/對）</td>
+<td>30</td>
+<td>30</td>
+<td>18 + xantho 尚未繁殖</td>
+</tr>
+<tr>
+<td><strong>年 3 雛鳥數</strong>（target 5/對）</td>
+<td>50</td>
+<td>50</td>
+<td>30 + 16 = 46</td>
+</tr>
+<tr>
+<td><strong>年 1 營收</strong></td>
+<td>45 萬</td>
+<td>84 萬</td>
+<td>50 萬</td>
+</tr>
+<tr>
+<td><strong>年 3 營收</strong></td>
+<td>75 萬</td>
+<td>140 萬</td>
+<td><strong>180 萬</strong></td>
+</tr>
+<tr>
+<td><strong>額外投資</strong>（vs A）</td>
+<td>—</td>
+<td>+20 萬（PCR/DNA/手養室）</td>
+<td>+140 萬（4 xantho 落地）</td>
+</tr>
+<tr>
+<td><strong>年 OpEx</strong>（飼料+醫療）</td>
+<td>12 萬</td>
+<td>14 萬</td>
+<td>14 萬</td>
+</tr>
+<tr>
+<td><strong>場地+水電 固定</strong></td>
+<td>12 萬</td>
+<td>12 萬</td>
+<td>12 萬</td>
+</tr>
+<tr>
+<td><strong>設備攤提</strong>（5 年）</td>
+<td>2 萬</td>
+<td>3 萬</td>
+<td>4 萬</td>
+</tr>
+<tr>
+<td><strong>年 3 淨利</strong></td>
+<td><strong>49 萬</strong></td>
+<td><strong>111 萬</strong></td>
+<td><strong>150 萬</strong></td>
+</tr>
+<tr>
+<td><strong>月等價淨利</strong></td>
+<td>4.1 萬</td>
+<td>9.2 萬</td>
+<td><strong>12.5 萬</strong></td>
+</tr>
+<tr>
+<td><strong>初始總投資</strong></td>
+<td>15 萬</td>
+<td>35 萬</td>
+<td>175 萬</td>
+</tr>
+<tr>
+<td><strong>回本期</strong>（含種鳥）</td>
+<td>~15 個月</td>
+<td>~10 個月</td>
+<td>~18 個月</td>
+</tr>
+</tbody>
+</table>
+<p><strong>結論推演</strong>：
+- <strong>方案 A</strong> 投資最低但天花板被「量產 = 紅海」壓死，淨利難突破月 5 萬。
+- <strong>方案 B</strong>（路徑 A 上段品質）ROI 最好，<strong>回本快、風險低</strong>，適合全職兼做或初期主攻。
+- <strong>方案 C</strong>（路徑 C xanthomerius）天花板最高但 <strong>初始重、時程長</strong>（12-24 個月才看到 xantho 首批雛鳥）。適合已有 B 方案現金流穩後擴張。</p>
+<blockquote>
+<p><strong>推薦序列</strong>：<strong>先 B，穩住現金流 6-12 個月 → 階段性升 C</strong>。直接跳 C = 燒錢等繁殖成功 + 零收入。</p>
+</blockquote>
+<h3 id="1653-vs">16.5.3 單窩 vs 雙窩方案對比</h3>
+<p>用方案 B 基礎（10 對、28K 售價）再跑方案比較：</p>
+<table>
+<thead>
+<tr>
+<th>繁殖策略</th>
+<th>年窩數</th>
+<th>年雛鳥/對</th>
+<th>年營收</th>
+<th>種鳥壽命影響</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>單窩</strong>（親鳥全帶）</td>
+<td>1.5</td>
+<td>3</td>
+<td>84 萬</td>
+<td>最小</td>
+<td>保守、適合首年</td>
+</tr>
+<tr>
+<td><strong>方案 B</strong>（抽 D10-14 手養）</td>
+<td>2.2</td>
+<td>4.5</td>
+<td>126 萬</td>
+<td>中</td>
+<td>商業推薦 ⭐</td>
+</tr>
+<tr>
+<td><strong>方案 A</strong>（全抽蛋人工孵）</td>
+<td>2.8</td>
+<td>5.6</td>
+<td>157 萬</td>
+<td><strong>大</strong></td>
+<td>3-5 年見衰退</td>
+</tr>
+</tbody>
+</table>
+<p><strong>雙窩方案 B 的隱形價值</strong>：
+- 雛鳥手養後轉寵物<strong>品質更好</strong>（親人、可再加 5-10K 售價）
+- 保護種鳥產能<strong>可用年限 +2-3 年</strong> = 延遲下一波種鳥換血（15-20% × 10 對 × 12K = 額外 12-18 萬/年不用付）</p>
+<h3 id="1654">16.5.4 損益平衡點</h3>
+<p><strong>年固定成本</strong>（方案 B）：
+- OpEx 飼料+醫療：14 萬
+- 場地+水電+網路：12 萬
+- 設備攤提：3 萬
+- <strong>合計：29 萬/年</strong></p>
+<p><strong>每隻雛鳥毛利</strong>（售價 28K，扣<strong>可歸屬</strong>變動成本 3.3K ≈ 10K/對/3 雛）：
+- 毛利 ≈ <strong>24.7K/隻</strong></p>
+<p><strong>損益平衡</strong>：
+$$
+\text{雛鳥數} = \frac{290{,}000}{24{,}700} \approx \textbf{12 隻 / 年}
+$$</p>
+<p>對應<strong>最少 4 對</strong>（baseline 3 雛/對/年）或<strong>2.5 對</strong>（target 5 雛/對/年）。</p>
+<p><strong>結論</strong>：<strong>5 對以下純副業養興趣、10 對開始可支撐兼職、20 對以上可全職</strong>。</p>
+<h3 id="1655-b-target-5">16.5.5 規模化試算（方案 B 上段，target 5 雛/對/年）</h3>
+<table>
+<thead>
+<tr>
+<th>對數</th>
+<th>年雛鳥</th>
+<th>年營收</th>
+<th>年 OpEx</th>
+<th>年淨利</th>
+<th>月等價</th>
+<th>對應角色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>5 對</strong></td>
+<td>25</td>
+<td>70 萬</td>
+<td>20 萬</td>
+<td>50 萬</td>
+<td>4.2 萬</td>
+<td>副業、興趣</td>
+</tr>
+<tr>
+<td><strong>10 對</strong> ⭐</td>
+<td>50</td>
+<td>140 萬</td>
+<td>29 萬</td>
+<td>111 萬</td>
+<td>9.3 萬</td>
+<td>兼職主力</td>
+</tr>
+<tr>
+<td><strong>20 對</strong></td>
+<td>100</td>
+<td>280 萬</td>
+<td>48 萬</td>
+<td>232 萬</td>
+<td><strong>19.3 萬</strong></td>
+<td>全職起跳</td>
+</tr>
+<tr>
+<td><strong>30 對</strong></td>
+<td>150</td>
+<td>420 萬</td>
+<td>75 萬</td>
+<td>345 萬</td>
+<td>28.7 萬</td>
+<td>全職成熟</td>
+</tr>
+<tr>
+<td><strong>50 對</strong></td>
+<td>250</td>
+<td>700 萬</td>
+<td>140 萬</td>
+<td>560 萬</td>
+<td>46.7 萬</td>
+<td>需雇員+公司化</td>
+</tr>
+</tbody>
+</table>
+<p><strong>擴張節拍</strong>：
+- <strong>第 1 年</strong>：5-10 對，穩 SOP，累積 KPI baseline
+- <strong>第 2-3 年</strong>：10 → 20 對，加入手養室、UPS 全配、紅外鏡頭
+- <strong>第 3-5 年</strong>：20 → 30 對 + 加 xantho，行號 → 有限公司
+- <strong>第 5+ 年</strong>：30-50 對需考慮<strong>雇員</strong>（每增 10 對 ≈ 0.5 工時/日）+ 空間倍增</p>
+<h3 id="1656-xanthomerius">16.5.6 xanthomerius 引入回本期試算</h3>
+<p><strong>初始投入</strong>（2 對 = 4 隻）：
+- 落地成本：4 × 35K = <strong>14 萬</strong>
+- CITES + 檢疫費用：3-5 萬
+- 專屬隔離 + 大籠：2-3 萬
+- <strong>合計：~20 萬</strong></p>
+<p><strong>繁殖穩定後年產</strong>（2 對 × 3 雛/對/年 baseline）：
+- 6 隻 × 60K（保守）= <strong>36 萬/年</strong>
+- 扣額外 OpEx（2 對 × 10K × 12）= 2.4 萬
+- <strong>淨增利：33.6 萬/年</strong></p>
+<p><strong>時程</strong>：
+- M0-M12：引入 + 檢疫 + 環境適應（<strong>零收入</strong>）
+- M12-M24：首繁 / 配對 / 學習（<strong>可能零收入或少量</strong>）
+- <strong>M24+：穩定繁殖</strong></p>
+<p><strong>實際回本期</strong>：
+$$
+\text{M24} + \frac{200{,}000}{336{,}000} \text{年} = \text{M24} + 7 \text{月} = \textbf{M31 開始純獲利}
+$$</p>
+<p><strong>風險情境</strong>：
+- xantho 繁殖失敗（首繁 1-2 年常見）→ <strong>M36 才回本</strong>甚至更晚
+- 若走失、病故 1 隻 → 3.5 萬沉沒
+- 台灣市場價格未如預期 → 保守用 50K/隻，回本期延 2-4 個月</p>
+<p><strong>決策建議</strong>：
+- 先有方案 B 至少年 80 萬淨利做後盾 → 再引入 xantho
+- 單次只引 2 對（不要一次 4 對 all-in）
+- <strong>留 20 萬緩衝金</strong>應付意外（獸醫、單鳥折損、補購）</p>
+<h3 id="1657-takeaway">16.5.7 本章 Takeaway</h3>
+<ul>
+<li><strong>最低規模</strong>：5 對以下純興趣，10 對才開始有商業意義</li>
+<li><strong>最佳 ROI 方案</strong>：方案 B（上段 leuco）— <strong>M10 回本</strong>，tier S 可複製</li>
+<li><strong>最高天花板方案</strong>：方案 C（xantho 差異化）— <strong>M31 回本但年淨利 × 1.5-2</strong></li>
+<li><strong>誠實看待</strong>：本書數字是推估，你的<strong>第一批 30 隻雛鳥實際售價與時程</strong>才是你的真 baseline</li>
+<li><strong>紀錄優先於野心</strong>：先做第 17 章 KPI，數據有了，規模擴張自然決定</li>
+<li><strong>保留緩衝金</strong>：至少 12 個月 OpEx 現金，意外會發生（egg binding、PBFD、種鳥折損）</li>
+</ul>
 <hr />
 <h2 id="17-kpi">第 17 章｜紀錄與 KPI</h2>
+<blockquote>
+<p>有了商業路徑與財務模型，需要<strong>追蹤機制</strong>才能知道現況離目標差多少。本章是整本書最被低估的章節 — 紀錄是唯一的真實。</p>
+</blockquote>
 <h3 id="171">17.1 每窩必記</h3>
 <p>見 <code>ACTION_PLAN.md</code> §6 完整模板。關鍵欄位：</p>
 <pre><code>pair_id, male_ring, female_ring, pair_since
@@ -2045,8 +3260,18 @@ sale_price_per_chick, buyer_channel
 <li>辨識棄巢徵兆</li>
 <li>3 年後資料密度足以 ML 預測</li>
 </ul>
+<h3 id="takeaway_16">本章 Takeaway</h3>
+<ul>
+<li><strong>每窩必記</strong> 20+ 欄位（pair_id、互梳、D3 血管、egg_binding、sale）</li>
+<li>月度 KPI 儀表板：<strong>D3 血管率 ≥50% / 孵化率 ≥40% / egg binding = 0%</strong></li>
+<li><strong>紀錄優先於技術</strong> — 有紀錄才能改善，沒紀錄再好的鳥也不會學習</li>
+<li>自動化投資：<strong>紅外鏡頭 NT$300-800/支</strong> = 不干擾觀察 + 3 年累積 ML 預測資料</li>
+</ul>
 <hr />
 <h2 id="18">第 18 章｜跨物種借鑑方法論</h2>
+<blockquote>
+<p>你可能注意到本書大量引用其他物種（Pionus、Poicephalus、Cockatiel…）。本章解釋<strong>為什麼這樣做</strong>，以及你未來補 gap 時該怎麼操作。方法論可用在任何物種，不限凱克。</p>
+</blockquote>
 <h3 id="181">18.1 核心邏輯</h3>
 <p>金頭凱克本身學術文獻稀缺 → 單獨研究會卡在資料不足 → <strong>跨物種借鑑（Tier S→A→D）</strong>→ 166 cells 累積 → SOP v0.6.1 → 實證驗證。</p>
 <h3 id="182-6-tier">18.2 6 Tier 借鑑強度矩陣</h3>
@@ -2098,6 +3323,92 @@ sale_price_per_chick, buyer_channel
 </tr>
 </tbody>
 </table>
+<figure class="svg-diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 600" width="100%" style="max-width:720px;height:auto;display:block;margin:24px auto;">
+  <title>6 Tier 跨物種借鑑關係圖（以金頭凱克為中心）</title>
+  <rect x="0" y="0" width="720" height="600" fill="#fbf9f4"/>
+  <text x="360" y="32" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="18" font-weight="700" fill="#b8845a">6 Tier 跨物種借鑑關係圖</text>
+  <text x="360" y="54" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="12" fill="#6b6660">「親緣近 ≠ 借鑑好」：Tier D 文獻最多，ROI 最高</text>
+
+  <!-- Center: Pionites leucogaster -->
+  <circle cx="360" cy="300" r="60" fill="#b8845a" stroke="#8b5a2a" stroke-width="3"/>
+  <text x="360" y="292" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="12" font-weight="700" fill="#fff">Pionites</text>
+  <text x="360" y="308" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="12" font-weight="700" fill="#fff">leucogaster</text>
+  <text x="360" y="324" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="10" fill="#f5d76e">（金頭凱克）</text>
+
+  <!-- Tier rings -->
+  <!-- Tier S: inner ring, top -->
+  <g font-family="'Noto Sans TC',sans-serif">
+    <circle cx="360" cy="170" r="44" fill="#faf4e8" stroke="#b8845a" stroke-width="2"/>
+    <text x="360" y="158" text-anchor="middle" font-size="13" font-weight="700" fill="#b8845a">Tier S</text>
+    <text x="360" y="174" text-anchor="middle" font-size="10" fill="#2d2a26">同屬 Pionites</text>
+    <text x="360" y="188" text-anchor="middle" font-size="10" fill="#2d2a26">(5 種)</text>
+    <text x="360" y="202" text-anchor="middle" font-size="9" fill="#c65d20" font-weight="700">100% 直接複製</text>
+  </g>
+
+  <!-- Tier A: right upper -->
+  <g font-family="'Noto Sans TC',sans-serif">
+    <circle cx="540" cy="225" r="48" fill="#faf4e8" stroke="#b8845a" stroke-width="2"/>
+    <text x="540" y="212" text-anchor="middle" font-size="13" font-weight="700" fill="#b8845a">Tier A</text>
+    <text x="540" y="228" text-anchor="middle" font-size="10" fill="#2d2a26">同族 Arini</text>
+    <text x="540" y="242" text-anchor="middle" font-size="10" fill="#2d2a26">Pyrrhura / Aratinga</text>
+    <text x="540" y="256" text-anchor="middle" font-size="9" fill="#c65d20" font-weight="700">行為一致 / 參數微調</text>
+  </g>
+
+  <!-- Tier B: right lower -->
+  <g font-family="'Noto Sans TC',sans-serif">
+    <circle cx="550" cy="385" r="44" fill="#faf4e8" stroke="#b8845a" stroke-width="2"/>
+    <text x="550" y="372" text-anchor="middle" font-size="13" font-weight="700" fill="#b8845a">Tier B</text>
+    <text x="550" y="388" text-anchor="middle" font-size="10" fill="#2d2a26">姊妹屬 Deroptyus</text>
+    <text x="550" y="402" text-anchor="middle" font-size="10" fill="#2d2a26">(1 屬)</text>
+    <text x="550" y="416" text-anchor="middle" font-size="9" fill="#6b6660">文獻少、難度高</text>
+  </g>
+
+  <!-- Tier C: bottom center, gold highlight (Pionus) -->
+  <g font-family="'Noto Sans TC',sans-serif">
+    <circle cx="360" cy="470" r="52" fill="#fdf1cc" stroke="#8b5a2a" stroke-width="3"/>
+    <text x="360" y="456" text-anchor="middle" font-size="13" font-weight="700" fill="#8b5a2a">Tier C ⭐</text>
+    <text x="360" y="472" text-anchor="middle" font-size="10" fill="#2d2a26">姊妹亞科 Pionini</text>
+    <text x="360" y="486" text-anchor="middle" font-size="10" fill="#2d2a26">Pionus / Pyrilia</text>
+    <text x="360" y="500" text-anchor="middle" font-size="9" fill="#c65d20" font-weight="700">Pionus AI 決定性證據</text>
+  </g>
+
+  <!-- Tier D: left lower, GOLD STAR -->
+  <g font-family="'Noto Sans TC',sans-serif">
+    <circle cx="170" cy="385" r="56" fill="#f5d76e" stroke="#8b5a2a" stroke-width="3"/>
+    <text x="170" y="368" text-anchor="middle" font-size="13" font-weight="700" fill="#8b5a2a">Tier D ⭐⭐⭐</text>
+    <text x="170" y="386" text-anchor="middle" font-size="10" fill="#2d2a26">跨亞科</text>
+    <text x="170" y="400" text-anchor="middle" font-size="10" fill="#2d2a26">Poicephalus / Lovebird</text>
+    <text x="170" y="414" text-anchor="middle" font-size="9" fill="#c65d20" font-weight="700">文獻最豐富 / 最高 ROI</text>
+  </g>
+
+  <!-- Tier E: left upper -->
+  <g font-family="'Noto Sans TC',sans-serif">
+    <circle cx="180" cy="225" r="44" fill="#faf4e8" stroke="#b8845a" stroke-width="2"/>
+    <text x="180" y="212" text-anchor="middle" font-size="13" font-weight="700" fill="#b8845a">Tier E</text>
+    <text x="180" y="228" text-anchor="middle" font-size="10" fill="#2d2a26">遠緣商繁普遍</text>
+    <text x="180" y="242" text-anchor="middle" font-size="10" fill="#2d2a26">Cockatiel / Budgie</text>
+    <text x="180" y="256" text-anchor="middle" font-size="9" fill="#6b6660">行為差距大、參考值</text>
+  </g>
+
+  <!-- Connection lines (center to tiers) -->
+  <line x1="360" y1="240" x2="360" y2="214" stroke="#b8845a" stroke-width="2" stroke-dasharray="3,2"/>
+  <line x1="410" y1="262" x2="496" y2="229" stroke="#b8845a" stroke-width="2" stroke-dasharray="3,2"/>
+  <line x1="415" y1="337" x2="510" y2="375" stroke="#b8845a" stroke-width="2" stroke-dasharray="3,2"/>
+  <line x1="360" y1="360" x2="360" y2="418" stroke="#8b5a2a" stroke-width="3"/>
+  <line x1="308" y1="340" x2="215" y2="377" stroke="#8b5a2a" stroke-width="3"/>
+  <line x1="310" y1="262" x2="222" y2="232" stroke="#b8845a" stroke-width="2" stroke-dasharray="3,2"/>
+
+  <!-- Bottom panel: reversal fact -->
+  <g font-family="'Noto Sans TC',sans-serif">
+    <rect x="80" y="540" width="560" height="48" fill="#faf4e8" stroke="#b8845a" stroke-width="1" rx="6"/>
+    <text x="360" y="560" text-anchor="middle" font-size="12" font-weight="700" fill="#c65d20">反直覺：Tier D（跨亞科）借鑑價值 &gt; Tier B（姐妹屬）</text>
+    <text x="360" y="578" text-anchor="middle" font-size="10.5" fill="#2d2a26">鷹頭鸚鵡（Tier B）繁殖難 + 文獻少；Poicephalus（Tier D）技術文件豐富。優先抄 D 不抄 B。</text>
+  </g>
+</svg>
+<p style="text-align:center;font-size:13px;color:#6b6660;margin-top:-8px;">圖 18.1｜6 Tier 借鑑強度。Tier D 是實戰 ROI 最高的借鑑來源（金色高亮）。</p>
+</figure>
+
 <h3 id="183">18.3 反直覺事實</h3>
 <p><strong>「親緣近 ≠ 借鑑好」</strong>。鷹頭鸚鵡（Tier B 姐妹屬）繁殖極難、文獻少；Poicephalus（Tier D 跨亞科）文獻最完整。<strong>優先抄 D 不抄 B</strong>。</p>
 <h3 id="184-gap">18.4 如何用這方法論繼續補 gap</h3>
@@ -2107,8 +3418,18 @@ sale_price_per_chick, buyer_channel
 <li>優先 Tier D（技術文件最多）</li>
 <li>標註「借鑑推算 ±X%」，未來實證校準</li>
 </ol>
+<h3 id="takeaway_17">本章 Takeaway</h3>
+<ul>
+<li><strong>親緣近 ≠ 借鑑好</strong>：Tier D（Poicephalus 跨亞科）文獻最多、ROI 最高</li>
+<li>Tier C 姐妹屬（Pionus）是 <strong>massage 採精決定性證據</strong></li>
+<li>補 gap 優先序：<strong>S → A → D → C → B → E</strong>（不是線性親緣）</li>
+<li>每個 cell 標<strong>借鑑推算 ±X%</strong>，未來實證校準</li>
+</ul>
 <hr />
 <h2 id="19">第 19 章｜三年進路圖</h2>
+<blockquote>
+<p>方法論內化後，本章把所有章節<strong>按時間序攤開</strong>：年 0 做什麼、年 1 引入什麼、年 2 穩定什麼、年 3 旗艦 target。有 roadmap 你才不會在執行中迷失。</p>
+</blockquote>
 <pre><code>年 0（現在）           年 1                 年 2                 年 3
    │                    │                    │                    │
    ├─ SOP v0.6.1 落地    ├─ xanthomerius      ├─ xanthomerius      ├─ xanthurus（黃尾）
@@ -2126,8 +3447,117 @@ sale_price_per_chick, buyer_channel
 <li><strong>M24</strong>：xanthomerius 本地繁殖率檢討（&lt;50% 暫緩 xanthurus）</li>
 <li><strong>M30</strong>：透過 VDW / Parkieten Sociëteit 聯繫 xanthurus 持有者</li>
 </ul>
+<figure class="svg-diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" width="100%" style="max-width:900px;height:auto;display:block;margin:24px auto;">
+  <title>3 年進路時間軸 + 關鍵決策點</title>
+  <rect x="0" y="0" width="900" height="460" fill="#fbf9f4"/>
+  <text x="450" y="32" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="19" font-weight="700" fill="#b8845a">三年進路：從 leucogaster 到 xanthurus</text>
+  <text x="450" y="54" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="12" fill="#6b6660">階段性引入 / 每階段穩定後再擴張 / 決策點觸發下一步</text>
+
+  <!-- Main timeline arrow -->
+  <line x1="80" y1="200" x2="870" y2="200" stroke="#2d2a26" stroke-width="3"/>
+  <polygon points="870,200 858,194 858,206" fill="#2d2a26"/>
+
+  <!-- Year markers (4 stops) -->
+  <g font-family="'Noto Sans TC',sans-serif">
+    <!-- Year 0 -->
+    <circle cx="140" cy="200" r="14" fill="#b8845a" stroke="#fbf9f4" stroke-width="3"/>
+    <text x="140" y="206" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">0</text>
+    <text x="140" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2a26">年 0（現在）</text>
+    <!-- Year 1 -->
+    <circle cx="385" cy="200" r="14" fill="#b8845a" stroke="#fbf9f4" stroke-width="3"/>
+    <text x="385" y="206" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">1</text>
+    <text x="385" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2a26">年 1</text>
+    <!-- Year 2 -->
+    <circle cx="625" cy="200" r="14" fill="#b8845a" stroke="#fbf9f4" stroke-width="3"/>
+    <text x="625" y="206" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">2</text>
+    <text x="625" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2a26">年 2</text>
+    <!-- Year 3 -->
+    <circle cx="855" cy="200" r="14" fill="#8b5a2a" stroke="#f5d76e" stroke-width="3"/>
+    <text x="855" y="206" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">3</text>
+    <text x="855" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#8b5a2a">年 3 ⭐</text>
+  </g>
+
+  <!-- Above-line milestones (年 0, 年 2) -->
+  <g font-family="'Noto Sans TC',sans-serif" font-size="11">
+    <!-- Year 0 box -->
+    <line x1="140" y1="186" x2="140" y2="102" stroke="#b8845a" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <rect x="30" y="62" width="220" height="84" fill="#faf4e8" stroke="#b8845a" stroke-width="1.5" rx="6"/>
+    <text x="140" y="80" text-anchor="middle" font-weight="700" fill="#2d2a26" font-size="12">SOP v0.6.1 落地期</text>
+    <text x="40" y="98" fill="#2d2a26">• 10-20 對 leucogaster 就位</text>
+    <text x="40" y="114" fill="#2d2a26">• ACTION_PLAN 5 件事</text>
+    <text x="40" y="130" fill="#2d2a26">• R5 新槓桿 5 件（視覺屏蔽、UPS...）</text>
+    <!-- Year 2 box -->
+    <line x1="625" y1="186" x2="625" y2="102" stroke="#b8845a" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <rect x="510" y="62" width="230" height="84" fill="#faf4e8" stroke="#b8845a" stroke-width="1.5" rx="6"/>
+    <text x="625" y="80" text-anchor="middle" font-weight="700" fill="#2d2a26" font-size="12">xanthomerius 本地繁殖</text>
+    <text x="520" y="98" fill="#2d2a26">• 台灣首批 xantho 幼鳥出貨</text>
+    <text x="520" y="114" fill="#2d2a26">• leuco KPI 穩定 target 5 雛/對</text>
+    <text x="520" y="130" fill="#2d2a26">• 行號 → 有限公司評估</text>
+  </g>
+
+  <!-- Below-line milestones (年 1, 年 3) -->
+  <g font-family="'Noto Sans TC',sans-serif" font-size="11">
+    <!-- Year 1 box -->
+    <line x1="385" y1="214" x2="385" y2="262" stroke="#b8845a" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <rect x="270" y="262" width="230" height="84" fill="#faf4e8" stroke="#b8845a" stroke-width="1.5" rx="6"/>
+    <text x="385" y="280" text-anchor="middle" font-weight="700" fill="#2d2a26" font-size="12">xanthomerius 引入</text>
+    <text x="280" y="298" fill="#2d2a26">• 2-4 對 xantho 歐洲落地</text>
+    <text x="280" y="314" fill="#2d2a26">• 首繁 KPI baseline 出</text>
+    <text x="280" y="330" fill="#2d2a26">• 精液-D3 回歸曲線建立</text>
+    <!-- Year 3 box -->
+    <line x1="855" y1="214" x2="855" y2="262" stroke="#8b5a2a" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <rect x="660" y="262" width="230" height="84" fill="#fdf1cc" stroke="#8b5a2a" stroke-width="1.5" rx="6"/>
+    <text x="775" y="280" text-anchor="middle" font-weight="700" fill="#8b5a2a" font-size="12">xanthurus（黃尾）⭐</text>
+    <text x="670" y="298" fill="#2d2a26">• 2-3 對黃尾引入</text>
+    <text x="670" y="314" fill="#2d2a26">• 台灣首批 xanthurus 幼鳥</text>
+    <text x="670" y="330" fill="#2d2a26">• 「台灣唯一完整血統」品牌</text>
+  </g>
+
+  <!-- Decision points (diamonds) -->
+  <g font-family="'Noto Sans TC',sans-serif" font-size="10">
+    <!-- M12 -->
+    <polygon points="260,200 280,185 300,200 280,215" fill="#c65d20" stroke="#fbf9f4" stroke-width="2"/>
+    <text x="280" y="204" text-anchor="middle" font-weight="700" fill="#fff" font-size="9">M12</text>
+    <text x="280" y="240" text-anchor="middle" fill="#c65d20" font-weight="700">xantho 成敗檢討</text>
+    <!-- M24 -->
+    <polygon points="500,200 520,185 540,200 520,215" fill="#c65d20" stroke="#fbf9f4" stroke-width="2"/>
+    <text x="520" y="204" text-anchor="middle" font-weight="700" fill="#fff" font-size="9">M24</text>
+    <text x="520" y="240" text-anchor="middle" fill="#c65d20" font-weight="700">繁殖率 &lt;50%? 暫緩黃尾</text>
+    <!-- M30 -->
+    <polygon points="740,200 760,185 780,200 760,215" fill="#c65d20" stroke="#fbf9f4" stroke-width="2"/>
+    <text x="760" y="204" text-anchor="middle" font-weight="700" fill="#fff" font-size="9">M30</text>
+    <text x="760" y="240" text-anchor="middle" fill="#c65d20" font-weight="700">聯繫 VDW 黃尾持有者</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(80,400)" font-family="'Noto Sans TC',sans-serif" font-size="11">
+    <circle cx="10" cy="10" r="8" fill="#b8845a"/>
+    <text x="26" y="14" fill="#2d2a26">年度節點</text>
+    <polygon points="120,3 132,10 120,17 108,10" fill="#c65d20"/>
+    <text x="142" y="14" fill="#2d2a26">決策觸發點</text>
+    <rect x="260" y="3" width="16" height="14" fill="#faf4e8" stroke="#b8845a"/>
+    <text x="284" y="14" fill="#2d2a26">主 milestone</text>
+    <rect x="400" y="3" width="16" height="14" fill="#fdf1cc" stroke="#8b5a2a"/>
+    <text x="424" y="14" fill="#2d2a26">差異化旗艦 target</text>
+  </g>
+  <text x="450" y="444" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="11" fill="#6b6660" font-style="italic">⚠️ 決策點失敗時回撤：每個黑鑽觸發 re-plan，不是一路衝到底</text>
+</svg>
+<p style="text-align:center;font-size:13px;color:#6b6660;margin-top:-8px;">圖 19.1｜三年進路與決策點。階段性引入，每個鑽石符號 = 停下評估再決定是否繼續。</p>
+</figure>
+
+<h3 id="takeaway_18">本章 Takeaway</h3>
+<ul>
+<li><strong>年 0 穩基本盤</strong>（leuco + SOP v0.6.1 + R5 新槓桿落地）</li>
+<li><strong>年 1 引入 xanthomerius</strong>（2-4 對），年 2 本地繁殖穩定</li>
+<li><strong>年 3 xanthurus（黃尾）⭐</strong> — 台灣首批完整血統品牌</li>
+<li>3 個決策點（<strong>M12 / M24 / M30</strong>）：每個停下評估，不是一路衝</li>
+</ul>
 <hr />
 <h2 id="20">第 20 章｜實證階段 — 球在你手上</h2>
+<blockquote>
+<p>到此為止，研究端的工作告一段落。<strong>接下來的 12 個月，書再厚也救不了你 — 只有你場內的數據說話</strong>。本章把研究邊界交代清楚，然後把球丟給你。</p>
+</blockquote>
 <h3 id="201">20.1 研究端到本書為止能給你的極限</h3>
 <p>Round 0-4 + R5 ultrathink 總產出：
 - 166 cells（19 fields × 多物種）
@@ -2204,6 +3634,13 @@ sale_price_per_chick, buyer_channel
 <li><strong>SOP 是工具不是宗教</strong> — 當你累積的自家數據與 SOP 衝突，<strong>數據為準</strong></li>
 </ol>
 <p>研究端到此為止。剩下 12 個月，球在你手上。</p>
+<h3 id="takeaway_19">本章 Takeaway</h3>
+<ul>
+<li>研究端已到<strong>邊際收益遞減</strong>，166 cells 是起點不是終點</li>
+<li><strong>6 項研究救不了的 KPI</strong> 只能場內補（D3 血管率、精液 baseline、台灣觸發校準…）</li>
+<li>30/90/365 天作戰時程：投資 → 首批數據 → 全面換檔（目標 <strong>3→5 雛/對/年</strong>）</li>
+<li>6 項最後提醒：<strong>不同時改太多 / 紀錄優先 / 互梳觀察快 / 鈣不省 / xanthurus 是遠程 / 數據為準</strong></li>
+</ul>
 <hr />
 <h1 id="_5">附錄</h1>
 <h2 id="a">附錄 A：本書引用的所有檔案索引</h2>
@@ -2612,13 +4049,309 @@ sale_price_per_chick, buyer_channel
 <td>2026-04-19</td>
 <td>初版。整合 Round 0-4 + v0.6.1 patch + R5 ultrathink 槓桿。20 章 + 8 附錄。</td>
 </tr>
+<tr>
+<td><strong>v2.0</strong></td>
+<td><strong>2026-04-19</strong></td>
+<td><strong>內容增補</strong>：第 16.5 章財務模型、附錄 H 台灣法規、附錄 I 急救速查卡、20 章 Takeaway、19 個章間承接句、第 0.3 節 6 項前置、第 4 章 baseline 標註修正。<strong>視覺化</strong>：5 張 SVG（產蛋率模型 / 孵化曲線 / 3 年 roadmap / 6 Tier / massage 手勢）。<strong>HTML 體驗</strong>：favicon、OG meta、全書搜尋、手機漢堡選單、回頂部、code copy、閱讀時間、列印分頁。</td>
+</tr>
 </tbody>
 </table>
-<p><strong>v2.0 觸發條件</strong>：
+<p><strong>v3.0 觸發條件</strong>：
 - Jay 執行 ACTION_PLAN 3-6 個月後，自家 KPI baseline 出來
 - Round 5（若 KPI 揭露新 gap）
-- xanthomerius 引入啟動（M12+）</p>
-<h2 id="h">附錄 H：給下一個讀這本書的人</h2>
+- xanthomerius 引入啟動（M12+）
+- 實戰案例、規模化路徑、客戶管理章節（v2 留給 v3 的 D 級項目）</p>
+<h2 id="h">附錄 H：台灣法規合規（商業繁殖必讀）</h2>
+<blockquote>
+<p>⚠️ 本附錄為<strong>法規盤點與方向提示</strong>，不是法律意見。實際申請前應向主管機關 / 會計師 / 律師確認。法規修正頻繁，本附錄資訊截至 2026-04。</p>
+</blockquote>
+<h3 id="h1-22">H.1 寵物業登記（動物保護法第 22 條）</h3>
+<p><strong>觸發條件</strong>：<strong>以營利為目的</strong>繁殖、買賣、寄養鳥類（含鸚鵡）→ 需向<strong>地方動物保護主管機關</strong>申請「特定寵物業」許可。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>規定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>法源</td>
+<td>動物保護法 § 22 + 特定寵物業管理辦法</td>
+</tr>
+<tr>
+<td>主管機關</td>
+<td><strong>各縣市動物保護處 / 畜產課</strong>（台北動保處、新北動保處、高雄動保處等）</td>
+</tr>
+<tr>
+<td>規模門檻</td>
+<td>現行法「以營利為目的繁殖」即納管，<strong>不以隻數為限</strong>（常見誤解 10 隻以上才管，錯）</td>
+</tr>
+<tr>
+<td>申請文件</td>
+<td>場地圖、設備清單、專業人員證明、負責人身分、動物取得來源</td>
+</tr>
+<tr>
+<td>專業人員</td>
+<td>取得<strong>寵物繁殖業、買賣業或寄養業專業人員訓練證書</strong>（各縣市有班）</td>
+</tr>
+<tr>
+<td>許可有效期</td>
+<td>4 年，期滿換發</td>
+</tr>
+<tr>
+<td>年度查核</td>
+<td>地方動保稽查員定期抽查</td>
+</tr>
+<tr>
+<td>違規罰則</td>
+<td>無照繁殖營利：5-25 萬元；累犯加重；情節重大廢止</td>
+</tr>
+</tbody>
+</table>
+<p><strong>實務建議</strong>：
+1. 初期可以「自用繁殖、非營利贈送」姿態開始，但<strong>只要開始收款</strong> = 營利 = 要登記。別賭。
+2. 雛鳥交易 FB 社團常見「含運費」等話術繞法，台灣動保處近年已加強查緝。正規商業路線走合法才能做上段定位。
+3. 建議一開始就規劃「訓練課 → 申請 → 開業」，避免後期補辦。</p>
+<h3 id="h2">H.2 動物保護法核心條文</h3>
+<table>
+<thead>
+<tr>
+<th>條號</th>
+<th>要求</th>
+<th>影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§ 5</td>
+<td>提供適當飲食、飲水、醫療、活動空間、遮蔽</td>
+<td>場地設計底線</td>
+</tr>
+<tr>
+<td>§ 6</td>
+<td>不得騷擾、虐待、傷害</td>
+<td>鎖定棄巢鳥要注意，不能餓治</td>
+</tr>
+<tr>
+<td>§ 20</td>
+<td>寵物出售須 30 天健康觀察</td>
+<td>雛鳥成交流程</td>
+</tr>
+<tr>
+<td>§ 22</td>
+<td>寵物業登記（上表）</td>
+<td>營業資格</td>
+</tr>
+<tr>
+<td>§ 25-27</td>
+<td>虐待罰則（可罰 6 萬至 200 萬 + 刑責）</td>
+<td>紀錄很重要，查緝時證明自己盡責</td>
+</tr>
+<tr>
+<td>§ 30</td>
+<td>寵物業不實登記罰則</td>
+<td>填表要誠實</td>
+</tr>
+</tbody>
+</table>
+<h3 id="h3-cites-xanthomerius-xanthurus-p0">H.3 CITES 進口申請（xanthomerius / xanthurus 引入路徑 P0）</h3>
+<p><em>Pionites leucogaster</em> 屬 <strong>CITES 附錄 II</strong>。跨亞種（xanthomerius、xanthurus）引入流程：</p>
+<pre><code>①  確認歐洲賣家擁有合法 CITES 出口文件（Source code C = 圈養繁殖）
+     └ 歐盟 EU CITES certificate（T 編號）
+②  向林業及自然保育署申請「進口許可證」
+     └ 需填寫：物種、數量、來源國、出口許可文件影本、引入目的
+③  輸出國核發 CITES Export Permit
+④  動植物防疫檢疫署（現農業部動植物防疫檢疫署）
+     ├ 動物檢疫申請
+     ├ 30 天隔離檢疫（在指定隔離場）
+     └ 傳染病 PCR 陰性（PBFD/BFD/衣原體/禽流感）
+⑤  完成隔離 → 放行 → 落地
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>主管機關</th>
+<th>事項</th>
+<th>連絡方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>農業部林業及自然保育署</td>
+<td>CITES 進口許可</td>
+<td>保育組 / 線上申請系統</td>
+</tr>
+<tr>
+<td>農業部動植物防疫檢疫署</td>
+<td>動物檢疫、禽流感</td>
+<td>隔離場、運輸、檢驗</td>
+</tr>
+<tr>
+<td>海關</td>
+<td>報關通關</td>
+<td>需報關行協助</td>
+</tr>
+</tbody>
+</table>
+<p><strong>實務提醒</strong>：
+- 落地時程 <strong>3-6 個月</strong>（歐洲賣家文件 2-8 週 + 台灣申請 4-8 週 + 隔離 30+ 天）
+- 單次引入 2-4 隻最省成本（檢疫隔離設施分攤費用）
+- 建議透過有進口鸚鵡經驗的業者或律師協助首次申請</p>
+<h3 id="h4-chlamydia-psittaci">H.4 衣原體（Chlamydia psittaci）通報義務</h3>
+<ul>
+<li><strong>人畜共患傳染病</strong>（可傳染給人，引起 psittacosis / 鸚鵡熱）</li>
+<li>若獸醫診斷場內鳥確診 → <strong>獸醫有通報義務</strong>（向地方衛生局）</li>
+<li>發生時鳥場需配合：隔離、治療、環境消毒、其他接觸者篩檢</li>
+<li>若造成員工感染 → 可能觸發職災與賠償</li>
+</ul>
+<p><strong>防禦</strong>：新進鳥三病毒 PCR 陰性 + 場內衛生 SOP（見第 14.2）= 零事件。</p>
+<h3 id="h5">H.5 稅務結構比較</h3>
+<table>
+<thead>
+<tr>
+<th>結構</th>
+<th>適合階段</th>
+<th>稅務</th>
+<th>建議</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>個人（自營）</strong></td>
+<td>年營收 &lt; 80 萬</td>
+<td>綜所稅執行業務所得（60% 視為所得）</td>
+<td>初創最輕，但無法開發票</td>
+</tr>
+<tr>
+<td><strong>行號（獨資／合夥）</strong></td>
+<td>年營收 80-500 萬</td>
+<td>綜所稅（視為個人所得）+ 營業稅 5%</td>
+<td>可以開發票，責任無限</td>
+</tr>
+<tr>
+<td><strong>有限公司</strong></td>
+<td>年營收 &gt; 500 萬 或 合夥多人</td>
+<td>營所稅 20% + 股東股利所得</td>
+<td>責任有限、可抵稅、轉手便利</td>
+</tr>
+</tbody>
+</table>
+<p><strong>凱克 10 對年試算</strong>（見第 16.5 章財務模型）：
+- 若年雛鳥 50 隻 × 25K NTD = 年營收 ~125 萬 → <strong>行號起跳</strong>
+- 規模到 30 對 + 含飼料配件販售 → 建議<strong>有限公司</strong> + 記帳士</p>
+<p><strong>關鍵</strong>：建議從行號開始，便於未來轉有限公司時資產移轉。</p>
+<h3 id="h6">H.6 飼料 / 寵物食品販售法規（若附帶賣飼料）</h3>
+<ul>
+<li>適用《飼料管理法》+《寵物食品標示法》</li>
+<li>自有品牌飼料需登記 + 標示（成分、保存期限、製造商）</li>
+<li>純轉售進口 Kaytee / Harrison 等大牌 <strong>不需另登</strong>，但需合法進口報關</li>
+<li>獸醫用藥 / 營養品跨入食品藥物管理 → 需藥廠登記，<strong>不建議自製販售</strong></li>
+</ul>
+<h3 id="h7-checklist">H.7 合規最低 checklist（開業前檢查）</h3>
+<ul>
+<li>[ ] 完成縣市寵物業專業人員訓練（8 小時課 + 考試）</li>
+<li>[ ] 取得<strong>特定寵物業許可證</strong></li>
+<li>[ ] 場地符合「寵物業場所設施及人員配置標準」（通風、光照、衛生、動物密度）</li>
+<li>[ ] 每隻種鳥 <strong>腳環號 / 晶片</strong> 身分建立</li>
+<li>[ ] <strong>DNA 性別鑑定 + 三病毒 PCR 文件</strong> 歸檔</li>
+<li>[ ] 繁殖 / 銷售紀錄本（每隻鳥來源、交易對象、售價）</li>
+<li>[ ] <strong>雛鳥交易</strong> 30 天健康觀察文件 + 買受人簽名</li>
+<li>[ ] 年度獸醫健檢紀錄</li>
+<li>[ ] 若開發票：稅籍登記 + 記帳師或會計</li>
+<li>[ ] 若引入國外：CITES 進口許可檔案留底</li>
+</ul>
+<h3 id="h8">H.8 灰區與自我保護</h3>
+<ul>
+<li><strong>公寓 / 出租鐵皮屋繁殖</strong>：鄰居抗議 → 環保局檢舉噪音 / 排泄物 → 動保處介入。建議自有土地或有書面同意的獨棟。</li>
+<li><strong>FB / Shopee / Line 交易</strong>：個人賣家常見，但頻繁交易會被國稅局認定營利。量小可接受，做商業必須走正規。</li>
+<li><strong>拍照錄影留證</strong>：繁殖紀錄、雛鳥手養照片、轉食驗證、交易當日錄影 → 未來若客訴或動保團體舉報，這是免責依據。</li>
+<li><strong>保險</strong>：農業保險 / 商業責任保險 可補足（雛鳥損失 / 員工傷害 / 第三方損害）。</li>
+</ul>
+<hr />
+<h2 id="i">附錄 I：急救速查卡（列印貼場內牆上）</h2>
+<blockquote>
+<p>🆘 <strong>使用說明</strong>：遇到緊急狀況，先翻這頁。電話 / 獸醫 / 交通路線先填好。單頁 A4 列印後<strong>貼在孵化室與雛鳥室牆上</strong>。</p>
+</blockquote>
+<h3 id="_6">緊急連絡（請填入）</h3>
+<pre><code>📞 主治禽鳥獸醫：________________________
+📞 備用獸醫（24h）：______________________
+📞 夜間急診動物醫院：____________________
+📍 最近路線（開車時間）：________________
+🚨 動保處通報（人畜共患時）：_____________
+</code></pre>
+<hr />
+<h3 id="1egg-binding">🥚 場景 1：Egg Binding（卡蛋）</h3>
+<p><strong>症狀</strong>：母鳥 24h+ 未下蛋 / 蹲姿 / 尾下垂 / 下腹膨大 / 呼吸急促 / 停食。</p>
+<p><strong>立即處理（15 分鐘內）</strong>：
+1. <strong>升溫</strong> 環境到 30-32°C（熱水袋 + 毛巾包圍籠底）
+2. <strong>泄殖腔口滴 2-3 滴礦物油</strong>（藥局買得到、或橄欖油）
+3. <strong>Ca gluconate 50-100 mg/kg SC/IM</strong>（等量生理鹽水稀釋）— <strong>獸醫注射</strong>，你沒 vet training 別自己打
+4. <strong>立即送獸醫</strong>（攜帶時保溫 + 毛巾包裹減少掙扎）</p>
+<p><strong>絕不做</strong>：不要自己用手擠蛋 → 破裂會割破輸卵管致死</p>
+<hr />
+<h3 id="2sour-crop-crop-stasis">🐣 場景 2：雛鳥嗉囊不排空（Sour Crop / Crop Stasis）</h3>
+<p><strong>症狀</strong>：餵食 4-6h 後嗉囊仍脹 / 摸起來硬或液態 / 臭味 / 雛鳥倦怠。</p>
+<p><strong>立即處理</strong>：
+1. <strong>停止下一餐</strong>（不餵）
+2. <strong>保溫 34°C</strong>（暖箱檢查）
+3. <strong>少量（5-10 滴）37°C 溫開水 + 電解質</strong> 慢慢餵
+4. <strong>輕柔按摩嗉囊外側</strong> 幫助排空
+5. 4h 後仍未排空 → <strong>獸醫</strong>（可能酵母菌 / 食積 / 燒傷）</p>
+<p><strong>絕不做</strong>：不要硬餵更多配方 → 嗉囊破裂或吸入性肺炎</p>
+<hr />
+<h3 id="3uvb">🔥 場景 3：UVB 灼傷 / 眼周泛紅</h3>
+<p><strong>症狀</strong>：持續瞇眼 / 頻繁眨眼 / 眼周裸皮泛紅 / 主動躲陰影。</p>
+<p><strong>立即處理</strong>：
+1. <strong>關閉 UVB 燈或拉遠到 ≥ 50 cm</strong>
+2. <strong>籠內加遮陰布簾</strong> 一半面積
+3. <strong>觀察 24h</strong>
+4. 若角膜出現白霧 / 持續泛紅 → <strong>獸醫</strong>（可能角膜損傷）</p>
+<p><strong>預防</strong>：換管每 6-12 個月 + 5-12% UVB 不用爬蟲 10% + 距離 30 cm + 每日 4-6h（非 24h）</p>
+<hr />
+<h3 id="4">⚡ 場景 4：孵化機斷電</h3>
+<p><strong>症狀</strong>：停電 / 孵化機故障警示 / 溫度&lt;36°C。</p>
+<p><strong>立即處理</strong>：
+1. <strong>插上 UPS</strong>（若預裝）→ 切換備用電源 2-4h
+2. 若無 UPS：<strong>37°C 熱水袋 + 毛巾包覆孵化機外殼</strong>（每 20 分鐘換一次熱水）
+3. <strong>絕不打開孵化機</strong>（熱量、濕度流失）
+4. <strong>蛋溫短暫 &lt; 36°C 尚可救</strong>（D10 前 2h / D10 後 1h）
+5. 電力恢復後 <strong>候蛋 D3 再看血管</strong>確認胚胎存活</p>
+<p><strong>預防投資</strong>：UPS 5-10K NTD = 救 30-50% 胚胎存活。<strong>ROI 最高</strong>。</p>
+<hr />
+<h3 id="5-massage">🚫 場景 5：公鳥拒絕 massage 採精</h3>
+<p><strong>症狀</strong>：公鳥掙扎 / 尖叫 / 咬手 / 泄殖腔緊縮不外翻。</p>
+<p><strong>立即處理</strong>：
+1. <strong>停止操作</strong>（繼續會造成創傷與 PTSD）
+2. <strong>至少 3 天不再嘗試</strong>
+3. 重新從<strong>訓練期</strong>開始（4 週每週 2 次握持訓練，不採精）
+4. 若 3 次訓練週後仍強烈拒絕 → <strong>換另一隻公鳥</strong>先試，驗證是否你操作問題
+5. 多次失敗 → 轉<strong>自然交配 + D3 候蛋診斷</strong>（第 11.4 節）</p>
+<p><strong>絕不做</strong>：不要強制押住硬採 → 一次就毀掉這隻公鳥一輩子配合度</p>
+<hr />
+<h3 id="6_1">💩 場景 6：雛鳥腹瀉</h3>
+<p><strong>症狀</strong>：糞便水樣 / 白色綠色異常 / 肛門周圍沾染 / 雛鳥無精神 / 體重不增。</p>
+<p><strong>立即處理</strong>：
+1. <strong>保溫 34°C</strong>
+2. <strong>糞檢送獸醫</strong>（優先 Giardia / 酵母菌 / 細菌）
+3. <strong>減稀釋比</strong>（如原 75:25 改 70:30 濃一點）
+4. <strong>檢查餵食溫度</strong>（&lt;40°C 太涼導致消化慢）
+5. <strong>電解質補充</strong>（Pedialyte 類）少量多餐</p>
+<p><strong>絕不做</strong>：不要隨便給抗生素 → 鳥類抗生素需體重精準，隨便用破壞腸道菌</p>
+<hr />
+<h3 id="7-bleeding-feather">🩸 場景 7：出血 / 羽毛血管斷（bleeding feather）</h3>
+<p><strong>症狀</strong>：籠底血跡 / 羽毛根部滲血 / 咬傷出血。</p>
+<p><strong>立即處理</strong>：
+1. <strong>找到出血點</strong>（新生羽毛的血管羽最常見）
+2. <strong>直接壓迫 2-3 分鐘</strong>（紗布 + 手指）
+3. 血管羽未止血 → <strong>用止血粉</strong>（pet store 買得到）或<strong>玉米粉</strong>
+4. 出血量 &gt; 1 ml（鳥類總血量約 10-12 ml / 100g）→ <strong>獸醫急診</strong>
+5. 若是公母相咬 → <strong>立即分籠</strong>（第 7 章互梳評估決策樹）</p>
+<p><strong>絕不做</strong>：不要用衛生紙（會黏住血管羽拔下時再出血）</p>
+<hr />
+<p><strong>列印此頁後貼：孵化室 + 育雛室 + 獸醫車的副駕手套箱。</strong></p>
+<hr />
+<h2 id="j">附錄 J：給下一個讀這本書的人</h2>
 <p>這本書是寫給 Jay 的。但如果未來有其他繁殖者拿到這本書：</p>
 <ol>
 <li><strong>不要照抄所有數據到你的場</strong> — 凱克個體差異 + 場環境差異大</li>
@@ -2635,9 +4368,12 @@ sale_price_per_chick, buyer_channel
 </blockquote>
         </main>
     </div>
+
+    <button id="back-to-top" aria-label="回到頂部" title="回到頂部">↑</button>
+
     <script>
-// 高亮目前正在閱讀的章節
 document.addEventListener('DOMContentLoaded', () => {
+    // ── 高亮目前閱讀的章節 ──
     const headings = document.querySelectorAll('main h1[id], main h2[id], main h3[id]');
     const tocLinks = document.querySelectorAll('#sidebar .toc a');
     const linkMap = new Map();
@@ -2645,27 +4381,177 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = decodeURIComponent(a.getAttribute('href').slice(1));
         linkMap.set(id, a);
     });
-
     function clearActive() {
         tocLinks.forEach(a => a.classList.remove('active'));
     }
-
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 clearActive();
                 const link = linkMap.get(entry.target.id);
-                if (link) {
-                    link.classList.add('active');
-                }
+                if (link) link.classList.add('active');
             }
         });
-    }, {
-        rootMargin: '-20% 0px -75% 0px',
-        threshold: 0
+    }, { rootMargin: '-20% 0px -75% 0px', threshold: 0 });
+    headings.forEach(h => observer.observe(h));
+
+    // ── 閱讀時間計算（C1-5）──
+    const mainEl = document.querySelector('main');
+    const text = mainEl.innerText || '';
+    const charCount = text.length;
+    const minutes = Math.round(charCount / 400);  // 中文 ~400 字/分鐘
+    const metaBar = document.getElementById('book-meta-bar');
+    if (metaBar) {
+        metaBar.innerHTML = `<span class="reading-time-badge">⏱ 全書閱讀時間約 ${minutes} 分鐘</span>` +
+                            `<span class="reading-time-badge">📖 ${charCount.toLocaleString()} 字</span>` +
+                            `<span class="reading-time-badge">📊 ${headings.length} 個章節</span>`;
+    }
+
+    // ── 回頂部按鈕（C1-3）──
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) backToTop.classList.add('visible');
+            else backToTop.classList.remove('visible');
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // ── Code block copy button（C1-4）──
+    document.querySelectorAll('pre').forEach(pre => {
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = '複製';
+        btn.addEventListener('click', async () => {
+            const code = pre.querySelector('code');
+            const txt = code ? code.textContent : pre.textContent;
+            try {
+                await navigator.clipboard.writeText(txt);
+                btn.textContent = '已複製 ✓';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = '複製';
+                    btn.classList.remove('copied');
+                }, 1500);
+            } catch (e) {
+                btn.textContent = '複製失敗';
+            }
+        });
+        pre.appendChild(btn);
     });
 
-    headings.forEach(h => observer.observe(h));
+    // ── 手機漢堡選單（C2）──
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.getElementById('sidebar');
+    if (hamburger && sidebar) {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sidebar.classList.toggle('open');
+        });
+        // 點 TOC 連結後自動關閉
+        sidebar.querySelectorAll('.toc a').forEach(a => {
+            a.addEventListener('click', () => {
+                if (window.innerWidth <= 1024) sidebar.classList.remove('open');
+            });
+        });
+        // 點主內容關閉
+        document.querySelector('main').addEventListener('click', () => {
+            if (sidebar.classList.contains('open')) sidebar.classList.remove('open');
+        });
+    }
+
+    // ── 全書搜尋（C3，純 JS）──
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    if (searchInput && searchResults) {
+        // Build simple index: each heading + first paragraph after
+        const searchIndex = [];
+        headings.forEach(h => {
+            let text = h.textContent;
+            let node = h.nextElementSibling;
+            let depth = 0;
+            while (node && depth < 4) {
+                if (node.tagName && /^H[1-6]$/.test(node.tagName)) break;
+                text += ' ' + (node.textContent || '');
+                node = node.nextElementSibling;
+                depth++;
+            }
+            searchIndex.push({
+                id: h.id,
+                heading: h.textContent,
+                level: parseInt(h.tagName.slice(1)),
+                content: text
+            });
+        });
+
+        let debounceTimer;
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                const q = e.target.value.trim().toLowerCase();
+                if (q.length < 2) {
+                    searchResults.classList.remove('visible');
+                    searchResults.innerHTML = '';
+                    return;
+                }
+                const matches = searchIndex
+                    .filter(item => item.content.toLowerCase().includes(q))
+                    .slice(0, 20);
+
+                if (matches.length === 0) {
+                    searchResults.innerHTML = '<div class="no-results">沒有符合「' + escapeHtml(q) + '」的章節</div>';
+                } else {
+                    searchResults.innerHTML = matches.map(m => {
+                        const snippet = getSnippet(m.content, q);
+                        return `<div class="result-item" data-id="${m.id}">
+                            <span class="match-heading">${escapeHtml(m.heading)}</span>
+                            <span class="match-snippet">${snippet}</span>
+                        </div>`;
+                    }).join('');
+
+                    searchResults.querySelectorAll('.result-item').forEach(item => {
+                        item.addEventListener('click', () => {
+                            const id = item.dataset.id;
+                            const target = document.getElementById(id);
+                            if (target) {
+                                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                target.classList.add('search-highlight');
+                                setTimeout(() => target.classList.remove('search-highlight'), 1600);
+                                searchResults.classList.remove('visible');
+                                searchInput.value = '';
+                                if (window.innerWidth <= 1024) sidebar.classList.remove('open');
+                            }
+                        });
+                    });
+                }
+                searchResults.classList.add('visible');
+            }, 200);
+        });
+
+        // 失焦延遲關閉
+        searchInput.addEventListener('blur', () => {
+            setTimeout(() => searchResults.classList.remove('visible'), 200);
+        });
+        searchInput.addEventListener('focus', () => {
+            if (searchInput.value.trim().length >= 2) searchResults.classList.add('visible');
+        });
+    }
+
+    function escapeHtml(s) {
+        return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+    function getSnippet(text, q) {
+        const lower = text.toLowerCase();
+        const idx = lower.indexOf(q);
+        if (idx < 0) return escapeHtml(text.substring(0, 80));
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + q.length + 40);
+        let snippet = (start > 0 ? '…' : '') + text.substring(start, end) + (end < text.length ? '…' : '');
+        const re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig');
+        return escapeHtml(snippet).replace(re, '<mark>$1</mark>');
+    }
 });
 </script>
 </body>
