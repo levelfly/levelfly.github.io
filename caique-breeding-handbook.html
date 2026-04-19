@@ -667,6 +667,149 @@ figure.svg-diagram svg {
     body {
         font-size: 11pt;
     }
+
+    /* 列印時表格解除 scroll wrapper（完整展開）*/
+    .table-scroll {
+        overflow: visible !important;
+        background: none !important;
+    }
+    .table-scroll::after { display: none !important; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   v2.1 手機表格優化（2026-04-19 補丁）
+   問題：長 th + nowrap + 多欄 → 表格超出畫面右側
+   解法：表格包 scroll wrapper + mobile 下 th 可換行 + 全域 overflow-x 封死
+   ═══════════════════════════════════════════════════════ */
+
+/* 全域防整頁橫向滾動（sidebar off-screen 等原因的防守）*/
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+main {
+    max-width: 100%;
+    min-width: 0;  /* 允許 flex 子元素收縮 */
+}
+
+/* 表格 scroll wrapper — 每個 table 都包進這個 div */
+.table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 24px 0;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--bg-card);
+}
+
+.table-scroll::-webkit-scrollbar { height: 6px; }
+.table-scroll::-webkit-scrollbar-track { background: var(--bg-card); }
+.table-scroll::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 3px;
+}
+
+/* 表格本身：wrapper 已提供邊框與陰影，table 自己拿掉 */
+.table-scroll table {
+    margin: 0;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    min-width: auto;
+}
+
+.table-scroll > table {
+    width: 100%;
+}
+
+/* 滾動提示：只在「可以滾」時顯示 */
+.table-scroll.can-scroll::after {
+    content: "← 左右滑動查看完整表格 →";
+    display: block;
+    text-align: center;
+    padding: 6px;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: "Noto Sans TC", sans-serif;
+    background: linear-gradient(to right, transparent, var(--accent-light), transparent);
+    border-top: 1px dashed var(--border);
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* 桌機不需要滾動提示 */
+@media (min-width: 1025px) {
+    .table-scroll.can-scroll::after { display: none; }
+}
+
+/* Mobile：th/td 允許換行（原本 th nowrap 是禍首）*/
+@media (max-width: 1024px) {
+    .table-scroll th,
+    .table-scroll td {
+        white-space: normal;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        min-width: 0;
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    /* th 加 min-width 避免「手養」這種短標題擠成直書 */
+    .table-scroll th {
+        min-width: 60px;
+    }
+
+    /* 數字／code 欄仍保持 nowrap（給特定元素）*/
+    .table-scroll td code,
+    .table-scroll th code {
+        white-space: nowrap;
+    }
+}
+
+/* SVG figure 防溢出 */
+figure.svg-diagram {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 12px;
+}
+
+figure.svg-diagram svg {
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Pre code 長內容在手機能橫向滑 */
+@media (max-width: 1024px) {
+    pre {
+        padding: 14px 16px;
+        font-size: 12.5px;
+    }
+    pre code {
+        font-size: 12.5px;
+    }
+}
+
+/* 長英文／URL 斷字 */
+main p, main li, blockquote p {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+/* 但 code 保持 */
+main code {
+    word-break: normal;
+    overflow-wrap: normal;
 }
 </style>
 </head>
@@ -980,7 +1123,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <hr />
 <h2 id="0">第 0 章｜使用指南</h2>
 <h3 id="01">0.1 三種讀者，三種路徑</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>讀者</th>
@@ -1001,10 +1144,10 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>第 4（診斷卡在哪環節）→ 對應章節深讀</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="02">0.2 與既有檔案的關係</h3>
 <p>本手冊是<strong>教學書</strong>，不是 SOP。實務操作請參考：</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>查</th>
@@ -1033,10 +1176,10 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td><code>rounds/round_0N.md</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="03-6">0.3 讀本書前先認識：研究救不了你的 6 件事</h3>
 <p>這本書整合了 166 cells + 20 篇 peer-reviewed 文獻，<strong>但仍有 6 項關鍵事實研究階段無法給你答案，只能靠你場內累積</strong>：</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>研究救不了的項目</th>
@@ -1076,11 +1219,11 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>場內對照實驗</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>這意味著</strong>：本書的 SOP 是「已知最強起點」，但你的 KPI 必須自己測。不要把本書當聖經，<strong>你的數據永遠是最高真實</strong>。第 20 章會深入談這件事。</p>
 <h3 id="04">0.4 信心等級標記</h3>
 <p>每項建議帶標記，告訴你<strong>這句話有多可靠</strong>：</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>標記</th>
@@ -1115,11 +1258,11 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>這是 gap</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <h2 id="1">第 1 章｜為什麼做金頭凱克繁殖？（商業定位）</h2>
 <h3 id="11-r3-cites">1.1 台灣市場現實（R3 CITES 硬數據）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>年份</th>
@@ -1144,7 +1287,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>累計 <strong>950 隻</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>三個關鍵推論</strong>：
 1. <strong>台灣本地繁殖已飽和</strong> — 2020 年後進口歸零，證明自給自足
 2. <strong>台灣是淨出口國</strong> — 主要去中東（科威特、可能阿聯酋）
@@ -1157,7 +1300,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 - <strong>相對 <em>P. melanocephalus</em> 47.7% 野捕</strong>，未來 CITES 收緊風險 leucogaster 安全得多</p>
 <p>→ 擴張選 leucogaster，避開 melanocephalus。</p>
 <h3 id="13">1.3 你的選項（四條路徑）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>路徑</th>
@@ -1187,7 +1330,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>野捕比例高、未來 CITES 風險</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="14">1.4 品質定位的機會</h3>
 <p>台灣現有凱克業者（6-8 家 T-M-01 調查）都在低中段定位。<strong>上段（25-35 K NTD）空白</strong>。上段需要：
 - 雙病毒卡（PBFD + BFD PCR 陰性）
@@ -1213,7 +1356,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <strong>科/族/亞科</strong>：Psittacidae &gt; Arinae &gt; Arini &gt; Pionini（與 <em>Pionus</em>、<em>Deroptyus</em>、<em>Pyrilia</em> 同亞科）<br />
 <strong>姐妹屬</strong>：<em>Pionus</em>（重要 — R4 Stelzer 2005 在 <em>Pionus chalcopterus</em> massage 採精成功是凱克可行的關鍵借鑑）</p>
 <h3 id="22-working-70">2.2 基本生理參數（Working 70+）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>指標</th>
@@ -1263,7 +1406,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>保育壓力小</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="23">2.3 生殖特徵</h3>
 <ul>
 <li><strong>一夫一妻</strong>（pair bonding 強）</li>
@@ -1279,7 +1422,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <li>配對後公鳥可能攻擊母鳥（Section 3.3 決策樹）</li>
 </ul>
 <h3 id="25">2.5 野外生態（對繁殖的啟示）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>野外事實</th>
@@ -1308,7 +1451,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>台灣圈養可能錯過觸發時點</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="takeaway_1">本章 Takeaway</h3>
 <ul>
 <li>體重 <strong>155-170 g</strong>、窩蛋 <strong>2-4 顆</strong>、孵化 <strong>25-26 天</strong>、性成熟 <strong>3-4 年</strong></li>
@@ -1372,7 +1515,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <h3 id="42-baseline">4.2 從 baseline 到天花板的對照</h3>
 <p>⚠️ <strong>下表「假設 baseline」是 Curator 為了示範乘法模型而保守推估的數字，不是你場實測。</strong><br />
 <strong>真正有意義的做法</strong>：把你場近 1-2 年的實際 KPI 填進「你自家實測」欄，再用第 4.3 節診斷法找卡在哪環節。</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>環節</th>
@@ -1433,7 +1576,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td><strong>2.24x</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>怎麼填</strong>：
 - 沒數據的欄位先填「—」或保守估算，然後在下個繁殖季實測
 - 第 17 章給了完整紀錄模板，每窩記一次就累積了
@@ -1568,7 +1711,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <p><strong>R5 ultrathink 揭示的問題</strong>：這是<strong>維持級</strong>尺寸，不是<strong>繁殖級</strong>。野外凱克每日飛 1-5 km，圈養小籠 = 肌肉萎縮 = 激素紊亂 → 影響繁殖觸發率 10-20%。</p>
 <p><strong>建議升級</strong>：繁殖區改 <strong>flight aviary ≥ 200×100×200 cm</strong>，讓鳥能「真的飛」而不是跳。投資高但 ROI 長期。</p>
 <h3 id="52-working-75">5.2 巢箱（★★ Working 75）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>參數</th>
@@ -1618,7 +1761,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>Shady Pines</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>踩雷警示</strong>：
 - 入口 &gt; 6 cm → 母鳥焦慮不產
 - 入口 &lt; 6 cm → 鳥啃大 → 尺寸失控
@@ -1680,7 +1823,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 </code></pre>
 <p><strong>任一環節缺漏 → 整個鈣循環失效 → 蛋殼變薄 → 胚胎早死 → egg binding</strong>。</p>
 <h3 id="62">6.2 墨魚骨是保險絲不是主開關</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>功能</th>
@@ -1705,11 +1848,11 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>鎂、鐵、鋅</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>為什麼不能只靠墨魚骨</strong>：碳酸鈣生物利用率比螯合鈣粉低；沒 UVB 給 D3，吃進去也吸收不了；鳥不一定每天啃，劑量不可控。</p>
 <p><strong>為什麼還是要永遠供應</strong>：鳥自我調節無過量風險；母鳥產蛋前 24h 鈣需求暴增；凱克啃咬慾強不給會啃巢箱。</p>
 <h3 id="63-4">6.3 繁殖期飲食切換（繁殖前 4 週）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>類別</th>
@@ -1749,13 +1892,13 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td><strong>每天</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>避免</strong>：酪梨（毒）、巧克力、咖啡因、高鹽、生花生（aflatoxin）。</p>
 <h3 id="64-r5">6.4 R5 新：活體昆蟲蛋白 ⭐⭐</h3>
 <p><strong>證據</strong>：野外 Pionites 確實吃昆蟲（Juniper &amp; Parr, Forshaw）；繁殖期 animal protein 需求升高。</p>
 <p><strong>動作</strong>：繁殖期每週 2-3 次給<strong>蠟蟲 / 蟋蟀 / 麵包蟲 5-10 隻/對</strong>。只繁殖季給，非繁殖期會造成過肥。</p>
 <h3 id="65-working-83">6.5 鈣具體劑量（★★ Working 83）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>指標</th>
@@ -1790,7 +1933,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>通用</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="66-egg-binding-p0">6.6 Egg Binding 急救（P0）</h3>
 <p>母鳥蹲姿、尾巴下垂、無法排卵 24h+ → <strong>立即送獸醫</strong>。</p>
 <p>臨床劑量：<strong>Calcium gluconate 50-100 mg/kg SC/IM</strong>（等量生理鹽水稀釋）。來源：LafeberVet（Eric Klaphake DVM）。</p>
@@ -1816,7 +1959,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <li>台灣費用 500-1000 NTD/鳥</li>
 </ul>
 <h3 id="72-working">7.2 年齡選擇（★★ Working）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>年齡</th>
@@ -1851,7 +1994,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>轉寵物銷售</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="73-day-14">7.3 互梳評估決策樹（Day 14 必做）</h3>
 <pre><code>互梳每天 ≥ 3 次 + 同棲同餵 → 🟢 綠燈，繼續
 互梳偶有 + 不互啄           → 🟡 黃燈，Day 28 再評
@@ -1860,7 +2003,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 </code></pre>
 <p><strong>⚠️ Pionus maximiliani 案例警示</strong>（AFA Watchbird 2009）：Maximilian 母鳥攻擊公鳥至重傷。凱克亦有風險。</p>
 <h3 id="74-p0">7.4 健康體檢（配對前必檢 P0）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>項目</th>
@@ -1893,7 +2036,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>145-175 g</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>新進鳥：<strong>30 天隔離 + 三項陰性才合籠</strong>。</p>
 <h3 id="75-r5-outcrossing">7.5 R5 新：近親迴避與 outcrossing</h3>
 <p><strong>證據</strong>：圈養鸚鵡近親繁殖 5-10 年後產量下降 20-40%。台灣凱克圈可能已近親。</p>
@@ -2010,7 +2153,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 </figure>
 
 <h3 id="84">8.4 異常判讀閾值</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>等級</th>
@@ -2035,7 +2178,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>獸醫介入 / 淘汰</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="85-preliminary-58-pionites">8.5 基線參數（Preliminary 58 — Pionites 屬零文獻）</h3>
 <p>所有數值<strong>借鑑跨物種 ±40%</strong>：
 - 體積：2-10 μl
@@ -2061,7 +2204,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <p>有配對、有精子、有硬體、有鈣 — 接下來需要<strong>訊號</strong>告訴鳥「繁殖季到了」。本章處理光週期、溫度、濕度、巢箱引入時機。</p>
 </blockquote>
 <h3 id="91">9.1 光週期漸進（觸發關鍵）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>週</th>
@@ -2090,7 +2233,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td><strong>14h</strong>（觸發目標）</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>不要一次 10h→14h</strong>：壓力過大、激素亂。</p>
 <h3 id="92">9.2 溫度</h3>
 <p><strong>25-28°C 穩定</strong>；溫差 &gt; 5°C 讓母鳥停產。</p>
@@ -2163,7 +2306,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 └── 保護母鳥 → 第一窩讓親鳥帶到 D10-14 再抽
 </code></pre>
 <h3 id="112-working-79">11.2 人工孵化參數（★★ Working 79）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>階段</th>
@@ -2203,7 +2346,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>—</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <figure class="svg-diagram">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="100%" style="max-width:820px;height:auto;display:block;margin:24px auto;">
   <title>孵化溫濕度曲線 D0-D26（含 lockdown 區）</title>
@@ -2298,7 +2441,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 </figure>
 
 <h3 id="113">11.3 候蛋時程</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Day</th>
@@ -2327,7 +2470,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>進入 lockdown</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="114-d3-candling-vs">11.4 D3 Candling 怎麼區分「真不受精」vs「胚胎早死」</h3>
 <p><strong>關鍵區分</strong>：
 - 有血管網 → 活胚胎
@@ -2336,7 +2479,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
   - <strong>早死</strong>：蛋黃附殼壁 / 有暗環</p>
 <p>辨別成功的意義：<strong>真不受精 → 檢查公鳥精子（第 8 章）；早死 → 檢查孵化環境（11.5）</strong>。</p>
 <h3 id="115-v06-working-78">11.5 胚胎早死環境保護（v0.6 新增 Working 78）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>因素</th>
@@ -2373,7 +2516,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>PBFD/BFD/衣原體陰性（潛伏感染影響精子）</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>關鍵</strong>：一套 UPS + 穩定位置 = 5-10K NTD，可救 30-50% 胚胎存活。<strong>ROI 極高</strong>。</p>
 <h3 id="116-assisted-hatching">11.6 Assisted Hatching（僅在特定情況介入）</h3>
 <p><strong>何時介入</strong>：
@@ -2416,7 +2559,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
     → 種鳥壽命最大化
 </code></pre>
 <h3 id="122-preliminary">12.2 窩間間隔（★★★ Preliminary）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>抽蛋/抽雛後</th>
@@ -2437,7 +2580,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td><strong>8-12 週</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>⚠️ Research Gap</strong>：Pionites <strong>野外</strong> inter-clutch interval 無 peer-reviewed 數據。</p>
 <h3 id="123">12.3 年上限</h3>
 <ul>
@@ -2461,7 +2604,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <p>雙窩方案 B 抽 D10-14 雛後，雛鳥進入人工育幼階段。本章逐日給出餵食配方、溫度、濃度、頻率 — 操作失誤成本高（燒傷嗉囊致死），精準是關鍵。</p>
 </blockquote>
 <h3 id="131">13.1 何時抽雛</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>情境</th>
@@ -2482,14 +2625,14 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>立即接手（最高難度）</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="132">13.2 奶粉配方</h3>
 <p><strong>Shady Pines Caique 配方</strong>（最具體）：
 - <strong>Kaytee Exact（regular）5 lb + CéDé Lorifood（米基底）1 lb</strong>（重量 5:1）
 - +少量木瓜/芒果嬰兒食品（天然消化酶）</p>
 <p><strong>備選</strong>：HARI Tropican Hand-Feeding Formula。</p>
 <h3 id="133">13.3 稀釋比與餵食頻率</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>日齡</th>
@@ -2554,7 +2697,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>—</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="134-p0">13.4 P0 警示（手養致死主因）</h3>
 <ul>
 <li><strong>餵食溫度絕不超過 108°F（42.2°C）</strong> → 燒傷嗉囊 → 致死</li>
@@ -2568,7 +2711,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <li><strong>群養比單養快</strong>（雛鳥會模仿）</li>
 </ul>
 <h3 id="136">13.6 育雛暖箱溫度</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>日齡</th>
@@ -2597,7 +2740,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>室溫</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="takeaway_12">本章 Takeaway</h3>
 <ul>
 <li>抽雛時機：賣蛋直接抽 / 賣雛 <strong>親育 10-14 天再接手</strong></li>
@@ -2612,7 +2755,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <p>手養成功率也受疾病威脅。本章覆蓋 P0 致命（PBFD、衣原體）、常見雛鳥疾病（giardia、aspergillus）、UVB 安全、年度深度健檢。</p>
 </blockquote>
 <h3 id="141-pbfdcircovirus-p0">14.1 PBFD（Circovirus）🚫 P0</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>項目</th>
@@ -2637,9 +2780,9 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td><strong>幾乎 100% 致死</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="142-p0">14.2 衣原體 🚫 P0（人畜共患）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>項目</th>
@@ -2664,7 +2807,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>環境衛生、洗手</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="143-aspergillosis">14.3 Aspergillosis（黴菌）</h3>
 <ul>
 <li>育雛期通風不良導致</li>
@@ -2707,7 +2850,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <p>疾病防治守住生命底線。接下來是<strong>長期生命週期管理</strong>：年齡曲線、換血、血統紀錄、outcrossing — 這是保證 5 年、10 年持續有產量的基本功。</p>
 </blockquote>
 <h3 id="151-young-2012-isis">15.1 年齡曲線（Young 2012 ISIS）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>年齡</th>
@@ -2747,7 +2890,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>安養</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="152">15.2 年度換血比例</h3>
 <p><strong>15-20%</strong>，3 年循環換完整批。</p>
 <h3 id="153-r5-outcrossing">15.3 R5 新：血統紀錄與 outcrossing</h3>
@@ -2784,7 +2927,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <h3 id="163-cxanthurus-xanthomerius">16.3 路徑 C：xanthurus / xanthomerius 差異化（藍海主推）</h3>
 <p><strong>法規</strong>：走 Pionites leucogaster App.II + 來源碼 C，<strong>不需特殊申請</strong>。</p>
 <p><strong>歐洲種源</strong>：</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>賣家</th>
@@ -2819,7 +2962,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>[個人 email — 另行索取]</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>xanthurus 黃尾</strong>：需透過 Parkieten Sociëteit / VDW 協會私下聯繫，推估 €2,000/隻。</p>
 <p><strong>落地成本</strong>：NT$30-40K/隻。</p>
 <p><strong>執行順序</strong>：指名亞種建系統 → 12 個月後加 xanthomerius → 24 個月後試 xanthurus。</p>
@@ -2839,7 +2982,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <p><strong>本章數字為推估</strong>，實際請以你自家 KPI 校準。信心等級：★★★ Preliminary（需實證驗證）。</p>
 </blockquote>
 <h3 id="1651">16.5.1 基本假設（所有試算共用）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>項目</th>
@@ -2894,9 +3037,9 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>第 4 章 ×2.24</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>單對月運轉成本</strong>（附錄 B 整理）：</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>項目</th>
@@ -2921,10 +3064,10 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td><strong>600-1100</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>本章用 <strong>NT$850/對/月 ≈ 10K/對/年</strong> 做中位數。</p>
 <h3 id="1652-roi-10-3">16.5.2 三方案 ROI 對比（10 對規模、3 年）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>項目</th>
@@ -3025,7 +3168,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>~18 個月</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>結論推演</strong>：
 - <strong>方案 A</strong> 投資最低但天花板被「量產 = 紅海」壓死，淨利難突破月 5 萬。
 - <strong>方案 B</strong>（路徑 A 上段品質）ROI 最好，<strong>回本快、風險低</strong>，適合全職兼做或初期主攻。
@@ -3035,7 +3178,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 </blockquote>
 <h3 id="1653-vs">16.5.3 單窩 vs 雙窩方案對比</h3>
 <p>用方案 B 基礎（10 對、28K 售價）再跑方案比較：</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>繁殖策略</th>
@@ -3072,7 +3215,7 @@ status: v2.0 — 新增財務模型、台灣法規、急救速查、5 張 SVG、
 <td>3-5 年見衰退</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>雙窩方案 B 的隱形價值</strong>：
 - 雛鳥手養後轉寵物<strong>品質更好</strong>（親人、可再加 5-10K 售價）
 - 保護種鳥產能<strong>可用年限 +2-3 年</strong> = 延遲下一波種鳥換血（15-20% × 10 對 × 12K = 額外 12-18 萬/年不用付）</p>
@@ -3091,7 +3234,7 @@ $$</p>
 <p>對應<strong>最少 4 對</strong>（baseline 3 雛/對/年）或<strong>2.5 對</strong>（target 5 雛/對/年）。</p>
 <p><strong>結論</strong>：<strong>5 對以下純副業養興趣、10 對開始可支撐兼職、20 對以上可全職</strong>。</p>
 <h3 id="1655-b-target-5">16.5.5 規模化試算（方案 B 上段，target 5 雛/對/年）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>對數</th>
@@ -3150,7 +3293,7 @@ $$</p>
 <td>需雇員+公司化</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>擴張節拍</strong>：
 - <strong>第 1 年</strong>：5-10 對，穩 SOP，累積 KPI baseline
 - <strong>第 2-3 年</strong>：10 → 20 對，加入手養室、UPS 全配、紅外鏡頭
@@ -3209,7 +3352,7 @@ egg_binding_event, PBFD_vax_up_to_date
 sale_price_per_chick, buyer_channel
 </code></pre>
 <h3 id="172-kpi-1-1">17.2 KPI 儀表板（每月 1 號花 1 小時）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>KPI</th>
@@ -3244,7 +3387,7 @@ sale_price_per_chick, buyer_channel
 <td><strong>0%</strong>（Ca/D3/UVB 到位）</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="173-3">17.3 3 年後這份紀錄會告訴你</h3>
 <ul>
 <li>高產（年 12-15 蛋）vs 低產（年 4 蛋）配對</li>
@@ -3275,7 +3418,7 @@ sale_price_per_chick, buyer_channel
 <h3 id="181">18.1 核心邏輯</h3>
 <p>金頭凱克本身學術文獻稀缺 → 單獨研究會卡在資料不足 → <strong>跨物種借鑑（Tier S→A→D）</strong>→ 166 cells 累積 → SOP v0.6.1 → 實證驗證。</p>
 <h3 id="182-6-tier">18.2 6 Tier 借鑑強度矩陣</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Tier</th>
@@ -3322,7 +3465,7 @@ sale_price_per_chick, buyer_channel
 <td>商業繁殖普遍，但行為差距大</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <figure class="svg-diagram">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 600" width="100%" style="max-width:720px;height:auto;display:block;margin:24px auto;">
   <title>6 Tier 跨物種借鑑關係圖（以金頭凱克為中心）</title>
@@ -3566,7 +3709,7 @@ sale_price_per_chick, buyer_channel
 - 5 個新槓桿（飛行空間、視覺屏蔽、減少干擾、近親迴避、活體昆蟲）</p>
 <p><strong>研究端已到邊際收益遞減</strong>。繼續加 cells 不會直接提升你的產蛋率。</p>
 <h3 id="202">20.2 剩下的只能實證</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>研究救不了的項目</th>
@@ -3606,7 +3749,7 @@ sale_price_per_chick, buyer_channel
 <td>場內對照實驗</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="203-30-90-365">20.3 30 / 90 / 365 天作戰時程</h3>
 <p><strong>30 天（投資期）</strong>
 - ACTION_PLAN 5 件事全上線
@@ -3644,7 +3787,7 @@ sale_price_per_chick, buyer_channel
 <hr />
 <h1 id="_5">附錄</h1>
 <h2 id="a">附錄 A：本書引用的所有檔案索引</h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>類別</th>
@@ -3744,10 +3887,10 @@ sale_price_per_chick, buyer_channel
 <td>品質打分</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="b">附錄 B：採購清單與預算</h2>
 <h3 id="b1">B.1 一次性設備（每對或共用）</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>項目</th>
@@ -3797,9 +3940,9 @@ sale_price_per_chick, buyer_channel
 <td><strong>50-100K</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="b2">B.2 月度運轉</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>項目</th>
@@ -3824,7 +3967,7 @@ sale_price_per_chick, buyer_channel
 <td><strong>600-1100</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="c">附錄 C：台灣鳥類獸醫聯繫方向</h2>
 <p>（需 Jay 自己 cold call 確認）</p>
 <ul>
@@ -3836,7 +3979,7 @@ sale_price_per_chick, buyer_channel
 <h2 id="dxanthurusxanthomerius">附錄 D：國際繁殖者聯絡（xanthurus/xanthomerius）</h2>
 <p>詳見第 16.3 節 + <code>data/market/european_caique_breeders.md</code>。</p>
 <h2 id="e">附錄 E：核心文獻清單（按本書章節）</h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>章節</th>
@@ -3901,9 +4044,9 @@ sale_price_per_chick, buyer_channel
 <td>貿易硬數據</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="f">附錄 F：名詞表</h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>縮寫</th>
@@ -4033,9 +4176,9 @@ sale_price_per_chick, buyer_channel
 <td>德國白腹鸚鵡協會</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="g">附錄 G：版本歷史與下次升版觸發</h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>版本</th>
@@ -4055,7 +4198,7 @@ sale_price_per_chick, buyer_channel
 <td><strong>內容增補</strong>：第 16.5 章財務模型、附錄 H 台灣法規、附錄 I 急救速查卡、20 章 Takeaway、19 個章間承接句、第 0.3 節 6 項前置、第 4 章 baseline 標註修正。<strong>視覺化</strong>：5 張 SVG（產蛋率模型 / 孵化曲線 / 3 年 roadmap / 6 Tier / massage 手勢）。<strong>HTML 體驗</strong>：favicon、OG meta、全書搜尋、手機漢堡選單、回頂部、code copy、閱讀時間、列印分頁。</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>v3.0 觸發條件</strong>：
 - Jay 執行 ACTION_PLAN 3-6 個月後，自家 KPI baseline 出來
 - Round 5（若 KPI 揭露新 gap）
@@ -4067,7 +4210,7 @@ sale_price_per_chick, buyer_channel
 </blockquote>
 <h3 id="h1-22">H.1 寵物業登記（動物保護法第 22 條）</h3>
 <p><strong>觸發條件</strong>：<strong>以營利為目的</strong>繁殖、買賣、寄養鳥類（含鸚鵡）→ 需向<strong>地方動物保護主管機關</strong>申請「特定寵物業」許可。</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>項目</th>
@@ -4108,13 +4251,13 @@ sale_price_per_chick, buyer_channel
 <td>無照繁殖營利：5-25 萬元；累犯加重；情節重大廢止</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>實務建議</strong>：
 1. 初期可以「自用繁殖、非營利贈送」姿態開始，但<strong>只要開始收款</strong> = 營利 = 要登記。別賭。
 2. 雛鳥交易 FB 社團常見「含運費」等話術繞法，台灣動保處近年已加強查緝。正規商業路線走合法才能做上段定位。
 3. 建議一開始就規劃「訓練課 → 申請 → 開業」，避免後期補辦。</p>
 <h3 id="h2">H.2 動物保護法核心條文</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>條號</th>
@@ -4154,7 +4297,7 @@ sale_price_per_chick, buyer_channel
 <td>填表要誠實</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="h3-cites-xanthomerius-xanthurus-p0">H.3 CITES 進口申請（xanthomerius / xanthurus 引入路徑 P0）</h3>
 <p><em>Pionites leucogaster</em> 屬 <strong>CITES 附錄 II</strong>。跨亞種（xanthomerius、xanthurus）引入流程：</p>
 <pre><code>①  確認歐洲賣家擁有合法 CITES 出口文件（Source code C = 圈養繁殖）
@@ -4168,7 +4311,7 @@ sale_price_per_chick, buyer_channel
      └ 傳染病 PCR 陰性（PBFD/BFD/衣原體/禽流感）
 ⑤  完成隔離 → 放行 → 落地
 </code></pre>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>主管機關</th>
@@ -4193,7 +4336,7 @@ sale_price_per_chick, buyer_channel
 <td>需報關行協助</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>實務提醒</strong>：
 - 落地時程 <strong>3-6 個月</strong>（歐洲賣家文件 2-8 週 + 台灣申請 4-8 週 + 隔離 30+ 天）
 - 單次引入 2-4 隻最省成本（檢疫隔離設施分攤費用）
@@ -4207,7 +4350,7 @@ sale_price_per_chick, buyer_channel
 </ul>
 <p><strong>防禦</strong>：新進鳥三病毒 PCR 陰性 + 場內衛生 SOP（見第 14.2）= 零事件。</p>
 <h3 id="h5">H.5 稅務結構比較</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>結構</th>
@@ -4236,7 +4379,7 @@ sale_price_per_chick, buyer_channel
 <td>責任有限、可抵稅、轉手便利</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>凱克 10 對年試算</strong>（見第 16.5 章財務模型）：
 - 若年雛鳥 50 隻 × 25K NTD = 年營收 ~125 萬 → <strong>行號起跳</strong>
 - 規模到 30 對 + 含飼料配件販售 → 建議<strong>有限公司</strong> + 記帳士</p>
@@ -4538,6 +4681,37 @@ document.addEventListener('DOMContentLoaded', () => {
             if (searchInput.value.trim().length >= 2) searchResults.classList.add('visible');
         });
     }
+
+    // ── 表格橫向滾動提示（v2.1 手機版優化）──
+    const tableScrolls = document.querySelectorAll('.table-scroll');
+    function updateScrollHints() {
+        tableScrolls.forEach(wrap => {
+            const table = wrap.querySelector('table');
+            if (!table) return;
+            if (table.scrollWidth > wrap.clientWidth + 2) {
+                wrap.classList.add('can-scroll');
+            } else {
+                wrap.classList.remove('can-scroll');
+            }
+        });
+    }
+    updateScrollHints();
+    // 字體載入完成後重測（中文 Web Font 載入會影響寬度）
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(updateScrollHints);
+    }
+    window.addEventListener('resize', updateScrollHints);
+    // 滑動過後若已滑到底，隱藏 hint（選擇性）
+    tableScrolls.forEach(wrap => {
+        wrap.addEventListener('scroll', () => {
+            const maxScroll = wrap.scrollWidth - wrap.clientWidth;
+            if (maxScroll > 0 && wrap.scrollLeft >= maxScroll - 4) {
+                wrap.classList.add('scrolled-end');
+            } else {
+                wrap.classList.remove('scrolled-end');
+            }
+        });
+    });
 
     function escapeHtml(s) {
         return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
