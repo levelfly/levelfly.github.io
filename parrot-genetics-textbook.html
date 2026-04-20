@@ -1511,7 +1511,7 @@ details p:last-child { margin-bottom: 4px; }
 <p><strong>整理者</strong>：Jay Hung（與 Claude 共同整理）<br />
 <strong>獻給</strong>：所有想把多年繁殖經驗系統化的資深養鳥人<br />
 <strong>對象</strong>：和尚鸚鵡繁殖者、希望跟國際繁殖社群接軌的人、想用學術方法驗證經驗的同行<br />
-<strong>版本</strong>：v2.0，2026-04-20<br />
+<strong>版本</strong>：v2.1，2026-04-20<br />
 <strong>閱讀時間</strong>：完整讀完約 2-3 小時；只想看重點 5 分鐘（見「快速通道」）</p>
 <hr />
 <h2 id="_2">致叔叔</h2>
@@ -4899,6 +4899,94 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p>關鍵問題：「<strong>這對的基因價值能不能被其他配對取代？</strong>」如果可以 → 停損。如果不行（獨家來源）→ 即使虧錢也要留。</p>
 </details>
 <hr />
+<h2 id="27e-bayesian">第 27e 章 Test Cross：用後代反推「split 或不是 split」</h2>
+<p>叔叔場上一定有這種困擾：一隻外觀綠的公鳥，<strong>賣家說</strong> split 黃化但沒證據；或自家留種的父母血統不清楚，不知道是不是 split。你可以<strong>配一窩看看會不會出黃化雛鳥</strong>——但多少窩才算真正確認？</p>
+<p>這一章給你答案：<strong>精確到 % 的 split 判讀查表</strong>。這是叔叔在社團最常被問、但很少人能精確回答的問題之一。</p>
+<h3 id="_bayes-why">為什麼 split 判讀需要數學？</h3>
+<p>「配一窩沒出黃化，就不是 split 了吧？」——<strong>錯</strong>。</p>
+<p>Split 黃化公（Aa）× Visual 黃化母（aa）：後代期望 50% 黃化、50% 正常綠。<strong>一窩 4 隻後代全正常的機率 = (0.5)^4 = 6.25%</strong>——不是 0。就算他是真 split，1/16 的機率配出一窩全正常，你就誤認「不是 split」把牠當普通綠處理，損失價值。</p>
+<p>所以「看一窩」根本不夠。要算的是：共 N 隻後代全正常之後，他<strong>仍是 split 的機率</strong>剩多少。</p>
+<h3 id="_table-visual">主查表：Split 判讀機率（test cross 對象是 visual 純合）</h3>
+<p>情境：懷疑一隻綠公是 split 黃化（NSL Ino），配一隻確認 visual 的黃化母（ino/ino 純合）。假設你完全不知道他是不是 split（<strong>prior = 50%</strong>）：</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>後代數（全正常，無黃化）</th><th>仍是 split 的機率</th><th>非 split 的信心</th></tr></thead>
+<tbody>
+<tr><td>0 隻（尚未測）</td><td>50%</td><td>50%</td></tr>
+<tr><td>2 隻</td><td>20%</td><td>80%</td></tr>
+<tr><td>4 隻</td><td>5.9%</td><td>94.1%</td></tr>
+<tr><td><strong>6 隻</strong></td><td><strong>1.5%</strong></td><td><strong>98.5% ← 工作性認定門檻</strong></td></tr>
+<tr><td>8 隻</td><td>0.4%</td><td>99.6%</td></tr>
+<tr><td><strong>10 隻</strong></td><td><strong>0.1%</strong></td><td><strong>99.9% ← 高信心門檻</strong></td></tr>
+<tr><td>12 隻</td><td>~0.02%</td><td>~99.98%</td></tr>
+</tbody>
+</table></div>
+<p>讀法：<strong>6 隻後代全正常 → 98.5% 確認非 split</strong>。<strong>10 隻 → 99.9%</strong>。這是國際繁殖社群（Ornitho-Genetics VZW 等歐洲團體）的實務共識。</p>
+<p>公式（想看細節的讀者）：<code>P(仍是 split | N 隻全正常) = (1/2)^(N+1) / [(1/2)^(N+1) + 1/2]</code>。不想算公式就只看上表即可。</p>
+<h3 id="_table-prior">進階：當你已經有 prior 資訊</h3>
+<p>上表假設 prior = 50%（完全不知道）。現實中有時你知道更多：</p>
+<ul>
+<li><strong>情境 A：雙親都外觀正常、曾配出過一隻 visual 突變的兄弟</strong>——這表示父母兩邊都必然是 split。這對其他外觀正常的後代，<strong>2/3 機率是 split</strong>（prior ≈ 0.67）。</li>
+<li><strong>情境 B：賣家自稱 split 但無證據</strong>——保守假設 prior = 50%（把賣家的話當作 0 資訊）。</li>
+<li><strong>情境 C：這隻鳥自己已經配過 1 窩出過 visual 突變</strong>——不用測了，確認是 split（prior = 100%）。</li>
+</ul>
+<p>prior = 2/3 時要達到同等信心，需要更多後代：</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>後代數（全正常）</th><th>prior=50% 時信心</th><th>prior=2/3 時信心</th></tr></thead>
+<tbody>
+<tr><td>6 隻</td><td>98.5%</td><td>96.9%</td></tr>
+<tr><td>8 隻</td><td>99.6%</td><td>99.2%</td></tr>
+<tr><td>10 隻</td><td>99.9%</td><td>99.8%</td></tr>
+</tbody>
+</table></div>
+<p>差距不大，但 prior 高時建議多配 2-4 隻比較保險。</p>
+<h3 id="_example-1">實例 1：買進的綠公「賣家說 split 黃化」</h3>
+<p>情境：從社團買到一隻綠公，賣家標「split 黃化」但沒血統書也沒 test cross 紀錄。你用他配自家黃化 visual 母：</p>
+<ul>
+<li><strong>第 1 窩</strong>：4 隻離巢，全正常綠 → 查表：prior=50%, N=4 → <strong>94.1% 非 split</strong>。還有 5.9% 可能真是 split——不夠保險，不能下結論。</li>
+<li><strong>第 2 窩</strong>：再 4 隻離巢，全正常綠，累積 N=8 → <strong>99.6% 非 split</strong>。可以放心把這隻當普通綠處理——賣家是唬爛，他根本不是 split。</li>
+</ul>
+<p>代價：2 個繁殖季（約 1 年）+ 2 個籠位的機會成本。下一段算值不值得付這個代價。</p>
+<h3 id="_voi">Value of Information：Test Cross 該不該做？</h3>
+<p>Test cross 成本（台灣小場估算）：2 個繁殖季（約 1 年）+ 2 個籠位機會成本（NT$2,000-3,000 飼料/籠/年）+ 錯過其他配對機會。合計一次 test cross 總成本 <strong>~NT$10,000-15,000</strong>。</p>
+<p>值不值？看「資訊的經濟價值」：</p>
+<ul>
+<li><strong>如果真是 split 黃化</strong>：配其他黃化 visual 母可持續產出 50% 黃化雛鳥，每年 4-6 隻 × NT$14,000 ≈ <strong>NT$56,000-84,000 年價值</strong></li>
+<li><strong>如果不是 split</strong>：只能當普通綠種鳥，每年 4-6 隻 × NT$7,000 ≈ <strong>NT$28,000-42,000 年價值</strong></li>
+<li><strong>資訊帶來的年價值差距</strong>：NT$28,000-42,000/年</li>
+</ul>
+<p>所以<strong>花 1.5 萬 test cross，換每年 3-4 萬的資訊</strong>——划算。</p>
+<p>但如果這隻種公你本來就打算轉手（無論 split 不 split 都要賣），test cross 不值得做——直接標「split 可能但未驗」降價出給下家讓他自己決定要不要驗。</p>
+<h3 id="_pitfalls">常見陷阱 5 則</h3>
+<ol>
+<li><strong>Test cross 對象必須是 confirmed visual</strong>——如果對象本身也是疑似 split，後代機率分布完全不同，上面查表不適用。</li>
+<li><strong>「全部正常」的定義很嚴格</strong>——任何一隻雛鳥出現表型突變就確認是 split，立即停止測試，不用再算。</li>
+<li><strong>樣本雜訊要扣掉</strong>：蛋未受精、雛鳥夭折、無法斷表型的個體都不算「正常後代」。只算<strong>離巢健康、能判表型</strong>的雛鳥。</li>
+<li><strong>性聯 split 的 SOP 不同</strong>：母鳥不能 split 性聯（第 9 章），所以性聯突變的 test cross 只對公鳥做；且後代表型只看母雛（女兒的 Z 來自父親，直接顯示父親的性聯突變），樣本數要求跟上表不同。</li>
+<li><strong>一窩不是完全獨立事件</strong>：同一窩受母鳥生理狀態影響（蛋品質、孵化批次因素），建議<strong>至少跨 2 窩累積 N</strong>，不要只配一窩 6 隻就下結論。</li>
+</ol>
+<h3 id="_sop">Test Cross SOP（叔叔可直接照做）</h3>
+<ol>
+<li><strong>寫下來測什麼</strong>：「被測鳥：腳環 XXX 綠公，疑似 split NSL Ino」</li>
+<li><strong>找對象</strong>：場上 confirmed visual 的同突變鳥（這裡是黃化 ino/ino 母）</li>
+<li><strong>跑 1 窩</strong>（4-6 隻離巢）</li>
+<li><strong>查表</strong>：prior 用 50%（完全未知）或 2/3（已知特殊情境）</li>
+<li><strong>未達 98.5%</strong>：再跑 1 窩，累積 N 後重查</li>
+<li><strong>達 98.5%</strong>：「工作性認定非 split」——但高價交易或要賣給專業繁殖者時建議測到 N=10（99.9%）再賣</li>
+<li><strong>任何後代出現 visual 突變</strong>：立即確認是 split，停止 test，轉入配種計畫</li>
+</ol>
+<h3 id="_review-bayesian">回顧</h3>
+<p>Test cross 不是「配一窩看看」，是「精確機率反推」。<strong>6 隻全正常 = 98.5% 排除 split</strong>，<strong>10 隻 = 99.9%</strong>。一次 test cross 投入 ~NT$1.5 萬，換到的資訊年價值通常 NT$3-4 萬。<strong>叔叔遇到不確定的 split 鳥時，先算值不值得測，再決定動作</strong>——不要盲目相信賣家，也不要盲目測所有鳥。</p>
+<h3 id="_thought-bayesian">思考題</h3>
+<blockquote>
+<p>❓ 你買到一隻綠公，賣家標「split 黃化」。你用他配自家黃化 visual 母，跑了 3 窩共 12 隻雛鳥全部正常綠、沒有一隻黃化。<strong>(1) 他還是 split 的機率？(2) 你該怎麼處理這隻鳥？</strong></p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p><strong>(1)</strong> prior = 50%（賣家講但無證據），N = 12 隻全正常 → 查表或公式 (0.5)^13 / ((0.5)^13 + 0.5) ≈ <strong>0.024%</strong>。他是 split 的機率僅萬分之二、<strong>非 split 信心 99.98%</strong>。</p>
+<p><strong>(2)</strong> 結論：<strong>賣家唬的，這隻實質上是普通綠</strong>。處理選擇：(a) 當普通綠繼續配自家場，產出 100% 綠雛；(b) 轉賣給明確不需要 split 的買家，按普通綠行情報價；(c) 若當初買入時賣家按 split 溢價收錢，可以依交易當時的約定爭取差價退款或部分補償。</p>
+<p><strong>重要原則</strong>：無論哪種選擇，都<strong>不要再以 split 價賣出去讓下家被坑</strong>——這是市場誠信問題，也保護你自己的繁殖口碑。養鸚鵡圈很小，誠信比短期利潤值錢。</p>
+</details>
+<hr />
 <h1 id="_177">第十篇：跨物種應用（凱克 + 大金黃）</h1>
 <p>到目前為止本書都以和尚鸚鵡為主軸。但本書讀者通常也養其他物種——尤其是金頭凱克跟大金黃鸚鵡。<strong>這兩個物種的遺傳邏輯跟和尚截然不同</strong>，不能用同一套思維。</p>
 <p>這篇用兩章補完三物種的差異，再用一張比較表幫您決定哪個物種該用哪套策略。</p>
@@ -6749,6 +6837,11 @@ What would you do to verify?
 <td><strong>v2.0</strong></td>
 <td>2026-04-20</td>
 <td>時態校正：當前日期 2026-04，全書掃描後發現 5 處「2025 策略」「2025 年計畫」等過去年份寫法（用在前瞻語境下邏輯錯誤）。系統性修正：第 27a-2 章標題（2024-2025 → 2024-2026，資料實際延伸至 2026-Q1）、年度行動表欄位（2025 策略 → 2026 策略）、思考題、FB 誤解章引言、版本日誌 v1.7/v1.8 描述同步。純時態校正，不動教學內容或數據。</td>
+</tr>
+<tr>
+<td><strong>v2.1</strong></td>
+<td>2026-04-20</td>
+<td>新增第 27e 章「Test Cross：用後代反推 split 或不是 split」。破解 FB 社群第 2 大高頻問題「這隻 split 真的假的」。完整 Bayesian 機率查表（N=2/4/6/8/10/12，prior 50% vs 2/3 兩種情境）、公式、實例演算、Value of Information 決策（何時該測何時不該測）、5 大常見陷阱、可直接照做的 SOP、思考題。資料源：Ornitho-Genetics VZW 繁殖社群共識 + 人類遺傳諮詢的 Bayesian 分析（PMC 論文）。</td>
 </tr>
 </tbody>
 </table></div>
