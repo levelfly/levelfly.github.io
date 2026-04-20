@@ -1389,6 +1389,19 @@ details p:last-child { margin-bottom: 4px; }
 <li><a href="#_176">思考題</a></li>
 </ul>
 </li>
+<li><a href="#27f-farm-planning">第 27f 章 整場年度配對規劃：ZooEasy + 子代借種 + COI 管理</a><ul>
+<li><a href="#_farm-insight">核心洞察：配偶黏性改寫了繁殖策略</a></li>
+<li><a href="#_zooeasy">ZooEasy 荷蘭軟體：25 隻以下永久免費</a></li>
+<li><a href="#_bird-card">個鳥卡 SOP（一隻鳥一張紀錄）</a></li>
+<li><a href="#_coi-table">COI 閾值表與對應行動</a></li>
+<li><a href="#_ne-closed">Ne 公式：封閉繁殖 10 年後會發生什麼</a></li>
+<li><a href="#_annual-plan">年度配對檢核表</a></li>
+<li><a href="#_aggression">Rosemary Low：攻擊性也會遺傳</a></li>
+<li><a href="#_farm-pitfalls">常見誤解 5 則</a></li>
+<li><a href="#_review-farm">回顧</a></li>
+<li><a href="#_thought-farm">思考題</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_177">第十篇：跨物種應用（凱克 + 大金黃）</a><ul>
@@ -1511,7 +1524,7 @@ details p:last-child { margin-bottom: 4px; }
 <p><strong>整理者</strong>：Jay Hung（與 Claude 共同整理）<br />
 <strong>獻給</strong>：所有想用系統化遺傳學 × 現代工具放大繁殖實戰的養鳥人<br />
 <strong>對象</strong>：和尚鸚鵡繁殖者、希望跟國際繁殖社群接軌的人、想用學術方法驗證經驗的同行<br />
-<strong>版本</strong>：v2.2，2026-04-20<br />
+<strong>版本</strong>：v2.3，2026-04-20<br />
 <strong>閱讀時間</strong>：完整讀完約 2-3 小時；只想看重點 5 分鐘（見「快速通道」）</p>
 <hr />
 <h2 id="_2">致叔叔</h2>
@@ -4989,6 +5002,175 @@ SL Ino 公 × 普通綠母 → 兒子全綠 split、女兒全 SL Lutino
 <p><strong>重要原則</strong>：無論哪種選擇，都<strong>不要再以 split 價賣出去讓下家被坑</strong>——這是市場誠信問題，也保護你自己的繁殖口碑。養鸚鵡圈很小，誠信比短期利潤值錢。</p>
 </details>
 <hr />
+<h2 id="27f-farm-planning">第 27f 章 整場年度配對規劃：ZooEasy + 子代借種 + COI 管理</h2>
+<p>叔叔到第 4 年通常已經累積到 <strong>10-20 對</strong>。紙本筆記翻不動、腳環對不上、誰跟誰是兄妹搞不清楚——這是所有繁殖者在「從玩家過渡到小場」那一刻都會遇到的坎。</p>
+<p>這一章給你一套能<strong>即刻上手、跑 10 年的整場管理框架</strong>：一個免費軟體 + 一個記錄 SOP + 兩個關鍵公式 + 一張年度檢核表。重點不在技術深度，而在「第 4 年的你能不能把第 10 年的自己救出來」——因為<strong>血統資料一旦沒記錄，之後再也補不回來</strong>。</p>
+<h3 id="_farm-insight">核心洞察：配偶黏性改寫了繁殖策略</h3>
+<p>教科書上的鸚鵡配對法大多抄虎皮鸚鵡或愛情鳥的模板。但和尚鸚鵡有一個<strong>決定性的不同</strong>：</p>
+<blockquote>
+<p>⚠️ <strong>和尚鸚鵡的配偶黏性極強（pair-bonding fidelity）</strong>。一對配對成功的和尚，拆開之後再配新對象的接受率<strong>顯著低於</strong>虎皮、愛情鳥、玄鳳。硬拆硬配的後果是：拒絕交配、互啄到見血、整季產不出蛋、母鳥長期緊迫導致健康崩盤。</p>
+</blockquote>
+<p>這件事對整場規劃有一個非常具體的後果：</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>策略</th><th>虎皮/愛情鳥</th><th>和尚</th></tr></thead>
+<tbody>
+<tr><td>一公配多母（輪替）</td><td>✅ 常見做法</td><td>❌ 幾乎不可行</td></tr>
+<tr><td>重配（拆對再配）</td><td>✅ 可行</td><td>⚠️ 風險高</td></tr>
+<tr><td>延續一對到終老</td><td>△ 效率低</td><td>✅ 正解</td></tr>
+<tr><td>擴散優秀基因的方法</td><td>一公多母</td><td><strong>子代借種</strong></td></tr>
+</tbody>
+</table></div>
+<p><strong>什麼是「子代借種」？</strong></p>
+<p>假設叔叔場上有一隻「金牌公鳥」——藍銀絲 split 黃化、育雛能力好、後代品質穩——你想把他的優秀基因擴散到更多母鳥身上，但他已經跟自家的 visual 藍銀絲母鳥配對 3 年、感情很好，拆不得。</p>
+<p>正解是：<strong>留下他跟現任母鳥生的優秀兒子</strong>（也會繼承父親的性聯突變、帶父系的基因體），把這些兒子配到場上「需要這位父親基因」的其他母鳥身上。這樣：</p>
+<ul>
+<li>原來那對不拆、持續高效產蛋</li>
+<li>金牌公鳥的基因透過兒子擴散（兒子攜帶父親 50% 基因體）</li>
+<li>避開和尚的配偶黏性陷阱</li>
+</ul>
+<p><strong>這就是「子代借種」</strong>——用下一代的公鳥，而不是拆當代的公鳥。這個觀念看似簡單，卻是很多新手沒想通、硬拆金牌公鳥然後整場當機的根本原因。</p>
+<h3 id="_zooeasy">ZooEasy 荷蘭軟體：25 隻以下永久免費</h3>
+<p>有了 10 對以上，Excel 就會撐不住——你需要能畫<strong>繁殖樹</strong>、自動算 <strong>COI</strong>、追蹤<strong>世代</strong>的工具。國際鸚鵡繁殖社群的主流選擇是 <strong>ZooEasy</strong>（荷蘭軟體）。</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>功能</th><th>ZooEasy 免費版</th><th>Excel 自建</th></tr></thead>
+<tbody>
+<tr><td>上限</td><td><strong>25 隻鳥永久免費</strong></td><td>無限</td></tr>
+<tr><td>COI 自動計算</td><td>✅ Wright 公式內建</td><td>❌ 要自己寫公式</td></tr>
+<tr><td>繁殖樹視覺化</td><td>✅ 一鍵生成</td><td>❌ 很難做</td></tr>
+<tr><td>基因型追蹤</td><td>✅ 欄位設計好</td><td>△ 看你怎麼做</td></tr>
+<tr><td>多代血統回溯</td><td>✅ 自動串</td><td>❌ 手動查</td></tr>
+<tr><td>語言</td><td>英／荷／德／法</td><td>自由</td></tr>
+</tbody>
+</table></div>
+<p><strong>到 25 隻之後怎麼辦？</strong></p>
+<ul>
+<li><strong>選項 A</strong>：升級付費版（年費約 €30-50，折合 NT$1,000-1,800／年）——對有商業規模的場是合理成本</li>
+<li><strong>選項 B</strong>：同一個帳號只登「種鳥 + 留種後代」（通常剛好 ~25 隻），賣掉的雛鳥不建檔</li>
+<li><strong>選項 C</strong>：轉去 <strong>Breeders Assistant</strong>（英國軟體）或 <strong>iPedigree</strong>（線上版）——都是付費但功能類似</li>
+</ul>
+<p><strong>對叔叔的建議</strong>：現在 10-15 對（20-30 隻種鳥）階段，先用 ZooEasy 免費版 + 選項 B 的做法——專注登錄「留種品質」，淘汰/賣出的不登錄。這樣可以撐到 5-8 年，真的滿了再升級付費版。</p>
+<p><strong>註冊流程（5 分鐘）</strong>：到 zooeasy.com → Download → 選 ZooEasy Online（免費）→ 註冊 Email → 選「鸚鵡」類別 → 設定腳環編碼格式 → 開始。介面英文但功能直覺，第一次用 30 分鐘上手。</p>
+<h3 id="_bird-card">個鳥卡 SOP（一隻鳥一張紀錄）</h3>
+<p>不管用哪個軟體，<strong>每一隻留種鳥都要有一張「個鳥卡」</strong>。建議欄位：</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>欄位</th><th>內容範例</th><th>關鍵說明</th></tr></thead>
+<tbody>
+<tr><td><strong>腳環編碼</strong></td><td>TW-2024-001</td><td>年份 + 序號；國際環更正式（有國碼／場碼／年份／序號）</td></tr>
+<tr><td>性別</td><td>公 ♂ / 母 ♀ / 未知</td><td>DNA 驗過才標定，目測不算</td></tr>
+<tr><td>出生日期</td><td>2024-05-12</td><td>精確到日；同窩記同批</td></tr>
+<tr><td>父</td><td>TW-2021-015</td><td>必須是腳環編碼，不是「那隻藍公」</td></tr>
+<tr><td>母</td><td>TW-2021-022</td><td>同上</td></tr>
+<tr><td>表型（visual）</td><td>藍銀絲</td><td>眼見為憑的外觀</td></tr>
+<tr><td><strong>基因型</strong></td><td>Blue/Blue, ino/ino+, spl/spl+</td><td>寫成等位基因記號；split 標 /+；未知標 ?</td></tr>
+<tr><td>體重趨勢</td><td>90 / 95 / 92g（半年一次）</td><td>健康指標；體重突降是警訊</td></tr>
+<tr><td>行為評等</td><td>溫和／中性／攻擊性強</td><td>重點欄位，後面會講</td></tr>
+<tr><td>配對紀錄</td><td>2025-02 配 TW-2022-011，3/4 窩成功</td><td>每次配對都記；拆對也記原因</td></tr>
+<tr><td>疾病紀錄</td><td>2024-11 PBFD 檢驗陰性</td><td>檢驗結果、獸醫處理都記</td></tr>
+<tr><td>備註</td><td>—</td><td>任何非結構化觀察</td></tr>
+</tbody>
+</table></div>
+<p><strong>基因型標記語法速查</strong>（國際通用）：</p>
+<ul>
+<li><code>Blue/Blue</code> = 藍色純合（兩套都是突變）</li>
+<li><code>Blue/Blue+</code> = 藍色 split（一套突變、一套野生型）</li>
+<li><code>ino/ino</code> = 黃化純合（visual）</li>
+<li><code>ino/ino+</code> = 黃化 split（外觀正常但帶因）</li>
+<li><code>SL-ino/Z+</code> = 公鳥 split 性聯黃化（僅在和尚 SL Lutino 假設成立時使用，書中第 16 章有不確定性聲明）</li>
+<li><code>?</code> = 未知（不要猜，明確標不知道比猜錯好）</li>
+</ul>
+<p><strong>腳環編碼原則</strong>：最重要是<strong>永遠不要重複</strong>。台灣小場建議 <code>場碼-年份-序號</code>，例如 <code>JAY-24-015</code>（JAY 場 2024 年第 15 隻）。留種鳥再額外打金屬國際環（選配，賣國外買家或賽鳥等級有用）。</p>
+<h3 id="_coi-table">COI 閾值表與對應行動</h3>
+<p><strong>COI（Coefficient of Inbreeding，近交係數）</strong>第 27c 章已介紹過——是後代某基因座兩個等位基因「同源自同一祖先」的機率。這一章給你可直接查的閾值表：</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>COI 區間</th><th>意義</th><th>建議行動</th></tr></thead>
+<tbody>
+<tr><td><strong>0-3%</strong></td><td>理想</td><td>✅ 無須行動；這是健康場的目標</td></tr>
+<tr><td><strong>3-6.25%</strong></td><td>可接受</td><td>🟡 監控雛鳥健康（體重、活力、畸形）；不要連續兩代重複這個配對</td></tr>
+<tr><td><strong>6.25-12.5%</strong></td><td>謹慎（= 表親配）</td><td>⚠️ 只在「固定性狀」正當理由下用；該對後代不留種配同一家族</td></tr>
+<tr><td><strong>12.5-25%</strong></td><td>高風險（= 叔姪／爺孫配）</td><td>🟠 強烈不建議；除非是稀有色搶救保種</td></tr>
+<tr><td><strong>&gt;25%</strong></td><td>極高風險（= 手足或親子配）</td><td>🔴 避免；和尚在這個強度近親後基因缺陷表現明顯</td></tr>
+</tbody>
+</table></div>
+<p><strong>台灣場實務</strong>：新手階段最容易踩的雷是「隱形近親」——腳環混了、族譜沒記，結果把兄妹或同父異母配在一起卻不自知。<strong>個鳥卡 + ZooEasy 的意義就是把這件事從 "不知道" 變成 "軟體會警告"</strong>。</p>
+<h3 id="_ne-closed">Ne 公式：封閉繁殖 10 年後會發生什麼</h3>
+<p><strong>Ne（Effective Population Size，有效族群大小）</strong>是一個比你場上鳥數更重要的指標——它決定你「基因多樣性每代流失多少」。</p>
+<p>近似公式（族群遺傳學經典）：</p>
+<blockquote>
+<p>ΔF ≈ 1 / (2 × Ne)，其中 Ne ≈ 4NmNf / (Nm + Nf)</p>
+<p>Nm = 繁殖公鳥數，Nf = 繁殖母鳥數，ΔF = 每代 COI 增量</p>
+</blockquote>
+<p><strong>對叔叔場（假設 15 對）的推算</strong>：</p>
+<p>Nm = 15, Nf = 15 → Ne = 30 → ΔF ≈ 1/60 ≈ 1.67%／代</p>
+<p>但和尚鸚鵡不是「每對都對整場基因貢獻平均」——有的對繁殖力強、有的弱。實務上繁殖不均會讓<strong>實際 Ne 降到 15-20</strong>，對應 ΔF 約 2.5-3.3%／代。</p>
+<p><strong>這代表什麼？</strong></p>
+<div class="table-wrapper"><table>
+<thead><tr><th>世代</th><th>時間（假設代距 2 年）</th><th>累積 COI（實際 Ne ≈ 15 假設）</th></tr></thead>
+<tbody>
+<tr><td>F0（起始）</td><td>現在</td><td>0%</td></tr>
+<tr><td>F3</td><td>6 年後</td><td>~10%</td></tr>
+<tr><td>F5</td><td>10 年後</td><td>~15-18%</td></tr>
+<tr><td>F8</td><td>16 年後</td><td>~25%（= 手足配的強度）</td></tr>
+</tbody>
+</table></div>
+<p><strong>結論：15 對場封閉繁殖 10 年，整場平均 COI 會飆到 15-18%，進入「謹慎～高風險」區。</strong>這就是為什麼國際繁殖社群都強調「每 3-4 年要引進外血 2-4 隻」——這是數學決定的，不是偏好。</p>
+<p>換血節奏的細節留給第 27h 章（跨代 3-5 年血統策略），這裡先記住<strong>結論：封閉繁殖有時間壓力，不是「可以永遠這樣下去」</strong>。</p>
+<h3 id="_annual-plan">年度配對檢核表</h3>
+<p>把上面所有觀念變成可直接照做的年度 SOP：</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>動作</th><th>產出</th></tr></thead>
+<tbody>
+<tr><td><strong>1 月</strong></td><td>盤點整場鳥數、更新 ZooEasy；每隻個鳥卡體重／健康欄位更新</td><td>年初鳥口表、健康名單</td></tr>
+<tr><td><strong>2 月</strong></td><td>本年配對計畫：列所有預想配對、每對跑 COI 檢查、標紅/黃/綠燈</td><td>本年配對計畫表（附 COI）</td></tr>
+<tr><td><strong>3 月</strong></td><td>配對執行、巢箱檢查；新配對先隔壁籠熟悉 2 週再同籠</td><td>配對啟動紀錄</td></tr>
+<tr><td><strong>4-8 月</strong></td><td>繁殖季：每窩記錄（下蛋日、受精率、離巢數、雛鳥表型）；及時登錄 ZooEasy</td><td>本年繁殖成績表</td></tr>
+<tr><td><strong>9 月</strong></td><td>繁殖季總結：哪對達標／哪對沒表現、行為評等更新</td><td>年度配對評等表</td></tr>
+<tr><td><strong>10 月</strong></td><td>淘汰決策：依第 27b 章框架 + 行為評等決定要留要淘</td><td>淘汰名單</td></tr>
+<tr><td><strong>11 月</strong></td><td>引血規劃：看未來 1 年要不要引進外血（每 3-4 年一次）；排管道、確認血統書</td><td>換血計畫</td></tr>
+<tr><td><strong>12 月</strong></td><td>個鳥卡年度備份（匯出 ZooEasy CSV + 實體印一份放保險櫃）</td><td>年度備份</td></tr>
+</tbody>
+</table></div>
+<h3 id="_aggression">Rosemary Low：攻擊性也會遺傳</h3>
+<p>Rosemary Low（國際知名鸚鵡學者，AFA Watchbird、《Parrots》雜誌長年作者）在多篇文章裡反覆強調的一個原則，很值得叔叔抄到場務手冊第一頁：</p>
+<blockquote>
+<p>💡 <strong>"Aggression is heritable. Culling for aggression is more important than culling for colour."</strong>（攻擊性會遺傳。淘汰攻擊性強的個體，比淘汰顏色不漂亮的個體更重要。）</p>
+</blockquote>
+<p><strong>為什麼這件事對和尚特別重要？</strong></p>
+<ul>
+<li>和尚本來就是活躍、嗓門大的物種，攻擊性基線比玄鳳、太平洋鸚鵡高</li>
+<li>如果配對時不看行為只看顏色，<strong>攻擊性會在 3-5 代內在場內放大</strong>（遺傳加累積）</li>
+<li>攻擊性強的鳥：育雛率低（會踢蛋、啄死雛）、配對衝突高（互咬互啄）、買家退貨率高（寵物市場完全無法賣）</li>
+<li>攻擊性強的後代<strong>連蛋階段都更可能失敗</strong>——母鳥神經質會讓孵化率下降</li>
+</ul>
+<p><strong>實務淘汰優先序</strong>（給叔叔第 4 年之後整場優化用）：</p>
+<ol>
+<li><strong>健康問題</strong>（PBFD、慢性病、明顯畸形）→ 立即淘汰</li>
+<li><strong>攻擊性強（攻擊伴侶或雛鳥）</strong>→ 優先淘汰，即使顏色很美</li>
+<li><strong>長期不配對／育雛失敗</strong>（第 27b 章標準）→ 淘汰</li>
+<li><strong>顏色平庸但穩定繁殖</strong>→ 留，生出來的雛鳥當一般寵物賣</li>
+<li><strong>顏色漂亮但行為中性</strong>→ 留（但別當重點保種）</li>
+<li><strong>顏色漂亮且行為溫和</strong>→ 黃金種鳥，優先留種、擴產（子代借種對象）</li>
+</ol>
+<p>個鳥卡的<strong>行為評等欄位</strong>就是為這個決策存在的——沒有長期記錄，3 年後你根本記不住誰當初啄過自己小孩。</p>
+<h3 id="_farm-pitfalls">常見誤解 5 則</h3>
+<ol>
+<li><strong>「配偶關係不重要，拆開再配就好」</strong>——對虎皮成立，對和尚不成立。和尚拆對重配失敗率高、引發行為問題。整場規劃要把「一對配一輩子」當預設，要擴散基因用「子代借種」而不是拆對。</li>
+<li><strong>「Excel 夠用了，不需要軟體」</strong>——10 對以下勉強可以，超過就開始出錯。最致命的是<strong>多代 COI 計算</strong>：Excel 手算會錯、軟體自動算正確。少算一次 COI 配出來的問題雛鳥，成本就遠超軟體年費。</li>
+<li><strong>「COI 5% 很高？我看國外大場都是這樣」</strong>——國外大場通常有 <strong>100+ 對</strong>、Ne 大，他們的 5% 是稀釋後的；小場 15 對在算出 5% 時，<strong>實際基因重複程度比大場更高</strong>（Ne 效應）。不要直接拿大場數字當參考。</li>
+<li><strong>「公鳥老了就換新母鳥配」</strong>——和尚配對穩定後不接受新對象是常態。公鳥 10 歲以上繁殖力下降，正解是<strong>讓這對自然退休</strong>，優秀基因用子代借種延續。硬換母鳥通常整年無蛋。</li>
+<li><strong>「腳環只要鳥腳上有就好，編號我記得」</strong>——記不住。3 年後 20 隻鳥全混在一起。個鳥卡 + 腳環編碼對應表是<strong>血統資料的唯一保險</strong>。沒這個等於整場血統資料歸零。</li>
+</ol>
+<h3 id="_review-farm">回顧</h3>
+<p>整場規劃的核心不是技術，是<strong>紀律</strong>。和尚鸚鵡的配偶黏性決定了策略是「子代借種」而不是「一公多母」；ZooEasy 免費版 + 個鳥卡 SOP 給你 25 隻以下的全套管理能力；COI 閾值表幫你決定每對能不能配；Ne 公式告訴你「封閉繁殖有時間壓力」；Rosemary Low 的攻擊性原則提醒你顏色之外還有更重要的篩選維度。<strong>第 4 年開始投入 1 小時／週做這些紀錄，10 年後這份資料的價值會超過整場鳥的售價總和</strong>——因為有血統的鳥，跟沒血統的鳥，是兩個完全不同的市場。</p>
+<h3 id="_thought-farm">思考題</h3>
+<blockquote>
+<p>❓ 叔叔場上有一隻 8 歲的金牌公鳥「阿財」（藍銀絲 split 黃化、性情溫和、育雛能力好），跟母鳥「阿美」（visual 藍銀絲）配對 5 年，年年都有成功窩。叔叔想把阿財的基因擴散到場上另一隻母鳥「阿蘭」（visual 黃化）身上，以期產出藍銀絲 × 黃化的稀有組合。<strong>(1) 直接拆阿財配阿蘭的風險是什麼？(2) 正解應該怎麼做？</strong></p>
+</blockquote>
+<details>
+<summary>查看答案</summary>
+<p><strong>(1)</strong> 拆對風險：阿財跟阿美配 5 年感情深，拆開後阿財可能拒絕接受阿蘭、甚至攻擊阿蘭；阿美單獨也可能進入緊迫（長期緊迫會大幅縮短壽命、免疫下降）。硬拆的結果通常是「阿財 × 阿蘭」整年無蛋、阿美生病、還浪費 1 年繁殖季。這是和尚鸚鵡整場規劃最典型的「配偶黏性陷阱」。</p>
+<p><strong>(2)</strong> 正解是<strong>子代借種</strong>：從「阿財 × 阿美」過去 5 年的後代裡，挑一隻留種的優秀兒子——這隻兒子繼承阿財 50% 基因體（含性聯 split 黃化，以及 Blue 突變 50% 機率傳遞）。用這隻兒子配阿蘭，可以：(a) 阿財 × 阿美這對不拆、繼續高效繁殖；(b) 兒子 × 阿蘭能產出叔叔想要的組合（精確機率依兒子的實際基因型而定，可用第 24b/27e 章方法推算）；(c) 整場配對穩定度不受影響。<strong>兒子的基因型要先用 test cross（第 27e 章）確認，再安排正式配對</strong>——這就是整場規劃、子代借種、Bayesian 判讀三者的合流。</p>
+</details>
+<hr />
 <h1 id="_177">第十篇：跨物種應用（凱克 + 大金黃）</h1>
 <p>到目前為止本書都以和尚鸚鵡為主軸。但本書讀者通常也養其他物種——尤其是金頭凱克跟大金黃鸚鵡。<strong>這兩個物種的遺傳邏輯跟和尚截然不同</strong>，不能用同一套思維。</p>
 <p>這篇用兩章補完三物種的差異，再用一張比較表幫您決定哪個物種該用哪套策略。</p>
@@ -6849,6 +7031,11 @@ What would you do to verify?
 <td><strong>v2.2</strong></td>
 <td>2026-04-20</td>
 <td>Framing 全書校正：v1.6 致叔叔前言只改了一段，但全書其他地方仍預設讀者是「幾十年經驗老手」，跟叔叔實際（退休第 4 年新手）脫鉤。系統性修正 10 處：書名副標（資深繁殖者→想系統化的繁殖者）、獻給（多年經驗資深→用系統化×現代工具放大實戰）、致叔叔章節（幾十年→第 4 年退休新手）、序章（多年→幾年、資深→已配過幾對）、結語（幾十年經驗→每年累積）、第 34 章構想（接班人培訓→知識傳承）。核心 reframing：叔叔在第 4 年關鍵轉折點用系統化遺傳學 + AI 工具少走 3-5 年彎路，不是老手回顧系統化。</td>
+</tr>
+<tr>
+<td><strong>v2.3</strong></td>
+<td>2026-04-20</td>
+<td>新增第 27f 章「整場年度配對規劃：ZooEasy + 子代借種 + COI 管理」。第 4 年新手過渡到小場階段最高投報的章節。核心內容：(1) 和尚鸚鵡配偶黏性極強，策略是「子代借種」不是「一公多母」（改寫虎皮／愛情鳥教科書預設）；(2) ZooEasy 荷蘭軟體 25 隻以下永久免費 + Wright COI 自動計算 + 繁殖樹視覺化；(3) 個鳥卡 SOP（腳環／雙親／基因型／行為評等）；(4) COI 5 級閾值表（0-3% 理想、3-6.25% 可接受、6.25-12.5% 謹慎、12.5-25% 高風險、&gt;25% 避免）；(5) Ne 公式推算封閉繁殖 10 年會到 COI 15-18%（換血的數學理由）；(6) 12 個月年度配對 SOP；(7) Rosemary Low「攻擊性會遺傳、淘汰攻擊性比淘汰顏色更重要」金句 + 6 級淘汰優先序；(8) 常見誤解 5 則；(9) 思考題（阿財子代借種實例，整合 27e Test Cross）。目錄補齊。</td>
 </tr>
 </tbody>
 </table></div>
