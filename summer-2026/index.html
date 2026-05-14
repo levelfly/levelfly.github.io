@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>夏 · 三週 — 給女兒的海外夏令營研究</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Caveat:wght@400;500;600;700&family=Klee+One:wght@400;600&family=DM+Serif+Display:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* hook_tags chip variants (Phase 2 add) */
+  .chip.chip-new     { background: rgba(122,142,102,0.20); border-color: var(--sage-deep,#5C7048); color: var(--sage-deep,#5C7048); }
+  .chip.chip-warn    { background: rgba(217,164,65,0.22);  border-color: var(--gold-deep,#B6862C); color: var(--gold-deep,#B6862C); }
+  .chip.chip-upgrade { background: rgba(61,80,103,0.18);   border-color: var(--navy,#3D5067);     color: var(--navy,#3D5067); }
+  .chip.chip-reject  { background: rgba(60,40,30,0.20);    border-color: var(--ink,#2A2218);      color: var(--ink,#2A2218); }
+  .hook-tags .chip { font-family: var(--f-hand-en); font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.15); }
+
+  /* polaroid in detail header */
+  .pol-detail { margin: 0; padding: 12px 12px 32px; background: #fefcf6; box-shadow: 0 4px 14px rgba(60,40,30,0.18); transform: rotate(-2deg); }
+  .pol-detail .polaroid-img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+  .pol-detail .polaroid-caption { margin-top: 8px; text-align: center; font-family: var(--f-hand-cn); font-size: 14px; color: var(--ink-soft); }
+
+  /* why-page minimal styling */
+  .why-page { padding: 48px 24px 64px; }
+  .why-page textarea:focus { border-bottom-color: var(--coral-deep) !important; }
+
+  /* elder-mode (print) screen preview */
+  body.elder-mode .elder-card { font-family: 'Noto Serif TC', serif; }
+  body.elder-mode .topnav, body.elder-mode .colophon, body.elder-mode #tweaks-fab { display: none; }
+  @media print {
+    body { background: white !important; }
+    .topnav, .colophon, #tweaks-fab, #tweaks-panel, .binder { display: none !important; }
+    .elder-card { page-break-after: always; border: 1.5px solid #000 !important; }
+  }
+
+  /* library marker-rendered table */
+  .lib-table th { color: var(--ink); }
+  .lib-table td { color: var(--ink-soft); }
+  .ch-body p { margin: 10px 0; line-height: 1.85; font-family: var(--f-serif); font-size: 15.5px; color: var(--ink); }
+  .ch-body blockquote p { margin: 0; }
+</style>
+</head>
+<body>
+<!-- The "binder" — top-of-page leather/cloth bind for the journal feel -->
+<div class="binder" aria-hidden="true">
+  <div class="binder-stitch"></div>
+  <div class="binder-stamp">CONFIDENTIAL · 媽媽研究室 · vol.4 · 2026</div>
+</div>
+
+<!-- Top nav: a paperclip-fastened ribbon -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="brand" href="#/" data-route="home">
+      <span class="brand-mark">夏</span>
+      <span class="brand-text">
+        <span class="brand-title">三週 · 一場小冒險</span>
+        <span class="brand-sub">SUMMER · 2026 · field notes</span>
+      </span>
+    </a>
+    <ul class="navlinks">
+      <li><a href="#/" data-route="home">候選牆</a></li>
+      <li><a href="#/wizard" data-route="wizard">決策助手</a></li>
+      <li><a href="#/compare" data-route="compare">並排比較</a></li>
+      <li><a href="#/library" data-route="library">研究檔案</a></li>
+      <li><a href="#/why" data-route="why">為什麼是這個夏天？</a></li>
+      <li><a href="#/p0" data-route="p0" class="navlink-pin">P0 行動 <span class="pin-dot"></span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="app"></main>
+
+<footer class="colophon">
+  <div class="colophon-inner">
+    <div class="colophon-block">
+      <div class="colophon-h">編按</div>
+      <p>本檔由媽媽手寫整理，2026 年 4 月版。內容為旅行研究紀錄，所有費用以新台幣計，會隨匯率調整。</p>
+    </div>
+    <div class="colophon-block">
+      <div class="colophon-h">研究範疇</div>
+      <p>35 候選地點 · 19 欄位 · 17 章背景 · 5 題決策矩陣 · 21 天行程 × Top 3</p>
+    </div>
+    <div class="colophon-block colophon-end">
+      <div class="stamp stamp-end">FIN<br><span>2026·07</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- Tweaks panel (vanilla) -->
+<div id="tweaks-fab" class="tweaks-fab" hidden>
+  <button id="tweaks-toggle" aria-label="開關 Tweaks">⚙</button>
+</div>
+<aside id="tweaks-panel" class="tweaks-panel" hidden>
+  <div class="tweaks-head">
+    <span>Tweaks</span>
+    <button id="tweaks-close" aria-label="關閉">✕</button>
+  </div>
+  <div class="tweaks-body" id="tweaks-body"></div>
+</aside>
+
+<!-- Lightbox / detail overlay portal -->
+<div id="overlay" class="overlay" hidden></div>
+
+<script src="data.js"></script>
+<script src="views.js"></script>
+<script src="wizard.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
