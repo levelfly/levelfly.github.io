@@ -298,7 +298,7 @@ function viewDetail(c) {
   ) : '';
   // polaroid photo + city caption
   const polaroidHead = c.photo ? `
-    <figure class="polaroid pol pol-detail tilt-1" style="width: 200px; flex-shrink: 0;">
+    <figure class="polaroid pol pol-detail spread-head-photo tilt-1">
       <span class="pol-washi pw-gold"></span>
       <img class="polaroid-img" src="${c.photo}" alt="${escapeHtml(c.city)}">
       <figcaption class="polaroid-caption">${escapeHtml(c.city)} · ${escapeHtml(c.country)}</figcaption>
@@ -309,9 +309,9 @@ function viewDetail(c) {
       <button class="overlay-close" id="closeDetail" aria-label="關閉">✕</button>
 
       <div class="spread">
-        <header class="spread-head" style="display: flex; gap: 24px; align-items: flex-start;">
+        <header class="spread-head spread-head-flex">
           ${polaroidHead}
-          <div style="flex: 1;">
+          <div class="spread-head-body">
             <div class="spread-eyebrow">field ${c.rank.toString().padStart(2,'0')} · ${c.country} · ${c.flag}</div>
             <h1 class="spread-place">${escapeHtml(c.city)}</h1>
             <p class="spread-hook">${escapeHtml(c.hook)}</p>
@@ -405,10 +405,10 @@ function viewDetail(c) {
           <div class="spread-col">
             ${isExcluded ? `
               <!-- EXCLUDED block 取代 score -->
-              <div class="score-block" style="background: rgba(60,40,30,0.06); border: 2px solid var(--ink); padding: 24px;">
-                <div class="stamp large" style="background: var(--ink); color: var(--paper); display: inline-block; transform: rotate(-3deg); padding: 12px 24px; font-size: 28px;">EXCLUDED</div>
-                <h3 style="margin-top: 18px; font-family: var(--f-display); font-size: 20px; border: 0; padding: 0;">為什麼排除？</h3>
-                <p style="font-family: var(--f-serif); font-size: 16px; line-height: 1.8; color: var(--ink-soft); margin-top: 10px;">${escapeHtml(c.excludeReason || '').replace(/\n/g, '<br>')}</p>
+              <div class="score-block excluded-block">
+                <div class="stamp large excluded-stamp">EXCLUDED</div>
+                <h3 class="excluded-h">為什麼排除？</h3>
+                <p class="excluded-reason">${escapeHtml(c.excludeReason || '').replace(/\n/g, '<br>')}</p>
                 ${c.tier === 0 && Object.keys(c.scores || {}).length ? `
                   <details style="margin-top: 16px;">
                     <summary style="cursor: pointer; font-family: var(--f-hand-en); color: var(--coral-deep);">仍想看分數（partial）</summary>
@@ -755,8 +755,8 @@ function viewP0() {
       </p>
 
       <div class="p0-wall">
-        <div class="washi washi-coral" style="top: -14px; left: 200px; width: 220px; transform: rotate(-3deg);"></div>
-        <div class="washi washi-sage" style="top: -10px; right: 180px; width: 180px; transform: rotate(4deg);"></div>
+        <div class="washi washi-coral p0-washi-left"></div>
+        <div class="washi washi-sage p0-washi-right"></div>
 
         <div class="p0-grid">
           ${all.map((p,i) => `
@@ -786,15 +786,15 @@ function viewLibrary() {
       <div class="library">
         <aside class="library-toc">
           <h3>目次</h3>
-          <div style="font-family: var(--f-hand-en); color: var(--brown); margin-bottom: 12px;">table of contents</div>
-          <ol style="list-style: none; padding: 0;">
+          <div class="library-toc-sub">table of contents</div>
+          <ol class="library-toc-list">
             ${CHAPTERS.map(ch => {
               const isNoGo = String(ch.n) === 'no-go';
               return `
-              <li style="border-bottom: 1px dashed var(--paper-edge); padding: 6px 0; ${isNoGo ? 'margin-top: 8px; padding-top: 10px; border-top: 1.5px solid var(--ink);' : ''}">
-                <a href="#ch-${ch.n}" style="display: flex; gap: 10px; align-items: baseline;">
-                  <span style="font-family: var(--f-hand-en); color: var(--coral-deep); font-size: 13px; width: 32px;">${isNoGo ? 'side B' : ch.n}</span>
-                  <span style="font-size: 13px;">${escapeHtml(ch.title.split(' · ')[0])}</span>
+              <li class="library-toc-item${isNoGo ? ' is-nogo' : ''}">
+                <a href="#ch-${ch.n}" class="library-toc-link">
+                  <span class="library-toc-num">${isNoGo ? 'side B' : ch.n}</span>
+                  <span class="library-toc-title">${escapeHtml(ch.title.split(' · ')[0])}</span>
                 </a>
               </li>
               `;
@@ -818,8 +818,8 @@ function viewLibrary() {
             const tilt = (i % 2 === 0) ? -0.4 : 0.4;
             const chNoLabel = isNoGo ? 'side-B · no-go' : `chapter ${ch.n}`;
             return `
-              <section id="ch-${ch.n}" style="background: ${p.bg}; border-color: ${p.border}; border-left: 6px solid ${p.border}; transform: rotate(${tilt}deg);">
-                <div class="washi ${p.tape}" style="position: absolute; top: -14px; right: 32px; width: 110px; height: 22px; transform: rotate(${tilt * 6 - 4}deg);"></div>
+              <section id="ch-${ch.n}" class="lib-section" style="--lib-bg: ${p.bg}; --lib-border: ${p.border}; --lib-tilt: ${tilt}deg;">
+                <div class="washi ${p.tape} lib-washi" style="--lib-washi-tilt: ${tilt * 6 - 4}deg;"></div>
                 <span class="ch-no">${chNoLabel}</span>
                 <h3>${escapeHtml(ch.title)}</h3>
                 <div class="ch-body">${renderMarkerBody(ch.body)}</div>

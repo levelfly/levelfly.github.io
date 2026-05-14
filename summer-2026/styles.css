@@ -1303,6 +1303,56 @@ body {
 }
 .library-content section p { font-size: 15px; line-height: 1.8; color: var(--ink-soft); }
 
+/* Library TOC: classes moved out of views.js inline style (Phase 5) */
+.library-toc-sub { font-family: var(--f-hand-en); color: var(--brown); margin-bottom: 12px; }
+.library-toc-list { list-style: none; padding: 0; margin: 0; }
+.library-toc-item { border-bottom: 1px dashed var(--paper-edge); padding: 6px 0; }
+.library-toc-item.is-nogo { margin-top: 8px; padding-top: 10px; border-top: 1.5px solid var(--ink); }
+.library-toc-link { display: flex; gap: 10px; align-items: baseline; }
+.library-toc-num { font-family: var(--f-hand-en); color: var(--coral-deep); font-size: 13px; width: 32px; flex-shrink: 0; }
+.library-toc-title { font-size: 13px; }
+
+/* Library chapter section (Phase 5 — was inline) */
+.lib-section {
+  background: var(--lib-bg, rgba(255,255,255,0.5));
+  border-color: var(--lib-border, var(--paper-edge));
+  border-left: 6px solid var(--lib-border, var(--paper-edge));
+  transform: rotate(var(--lib-tilt, 0deg));
+}
+.lib-washi {
+  position: absolute;
+  top: -14px; right: 32px;
+  width: 110px; height: 22px;
+  transform: rotate(var(--lib-washi-tilt, 0deg));
+}
+
+/* Spread-head Phase 5 — flex variant + photo class replace inline */
+.spread-head-flex { display: flex; gap: 24px; align-items: flex-start; }
+.spread-head-body { flex: 1; min-width: 0; }
+.spread-head-photo { width: 200px; flex-shrink: 0; margin: 0; }
+
+/* Excluded score block — Phase 5 class replace inline */
+.excluded-block {
+  background: rgba(60,40,30,0.06) !important;
+  color: var(--ink) !important;
+  border: 2px solid var(--ink);
+  padding: 24px;
+  transform: rotate(0deg);
+  box-shadow: none;
+}
+.excluded-stamp {
+  background: var(--ink); color: var(--paper);
+  display: inline-block; transform: rotate(-3deg);
+  padding: 12px 24px; font-size: 28px;
+  border-color: var(--ink);
+}
+.excluded-h { margin-top: 18px; font-family: var(--f-display); font-size: 20px; border: 0; padding: 0; }
+.excluded-reason { font-family: var(--f-serif); font-size: 16px; line-height: 1.8; color: var(--ink-soft); margin-top: 10px; }
+
+/* P0 wall washi tapes — Phase 5 class replace inline */
+.p0-washi-left  { top: -14px; left: 200px;  width: 220px; transform: rotate(-3deg); }
+.p0-washi-right { top: -10px; right: 180px; width: 180px; transform: rotate( 4deg); }
+
 /* ============================================================
    Responsive (mobile)
    ============================================================ */
@@ -1421,6 +1471,128 @@ body {
   .filterbar { flex-direction: column; gap: 10px; padding: 10px 12px; }
   .filterbar::before { display: none; }
   .filter-results { font-size: 15px; align-self: flex-start; }
+
+  /* === Phase 5 mobile-fix === */
+  /* spread-head flex variant: stack vertically + center photo */
+  .spread-head-flex { flex-direction: column; gap: 14px; align-items: center; text-align: center; }
+  .spread-head-photo { width: 130px; }
+  .spread-head-body { width: 100%; text-align: left; }
+
+  /* sticky notes: prevent rotation widening overflow */
+  .sticky {
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    transform: rotate(-0.5deg);
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+
+  /* large stamps: shrink + reset rotation to avoid bounding-rect overflow */
+  .stamp.large { font-size: 16px; padding: 8px 14px; }
+  .stamp.round { width: 64px; height: 64px; font-size: 11px; }
+  .stamp { transform: rotate(-3deg); }
+  .excluded-stamp { font-size: 18px; padding: 8px 14px; transform: rotate(-2deg); }
+
+  /* budget rows: stack label + bar + amount */
+  .bud-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    text-align: left;
+    padding: 6px 0;
+  }
+  .bud-row .amt { text-align: left; }
+  .bud-row .bar { height: 16px; }
+
+  /* risk row: stack severity / item / mitigation */
+  .risk-row { grid-template-columns: 1fr; gap: 4px; padding: 8px 0; }
+
+  /* kv list: stack term + definition */
+  .kv { grid-template-columns: 1fr; gap: 2px 0; }
+  .kv dt { margin-top: 8px; }
+
+  /* score block + score-row: shrink */
+  .score-block { padding: 14px; transform: rotate(0deg); }
+  .score-block .total { font-size: 40px; }
+  .score-block .total small { font-size: 18px; }
+  .score-row { grid-template-columns: 64px 1fr 24px; font-size: 12px; gap: 8px; }
+  .excluded-block { padding: 16px; }
+
+  /* compare-grid header card padding shrink */
+  .compare-grid { gap: 14px; }
+  .compare-cell { padding: 10px 12px; font-size: 13px; }
+
+  /* Library: collapse 2-col → 1 col, kill sticky, hide chapter tilt + washi */
+  .library { grid-template-columns: 1fr; gap: 18px; }
+  .library-toc { position: static; padding: 16px; }
+  .library-toc-num { width: 28px; font-size: 12px; }
+  .library-toc-title { font-size: 13px; }
+  .library-content section,
+  .lib-section {
+    max-width: 100%;
+    padding: 18px 14px;
+    transform: rotate(0deg) !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    border-left-width: 4px;
+  }
+  .lib-washi { display: none; }
+  .library-content section h3 { font-size: 22px; }
+  .lib-table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+    font-size: 12px;
+  }
+  .lib-table th, .lib-table td { padding: 6px 4px; }
+  .ch-body p { font-size: 14px; line-height: 1.75; }
+
+  /* P0 wall: hide decorative washi tapes that overflow at narrow widths */
+  .p0-washi-left, .p0-washi-right { display: none; }
+  .p0-wall { padding: 20px 14px; min-height: auto; }
+
+  /* Emergency card inputs */
+  .emergency-card { padding: 14px; }
+  .emergency-card input[type="text"] { box-sizing: border-box; max-width: 100%; }
+
+  /* spread place title: avoid 88px overflow */
+  .spread-place { font-size: 32px; word-break: break-word; }
+  .spread-hook { font-size: 15px; }
+
+  /* polaroid spread-head photo at 480px */
+  .spread-head .polaroid,
+  .spread-head-photo { width: 130px; }
+
+  /* p0 cards: prevent rotation overflow */
+  .p0-card { transform: rotate(0deg) !important; }
+
+  /* long URLs in sources list break properly */
+  a { overflow-wrap: anywhere; word-break: break-word; }
+}
+
+/* === Phase 5 global safety net === */
+body { overflow-x: hidden; }
+.page { max-width: 100%; }
+.overlay-sheet { max-width: 100%; }
+.spread { max-width: 100%; overflow-x: hidden; }
+img, table { max-width: 100%; }
+table.lib-table { width: 100%; }
+.library-content { min-width: 0; }
+.library-content section,
+.lib-section { box-sizing: border-box; }
+
+/* CRITICAL: grid/flex items default min-width:auto which lets content push parent.
+   Force min-width:0 on columns so content respects parent width. */
+.spread-body, .spread-col, .spread-head-body, .library, .library-content,
+.compare-row, .compare-cell, .compare-head-cell, .hero-grid {
+  min-width: 0;
+}
+.spread-col > * { max-width: 100%; }
+
+/* Tablet 768px reinforcement for new spread-head-flex */
+@media (max-width: 768px) {
+  .spread-head-flex { flex-direction: column; gap: 16px; align-items: flex-start; }
+  .spread-head-photo { width: 160px; }
 }
 
 /* Animation: fade-up */
