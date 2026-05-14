@@ -158,10 +158,10 @@ function viewWizardResult() {
       <p class="mag-eyebrow">based on your 5 answers</p>
       <hr class="mag-rule">
 
-      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; margin-top: 32px;">
+      <div class="wizard-result-grid">
         <div>
           <div class="hero-issue" style="margin-top:0;">your personalised top 3</div>
-          <h3 style="font-family: var(--f-display); font-size: 32px; margin: 4px 0 24px;">根據你的答案，最適合的三個候選 ✦</h3>
+          <h3 class="wizard-result-h3">根據你的答案，最適合的三個候選 ✦</h3>
 
           <div class="result-stack">
             ${top.map((r, i) => `
@@ -169,7 +169,7 @@ function viewWizardResult() {
                 <span class="rank">${i+1}</span>
                 <div>
                   <div class="name">${r.cand.flag} ${escapeHtml(r.cand.city)} <span class="country">— ${escapeHtml(r.cand.country)}</span></div>
-                  <div style="font-size: 13px; color: var(--ink-muted); margin-top: 4px;">${escapeHtml(r.cand.hook)}</div>
+                  <div class="result-hook">${escapeHtml(r.cand.hook)}</div>
                 </div>
                 <span class="pct">${Math.round(r.score / maxScore * 100)}<small style="font-size:14px;">%</small></span>
                 <button class="btn" data-open="${r.cand.id}">看完整檔 →</button>
@@ -177,21 +177,21 @@ function viewWizardResult() {
             `).join('')}
           </div>
 
-          <div style="margin-top: 32px;">
-            <h4 style="font-family: var(--f-display); margin-bottom: 12px;">完整排行（8 個候選）</h4>
-            <div style="display: grid; gap: 6px;">
+          <div class="wizard-ranked-block">
+            <h4 class="wizard-ranked-h">完整排行（8 個候選）</h4>
+            <div class="wizard-ranked-list">
               ${ranked.map((r,i) => `
-                <div style="display: grid; grid-template-columns: 30px 1fr 80px 50px; gap: 12px; align-items: center; padding: 6px 0; border-bottom: 1px dashed var(--paper-edge); font-size: 14px;">
-                  <span style="font-family: var(--f-hand-en); color: ${i<3?'var(--coral-deep)':'var(--ink-muted)'}; font-size: 18px;">${i+1}</span>
-                  <span><strong>${escapeHtml(r.cand.city)}</strong> <span class="muted">${escapeHtml(r.cand.country)}</span></span>
-                  <span style="background: var(--paper-deep); height: 6px; position: relative;"><i style="display:block; height:100%; width:${r.score/maxScore*100}%; background: var(--gold-deep);"></i></span>
-                  <span class="muted" style="text-align:right; font-family: var(--f-display);">${r.score}</span>
+                <div class="wizard-ranked-row">
+                  <span class="rk ${i<3?'top':'rest'}">${i+1}</span>
+                  <span class="nm"><strong>${escapeHtml(r.cand.city)}</strong> <span class="muted">${escapeHtml(r.cand.country)}</span></span>
+                  <span class="bar"><i style="width:${r.score/maxScore*100}%;"></i></span>
+                  <span class="scr">${r.score}</span>
                 </div>
               `).join('')}
             </div>
           </div>
 
-          <div class="flex" style="margin-top: 32px;">
+          <div class="flex wizard-result-actions">
             <button class="btn" data-wreset>↻ 重新作答</button>
             <button class="btn primary" data-add-top3>把 Top 3 加入比較</button>
             <button class="btn ghost" data-download-script>↓ 下載親子對話腳本</button>
@@ -204,13 +204,15 @@ function viewWizardResult() {
         <div>
           <div id="radarBox">
             <div class="mag-eyebrow" style="margin-bottom: 4px;">8 dimensions · radar</div>
-            <h4 style="font-family: var(--f-display); font-size: 22px; margin: 0 0 14px;">Top 3 雷達圖</h4>
-            <canvas id="radarCanvas" width="380" height="380"></canvas>
-            <p class="muted" style="font-size: 12px; margin-top: 12px; text-align: center; font-family: var(--f-hand-en);">scores from /10 across 8 evaluation axes</p>
+            <h4 class="radar-h">Top 3 雷達圖</h4>
+            <div class="radar-wrap">
+              <canvas id="radarCanvas"></canvas>
+            </div>
+            <p class="muted radar-cap">scores from /10 across 8 evaluation axes</p>
           </div>
 
-          <div class="sticky" style="margin-top: 24px;">
-            <strong style="font-family: var(--f-display); display: block; margin-bottom: 6px;">媽媽備註</strong>
+          <div class="sticky sticky-mama">
+            <strong class="sticky-h">媽媽備註</strong>
             分數差距 ≤ 5% 都算「平手」。看完三個完整檔再做決定。
           </div>
         </div>
@@ -244,7 +246,9 @@ function drawRadar() {
       }))
     },
     options: {
-      responsive: false,
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: 1,
       plugins: {
         legend: {
           position: 'bottom',
