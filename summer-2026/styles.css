@@ -465,6 +465,22 @@ body {
 .chip.tier3 { background: rgba(155,126,104,0.18); border-color: var(--brown); color: var(--brown); }
 .chip.tier0 { background: rgba(60,40,30,0.08); border-color: var(--tier0); color: var(--tier0); text-decoration: line-through; }
 .chip.warn  { background: rgba(197,107,90,0.16); border-color: var(--coral-deep); color: var(--coral-deep); }
+/* Phase 7C-fix-2: chip-warn-soft (灰色 · 未定 deadline 用) */
+.chip.chip-warn-soft {
+  background: rgba(155,126,104,0.14);
+  border-color: var(--ink-muted, #9a9089);
+  color: var(--ink-muted, #6e6258);
+  border-style: dashed;
+}
+/* Phase 7C-fix-2 A: card-hook 完整顯示（2 行 line-clamp，保留完整文字 in DOM） */
+.candcard .card-hook.card-hook-full {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 /* — Risk dots — */
 .dot {
@@ -1771,8 +1787,10 @@ body.theme-mossy {
   background: var(--paper);
   position: relative;
 }
-.page-why h1 {
-  font-family: var(--f-hand-cn);
+.page-why h1,
+.page-why h2,
+.page-why .why-title {
+  font-family: var(--f-hand-cn) !important;
   font-weight: 600;
   font-size: 36px;
   color: var(--ink);

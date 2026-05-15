@@ -72,7 +72,7 @@ function q6CityMatch(c, vibe) {
   const Q0 = {
     id: 'q0',
     title: '真心話：你比較想送女兒去，還是送自己去？',
-    sub: '兩個答案都對。先看清楚動機，後面 5 題的答案才不會自欺。',
+    sub: '兩個答案都對。先看清楚動機，後面題目的答案才不會自欺。',
     options: [
       { id: 'daughter', badge: 'A', label: '送女兒去（她想要這個體驗）' },
       { id: 'mom',      badge: 'B', label: '送自己去（我需要 me-time）' },
@@ -103,7 +103,7 @@ function viewWizard() {
   return `
     <div class="page">
       <h2 class="mag-h"><span class="em">決策</span>助手</h2>
-      <p class="mag-eyebrow">5 questions · personalised top 3</p>
+      <p class="mag-eyebrow">${WIZARD.length} questions · personalised top 3</p>
       <hr class="mag-rule">
 
       <div class="wizard-wrap">
@@ -155,7 +155,7 @@ function viewWizardResult() {
   return `
     <div class="page">
       <h2 class="mag-h"><span class="em">結果</span>出爐</h2>
-      <p class="mag-eyebrow">based on your 5 answers</p>
+      <p class="mag-eyebrow">based on your ${WIZARD.length} answers</p>
       <hr class="mag-rule">
 
       <div class="wizard-result-grid">

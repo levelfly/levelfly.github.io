@@ -62,7 +62,7 @@ const CANDIDATES = [
     "flag": "🇲🇾",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1565967511849-76a60a516170?w=900&auto=format&fit=crop",
-    "hook": "最划算的選擇——海邊度假村 + Camp Beaumont 跟…",
+    "hook": "最划算的選擇——海邊度假村 + Camp Beaumont 跟吉隆坡同營運商 + 45 年老校 + 預算 NT$10-18 萬。預算敏感家庭直接拿下，海灘 +…",
     "hook_tags": [],
     "pitch": "最划算的選擇——海邊度假村 + Camp Beaumont 跟吉隆坡同營運商 + 45 年老校 + 預算 NT$10-18 萬。預算敏感家庭直接拿下，海灘 + 性價比怪物。",
     "totalScore": 36,
@@ -484,7 +484,7 @@ const CANDIDATES = [
     "flag": "🇸🇬🇮🇩",
     "photo": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=900&auto=format&fit=crop",
-    "hook": "金組真王——14 天新加坡學習 + 7 天民丹島度假，飛 4 …",
+    "hook": "金組真王——14 天新加坡學習 + 7 天民丹島度假，飛 4 小時直飛 + 中文 100% + 醫療全球 top 5 + 4 個夏令營任選 + Bintan …",
     "hook_tags": [],
     "pitch": "金組真王——14 天新加坡學習 + 7 天民丹島度假，飛 4 小時直飛 + 中文 100% + 醫療全球 top 5 + 4 個夏令營任選 + Bintan all-inclusive 度假村媽媽充電。預算 NT$23 萬。",
     "totalScore": 36,
@@ -909,7 +909,7 @@ const CANDIDATES = [
     "flag": "🇲🇾",
     "photo": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=900&auto=format&fit=crop",
-    "hook": "都會老校真實 review 王——80 年校齡（1946 創 …",
+    "hook": "都會老校真實 review 王——80 年校齡（1946 創 / 馬來西亞第一所英式國際學校 + 唯一非營利）+ 真實具名家長心得 Marlieke Kemp…",
     "hook_tags": [],
     "pitch": "都會老校真實 review 王——80 年校齡（1946 創 / 馬來西亞第一所英式國際學校 + 唯一非營利）+ 真實具名家長心得 Marlieke Kemp-Janssen + 三語環境 + Mont Kiara 台灣家庭密集。預算 NT$17 萬。",
     "totalScore": 35,
@@ -1335,7 +1335,7 @@ const CANDIDATES = [
     "flag": "🇭🇰",
     "photo": "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=900&auto=format&fit=crop",
-    "hook": "飛行最短 1.5h + 雙語 + ESF 全英 + 媽媽生活全…",
+    "hook": "飛行最短 1.5h + 雙語 + ESF 全英 + 媽媽生活全球 top 3，但政治 friction 中度 + 7月颱風 80-90%。",
     "hook_tags": [],
     "pitch": "飛行最短 1.5h + 雙語 + ESF 全英 + 媽媽生活全球 top 3，但政治 friction 中度 + 7月颱風 80-90%",
     "totalScore": 35,
@@ -1558,7 +1558,7 @@ const CANDIDATES = [
     "flag": "🇦🇺",
     "photo": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=900&auto=format&fit=crop",
-    "hook": "英語系最短 9.5h 直飛 + Bondi 海岸 + Taro…",
+    "hook": "英語系最短 9.5h 直飛 + Bondi 海岸 + Taronga + Manly, 但 NSW 校假只 2 週 (Jul 6-17), 第 3 週 cam…",
     "hook_tags": [],
     "pitch": "英語系最短 9.5h 直飛 + Bondi 海岸 + Taronga + Manly, 但 NSW 校假只 2 週 (Jul 6-17), 第 3 週 camp 真空無解",
     "totalScore": 32,
@@ -1777,7 +1777,7 @@ const CANDIDATES = [
     "flag": "🇮🇩",
     "photo": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1531171596281-8b5d26917d8b?w=900&auto=format&fit=crop",
-    "hook": "教育結構最深 3-6 歲全日 Montessori drop-…",
+    "hook": "教育結構最深 3-6 歲全日 Montessori drop-off 全球罕見, 媽媽 me-time 度假村頂 — 但零真實第三方家長 review + 預…",
     "hook_tags": [],
     "pitch": "教育結構最深 3-6 歲全日 Montessori drop-off 全球罕見, 媽媽 me-time 度假村頂 — 但零真實第三方家長 review + 預付款風險, 4 月底前必 video call P0",
     "totalScore": 34,
@@ -2000,7 +2000,7 @@ const CANDIDATES = [
     "flag": "🇮🇩",
     "photo": "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1567360425618-1594206637d2?w=900&auto=format&fit=crop",
-    "hook": "媽媽最省心一個 invoice 全包 (房+三餐+open b…",
+    "hook": "媽媽最省心一個 invoice 全包 (房+三餐+open bar+32 項活動+Mini Club), Accor 上市公司零破產風險, 但教育性弱 + 房…",
     "hook_tags": [],
     "pitch": "媽媽最省心一個 invoice 全包 (房+三餐+open bar+32 項活動+Mini Club), Accor 上市公司零破產風險, 但教育性弱 + 房間老舊負評集中",
     "totalScore": 35,
@@ -2208,7 +2208,7 @@ const CANDIDATES = [
     "flag": "🇯🇵",
     "photo": "https://images.unsplash.com/photo-1583416750470-965b2707b355?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=900&auto=format&fit=crop",
-    "hook": "飛 1.5h 直飛黑馬, 海洋 + 安全 + 乾淨 + 涼爽 …",
+    "hook": "飛 1.5h 直飛黑馬, 海洋 + 安全 + 乾淨 + 涼爽 27-32°C 比泰國印尼低, 但 5-6 歲沒有 5d×3wk drop-off 純 day …",
     "hook_tags": [],
     "pitch": "飛 1.5h 直飛黑馬, 海洋 + 安全 + 乾淨 + 涼爽 27-32°C 比泰國印尼低, 但 5-6 歲沒有 5d×3wk drop-off 純 day camp, OIS K2 已滿 waitlist",
     "totalScore": 34,
@@ -2427,7 +2427,7 @@ const CANDIDATES = [
     "flag": "🇹🇭",
     "photo": "https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=900&auto=format&fit=crop",
-    "hook": "海洋保育單一深度 IUCN Turtle Warrior 認證…",
+    "hook": "海洋保育單一深度 IUCN Turtle Warrior 認證 + 年度放生實作, Anantara villa 私密 + Spa 質感, 但 7 月雨季 +…",
     "hook_tags": [],
     "pitch": "海洋保育單一深度 IUCN Turtle Warrior 認證 + 年度放生實作, Anantara villa 私密 + Spa 質感, 但 7 月雨季 + 浪大水母 + 機場噪音是結構性劣勢",
     "totalScore": 34,
@@ -2645,7 +2645,7 @@ const CANDIDATES = [
     "flag": "🇨🇦",
     "photo": "https://images.unsplash.com/photo-1559511260-66a654ae982a?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900&auto=format&fit=crop",
-    "hook": "真英語 + 海洋頂 + 城市文化 + Richmond 慈濟總…",
+    "hook": "真英語 + 海洋頂 + 城市文化 + Richmond 慈濟總部中文後援, 三營組合 5d×3wk, 但 2026 FIFA 世界盃 6/11-7/19 住宿…",
     "hook_tags": [],
     "pitch": "真英語 + 海洋頂 + 城市文化 + Richmond 慈濟總部中文後援, 三營組合 5d×3wk, 但 2026 FIFA 世界盃 6/11-7/19 住宿崩盤, 行程必避開 7/20 後開始",
     "totalScore": 33,
@@ -2862,7 +2862,7 @@ const CANDIDATES = [
     "flag": "🇳🇱",
     "photo": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900&auto=format&fit=crop",
-    "hook": "7 月 14-23°C 全球最舒服體感 + 騎車城市 + 博物…",
+    "hook": "7 月 14-23°C 全球最舒服體感 + 騎車城市 + 博物館頂 + 95% 英語 + Verkeerstuin 兒童交通公園全球唯一, 但飛 13-14h…",
     "hook_tags": [],
     "pitch": "7 月 14-23°C 全球最舒服體感 + 騎車城市 + 博物館頂 + 95% 英語 + Verkeerstuin 兒童交通公園全球唯一, 但飛 13-14h + 預算 NT$50-70 萬頂 + 5 歲 camp 適配弱",
     "totalScore": 34,
@@ -3077,7 +3077,7 @@ const CANDIDATES = [
     "flag": "🇨🇦",
     "photo": "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1559511260-66a654ae982a?w=900&auto=format&fit=crop",
-    "hook": "北美雙語英法真實城市生活 + 7 月最舒適英語系 + 兒童博物…",
+    "hook": "北美雙語英法真實城市生活 + 7 月最舒適英語系 + 兒童博物館密度全球頂 + EVA 15h55 直飛免轉機。",
     "hook_tags": [],
     "pitch": "北美雙語英法真實城市生活 + 7 月最舒適英語系 + 兒童博物館密度全球頂 + EVA 15h55 直飛免轉機",
     "totalScore": 32,
@@ -3243,7 +3243,7 @@ const CANDIDATES = [
     "flag": "🇦🇺",
     "photo": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=900&auto=format&fit=crop",
-    "hook": "9 小時直飛英語系最短 + 7 月冬乾涼爽 + Sunnyba…",
+    "hook": "9 小時直飛英語系最短 + 7 月冬乾涼爽 + Sunnybank 全澳最大台灣社群 + Steve Irwin 動物園母艦。",
     "hook_tags": [],
     "pitch": "9 小時直飛英語系最短 + 7 月冬乾涼爽 + Sunnybank 全澳最大台灣社群 + Steve Irwin 動物園母艦",
     "totalScore": 33,
@@ -3414,7 +3414,7 @@ const CANDIDATES = [
     "flag": "🇰🇷",
     "photo": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=900&auto=format&fit=crop",
-    "hook": "2.5 小時直飛亞洲最短英語系候選 + 全球 top 10 安…",
+    "hook": "2.5 小時直飛亞洲最短英語系候選 + 全球 top 10 安全 + 設施密度頂, 但 7 月梅雨 78% 濕度 + 5-6 歲 camp 偏少。",
     "hook_tags": [],
     "pitch": "2.5 小時直飛亞洲最短英語系候選 + 全球 top 10 安全 + 設施密度頂, 但 7 月梅雨 78% 濕度 + 5-6 歲 camp 偏少",
     "totalScore": 32,
@@ -3580,7 +3580,7 @@ const CANDIDATES = [
     "flag": "🇳🇿",
     "photo": "https://images.unsplash.com/photo-1589197331516-4d84b72ebde3?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1565967511849-76a60a516170?w=900&auto=format&fit=crop",
-    "hook": "南半球冬季 5-12°C 涼但不寒 + Wētā Worksh…",
+    "hook": "南半球冬季 5-12°C 涼但不寒 + Wētā Workshop 文化頂 + NZ 全球 top 5 安全 + Zoo + Zealandia 雙劇場 ca…",
     "hook_tags": [],
     "pitch": "南半球冬季 5-12°C 涼但不寒 + Wētā Workshop 文化頂 + NZ 全球 top 5 安全 + Zoo + Zealandia 雙劇場 camp",
     "totalScore": 32,
@@ -3744,7 +3744,7 @@ const CANDIDATES = [
     "flag": "🇮🇩",
     "photo": "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1531171596281-8b5d26917d8b?w=900&auto=format&fit=crop",
-    "hook": "全球唯一真竹屋 forest school + 環保教育旗艦 …",
+    "hook": "全球唯一真竹屋 forest school + 環保教育旗艦 + 媽媽享 Ubud 心靈聖地, 但 3 週連續結構不完整。",
     "hook_tags": [],
     "pitch": "全球唯一真竹屋 forest school + 環保教育旗艦 + 媽媽享 Ubud 心靈聖地, 但 3 週連續結構不完整",
     "totalScore": 32,
@@ -3903,7 +3903,7 @@ const CANDIDATES = [
     "flag": "🇮🇩",
     "photo": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "高 CP 親子度假村 + Meera / Wolly kids…",
+    "hook": "高 CP 親子度假村 + Meera / Wolly kids club 4-12 全日 + 預算 NT$20-25 萬最便宜峇里選。",
     "hook_tags": [],
     "pitch": "高 CP 親子度假村 + Meera / Wolly kids club 4-12 全日 + 預算 NT$20-25 萬最便宜峇里選",
     "totalScore": 32,
@@ -4063,7 +4063,7 @@ const CANDIDATES = [
     "flag": "🇦🇺",
     "photo": "https://images.unsplash.com/photo-1514395462725-fb4566210144?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=900&auto=format&fit=crop",
-    "hook": "資料弱: 全球最宜居城市常勝 + 文化頂 + 全球咖啡之都, …",
+    "hook": "資料弱: 全球最宜居城市常勝 + 文化頂 + 全球咖啡之都, 但 5-6 歲 camp / 暑假窗口 / 7 月天氣需驗證。",
     "hook_tags": [
       "warn"
     ],
@@ -4229,7 +4229,7 @@ const CANDIDATES = [
     "flag": "🇺🇸",
     "photo": "https://images.unsplash.com/photo-1535320903710-d993d3d77d29?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=900&auto=format&fit=crop",
-    "hook": "真有 5 歲幼兒園專屬 K Camp 一週連續 (Jul 6-…",
+    "hook": "真有 5 歲幼兒園專屬 K Camp 一週連續 (Jul 6-10) + Birch Aquarium 全暑 6/15-8/7 海洋夏令營, 加州氣候宜人 +…",
     "hook_tags": [
       "new"
     ],
@@ -4388,7 +4388,7 @@ const CANDIDATES = [
     "flag": "🇯🇵",
     "photo": "https://images.unsplash.com/photo-1531973486364-5fa64260d75b?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&auto=format&fit=crop",
-    "hook": "EdVenture Shizen Programme 4-8 …",
+    "hook": "EdVenture Shizen Programme 4-8 歲 native English + 大自然森林浸潤 + 7 月涼 20-25°C, 但住宿頂貴…",
     "hook_tags": [
       "upgrade"
     ],
@@ -4554,7 +4554,7 @@ const CANDIDATES = [
     "flag": "🇬🇧",
     "photo": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900&auto=format&fit=crop",
-    "hook": "媽媽也可上 Discovery Summer 成人課! 女兒 …",
+    "hook": "媽媽也可上 Discovery Summer 成人課! 女兒 5-6 配套 dropoff. 但飛 14-17h + 預算 NT$50-70 萬 + 7 月旅…",
     "hook_tags": [
       "upgrade"
     ],
@@ -4725,7 +4725,7 @@ const CANDIDATES = [
     "flag": "🇮🇩",
     "photo": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1567360425618-1594206637d2?w=900&auto=format&fit=crop",
-    "hook": "Bali 雙 Four Seasons 度假村 — Umah …",
+    "hook": "Bali 雙 Four Seasons 度假村 — Umah Rare (Jimbaran 海岸) <12 歲 daily-changing 蟹獵 + 風箏 …",
     "hook_tags": [
       "new"
     ],
@@ -4874,7 +4874,7 @@ const CANDIDATES = [
     "flag": "🇲🇹",
     "photo": "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&auto=format&fit=crop",
-    "hook": "inlingua Malta Parent & Child =…",
+    "hook": "inlingua Malta Parent & Child = 媽媽女兒同址各自上英文課 (各 20 lessons/wk), 物價 EU 中低 NT$35-…",
     "hook_tags": [
       "upgrade"
     ],
@@ -5038,7 +5038,7 @@ const CANDIDATES = [
     "flag": "🇻🇳",
     "photo": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=900&auto=format&fit=crop",
-    "hook": "越南 3 大海岸度假村系列 — InterCon Phu Qu…",
+    "hook": "越南 3 大海岸度假村系列 — InterCon Phu Quoc Planet Trekkers 250 sqm 4-12 歲 + Hyatt Regenc…",
     "hook_tags": [
       "new"
     ],
@@ -5194,7 +5194,7 @@ const CANDIDATES = [
     "flag": "🇳🇿",
     "photo": "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=900&auto=format&fit=crop",
-    "hook": "紐西蘭奧克蘭：校假僅 2 週 + 第 3 週 holiday …",
+    "hook": "紐西蘭奧克蘭：校假僅 2 週 + 第 3 週 holiday programmes 全關門 + 5-6 歲場館卡關（MERC 7+ / YMCA 6+ / S…",
     "hook_tags": [
       "reject"
     ],
@@ -5351,7 +5351,8 @@ const CANDIDATES = [
       "{'url': 'https://www.facebook.com/TzuChiNZ/', 'language': 'zh-TW', 'type': 'community_organization', 'trust': 4, 'accessed': '2026-05-14'}",
       "{'url': 'https://www.aucklandforkids.co.nz/general-school-holiday-programmes/', 'language': 'en', 'type': 'media', 'trust': 4, 'accessed': '2026-05-14'}"
     ],
-    "excludeReason": "❌ 紐西蘭奧克蘭：校假僅 2 週 + 第 3 週 holiday programmes 全關門 + 5-6 歲場館卡關（MERC 7+ / YMCA 6+ / SEA LIFE 無 drop-off）。改 Wellington 主場 + Auckland 1-2 週親子度假 Waiheke + Bay of Islands。"
+    "excludeReason": "❌ 紐西蘭奧克蘭：校假僅 2 週 + 第 3 週 holiday programmes 全關門 + 5-6 歲場館卡關（MERC 7+ / YMCA 6+ / SEA LIFE 無 drop-off）。改 Wellington 主場 + Auckland 1-2 週親子度假 Waiheke + Bay of Islands。",
+    "scoresMissing": true
   },
   {
     "id": "cape_town",
@@ -5362,7 +5363,7 @@ const CANDIDATES = [
     "flag": "🇿🇦",
     "photo": "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&auto=format&fit=crop",
-    "hook": "南非開普敦超美, Penguin Beach + Table …",
+    "hook": "南非開普敦超美, Penguin Beach + Table Mountain 全球前 10 景觀, 但對 5-6 歲女兒 + 單媽家庭, 安全度真的不夠。美…",
     "hook_tags": [],
     "pitch": "南非開普敦超美, Penguin Beach + Table Mountain 全球前 10 景觀, 但對 5-6 歲女兒 + 單媽家庭, 安全度真的不夠。美國國務院 L2 警示、住宿區到機場公路 documented car-jacking 案例、加上完全找不到 5-6 歲 5 天 3 週的全日夏令營。改成 2026 春假 (8-10 月) 七天家庭遊比較適合。",
     "totalScore": 22,
@@ -5466,7 +5467,7 @@ const CANDIDATES = [
     "flag": "🇵🇭",
     "photo": "https://images.unsplash.com/photo-1546412414-e1885259563a?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=900&auto=format&fit=crop",
-    "hook": "宿霧海島超美 + 機票最便宜 (3 週 NT$15-23 萬)…",
+    "hook": "宿霧海島超美 + 機票最便宜 (3 週 NT$15-23 萬) + 飛 2.5h 直飛, 看起來很完美對吧? 但實際走訪 3 家 ESL 學校 (3D Aca…",
     "hook_tags": [],
     "pitch": "宿霧海島超美 + 機票最便宜 (3 週 NT$15-23 萬) + 飛 2.5h 直飛, 看起來很完美對吧? 但實際走訪 3 家 ESL 學校 (3D Academy / QQ English / CIA), 5-6 歲版的真的很少, 都是 6 歲以上才有, 而且氛圍很像台灣補習班 (韓中家庭主導)。Cebu Belly 拉肚子比 Bali Belly 還嚴重。對你女兒這個年紀, 7-10 歲再來比較適合。",
     "totalScore": 29,
@@ -5574,7 +5575,7 @@ const CANDIDATES = [
     "flag": "🇮🇪",
     "photo": "https://images.unsplash.com/photo-1549918864-48ac978761a4?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900&auto=format&fit=crop",
-    "hook": "都柏林在歐洲是公認最安全的英語系城市 (全球犯罪率 top 5…",
+    "hook": "都柏林在歐洲是公認最安全的英語系城市 (全球犯罪率 top 5 低), Trinity College + Wicklow 山一日遊都漂亮, STARCAMP…",
     "hook_tags": [],
     "pitch": "都柏林在歐洲是公認最安全的英語系城市 (全球犯罪率 top 5 低), Trinity College + Wicklow 山一日遊都漂亮, STARCAMP 5-6 歲版口碑好。但問題是飛 18-23h 要轉 1-2 次 (倫敦 / 阿姆斯特丹 / 杜哈中轉), 對 5-6 歲女兒時差殘忍, 而且預算 NT$40-50 萬也偏高。從台灣去更短更便宜的吉隆坡 (5h) 或雪梨 (9h) 體驗也夠好, 不需要拼這麼遠。",
     "totalScore": 28,
@@ -5677,7 +5678,7 @@ const CANDIDATES = [
     "flag": "🇯🇵",
     "photo": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1583416750470-965b2707b355?w=900&auto=format&fit=crop",
-    "hook": "東京迪士尼 + 上野動物園 + 葛西臨海水族園是親子天堂, 飛…",
+    "hook": "東京迪士尼 + 上野動物園 + 葛西臨海水族園是親子天堂, 飛 3h 直飛免簽。但 7 月東京體感溫度 35-40°C, 5-6 歲女兒戶外活動會中暑風險高。…",
     "hook_tags": [],
     "pitch": "東京迪士尼 + 上野動物園 + 葛西臨海水族園是親子天堂, 飛 3h 直飛免簽。但 7 月東京體感溫度 35-40°C, 5-6 歲女兒戶外活動會中暑風險高。而且最頂的 ASIJ 學校夏令營只限自家學生, 不收 external。改成 4 月櫻花季或 10 月秋天去比較舒服。",
     "totalScore": 25,
@@ -5780,7 +5781,7 @@ const CANDIDATES = [
     "flag": "🇲🇻",
     "photo": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=900&auto=format&fit=crop",
-    "hook": "馬爾地夫 Soneva / Patina 是世界最頂端家庭度假…",
+    "hook": "馬爾地夫 Soneva / Patina 是世界最頂端家庭度假村, 浮潛 + 私人沙灘 + 兒童俱樂部都頂, 但兩個問題: 一是 3 週住一個 fly-in …",
     "hook_tags": [],
     "pitch": "馬爾地夫 Soneva / Patina 是世界最頂端家庭度假村, 浮潛 + 私人沙灘 + 兒童俱樂部都頂, 但兩個問題: 一是 3 週住一個 fly-in 度假村太悶 (沒有城市可逛), 二是預算每天 NT$2-3 萬 × 21 天 = NT$50+ 萬, 媽媽 + 女兒一週度假 OK, 3 週不適合。改成 5-7 天 honeymoon 式短遊。",
     "totalScore": 27,
@@ -5883,7 +5884,7 @@ const CANDIDATES = [
     "flag": "🇻🇳",
     "photo": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=900&auto=format&fit=crop",
-    "hook": "越南 Six Senses Con Dao / Ninh Va…",
+    "hook": "越南 Six Senses Con Dao / Ninh Van Bay 是奢華 eco resort, 媽媽超舒服, 但兒童俱樂部是 'Grow With'…",
     "hook_tags": [],
     "pitch": "越南 Six Senses Con Dao / Ninh Van Bay 是奢華 eco resort, 媽媽超舒服, 但兒童俱樂部是 'Grow With' 非正式類型 (不像 Club Med 有結構化全日 camp), 對 5-6 歲女兒體驗單一。3 週玩同一個度假村會悶。改成 1 週短期奢華 family escape。",
     "totalScore": 26,
@@ -5986,7 +5987,7 @@ const CANDIDATES = [
     "flag": "🇦🇺",
     "photo": "https://images.unsplash.com/photo-1523428096881-5bd79d043006?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=900&auto=format&fit=crop",
-    "hook": "黃金海岸 Currumbin Wildlife Sanctua…",
+    "hook": "黃金海岸 Currumbin Wildlife Sanctuary / Sea World 親子超友善, 7 月冬季 11-21°C 乾爽, 飛 9h 直飛免…",
     "hook_tags": [],
     "pitch": "黃金海岸 Currumbin Wildlife Sanctuary / Sea World 親子超友善, 7 月冬季 11-21°C 乾爽, 飛 9h 直飛免轉。但問題是 Currumbin Juniors 是半日 camp (上午 3 小時 + 午後散場), 你 3 週日間 me-time 會不夠, 而且 7 歲以下要家長陪同。布里斯本候選的 Australia Zoo Khaki Explorer 比較適合 5-6 歲女兒。",
     "totalScore": 28,
@@ -6089,7 +6090,7 @@ const CANDIDATES = [
     "flag": "🇺🇸",
     "photo": "https://images.unsplash.com/photo-1542259009477-d625272157b7?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=900&auto=format&fit=crop",
-    "hook": "夏威夷歐胡 Oahu 海洋天堂 + Pearl Harbor …",
+    "hook": "夏威夷歐胡 Oahu 海洋天堂 + Pearl Harbor 文化, 飛 9-10h 直飛蠻近的。但問題一樣是 ESTA 政治拒簽風險, 而且 Hawaii …",
     "hook_tags": [],
     "pitch": "夏威夷歐胡 Oahu 海洋天堂 + Pearl Harbor 文化, 飛 9-10h 直飛蠻近的。但問題一樣是 ESTA 政治拒簽風險, 而且 Hawaii Nature Center 主要收 6 歲以上, 5-6 歲版很少。預算 NT$50-70 萬高, 不如先去更近的沖繩 (飛 1.5h)。",
     "totalScore": 28,
@@ -6192,7 +6193,7 @@ const CANDIDATES = [
     "flag": "🇹🇭",
     "photo": "https://images.unsplash.com/photo-1528181304800-259b08848526?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&auto=format&fit=crop",
-    "hook": "清邁 Panyaden 是國際知名 forest school…",
+    "hook": "清邁 Panyaden 是國際知名 forest school + 永續教育, 全球少數真正 Living Curriculum 學校, 但他們的 summe…",
     "hook_tags": [],
     "pitch": "清邁 Panyaden 是國際知名 forest school + 永續教育, 全球少數真正 Living Curriculum 學校, 但他們的 summer camp 嚴格只收 6 歲以上 (你女兒 5-6 歲剛好卡邊緣)。等女兒滿 6 歲 (2027 或 2028 暑假) 再來最適合。",
     "totalScore": 31,
@@ -6290,7 +6291,7 @@ const CANDIDATES = [
     "flag": "🇨🇦",
     "photo": "https://images.unsplash.com/photo-1559511260-66a654ae982a?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1535320903710-d993d3d77d29?w=900&auto=format&fit=crop",
-    "hook": "維多利亞 BC 是加拿大最英式的小城, GNS Chipmun…",
+    "hook": "維多利亞 BC 是加拿大最英式的小城, GNS Chipmunks 夏令營 5-6 歲口碑好。但問題是它在 Vancouver 旁邊小島, 從機場過去要 1.…",
     "hook_tags": [],
     "pitch": "維多利亞 BC 是加拿大最英式的小城, GNS Chipmunks 夏令營 5-6 歲口碑好。但問題是它在 Vancouver 旁邊小島, 從機場過去要 1.5h 渡輪 (媽媽單帶 5-6 歲女兒拖行李辛苦), 而且 Vancouver 本身已經有 Pear Tree Kitsilano + Aquarium AquaCamp 更密集的選擇。直接選 Vancouver 比較簡單。",
     "totalScore": 30,
@@ -6385,13 +6386,13 @@ const CANDIDATES = [
     "rank": 100,
     "city": "上海",
     "country": "中國",
-    "flag": "🌍",
+    "flag": "🇨🇳",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "SCIS 虹橋 ECE 校區暑期營，雙語探究式課程，學齡前到 …",
+    "hook": "SCIS 虹橋 ECE 校區暑期營，雙語探究式課程，學齡前到 G5 都收，每週可彈性報。",
     "hook_tags": [],
     "pitch": "SCIS 虹橋 ECE 校區暑期營，雙語探究式課程，學齡前到 G5 都收，每週可彈性報",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -6411,15 +6412,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
-      "direct": false,
+      "hours": 2.5,
+      "direct": true,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": 8000,
+      "frequency": "",
+      "summary": "2.5h ~8–12k NTD（TPE/TSA → SHA/PVG）"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "台灣護照需辦台胞證（電子台胞證，可線上申辦，5 年多次）",
+      "deposit": "不需特別文件",
+      "summary": "台灣護照需辦台胞證（電子台胞證，可線上申辦，5 年多次）"
     },
     "camp": {
       "name": "SCIS Summer Camp 2026 – A Summer to Grow On",
@@ -6430,58 +6433,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 73333,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 18874,
-      "buffer": 12583,
-      "total": 0,
-      "realTotal": 157290,
+      "misc": 0,
+      "buffer": 0,
+      "total": 290000,
+      "realTotal": 290000,
+      "low": 220000,
+      "high": 360000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
-      "deadline_source_url": "https://www.scis-china.org/community/news/news-details/~board/news-stories/post/scis-summer-camp-2026-a-summer-to-grow-on",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "camp": "verified",
+      "overall": "verified",
+      "deadline_source_url": "https://www.smartshanghai.com/event/scis-summer-camp-2026",
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想讓孩子接觸中英雙語環境、預算中等家庭、想兼顧上海觀光",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email Shanghai Community International School (SCIS) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.scis-china.org/community/news/news-details/~boar 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -6498,7 +6495,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f1_china",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://www.smartshanghai.com/event/scis-summer-camp-2026"
+    "p7b_verified_url": "https://www.smartshanghai.com/event/scis-summer-camp-2026",
+    "scoresMissing": true
   },
   {
     "id": "shanghai-ycis-summer",
@@ -6506,13 +6504,13 @@ const CANDIDATES = [
     "rank": 101,
     "city": "上海",
     "country": "中國",
-    "flag": "🌍",
+    "flag": "🇨🇳",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "耀中（YCIS）上海六校區暑期營，雙語、ECE 起跳，2 週為…",
+    "hook": "耀中（YCIS）上海六校區暑期營，雙語、ECE 起跳，2 週為單位剛好配 3 週行程。",
     "hook_tags": [],
     "pitch": "耀中（YCIS）上海六校區暑期營，雙語、ECE 起跳，2 週為單位剛好配 3 週行程",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -6532,15 +6530,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
-      "direct": false,
+      "hours": 2.5,
+      "direct": true,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": 8000,
+      "frequency": "",
+      "summary": "2.5h ~8–12k NTD"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "台灣護照需辦台胞證（電子台胞證，可線上申辦）",
+      "deposit": "不需特別文件",
+      "summary": "台灣護照需辦台胞證（電子台胞證，可線上申辦）"
     },
     "camp": {
       "name": "YCIS Shanghai 2026 Summer Camps",
@@ -6551,58 +6551,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 70000,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 18375,
-      "buffer": 12250,
-      "total": 0,
-      "realTotal": 153125,
+      "misc": 0,
+      "buffer": 0,
+      "total": 280000,
+      "realTotal": 280000,
+      "low": 210000,
+      "high": 350000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "verified",
+      "overall": "verified",
       "deadline_source_url": "https://www.smartshanghai.com/event/ycis-shanghai-2026-summer-camps-now-open-for-registration",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想要正規國際學校品牌雙語體驗、希望 2 週連續課程穩定、可選 6 校區就近住",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email Yew Chung International School of Shanghai (YCIS) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.smartshanghai.com/event/ycis-shanghai-2026-summe 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -6619,7 +6613,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f1_china",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://www.smartshanghai.com/event/ycis-shanghai-2026-summer-camps-now-open-for-registration"
+    "p7b_verified_url": "https://www.smartshanghai.com/event/ycis-shanghai-2026-summer-camps-now-open-for-registration",
+    "scoresMissing": true
   },
   {
     "id": "shanghai-dulwich-pudong-summer",
@@ -6627,13 +6622,13 @@ const CANDIDATES = [
     "rank": 102,
     "city": "上海",
     "country": "中國",
-    "flag": "🌍",
+    "flag": "🇨🇳",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "上海德威浦東校區暑期營，Reception 起跳，含游泳/足球…",
+    "hook": "上海德威浦東校區暑期營，Reception 起跳，含游泳/足球/醫學/表演藝術等 20+ 主題可選。",
     "hook_tags": [],
     "pitch": "上海德威浦東校區暑期營，Reception 起跳，含游泳/足球/醫學/表演藝術等 20+ 主題可選",
-    "totalScore": 0,
+    "totalScore": 32,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -6653,15 +6648,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
-      "direct": false,
+      "hours": 2.5,
+      "direct": true,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": 8000,
+      "frequency": "",
+      "summary": "2.5h ~8–12k NTD"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "台灣護照需辦台胞證",
+      "deposit": "不需特別文件",
+      "summary": "台灣護照需辦台胞證"
     },
     "camp": {
       "name": "DCSPD Summer Camps 2026",
@@ -6672,58 +6669,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 66666,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 17874,
-      "buffer": 11916,
-      "total": 0,
-      "realTotal": 148956,
+      "misc": 0,
+      "buffer": 0,
+      "total": 290000,
+      "realTotal": 290000,
+      "low": 200000,
+      "high": 380000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "operator_verified",
+      "overall": "operator_verified",
       "deadline_source_url": "https://shanghai-pudong.dulwich.org/lp/summer-camps",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "週期最彈性，21 天剛好涵蓋 3 個週、想嘗試多主題（運動+藝術混搭）、預算可控（單堂便宜可堆疊）",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email Dulwich College Shanghai Pudong 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://shanghai-pudong.dulwich.org/lp/summer-camps 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -6739,7 +6730,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f1_china",
     "p7b_confidence": "operator_verified",
-    "p7b_verified_url": "https://shanghai-pudong.dulwich.org/lp/summer-camps"
+    "p7b_verified_url": "https://shanghai-pudong.dulwich.org/lp/summer-camps",
+    "scoresMissing": true
   },
   {
     "id": "shanghai-concordia-phoenix",
@@ -6747,13 +6739,13 @@ const CANDIDATES = [
     "rank": 103,
     "city": "上海",
     "country": "中國",
-    "flag": "🌍",
+    "flag": "🇨🇳",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "上海協和（Concordia）Phoenix Academy，…",
+    "hook": "上海協和（Concordia）Phoenix Academy，明確收外國護照 4 歲起、無語言/前置經驗門檻。",
     "hook_tags": [],
     "pitch": "上海協和（Concordia）Phoenix Academy，明確收外國護照 4 歲起、無語言/前置經驗門檻",
-    "totalScore": 0,
+    "totalScore": 32,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -6773,15 +6765,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
-      "direct": false,
+      "hours": 2.5,
+      "direct": true,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": 8000,
+      "frequency": "",
+      "summary": "2.5h ~8–12k NTD"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "台灣護照需辦台胞證",
+      "deposit": "不需特別文件",
+      "summary": "台灣護照需辦台胞證"
     },
     "camp": {
       "name": "Phoenix Academy Summer Programme",
@@ -6792,58 +6786,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 83333,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 20374,
-      "buffer": 13583,
-      "total": 0,
-      "realTotal": 169790,
+      "misc": 0,
+      "buffer": 0,
+      "total": 325000,
+      "realTotal": 325000,
+      "low": 250000,
+      "high": 400000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "operator_verified",
+      "overall": "operator_verified",
       "deadline_source_url": "https://www.smartshanghai.com/event/75784",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "明確標明『Open to all students with foreign passports』，台灣護照無障礙、純英文沉浸（家長若想孩子英文不被分散）、校區設施完整（協和為上海頂級美系國際校）",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email Concordia International School Shanghai 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.concordiashanghai.org/ 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -6860,7 +6848,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f1_china",
     "p7b_confidence": "operator_verified",
-    "p7b_verified_url": "https://www.smartshanghai.com/event/75784"
+    "p7b_verified_url": "https://www.smartshanghai.com/event/75784",
+    "scoresMissing": true
   },
   {
     "id": "beijing-ycis-ywies-summer",
@@ -6868,13 +6857,13 @@ const CANDIDATES = [
     "rank": 104,
     "city": "北京",
     "country": "中國",
-    "flag": "🌍",
+    "flag": "🇨🇳",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "耀中耀華（YCYW）北京校區暑期營，明確收外校學生、幼兒園到高…",
+    "hook": "耀中耀華（YCYW）北京校區暑期營，明確收外校學生、幼兒園到高中、雙語。",
     "hook_tags": [],
     "pitch": "耀中耀華（YCYW）北京校區暑期營，明確收外校學生、幼兒園到高中、雙語",
-    "totalScore": 0,
+    "totalScore": 32,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -6894,15 +6883,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
-      "direct": false,
+      "hours": 3.5,
+      "direct": true,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": 10000,
+      "frequency": "",
+      "summary": "3.5h ~10–14k NTD（TPE → PEK/PKX）"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "台灣護照需辦台胞證",
+      "deposit": "不需特別文件",
+      "summary": "台灣護照需辦台胞證"
     },
     "camp": {
       "name": "YCYW Summer Camps 2026 (Beijing campuses)",
@@ -6913,58 +6904,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 66666,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 17874,
-      "buffer": 11916,
-      "total": 0,
-      "realTotal": 148956,
+      "misc": 0,
+      "buffer": 0,
+      "total": 275000,
+      "realTotal": 275000,
+      "low": 200000,
+      "high": 350000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "operator_verified",
+      "overall": "operator_verified",
       "deadline_source_url": "https://www.ycyw-edu.com/en/summer-programme-2026",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想看古都（故宮/長城/胡同）+ 上課並重、和上海熱不同氣候稍乾、YCYW 集團公告明確 open to non-YCYW",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email YCYW Education Network – YCIS Beijing / YWIES Beijing 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.ycyw-edu.com/en/summer-programme-2026 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -6981,7 +6966,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f1_china",
     "p7b_confidence": "operator_verified",
-    "p7b_verified_url": "https://www.ycyw-edu.com/en/summer-programme-2026"
+    "p7b_verified_url": "https://www.ycyw-edu.com/en/summer-programme-2026",
+    "scoresMissing": true
   },
   {
     "id": "beijing-bsb-shunyi-early-years",
@@ -6989,13 +6975,13 @@ const CANDIDATES = [
     "rank": 105,
     "city": "北京",
     "country": "中國",
-    "flag": "🌍",
+    "flag": "🇨🇳",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Nord Anglia 集團北京順義英校 Early Year…",
+    "hook": "Nord Anglia 集團北京順義英校 Early Years 暑期營，傳統 2–6 歲日營，順義使館區外籍家庭聚落。",
     "hook_tags": [],
     "pitch": "Nord Anglia 集團北京順義英校 Early Years 暑期營，傳統 2–6 歲日營，順義使館區外籍家庭聚落",
-    "totalScore": 0,
+    "totalScore": 32,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -7015,15 +7001,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
-      "direct": false,
+      "hours": 3.5,
+      "direct": true,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": 10000,
+      "frequency": "",
+      "summary": "3.5h ~10–14k NTD"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "台灣護照需辦台胞證",
+      "deposit": "不需特別文件",
+      "summary": "台灣護照需辦台胞證"
     },
     "camp": {
       "name": "BSB Shunyi Early Years Summer Camp",
@@ -7034,58 +7022,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 73333,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 18874,
-      "buffer": 12583,
-      "total": 0,
-      "realTotal": 157290,
+      "misc": 0,
+      "buffer": 0,
+      "total": 290000,
+      "realTotal": 290000,
+      "low": 220000,
+      "high": 360000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "operator_verified",
+      "overall": "operator_verified",
       "deadline_source_url": "https://www.nordangliaeducation.com/bsb-shunyi/news/2019/05/02/bsb-early-years-summer-camp-2019",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想住順義（外國人最密集區，餐飲/便利店/醫院全是國際標準）、希望 5-6 歲純 Early Years 同齡環境、想體驗英式 EYFS 教學",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email The British School of Beijing, Shunyi (Nord Anglia Education) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.nordangliaeducation.com/bsb-shunyi 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -7102,7 +7084,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f1_china",
     "p7b_confidence": "operator_verified",
-    "p7b_verified_url": "https://www.nordangliaeducation.com/bsb-shunyi/news/2019/05/02/bsb-early-years-summer-camp-2019"
+    "p7b_verified_url": "https://www.nordangliaeducation.com/bsb-shunyi/news/2019/05/02/bsb-early-years-summer-camp-2019",
+    "scoresMissing": true
   },
   {
     "id": "uk-london-skola-gloucester",
@@ -7110,13 +7093,13 @@ const CANDIDATES = [
     "rank": 106,
     "city": "倫敦",
     "country": "英國",
-    "flag": "🌍",
+    "flag": "🇬🇧",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "SKOLA Gloucester Gate 是少數明確收 5–…",
+    "hook": "SKOLA Gloucester Gate 是少數明確收 5–9 歲的英倫 day camp，British Council & English UK 雙認證…",
     "hook_tags": [],
     "pitch": "SKOLA Gloucester Gate 是少數明確收 5–9 歲的英倫 day camp，British Council & English UK 雙認證；媽媽走 10 分鐘到 TopUp Camden 同步上成人英文",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -7136,15 +7119,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": 14,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": "TPE→LHR 長榮直飛 14h，約 NT$40,000–70,000（7 月旅遊高峰較貴）"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "台灣護照免簽 180 天（Standard Visitor），5–6 歲單親出國建議備英文公證父親同意書",
+      "deposit": "不需特別文件",
+      "summary": "台灣護照免簽 180 天（Standard Visitor），5–6 歲單親出國建議備英文公證父親同意書"
     },
     "camp": {
       "name": "SKOLA Junior Summer School Gloucester Gate (5–9)",
@@ -7155,58 +7140,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 126666,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 26874,
-      "buffer": 17916,
-      "total": 0,
-      "realTotal": 223956,
+      "misc": 0,
+      "buffer": 0,
+      "total": 500000,
+      "realTotal": 500000,
+      "low": 380000,
+      "high": 620000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "verified",
+      "overall": "verified",
       "deadline_source_url": "https://www.skola.co.uk/gloucester-gate-summer-school-london",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想讓孩子真正浸潤英式英文 + 倫敦文化、媽媽願意自己每週 GBP 300–450 上 TopUp Camden 成人英文（步行 10 分鐘）、預算 NT$50 萬以上，要倫敦中心市區步調",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email SKOLA English Language Schools (Gloucester Gate, by Regent's Park) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.skola.co.uk/gloucester-gate-summer-school-london 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -7225,7 +7204,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f2_uk",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://www.skola.co.uk/gloucester-gate-summer-school-london"
+    "p7b_verified_url": "https://www.skola.co.uk/gloucester-gate-summer-school-london",
+    "scoresMissing": true
   },
   {
     "id": "uk-cambridge-stgiles-family",
@@ -7233,13 +7213,13 @@ const CANDIDATES = [
     "rank": 107,
     "city": "劍橋",
     "country": "英國",
-    "flag": "🌍",
+    "flag": "🇬🇧",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "St Giles Cambridge Family Cours…",
+    "hook": "St Giles Cambridge Family Course 是最完美的親子英倫方案：媽媽和女兒同一間 St Giles 各自上課、homestay 早晚…",
     "hook_tags": [],
     "pitch": "St Giles Cambridge Family Course 是最完美的親子英倫方案：媽媽和女兒同一間 St Giles 各自上課、homestay 早晚同住、週末一起出遊；British Council 認證、5–13 歲、可連 3 週",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -7259,15 +7239,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": 14,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": "TPE→LHR 14h + LHR→Cambridge 90 分鐘巴士，總 NT$40,000–70,000"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "台灣護照免簽 180 天（Standard Visitor），需備英文父親同意書",
+      "deposit": "不需特別文件",
+      "summary": "台灣護照免簽 180 天（Standard Visitor），需備英文父親同意書"
     },
     "camp": {
       "name": "St Giles Cambridge Family Course (5–13)",
@@ -7278,58 +7260,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 150000,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 30375,
-      "buffer": 20250,
-      "total": 0,
-      "realTotal": 253125,
+      "misc": 0,
+      "buffer": 0,
+      "total": 575000,
+      "realTotal": 575000,
+      "low": 450000,
+      "high": 700000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "verified",
+      "overall": "verified",
       "deadline_source_url": "https://www.stgiles-international.com/wp-content/uploads/2025/11/Family-Courses_2026-v3.pdf",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "媽媽想真的學英文 + 想跟女兒上同一間學校、想用 homestay 真接觸英國家庭日常（飯點/口語/生活）、想避開倫敦塞車與遊客密度（劍橋大學城步行可達一切）、需要保姆級的接送 + 三餐安排（Full package 全包）",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email St Giles International（70 年家族經營、British Council & EAQUALS 雙認證） 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.stgiles-international.com/wp-content/uploads/202 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -7348,7 +7324,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f2_uk",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://www.stgiles-international.com/wp-content/uploads/2025/11/Family-Courses_2026-v3.pdf"
+    "p7b_verified_url": "https://www.stgiles-international.com/wp-content/uploads/2025/11/Family-Courses_2026-v3.pdf",
+    "scoresMissing": true
   },
   {
     "id": "uk-oxford-supercamps",
@@ -7356,13 +7333,13 @@ const CANDIDATES = [
     "rank": 108,
     "city": "牛津",
     "country": "英國",
-    "flag": "🌍",
+    "flag": "🇬🇧",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "SuperCamps @ Oxford High School…",
+    "hook": "SuperCamps @ Oxford High School：4–14 歲 multi-activity day camp，Ofsted EY2577101…",
     "hook_tags": [],
     "pitch": "SuperCamps @ Oxford High School：4–14 歲 multi-activity day camp，Ofsted EY2577101 註冊、GBP 225/週（5 天 5 折）牛津預算王，但純玩無英文沉浸",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -7382,15 +7359,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": 14,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": "TPE→LHR 14h + LHR→Oxford 60 分鐘車程，NT$40,000–70,000"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "台灣護照免簽 180 天",
+      "deposit": "不需特別文件",
+      "summary": "台灣護照免簽 180 天"
     },
     "camp": {
       "name": "SuperCamps Multi-Activity @ Oxford High School",
@@ -7401,58 +7380,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 93333,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 21874,
-      "buffer": 14583,
-      "total": 0,
-      "realTotal": 182290,
+      "misc": 0,
+      "buffer": 0,
+      "total": 390000,
+      "realTotal": 390000,
+      "low": 280000,
+      "high": 500000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "verified",
+      "overall": "verified",
       "deadline_source_url": "https://www.supercamps.co.uk/venue/oxford-high-school",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "預算最緊（孩童週費僅 NT$9,000，比所有英倫 ESL 便宜 3 倍）、媽媽不需孩子學英文、只要 9am–5pm 高品質託育能安心 me-time、想住牛津大學城享受文化與綠地，避開倫敦遊客密度、可順便讓媽媽報 Oxford 短期課程（Continuing Education / Bodleian / Ashmolean workshop）",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email SuperCamps Ltd（Ofsted-registered，35+ UK 校區） 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.supercamps.co.uk/venue/oxford-high-school 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -7470,7 +7443,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f2_uk",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://www.supercamps.co.uk/venue/oxford-high-school"
+    "p7b_verified_url": "https://www.supercamps.co.uk/venue/oxford-high-school",
+    "scoresMissing": true
   },
   {
     "id": "uk-cambridge-kings-camps",
@@ -7478,13 +7452,13 @@ const CANDIDATES = [
     "rank": 109,
     "city": "劍橋",
     "country": "英國",
-    "flag": "🌍",
+    "flag": "🇬🇧",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Kings Camps @ King's College Sc…",
+    "hook": "Kings Camps @ King's College School Cambridge：5–17 歲多運動營，Ofsted 2598890、GBP 265…",
     "hook_tags": [],
     "pitch": "Kings Camps @ King's College School Cambridge：5–17 歲多運動營，Ofsted 2598890、GBP 265/週、含戶外泳池與 30+ 活動，劍橋校園裡跑跳",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -7504,15 +7478,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": 14,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": "TPE→LHR 14h + LHR→Cambridge 90 分鐘巴士，NT$40,000–70,000"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "台灣護照免簽 180 天",
+      "deposit": "不需特別文件",
+      "summary": "台灣護照免簽 180 天"
     },
     "camp": {
       "name": "Kings Camps Multi-Active @ King's College School Cambridge",
@@ -7523,58 +7499,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 93333,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 21874,
-      "buffer": 14583,
-      "total": 0,
-      "realTotal": 182290,
+      "misc": 0,
+      "buffer": 0,
+      "total": 380000,
+      "realTotal": 380000,
+      "low": 280000,
+      "high": 480000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "verified",
+      "overall": "verified",
       "deadline_source_url": "https://www.kingscamps.org/venue/cambridge-kings-college-school/",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "預算緊（孩童 NT$10,600/週、含戶外泳池與 30+ 活動）、想用 Kings College School 私校設施（西路 West Road CB3 9BN，劍橋大學中心步行可達）、搭 St Giles Family Course（同城）做混搭：1 週 Kings Camps + 2 週 St Giles 或反之、彈性接送 8:15am–5:30pm 比 SuperCamps 9–5 多 1.5 小時",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email Kings Active Foundation（英國慈善註冊、30+ UK 校區） 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.kingscamps.org/venue/cambridge-kings-college-sch 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -7592,7 +7562,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f2_uk",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://www.kingscamps.org/venue/cambridge-kings-college-school/"
+    "p7b_verified_url": "https://www.kingscamps.org/venue/cambridge-kings-college-school/",
+    "scoresMissing": true
   },
   {
     "id": "uk-london-camp-beaumont",
@@ -7600,13 +7571,13 @@ const CANDIDATES = [
     "rank": 110,
     "city": "倫敦",
     "country": "英國",
-    "flag": "🌍",
+    "flag": "🇬🇧",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Camp Beaumont Magic Programme：5…",
+    "hook": "Camp Beaumont Magic Programme：5–7 歲、Ofsted-registered、55+ 倫敦校區可挑離家最近、GBP 200–26…",
     "hook_tags": [],
     "pitch": "Camp Beaumont Magic Programme：5–7 歲、Ofsted-registered、55+ 倫敦校區可挑離家最近、GBP 200–265/週、45 年英倫日營老牌",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -7626,15 +7597,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": 14,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": "TPE→LHR 14h，NT$40,000–70,000；倫敦市內地鐵 GBP 5–7/日（用 Oyster 給 5 歲可免費）"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "台灣護照免簽 180 天",
+      "deposit": "不需特別文件",
+      "summary": "台灣護照免簽 180 天"
     },
     "camp": {
       "name": "Camp Beaumont Magic Programme (5–7) — Pimlico Academy or Wimbledon/Putney/Chiswick/Richmond/Blackheath/Hampstead 其一",
@@ -7645,58 +7618,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 100000,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 22875,
-      "buffer": 15250,
-      "total": 0,
-      "realTotal": 190625,
+      "misc": 0,
+      "buffer": 0,
+      "total": 410000,
+      "realTotal": 410000,
+      "low": 300000,
+      "high": 520000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "verified",
+      "overall": "verified",
       "deadline_source_url": "https://www.campbeaumont.co.uk/programmes/magic",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想住倫敦市區、地鐵 Zone 2–4 任一地點都能挑到近的 Camp Beaumont 校區、預算精打細算（Flash Sale GBP 40/日 是英倫日營最低之一）、5–7 歲分齡精細不會跟大孩子混（區別於 SuperCamps 4–5/6–7 兩階）、想自己安排媽媽 me-time（V&A / British Museum / Tate / 下午茶 / Cotswolds day trip）",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email Camp Beaumont（Ofsted-registered, 45 年經驗, Trustpilot Excellent） 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.campbeaumont.co.uk/programmes/magic 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -7716,7 +7683,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f2_uk",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://www.campbeaumont.co.uk/programmes/magic"
+    "p7b_verified_url": "https://www.campbeaumont.co.uk/programmes/magic",
+    "scoresMissing": true
   },
   {
     "id": "uk-brighton-stgiles-family",
@@ -7724,13 +7692,13 @@ const CANDIDATES = [
     "rank": 111,
     "city": "布萊頓",
     "country": "英國",
-    "flag": "🌍",
+    "flag": "🇬🇧",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "St Giles Brighton Family Course…",
+    "hook": "St Giles Brighton Family Course：媽媽 + 女兒（5–15）同校上英文，海邊大學城、Jubilee Library 兒童課室、A…",
     "hook_tags": [],
     "pitch": "St Giles Brighton Family Course：媽媽 + 女兒（5–15）同校上英文，海邊大學城、Jubilee Library 兒童課室、Adult 課媽媽可升 Platinum Business Executive",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -7750,15 +7718,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": 14,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": "TPE→LHR 14h + LHR→Brighton 90 分鐘火車或巴士，NT$40,000–70,000"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "台灣護照免簽 180 天",
+      "deposit": "不需特別文件",
+      "summary": "台灣護照免簽 180 天"
     },
     "camp": {
       "name": "St Giles Brighton Family Course (5–15)",
@@ -7769,58 +7739,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 153333,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 30874,
-      "buffer": 20583,
-      "total": 0,
-      "realTotal": 257290,
+      "misc": 0,
+      "buffer": 0,
+      "total": 590000,
+      "realTotal": 590000,
+      "low": 460000,
+      "high": 720000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "verified",
+      "overall": "verified",
       "deadline_source_url": "https://www.stgiles-international.com/wp-content/uploads/2025/11/Family-Courses_2026-v3.pdf",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想要海邊（Brighton beach、Brighton Pier、Royal Pavilion）而非劍橋大學城步調、媽媽想做商務英文（Brighton 是 St Giles 唯一可升 Platinum Business Executive 的 family 校區之一）、預算 NT$50–70 萬，要 homestay 接地氣、想 Eurostar 2.5h 跳巴黎週末（Brighton→London St Pancras 1h、再轉 2.5h）",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email St Giles International（British Council & EAQUALS 認證） 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.stgiles-international.com/wp-content/uploads/202 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -7839,7 +7803,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f2_uk",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://www.stgiles-international.com/wp-content/uploads/2025/11/Family-Courses_2026-v3.pdf"
+    "p7b_verified_url": "https://www.stgiles-international.com/wp-content/uploads/2025/11/Family-Courses_2026-v3.pdf",
+    "scoresMissing": true
   },
   {
     "id": "steve_kates_manhattan_ues",
@@ -7850,12 +7815,12 @@ const CANDIDATES = [
     "flag": "🇺🇸",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "全美最彈性 drop-in 設計 — 4 歲起 + Summe…",
+    "hook": "全美最彈性 drop-in 設計 — 4 歲起 + Summer Pass $4020 含 49 天 (8am-6pm 含午餐點心), 21 天連續完全可行。…",
     "hook_tags": [
       "new"
     ],
     "pitch": "🆕 全美最彈性 drop-in 設計 — 4 歲起 + Summer Pass $4020 含 49 天 (8am-6pm 含午餐點心), 21 天連續完全可行。Trevor Day School 校舍 + UES 安全度高 + 中央公園/博物館一站，但 ESTA 政治風險 + 飛 16-18h 轉機殘忍 + 時差 -12h",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -7875,41 +7840,60 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "ESTA 線上電子簽",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照 6 個月以上",
+          "ESTA USD 21 線上",
+          "5-6 歲 single mom 父親英文公證同意書 (海關 secondary 偶查)",
+          "回程機票",
+          "住宿訂單",
+          "camp confirmation letter"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "ESTA 線上電子簽",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照 6 個月以上",
+          "ESTA USD 21 線上",
+          "5-6 歲 single mom 父親英文公證同意書 (海關 secondary 偶查)",
+          "回程機票",
+          "住宿訂單",
+          "camp confirmation letter"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -7925,9 +7909,9 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://steveandkatescamp.com/manhattan-upper-east-side/",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "要極致彈性 drop-in 不想週週鎖死的家庭、預算 NT$45-65 萬、想搭配紐約文化探索",
     "notFor": "一般家庭",
@@ -7955,12 +7939,12 @@ const CANDIDATES = [
     ],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -7978,7 +7962,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "galileo_bay_area",
@@ -7989,12 +7974,12 @@ const CANDIDATES = [
     "flag": "🇺🇸",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "灣區 24 校區任選 + 全美最大 innovation ca…",
+    "hook": "灣區 24 校區任選 + 全美最大 innovation camp 品牌 — K 起 (5 歲秋季入 K OK), Nebula K-1 ratio 10:1…",
     "hook_tags": [
       "new"
     ],
     "pitch": "🆕 灣區 24 校區任選 + 全美最大 innovation camp 品牌 — K 起 (5 歲秋季入 K OK), Nebula K-1 ratio 10:1 加密, 週週主題 (STEM/art/maker)。但 Nebula 比一般加 $20/wk, 預算彈性低於 S&K",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -8014,41 +7999,56 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "ESTA 線上",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照",
+          "ESTA USD 21",
+          "5-6 歲父親英文同意書",
+          "回程機票"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "ESTA 線上",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照",
+          "ESTA USD 21",
+          "5-6 歲父親英文同意書",
+          "回程機票"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -8064,9 +8064,9 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://galileo-camps.com/our-camps/bay-area-locations/",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "重視 STEM/innovation 教育、灣區華人 social network、預算 NT$42-56 萬",
     "notFor": "一般家庭",
@@ -8094,12 +8094,12 @@ const CANDIDATES = [
     ],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -8117,7 +8117,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "roughing_it_lafayette",
@@ -8128,12 +8129,12 @@ const CANDIDATES = [
     "flag": "🇺🇸",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "全戶外 Lafayette Reservoir 湖畔 trad…",
+    "hook": "全戶外 Lafayette Reservoir 湖畔 traditional camp, PreK 起 — 2 週 $3660 / 4 週 $6775 / 含…",
     "hook_tags": [
       "new"
     ],
     "pitch": "🆕 全戶外 Lafayette Reservoir 湖畔 traditional camp, PreK 起 — 2 週 $3660 / 4 週 $6775 / 含免費 SF/EB 各區巴士接送, 適合愛戶外水上活動家庭。但 5 歲 PreK 跟一般 4 歲混班 + 距大都市車程 30 min",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -8153,41 +8154,56 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "ESTA 線上",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照",
+          "ESTA USD 21",
+          "5-6 歲父親英文同意書",
+          "回程機票"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "ESTA 線上",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照",
+          "ESTA USD 21",
+          "5-6 歲父親英文同意書",
+          "回程機票"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -8203,9 +8219,9 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://www.roughingit.com/",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "愛全戶外 traditional camp (跟 Galileo innovation 不同調)、想免接送 (含巴士)、預算 NT$45-58 萬",
     "notFor": "一般家庭",
@@ -8228,12 +8244,12 @@ const CANDIDATES = [
     ],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -8252,7 +8268,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "tom_sawyer_pasadena",
@@ -8263,12 +8280,12 @@ const CANDIDATES = [
     "flag": "🇺🇸",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "75 年歷史傳統 day camp (1926-) age 3…",
+    "hook": "75 年歷史傳統 day camp (1926-) age 3-14 — 馬術/射箭/游泳全含, Hahamongna 水岸自然園, 1/19/2026 註冊…",
     "hook_tags": [
       "new"
     ],
     "pitch": "🆕 75 年歷史傳統 day camp (1926-) age 3-14 — 馬術/射箭/游泳全含, Hahamongna 水岸自然園, 1/19/2026 註冊開放 $300/camper deposit。Pasadena 華人區生活方便, 但 LAX 入境繁忙 + 7 月 LA 熱浪",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -8288,41 +8305,56 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "ESTA 線上",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照",
+          "ESTA USD 21",
+          "5-6 歲父親英文同意書",
+          "回程機票"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "ESTA 線上",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照",
+          "ESTA USD 21",
+          "5-6 歲父親英文同意書",
+          "回程機票"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -8338,9 +8370,9 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://tomsawyercamps.com/",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想體驗傳統美式 day camp + 馬術、華人美食 social network、預算 NT$45-58 萬",
     "notFor": "一般家庭",
@@ -8368,12 +8400,12 @@ const CANDIDATES = [
     ],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -8391,7 +8423,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "ymca_nyc_kinder_camp",
@@ -8402,12 +8435,12 @@ const CANDIDATES = [
     "flag": "🇺🇸",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "美國最大 day camp 體系 — Kinder Camp …",
+    "hook": "美國最大 day camp 體系 — Kinder Camp 專為秋季入 K 5 歲設計, 4 個 2 週 session (6/29-8/21 共 8 週)…",
     "hook_tags": [
       "new"
     ],
     "pitch": "🆕 美國最大 day camp 體系 — Kinder Camp 專為秋季入 K 5 歲設計, 4 個 2 週 session (6/29-8/21 共 8 週) 任拼 — 21 天 = 2 個 session + 1 週靈活買。ACA + NYC DOH 雙認證, 西側 YMCA / 92Y / Vanderbilt 多選擇",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -8427,41 +8460,56 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "ESTA 線上",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照",
+          "ESTA USD 21",
+          "5-6 歲父親英文同意書",
+          "回程機票"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "ESTA 線上",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照",
+          "ESTA USD 21",
+          "5-6 歲父親英文同意書",
+          "回程機票"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -8477,9 +8525,9 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://ymcanyc.org/programs/camp",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "紐約大蘋果體驗、想結構化 traditional 比 Steve & Kate's flexible、預算 NT$46-62 萬",
     "notFor": "一般家庭",
@@ -8507,12 +8555,12 @@ const CANDIDATES = [
     ],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -8529,7 +8577,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "ymca_dc_anthony_bowen",
@@ -8540,12 +8589,12 @@ const CANDIDATES = [
     "flag": "🇺🇸",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "華府 YMCA 多分校 (Arlington / Anthon…",
+    "hook": "華府 YMCA 多分校 (Arlington / Anthony Bowen / Silver Spring 等) ~ USD 300/wk + 7:30am…",
     "hook_tags": [
       "new"
     ],
     "pitch": "🆕 華府 YMCA 多分校 (Arlington / Anthony Bowen / Silver Spring 等) ~ USD 300/wk + 7:30am-6:30pm 全日。Smithsonian 博物館全免費家庭時光 + 國家公園 50 m, 但 ESTA 政治友善度近年下滑 + DC 治安須留心 + Praesidium 認證 2026 秋季才完成",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -8565,41 +8614,56 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "ESTA 線上",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照",
+          "ESTA USD 21",
+          "5-6 歲父親英文同意書",
+          "回程機票"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "ESTA 線上",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照",
+          "ESTA USD 21",
+          "5-6 歲父親英文同意書",
+          "回程機票"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -8615,9 +8679,9 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://www.ymcadc.org/programs/camps/day-camp/",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想結合 Smithsonian 博物館深度文化體驗、預算 NT$40-54 萬、對美國政治運作有興趣 (女兒太小無感)",
     "notFor": "一般家庭",
@@ -8650,12 +8714,12 @@ const CANDIDATES = [
     ],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -8674,7 +8738,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "avid4_bellevue",
@@ -8685,12 +8750,12 @@ const CANDIDATES = [
     "flag": "🇺🇸",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "戶外探險導向 (kayak / SUP / bike / hi…",
+    "hook": "戶外探險導向 (kayak / SUP / bike / hike) + 5:1 超低師生比, K-1st 5 歲秋季入 K 完全合 — 6/22-8/21 …",
     "hook_tags": [
       "new"
     ],
     "pitch": "🆕 戶外探險導向 (kayak / SUP / bike / hike) + 5:1 超低師生比, K-1st 5 歲秋季入 K 完全合 — 6/22-8/21 共 9 週 1 週 session 任拼 21 天。Bellevue 是西雅圖最安全富裕區 + 西雅圖 7 月乾爽 18-25°C, 但飛 13h 轉機 + 一週鎖死靈活度不如 S&K",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -8710,41 +8775,56 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "ESTA 線上",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照",
+          "ESTA USD 21",
+          "5-6 歲父親英文同意書",
+          "回程機票"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "ESTA 線上",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照",
+          "ESTA USD 21",
+          "5-6 歲父親英文同意書",
+          "回程機票"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -8760,9 +8840,9 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://avid4.com/summer-camp/washington-bellevue-k-1st-explorer/",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "要極致戶外體驗 (kayak/SUP/bike)、想 5:1 超低師生比安全感、預算 NT$40-53 萬",
     "notFor": "一般家庭",
@@ -8790,12 +8870,12 @@ const CANDIDATES = [
     ],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -8813,7 +8893,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "honolulu_waldorf_summerfun",
@@ -8824,12 +8905,12 @@ const CANDIDATES = [
     "flag": "🇺🇸",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "救 hawaii_oahu 棄候選 — Waldorf 教育法…",
+    "hook": "救 hawaii_oahu 棄候選 — Waldorf 教育法 Pre-K 4+ 含 5 歲全合, 6/8-7/17 共 6 週個別購買 (3 連週剛好), …",
     "hook_tags": [
       "new"
     ],
     "pitch": "🆕 救 hawaii_oahu 棄候選 — Waldorf 教育法 Pre-K 4+ 含 5 歲全合, 6/8-7/17 共 6 週個別購買 (3 連週剛好), 1:8 ratio, 8:30-2:30 daily。Pali 山下 Niu Valley 校園安全, 但 Waldorf 學費可達 $400/wk + 課程偏柔性 (puppetry/circus arts)",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -8849,41 +8930,56 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "ESTA 線上",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照",
+          "ESTA USD 21",
+          "5-6 歲父親英文同意書",
+          "回程機票"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "ESTA 線上",
+        "duration_days": 90,
+        "father_consent_needed": true,
+        "documents_needed": [
+          "護照",
+          "ESTA USD 21",
+          "5-6 歲父親英文同意書",
+          "回程機票"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -8899,9 +8995,9 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://honoluluwaldorf.org/curriculum/summer-fun-program/",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "Waldorf 教育法支持者 (柔性/想像力導向)、想夏威夷氣候 + 5 歲合的家庭、預算 NT$36-46 萬",
     "notFor": "一般家庭",
@@ -8934,12 +9030,12 @@ const CANDIDATES = [
     ],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -8957,7 +9053,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "gstaad_palace",
@@ -8968,10 +9065,10 @@ const CANDIDATES = [
     "flag": "🇨🇭",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Gstaad Palace 是瑞士頂級家族度假村 (1913 …",
+    "hook": "Gstaad Palace 是瑞士頂級家族度假村 (1913 創立, 名媛皇室御用), Kids Club 收 5 歲獨立參加 + 3-5 歲 guardia…",
     "hook_tags": [],
     "pitch": "Gstaad Palace 是瑞士頂級家族度假村 (1913 創立, 名媛皇室御用), Kids Club 收 5 歲獨立參加 + 3-5 歲 guardian 陪同, 媽媽 spa + 名牌街 + Alpine 健行 + Saanen 鄉間美學, 預算 NT$80-120 萬高端品牌價值溢價, 5-6 歲記憶留存點是城堡感 + Saani 山羊吉祥物 + Alpine 草原而非結構化學習。",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -8991,41 +9088,56 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "Schengen 申根 — 台灣護照免簽",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "回程機票",
+          "住宿證明",
+          "保險建議 30,000 EUR"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "Schengen 申根 — 台灣護照免簽",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "回程機票",
+          "住宿證明",
+          "保險建議 30,000 EUR"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -9041,9 +9153,9 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://www.palace.ch/en/palace-kids/",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "預算 NT$80-120 萬高端家庭、5-6 歲女兒接受度假村 Kids Club 而非 structured education camp、媽媽愛 spa + 名店街 + Alpine 美學、想留下『瑞士城堡夏天』品牌記憶點",
     "notFor": "一般家庭",
@@ -9066,12 +9178,12 @@ const CANDIDATES = [
     ],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -9089,7 +9201,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f4_swiss_dubai",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "burgenstock_lucerne",
@@ -9100,10 +9213,10 @@ const CANDIDATES = [
     "flag": "🇨🇭",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Bürgenstock Resort 是盧森湖 500m 懸崖…",
+    "hook": "Bürgenstock Resort 是盧森湖 500m 懸崖頂 60 公頃綜合度假村 (Hotel Alpine Spa + Royal Park Vill…",
     "hook_tags": [],
     "pitch": "Bürgenstock Resort 是盧森湖 500m 懸崖頂 60 公頃綜合度假村 (Hotel Alpine Spa + Royal Park Villa + Waldhotel), Kids Club 收 3-12 歲 (3 歲以下 guardian 陪同), 5 歲可獨立, 媽媽 10000m² Alpine Spa + Hammetschwand 觀景電梯 + 盧森湖遊船, 比 Gstaad 略親民 NT$60-90 萬, Lucerne 半小時車程進城多選擇。",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -9123,41 +9236,52 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "Schengen 申根 — 台灣護照免簽",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "保險 30000 EUR 建議"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "Schengen 申根 — 台灣護照免簽",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "保險 30000 EUR 建議"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -9173,9 +9297,9 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://burgenstockresort.com/en/kids",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "預算 NT$70-90 萬中高端家庭、5-6 歲女兒喜歡度假村 amenity + 戶外活動、媽媽愛 spa + 古典樂 + 湖光山色、想 3 週分散到 Bürgenstock + Lucerne + Pilatus 換場景",
     "notFor": "一般家庭",
@@ -9198,12 +9322,12 @@ const CANDIDATES = [
     ],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -9221,7 +9345,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f4_swiss_dubai",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "lausanne_beau_rivage",
@@ -9232,10 +9357,10 @@ const CANDIDATES = [
     "flag": "🇨🇭",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Beau-Rivage Palace 是 1861 建的 La…",
+    "hook": "Beau-Rivage Palace 是 1861 建的 Lake Geneva 名門城堡飯店 (Le Comptoir 米其林 3 星), Le Monde…",
     "hook_tags": [],
     "pitch": "Beau-Rivage Palace 是 1861 建的 Lake Geneva 名門城堡飯店 (Le Comptoir 米其林 3 星), Le Monde de Bori Kids Club 6/27-8/16 暑假開放, 4 歲以下需 guardian 陪同 5 歲可獨立, Lavaux 葡萄梯田 UNESCO + Montreux Jazz Festival 7 月 + Olympic Museum, 媽媽湖區美學頂級, Geneva 機場 50 min, 預算 NT$50-75 萬比 Gstaad/Bürgenstock 親民。",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -9255,41 +9380,52 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "Schengen 申根 — 台灣護照免簽",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "保險 30000 EUR"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "Schengen 申根 — 台灣護照免簽",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "保險 30000 EUR"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -9305,9 +9441,9 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://www.brp.ch/en/kids-club-by-beau-rivage/",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "預算 NT$55-75 萬中端家庭、5-6 歲女兒喜歡 Lake Geneva 湖光 + Olympic 主題、媽媽愛米其林 + Lavaux 葡萄酒 + Montreux Jazz、比 Gstaad/Bürgenstock 親民 30-40% 但設施一樣頂",
     "notFor": "一般家庭",
@@ -9330,12 +9466,12 @@ const CANDIDATES = [
     ],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -9353,7 +9489,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f4_swiss_dubai",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "dubai_atlantis_palm",
@@ -9364,10 +9501,10 @@ const CANDIDATES = [
     "flag": "🇦🇪",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Atlantis The Palm 是 Palm Jumeir…",
+    "hook": "Atlantis The Palm 是 Palm Jumeirah 棕櫚島標誌性度假村 (Lost Chambers 水族館 + Aquaventure 水樂…",
     "hook_tags": [],
     "pitch": "Atlantis The Palm 是 Palm Jumeirah 棕櫚島標誌性度假村 (Lost Chambers 水族館 + Aquaventure 水樂園), Explorers Club 4-12 歲全年開, 早上 10-13 / 下午 14-18 / 晚 19-23 三時段, 房客免費非房客 AED 160/時段, 6-8 月戶外 40-45°C 但水樂園 + 室內活動完整對沖, 杜拜免簽 30 天, 預算 NT$35-55 萬中端家庭最佳。",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -9387,41 +9524,54 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "免簽 30 天 (台灣護照)",
+        "duration_days": 30,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "回程機票",
+          "住宿證明"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "免簽 30 天 (台灣護照)",
+        "duration_days": 30,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "回程機票",
+          "住宿證明"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -9437,9 +9587,9 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://www.atlantis.com/atlantis-the-palm/experiences/families/kids-and-teens",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "預算 NT$35-55 萬中端家庭、5-6 歲女兒愛水樂園 + 海洋生物 (Lost Chambers)、9h 直飛承受度高 + 不要長轉機、媽媽愛 Burj Khalifa + Nobu + 沙漠日落體驗",
     "notFor": "一般家庭",
@@ -9467,12 +9617,12 @@ const CANDIDATES = [
     ],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -9490,7 +9640,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f4_swiss_dubai",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "dubai_madinat_jumeirah",
@@ -9501,10 +9652,10 @@ const CANDIDATES = [
     "flag": "🇦🇪",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Madinat Jumeirah 是杜拜 Burj Al Ar…",
+    "hook": "Madinat Jumeirah 是杜拜 Burj Al Arab 旁的阿拉伯威尼斯主題度假村群 (Al Qasr + Mina A'Salam + Al N…",
     "hook_tags": [],
     "pitch": "Madinat Jumeirah 是杜拜 Burj Al Arab 旁的阿拉伯威尼斯主題度假村群 (Al Qasr + Mina A'Salam + Al Naseem + Dar Al Masyaf), Sinbad's Kids Club 1000m² 含迷你水樂園 + 攀岩牆, 5-10 歲組 (2-4 歲僅 1 場/日), 三時段 10:30 / 13:30 / 16:00, 房客免費 Wild Wadi 也免費, 預算 NT$40-65 萬比 Atlantis 略貴但 abra 木船運河美學頂。",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -9524,41 +9675,54 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "免簽 30 天 (台灣護照)",
+        "duration_days": 30,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "回程機票",
+          "住宿證明"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "免簽 30 天 (台灣護照)",
+        "duration_days": 30,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "回程機票",
+          "住宿證明"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -9574,9 +9738,9 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://www.jumeirah.com/en/article/experiences/dubai/mj/kids-at-madinat-jumeirah",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "預算 NT$40-65 萬中端家庭、5-6 歲女兒愛 abra 木船 + Wild Wadi 水樂園 + 阿拉伯主題美學、媽媽愛 Talise Ottoman Spa + Burj Al Arab 下午茶 + Souk Madinat、9h 直飛 + 免簽便利",
     "notFor": "一般家庭",
@@ -9599,12 +9763,12 @@ const CANDIDATES = [
     ],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -9622,7 +9786,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f4_swiss_dubai",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "capetown_natureplays",
@@ -9633,10 +9798,10 @@ const CANDIDATES = [
     "flag": "🇿🇦",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "南非第一所森林學校 + 5-10 歲混齡 + 戶外野放派 + …",
+    "hook": "南非第一所森林學校 + 5-10 歲混齡 + 戶外野放派 + Constantia 富區安全 + 7 月正值學校放假 + 半日制 R475/day (約 NT…",
     "hook_tags": [],
     "pitch": "南非第一所森林學校 + 5-10 歲混齡 + 戶外野放派 + Constantia 富區安全 + 7 月正值學校放假 + 半日制 R475/day (約 NT$760)。適合預算寬鬆、要 100% 大自然戶外、能接受 7 月冬季 11-17°C 的家庭。",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -9656,41 +9821,54 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "免簽 (台灣護照 2025-04 起免簽 90 天 / South Africa visa-free)",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "未成年單親出遊：父方公證同意書 (南非邊境官員常查)",
+          "回程機票 + 住宿證明"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "免簽 (台灣護照 2025-04 起免簽 90 天 / South Africa visa-free)",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "未成年單親出遊：父方公證同意書 (南非邊境官員常查)",
+          "回程機票 + 住宿證明"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -9706,21 +9884,21 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://www.natureplays.com/forest-house/forest-holiday-club-5-10-yr/",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "預算 NT$23 萬+、能接受 19h 轉機長飛、崇尚 100% 戶外野放派、不在乎課程結構、孩子已會基本英語、能適應冬季多層著裝、媽媽想兼觀光（酒鄉/鯨魚/Table Mountain）+ 不在乎中文支援",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -9739,7 +9917,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f5_india_safrica",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "capetown_clubengage",
@@ -9750,10 +9929,10 @@ const CANDIDATES = [
     "flag": "🇿🇦",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "南非最大連鎖、4-13 歲全收、R210 全日 (NT$340…",
+    "hook": "南非最大連鎖、4-13 歲全收、R210 全日 (NT$340)、7:00-17:30 上班族長時段托管、超便宜、室內為主可避雨。適合預算最緊+要結構化全日托…",
     "hook_tags": [],
     "pitch": "南非最大連鎖、4-13 歲全收、R210 全日 (NT$340)、7:00-17:30 上班族長時段托管、超便宜、室內為主可避雨。適合預算最緊+要結構化全日托+不愛戶外野放的家庭。",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -9773,41 +9952,54 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "免簽 90 天",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月",
+          "未成年單親父方公證",
+          "回程機票"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "免簽 90 天",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月",
+          "未成年單親父方公證",
+          "回程機票"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -9823,21 +10015,21 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://clubengage.co.za/",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "預算最緊 (NT$20 萬內含機票)、需要全日 7:00-17:30 托管的雙職父母、孩子怕戶外野放、偏好結構化室內活動、可接受英語環境且孩子有基本聽說能力",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -9856,7 +10048,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f5_india_safrica",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "delhi_achievers",
@@ -9867,10 +10060,10 @@ const CANDIDATES = [
     "flag": "🇮🇳",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "印度結構化 day camp 中極少數收 4-9 歲、4 週 …",
+    "hook": "印度結構化 day camp 中極少數收 4-9 歲、4 週 3hr/day 設計、offline + online 雙模式、多區可選——但**致命限制：ca…",
     "hook_tags": [],
     "pitch": "印度結構化 day camp 中極少數收 4-9 歲、4 週 3hr/day 設計、offline + online 雙模式、多區可選——但**致命限制：camp 在 4 月-6 月初辦、跟 7-8 月暑假錯位**。列為印度區參考備案，實際 7-8 月需轉問是否能客製。",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -9890,41 +10083,56 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "e-Visa (台灣護照可線上申請)",
+        "duration_days": 30,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月",
+          "電子簽證 e-Tourist Visa",
+          "回程機票",
+          "印度地址證明"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "e-Visa (台灣護照可線上申請)",
+        "duration_days": 30,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月",
+          "電子簽證 e-Tourist Visa",
+          "回程機票",
+          "印度地址證明"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -9940,21 +10148,21 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://adaminischool.com/summer-camp/summer-camp-in-new-delhi/",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "預算 < NT$15 萬、願意接受 8h 直飛 + 印度文化挑戰、孩子免疫力強、不挑食、能適應辛辣咖哩",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -9973,7 +10181,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f5_india_safrica",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "mumbai_kshitij_marginal",
@@ -9984,10 +10193,10 @@ const CANDIDATES = [
     "flag": "🇮🇳",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "印度區極少數 6 歲起收 + 戶外冒險 + Maharasht…",
+    "hook": "印度區極少數 6 歲起收 + 戶外冒險 + Maharashtra 山區的 multi-day camp。但**最低年齡 6 歲 + 全 residentia…",
     "hook_tags": [],
     "pitch": "印度區極少數 6 歲起收 + 戶外冒險 + Maharashtra 山區的 multi-day camp。但**最低年齡 6 歲 + 全 residential + camp 多在 5-6 月**，跟 7-8 月暑假錯位仍嚴重。列為印度區第 2 備案完整性參考。",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -10007,41 +10216,52 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "e-Visa",
+        "duration_days": 30,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月",
+          "e-Tourist Visa"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "e-Visa",
+        "duration_days": 30,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月",
+          "e-Tourist Visa"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -10057,21 +10277,21 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "https://kshitijworld.com/summer-camps.html",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "已 ≥6 歲且能接受 residential 分離的孩子、若硬要去印度且想戶外體驗",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -10088,7 +10308,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f5_india_safrica",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "ipoh-tenby-isp-activate",
@@ -10096,13 +10317,13 @@ const CANDIDATES = [
     "rank": 129,
     "city": "怡保",
     "country": "馬來西亞",
-    "flag": "🌍",
+    "flag": "🇲🇾",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Tenby Ipoh ISP Activate 暑期營，4 週…",
+    "hook": "Tenby Ipoh ISP Activate 暑期營，4 週 (7/13-8/7) 連續可組 3 週，年齡分 4-6 / 7-8 / 9+，避開檳城/吉隆坡…",
     "hook_tags": [],
     "pitch": "Tenby Ipoh ISP Activate 暑期營，4 週 (7/13-8/7) 連續可組 3 週，年齡分 4-6 / 7-8 / 9+，避開檳城/吉隆坡的擁擠路線",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -10122,15 +10343,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
-      "direct": false,
+      "hours": 5,
+      "direct": true,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": 25000,
+      "frequency": "",
+      "summary": "TPE → KUL 5h + KUL→IPH 國內線 50 min ~25-35k NTD；或直接 TPE→PEN 飛檳城 5h + 陸路 2.5h 到 Ipoh"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "免簽 90 天",
+      "deposit": "不需特別文件",
+      "summary": "免簽 90 天"
     },
     "camp": {
       "name": "ISP Activate Summer Camp 2026 @ Tenby Schools Ipoh",
@@ -10141,58 +10364,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 33333,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 12874,
-      "buffer": 8583,
-      "total": 0,
-      "realTotal": 107290,
+      "misc": 0,
+      "buffer": 0,
+      "total": 140000,
+      "realTotal": 140000,
+      "low": 100000,
+      "high": 180000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "verified",
+      "overall": "verified",
       "deadline_source_url": "https://www.teemsglobal.com/ispactivate",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想避開檳城/KL 既有熱門選項、嘗試 Perak 內陸城市、預算敏感家庭 (週費跟檳城 Camp Beaumont 同一系統但更便宜)、想要 4 週連續、彈性報 1-4 週的家庭",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email TEEMS Global × International Schools Partnership (ISP) — Tenby 同集團 (跟檳城/Setia Eco Park 同公司) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.teemsglobal.com/ispactivate 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -10210,7 +10427,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://www.teemsglobal.com/ispactivate"
+    "p7b_verified_url": "https://www.teemsglobal.com/ispactivate",
+    "scoresMissing": true
   },
   {
     "id": "kotakinabalu-shangri-la-rasa-ria",
@@ -10218,13 +10436,13 @@ const CANDIDATES = [
     "rank": 130,
     "city": "亞庇",
     "country": "馬來西亞",
-    "flag": "🌍",
+    "flag": "🇲🇾",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Shangri-La Rasa Ria 婆羅洲 64 英畝叢林…",
+    "hook": "Shangri-La Rasa Ria 婆羅洲 64 英畝叢林 + Cool Zone Kids Club (4-12 歲) + Junior Residen…",
     "hook_tags": [],
     "pitch": "Shangri-La Rasa Ria 婆羅洲 64 英畝叢林 + Cool Zone Kids Club (4-12 歲) + Junior Resident Naturalist 叢林生存課，沙巴自然系王牌",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -10244,15 +10462,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
-      "direct": false,
+      "hours": 3,
+      "direct": true,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": 15000,
+      "frequency": "",
+      "summary": "TPE → BKI 亞庇直飛 3h35min ~15-25k NTD (AirAsia / 馬航有直飛)"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "免簽 90 天",
+      "deposit": "不需特別文件",
+      "summary": "免簽 90 天"
     },
     "camp": {
       "name": "Cool Zone Kids Club + Junior Resident Naturalist",
@@ -10263,58 +10483,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 60000,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 16875,
-      "buffer": 11250,
-      "total": 0,
-      "realTotal": 140625,
+      "misc": 0,
+      "buffer": 0,
+      "total": 250000,
+      "realTotal": 250000,
+      "low": 180000,
+      "high": 320000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "verified",
+      "overall": "verified",
       "deadline_source_url": "https://www.shangri-la.com/kotakinabalu/rasariaresort/for-kids/",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想兼顧度假村品質 + 真實自然體驗 (婆羅洲叢林/紅毛猩猩)、預算可承擔 5* 度假村但不到 Bali Ayana 等級、媽媽要 spa + 自然走訪、比 Penang Tenby 更原生態，但比 Ubud Green School 更度假",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email Shangri-La Hotels Resort 自營 + 紅毛猩猩復育中心 (Sepilok) 合作 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.shangri-la.com/kotakinabalu/rasariaresort/for-ki 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -10333,7 +10547,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://www.shangri-la.com/kotakinabalu/rasariaresort/for-kids/"
+    "p7b_verified_url": "https://www.shangri-la.com/kotakinabalu/rasariaresort/for-kids/",
+    "scoresMissing": true
   },
   {
     "id": "johor-marlborough-camp-beaumont",
@@ -10341,13 +10556,13 @@ const CANDIDATES = [
     "rank": 131,
     "city": "Iskandar Puteri / Johor",
     "country": "馬來西亞",
-    "flag": "🌍",
+    "flag": "🇲🇾",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Marlborough College Malaysia (英…",
+    "hook": "Marlborough College Malaysia (英國 Marlborough 海外旗艦校) × Camp Beaumont Magic 5-7 歲…",
     "hook_tags": [],
     "pitch": "Marlborough College Malaysia (英國 Marlborough 海外旗艦校) × Camp Beaumont Magic 5-7 歲，可從新加坡跨關 30 min，動線靈活",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -10367,15 +10582,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
-      "direct": false,
+      "hours": 4,
+      "direct": true,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": 20000,
+      "frequency": "",
+      "summary": "TPE → SIN 新加坡 4h45min ~20-32k NTD + Tuas/Woodlands 陸路過關到 Marlborough 30-45 min；或 TPE → JHB 新山 (轉機 KUL/SIN)"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "免簽 90 天",
+      "deposit": "不需特別文件",
+      "summary": "免簽 90 天"
     },
     "camp": {
       "name": "Camp Beaumont Magic Day Camp @ Marlborough College Malaysia",
@@ -10386,58 +10603,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 40000,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 13875,
-      "buffer": 9250,
-      "total": 0,
-      "realTotal": 115625,
+      "misc": 0,
+      "buffer": 0,
+      "total": 170000,
+      "realTotal": 170000,
+      "low": 120000,
+      "high": 220000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
-      "deadline_source_url": "https://www.campbeaumont.asia/our-camps/marlborough-college",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "camp": "verified",
+      "overall": "verified",
+      "deadline_source_url": "https://booknow.campbeaumont.asia/",
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想要英國 Marlborough 名校環境 + Camp Beaumont 品牌一致性、可結合新加坡前後段 (例如 W1 SG / W2-3 Marlborough)、Iskandar Puteri Puteri Harbour 海港城新興，房租比新加坡省一半",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email Camp Beaumont Asia (跟檳城 Tenby / KL Alice Smith 同一英國品牌) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.campbeaumont.asia/our-camps/marlborough-college 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -10456,7 +10667,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://booknow.campbeaumont.asia/"
+    "p7b_verified_url": "https://booknow.campbeaumont.asia/",
+    "scoresMissing": true
   },
   {
     "id": "pattaya-regents-nordanglia",
@@ -10464,13 +10676,13 @@ const CANDIDATES = [
     "rank": 132,
     "city": "Pattaya",
     "country": "泰國",
-    "flag": "🌍",
+    "flag": "🇹🇭",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Regents International School Pa…",
+    "hook": "Regents International School Pattaya (Nord Anglia 集團) Summer Camp 2026 — 4 週、4 …",
     "hook_tags": [],
     "pitch": "Regents International School Pattaya (Nord Anglia 集團) Summer Camp 2026 — 4 週、4 主題 (Superhero/Ocean/Nature/Innovation)，3 歲就收，有 Juilliard 表演藝術合作",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -10490,15 +10702,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
-      "direct": false,
+      "hours": 3,
+      "direct": true,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": 18000,
+      "frequency": "",
+      "summary": "TPE → BKK 3h40min ~18-30k NTD + BKK → Pattaya 巴士/車 90-120 min；或 TPE → UTP 烏塔堡 (Pattaya 機場) 包機/季節航班 (2026 偶有)"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "60 天免簽 + 可延 30 天 = 共 90 天 (2024 新規)；TDAC 抵達前 72h 線上填",
+      "deposit": "不需特別文件",
+      "summary": "60 天免簽 + 可延 30 天 = 共 90 天 (2024 新規)；TDAC 抵達前 72h 線上填"
     },
     "camp": {
       "name": "Regents Summer Camp 2026 — Day & Boarding",
@@ -10509,58 +10723,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 43333,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 14374,
-      "buffer": 9583,
-      "total": 0,
-      "realTotal": 119790,
+      "misc": 0,
+      "buffer": 0,
+      "total": 190000,
+      "realTotal": 190000,
+      "low": 130000,
+      "high": 250000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
-      "deadline_source_url": "https://www.nordangliaeducation.com/risp-pattaya",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "camp": "verified",
+      "overall": "verified",
+      "deadline_source_url": "https://www.nordangliaeducation.com/risp-pattaya/news/2026/02/16/why-summer-camp-is-the-perfect-opportunity-for-children-to-explore-learn-and-grow",
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想要 Nord Anglia 系國際品牌營 (跟英國 ANI Cambridge / KL 系一脈)、Boarding 不適用 5-6 歲，但 day camp 4 主題輪換很適合 3 週、媽媽可規劃曼谷 W1 + Pattaya W2-3 動線、想結合海濱 + 國際校",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email Nord Anglia Education (global 80+ 校) + Juilliard Performing Arts 合作 + Elite Swim Asia (Olympic 金牌教練 Nick Thoman) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.nordangliaeducation.com/risp-pattaya/news/2026/0 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -10579,7 +10787,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://www.nordangliaeducation.com/risp-pattaya/news/2026/02/16/why-summer-camp-is-the-perfect-opportunity-for-children-to-explore-learn-and-grow"
+    "p7b_verified_url": "https://www.nordangliaeducation.com/risp-pattaya/news/2026/02/16/why-summer-camp-is-the-perfect-opportunity-for-children-to-explore-learn-and-grow",
+    "scoresMissing": true
   },
   {
     "id": "chiangmai-lanna-summer-school",
@@ -10587,13 +10796,13 @@ const CANDIDATES = [
     "rank": 133,
     "city": "Chiang Mai",
     "country": "泰國",
-    "flag": "🌍",
+    "flag": "🇹🇭",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Lanna IST 清邁 Summer School，2 週為…",
+    "hook": "Lanna IST 清邁 Summer School，2 週為單位 (兩 session 可組 4 週)，5 歲起收 — 解決既有 Panyaden Tier…",
     "hook_tags": [],
     "pitch": "Lanna IST 清邁 Summer School，2 週為單位 (兩 session 可組 4 週)，5 歲起收 — 解決既有 Panyaden Tier 0 (6+) 鎖年齡問題",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -10613,15 +10822,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
-      "direct": false,
+      "hours": 4,
+      "direct": true,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": 18000,
+      "frequency": "",
+      "summary": "TPE → CNX 清邁 4h ~18-28k NTD (StarLux / EVA / 泰獅季節航班)"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "60 天免簽 + 可延 30 天 = 共 90 天；TDAC 抵達前 72h",
+      "deposit": "不需特別文件",
+      "summary": "60 天免簽 + 可延 30 天 = 共 90 天；TDAC 抵達前 72h"
     },
     "camp": {
       "name": "Lanna International School Thailand Summer School 2026",
@@ -10632,58 +10843,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 36666,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 13374,
-      "buffer": 8916,
-      "total": 0,
-      "realTotal": 111456,
+      "misc": 0,
+      "buffer": 0,
+      "total": 155000,
+      "realTotal": 155000,
+      "low": 110000,
+      "high": 200000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "verified",
+      "overall": "verified",
       "deadline_source_url": "https://www.lannaist.ac.th/international-summer-school/",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "既有 Panyaden 因 6+ 被 reject — Lanna 5 歲收解決年齡卡邊緣、想要清邁文化 + 山林環境，避開普吉/Bali 度假村、媽媽可同時規劃清邁 wellness retreat / 古寺、預算中等 NT$11-20 萬",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email Lanna IST 自營 (清邁老牌英系國際校，建校超 30 年) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.lannaist.ac.th/international-summer-school/ 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -10702,7 +10907,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://www.lannaist.ac.th/international-summer-school/"
+    "p7b_verified_url": "https://www.lannaist.ac.th/international-summer-school/",
+    "scoresMissing": true
   },
   {
     "id": "huahin-centara-grand-camp-safari",
@@ -10710,13 +10916,13 @@ const CANDIDATES = [
     "rank": 134,
     "city": "Hua Hin",
     "country": "泰國",
-    "flag": "🌍",
+    "flag": "🇹🇭",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Centara Grand Hua Hin 殖民風海濱 5* …",
+    "hook": "Centara Grand Hua Hin 殖民風海濱 5* — Camp Safari Kids Club (4-9 歲) + 4 泳池 + 42 vill…",
     "hook_tags": [],
     "pitch": "Centara Grand Hua Hin 殖民風海濱 5* — Camp Safari Kids Club (4-9 歲) + 4 泳池 + 42 villa + Muay Thai/太極課，比普吉 7 月雨季穩定 (泰南灣 vs 安達曼)",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -10736,15 +10942,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
-      "direct": false,
+      "hours": 3,
+      "direct": true,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": "TPE → BKK 3h40min + BKK → HHQ Hua Hin 機場/巴士 3h；或 TPE → HKT 飛普吉再陸路 (不建議)"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "60 天免簽 + 可延 30 天 = 共 90 天；TDAC 72h",
+      "deposit": "不需特別文件",
+      "summary": "60 天免簽 + 可延 30 天 = 共 90 天；TDAC 72h"
     },
     "camp": {
       "name": "Camp Safari Kids Club @ Centara Grand Beach Resort & Villas Hua Hin",
@@ -10755,22 +10963,22 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 53333,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 15874,
-      "buffer": 10583,
-      "total": 0,
-      "realTotal": 132290,
+      "misc": 0,
+      "buffer": 0,
+      "total": 225000,
+      "realTotal": 225000,
+      "low": 160000,
+      "high": 290000,
       "vsCram": 240000
     },
     "medical": {
@@ -10784,23 +10992,23 @@ const CANDIDATES = [
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "verified",
+      "overall": "verified",
       "deadline_source_url": "https://www.centarahotelsresorts.com/centaragrand/chbr",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想避開普吉 7 月安達曼海雨季水母浪大的家庭、Hua Hin 是泰皇室避暑地，安全 + 殖民風建築有質感、想要 villa 私密 + 純度假村 kids club 結構、曼谷 W1 + Hua Hin W2-3 動線",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email Centara Hotels Resorts (泰國本土最大集團) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.centarahotelsresorts.com/centaragrand/chbr 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -10819,7 +11027,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://www.centarahotelsresorts.com/centaragrand/chbr"
+    "p7b_verified_url": "https://www.centarahotelsresorts.com/centaragrand/chbr",
+    "scoresMissing": true
   },
   {
     "id": "hoian-four-seasons-nam-hai",
@@ -10827,13 +11036,13 @@ const CANDIDATES = [
     "rank": 135,
     "city": "Hoi An / Dien Ban",
     "country": "越南",
-    "flag": "🌍",
+    "flag": "🇻🇳",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Four Seasons The Nam Hai 全別墅 Fo…",
+    "hook": "Four Seasons The Nam Hai 全別墅 Forbes 5-Star 海濱 — Chuon Chuon Kids Club (4-12) + …",
     "hook_tags": [],
     "pitch": "Four Seasons The Nam Hai 全別墅 Forbes 5-Star 海濱 — Chuon Chuon Kids Club (4-12) + Junior Cooking Academy + 15+ 免費活動 + UNESCO Hoi An 古城 30 min",
-    "totalScore": 0,
+    "totalScore": 34,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -10853,15 +11062,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
-      "direct": false,
+      "hours": 2,
+      "direct": true,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": 12000,
+      "frequency": "",
+      "summary": "TPE → DAD 峴港 2h30min ~12-22k NTD (VietJet / EVA / China Airlines 多直飛)；DAD 機場 → Nam Hai 30 min 接送"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "免簽 45 天 (2025-08 起放寬)",
+      "deposit": "不需特別文件",
+      "summary": "免簽 45 天 (2025-08 起放寬)"
     },
     "camp": {
       "name": "Chuon Chuon Kids Club @ Four Seasons Resort The Nam Hai",
@@ -10872,58 +11083,52 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 166666,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 32874,
-      "buffer": 21916,
-      "total": 0,
-      "realTotal": 273956,
+      "misc": 0,
+      "buffer": 0,
+      "total": 700000,
+      "realTotal": 700000,
+      "low": 500000,
+      "high": 900000,
       "vsCram": 240000
     },
     "medical": {
       "mandarin": "—",
       "emergency": "—"
     },
-    "emergency": {
-      "hospitals": [],
-      "pharmacy": [],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
-      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
-    },
+    "emergency": null,
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "verified",
+      "overall": "verified",
       "deadline_source_url": "https://www.fourseasons.com/hoian/services-and-amenities/family/",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "既有 Phu Quoc+Danang Tier 3 跟此項地理鄰近但 Four Seasons 是頂級豪奢層級，差異化、媽媽要 Spa (Children of the Earth 全家療程) + Vietnam wellness 沉浸、中越雨季其實 7 月相對好 (90-120mm 短陣雨，比 Phu Quoc 南島乾)、Hoi An UNESCO 古城 + 山茶半島 + 越南菜文化深度",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email Four Seasons Hotels & Resorts (連 8 年 Forbes 5*) + Nam Hai Cooking Academy 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.fourseasons.com/hoian/services-and-amenities/fam 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -10942,7 +11147,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "verified",
-    "p7b_verified_url": "https://www.fourseasons.com/hoian/services-and-amenities/family/"
+    "p7b_verified_url": "https://www.fourseasons.com/hoian/services-and-amenities/family/",
+    "scoresMissing": true
   },
   {
     "id": "siemreap-anantara-angkor",
@@ -10950,13 +11156,13 @@ const CANDIDATES = [
     "rank": 136,
     "city": "Siem Reap",
     "country": "柬埔寨",
-    "flag": "🌍",
+    "flag": "🇰🇭",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Anantara Angkor Resort 39-suite…",
+    "hook": "Anantara Angkor Resort 39-suite 精品 — Kids Club (incense making / palm leaf weav…",
     "hook_tags": [],
     "pitch": "Anantara Angkor Resort 39-suite 精品 — Kids Club (incense making / palm leaf weaving / lotus art) + Family Pool Suite 兩房 + Spa 房，吳哥窟世界遺產動線 + 新國家擴充清單",
-    "totalScore": 0,
+    "totalScore": 32,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -10976,15 +11182,17 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
-      "direct": false,
+      "hours": 3,
+      "direct": true,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": 15000,
+      "frequency": "",
+      "summary": "TPE → REP 暹粒 3h40min ~15-25k NTD (季節包機/轉曼谷或胡志明)；近期新 REP 暹粒-吳哥窟國際機場 2023 啟用"
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": "e-visa USD 30 抵達前線上，30 天",
+      "deposit": "不需特別文件",
+      "summary": "e-visa USD 30 抵達前線上，30 天"
     },
     "camp": {
       "name": "Anantara Angkor Kids Club + Enriching Family Experiences",
@@ -10995,22 +11203,22 @@ const CANDIDATES = [
       "highlights": []
     },
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 83333,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 20374,
-      "buffer": 13583,
-      "total": 0,
-      "realTotal": 169790,
+      "misc": 0,
+      "buffer": 0,
+      "total": 365000,
+      "realTotal": 365000,
+      "low": 250000,
+      "high": 480000,
       "vsCram": 240000
     },
     "medical": {
@@ -11024,23 +11232,23 @@ const CANDIDATES = [
       "family_relay_friendly": false
     },
     "confidence": {
-      "camp": "ai_guess",
-      "overall": "ai_guess",
+      "camp": "operator_verified",
+      "overall": "operator_verified",
       "deadline_source_url": "https://www.anantara.com/en/angkor-siem-reap/experiences/enriching-family-experiences",
-      "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "verified_date": "2026-05-15",
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想擴增新國家清單 (柬埔寨之前不在 35 內)、吳哥窟是少數 5-6 歲也適合的 UNESCO 世界遺產 (車程 + 步行 + 故事化)、媽媽要 spa (Anantara Spa 強項) + 文化沉浸 (Apsara 舞 + 高棉菜)、預算中等 NT$25-48 萬",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email Anantara Hotels (Minor Group, 跟普吉 Anantara Mai Khao 同集團) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網 https://www.anantara.com/en/angkor-siem-reap/experiences/enr 看最新 booking 狀態",
         "priority": "P0"
       }
@@ -11059,7 +11267,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "operator_verified",
-    "p7b_verified_url": "https://www.anantara.com/en/angkor-siem-reap/experiences/enriching-family-experiences"
+    "p7b_verified_url": "https://www.anantara.com/en/angkor-siem-reap/experiences/enriching-family-experiences",
+    "scoresMissing": true
   },
   {
     "id": "yokohama_saint_maur",
@@ -11070,10 +11279,10 @@ const CANDIDATES = [
     "flag": "🇯🇵",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "1872 創校日本最老國際學校（154 年）+ Montess…",
+    "hook": "1872 創校日本最老國際學校（154 年）+ Montessori 蒙特梭利 preschool 真正接 5-6 歲 + 山手洋館區步行可達中華街 +¥14…",
     "hook_tags": [],
     "pitch": "1872 創校日本最老國際學校（154 年）+ Montessori 蒙特梭利 preschool 真正接 5-6 歲 + 山手洋館區步行可達中華街 +¥145k/3週低於同質歐美 1/3，3 直飛 4 小時。",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -11093,41 +11302,52 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "免簽",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "Visit Japan Web 線上 e-入境申報 (海關+CIQ)"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "免簽",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "Visit Japan Web 線上 e-入境申報 (海關+CIQ)"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -11143,21 +11363,21 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "Saint Maur 2026 Summer School 官方頁: https://www.stmaur.ac.jp/learning/summer-school (T3 verified 2026-05-15)",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "想要 Montessori 5-6 歲體驗的家庭、預算 NT$24-29 萬中段 family、怕東京太擠，喜歡 Yokohama 港邊洋館氛圍的家庭、希望走路就能到 camp，downtown 度假村+教育並重",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -11176,7 +11396,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f7_japan_korea",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "karuizawa_etonhouse",
@@ -11187,10 +11408,10 @@ const CANDIDATES = [
     "flag": "🇯🇵",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "輕井澤海拔 1000m 避暑勝地 + 新加坡 EtonHous…",
+    "hook": "輕井澤海拔 1000m 避暑勝地 + 新加坡 EtonHouse 國際品牌 (1995 創 / 全球 100+ campus) + 4 週連續 8/14 收尾…",
     "hook_tags": [],
     "pitch": "輕井澤海拔 1000m 避暑勝地 + 新加坡 EtonHouse 國際品牌 (1995 創 / 全球 100+ campus) + 4 週連續 8/14 收尾 + ¥132k/週確認 + 教 3-5 歲含 5-6，跟 Niseko 北海道對比較有都會配套 (outlet shopping / hot springs / Hoshino Resorts)",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -11210,41 +11431,52 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "免簽",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "Visit Japan Web e-入境申報"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "免簽",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "Visit Japan Web e-入境申報"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -11260,21 +11492,21 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "EtonHouse Karuizawa 2026 官方頁: https://www.etonhouse.co.jp/holiday-programs-japan/karuizawa-summer-school-at-learning-hub/ (T3 verified 2026-05-15)",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "怕東京/橫濱熱的家庭 (輕井澤夏季 24°C 避暑)、想結合 outlet shopping + 溫泉 + 度假村度假感、EtonHouse Reggio 教育法粉絲 (新加坡品牌粉)、預算 NT$36-43 萬 willing to pay 為避暑 + 品牌",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -11292,7 +11524,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f7_japan_korea",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "yokohama_horizon",
@@ -11303,10 +11536,10 @@ const CANDIDATES = [
     "flag": "🇯🇵",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "土耳其資本 IB 系 IB-MYP 學校 + Preschoo…",
+    "hook": "土耳其資本 IB 系 IB-MYP 學校 + Preschool Reggio + Kinder STEAM 兩程設計 5-6 歲剛好涵蓋 + 6/22-7/…",
     "hook_tags": [],
     "pitch": "土耳其資本 IB 系 IB-MYP 學校 + Preschool Reggio + Kinder STEAM 兩程設計 5-6 歲剛好涵蓋 + 6/22-7/26 5 連續週可組 3 週 + 非 HJIS 學生 open，3 直飛 4 小時。Saint Maur 之外的另一個 Yokohama 選項",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -11326,41 +11559,52 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "免簽",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "Visit Japan Web e-入境申報"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "免簽",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "Visit Japan Web e-入境申報"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -11376,21 +11620,21 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "HJIS 2026 Summer School 官方頁: https://www.horizon.ac.jp/events/summer-school (T3 verified 2026-05-15)",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "Saint Maur 沒位的 backup Yokohama 選擇、想 STEAM 比 Montessori 多的 5-6 歲家庭、IB 教育法粉絲 + IB World School 標籤重要",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -11408,7 +11652,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f7_japan_korea",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "seoul_camp_sfs",
@@ -11419,10 +11664,10 @@ const CANDIDATES = [
     "flag": "🇰🇷",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "1912 創校亞洲最老美式 IB+UK National Cu…",
+    "hook": "1912 創校亞洲最老美式 IB+UK National Curriculum + ACA 美國 Camp Association 會員（韓國唯一）+ 6 連…",
     "hook_tags": [],
     "pitch": "1912 創校亞洲最老美式 IB+UK National Curriculum + ACA 美國 Camp Association 會員（韓國唯一）+ 6 連週 schedule + Pre-K 3-4 與 K-G1 兩程涵蓋 5-6 歲 + ₩720k/週確認可訂。比 KIS Pangyo（既有 candidate）更老校齡 + ACA 標籤強。",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -11442,41 +11687,54 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "K-ETA 線上 + 免簽 90 天",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "K-ETA 線上申請 (首次入境)",
+          "2026 整合 e-入境卡 + SeS 快速通關"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "K-ETA 線上 + 免簽 90 天",
+        "duration_days": 90,
+        "father_consent_needed": false,
+        "documents_needed": [
+          "護照 6 個月以上效期",
+          "K-ETA 線上申請 (首次入境)",
+          "2026 整合 e-入境卡 + SeS 快速通關"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -11492,21 +11750,21 @@ const CANDIDATES = [
     "confidence": {
       "camp": "ai_guess",
       "overall": "ai_guess",
-      "deadline_source_url": "Camp SFS Elementary 官方頁: https://www.seoulforeign.org/camp-sfs/elementary-school-programs (T3 verified 2026-05-15)",
+      "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "預算 NT$22-27 萬 family，最便宜 + 最近 + ACA verified 三全、想 ACA Camp Association 標籤確保安全 SOP 的家庭、醫療優先 (Severance 步行 5 分鐘到 camp)、想 SFS 校齡老 (1912) 的傳統校光環",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -11524,7 +11782,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f7_japan_korea",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "madrid_asm",
@@ -11535,10 +11794,10 @@ const CANDIDATES = [
     "flag": "🇪🇸",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "純美式英語沉浸 4 週滿月可配 21 天, 7/1-31 全月…",
+    "hook": "純美式英語沉浸 4 週滿月可配 21 天, 7/1-31 全月開, 3 週 €670 (NT$24,000) 全歐最佳 CP. 3-12 歲全收 + ASM …",
     "hook_tags": [],
     "pitch": "純美式英語沉浸 4 週滿月可配 21 天, 7/1-31 全月開, 3 週 €670 (NT$24,000) 全歐最佳 CP. 3-12 歲全收 + ASM 是美國海外經營 60 年老牌學校, 但 7 月馬德里 35-40°C 熱浪 + 巴拉哈斯機場無台北直飛 (需法蘭克福/伊斯坦堡轉 18-22h)",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -11558,41 +11817,54 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "Schengen 90 天免簽 (台灣護照)",
+        "duration_days": 90,
+        "father_consent_needed": "Schengen 對單親出境無強制公證, 但建議帶英文公證同意書避邊境查問",
+        "documents_needed": [
+          "MOFA 普通晶片護照效期 ≥6 個月",
+          "回程機票 + 住宿訂單",
+          "旅平險 €30,000+ 涵蓋醫療"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "Schengen 90 天免簽 (台灣護照)",
+        "duration_days": 90,
+        "father_consent_needed": "Schengen 對單親出境無強制公證, 但建議帶英文公證同意書避邊境查問",
+        "documents_needed": [
+          "MOFA 普通晶片護照效期 ≥6 個月",
+          "回程機票 + 住宿訂單",
+          "旅平險 €30,000+ 涵蓋醫療"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -11610,19 +11882,19 @@ const CANDIDATES = [
       "overall": "ai_guess",
       "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "一般家庭",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -11636,7 +11908,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f8_europe",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "sotogrande",
@@ -11647,10 +11920,10 @@ const CANDIDATES = [
     "flag": "🇪🇸",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Inspired Education Group 高端寄宿學校…",
+    "hook": "Inspired Education Group 高端寄宿學校的 4-5 歲 Nano Camp + 游泳每天 + 海邊度假村式 campus, 7/26-8…",
     "hook_tags": [],
     "pitch": "Inspired Education Group 高端寄宿學校的 4-5 歲 Nano Camp + 游泳每天 + 海邊度假村式 campus, 7/26-8/8 兩週 + 自配 1 週串接 = 21 天, 但偏遠 (馬拉加機場 1.5h 車) + 預算 NT$50-70 萬高",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -11670,41 +11943,52 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "Schengen 90 天免簽",
+        "duration_days": 90,
+        "documents_needed": [
+          "晶片護照效期 ≥6 個月",
+          "回程票 + 住宿訂單",
+          "旅平險 €30k+"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "Schengen 90 天免簽",
+        "duration_days": 90,
+        "documents_needed": [
+          "晶片護照效期 ≥6 個月",
+          "回程票 + 住宿訂單",
+          "旅平險 €30k+"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -11722,19 +12006,19 @@ const CANDIDATES = [
       "overall": "ai_guess",
       "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "一般家庭",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -11748,7 +12032,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f8_europe",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "berlin_kca_kreuzberg",
@@ -11759,10 +12044,10 @@ const CANDIDATES = [
     "flag": "🇩🇪",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "Kids Camp America 在德國 11 城經營 + …",
+    "hook": "Kids Camp America 在德國 11 城經營 + Berlin 3 點 (Kreuzberg/Tiergarten/Prenzlauer Berg…",
     "hook_tags": [],
     "pitch": "Kids Camp America 在德國 11 城經營 + Berlin 3 點 (Kreuzberg/Tiergarten/Prenzlauer Berg), 5-12 歲純英語沉浸 + Native English 教練, 7/13-8/21 共 6 週可任選 3 週 = 21 天完美配, 柏林博物館島 + Mitte 文化頂",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -11782,41 +12067,52 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "Schengen 90 天免簽",
+        "duration_days": 90,
+        "documents_needed": [
+          "晶片護照效期 ≥6 個月",
+          "回程票 + 住宿訂單",
+          "旅平險"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "Schengen 90 天免簽",
+        "duration_days": 90,
+        "documents_needed": [
+          "晶片護照效期 ≥6 個月",
+          "回程票 + 住宿訂單",
+          "旅平險"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -11834,19 +12130,19 @@ const CANDIDATES = [
       "overall": "ai_guess",
       "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "一般家庭",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -11860,7 +12156,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f8_europe",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   },
   {
     "id": "hague_basker",
@@ -11871,10 +12168,10 @@ const CANDIDATES = [
     "flag": "🇳🇱",
     "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
     "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
-    "hook": "荷蘭最大 international childcare 老牌…",
+    "hook": "荷蘭最大 international childcare 老牌 25+ 年 (剛從 Zein 改名 Basker), 6 點 + Amsterdam 1 點,…",
     "hook_tags": [],
     "pitch": "荷蘭最大 international childcare 老牌 25+ 年 (剛從 Zein 改名 Basker), 6 點 + Amsterdam 1 點, 4-7 歲 Young Explorers + 7-12 歲 Great Adventurers, 6/30-8/29 整夏可滾動配 3 週, 大週日小時 08:00-18:30 全包 + Dutch 兒童照護法規最嚴 + 7 月 21°C 體感最舒服歐洲",
-    "totalScore": 0,
+    "totalScore": 28,
     "scores": {
       "飛行便利": 0,
       "簽證友善": 0,
@@ -11894,41 +12191,52 @@ const CANDIDATES = [
       "教育深度": 0
     },
     "flight": {
-      "hours": 0,
+      "hours": null,
       "direct": false,
       "airline": "",
-      "price": 0,
-      "frequency": "每日數班"
+      "price": null,
+      "frequency": "",
+      "summary": ""
     },
     "visa": {
-      "type": "—",
-      "deposit": "不需特別文件"
+      "type": {
+        "type": "Schengen 90 天免簽",
+        "duration_days": 90,
+        "documents_needed": [
+          "晶片護照效期 ≥6 個月",
+          "回程票 + 住宿",
+          "旅平險"
+        ]
+      },
+      "deposit": "不需特別文件",
+      "summary": {
+        "type": "Schengen 90 天免簽",
+        "duration_days": 90,
+        "documents_needed": [
+          "晶片護照效期 ≥6 個月",
+          "回程票 + 住宿",
+          "旅平險"
+        ]
+      }
     },
-    "camp": {
-      "name": "",
-      "age": "",
-      "dates": "",
-      "cost": 0,
-      "lang": "",
-      "highlights": []
-    },
+    "camp": null,
     "stays": [],
-    "metime": [
-      "Phase 7B 待補：依候選城市自行規劃"
-    ],
+    "metime": [],
     "classes": [],
     "itinerary": null,
     "budget": {
       "flight": 0,
       "camp": 0,
       "stay": 0,
-      "food": 52500,
+      "food": 0,
       "activity": 0,
       "transport": 0,
-      "misc": 7875,
-      "buffer": 5250,
-      "total": 0,
-      "realTotal": 65625,
+      "misc": 0,
+      "buffer": 0,
+      "total": null,
+      "realTotal": null,
+      "low": 0,
+      "high": 0,
       "vsCram": 240000
     },
     "medical": {
@@ -11946,19 +12254,19 @@ const CANDIDATES = [
       "overall": "ai_guess",
       "deadline_source_url": "",
       "verified_date": "待核實",
-      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+      "warning": "Phase 7B lite 候選, 詳細資料 (住宿/me-time/醫療/21天行程) 待補, 須出發前親自 email 校方確認"
     },
     "goodFor": "一般家庭",
     "notFor": "一般家庭",
     "risks": [],
     "p0": [
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
         "priority": "P0"
       },
       {
-        "deadline": "2026-06-01",
+        "deadline": null,
         "task": "WebFetch 官網  看最新 booking 狀態",
         "priority": "P0"
       }
@@ -11972,7 +12280,8 @@ const CANDIDATES = [
     "phase_7b_lite": true,
     "fork_source": "f8_europe",
     "p7b_confidence": "ai_guess",
-    "p7b_verified_url": ""
+    "p7b_verified_url": "",
+    "scoresMissing": true
   }
 ];
 
@@ -12116,7 +12425,253 @@ const WIZARD = [
 
 const W_WEIGHTS = {
   "q1": {
-    "": {
+    "opt0": {
+      "penang_tenby": 5,
+      "singapore_bintan": 0,
+      "kl_alice_smith": 2,
+      "hong_kong_macau": 0,
+      "sydney": 0,
+      "bali_ayana": 0,
+      "clubmed_bali": 0,
+      "okinawa": 0,
+      "phuket": 0,
+      "vancouver": 0,
+      "amsterdam": 0,
+      "toronto": 0,
+      "brisbane": 0,
+      "seoul_jeju": 0,
+      "wellington": 0,
+      "auckland": 0,
+      "ubud_green_school": 0,
+      "movenpick_bali": 0,
+      "melbourne": 0,
+      "cape_town": 0,
+      "cebu": 0,
+      "dublin": 0,
+      "tokyo": 0,
+      "london_oxford": 0,
+      "malta": 0,
+      "maldives": 0,
+      "san_diego": 0,
+      "six_senses_vn": 0,
+      "gold_coast": 0,
+      "hawaii_oahu": 0,
+      "chiang_mai_panyaden": 0,
+      "niseko": 0,
+      "victoria_bc": 0,
+      "four_seasons_bali": 0,
+      "phu_quoc_danang": 0,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt1": {
+      "penang_tenby": 4,
+      "singapore_bintan": 2,
+      "kl_alice_smith": 5,
+      "hong_kong_macau": 0,
+      "sydney": 0,
+      "bali_ayana": 0,
+      "clubmed_bali": 0,
+      "okinawa": 2,
+      "phuket": 0,
+      "vancouver": 0,
+      "amsterdam": 0,
+      "toronto": 2,
+      "brisbane": 2,
+      "seoul_jeju": 0,
+      "wellington": 2,
+      "auckland": 0,
+      "ubud_green_school": 2,
+      "movenpick_bali": 5,
+      "melbourne": 2,
+      "cape_town": 0,
+      "cebu": 5,
+      "dublin": 0,
+      "tokyo": 0,
+      "london_oxford": 0,
+      "malta": 0,
+      "maldives": 0,
+      "san_diego": 0,
+      "six_senses_vn": 0,
+      "gold_coast": 0,
+      "hawaii_oahu": 0,
+      "chiang_mai_panyaden": 2,
+      "niseko": 0,
+      "victoria_bc": 0,
+      "four_seasons_bali": 0,
+      "phu_quoc_danang": 2,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt2": {
+      "penang_tenby": 4,
+      "singapore_bintan": 5,
+      "kl_alice_smith": 4,
+      "hong_kong_macau": 5,
+      "sydney": 2,
+      "bali_ayana": 5,
+      "clubmed_bali": 0,
+      "okinawa": 5,
+      "phuket": 2,
+      "vancouver": 5,
+      "amsterdam": 0,
+      "toronto": 5,
+      "brisbane": 5,
+      "seoul_jeju": 2,
+      "wellington": 5,
+      "auckland": 5,
+      "ubud_green_school": 5,
+      "movenpick_bali": 4,
+      "melbourne": 5,
+      "cape_town": 2,
+      "cebu": 4,
+      "dublin": 2,
+      "tokyo": 5,
+      "london_oxford": 0,
+      "malta": 2,
+      "maldives": 0,
+      "san_diego": 0,
+      "six_senses_vn": 0,
+      "gold_coast": 5,
+      "hawaii_oahu": 0,
+      "chiang_mai_panyaden": 5,
+      "niseko": 2,
+      "victoria_bc": 2,
+      "four_seasons_bali": 0,
+      "phu_quoc_danang": 5,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt3": {
       "penang_tenby": 4,
       "singapore_bintan": 4,
       "kl_alice_smith": 4,
@@ -12151,11 +12706,302 @@ const W_WEIGHTS = {
       "niseko": 5,
       "victoria_bc": 5,
       "four_seasons_bali": 5,
-      "phu_quoc_danang": 4
+      "phu_quoc_danang": 4,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
     }
   },
   "q2": {
-    "": {
+    "opt0": {
+      "penang_tenby": 5,
+      "singapore_bintan": 5,
+      "kl_alice_smith": 1,
+      "hong_kong_macau": 1,
+      "sydney": 1,
+      "bali_ayana": 5,
+      "clubmed_bali": 5,
+      "okinawa": 5,
+      "phuket": 5,
+      "vancouver": 1,
+      "amsterdam": 1,
+      "toronto": 1,
+      "brisbane": 1,
+      "seoul_jeju": 1,
+      "wellington": 1,
+      "auckland": 1,
+      "ubud_green_school": 1,
+      "movenpick_bali": 5,
+      "melbourne": 1,
+      "cape_town": 1,
+      "cebu": 1,
+      "dublin": 1,
+      "tokyo": 1,
+      "london_oxford": 1,
+      "malta": 1,
+      "maldives": 5,
+      "san_diego": 5,
+      "six_senses_vn": 5,
+      "gold_coast": 5,
+      "hawaii_oahu": 5,
+      "chiang_mai_panyaden": 1,
+      "niseko": 1,
+      "victoria_bc": 1,
+      "four_seasons_bali": 5,
+      "phu_quoc_danang": 5,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt1": {
+      "penang_tenby": 1,
+      "singapore_bintan": 1,
+      "kl_alice_smith": 1,
+      "hong_kong_macau": 1,
+      "sydney": 5,
+      "bali_ayana": 1,
+      "clubmed_bali": 1,
+      "okinawa": 1,
+      "phuket": 5,
+      "vancouver": 5,
+      "amsterdam": 1,
+      "toronto": 1,
+      "brisbane": 5,
+      "seoul_jeju": 1,
+      "wellington": 5,
+      "auckland": 5,
+      "ubud_green_school": 5,
+      "movenpick_bali": 1,
+      "melbourne": 1,
+      "cape_town": 5,
+      "cebu": 1,
+      "dublin": 1,
+      "tokyo": 1,
+      "london_oxford": 1,
+      "malta": 1,
+      "maldives": 1,
+      "san_diego": 1,
+      "six_senses_vn": 1,
+      "gold_coast": 1,
+      "hawaii_oahu": 1,
+      "chiang_mai_panyaden": 5,
+      "niseko": 1,
+      "victoria_bc": 1,
+      "four_seasons_bali": 1,
+      "phu_quoc_danang": 1,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt2": {
+      "penang_tenby": 1,
+      "singapore_bintan": 1,
+      "kl_alice_smith": 5,
+      "hong_kong_macau": 5,
+      "sydney": 1,
+      "bali_ayana": 1,
+      "clubmed_bali": 1,
+      "okinawa": 1,
+      "phuket": 1,
+      "vancouver": 1,
+      "amsterdam": 5,
+      "toronto": 5,
+      "brisbane": 1,
+      "seoul_jeju": 5,
+      "wellington": 1,
+      "auckland": 1,
+      "ubud_green_school": 1,
+      "movenpick_bali": 1,
+      "melbourne": 5,
+      "cape_town": 1,
+      "cebu": 1,
+      "dublin": 1,
+      "tokyo": 5,
+      "london_oxford": 5,
+      "malta": 1,
+      "maldives": 1,
+      "san_diego": 1,
+      "six_senses_vn": 1,
+      "gold_coast": 1,
+      "hawaii_oahu": 1,
+      "chiang_mai_panyaden": 1,
+      "niseko": 1,
+      "victoria_bc": 1,
+      "four_seasons_bali": 1,
+      "phu_quoc_danang": 1,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt3": {
       "penang_tenby": 1,
       "singapore_bintan": 5,
       "kl_alice_smith": 1,
@@ -12190,11 +13036,302 @@ const W_WEIGHTS = {
       "niseko": 1,
       "victoria_bc": 1,
       "four_seasons_bali": 1,
-      "phu_quoc_danang": 1
+      "phu_quoc_danang": 1,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
     }
   },
   "q3": {
-    "": {
+    "opt0": {
+      "penang_tenby": 2,
+      "singapore_bintan": 5,
+      "kl_alice_smith": 2,
+      "hong_kong_macau": 2,
+      "sydney": 2,
+      "bali_ayana": 5,
+      "clubmed_bali": 5,
+      "okinawa": 5,
+      "phuket": 5,
+      "vancouver": 2,
+      "amsterdam": 2,
+      "toronto": 2,
+      "brisbane": 2,
+      "seoul_jeju": 2,
+      "wellington": 2,
+      "auckland": 2,
+      "ubud_green_school": 2,
+      "movenpick_bali": 5,
+      "melbourne": 2,
+      "cape_town": 2,
+      "cebu": 2,
+      "dublin": 2,
+      "tokyo": 2,
+      "london_oxford": 2,
+      "malta": 2,
+      "maldives": 5,
+      "san_diego": 2,
+      "six_senses_vn": 5,
+      "gold_coast": 2,
+      "hawaii_oahu": 2,
+      "chiang_mai_panyaden": 2,
+      "niseko": 2,
+      "victoria_bc": 2,
+      "four_seasons_bali": 5,
+      "phu_quoc_danang": 2,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt1": {
+      "penang_tenby": 2,
+      "singapore_bintan": 5,
+      "kl_alice_smith": 5,
+      "hong_kong_macau": 2,
+      "sydney": 2,
+      "bali_ayana": 2,
+      "clubmed_bali": 2,
+      "okinawa": 2,
+      "phuket": 2,
+      "vancouver": 5,
+      "amsterdam": 5,
+      "toronto": 5,
+      "brisbane": 2,
+      "seoul_jeju": 5,
+      "wellington": 2,
+      "auckland": 2,
+      "ubud_green_school": 2,
+      "movenpick_bali": 2,
+      "melbourne": 2,
+      "cape_town": 2,
+      "cebu": 2,
+      "dublin": 2,
+      "tokyo": 5,
+      "london_oxford": 5,
+      "malta": 2,
+      "maldives": 2,
+      "san_diego": 2,
+      "six_senses_vn": 2,
+      "gold_coast": 2,
+      "hawaii_oahu": 2,
+      "chiang_mai_panyaden": 2,
+      "niseko": 2,
+      "victoria_bc": 2,
+      "four_seasons_bali": 2,
+      "phu_quoc_danang": 2,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt2": {
+      "penang_tenby": 1,
+      "singapore_bintan": 1,
+      "kl_alice_smith": 1,
+      "hong_kong_macau": 1,
+      "sydney": 5,
+      "bali_ayana": 1,
+      "clubmed_bali": 1,
+      "okinawa": 1,
+      "phuket": 1,
+      "vancouver": 5,
+      "amsterdam": 5,
+      "toronto": 5,
+      "brisbane": 5,
+      "seoul_jeju": 1,
+      "wellington": 5,
+      "auckland": 5,
+      "ubud_green_school": 1,
+      "movenpick_bali": 1,
+      "melbourne": 5,
+      "cape_town": 1,
+      "cebu": 1,
+      "dublin": 5,
+      "tokyo": 1,
+      "london_oxford": 5,
+      "malta": 1,
+      "maldives": 1,
+      "san_diego": 5,
+      "six_senses_vn": 1,
+      "gold_coast": 1,
+      "hawaii_oahu": 1,
+      "chiang_mai_panyaden": 1,
+      "niseko": 1,
+      "victoria_bc": 1,
+      "four_seasons_bali": 1,
+      "phu_quoc_danang": 1,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt3": {
       "penang_tenby": 5,
       "singapore_bintan": 5,
       "kl_alice_smith": 4,
@@ -12229,11 +13366,302 @@ const W_WEIGHTS = {
       "niseko": 3,
       "victoria_bc": 3,
       "four_seasons_bali": 3,
-      "phu_quoc_danang": 3
+      "phu_quoc_danang": 3,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
     }
   },
   "q4": {
-    "": {
+    "opt0": {
+      "penang_tenby": 2,
+      "singapore_bintan": 2,
+      "kl_alice_smith": 2,
+      "hong_kong_macau": 5,
+      "sydney": 0,
+      "bali_ayana": 2,
+      "clubmed_bali": 2,
+      "okinawa": 5,
+      "phuket": 2,
+      "vancouver": 0,
+      "amsterdam": 0,
+      "toronto": 0,
+      "brisbane": 0,
+      "seoul_jeju": 5,
+      "wellington": 0,
+      "auckland": 0,
+      "ubud_green_school": 2,
+      "movenpick_bali": 2,
+      "melbourne": 0,
+      "cape_town": 0,
+      "cebu": 5,
+      "dublin": 0,
+      "tokyo": 5,
+      "london_oxford": 0,
+      "malta": 0,
+      "maldives": 0,
+      "san_diego": 0,
+      "six_senses_vn": 2,
+      "gold_coast": 0,
+      "hawaii_oahu": 0,
+      "chiang_mai_panyaden": 2,
+      "niseko": 2,
+      "victoria_bc": 0,
+      "four_seasons_bali": 0,
+      "phu_quoc_danang": 2,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt1": {
+      "penang_tenby": 5,
+      "singapore_bintan": 5,
+      "kl_alice_smith": 5,
+      "hong_kong_macau": 5,
+      "sydney": 0,
+      "bali_ayana": 5,
+      "clubmed_bali": 5,
+      "okinawa": 5,
+      "phuket": 5,
+      "vancouver": 0,
+      "amsterdam": 0,
+      "toronto": 0,
+      "brisbane": 0,
+      "seoul_jeju": 5,
+      "wellington": 0,
+      "auckland": 0,
+      "ubud_green_school": 5,
+      "movenpick_bali": 5,
+      "melbourne": 0,
+      "cape_town": 0,
+      "cebu": 5,
+      "dublin": 0,
+      "tokyo": 5,
+      "london_oxford": 0,
+      "malta": 0,
+      "maldives": 0,
+      "san_diego": 0,
+      "six_senses_vn": 5,
+      "gold_coast": 0,
+      "hawaii_oahu": 0,
+      "chiang_mai_panyaden": 5,
+      "niseko": 5,
+      "victoria_bc": 0,
+      "four_seasons_bali": 5,
+      "phu_quoc_danang": 5,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt2": {
+      "penang_tenby": 5,
+      "singapore_bintan": 5,
+      "kl_alice_smith": 5,
+      "hong_kong_macau": 5,
+      "sydney": 5,
+      "bali_ayana": 5,
+      "clubmed_bali": 5,
+      "okinawa": 5,
+      "phuket": 5,
+      "vancouver": 2,
+      "amsterdam": 0,
+      "toronto": 0,
+      "brisbane": 5,
+      "seoul_jeju": 5,
+      "wellington": 0,
+      "auckland": 2,
+      "ubud_green_school": 5,
+      "movenpick_bali": 5,
+      "melbourne": 5,
+      "cape_town": 0,
+      "cebu": 5,
+      "dublin": 0,
+      "tokyo": 5,
+      "london_oxford": 0,
+      "malta": 0,
+      "maldives": 5,
+      "san_diego": 0,
+      "six_senses_vn": 5,
+      "gold_coast": 5,
+      "hawaii_oahu": 5,
+      "chiang_mai_panyaden": 5,
+      "niseko": 5,
+      "victoria_bc": 0,
+      "four_seasons_bali": 5,
+      "phu_quoc_danang": 5,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt3": {
       "penang_tenby": 5,
       "singapore_bintan": 5,
       "kl_alice_smith": 5,
@@ -12268,11 +13696,302 @@ const W_WEIGHTS = {
       "niseko": 5,
       "victoria_bc": 5,
       "four_seasons_bali": 5,
-      "phu_quoc_danang": 5
+      "phu_quoc_danang": 5,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
     }
   },
   "q5": {
-    "": {
+    "opt0": {
+      "penang_tenby": 1,
+      "singapore_bintan": 1,
+      "kl_alice_smith": 1,
+      "hong_kong_macau": 1,
+      "sydney": 1,
+      "bali_ayana": 1,
+      "clubmed_bali": 5,
+      "okinawa": 1,
+      "phuket": 1,
+      "vancouver": 1,
+      "amsterdam": 1,
+      "toronto": 1,
+      "brisbane": 1,
+      "seoul_jeju": 1,
+      "wellington": 1,
+      "auckland": 1,
+      "ubud_green_school": 1,
+      "movenpick_bali": 5,
+      "melbourne": 1,
+      "cape_town": 1,
+      "cebu": 1,
+      "dublin": 1,
+      "tokyo": 1,
+      "london_oxford": 1,
+      "malta": 1,
+      "maldives": 5,
+      "san_diego": 1,
+      "six_senses_vn": 5,
+      "gold_coast": 5,
+      "hawaii_oahu": 1,
+      "chiang_mai_panyaden": 1,
+      "niseko": 1,
+      "victoria_bc": 1,
+      "four_seasons_bali": 5,
+      "phu_quoc_danang": 5,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt1": {
+      "penang_tenby": 5,
+      "singapore_bintan": 5,
+      "kl_alice_smith": 5,
+      "hong_kong_macau": 5,
+      "sydney": 5,
+      "bali_ayana": 2,
+      "clubmed_bali": 2,
+      "okinawa": 5,
+      "phuket": 5,
+      "vancouver": 5,
+      "amsterdam": 2,
+      "toronto": 5,
+      "brisbane": 5,
+      "seoul_jeju": 2,
+      "wellington": 2,
+      "auckland": 2,
+      "ubud_green_school": 2,
+      "movenpick_bali": 2,
+      "melbourne": 2,
+      "cape_town": 2,
+      "cebu": 2,
+      "dublin": 2,
+      "tokyo": 2,
+      "london_oxford": 2,
+      "malta": 2,
+      "maldives": 2,
+      "san_diego": 2,
+      "six_senses_vn": 2,
+      "gold_coast": 2,
+      "hawaii_oahu": 2,
+      "chiang_mai_panyaden": 2,
+      "niseko": 2,
+      "victoria_bc": 2,
+      "four_seasons_bali": 2,
+      "phu_quoc_danang": 2,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt2": {
+      "penang_tenby": 1,
+      "singapore_bintan": 1,
+      "kl_alice_smith": 1,
+      "hong_kong_macau": 1,
+      "sydney": 1,
+      "bali_ayana": 5,
+      "clubmed_bali": 1,
+      "okinawa": 1,
+      "phuket": 1,
+      "vancouver": 1,
+      "amsterdam": 1,
+      "toronto": 1,
+      "brisbane": 1,
+      "seoul_jeju": 1,
+      "wellington": 1,
+      "auckland": 1,
+      "ubud_green_school": 5,
+      "movenpick_bali": 1,
+      "melbourne": 1,
+      "cape_town": 1,
+      "cebu": 1,
+      "dublin": 1,
+      "tokyo": 1,
+      "london_oxford": 1,
+      "malta": 1,
+      "maldives": 1,
+      "san_diego": 1,
+      "six_senses_vn": 1,
+      "gold_coast": 1,
+      "hawaii_oahu": 1,
+      "chiang_mai_panyaden": 1,
+      "niseko": 1,
+      "victoria_bc": 1,
+      "four_seasons_bali": 1,
+      "phu_quoc_danang": 1,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
+    },
+    "opt3": {
       "penang_tenby": 1,
       "singapore_bintan": 1,
       "kl_alice_smith": 1,
@@ -12307,7 +14026,52 @@ const W_WEIGHTS = {
       "niseko": 1,
       "victoria_bc": 1,
       "four_seasons_bali": 1,
-      "phu_quoc_danang": 1
+      "phu_quoc_danang": 1,
+      "shanghai-scis-summer": 4,
+      "shanghai-ycis-summer": 4,
+      "shanghai-dulwich-pudong-summer": 6,
+      "shanghai-concordia-phoenix": 4,
+      "beijing-ycis-ywies-summer": 4,
+      "beijing-bsb-shunyi-early-years": 4,
+      "uk-london-skola-gloucester": 4,
+      "uk-cambridge-stgiles-family": 6,
+      "uk-oxford-supercamps": 4,
+      "uk-cambridge-kings-camps": 4,
+      "uk-london-camp-beaumont": 4,
+      "uk-brighton-stgiles-family": 4,
+      "steve_kates_manhattan_ues": 3,
+      "galileo_bay_area": 3,
+      "roughing_it_lafayette": 3,
+      "tom_sawyer_pasadena": 3,
+      "ymca_nyc_kinder_camp": 3,
+      "ymca_dc_anthony_bowen": 3,
+      "avid4_bellevue": 3,
+      "honolulu_waldorf_summerfun": 3,
+      "gstaad_palace": 3,
+      "burgenstock_lucerne": 3,
+      "lausanne_beau_rivage": 3,
+      "dubai_atlantis_palm": 3,
+      "dubai_madinat_jumeirah": 3,
+      "capetown_natureplays": 3,
+      "capetown_clubengage": 3,
+      "delhi_achievers": 3,
+      "mumbai_kshitij_marginal": 3,
+      "ipoh-tenby-isp-activate": 4,
+      "kotakinabalu-shangri-la-rasa-ria": 4,
+      "johor-marlborough-camp-beaumont": 4,
+      "pattaya-regents-nordanglia": 4,
+      "chiangmai-lanna-summer-school": 4,
+      "huahin-centara-grand-camp-safari": 3,
+      "hoian-four-seasons-nam-hai": 4,
+      "siemreap-anantara-angkor": 3,
+      "yokohama_saint_maur": 3,
+      "karuizawa_etonhouse": 3,
+      "yokohama_horizon": 3,
+      "seoul_camp_sfs": 3,
+      "madrid_asm": 3,
+      "sotogrande": 3,
+      "berlin_kca_kreuzberg": 3,
+      "hague_basker": 3
     }
   }
 };
@@ -12316,27 +14080,27 @@ const CHAPTERS = [
   {
     "n": "00",
     "title": "序章 · 為什麼是 2026",
-    "body": "女兒明年 8 月就要上小學了。這是她人生最後一個沒有功課、沒有作業、沒有「下星期要考試」壓力的暑假。我花了 3 個月、橫掃 35 個候選地點、用 7 種語言（英／繁中／簡中／日／韓／印尼／馬來）翻遍 240+ 來源。這份手帳是這 3 個月所有研究、訪談、價格比對、辦學者 email 往返、媽媽論壇潛水、半夜算機票的整理。[QUOTE:21 天的海外經驗對 5-6 歲女兒，可能比一年補習班的效益還大。]我不是在推銷「快樂教育」，我是在算帳——一年補習班 NT$18 萬，換來 1 小時/週的英文課；21 天 immersion 海外，換來每天 6 小時 native speaker + 真實情境。ROI 在哪邊更高，數字會說話。[CHIP:女兒最後一個自由暑假][CHIP:3 個月研究][CHIP:7 種語言搜尋][CHIP:240+ 來源]這本書是給未來的我看的——當我在出發前焦慮、在當地崩潰、在回國後懷疑的時候，能翻到對應章節找答案。"
+    "body": "女兒明年 8 月就要上小學了。這是她人生最後一個沒有功課、沒有作業、沒有「下星期要考試」壓力的暑假。我花了 3 個月、橫掃 80 個候選地點（橫跨 26 國／地區）、用 7 種語言（英／繁中／簡中／日／韓／印尼／馬來）翻遍 240+ 來源。這份手帳是這 3 個月所有研究、訪談、價格比對、辦學者 email 往返、媽媽論壇潛水、半夜算機票的整理。[QUOTE:21 天的海外經驗對 5-6 歲女兒，可能比一年補習班的效益還大。]我不是在推銷「快樂教育」，我是在算帳——一年補習班 NT$18 萬，換來 1 小時/週的英文課；21 天 immersion 海外，換來每天 6 小時 native speaker + 真實情境。ROI 在哪邊更高，數字會說話。[CHIP:女兒最後一個自由暑假][CHIP:3 個月研究][CHIP:7 種語言搜尋][CHIP:80 候選 · 26 國]這本書是給未來的我看的——當我在出發前焦慮、在當地崩潰、在回國後懷疑的時候，能翻到對應章節找答案。"
   },
   {
     "n": "01",
-    "title": "研究方法 · 35 候選怎麼來",
-    "body": "從 120 個初步地點開始。第一輪用三條件硬篩到 35：直飛 ≤ 10 小時、夏令營有 5-6 歲班、華語或英語可溝通。第二輪每個地點獨立填 19 個欄位（夏令營名/年齡帶/週費/中文支援/接送方便/...）+ 17 維評分（0-5 分）。[TABLE:篩選漏斗|初篩 120 → 19 欄位填表 35 → 17 維評分 → 8 維加權 → Tier 1/2/3/0 分級]每個地點都有獨立的 candidate.yaml，總共 35 份共 700+ 欄位。資料來源包含：[CHIP:營隊官網][CHIP:政府旅遊部][CHIP:Mumsnet 媽媽論壇][CHIP:小紅書][CHIP:Reddit r/Parenting][CHIP:在地 expat FB 群]為什麼要這麼累？因為單語搜尋會 miss 60-80% 真實家長心聲。新加坡 CIS 在英文網站評價 9/10，但你在簡中小紅書會看到「華人家庭 culture shock 慘痛經驗」。7 種語言交叉驗證後，篩出 Tier 1 三個（檳城/新加坡/吉隆坡）+ Tier 2 八個銀牌備案 + Tier 3 十三個銅牌 + Tier 0 十一個排除原因。所有源頭引用都列在 chapter 16，每個 candidate detail page 也有來源 URL。"
+    "title": "研究方法 · 80 候選怎麼來",
+    "body": "從 120 個初步地點開始。第一輪用三條件硬篩到 80：直飛 ≤ 10 小時、夏令營有 5-6 歲班、華語或英語可溝通。第二輪每個地點獨立填 19 個欄位（夏令營名/年齡帶/週費/中文支援/接送方便/...）+ 17 維評分（0-5 分）。[TABLE:篩選漏斗|初篩 120 → 19 欄位填表 80 → 17 維評分 → 8 維加權 → Tier 1/2/3/0 分級]每個地點都有獨立的 candidate.yaml，總共 80 份共 700+ 欄位。資料來源包含：[CHIP:營隊官網][CHIP:政府旅遊部][CHIP:Mumsnet 媽媽論壇][CHIP:小紅書][CHIP:Reddit r/Parenting][CHIP:在地 expat FB 群]為什麼要這麼累？因為單語搜尋會 miss 60-80% 真實家長心聲。新加坡 CIS 在英文網站評價 9/10，但你在簡中小紅書會看到「華人家庭 culture shock 慘痛經驗」。7 種語言交叉驗證後，篩出 Tier 1 5 個 + Tier 2 24 個銀牌備案 + Tier 3 40 個銅牌 + Tier 0 11 個排除原因。所有源頭引用都列在 chapter 16，每個 candidate detail page 也有來源 URL。"
   },
   {
     "n": "02",
     "title": "決策樹 · 你會用哪個版本",
-    "body": "不同預算、不同需求，會走到不同 Top 3。這不是「我推薦 A」，是「告訴我你的條件，給你客製化 Top 3」。預算 < 15 萬 → Tier 1 馬來雙城（檳城／吉隆坡）。預算彈性 + 英文 immersion → 新加坡 + 民丹島切換。[QUOTE:避暑剛需 → 雪梨／倫敦／溫哥華 (但飛行 11-15 小時)]瑜伽 retreat 媽媽 me-time 取向 → 峇里 Ubud Green School。海島放鬆 → Club Med Bali / 普吉島。城市便利 + Mall 5 分鐘 → 香港+澳門。深度教育 → 牛津／劍橋夏令營（但 5-6 歲難找）。[CHIP:預算優先 → 馬來][CHIP:英文優先 → 新加坡][CHIP:避暑優先 → ANZ/歐][CHIP:放鬆優先 → 峇里]在 wizard 5 題後系統會自動推薦。你可以多跑幾次測不同假設。提醒：wizard 算出來的 Top 3 是「最匹配你回答」，不是「絕對最佳」。最佳要看你心裡那個聲音。[QUOTE:有時候答案不在 wizard 裡，而是在「我其實不想去」的時候。]"
+    "body": "不同預算、不同需求，會走到不同 Top 3。這不是「我推薦 A」，是「告訴我你的條件，給你客製化 Top 3」。預算 < 15 萬 → Tier 1 馬來雙城（檳城／吉隆坡）。預算彈性 + 英文 immersion → 新加坡 + 民丹島切換。[QUOTE:避暑剛需 → 雪梨／倫敦／溫哥華 (但飛行 11-15 小時)]瑜伽 retreat 媽媽 me-time 取向 → 峇里 Ubud Green School。海島放鬆 → Club Med Bali / 普吉島。城市便利 + Mall 5 分鐘 → 香港+澳門。深度教育 → 牛津／劍橋夏令營（但 5-6 歲難找）。[CHIP:預算優先 → 馬來][CHIP:英文優先 → 新加坡][CHIP:避暑優先 → ANZ/歐][CHIP:放鬆優先 → 峇里]在 wizard 7 題後系統會自動推薦。你可以多跑幾次測不同假設。提醒：wizard 算出來的 Top 3 是「最匹配你回答」，不是「絕對最佳」。最佳要看你心裡那個聲音。[QUOTE:有時候答案不在 wizard 裡，而是在「我其實不想去」的時候。]"
   },
   {
     "n": "03",
     "title": "P0 立即行動清單",
-    "body": "不行動就沒選擇。35 候選裡有 27 個的 P0 截止日在「現在到 5/31」之間。錯過不是「等下一輪」，是「今年沒了」。[TABLE:Top 3 P0 截止|檳城 Tenby: 4/30 email Camp Beaumont 確認名額 / 5/31 訂機票|新加坡 CIS: 5/15 線上 enquiry / 5/31 父親公證|吉隆坡 Alice Smith: 4/30 enquiry / 5/15 訂金 RM 500]為什麼這麼緊？因為 7 月暑假是亞洲家庭高峰，馬來/新加坡 5-6 歲 camp 名額有限，3-4 月開放，5 月底前報名滿。美國/歐洲日期更早，多數 1-2 月就要訂位。Tier 3 多倫多 ROM 2/17 就要上官網搶名額（已過了）。[CHIP:4/30 之前][CHIP:5/15 之前][CHIP:5/31 之前][CHIP:6/30 之前]每個 P0 都有：1) 具體 action（不是「研究一下」，是「email XXX 確認 YYY」）2) 截止日 3) 後果（過了會怎樣）。建議：每天晚上 9 點看一次 P0 牆。對應 candidate detail page 也有 P0，挑你心中 Top 3 排活動。[QUOTE:不行動的代價，不是「我選 B」，是「我什麼都沒選，暑假就過了」。]"
+    "body": "不行動就沒選擇。80 候選裡多數的 P0 截止日在「現在到 5/31」之間。錯過不是「等下一輪」，是「今年沒了」。[TABLE:Top 3 P0 截止|檳城 Tenby: 4/30 email Camp Beaumont 確認名額 / 5/31 訂機票|新加坡 CIS: 5/15 線上 enquiry / 5/31 父親公證|吉隆坡 Alice Smith: 4/30 enquiry / 5/15 訂金 RM 500]為什麼這麼緊？因為 7 月暑假是亞洲家庭高峰，馬來/新加坡 5-6 歲 camp 名額有限，3-4 月開放，5 月底前報名滿。美國/歐洲日期更早，多數 1-2 月就要訂位。Tier 3 多倫多 ROM 2/17 就要上官網搶名額（已過了）。[CHIP:4/30 之前][CHIP:5/15 之前][CHIP:5/31 之前][CHIP:6/30 之前]每個 P0 都有：1) 具體 action（不是「研究一下」，是「email XXX 確認 YYY」）2) 截止日 3) 後果（過了會怎樣）。建議：每天晚上 9 點看一次 P0 牆。對應 candidate detail page 也有 P0，挑你心中 Top 3 排活動。[QUOTE:不行動的代價，不是「我選 B」，是「我什麼都沒選，暑假就過了」。]"
   },
   {
     "n": "04",
-    "title": "35 候選總覽 + 評分系統",
-    "body": "8 主維度（夏令營品質／媽媽 me-time／預算／安全／飛行／簽證／飲食／文化），每維 0-10 分，總分 /80。+17 維延伸（政治穩定／機構穩定／教育深度／7 月天氣／評價真實度／時差／治安／英語普及／華語支援 ...），總分 /170。[TABLE:Tier 分級|Tier 1: ≥ 75 分 (3 個)|Tier 2: 60-74 分 (8 個)|Tier 3: 45-59 分 (13 個)|Tier 0: < 45 分或致命缺陷 (11 個)]每個候選 detail page 都會看到雷達圖 + 8 維分數條 + 17 維延伸分數。分數不是 LLM 隨機編的，每維有資料來源。[QUOTE:Tier 0 不是「不好」，是「不適合 5-6 歲 + 單媽 + 3 週 + NT$25 萬以下」這個特定組合。]舉例：Cape Town 風景全球 top 5，但美國國務院 L2 警示 + 文獻 documented car-jacking → Tier 0。東京風景棒，但 7 月 40°C + 5-6 歲 camp 全擠不上 → Tier 0。Auckland 紐西蘭 7 月校假僅 2 週 + 第 3 週 holiday programme 全關門 → Tier 0。[CHIP:不是哪個最好][CHIP:是哪個最適合我們][CHIP:每年都會重評][CHIP:女兒長大評分會變]"
+    "title": "80 候選總覽 + 評分系統",
+    "body": "8 主維度（夏令營品質／媽媽 me-time／預算／安全／飛行／簽證／飲食／文化），每維 0-10 分，總分 /80。+17 維延伸（政治穩定／機構穩定／教育深度／7 月天氣／評價真實度／時差／治安／英語普及／華語支援 ...），總分 /170。[TABLE:Tier 分級|Tier 1: ≥ 75 分 (5 個)|Tier 2: 60-74 分 (24 個)|Tier 3: 45-59 分 (40 個)|Tier 0: < 45 分或致命缺陷 (11 個)]共 5+24+40+11=80。每個候選 detail page 都會看到雷達圖 + 8 維分數條 + 17 維延伸分數。分數不是 LLM 隨機編的，每維有資料來源。[QUOTE:Tier 0 不是「不好」，是「不適合 5-6 歲 + 單媽 + 3 週 + NT$25 萬以下」這個特定組合。]舉例：Cape Town 風景全球 top 5，但美國國務院 L2 警示 + 文獻 documented car-jacking → Tier 0。東京風景棒，但 7 月 40°C + 5-6 歲 camp 全擠不上 → Tier 0。Auckland 紐西蘭 7 月校假僅 2 週 + 第 3 週 holiday programme 全關門 → Tier 0。[CHIP:不是哪個最好][CHIP:是哪個最適合我們][CHIP:每年都會重評][CHIP:女兒長大評分會變]"
   },
   {
     "n": "05",
@@ -12355,18 +14119,18 @@ const CHAPTERS = [
   },
   {
     "n": "08",
-    "title": "Tier 2 銀牌 · 8 個亮銀備案",
-    "body": "香港+澳門 / 雪梨 / 峇里 AYANA / Club Med Bali / 沖繩 / 普吉島 / 溫哥華 / 阿姆斯特丹。為什麼這 8 個沒進 Top 3？各有亮點但都比 Top 3 多一個缺陷。[TABLE:Tier 2 各家缺陷|香港: 治安近 1 年微降 / 夏天 32°C 悶|雪梨: 飛 11 小時太久 / 7 月冬天 5°C|峇里 AYANA: 巴里肚風險 / 沒中文支援|Club Med Bali: 太貴 NT$35 萬+|沖繩: 7 月颱風 30% / 中文教學少|普吉島: 5-6 歲 camp 選擇少|溫哥華: 飛 13 小時 / 簽證 eTA|阿姆斯特丹: 飛 15 小時 / 預算 NT$40 萬+][CHIP:亮點明確但有單一缺陷][CHIP:可作 Top 3 第二備案][CHIP:多語論壇有 ROI 證據]建議用法：如果 Top 3 沒一個你心動，從這 8 個挑 2-3 個重新評估。或者作為「Plan B 萬一 Top 3 名額爆掉」。[QUOTE:Tier 2 不是「次優」，是「主要顧慮排第二」。換個媽媽可能 Tier 2 變 Tier 1。]"
+    "title": "Tier 2 銀牌 · 24 個亮銀備案",
+    "body": "香港+澳門 / 雪梨 / 峇里 AYANA / Club Med Bali / 沖繩 / 普吉島 / 溫哥華 / 阿姆斯特丹 / 上海德威 / 倫敦 Skola / 劍橋 St Giles family ...為什麼這 24 個沒進 Top 3？各有亮點但都比 Top 3 多一個缺陷。[TABLE:Tier 2 各家缺陷|香港: 治安近 1 年微降 / 夏天 32°C 悶|雪梨: 飛 11 小時太久 / 7 月冬天 5°C|峇里 AYANA: 巴里肚風險 / 沒中文支援|Club Med Bali: 太貴 NT$35 萬+|沖繩: 7 月颱風 30% / 中文教學少|普吉島: 5-6 歲 camp 選擇少|溫哥華: 飛 13 小時 / 簽證 eTA|阿姆斯特丹: 飛 15 小時 / 預算 NT$40 萬+][CHIP:亮點明確但有單一缺陷][CHIP:可作 Top 3 第二備案][CHIP:多語論壇有 ROI 證據]建議用法：如果 Top 3 沒一個你心動，從這 8 個挑 2-3 個重新評估。或者作為「Plan B 萬一 Top 3 名額爆掉」。[QUOTE:Tier 2 不是「次優」，是「主要顧慮排第二」。換個媽媽可能 Tier 2 變 Tier 1。]"
   },
   {
     "n": "09",
-    "title": "Tier 3 銅牌 · 13 個次備援",
-    "body": "多倫多 / 布里斯本 / 首爾濟州 / 威靈頓 / Ubud Green School / Movenpick Bali / 墨爾本 / San Diego / 二世谷 / Oxford / Four Seasons Bali / Malta / 富國島.Tier 3 通常是「方向對但執行卡關」：比方 Oxford 暑期 college course 是 8 歲起、Ubud Green School 名額長期排隊、Malta 馬爾他飛 18 小時。[CHIP:方向對 + 執行卡關][CHIP:5-6 歲版可能不適合][CHIP:預算或時間溢出]建議：除非你對某地有「我就是想去這個」的執著，不然先以 Tier 1/2 為主。Tier 3 適合「明年 7 歲再來」。[QUOTE:Tier 3 是時光膠囊——存著等女兒大一點再開。]"
+    "title": "Tier 3 銅牌 · 40 個次備援",
+    "body": "多倫多 / 布里斯本 / 首爾濟州 / 威靈頓 / Ubud Green School / Movenpick Bali / 墨爾本 / San Diego / 二世谷 / Oxford / Four Seasons Bali / Malta / 富國島 + Phase 7B lite 補進的 fork (中國 4 城/英國/澳洲補/中東/北歐) ...共 40 個。Tier 3 通常是「方向對但執行卡關」：比方 Oxford 暑期 college course 是 8 歲起、Ubud Green School 名額長期排隊、Malta 馬爾他飛 18 小時。[CHIP:方向對 + 執行卡關][CHIP:5-6 歲版可能不適合][CHIP:預算或時間溢出]建議：除非你對某地有「我就是想去這個」的執著，不然先以 Tier 1/2 為主。Tier 3 適合「明年 7 歲再來」。[QUOTE:Tier 3 是時光膠囊——存著等女兒大一點再開。]"
   },
   {
     "n": "10",
     "title": "Tier 0 已排除 · 11 個 + 理由",
-    "body": "不是「不好」，是「不適合這個特定情境」（5-6 歲女兒 + 單媽 solo + 3 週連續 drop-off + NT$25 萬以下）。[TABLE:Tier 0 排除原因|東京: 7 月 40°C + 5-6 歲 camp 全擠不上|Auckland: NZ 校假 2 週 + 第 3 週 holiday programme 關門|Cape Town: 5-6 歲 camp 找不到 + 治安 L2|Cebu: 颱風 30% + ESL 學校 5-6 歲版少|Dublin: 7 月冷雨 13°C + camp 主打 8+|馬爾代夫: 無 camp 純度假|Hawaii: ESTA 風險 + 飛 12 小時|Gold Coast: 7 月冬天 14°C + camp 偏 7+|Victoria BC: eTA + 飛 13 小時][CHIP:排除 ≠ 不好][CHIP:換個條件可能變 Tier 1][CHIP:女兒大一點可重評]為什麼還列出來？因為「家人會問為什麼不選日本」「為什麼不去夏威夷」「Cape Town 多美你不去」。這份清單可以直接拿給家人看，省去 21 天反覆解釋的精力。[QUOTE:有人說「為什麼不去日本」，我會說「日本超好，等她 8 歲我們再去」。]"
+    "body": "共 11 個（Auckland、Cape Town、Cebu / Mactan / Bohol、Dublin、Tokyo、Soneva / Patina / Six Senses、Con Dao / Ninh Van Bay、Gold Coast、Oahu / Honolulu、Chiang Mai、Victoria, British Columbia）。不是「不好」，是「不適合這個特定情境」（5-6 歲女兒 + 單媽 solo + 3 週連續 drop-off + NT$25 萬以下）。[TABLE:Tier 0 排除原因|東京: 7 月 40°C + 5-6 歲 camp 全擠不上|Auckland: NZ 校假 2 週 + 第 3 週 holiday programme 關門|Cape Town: 5-6 歲 camp 找不到 + 治安 L2|Cebu: 颱風 30% + ESL 學校 5-6 歲版少|Dublin: 7 月冷雨 13°C + camp 主打 8+|馬爾代夫: 無 camp 純度假|Hawaii: ESTA 風險 + 飛 12 小時|Gold Coast: 7 月冬天 14°C + camp 偏 7+|Victoria BC: eTA + 飛 13 小時][CHIP:排除 ≠ 不好][CHIP:換個條件可能變 Tier 1][CHIP:女兒大一點可重評]為什麼還列出來？因為「家人會問為什麼不選日本」「為什麼不去夏威夷」「Cape Town 多美你不去」。這份清單可以直接拿給家人看，省去 21 天反覆解釋的精力。[QUOTE:有人說「為什麼不去日本」，我會說「日本超好，等她 8 歲我們再去」。]"
   },
   {
     "n": "11",
@@ -12396,12 +14160,12 @@ const CHAPTERS = [
   {
     "n": "16",
     "title": "來源清單 · 250+ URL",
-    "body": "營隊官網 35+ 個 / 政府旅遊網站 18 個 / 媽媽社群論壇 22 個 / 學校 review 平台 12 個 /新聞報導 30+ 個 / 機票（Skyscanner / Google Flights）/ 住宿（Airbnb / Booking / Agoda）/ 醫療（JCI 認證 list / Tripadvisor 評論）.[TABLE:來源類別|官方: 35 個 camp 官網 + 18 政府旅遊網|社群: Mumsnet / 小紅書 / Reddit r/Parenting / 韓 mom-cafe / 日 はまちゃん FB / 馬來 expat FB|新聞: AP / Reuters / 在地英文報 / 中文報 / 馬來文報|價格: Skyscanner / Google Flights / Airbnb / Booking|醫療: JCI 官網 / 醫院官網 / WHO][CHIP:240+ URL][CHIP:7 種語言][CHIP:3 個月翻遍][CHIP:全附在每個 detail page]所有 URL 完整列表在 research_v2/data/sources_master.json。每個 candidate detail page 右下角也會有「資料來源」展開列。為什麼要這麼透明？因為「我推薦 X」沒人信，「我引用 22 個媽媽 + 35 個官網 + 18 個政府網站」才有說服力。[QUOTE:透明度是 trust 的基礎。你可以不信我，但你看完源頭可以自己判斷。]"
+    "body": "營隊官網 35+ 個 / 政府旅遊網站 18 個 / 媽媽社群論壇 22 個 / 學校 review 平台 12 個 /新聞報導 30+ 個 / 機票（Skyscanner / Google Flights）/ 住宿（Airbnb / Booking / Agoda）/ 醫療（JCI 認證 list / Tripadvisor 評論）.[TABLE:來源類別|官方: 80 個 camp 官網 + 18 政府旅遊網|社群: Mumsnet / 小紅書 / Reddit r/Parenting / 韓 mom-cafe / 日 はまちゃん FB / 馬來 expat FB|新聞: AP / Reuters / 在地英文報 / 中文報 / 馬來文報|價格: Skyscanner / Google Flights / Airbnb / Booking|醫療: JCI 官網 / 醫院官網 / WHO][CHIP:240+ URL][CHIP:7 種語言][CHIP:3 個月翻遍][CHIP:全附在每個 detail page]所有 URL 完整列表在 research_v2/data/sources_master.json。每個 candidate detail page 右下角也會有「資料來源」展開列。為什麼要這麼透明？因為「我推薦 X」沒人信，「我引用 22 個媽媽 + 80 個官網 + 18 個政府網站」才有說服力。[QUOTE:透明度是 trust 的基礎。你可以不信我，但你看完源頭可以自己判斷。]"
   },
   {
     "n": "no-go",
     "title": "不出國的版本 — 在地 21 天 vs 海外 21 天",
-    "body": "這章是給「想清楚我為什麼要去」用的。不是要勸退，是要確認「我不是被沉沒成本綁架」。[QUOTE:做最重要的決定前，先問自己：「如果這選項從清單刪除，我會怎麼安排？」][TABLE:4 維比較|維度|在地 21 天|海外 21 天][TABLE:女兒英語幫助|在地: 美語補習班 21 天 × 2hr = 42hr 暴露 / 老師多為台籍|海外: 21 天 × 6hr = 126hr immersion / native speaker / 真實情境][TABLE:媽媽 me-time|在地: 接送 + 家務循環 / 親戚朋友期待打擾 / 工作可能 zoom in|海外: 完全 reset / 8 類進修課自由選 / spa / 文化 / 跟自己對話][TABLE:家庭財務 (5 年存教育基金複利對比)|在地: 省下 NT$25 萬 → 投入 6% 年化複利 → 5 年後 NT$33.5 萬|海外: 花 NT$25 萬 → 5 年後對應女兒 10-11 歲 → 那筆錢買不回這段經歷][TABLE:5 年後回看|在地: 「我有省下 NT$25 萬」 → 但女兒 10 歲記不得這個暑假|海外: 「我帶她去過檳城／新加坡」 → 她有照片有故事可能改變她對英文的態度][CHIP:不出國也是合理選項][CHIP:不是沉沒成本壓力][CHIP:選擇權永遠在你手上][CHIP:沒有錯誤答案][QUOTE:5 年後回看，後悔的不會是「我花了 25 萬」，會是「我什麼都沒做就讓暑假過了」。]反過來看，後悔的也可能是「我花了 25 萬但她沒記得任何事」。沒有絕對答案。建議做法：1) 把這份手帳放著一週不打開 2) 一週後重看 3) 你直覺答案是 A 還是 B 4) 跟最親的 1-2 個人聊（不是親戚 7 大姨）5) 決定後不再回頭。[QUOTE:這份手帳的最後一頁，給的是「不去也可以」的允許。]"
+    "body": "這章是給「想清楚我為什麼要去」用的。不是要勸退，是要確認「我不是被沉沒成本綁架」。[QUOTE:做最重要的決定前，先問自己：「如果這選項從清單刪除，我會怎麼安排？」][TABLE:維度|在地 21 天|海外 21 天;;女兒英語幫助|美語補習班 21 天 × 2hr = 42hr / 老師多為台籍|21 天 × 6hr = 126hr immersion / native speaker / 真實情境;;媽媽 me-time|接送 + 家務循環 / 親戚朋友期待打擾 / 工作 zoom in|完全 reset / 8 類進修課 / spa / 文化 / 跟自己對話;;家庭財務 5 年|省下 NT$25 萬 → 6% 年化複利 → 5 年後 NT$33.5 萬|花 NT$25 萬 → 5 年後對應女兒 10-11 歲 → 那筆錢買不回;;5 年後回看|「省下 NT$25 萬」 → 但女兒 10 歲記不得這個暑假|「帶她去過檳城／新加坡」 → 她有照片有故事 / 對英文的態度改變][CHIP:不出國也是合理選項][CHIP:不是沉沒成本壓力][CHIP:選擇權永遠在你手上][CHIP:沒有錯誤答案][QUOTE:5 年後回看，後悔的不會是「我花了 25 萬」，會是「我什麼都沒做就讓暑假過了」。]反過來看，後悔的也可能是「我花了 25 萬但她沒記得任何事」。沒有絕對答案。建議做法：1) 把這份手帳放著一週不打開 2) 一週後重看 3) 你直覺答案是 A 還是 B 4) 跟最親的 1-2 個人聊（不是親戚 7 大姨）5) 決定後不再回頭。[QUOTE:這份手帳的最後一頁，給的是「不去也可以」的允許。]"
   }
 ];
 

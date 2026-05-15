@@ -80,7 +80,7 @@
     </div>
     <div class="colophon-block">
       <div class="colophon-h">研究範疇</div>
-      <p>35 候選地點 · 19 欄位 · 17 章背景 · 5 題決策矩陣 · 21 天行程 × Top 3</p>
+      <p id="colophon-counts" data-counts="dynamic">候選地點 · 19 欄位 · 章背景 · 題決策矩陣 · 21 天行程 × Top 3</p>
     </div>
     <div class="colophon-block colophon-end">
       <div class="stamp stamp-end">FIN<br><span>2026·07</span></div>
@@ -107,5 +107,16 @@
 <script src="views.js"></script>
 <script src="wizard.js"></script>
 <script src="app.js"></script>
+<script>
+  // Phase 7C-fix-2 G: 從 CANDIDATES / CHAPTERS / WIZARD 動態填 colophon counts
+  (function fillColophonCounts() {
+    var el = document.getElementById('colophon-counts');
+    if (!el) return;
+    var nCand = (typeof CANDIDATES !== 'undefined') ? CANDIDATES.length : 0;
+    var nChap = (typeof CHAPTERS !== 'undefined') ? CHAPTERS.length : 0;
+    var nWiz  = (typeof WIZARD !== 'undefined') ? WIZARD.length : 0;
+    el.textContent = nCand + ' 候選地點 · 19 欄位 · ' + nChap + ' 章背景 · ' + nWiz + ' 題決策矩陣 · 21 天行程 × Top 3';
+  })();
+</script>
 </body>
 </html>

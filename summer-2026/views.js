@@ -9,6 +9,20 @@ const tierTone   = (t) => ['t0','t1','t2','t3'][t] || 't3';
 const tierName   = (t) => ['排除','首選','亮銀','備援'][t] || '備援';
 const tierClassChip = (t) => `tier${t}`;
 const ntd        = (n) => '$' + (n||0).toLocaleString('zh-TW');
+// Phase 7C-fix-2 helpers
+const isLite     = (c) => !!(c && c.phase_7b_lite === true);
+const hasNum     = (n) => n !== null && n !== undefined && Number(n) > 0;
+const ntdOrTBD   = (n) => hasNum(n) ? ntd(n) : '<span class="muted">待補</span>';
+// "Placeholder leak" 字串列表 — 出現任一個改顯統一 fallback
+const PLACEHOLDER_LEAK = ['Phase 7B 待補', 'Phase 7B', '待 user 補', '依候選城市自行規劃'];
+const cleanPlaceholder = (s) => {
+  const str = String(s ?? '');
+  if (!str) return '';
+  for (const leak of PLACEHOLDER_LEAK) {
+    if (str.includes(leak)) return '📝 詳細資料待用戶 email 校方確認';
+  }
+  return str;
+};
 const tilts      = ['tilt-1','tilt-2','tilt-3','tilt-4'];
 const tapeClasses= ['', 'coral', 'sage', ''];
 const pinClasses = ['', 'gold', 'sage', 'navy'];
@@ -79,6 +93,14 @@ function renderMarkerBody(rawBody) {
 // HOME — hero + corkboard + filter
 // =========================================================
 function viewHome(state) {
+  // Phase 7C-fix-2 E/G: 動態 counts
+  const candCount = (typeof CANDIDATES !== 'undefined') ? CANDIDATES.length : 0;
+  const chCount = (typeof CHAPTERS !== 'undefined') ? CHAPTERS.length : 0;
+  const wizCount = (typeof WIZARD !== 'undefined') ? WIZARD.length : 0;
+  // Phase 7C-fix-1 C: dynamic country count (replaces hardcoded "19 fields each")
+  const countryCount = (typeof CANDIDATES !== 'undefined')
+    ? (new Set(CANDIDATES.map(c => c.country).filter(Boolean))).size
+    : 0;
   return `
     <section class="hero">
       <div class="hero-grid">
@@ -90,12 +112,12 @@ function viewHome(state) {
             <small>給女兒上小學前的最後一個暑假</small>
           </h1>
           <p class="hero-dek">
-            <span class="dropcap">三</span>個月、35 個候選地點、17 章背景研究、5 題決策矩陣。
+            <span class="dropcap">三</span>個月、${candCount} 個候選地點、${chCount} 章背景研究、${wizCount} 題決策矩陣。
             這份手帳是我所有功課的整理。希望它幫你（和我自己）做出一個不後悔的決定。
           </p>
           <div class="hero-meta">
-            <div class="hero-meta-item"><div class="num">35</div><div class="lbl">candidates</div></div>
-            <div class="hero-meta-item"><div class="num">19</div><div class="lbl">fields each</div></div>
+            <div class="hero-meta-item"><div class="num">${candCount}</div><div class="lbl">candidates</div></div>
+            <div class="hero-meta-item"><div class="num">${countryCount}</div><div class="lbl">countries</div></div>
             <div class="hero-meta-item"><div class="num">21</div><div class="lbl">days · 3 weeks</div></div>
             <div class="hero-meta-item"><div class="num">3</div><div class="lbl">months research</div></div>
           </div>
@@ -143,8 +165,8 @@ function viewHome(state) {
     <section class="board" id="board">
       <div class="board-head">
         <div>
-          <div class="mag-eyebrow">field index · 35 candidates</div>
-          <h2><span class="em">35 個</span>夏天的可能</h2>
+          <div class="mag-eyebrow">field index · ${candCount} candidates</div>
+          <h2><span class="em">${candCount} 個</span>夏天的可能</h2>
           <p class="lede">圖釘在世界地圖上的這些地方，是 3 個月研究後留下的。從 Tier 1 首選到 Tier 0 已排除——我都列在這裡，因為「為什麼排除」也是答案的一部分。</p>
         </div>
         <div class="right">
@@ -246,13 +268,37 @@ function renderCard(c, i, state) {
   const tape = tapeClasses[i % tapeClasses.length];
   const pin  = pinClasses[i % pinClasses.length];
   const inCompare = state.compareSet.has(c.id);
-  const tagChips = (c.hook_tags && c.hook_tags.length)
+  const lite = isLite(c);
+  // Phase 7C-fix-2 A: lite chip 左上 (跟 hook_tags 同位)
+  const liteChip = lite
+    ? `<span class="chip chip-new" style="font-size: 11px; padding: 2px 6px;">✨ 新發現 · 待詳查</span>`
+    : '';
+  const tagChips = (lite || (c.hook_tags && c.hook_tags.length))
     ? `<div class="hook-tags" style="position: absolute; top: 8px; left: 8px; display: flex; flex-direction: column; gap: 3px; z-index: 5;">${
-        c.hook_tags.map(t => {
+        liteChip +
+        ((c.hook_tags || []).map(t => {
           const info = HOOK_TAG_LABELS[t] || { label: t, cls: 'chip-new' };
           return `<span class="chip ${info.cls}" data-tag="${t}" style="font-size: 11px; padding: 2px 6px;">${info.label}</span>`;
-        }).join('')
+        }).join(''))
       }</div>` : '';
+  // Phase 7C-fix-2 A: flight / budget 缺值改顯「資料待補」
+  const flightHours = hasNum(c.flight?.hours);
+  const budgetTotal = hasNum(c.budget?.total);
+  const flightCell = flightHours
+    ? `<strong>${c.flight.hours}h</strong> 飛行 · <span class="muted">${c.flight.direct ? '直飛' : '轉機'}</span>`
+    : `<span class="muted" style="font-family: var(--f-hand-cn);">飛行資料待補</span>`;
+  const budgetCell = budgetTotal
+    ? `<strong>${Math.round(c.budget.total/1000)}k</strong> 三週預算`
+    : `<span class="muted" style="font-family: var(--f-hand-cn);">預算資料待補</span>`;
+  // Phase 7C-fix-2 A: score 0 改顯「分數待補」
+  const showScore = hasNum(c.totalScore);
+  const scoreBlock = showScore
+    ? `<div class="score">${c.totalScore}<span style="font-size:11px;opacity:.5;">/40</span></div>`
+    : (lite
+        ? `<div class="score" style="font-size: 13px; font-family: var(--f-hand-cn); color: var(--ink-muted); text-align: right; line-height: 1.2;">分數<br>待補</div>`
+        : '');
+  // Phase 7C-fix-2 A: hook 完整顯示（cleanPlaceholder + 不截斷）
+  const hookText = cleanPlaceholder(c.hook);
   return `
     <article class="candcard ${tilt} ${c.tier === 0 ? 't0' : ''} ${inCompare ? 'in-compare' : ''}" data-id="${c.id}">
       <div class="tape-corner ${tape}"></div>
@@ -268,13 +314,13 @@ function renderCard(c, i, state) {
         </div>
         <div class="card-country"><span class="card-flag">${c.flag}</span> ${escapeHtml(c.country)}</div>
         <h3 class="card-place">${escapeHtml(c.city)}</h3>
-        <p class="card-hook">${escapeHtml(c.hook)}</p>
+        <p class="card-hook card-hook-full">${escapeHtml(hookText)}</p>
         <div class="card-meta">
           <div>
-            <strong>${c.flight?.hours ?? '—'}h</strong> 飛行 · <span class="muted">${c.flight?.direct ? '直飛' : '轉機'}</span><br>
-            <strong>${c.budget?.total ? Math.round(c.budget.total/1000) + 'k' : '—'}</strong> 三週預算
+            ${flightCell}<br>
+            ${budgetCell}
           </div>
-          ${c.totalScore ? `<div class="score">${c.totalScore}<span style="font-size:11px;opacity:.5;">/40</span></div>` : ''}
+          ${scoreBlock}
         </div>
       </div>
       <button class="compare-btn ${inCompare ? 'active' : ''}" data-compare="${c.id}" title="加入比較">${inCompare ? '✓' : '+'}</button>
@@ -288,7 +334,15 @@ function renderCard(c, i, state) {
 function viewDetail(c) {
   if (!c) return '<div class="page"><p>找不到這個候選。</p></div>';
   const score = c.totalScore || 0;
-  const isExcluded = c.scoresMissing === true;
+  // Phase 7C-fix-2 B: lite 候選的 score block 也視同 "excluded-style" 隱藏 score
+  // 但 isExcluded === true 仍只給 tier 0 真正排除用，lite 走自己的 fallback block
+  const isExcluded = c.scoresMissing === true && !isLite(c);
+  const lite = isLite(c);
+  const scoresMissing = c.scoresMissing === true;
+  // 飛行/簽證/預算 缺值 fallback
+  const flightHasHours = hasNum(c.flight?.hours);
+  const flightHasPrice = hasNum(c.flight?.price);
+  const tbd = (v) => hasNum(v) ? null : '<span class="muted" style="font-family: var(--f-hand-cn);">待補 · 詳見官網</span>';
   // 信心等級 chip
   const confCamp = c.confidence?.camp || null;
   const confChip = confCamp ? (
@@ -317,9 +371,10 @@ function viewDetail(c) {
             <p class="spread-hook">${escapeHtml(c.hook)}</p>
             <div class="flex wrap mt-16">
               <span class="chip ${tierClassChip(c.tier)}">Tier ${c.tier === 0 ? '排除' : c.tier} · ${tierName(c.tier)}</span>
-              <span class="chip">飛行 ${c.flight?.hours ?? '—'}h ${c.flight?.direct ? '· 直飛' : '· 轉機'}</span>
-              <span class="chip">${c.visa?.type ?? '—'}</span>
-              <span class="chip warn">3 週預算 ${c.budget?.total ? Math.round(c.budget.total/1000)+'k' : '—'}</span>
+              ${lite ? '<span class="chip chip-new">✨ 新發現 · 待詳查</span>' : ''}
+              <span class="chip">${flightHasHours ? `飛行 ${c.flight.hours}h ${c.flight.direct ? '· 直飛' : '· 轉機'}` : '飛行 · 待補'}</span>
+              <span class="chip">${c.visa?.type && c.visa.type !== '—' ? c.visa.type : '簽證 · 待補'}</span>
+              <span class="chip warn">3 週預算 ${hasNum(c.budget?.total) ? Math.round(c.budget.total/1000)+'k' : '待補'}</span>
               ${confChip}
             </div>
             ${c.confidence?.deadline_source_url ? `
@@ -331,7 +386,9 @@ function viewDetail(c) {
           </div>
           ${isExcluded
             ? `<div class="stamp large" style="background: var(--ink); color: var(--paper);">EXCLUDED</div>`
-            : `<div class="stamp large gold">${score}<br><span>/ 40</span></div>`}
+            : (lite && scoresMissing)
+              ? `<div class="stamp large" style="background: var(--paper-deep); color: var(--ink-soft); border-style: dashed;">LITE<br><span style="font-size: 11px;">待詳查</span></div>`
+              : `<div class="stamp large gold">${score}<br><span>/ 40</span></div>`}
         </header>
 
         <div class="spread-body">
@@ -347,38 +404,51 @@ function viewDetail(c) {
                 <strong>${escapeHtml(c.camp.name)}</strong>
               </div>
               <dl class="kv">
-                <dt>年齡</dt><dd>${c.camp.age}</dd>
-                <dt>日期</dt><dd>${c.camp.dates}</dd>
-                <dt>費用</dt><dd>${ntd(c.camp.cost)} ／ 3 週</dd>
-                <dt>教學語言</dt><dd>${c.camp.lang}</dd>
+                <dt>年齡</dt><dd>${escapeHtml(c.camp.age || '待補')}</dd>
+                <dt>日期</dt><dd>${escapeHtml(c.camp.dates || '待補')}</dd>
+                <dt>費用</dt><dd>${hasNum(c.camp.cost) ? `${ntd(c.camp.cost)} ／ 3 週` : '<span class="muted">待補 · 詳見官網</span>'}</dd>
+                <dt>教學語言</dt><dd>${escapeHtml(c.camp.lang || '待補')}</dd>
               </dl>
-              ${c.camp.highlights ? `<div class="flex wrap mt-8">${c.camp.highlights.map(h => `<span class="chip">${escapeHtml(h)}</span>`).join('')}</div>` : ''}
+              ${(c.camp.highlights && c.camp.highlights.length) ? `<div class="flex wrap mt-8">${c.camp.highlights.map(h => `<span class="chip">${escapeHtml(h)}</span>`).join('')}</div>` : ''}
             ` : '<p class="muted">營隊資訊待補。</p>'}
 
             <h3><span class="num">ii.</span>飛行 + 簽證</h3>
             <dl class="kv">
-              <dt>飛行</dt><dd>${c.flight.hours}h ${c.flight.direct ? '直飛' : '轉機'} · ${c.flight.airline}</dd>
-              <dt>機票</dt><dd>${ntd(c.flight.price)} ／ 來回</dd>
-              <dt>班次</dt><dd>${c.flight.frequency || '—'}</dd>
-              <dt>簽證</dt><dd>${c.visa?.type}</dd>
+              <dt>飛行</dt><dd>${flightHasHours ? `${c.flight.hours}h ${c.flight.direct ? '直飛' : '轉機'} · ${escapeHtml(c.flight.airline || '—')}` : (tbd(c.flight?.hours) || '—')}</dd>
+              <dt>機票</dt><dd>${flightHasPrice ? `${ntd(c.flight.price)} ／ 來回` : (tbd(c.flight?.price) || '—')}</dd>
+              <dt>班次</dt><dd>${c.flight?.frequency || '<span class="muted">待補</span>'}</dd>
+              <dt>簽證</dt><dd>${c.visa?.type && c.visa.type !== '—' ? escapeHtml(c.visa.type) : '<span class="muted">待補</span>'}</dd>
               <dt>父親文件</dt><dd>${c.visa?.deposit ?? '無特別需求'}</dd>
             </dl>
 
-            <h3><span class="num">iii.</span>住宿（3 種選項）</h3>
-            ${(c.stays || []).map(s => `
-              <div class="field">
-                <span class="lbl">${escapeHtml(s.type)} · ${escapeHtml(s.area)}</span>
-                <strong>${ntd(s.price)} / 晚</strong>
-                <p class="mb-0" style="font-size:13px; color: var(--ink-muted); margin-top: 4px;">${escapeHtml(s.note)}</p>
-              </div>
-            `).join('') || '<p class="muted">資料待補</p>'}
+            ${(c.stays && c.stays.length) ? `
+              <h3><span class="num">iii.</span>住宿（${c.stays.length} 種選項）</h3>
+              ${c.stays.map(s => `
+                <div class="field">
+                  <span class="lbl">${escapeHtml(s.type)} · ${escapeHtml(s.area)}</span>
+                  <strong>${hasNum(s.price) ? `${ntd(s.price)} / 晚` : '<span class="muted">待補</span>'}</strong>
+                  <p class="mb-0" style="font-size:13px; color: var(--ink-muted); margin-top: 4px;">${escapeHtml(s.note || '')}</p>
+                </div>
+              `).join('')}
+            ` : `
+              <h3><span class="num">iii.</span>住宿</h3>
+              <p class="muted" style="font-family: var(--f-hand-cn);">📝 住宿選項待用戶 email 校方確認後規劃</p>
+            `}
 
-            <h3><span class="num">iv.</span>媽媽 me-time / 課程</h3>
-            <p style="font-size:14px; color: var(--ink-soft);">日落酒吧、市集、咖啡店 + 8 類進修課（語言/烹飪/瑜伽/藝術/文化/商業/社交/志工）</p>
-            <div class="flex wrap">
-              ${(c.metime || []).slice(0,4).map(x => `<span class="chip">${escapeHtml(x)}</span>`).join('')}
-              ${(c.classes || []).slice(0,8).map(x => `<span class="chip" style="background:rgba(122,142,102,.18);border-color:var(--sage-deep);color:var(--sage-deep);">${escapeHtml(x)}</span>`).join('')}
-            </div>
+            ${(() => {
+              const cleanMe = (c.metime || []).filter(x => !PLACEHOLDER_LEAK.some(p => String(x).includes(p)));
+              const cleanCls = (c.classes || []).filter(x => !PLACEHOLDER_LEAK.some(p => String(x).includes(p)));
+              if (!cleanMe.length && !cleanCls.length) {
+                return `<h3><span class="num">iv.</span>媽媽 me-time / 課程</h3>
+                  <p class="muted" style="font-family: var(--f-hand-cn);">📝 詳細資料待用戶 email 校方確認後規劃</p>`;
+              }
+              return `<h3><span class="num">iv.</span>媽媽 me-time / 課程</h3>
+                <p style="font-size:14px; color: var(--ink-soft);">日落酒吧、市集、咖啡店 + 8 類進修課（語言/烹飪/瑜伽/藝術/文化/商業/社交/志工）</p>
+                <div class="flex wrap">
+                  ${cleanMe.slice(0,4).map(x => `<span class="chip">${escapeHtml(x)}</span>`).join('')}
+                  ${cleanCls.slice(0,8).map(x => `<span class="chip" style="background:rgba(122,142,102,.18);border-color:var(--sage-deep);color:var(--sage-deep);">${escapeHtml(x)}</span>`).join('')}
+                </div>`;
+            })()}
 
             <h3><span class="num">v.</span>適合誰 / 不適合誰</h3>
             <div class="sticky green" style="margin: 12px 0;">
@@ -423,6 +493,17 @@ function viewDetail(c) {
                     </div>
                   </details>
                 ` : ''}
+              </div>
+            ` : (lite && scoresMissing) ? `
+              <!-- Phase 7C-fix-2 B: Lite 候選 score block placeholder -->
+              <div class="score-block lite-block" style="border-style: dashed;">
+                <div class="total-lbl">lite candidate · 待詳查</div>
+                <div class="total" style="font-size: 28px; line-height: 1.3; font-family: var(--f-hand-cn); color: var(--ink-soft);">
+                  ✨ 分數待 user 親自 verify
+                </div>
+                <p style="font-family: var(--f-hand-cn); font-size: 13px; color: var(--ink-muted); margin-top: 12px; line-height: 1.7;">
+                  此候選是 Phase 7B fork-extension 的「新發現」，營隊基本資料已抓到，但 8 維評分需 user 拍板後再回填。
+                </p>
               </div>
             ` : `
               <!-- Score block -->
@@ -496,39 +577,49 @@ function viewDetail(c) {
               <dt>銀行</dt><dd>${c.logistics?.bank || '—'}</dd>
             </dl>
 
-            ${(c.tier === 1 || c.tier === 2) && c.emergency ? renderEmergencyCard(c.emergency) : ''}
+            ${((c.tier === 1 || c.tier === 2) || lite) && c.emergency ? renderEmergencyCard(c.emergency, lite) : ''}
 
             ${c.support ? renderSupportBlock(c.support) : ''}
 
-            <h3><span class="num">x.</span>風險登錄</h3>
-            <div>
-              <div class="risk-row" style="font-family: var(--f-hand-en); color: var(--brown); border-bottom: 1.5px solid var(--ink);">
-                <span>嚴重度</span><span>風險項目</span><span>緩解策略</span>
-              </div>
-              ${(c.risks || []).map(r => `
-                <div class="risk-row">
-                  <span><span class="dot ${r.level}"></span> ${r.level === 'high' ? '高' : r.level === 'med' ? '中' : '低'}</span>
-                  <span>${escapeHtml(r.item)}</span>
-                  <span style="color: var(--ink-soft);">${escapeHtml(r.mitigation)}</span>
+            ${(c.risks && c.risks.length) ? `
+              <h3><span class="num">x.</span>風險登錄</h3>
+              <div>
+                <div class="risk-row" style="font-family: var(--f-hand-en); color: var(--brown); border-bottom: 1.5px solid var(--ink);">
+                  <span>嚴重度</span><span>風險項目</span><span>緩解策略</span>
                 </div>
-              `).join('')}
-            </div>
-
-            <h3><span class="num">xi.</span>P0 立即行動</h3>
-            ${(c.p0 || []).map((p,i) => `
-              <div class="sticky ${['','pink','green','blue'][i%4]}" style="margin: 12px 0;">
-                <strong style="font-family: var(--f-display); font-size: 16px;">截止 ${p.deadline.slice(5)}</strong> · ${escapeHtml(p.task)}
+                ${c.risks.map(r => `
+                  <div class="risk-row">
+                    <span><span class="dot ${r.level}"></span> ${r.level === 'high' ? '高' : r.level === 'med' ? '中' : '低'}</span>
+                    <span>${escapeHtml(r.item)}</span>
+                    <span style="color: var(--ink-soft);">${escapeHtml(r.mitigation)}</span>
+                  </div>
+                `).join('')}
               </div>
-            `).join('')}
+            ` : ''}
 
-            ${c.picks ? `
+            ${(c.p0 && c.p0.length) ? `
+              <h3><span class="num">xi.</span>P0 立即行動</h3>
+              ${c.p0.map((p,i) => {
+                const dl = p.deadline ? `<strong style="font-family: var(--f-display); font-size: 16px;">截止 ${escapeHtml(p.deadline.slice(5))}</strong>`
+                                       : `<span class="chip chip-warn-soft" style="font-family: var(--f-hand-cn);">⏳ 未定</span>`;
+                return `<div class="sticky ${['','pink','green','blue'][i%4]}" style="margin: 12px 0;">
+                  ${dl} · ${escapeHtml(p.task)}
+                </div>`;
+              }).join('')}
+            ` : ''}
+
+            ${(c.picks && ((c.picks.food && c.picks.food.length) || (c.picks.spa && c.picks.spa.length))) ? `
               <h3><span class="num">xii.</span>餐廳 / SPA 推薦</h3>
-              <div class="flex wrap" style="gap: 6px;">
-                ${(c.picks.food || []).map(f => `<span class="chip" style="background:rgba(197,107,90,0.12);border-color:var(--coral-deep);color:var(--coral-deep);">🍽 ${escapeHtml(f)}</span>`).join('')}
-              </div>
-              <div class="flex wrap mt-8" style="gap: 6px;">
-                ${(c.picks.spa || []).map(s => `<span class="chip" style="background:rgba(122,142,102,0.12);border-color:var(--sage-deep);color:var(--sage-deep);">✦ ${escapeHtml(s)}</span>`).join('')}
-              </div>
+              ${(c.picks.food && c.picks.food.length) ? `
+                <div class="flex wrap" style="gap: 6px;">
+                  ${c.picks.food.map(f => `<span class="chip" style="background:rgba(197,107,90,0.12);border-color:var(--coral-deep);color:var(--coral-deep);">🍽 ${escapeHtml(f)}</span>`).join('')}
+                </div>
+              ` : ''}
+              ${(c.picks.spa && c.picks.spa.length) ? `
+                <div class="flex wrap mt-8" style="gap: 6px;">
+                  ${c.picks.spa.map(s => `<span class="chip" style="background:rgba(122,142,102,0.12);border-color:var(--sage-deep);color:var(--sage-deep);">✦ ${escapeHtml(s)}</span>`).join('')}
+                </div>
+              ` : ''}
             ` : ''}
 
             ${c.sources?.length ? `
@@ -552,17 +643,13 @@ function viewDetail(c) {
   `;
 }
 
-// ---------- Emergency Card (Tier 1/2) ----------
-function renderEmergencyCard(em) {
+// ---------- Emergency Card (Tier 1/2 + lite) ----------
+function renderEmergencyCard(em, lite) {
   if (!em) return '';
   const hospitals = em.hospitals || [];
   const pharmacies = em.pharmacy || [];
-  return `
-    <h3><span class="num">ix-b.</span>萬一 · Emergency Card</h3>
-    <div class="emergency-card" style="background: rgba(197,107,90,0.07); border: 2px dashed var(--coral-deep); padding: 16px 18px; margin: 12px 0;">
-      <div style="font-family: var(--f-hand-en); color: var(--coral-deep); font-size: 13px; margin-bottom: 8px;">single-mom safety net · keep this offline</div>
-
-      ${hospitals.length ? `
+  // Phase 7C-fix-2 B: lite + 醫院列表為空 → placeholder
+  const hospitalsBlock = hospitals.length ? `
         <strong style="font-family: var(--f-display); font-size: 16px;">🏥 醫院（按優先順序）</strong>
         <div style="margin-top: 6px;">
           ${hospitals.map((h, i) => `
@@ -575,7 +662,18 @@ function renderEmergencyCard(em) {
             </div>
           `).join('')}
         </div>
-      ` : ''}
+      ` : (lite ? `
+        <strong style="font-family: var(--f-display); font-size: 16px;">🏥 醫院（按優先順序）</strong>
+        <div style="margin-top: 6px; padding: 10px 12px; background: rgba(255,255,255,0.4); border: 1px dashed var(--coral-deep);">
+          <span class="muted" style="font-family: var(--f-hand-cn); font-size: 13px;">📝 出發前 user email 校方索取在地醫院名單（中文友善 / 24h 急診優先）</span>
+        </div>
+      ` : '');
+  return `
+    <h3><span class="num">ix-b.</span>萬一 · Emergency Card</h3>
+    <div class="emergency-card" style="background: rgba(197,107,90,0.07); border: 2px dashed var(--coral-deep); padding: 16px 18px; margin: 12px 0;">
+      <div style="font-family: var(--f-hand-en); color: var(--coral-deep); font-size: 13px; margin-bottom: 8px;">single-mom safety net · keep this offline</div>
+
+      ${hospitalsBlock}
 
       ${pharmacies.length ? `
         <strong style="display: block; margin-top: 14px; font-family: var(--f-display); font-size: 16px;">💊 24h 藥局</strong>
@@ -678,18 +776,32 @@ function viewCompare(state) {
       </div>
     `;
   }
+  // Phase 7C-fix-2 D: 缺值改顯「—」非 "$0" / "0h 轉機"
+  const dash = '<span class="muted">—</span>';
   const rows = [
-    { label: '一句話 hook', val: c => escapeHtml(c.hook) },
-    { label: '總分', val: c => `<span style="font-family: var(--f-display); font-size: 28px; color: var(--gold-deep);">${c.totalScore || '—'}</span><span class="muted"> / 40</span>` },
-    { label: '飛行', val: c => `${c.flight?.hours}h ${c.flight?.direct ? '直飛' : '轉機'}<br><span class="muted">${escapeHtml(c.flight?.airline || '')}</span>` },
-    { label: '機票', val: c => ntd(c.flight?.price) },
-    { label: '簽證', val: c => escapeHtml(c.visa?.type || '—') },
-    { label: '夏令營', val: c => `<strong>${escapeHtml(c.camp?.name || '—')}</strong><br>${escapeHtml(c.camp?.lang || '')}` },
-    { label: '營隊 3 週', val: c => ntd(c.camp?.cost) },
-    { label: '住宿首選', val: c => c.stays?.[0] ? `${escapeHtml(c.stays[0].type)} · ${ntd(c.stays[0].price)}／晚` : '—' },
-    { label: '預算合計', val: c => `<strong style="font-family: var(--f-display); font-size: 22px;">${ntd(c.budget?.total)}</strong>` },
+    { label: '一句話 hook', val: c => escapeHtml(cleanPlaceholder(c.hook)) },
+    { label: '總分', val: c => hasNum(c.totalScore)
+        ? `<span style="font-family: var(--f-display); font-size: 28px; color: var(--gold-deep);">${c.totalScore}</span><span class="muted"> / 40</span>`
+        : (isLite(c) ? `<span class="muted" style="font-family: var(--f-hand-cn); font-size: 13px;">分數待補</span>` : dash) },
+    { label: '飛行', val: c => hasNum(c.flight?.hours)
+        ? `${c.flight.hours}h ${c.flight.direct ? '直飛' : '轉機'}<br><span class="muted">${escapeHtml(c.flight.airline || '')}</span>`
+        : dash },
+    { label: '機票', val: c => hasNum(c.flight?.price) ? ntd(c.flight.price) : dash },
+    { label: '簽證', val: c => (c.visa?.type && c.visa.type !== '—') ? escapeHtml(c.visa.type) : dash },
+    { label: '夏令營', val: c => c.camp?.name
+        ? `<strong>${escapeHtml(c.camp.name)}</strong><br>${escapeHtml(c.camp.lang || '')}`
+        : dash },
+    { label: '營隊 3 週', val: c => hasNum(c.camp?.cost) ? ntd(c.camp.cost) : dash },
+    { label: '住宿首選', val: c => (c.stays?.[0] && hasNum(c.stays[0].price))
+        ? `${escapeHtml(c.stays[0].type)} · ${ntd(c.stays[0].price)}／晚`
+        : dash },
+    { label: '預算合計', val: c => hasNum(c.budget?.total)
+        ? `<strong style="font-family: var(--f-display); font-size: 22px;">${ntd(c.budget.total)}</strong>`
+        : dash },
     { label: 'vs 補習班', val: c => {
-      const diff = (c.budget?.vsCram || 240000) - (c.budget?.total || 0);
+      // 只在 budget.total > 0 才算
+      if (!hasNum(c.budget?.total)) return dash;
+      const diff = (c.budget?.vsCram || 240000) - c.budget.total;
       return diff > 0
         ? `<span style="color: var(--sage-deep);">省 ${ntd(diff)}</span>`
         : `<span style="color: var(--coral-deep);">超 ${ntd(-diff)}</span>`;
@@ -697,7 +809,10 @@ function viewCompare(state) {
     { label: '適合誰', val: c => `<span style="font-family: var(--f-hand-cn);">${escapeHtml(c.goodFor || '—')}</span>` },
     { label: '不適合誰', val: c => `<span style="font-family: var(--f-hand-cn); color: var(--coral-deep);">${escapeHtml(c.notFor || '—')}</span>` },
     { label: '主要風險', val: c => (c.risks || []).slice(0,2).map(r => `<div><span class="dot ${r.level}"></span>${escapeHtml(r.item)}</div>`).join('') || '—' },
-    { label: 'P0 截止日', val: c => (c.p0 || []).map(p => `<div>${p.deadline.slice(5)} · ${escapeHtml(p.task.slice(0,18))}…</div>`).join('') || '—' },
+    { label: 'P0 截止日', val: c => (c.p0 || []).map(p => {
+      const dl = p.deadline ? p.deadline.slice(5) : '⏳ 未定';
+      return `<div>${escapeHtml(dl)} · ${escapeHtml((p.task || '').slice(0,18))}…</div>`;
+    }).join('') || '—' },
   ];
   return `
     <div class="page">
@@ -741,7 +856,12 @@ function viewP0() {
   // gather all P0 items across candidates
   const all = [];
   CANDIDATES.forEach(c => (c.p0 || []).forEach(p => all.push({...p, city: c.city, id: c.id, tier: c.tier})));
-  all.sort((a,b) => a.deadline.localeCompare(b.deadline));
+  // Phase 7C-fix-2 C: null deadline 排到最後
+  all.sort((a,b) => {
+    const da = a.deadline || '9999';
+    const db = b.deadline || '9999';
+    return da.localeCompare(db);
+  });
 
   const palettes = ['', 'pink', 'green', 'blue'];
 
@@ -759,14 +879,17 @@ function viewP0() {
         <div class="washi washi-sage p0-washi-right"></div>
 
         <div class="p0-grid">
-          ${all.map((p,i) => `
-            <div class="sticky ${palettes[i % palettes.length]} p0-card">
+          ${all.map((p,i) => {
+            const due = p.deadline
+              ? `<div class="due">${escapeHtml(p.deadline.slice(5))}</div>`
+              : `<div class="due"><span class="chip chip-warn-soft" style="font-family: var(--f-hand-cn); font-size: 13px;">⏳ 未定</span></div>`;
+            return `<div class="sticky ${palettes[i % palettes.length]} p0-card">
               <span class="pin ${pinClasses[i % pinClasses.length]}"></span>
-              <div class="due">${p.deadline.slice(5)}</div>
+              ${due}
               <div class="task">${escapeHtml(p.task)}</div>
               <div class="meta">→ ${p.tier === 0 ? '已排除' : `Tier ${p.tier}`} · ${escapeHtml(p.city)}</div>
-            </div>
-          `).join('')}
+            </div>`;
+          }).join('')}
         </div>
       </div>
     </div>
@@ -774,13 +897,21 @@ function viewP0() {
 }
 
 // =========================================================
-// LIBRARY — 17 chapters drawer
+// LIBRARY — chapters drawer
 // =========================================================
+function getSourceCount() {
+  // 從 CANDIDATES 算總和 sources 數量
+  if (typeof CANDIDATES === 'undefined') return 0;
+  return CANDIDATES.reduce((acc, c) => acc + ((c.sources && c.sources.length) || 0), 0);
+}
+
 function viewLibrary() {
+  const chCount = (typeof CHAPTERS !== 'undefined') ? CHAPTERS.length : 0;
+  const srcCount = getSourceCount();
   return `
     <div class="page">
       <h2 class="mag-h"><span class="em">研究檔案</span> · the library</h2>
-      <p class="mag-eyebrow">17 chapters · 207 sources · 3 months</p>
+      <p class="mag-eyebrow">${chCount} chapters · ${srcCount} sources · 3 months</p>
       <hr class="mag-rule">
 
       <div class="library">
@@ -844,9 +975,9 @@ function viewWhy() {
     { key: 'why_q5', q: '3 年後回看，我會慶幸做了哪個決定？' },
   ];
   return `
-    <div class="page why-page">
-      <h2 class="mag-h" style="text-align: center;"><span class="em">為什麼</span>是這個夏天？</h2>
-      <p class="mag-eyebrow" style="text-align: center;">handwritten · 5 prompts · private</p>
+    <div class="page why-page page-why">
+      <h2 class="mag-h why-title" style="text-align: center; font-family: var(--f-hand-cn);"><span class="em">為什麼</span>是這個夏天？</h2>
+      <p class="mag-eyebrow" style="text-align: center;">handwritten · ${questions.length} prompts · private</p>
       <hr class="mag-rule">
 
       <p style="font-family: var(--f-hand-cn); font-size: 17px; line-height: 1.9; color: var(--ink-soft); margin: 24px auto 36px; max-width: 640px; text-align: center;">
