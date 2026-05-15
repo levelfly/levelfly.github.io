@@ -6378,6 +6378,5601 @@ const CANDIDATES = [
     ],
     "excludeReason": "維多利亞 BC 是加拿大最英式的小城, GNS Chipmunks 夏令營 5-6 歲口碑好。但問題是它在 Vancouver 旁邊小島, 從機場過去要 1.5h 渡輪 (媽媽單帶 5-6 歲女兒拖行李辛苦), 而且 Vancouver 本身已經有 Pear Tree Kitsilano + Aquarium AquaCamp 更密集的選擇。直接選 Vancouver 比較簡單。",
     "scoresMissing": true
+  },
+  {
+    "id": "shanghai-scis-summer",
+    "tier": 2,
+    "rank": 100,
+    "city": "上海",
+    "country": "中國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "SCIS 虹橋 ECE 校區暑期營，雙語探究式課程，學齡前到 …",
+    "hook_tags": [],
+    "pitch": "SCIS 虹橋 ECE 校區暑期營，雙語探究式課程，學齡前到 G5 都收，每週可彈性報",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "SCIS Summer Camp 2026 – A Summer to Grow On",
+      "age": "Preschool–Grade 5（約 3–11 歲，含 5–6 歲）",
+      "dates": "2026-06-15 至 2026-07-10（每週一開營，可彈性 1–4 週）",
+      "cost": 24300,
+      "lang": "英文 + 中文（雙語）",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 73333,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 18874,
+      "buffer": 12583,
+      "total": 0,
+      "realTotal": 157290,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.scis-china.org/community/news/news-details/~board/news-stories/post/scis-summer-camp-2026-a-summer-to-grow-on",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想讓孩子接觸中英雙語環境、預算中等家庭、想兼顧上海觀光",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email Shanghai Community International School (SCIS) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.scis-china.org/community/news/news-details/~boar 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.scis-china.org/community/news/news-details/~board/news-stories/post/scis-summer-camp-2026-a-summer-to-grow-on",
+      "https://www.smartshanghai.com/event/scis-summer-camp-2026"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f1_china",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://www.smartshanghai.com/event/scis-summer-camp-2026"
+  },
+  {
+    "id": "shanghai-ycis-summer",
+    "tier": 2,
+    "rank": 101,
+    "city": "上海",
+    "country": "中國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "耀中（YCIS）上海六校區暑期營，雙語、ECE 起跳，2 週為…",
+    "hook_tags": [],
+    "pitch": "耀中（YCIS）上海六校區暑期營，雙語、ECE 起跳，2 週為單位剛好配 3 週行程",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "YCIS Shanghai 2026 Summer Camps",
+      "age": "Early Years（ECE）至 High School，含 5–6 歲",
+      "dates": "Session 1: 2026-06-22 至 2026-07-03；Session 2: 2026-07-06 至 2026-07-17",
+      "cost": 22500,
+      "lang": "英文 + 中文（耀中傳統雙語）",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 70000,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 18375,
+      "buffer": 12250,
+      "total": 0,
+      "realTotal": 153125,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.smartshanghai.com/event/ycis-shanghai-2026-summer-camps-now-open-for-registration",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想要正規國際學校品牌雙語體驗、希望 2 週連續課程穩定、可選 6 校區就近住",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email Yew Chung International School of Shanghai (YCIS) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.smartshanghai.com/event/ycis-shanghai-2026-summe 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.smartshanghai.com/event/ycis-shanghai-2026-summer-camps-now-open-for-registration",
+      "https://www.ycis-sh.com/en"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f1_china",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://www.smartshanghai.com/event/ycis-shanghai-2026-summer-camps-now-open-for-registration"
+  },
+  {
+    "id": "shanghai-dulwich-pudong-summer",
+    "tier": 1,
+    "rank": 102,
+    "city": "上海",
+    "country": "中國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "上海德威浦東校區暑期營，Reception 起跳，含游泳/足球…",
+    "hook_tags": [],
+    "pitch": "上海德威浦東校區暑期營，Reception 起跳，含游泳/足球/醫學/表演藝術等 20+ 主題可選",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "DCSPD Summer Camps 2026",
+      "age": "Reception 起（4 歲以上），含 5–6 歲",
+      "dates": "2026-06-23 該週 至 2026-08-15 該週（8 週可彈選）",
+      "cost": 18000,
+      "lang": "英文為主（部分如劍道採中文）",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 66666,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 17874,
+      "buffer": 11916,
+      "total": 0,
+      "realTotal": 148956,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://shanghai-pudong.dulwich.org/lp/summer-camps",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "週期最彈性，21 天剛好涵蓋 3 個週、想嘗試多主題（運動+藝術混搭）、預算可控（單堂便宜可堆疊）",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email Dulwich College Shanghai Pudong 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://shanghai-pudong.dulwich.org/lp/summer-camps 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://shanghai-pudong.dulwich.org/lp/summer-camps"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f1_china",
+    "p7b_confidence": "operator_verified",
+    "p7b_verified_url": "https://shanghai-pudong.dulwich.org/lp/summer-camps"
+  },
+  {
+    "id": "shanghai-concordia-phoenix",
+    "tier": 2,
+    "rank": 103,
+    "city": "上海",
+    "country": "中國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "上海協和（Concordia）Phoenix Academy，…",
+    "hook_tags": [],
+    "pitch": "上海協和（Concordia）Phoenix Academy，明確收外國護照 4 歲起、無語言/前置經驗門檻",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "Phoenix Academy Summer Programme",
+      "age": "4–18 歲（Early Childhood 為 4–6 歲）",
+      "dates": "兩週制：歷年為 6 月下旬 W1+W2（2024 為 6/17–6/21、6/24–6/28；2026 待 Concordia 確認）",
+      "cost": 29300,
+      "lang": "英文為主",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 83333,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 20374,
+      "buffer": 13583,
+      "total": 0,
+      "realTotal": 169790,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.smartshanghai.com/event/75784",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "明確標明『Open to all students with foreign passports』，台灣護照無障礙、純英文沉浸（家長若想孩子英文不被分散）、校區設施完整（協和為上海頂級美系國際校）",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email Concordia International School Shanghai 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.concordiashanghai.org/ 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.smartshanghai.com/event/75784",
+      "https://www.concordiashanghai.org/"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f1_china",
+    "p7b_confidence": "operator_verified",
+    "p7b_verified_url": "https://www.smartshanghai.com/event/75784"
+  },
+  {
+    "id": "beijing-ycis-ywies-summer",
+    "tier": 2,
+    "rank": 104,
+    "city": "北京",
+    "country": "中國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "耀中耀華（YCYW）北京校區暑期營，明確收外校學生、幼兒園到高…",
+    "hook_tags": [],
+    "pitch": "耀中耀華（YCYW）北京校區暑期營，明確收外校學生、幼兒園到高中、雙語",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "YCYW Summer Camps 2026 (Beijing campuses)",
+      "age": "Kindergarten 到 High School（含 5–6 歲）",
+      "dates": "夏季（具體日期未公開，需向北京校區索取）",
+      "cost": 22500,
+      "lang": "英文 + 中文（雙語）",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 66666,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 17874,
+      "buffer": 11916,
+      "total": 0,
+      "realTotal": 148956,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.ycyw-edu.com/en/summer-programme-2026",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想看古都（故宮/長城/胡同）+ 上課並重、和上海熱不同氣候稍乾、YCYW 集團公告明確 open to non-YCYW",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email YCYW Education Network – YCIS Beijing / YWIES Beijing 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.ycyw-edu.com/en/summer-programme-2026 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.ycyw-edu.com/en/summer-programme-2026",
+      "https://www.ycyw-edu.com/en/article/events/ycyw-summer-camps-2026-register-now"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f1_china",
+    "p7b_confidence": "operator_verified",
+    "p7b_verified_url": "https://www.ycyw-edu.com/en/summer-programme-2026"
+  },
+  {
+    "id": "beijing-bsb-shunyi-early-years",
+    "tier": 2,
+    "rank": 105,
+    "city": "北京",
+    "country": "中國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Nord Anglia 集團北京順義英校 Early Year…",
+    "hook_tags": [],
+    "pitch": "Nord Anglia 集團北京順義英校 Early Years 暑期營，傳統 2–6 歲日營，順義使館區外籍家庭聚落",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "BSB Shunyi Early Years Summer Camp",
+      "age": "2–6 歲（歷年含英語營與中文營兩個 track）",
+      "dates": "歷年為 6 月下旬至 7 月中（2019 年範例為 06-24 至 07-12，2026 需向 admissions@bsbshunyi.com 確認）",
+      "cost": 25000,
+      "lang": "英文 track 或 中文 track（兩線可選）",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 73333,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 18874,
+      "buffer": 12583,
+      "total": 0,
+      "realTotal": 157290,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.nordangliaeducation.com/bsb-shunyi/news/2019/05/02/bsb-early-years-summer-camp-2019",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想住順義（外國人最密集區，餐飲/便利店/醫院全是國際標準）、希望 5-6 歲純 Early Years 同齡環境、想體驗英式 EYFS 教學",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email The British School of Beijing, Shunyi (Nord Anglia Education) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.nordangliaeducation.com/bsb-shunyi 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.nordangliaeducation.com/bsb-shunyi/news/2019/05/02/bsb-early-years-summer-camp-2019",
+      "https://www.nordangliaeducation.com/bsb-shunyi"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f1_china",
+    "p7b_confidence": "operator_verified",
+    "p7b_verified_url": "https://www.nordangliaeducation.com/bsb-shunyi/news/2019/05/02/bsb-early-years-summer-camp-2019"
+  },
+  {
+    "id": "uk-london-skola-gloucester",
+    "tier": 2,
+    "rank": 106,
+    "city": "倫敦",
+    "country": "英國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "SKOLA Gloucester Gate 是少數明確收 5–…",
+    "hook_tags": [],
+    "pitch": "SKOLA Gloucester Gate 是少數明確收 5–9 歲的英倫 day camp，British Council & English UK 雙認證；媽媽走 10 分鐘到 TopUp Camden 同步上成人英文",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "SKOLA Junior Summer School Gloucester Gate (5–9)",
+      "age": "5–9 歲（女兒 5–6 歲完全在區間）",
+      "dates": "2026-07-06 至 2026-08-14（每週一可入、最少 1 週、最多 11 週，21 天剛好連 3 週）",
+      "cost": 27600,
+      "lang": "純英語（British Council 認證）",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 126666,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 26874,
+      "buffer": 17916,
+      "total": 0,
+      "realTotal": 223956,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.skola.co.uk/gloucester-gate-summer-school-london",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想讓孩子真正浸潤英式英文 + 倫敦文化、媽媽願意自己每週 GBP 300–450 上 TopUp Camden 成人英文（步行 10 分鐘）、預算 NT$50 萬以上，要倫敦中心市區步調",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email SKOLA English Language Schools (Gloucester Gate, by Regent's Park) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.skola.co.uk/gloucester-gate-summer-school-london 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.skola.co.uk/gloucester-gate-summer-school-london",
+      "https://www.skola.co.uk/family-english-course-london",
+      "https://www.skola.co.uk/prices",
+      "https://www.bestparents.com/courses/skola-english-day-camp-juniors-london"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f2_uk",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://www.skola.co.uk/gloucester-gate-summer-school-london"
+  },
+  {
+    "id": "uk-cambridge-stgiles-family",
+    "tier": 1,
+    "rank": 107,
+    "city": "劍橋",
+    "country": "英國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "St Giles Cambridge Family Cours…",
+    "hook_tags": [],
+    "pitch": "St Giles Cambridge Family Course 是最完美的親子英倫方案：媽媽和女兒同一間 St Giles 各自上課、homestay 早晚同住、週末一起出遊；British Council 認證、5–13 歲、可連 3 週",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "St Giles Cambridge Family Course (5–13)",
+      "age": "5–13 歲（5–6 歲在 Cambridge & London Highgate 兩個校區可收）",
+      "dates": "2026-06-21 至 2026-08-09（最少 1 週、可連訂 7 週、21 天連 3 週完美）",
+      "cost": 29900,
+      "lang": "純英語（British Council & EAQUALS 認證）",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 150000,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 30375,
+      "buffer": 20250,
+      "total": 0,
+      "realTotal": 253125,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.stgiles-international.com/wp-content/uploads/2025/11/Family-Courses_2026-v3.pdf",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "媽媽想真的學英文 + 想跟女兒上同一間學校、想用 homestay 真接觸英國家庭日常（飯點/口語/生活）、想避開倫敦塞車與遊客密度（劍橋大學城步行可達一切）、需要保姆級的接送 + 三餐安排（Full package 全包）",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email St Giles International（70 年家族經營、British Council & EAQUALS 雙認證） 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.stgiles-international.com/wp-content/uploads/202 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.stgiles-international.com/wp-content/uploads/2025/11/Family-Courses_2026-v3.pdf",
+      "https://www.stgiles-international.com/wp-content/uploads/2025/12/Juniors-Brochure-2026_15-December-2025-Final_compressed.pdf",
+      "https://www.stgiles-international.com/junior-english-summer-schools/cambridge-family-course",
+      "https://www.stgiles-international.com/course-type/family-courses/"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f2_uk",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://www.stgiles-international.com/wp-content/uploads/2025/11/Family-Courses_2026-v3.pdf"
+  },
+  {
+    "id": "uk-oxford-supercamps",
+    "tier": 2,
+    "rank": 108,
+    "city": "牛津",
+    "country": "英國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "SuperCamps @ Oxford High School…",
+    "hook_tags": [],
+    "pitch": "SuperCamps @ Oxford High School：4–14 歲 multi-activity day camp，Ofsted EY2577101 註冊、GBP 225/週（5 天 5 折）牛津預算王，但純玩無英文沉浸",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "SuperCamps Multi-Activity @ Oxford High School",
+      "age": "4–14 歲，分齡 4–5 / 6–7 / 8+ 三組",
+      "dates": "2026-07-20 至 2026-08-28（6 週可彈選，21 天連 3 週完美）",
+      "cost": 9000,
+      "lang": "純英語（活動營非語言課，孩童自然吸收）",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 93333,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 21874,
+      "buffer": 14583,
+      "total": 0,
+      "realTotal": 182290,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.supercamps.co.uk/venue/oxford-high-school",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "預算最緊（孩童週費僅 NT$9,000，比所有英倫 ESL 便宜 3 倍）、媽媽不需孩子學英文、只要 9am–5pm 高品質託育能安心 me-time、想住牛津大學城享受文化與綠地，避開倫敦遊客密度、可順便讓媽媽報 Oxford 短期課程（Continuing Education / Bodleian / Ashmolean workshop）",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email SuperCamps Ltd（Ofsted-registered，35+ UK 校區） 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.supercamps.co.uk/venue/oxford-high-school 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.supercamps.co.uk/venue/oxford-high-school",
+      "https://www.supercamps.co.uk/venues/county/oxfordshire",
+      "https://www.supercamps.co.uk/all-kids-holiday-club-camps"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f2_uk",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://www.supercamps.co.uk/venue/oxford-high-school"
+  },
+  {
+    "id": "uk-cambridge-kings-camps",
+    "tier": 2,
+    "rank": 109,
+    "city": "劍橋",
+    "country": "英國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Kings Camps @ King's College Sc…",
+    "hook_tags": [],
+    "pitch": "Kings Camps @ King's College School Cambridge：5–17 歲多運動營，Ofsted 2598890、GBP 265/週、含戶外泳池與 30+ 活動，劍橋校園裡跑跳",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "Kings Camps Multi-Active @ King's College School Cambridge",
+      "age": "5–17 歲（women 女兒 5–6 進入 Mini Movers / Smarties 分齡組）",
+      "dates": "2026-07-20 / 07-27 / 08-03 / 08-10 共 4 週可選（21 天連 3 週可行）",
+      "cost": 10600,
+      "lang": "純英語（運動為主）",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 93333,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 21874,
+      "buffer": 14583,
+      "total": 0,
+      "realTotal": 182290,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.kingscamps.org/venue/cambridge-kings-college-school/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "預算緊（孩童 NT$10,600/週、含戶外泳池與 30+ 活動）、想用 Kings College School 私校設施（西路 West Road CB3 9BN，劍橋大學中心步行可達）、搭 St Giles Family Course（同城）做混搭：1 週 Kings Camps + 2 週 St Giles 或反之、彈性接送 8:15am–5:30pm 比 SuperCamps 9–5 多 1.5 小時",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email Kings Active Foundation（英國慈善註冊、30+ UK 校區） 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.kingscamps.org/venue/cambridge-kings-college-sch 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.kingscamps.org/venue/cambridge-kings-college-school/",
+      "https://www.kingscamps.org/programmes/",
+      "https://www.kingsactive.org/kings-camps/"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f2_uk",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://www.kingscamps.org/venue/cambridge-kings-college-school/"
+  },
+  {
+    "id": "uk-london-camp-beaumont",
+    "tier": 2,
+    "rank": 110,
+    "city": "倫敦",
+    "country": "英國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Camp Beaumont Magic Programme：5…",
+    "hook_tags": [],
+    "pitch": "Camp Beaumont Magic Programme：5–7 歲、Ofsted-registered、55+ 倫敦校區可挑離家最近、GBP 200–265/週、45 年英倫日營老牌",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "Camp Beaumont Magic Programme (5–7) — Pimlico Academy or Wimbledon/Putney/Chiswick/Richmond/Blackheath/Hampstead 其一",
+      "age": "5–7 歲 Magic（3–4 Playtime / 8–11 Active / 12–14 Teens 各分流）",
+      "dates": "2026-07 至 2026-08（暑假全段彈性訂 1 日 / 1 週 / 整暑）",
+      "cost": 9300,
+      "lang": "純英語（活動為主）",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 100000,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 22875,
+      "buffer": 15250,
+      "total": 0,
+      "realTotal": 190625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.campbeaumont.co.uk/programmes/magic",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想住倫敦市區、地鐵 Zone 2–4 任一地點都能挑到近的 Camp Beaumont 校區、預算精打細算（Flash Sale GBP 40/日 是英倫日營最低之一）、5–7 歲分齡精細不會跟大孩子混（區別於 SuperCamps 4–5/6–7 兩階）、想自己安排媽媽 me-time（V&A / British Museum / Tate / 下午茶 / Cotswolds day trip）",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email Camp Beaumont（Ofsted-registered, 45 年經驗, Trustpilot Excellent） 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.campbeaumont.co.uk/programmes/magic 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.campbeaumont.co.uk/programmes/magic",
+      "https://www.campbeaumont.co.uk/dates-prices/summer-camps",
+      "https://www.campbeaumont.co.uk/our-camps/pimlico-academy",
+      "https://www.campbeaumont.co.uk/county/london-day-camps",
+      "https://www.campbeaumont.co.uk/"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f2_uk",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://www.campbeaumont.co.uk/programmes/magic"
+  },
+  {
+    "id": "uk-brighton-stgiles-family",
+    "tier": 2,
+    "rank": 111,
+    "city": "布萊頓",
+    "country": "英國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "St Giles Brighton Family Course…",
+    "hook_tags": [],
+    "pitch": "St Giles Brighton Family Course：媽媽 + 女兒（5–15）同校上英文，海邊大學城、Jubilee Library 兒童課室、Adult 課媽媽可升 Platinum Business Executive",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "St Giles Brighton Family Course (5–15)",
+      "age": "5–15 歲（女兒 5–6 歲在區間，5–6 在 Brighton 為「邊緣 ok」，5–6 完全 ok 為 London Highgate 與 Cambridge）",
+      "dates": "2026-06-21 至 2026-08-09（最少 1 週、可訂 7 週、連 3 週剛好 21 天）",
+      "cost": 30700,
+      "lang": "純英語（British Council & EAQUALS 認證）",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 153333,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 30874,
+      "buffer": 20583,
+      "total": 0,
+      "realTotal": 257290,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.stgiles-international.com/wp-content/uploads/2025/11/Family-Courses_2026-v3.pdf",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想要海邊（Brighton beach、Brighton Pier、Royal Pavilion）而非劍橋大學城步調、媽媽想做商務英文（Brighton 是 St Giles 唯一可升 Platinum Business Executive 的 family 校區之一）、預算 NT$50–70 萬，要 homestay 接地氣、想 Eurostar 2.5h 跳巴黎週末（Brighton→London St Pancras 1h、再轉 2.5h）",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email St Giles International（British Council & EAQUALS 認證） 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.stgiles-international.com/wp-content/uploads/202 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.stgiles-international.com/wp-content/uploads/2025/11/Family-Courses_2026-v3.pdf",
+      "https://www.stgiles-international.com/wp-content/uploads/2025/12/Juniors-Brochure-2026_15-December-2025-Final_compressed.pdf",
+      "https://www.stgiles-international.com/course-type/family-courses/",
+      "https://studybritishenglish.co.uk/english-courses-for-children-in-the-uk/family-programme/st-giles-international-brighton-2/"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f2_uk",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://www.stgiles-international.com/wp-content/uploads/2025/11/Family-Courses_2026-v3.pdf"
+  },
+  {
+    "id": "steve_kates_manhattan_ues",
+    "tier": 3,
+    "rank": 112,
+    "city": "Manhattan Upper East Side",
+    "country": "美國",
+    "flag": "🇺🇸",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "全美最彈性 drop-in 設計 — 4 歲起 + Summe…",
+    "hook_tags": [
+      "new"
+    ],
+    "pitch": "🆕 全美最彈性 drop-in 設計 — 4 歲起 + Summer Pass $4020 含 49 天 (8am-6pm 含午餐點心), 21 天連續完全可行。Trevor Day School 校舍 + UES 安全度高 + 中央公園/博物館一站，但 ESTA 政治風險 + 飛 16-18h 轉機殘忍 + 時差 -12h",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://steveandkatescamp.com/manhattan-upper-east-side/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "要極致彈性 drop-in 不想週週鎖死的家庭、預算 NT$45-65 萬、想搭配紐約文化探索",
+    "notFor": "一般家庭",
+    "risks": [
+      {
+        "level": "high",
+        "item": "17h 飛 JFK 直飛 + 時差 -12h, 5-6 歲適應期 3-5 天",
+        "mitigation": "出發前 1 週提早作息 + 抵達首日不安排 camp"
+      },
+      {
+        "level": "med",
+        "item": "ESTA + 海關 secondary 偶查 single mom 帶童 (近年加強)",
+        "mitigation": "父親公證同意書英文版 + 完整 itinerary + camp 邀請函"
+      },
+      {
+        "level": "med",
+        "item": "槍枝/治安 — UES 是紐約最安全區之一但仍要警覺地鐵晚間",
+        "mitigation": "白天活動為主, 夜歸搭 Uber"
+      },
+      {
+        "level": "med",
+        "item": "Summer Pass sold out 風險 (UES 熱門)",
+        "mitigation": "3 月底前報名"
+      }
+    ],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://steveandkatescamp.com/manhattan-upper-east-side/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://steveandkatescamp.com/faq/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://steveandkatescamp.com/fees/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f3_usa",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "galileo_bay_area",
+    "tier": 3,
+    "rank": 113,
+    "city": "SF Bay Area",
+    "country": "美國",
+    "flag": "🇺🇸",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "灣區 24 校區任選 + 全美最大 innovation ca…",
+    "hook_tags": [
+      "new"
+    ],
+    "pitch": "🆕 灣區 24 校區任選 + 全美最大 innovation camp 品牌 — K 起 (5 歲秋季入 K OK), Nebula K-1 ratio 10:1 加密, 週週主題 (STEM/art/maker)。但 Nebula 比一般加 $20/wk, 預算彈性低於 S&K",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://galileo-camps.com/our-camps/bay-area-locations/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "重視 STEM/innovation 教育、灣區華人 social network、預算 NT$42-56 萬",
+    "notFor": "一般家庭",
+    "risks": [
+      {
+        "level": "med",
+        "item": "ESTA + 美國海關 secondary 風險 (近年加強)",
+        "mitigation": "父親公證同意書 + camp 確認函"
+      },
+      {
+        "level": "med",
+        "item": "灣區治安 (SF 市中心偶有遊民/竊盜)",
+        "mitigation": "住 Palo Alto/Cupertino 郊區安全度高"
+      },
+      {
+        "level": "med",
+        "item": "槍枝事件低概率但需了解 lockdown 演練",
+        "mitigation": "Galileo ACA 級緊急協議完整"
+      },
+      {
+        "level": "med",
+        "item": "12h 飛行 + 時差 -15h",
+        "mitigation": "出發前 1 週提早作息"
+      }
+    ],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://galileo-camps.com/our-camps/bay-area-locations/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://galileo-camps.com/blog/how-much-does-summer-camp-cost/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://www.berkeleyparentsnetwork.org/recommend/summer/galileo', 'language': 'en', 'type': 'parent_forum', 'trust': 4, 'accessed': '2026-05-15'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f3_usa",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "roughing_it_lafayette",
+    "tier": 3,
+    "rank": 114,
+    "city": "Lafayette",
+    "country": "美國",
+    "flag": "🇺🇸",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "全戶外 Lafayette Reservoir 湖畔 trad…",
+    "hook_tags": [
+      "new"
+    ],
+    "pitch": "🆕 全戶外 Lafayette Reservoir 湖畔 traditional camp, PreK 起 — 2 週 $3660 / 4 週 $6775 / 含免費 SF/EB 各區巴士接送, 適合愛戶外水上活動家庭。但 5 歲 PreK 跟一般 4 歲混班 + 距大都市車程 30 min",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.roughingit.com/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "愛全戶外 traditional camp (跟 Galileo innovation 不同調)、想免接送 (含巴士)、預算 NT$45-58 萬",
+    "notFor": "一般家庭",
+    "risks": [
+      {
+        "level": "med",
+        "item": "3 週剛好不存在 session — 要買 4 週 $6775 多付 1 週 USD 1200",
+        "mitigation": "改 2 週 intro + 灣區自助玩, 或接受多付 1 週"
+      },
+      {
+        "level": "med",
+        "item": "ESTA + 美國治安",
+        "mitigation": "Lafayette 是東灣最安全富裕區之一"
+      },
+      {
+        "level": "med",
+        "item": "全戶外曬 + 7 月內陸熱 (East Bay 可達 30-35°C)",
+        "mitigation": "防曬 + 補水, Reservoir 有樹蔭"
+      }
+    ],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://www.roughingit.com/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://www.roughingit.com/info/dates-rates/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://www.roughingit.com/info/summer-2026/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://www.berkeleyparentsnetwork.org/recommend/summer/roughingit', 'language': 'en', 'type': 'parent_forum', 'trust': 4, 'accessed': '2026-05-15'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f3_usa",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "tom_sawyer_pasadena",
+    "tier": 3,
+    "rank": 115,
+    "city": "Pasadena",
+    "country": "美國",
+    "flag": "🇺🇸",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "75 年歷史傳統 day camp (1926-) age 3…",
+    "hook_tags": [
+      "new"
+    ],
+    "pitch": "🆕 75 年歷史傳統 day camp (1926-) age 3-14 — 馬術/射箭/游泳全含, Hahamongna 水岸自然園, 1/19/2026 註冊開放 $300/camper deposit。Pasadena 華人區生活方便, 但 LAX 入境繁忙 + 7 月 LA 熱浪",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "在地 expat / 華人社群（活躍）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://tomsawyercamps.com/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想體驗傳統美式 day camp + 馬術、華人美食 social network、預算 NT$45-58 萬",
+    "notFor": "一般家庭",
+    "risks": [
+      {
+        "level": "med",
+        "item": "1/19 註冊已過 — 2026 暑假名額需確認 waitlist",
+        "mitigation": "立刻 email 問可否補位 + 備案 Steve & Kate's Pasadena"
+      },
+      {
+        "level": "med",
+        "item": "LA 7 月內陸熱浪 35-38°C",
+        "mitigation": "Hahamongna 有山區涼意 + 補水"
+      },
+      {
+        "level": "med",
+        "item": "ESTA + 海關 LAX 排隊冗長 (旺季 2-3h)",
+        "mitigation": "Global Entry 不適用, Mobile Passport 加速"
+      },
+      {
+        "level": "med",
+        "item": "LA 治安/槍枝 — Pasadena 屬於 LA 縣安全區但市區小心",
+        "mitigation": "Pasadena/San Marino 等東區安全度高"
+      }
+    ],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://tomsawyercamps.com/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://tomsawyercamps.com/registration-information/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://www.pasadenaweekly.com/feature_stories/local-summer-camps-programs-that-help-younger-generation-excel/article_ba2b42f4-3a35-4a52-b750-1e0f810680d5.html', 'language': 'en', 'type': 'local_press', 'trust': 4, 'accessed': '2026-05-15'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f3_usa",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "ymca_nyc_kinder_camp",
+    "tier": 3,
+    "rank": 116,
+    "city": "Manhattan / Brooklyn / Queens / Bronx / Staten Island",
+    "country": "美國",
+    "flag": "🇺🇸",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "美國最大 day camp 體系 — Kinder Camp …",
+    "hook_tags": [
+      "new"
+    ],
+    "pitch": "🆕 美國最大 day camp 體系 — Kinder Camp 專為秋季入 K 5 歲設計, 4 個 2 週 session (6/29-8/21 共 8 週) 任拼 — 21 天 = 2 個 session + 1 週靈活買。ACA + NYC DOH 雙認證, 西側 YMCA / 92Y / Vanderbilt 多選擇",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://ymcanyc.org/programs/camp",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "紐約大蘋果體驗、想結構化 traditional 比 Steve & Kate's flexible、預算 NT$46-62 萬",
+    "notFor": "一般家庭",
+    "risks": [
+      {
+        "level": "high",
+        "item": "17h 飛 JFK + 時差 -12h, 5-6 歲適應",
+        "mitigation": "前 1 週調作息 + 緩衝期"
+      },
+      {
+        "level": "med",
+        "item": "ESTA + JFK 海關 secondary 風險",
+        "mitigation": "父親同意書 + camp confirmation"
+      },
+      {
+        "level": "med",
+        "item": "紐約地鐵安全 (晚間/某些線)",
+        "mitigation": "白天活動 + Uber 夜歸 + 住 UWS/UES 安全區"
+      },
+      {
+        "level": "low",
+        "item": "Session 鎖兩週 ≠ 完美 21 天 (要拼 2 session + 1 週)",
+        "mitigation": "改 Steve & Kate's drop-in 模式"
+      }
+    ],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://ymcanyc.org/programs/camp', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://ymcanyc.org/locations/west-side-ymca/programs-and-classes/camps', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f3_usa",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "ymca_dc_anthony_bowen",
+    "tier": 3,
+    "rank": 117,
+    "city": "Washington DC",
+    "country": "美國",
+    "flag": "🇺🇸",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "華府 YMCA 多分校 (Arlington / Anthon…",
+    "hook_tags": [
+      "new"
+    ],
+    "pitch": "🆕 華府 YMCA 多分校 (Arlington / Anthony Bowen / Silver Spring 等) ~ USD 300/wk + 7:30am-6:30pm 全日。Smithsonian 博物館全免費家庭時光 + 國家公園 50 m, 但 ESTA 政治友善度近年下滑 + DC 治安須留心 + Praesidium 認證 2026 秋季才完成",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.ymcadc.org/programs/camps/day-camp/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想結合 Smithsonian 博物館深度文化體驗、預算 NT$40-54 萬、對美國政治運作有興趣 (女兒太小無感)",
+    "notFor": "一般家庭",
+    "risks": [
+      {
+        "level": "high",
+        "item": "18h 飛 + 轉機 + 時差 -12h, 5-6 歲超累",
+        "mitigation": "前 1 週調作息 + LAX 中停 1 晚緩衝"
+      },
+      {
+        "level": "med",
+        "item": "DC 部分區治安差 (Anthony Bowen 周邊 U Street 夜晚不宜)",
+        "mitigation": "白天活動 + 住 Arlington/Bethesda 安全區"
+      },
+      {
+        "level": "med",
+        "item": "Praesidium 兒童保護認證 2026 秋季才完成",
+        "mitigation": "詢問各分校現行 SafeSport 培訓狀態"
+      },
+      {
+        "level": "med",
+        "item": "7 月 DC 濕熱 90°F + 95%, 不適合戶外密集",
+        "mitigation": "Smithsonian 全冷氣 + camp 含室內泳池"
+      },
+      {
+        "level": "med",
+        "item": "ESTA + 海關 (DC 入境者多, 排隊嚴)",
+        "mitigation": "Mobile Passport"
+      }
+    ],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://www.ymcadc.org/programs/camps/day-camp/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://www.ymcadc.org/locations/ymca-anthony-bowen/program-information/camp/anthony-bowen-summer-camp/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://smithsonianassociates.org/ticketing/camp/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://dcmoms.com/in-around-dc/guides/summer-camps-in-the-washington-dc-area/', 'language': 'en', 'type': 'directory', 'trust': 4, 'accessed': '2026-05-15'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f3_usa",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "avid4_bellevue",
+    "tier": 3,
+    "rank": 118,
+    "city": "Bellevue / Eastside Seattle",
+    "country": "美國",
+    "flag": "🇺🇸",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "戶外探險導向 (kayak / SUP / bike / hi…",
+    "hook_tags": [
+      "new"
+    ],
+    "pitch": "🆕 戶外探險導向 (kayak / SUP / bike / hike) + 5:1 超低師生比, K-1st 5 歲秋季入 K 完全合 — 6/22-8/21 共 9 週 1 週 session 任拼 21 天。Bellevue 是西雅圖最安全富裕區 + 西雅圖 7 月乾爽 18-25°C, 但飛 13h 轉機 + 一週鎖死靈活度不如 S&K",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://avid4.com/summer-camp/washington-bellevue-k-1st-explorer/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "要極致戶外體驗 (kayak/SUP/bike)、想 5:1 超低師生比安全感、預算 NT$40-53 萬",
+    "notFor": "一般家庭",
+    "risks": [
+      {
+        "level": "med",
+        "item": "ESTA + SEA 海關 (比 LAX/JFK 輕鬆但仍有 secondary)",
+        "mitigation": "父親同意書"
+      },
+      {
+        "level": "low",
+        "item": "1 週 session 鎖死, 要拼 3 個 1 週 (中間無彈性)",
+        "mitigation": "改 Steve & Kate's Bellevue Pass 49 day 完全彈性"
+      },
+      {
+        "level": "med",
+        "item": "戶外水上活動 5 歲安全 (Avid4 5:1 很強但仍要看孩子游泳能力)",
+        "mitigation": "事先 swim lesson + 確認救生員配置"
+      },
+      {
+        "level": "low",
+        "item": "西雅圖 7 月偶有森林大火煙霾",
+        "mitigation": "查 AirNow.gov 即時 AQI"
+      }
+    ],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://avid4.com/summer-camp/washington-bellevue-k-1st-explorer/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://avid4.com/bellevue-washington-summer-camps/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://www.seattlemet.com/news-and-city-life/2024/01/best-seattle-summer-camps', 'language': 'en', 'type': 'local_press', 'trust': 4, 'accessed': '2026-05-15'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f3_usa",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "honolulu_waldorf_summerfun",
+    "tier": 3,
+    "rank": 119,
+    "city": "Honolulu",
+    "country": "美國",
+    "flag": "🇺🇸",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "救 hawaii_oahu 棄候選 — Waldorf 教育法…",
+    "hook_tags": [
+      "new"
+    ],
+    "pitch": "🆕 救 hawaii_oahu 棄候選 — Waldorf 教育法 Pre-K 4+ 含 5 歲全合, 6/8-7/17 共 6 週個別購買 (3 連週剛好), 1:8 ratio, 8:30-2:30 daily。Pali 山下 Niu Valley 校園安全, 但 Waldorf 學費可達 $400/wk + 課程偏柔性 (puppetry/circus arts)",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://honoluluwaldorf.org/curriculum/summer-fun-program/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "Waldorf 教育法支持者 (柔性/想像力導向)、想夏威夷氣候 + 5 歲合的家庭、預算 NT$36-46 萬",
+    "notFor": "一般家庭",
+    "risks": [
+      {
+        "level": "high",
+        "item": "時差 -18h 對 5-6 歲最殘忍 (跨日界線)",
+        "mitigation": "出發前 2 週逐日提早 + 抵達首日純休息"
+      },
+      {
+        "level": "med",
+        "item": "ESTA + 美國海關 (HNL 入境較輕鬆比本土)",
+        "mitigation": "父親同意書"
+      },
+      {
+        "level": "med",
+        "item": "7-10 月颱風偶發 (歷史平均 1-2 個逼近)",
+        "mitigation": "買旅平 typhoon clause + 訂彈性退住宿"
+      },
+      {
+        "level": "low",
+        "item": "Waldorf 課程偏柔性 (無傳統 sports/STEM), 喜好個體差異",
+        "mitigation": "試 1 週看是否 fit, 再續訂"
+      },
+      {
+        "level": "med",
+        "item": "夏威夷物價高 (餐廳 $25+/餐)",
+        "mitigation": "Airbnb 廚房自煮 + Costco/Foodland"
+      }
+    ],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://honoluluwaldorf.org/curriculum/summer-fun-program/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://www.honolulumagazine.com/summer-programs-guide-hawaii/', 'language': 'en', 'type': 'local_press', 'trust': 4, 'accessed': '2026-05-15'}",
+      "{'url': 'https://www.ymcahonolulu.org/programs/kids-teens-young-adults-families/kids/summer-programs', 'language': 'en', 'type': 'directory', 'trust': 4, 'accessed': '2026-05-15'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f3_usa",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "gstaad_palace",
+    "tier": 3,
+    "rank": 120,
+    "city": "Gstaad 格施塔德",
+    "country": "瑞士",
+    "flag": "🇨🇭",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Gstaad Palace 是瑞士頂級家族度假村 (1913 …",
+    "hook_tags": [],
+    "pitch": "Gstaad Palace 是瑞士頂級家族度假村 (1913 創立, 名媛皇室御用), Kids Club 收 5 歲獨立參加 + 3-5 歲 guardian 陪同, 媽媽 spa + 名牌街 + Alpine 健行 + Saanen 鄉間美學, 預算 NT$80-120 萬高端品牌價值溢價, 5-6 歲記憶留存點是城堡感 + Saani 山羊吉祥物 + Alpine 草原而非結構化學習。",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.palace.ch/en/palace-kids/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "預算 NT$80-120 萬高端家庭、5-6 歲女兒接受度假村 Kids Club 而非 structured education camp、媽媽愛 spa + 名店街 + Alpine 美學、想留下『瑞士城堡夏天』品牌記憶點",
+    "notFor": "一般家庭",
+    "risks": [
+      {
+        "level": "med",
+        "item": "Kids Club 不是 structured camp, 連續 3 週 drop-off 同地點女兒可能膩",
+        "mitigation": "分 2 週 Gstaad + 1 週 Lake Geneva 換場景 (Beau-Rivage Palace Lausanne)"
+      },
+      {
+        "level": "high",
+        "item": "預算 NT$80-120 萬高 — 同預算可去更多地方",
+        "mitigation": "若主訴是『5 歲記憶留存』+ 媽媽奢華 metime, 高預算合理; 若要學習價值密度, 換 Vancouver / Bali"
+      },
+      {
+        "level": "high",
+        "item": "5/15 必預訂 — Worldwide Kids 認證度假村 7 月旺季名額爆滿",
+        "mitigation": "即日 email info@palace.ch 鎖名額"
+      }
+    ],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://www.palace.ch/en/palace-kids/', 'language': 'en', 'type': 'official_hotel', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://luxurychildcareassociation.com/resort/gstaad-palace/', 'language': 'en', 'type': 'third_party_certification', 'trust': 4, 'accessed': '2026-05-15'}",
+      "{'url': 'https://worldwide-kids.com/resort/switzerland-gstaad/', 'language': 'en', 'type': 'certification_body', 'trust': 5, 'accessed': '2026-05-15'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f4_swiss_dubai",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "burgenstock_lucerne",
+    "tier": 3,
+    "rank": 121,
+    "city": "Bürgenstock / Lake Lucerne",
+    "country": "瑞士",
+    "flag": "🇨🇭",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Bürgenstock Resort 是盧森湖 500m 懸崖…",
+    "hook_tags": [],
+    "pitch": "Bürgenstock Resort 是盧森湖 500m 懸崖頂 60 公頃綜合度假村 (Hotel Alpine Spa + Royal Park Villa + Waldhotel), Kids Club 收 3-12 歲 (3 歲以下 guardian 陪同), 5 歲可獨立, 媽媽 10000m² Alpine Spa + Hammetschwand 觀景電梯 + 盧森湖遊船, 比 Gstaad 略親民 NT$60-90 萬, Lucerne 半小時車程進城多選擇。",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://burgenstockresort.com/en/kids",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "預算 NT$70-90 萬中高端家庭、5-6 歲女兒喜歡度假村 amenity + 戶外活動、媽媽愛 spa + 古典樂 + 湖光山色、想 3 週分散到 Bürgenstock + Lucerne + Pilatus 換場景",
+    "notFor": "一般家庭",
+    "risks": [
+      {
+        "level": "med",
+        "item": "Kids Club 規模較小, 名額有限 (Worldwide Kids 認證但無公開 capacity 數字)",
+        "mitigation": "5/20 前 email information@burgenstockresort.com 確認 5 歲名額"
+      },
+      {
+        "level": "low",
+        "item": "Bürgenstock 山頂偏靜, 餐廳選擇限於度假村內 (12 家但同集團)",
+        "mitigation": "Lucerne city 30 min 下山多元化"
+      },
+      {
+        "level": "low",
+        "item": "Spices Kitchen + Galerie Artin 等米其林餐廳兒童體驗有限",
+        "mitigation": "Kids 早餐 + Waldhotel 較親子"
+      }
+    ],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://burgenstockresort.com/en/kids', 'language': 'en', 'type': 'official_hotel', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://burgenstockresort.com/en/offers/family-getaway', 'language': 'en', 'type': 'official_hotel', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://en.wikipedia.org/wiki/B%C3%BCrgenstock_Resort', 'language': 'en', 'type': 'encyclopedia', 'trust': 4, 'accessed': '2026-05-15'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f4_swiss_dubai",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "lausanne_beau_rivage",
+    "tier": 3,
+    "rank": 122,
+    "city": "Lausanne / Lake Geneva",
+    "country": "瑞士",
+    "flag": "🇨🇭",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Beau-Rivage Palace 是 1861 建的 La…",
+    "hook_tags": [],
+    "pitch": "Beau-Rivage Palace 是 1861 建的 Lake Geneva 名門城堡飯店 (Le Comptoir 米其林 3 星), Le Monde de Bori Kids Club 6/27-8/16 暑假開放, 4 歲以下需 guardian 陪同 5 歲可獨立, Lavaux 葡萄梯田 UNESCO + Montreux Jazz Festival 7 月 + Olympic Museum, 媽媽湖區美學頂級, Geneva 機場 50 min, 預算 NT$50-75 萬比 Gstaad/Bürgenstock 親民。",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.brp.ch/en/kids-club-by-beau-rivage/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "預算 NT$55-75 萬中端家庭、5-6 歲女兒喜歡 Lake Geneva 湖光 + Olympic 主題、媽媽愛米其林 + Lavaux 葡萄酒 + Montreux Jazz、比 Gstaad/Bürgenstock 親民 30-40% 但設施一樣頂",
+    "notFor": "一般家庭",
+    "risks": [
+      {
+        "level": "med",
+        "item": "Le Monde de Bori 詳細時段未公開, 不確定是否 9-17 全日 drop-off 還是部分時段",
+        "mitigation": "5/20 前 email info@brp.ch 確認每日時段 + 是否含午餐"
+      },
+      {
+        "level": "med",
+        "item": "Kids Club 旺季名額限制, Vaud 校假期間家庭多",
+        "mitigation": "Lake View Family Suite 預訂時鎖 Kids Club 位"
+      },
+      {
+        "level": "low",
+        "item": "中文支援低於 Bürgenstock (Lausanne 法語為主)",
+        "mitigation": "英語 OK / EPFL 留學生圈中文導遊可預約"
+      }
+    ],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://www.brp.ch/en/kids-club-by-beau-rivage/', 'language': 'en', 'type': 'official_hotel', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://www.lausanne-tourisme.ch/en/explore/beau-rivage-palace/', 'language': 'en', 'type': 'tourism_board', 'trust': 4, 'accessed': '2026-05-15'}",
+      "{'url': 'https://www.tripadvisor.com/Hotel_Review-g188107-d231860-Reviews-Beau_Rivage_Palace-Lausanne_Canton_of_Vaud.html', 'language': 'en', 'type': 'review_aggregator', 'trust': 4, 'accessed': '2026-05-15'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f4_swiss_dubai",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "dubai_atlantis_palm",
+    "tier": 3,
+    "rank": 123,
+    "city": "Dubai 杜拜 / Palm Jumeirah",
+    "country": "UAE 阿聯酋",
+    "flag": "🇦🇪",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Atlantis The Palm 是 Palm Jumeir…",
+    "hook_tags": [],
+    "pitch": "Atlantis The Palm 是 Palm Jumeirah 棕櫚島標誌性度假村 (Lost Chambers 水族館 + Aquaventure 水樂園), Explorers Club 4-12 歲全年開, 早上 10-13 / 下午 14-18 / 晚 19-23 三時段, 房客免費非房客 AED 160/時段, 6-8 月戶外 40-45°C 但水樂園 + 室內活動完整對沖, 杜拜免簽 30 天, 預算 NT$35-55 萬中端家庭最佳。",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.atlantis.com/atlantis-the-palm/experiences/families/kids-and-teens",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "預算 NT$35-55 萬中端家庭、5-6 歲女兒愛水樂園 + 海洋生物 (Lost Chambers)、9h 直飛承受度高 + 不要長轉機、媽媽愛 Burj Khalifa + Nobu + 沙漠日落體驗",
+    "notFor": "一般家庭",
+    "risks": [
+      {
+        "level": "high",
+        "item": "🌡 6-8 月戶外正午 40-45°C, 戶外活動須限早 6-9 / 晚 18-21 時段",
+        "mitigation": "主軸室內 (Lost Chambers / Ski Dubai / Mall) + 水樂園 (Aquaventure 全日 OK 因水冷卻), Atlantis 整個園區皆室內冷氣連通"
+      },
+      {
+        "level": "med",
+        "item": "Explorers Club 屬 hotel amenity 不是 structured camp, 教育深度低",
+        "mitigation": "8billionideas GEMS STEM camp (5-11 歲 AED 1095/週) 補教育深度, 排 1 週體驗"
+      },
+      {
+        "level": "low",
+        "item": "沙塵 + 偶有戶外空氣品質 (4-9 月 Khareef 季偶發)",
+        "mitigation": "Atlantis 室內空氣品質頂級 + 短期 3 週可控"
+      },
+      {
+        "level": "low",
+        "item": "杜拜文化保守 (媽媽穿著場合需注意 — Atlantis 度假村內 OK 公共場合略保守)",
+        "mitigation": "Atlantis Palm / Madinat Jumeirah 為遊客區較西式"
+      }
+    ],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://www.atlantis.com/atlantis-the-palm/experiences/families/kids-and-teens', 'language': 'en', 'type': 'official_hotel', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://luxurychildcareassociation.com/resort/atlantis-the-palm/', 'language': 'en', 'type': 'third_party_certification', 'trust': 4, 'accessed': '2026-05-15'}",
+      "{'url': 'https://www.skidxb.com/en-ae/ski-dubai/day-camp', 'language': 'en', 'type': 'official_attraction', 'trust': 5, 'accessed': '2026-05-15'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f4_swiss_dubai",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "dubai_madinat_jumeirah",
+    "tier": 3,
+    "rank": 124,
+    "city": "Dubai 杜拜 / Jumeirah",
+    "country": "UAE 阿聯酋",
+    "flag": "🇦🇪",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Madinat Jumeirah 是杜拜 Burj Al Ar…",
+    "hook_tags": [],
+    "pitch": "Madinat Jumeirah 是杜拜 Burj Al Arab 旁的阿拉伯威尼斯主題度假村群 (Al Qasr + Mina A'Salam + Al Naseem + Dar Al Masyaf), Sinbad's Kids Club 1000m² 含迷你水樂園 + 攀岩牆, 5-10 歲組 (2-4 歲僅 1 場/日), 三時段 10:30 / 13:30 / 16:00, 房客免費 Wild Wadi 也免費, 預算 NT$40-65 萬比 Atlantis 略貴但 abra 木船運河美學頂。",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.jumeirah.com/en/article/experiences/dubai/mj/kids-at-madinat-jumeirah",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "預算 NT$40-65 萬中端家庭、5-6 歲女兒愛 abra 木船 + Wild Wadi 水樂園 + 阿拉伯主題美學、媽媽愛 Talise Ottoman Spa + Burj Al Arab 下午茶 + Souk Madinat、9h 直飛 + 免簽便利",
+    "notFor": "一般家庭",
+    "risks": [
+      {
+        "level": "high",
+        "item": "🌡 6-8 月戶外 40-45°C 限早晚活動",
+        "mitigation": "主軸室內 Sinbad's + Souk Madinat 室內冷氣 + Wild Wadi 水冷卻全日 OK + abra 木船遮陽 + 日落騎駱駝 (晚 18:30 後)"
+      },
+      {
+        "level": "med",
+        "item": "Sinbad's 5-10 歲組混場 (5 歲端可能略小)",
+        "mitigation": "三場/日選最早 10:30 場通常 5-7 歲多, 16:00 場 8-10 歲多"
+      },
+      {
+        "level": "low",
+        "item": "Madinat 4 飯店房價差大 (Mina 中端 - Dar Al Masyaf villa 頂端 3 倍價)",
+        "mitigation": "Al Naseem 最新最現代 CP 值高, Mina A'Salam 預算限縮選"
+      }
+    ],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://www.jumeirah.com/en/article/experiences/dubai/mj/kids-at-madinat-jumeirah', 'language': 'en', 'type': 'official_hotel', 'trust': 5, 'accessed': '2026-05-15'}",
+      "{'url': 'https://familytravelgenie.com/jumeirah-al-qasr-kids-club/', 'language': 'en', 'type': 'review_blog', 'trust': 4, 'accessed': '2026-05-15'}",
+      "{'url': 'https://www.lwcholidays.com/inspiration/jumeirah-madinat-a-holiday-paradise-for-children/', 'language': 'en', 'type': 'travel_agency', 'trust': 3, 'accessed': '2026-05-15'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f4_swiss_dubai",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "capetown_natureplays",
+    "tier": 3,
+    "rank": 125,
+    "city": "Cape Town - Constantia",
+    "country": "南非",
+    "flag": "🇿🇦",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "南非第一所森林學校 + 5-10 歲混齡 + 戶外野放派 + …",
+    "hook_tags": [],
+    "pitch": "南非第一所森林學校 + 5-10 歲混齡 + 戶外野放派 + Constantia 富區安全 + 7 月正值學校放假 + 半日制 R475/day (約 NT$760)。適合預算寬鬆、要 100% 大自然戶外、能接受 7 月冬季 11-17°C 的家庭。",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.natureplays.com/forest-house/forest-holiday-club-5-10-yr/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "預算 NT$23 萬+、能接受 19h 轉機長飛、崇尚 100% 戶外野放派、不在乎課程結構、孩子已會基本英語、能適應冬季多層著裝、媽媽想兼觀光（酒鄉/鯨魚/Table Mountain）+ 不在乎中文支援",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://www.natureplays.com/forest-house/forest-holiday-club-5-10-yr/', 'verified': '2026-05-15', 'method': 'WebFetch'}",
+      "{'url': 'https://www.natureplays.com/', 'verified': '2026-05-15', 'method': 'Tavily'}",
+      "{'url': 'https://en.climate-data.org/africa/south-africa/western-cape/cape-town-788/t/july-7/', 'verified': '2026-05-15', 'method': 'WebSearch (Cape Town 7 月氣候)'}",
+      "{'url': 'https://travel.state.gov/en/international-travel/travel-advisories/south-africa.html', 'verified': '2026-05-15', 'method': 'WebSearch (USDOS 旅遊警示)'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f5_india_safrica",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "capetown_clubengage",
+    "tier": 3,
+    "rank": 126,
+    "city": "Cape Town - Plumstead",
+    "country": "南非",
+    "flag": "🇿🇦",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "南非最大連鎖、4-13 歲全收、R210 全日 (NT$340…",
+    "hook_tags": [],
+    "pitch": "南非最大連鎖、4-13 歲全收、R210 全日 (NT$340)、7:00-17:30 上班族長時段托管、超便宜、室內為主可避雨。適合預算最緊+要結構化全日托+不愛戶外野放的家庭。",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://clubengage.co.za/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "預算最緊 (NT$20 萬內含機票)、需要全日 7:00-17:30 托管的雙職父母、孩子怕戶外野放、偏好結構化室內活動、可接受英語環境且孩子有基本聽說能力",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://clubengage.co.za/', 'verified': '2026-05-15', 'method': 'Tavily + WebFetch'}",
+      "{'url': 'https://www.capetownwithkids.com/listing/club-engage-holiday-club/', 'verified': '2026-05-15', 'method': 'WebFetch (價格 + 場地 + 年齡 R150-210)'}",
+      "{'url': 'https://www.isasa.org/club-engage/', 'verified': '2026-05-15', 'method': 'WebSearch (ISASA 認證)'}",
+      "{'url': 'https://clubengage.co.za/2026-school-calendars/', 'verified': '2026-05-15', 'method': 'WebSearch (Term 2 dates)'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f5_india_safrica",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "delhi_achievers",
+    "tier": 3,
+    "rank": 127,
+    "city": "New Delhi - Rohini / Pitampura / Dwarka / Janakpuri 多區",
+    "country": "印度",
+    "flag": "🇮🇳",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "印度結構化 day camp 中極少數收 4-9 歲、4 週 …",
+    "hook_tags": [],
+    "pitch": "印度結構化 day camp 中極少數收 4-9 歲、4 週 3hr/day 設計、offline + online 雙模式、多區可選——但**致命限制：camp 在 4 月-6 月初辦、跟 7-8 月暑假錯位**。列為印度區參考備案，實際 7-8 月需轉問是否能客製。",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://adaminischool.com/summer-camp/summer-camp-in-new-delhi/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "預算 < NT$15 萬、願意接受 8h 直飛 + 印度文化挑戰、孩子免疫力強、不挑食、能適應辛辣咖哩",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://adaminischool.com/summer-camp/summer-camp-in-new-delhi/', 'verified': '2026-05-15', 'method': 'WebFetch (4-9 歲 4 週 3hr/day)'}",
+      "{'url': 'https://www.britishcouncil.in/english/courses-children/summer-camp-2026-summerofconfidence', 'verified': '2026-05-15', 'method': 'WebSearch (相鄰選項 4-6 月)'}",
+      "{'url': 'https://www.pathways.in/home/summercamp', 'verified': '2026-05-15', 'method': 'WebFetch (alternative)'}",
+      "{'url': 'https://travel.state.gov/en/international-travel/travel-advisories/india.html', 'verified': '2026-05-15', 'method': 'WebSearch (Delhi 旅遊警示)'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f5_india_safrica",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "mumbai_kshitij_marginal",
+    "tier": 3,
+    "rank": 128,
+    "city": "Mumbai 周邊山區",
+    "country": "印度",
+    "flag": "🇮🇳",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "印度區極少數 6 歲起收 + 戶外冒險 + Maharasht…",
+    "hook_tags": [],
+    "pitch": "印度區極少數 6 歲起收 + 戶外冒險 + Maharashtra 山區的 multi-day camp。但**最低年齡 6 歲 + 全 residential + camp 多在 5-6 月**，跟 7-8 月暑假錯位仍嚴重。列為印度區第 2 備案完整性參考。",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://kshitijworld.com/summer-camps.html",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "已 ≥6 歲且能接受 residential 分離的孩子、若硬要去印度且想戶外體驗",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "{'url': 'https://kshitijworld.com/summer-camps.html', 'verified': '2026-05-15', 'method': 'WebFetch (6-18 歲 + 5-6 月主梯次)'}",
+      "{'url': 'https://www.playtolabs.com/blog/summer-camps/india/mumbai/', 'verified': '2026-05-15', 'method': 'Tavily'}"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f5_india_safrica",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "ipoh-tenby-isp-activate",
+    "tier": 2,
+    "rank": 129,
+    "city": "怡保",
+    "country": "馬來西亞",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Tenby Ipoh ISP Activate 暑期營，4 週…",
+    "hook_tags": [],
+    "pitch": "Tenby Ipoh ISP Activate 暑期營，4 週 (7/13-8/7) 連續可組 3 週，年齡分 4-6 / 7-8 / 9+，避開檳城/吉隆坡的擁擠路線",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "ISP Activate Summer Camp 2026 @ Tenby Schools Ipoh",
+      "age": "4-6 / 7-8 / 9+ 三段，5-6 歲在 4-6 級",
+      "dates": "2026-07-13 至 2026-08-07（4 週連續，可任選 3 週）",
+      "cost": 7800,
+      "lang": "英文為主，馬來語/普通話助教（Tenby 校系一致雙語慣例）",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 33333,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 12874,
+      "buffer": 8583,
+      "total": 0,
+      "realTotal": 107290,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.teemsglobal.com/ispactivate",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想避開檳城/KL 既有熱門選項、嘗試 Perak 內陸城市、預算敏感家庭 (週費跟檳城 Camp Beaumont 同一系統但更便宜)、想要 4 週連續、彈性報 1-4 週的家庭",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email TEEMS Global × International Schools Partnership (ISP) — Tenby 同集團 (跟檳城/Setia Eco Park 同公司) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.teemsglobal.com/ispactivate 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.teemsglobal.com/ispactivate",
+      "https://www.tenby.edu.my/",
+      "https://www.instagram.com/p/DVfz8mEj0J3/"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f6_seasia",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://www.teemsglobal.com/ispactivate"
+  },
+  {
+    "id": "kotakinabalu-shangri-la-rasa-ria",
+    "tier": 2,
+    "rank": 130,
+    "city": "亞庇",
+    "country": "馬來西亞",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Shangri-La Rasa Ria 婆羅洲 64 英畝叢林…",
+    "hook_tags": [],
+    "pitch": "Shangri-La Rasa Ria 婆羅洲 64 英畝叢林 + Cool Zone Kids Club (4-12 歲) + Junior Resident Naturalist 叢林生存課，沙巴自然系王牌",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "Cool Zone Kids Club + Junior Resident Naturalist",
+      "age": "4-12 歲 (官方明列 Age Group 5-11 適用)",
+      "dates": "全年常駐，daily 09:00-18:00 (9h)",
+      "cost": 0,
+      "lang": "英文為主，多國 staff",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 60000,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 16875,
+      "buffer": 11250,
+      "total": 0,
+      "realTotal": 140625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.shangri-la.com/kotakinabalu/rasariaresort/for-kids/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想兼顧度假村品質 + 真實自然體驗 (婆羅洲叢林/紅毛猩猩)、預算可承擔 5* 度假村但不到 Bali Ayana 等級、媽媽要 spa + 自然走訪、比 Penang Tenby 更原生態，但比 Ubud Green School 更度假",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email Shangri-La Hotels Resort 自營 + 紅毛猩猩復育中心 (Sepilok) 合作 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.shangri-la.com/kotakinabalu/rasariaresort/for-ki 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.shangri-la.com/kotakinabalu/rasariaresort/for-kids/",
+      "https://www.shangri-la.com/kotakinabalu/rasariaresort/daily-activities/",
+      "https://holidayswithkids.com.au/shangri-la-rasa-ria-borneo/",
+      "https://www.sassymamasg.com/travel-borneo-kids-shangri-la-rasa-ria-resort-nature-reserve-adventure-playground/"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f6_seasia",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://www.shangri-la.com/kotakinabalu/rasariaresort/for-kids/"
+  },
+  {
+    "id": "johor-marlborough-camp-beaumont",
+    "tier": 2,
+    "rank": 131,
+    "city": "Iskandar Puteri / Johor",
+    "country": "馬來西亞",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Marlborough College Malaysia (英…",
+    "hook_tags": [],
+    "pitch": "Marlborough College Malaysia (英國 Marlborough 海外旗艦校) × Camp Beaumont Magic 5-7 歲，可從新加坡跨關 30 min，動線靈活",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "Camp Beaumont Magic Day Camp @ Marlborough College Malaysia",
+      "age": "5-7 歲 (Magic) + 8-12 歲 (Active)",
+      "dates": "Week 1-5: 2026-07-06 至 2026-08-07 (5 週)，可任選 3 連週",
+      "cost": 11300,
+      "lang": "英文為主 + 馬來/福建/普通話助教",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 40000,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 13875,
+      "buffer": 9250,
+      "total": 0,
+      "realTotal": 115625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.campbeaumont.asia/our-camps/marlborough-college",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想要英國 Marlborough 名校環境 + Camp Beaumont 品牌一致性、可結合新加坡前後段 (例如 W1 SG / W2-3 Marlborough)、Iskandar Puteri Puteri Harbour 海港城新興，房租比新加坡省一半",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email Camp Beaumont Asia (跟檳城 Tenby / KL Alice Smith 同一英國品牌) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.campbeaumont.asia/our-camps/marlborough-college 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.campbeaumont.asia/our-camps/marlborough-college",
+      "https://www.marlboroughcollegemalaysia.org/news-calendar/holiday-camps/",
+      "https://bookwhen.com/campbeaumontasiamcm",
+      "https://www.facebook.com/marlboroughcollegemalaysia/posts/713778864347715/"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f6_seasia",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://booknow.campbeaumont.asia/"
+  },
+  {
+    "id": "pattaya-regents-nordanglia",
+    "tier": 2,
+    "rank": 132,
+    "city": "Pattaya",
+    "country": "泰國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Regents International School Pa…",
+    "hook_tags": [],
+    "pitch": "Regents International School Pattaya (Nord Anglia 集團) Summer Camp 2026 — 4 週、4 主題 (Superhero/Ocean/Nature/Innovation)，3 歲就收，有 Juilliard 表演藝術合作",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "Regents Summer Camp 2026 — Day & Boarding",
+      "age": "3-15 歲 (5-7 歲在 Magic 等級)，EAL English 加強 7+，Boarding 限 8+",
+      "dates": "2026-06-29 至 2026-07-24 (4 週)，每週主題不同",
+      "cost": 15000,
+      "lang": "英文，少量普通話 (Nord Anglia 系統)",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 43333,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 14374,
+      "buffer": 9583,
+      "total": 0,
+      "realTotal": 119790,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.nordangliaeducation.com/risp-pattaya",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想要 Nord Anglia 系國際品牌營 (跟英國 ANI Cambridge / KL 系一脈)、Boarding 不適用 5-6 歲，但 day camp 4 主題輪換很適合 3 週、媽媽可規劃曼谷 W1 + Pattaya W2-3 動線、想結合海濱 + 國際校",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email Nord Anglia Education (global 80+ 校) + Juilliard Performing Arts 合作 + Elite Swim Asia (Olympic 金牌教練 Nick Thoman) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.nordangliaeducation.com/risp-pattaya/news/2026/0 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.nordangliaeducation.com/risp-pattaya",
+      "https://www.nordangliaeducation.com/risp-pattaya/news/2026/02/16/why-summer-camp-is-the-perfect-opportunity-for-children-to-explore-learn-and-grow",
+      "https://www.facebook.com/RegentsInternationalSchoolPattaya/posts/1355064269989570/",
+      "https://world-schools.com/schools/regents-international-school-pattaya/"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f6_seasia",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://www.nordangliaeducation.com/risp-pattaya/news/2026/02/16/why-summer-camp-is-the-perfect-opportunity-for-children-to-explore-learn-and-grow"
+  },
+  {
+    "id": "chiangmai-lanna-summer-school",
+    "tier": 2,
+    "rank": 133,
+    "city": "Chiang Mai",
+    "country": "泰國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Lanna IST 清邁 Summer School，2 週為…",
+    "hook_tags": [],
+    "pitch": "Lanna IST 清邁 Summer School，2 週為單位 (兩 session 可組 4 週)，5 歲起收 — 解決既有 Panyaden Tier 0 (6+) 鎖年齡問題",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "Lanna International School Thailand Summer School 2026",
+      "age": "5-14 歲 — Lower School (≤7 歲) / Upper School (8-14)，5-6 歲剛好在 Lower",
+      "dates": "Session 1: 2026-07-06 至 2026-07-17 (2 週) + Session 2: 2026-07-20 至 2026-07-31 (2 週)，可選一或兩個 session",
+      "cost": 14500,
+      "lang": "英文 (沉浸式)",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 36666,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 13374,
+      "buffer": 8916,
+      "total": 0,
+      "realTotal": 111456,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.lannaist.ac.th/international-summer-school/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "既有 Panyaden 因 6+ 被 reject — Lanna 5 歲收解決年齡卡邊緣、想要清邁文化 + 山林環境，避開普吉/Bali 度假村、媽媽可同時規劃清邁 wellness retreat / 古寺、預算中等 NT$11-20 萬",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email Lanna IST 自營 (清邁老牌英系國際校，建校超 30 年) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.lannaist.ac.th/international-summer-school/ 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.lannaist.ac.th/international-summer-school/",
+      "https://www.lannaist.ac.th/",
+      "https://en.wikipedia.org/wiki/Lanna_International_School",
+      "https://www.international-schools-database.com/in/chiang-mai/lanna-international-school-thailand-chiang-mai"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f6_seasia",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://www.lannaist.ac.th/international-summer-school/"
+  },
+  {
+    "id": "huahin-centara-grand-camp-safari",
+    "tier": 3,
+    "rank": 134,
+    "city": "Hua Hin",
+    "country": "泰國",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Centara Grand Hua Hin 殖民風海濱 5* …",
+    "hook_tags": [],
+    "pitch": "Centara Grand Hua Hin 殖民風海濱 5* — Camp Safari Kids Club (4-9 歲) + 4 泳池 + 42 villa + Muay Thai/太極課，比普吉 7 月雨季穩定 (泰南灣 vs 安達曼)",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "Camp Safari Kids Club @ Centara Grand Beach Resort & Villas Hua Hin",
+      "age": "4-9 歲 (E-Zone 另設 10+)",
+      "dates": "全年常駐，daily 09:00-18:00 + 週六晚 18:30-20:00 movies+ popcorn",
+      "cost": 0,
+      "lang": "英文 + 泰語 + 部分中文 staff",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 53333,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 15874,
+      "buffer": 10583,
+      "total": 0,
+      "realTotal": 132290,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.centarahotelsresorts.com/centaragrand/chbr",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想避開普吉 7 月安達曼海雨季水母浪大的家庭、Hua Hin 是泰皇室避暑地，安全 + 殖民風建築有質感、想要 villa 私密 + 純度假村 kids club 結構、曼谷 W1 + Hua Hin W2-3 動線",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email Centara Hotels Resorts (泰國本土最大集團) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.centarahotelsresorts.com/centaragrand/chbr 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.centarahotelsresorts.com/centaragrand/chbr",
+      "https://www.centarahotelsresorts.com/the-centara-collection/cirm/camp-safari",
+      "https://www.centarahotelsresorts.com/kidsclub",
+      "https://www.tripadvisor.com/Hotel_Feature-g297922-d577067-zft12121-Centara_Grand_Beach_Resort_Villas_Hua_Hin.html"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f6_seasia",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://www.centarahotelsresorts.com/centaragrand/chbr"
+  },
+  {
+    "id": "hoian-four-seasons-nam-hai",
+    "tier": 2,
+    "rank": 135,
+    "city": "Hoi An / Dien Ban",
+    "country": "越南",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Four Seasons The Nam Hai 全別墅 Fo…",
+    "hook_tags": [],
+    "pitch": "Four Seasons The Nam Hai 全別墅 Forbes 5-Star 海濱 — Chuon Chuon Kids Club (4-12) + Junior Cooking Academy + 15+ 免費活動 + UNESCO Hoi An 古城 30 min",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "Chuon Chuon Kids Club @ Four Seasons Resort The Nam Hai",
+      "age": "4-12 歲 Chuon Chuon + Teens Youth Club 另有",
+      "dates": "全年常駐，daily 09:00-18:00",
+      "cost": 0,
+      "lang": "英文 + 越南語 + 部分中文 staff",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 166666,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 32874,
+      "buffer": 21916,
+      "total": 0,
+      "realTotal": 273956,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": {
+      "hospitals": [],
+      "pharmacy": [],
+      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+    },
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.fourseasons.com/hoian/services-and-amenities/family/",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "既有 Phu Quoc+Danang Tier 3 跟此項地理鄰近但 Four Seasons 是頂級豪奢層級，差異化、媽媽要 Spa (Children of the Earth 全家療程) + Vietnam wellness 沉浸、中越雨季其實 7 月相對好 (90-120mm 短陣雨，比 Phu Quoc 南島乾)、Hoi An UNESCO 古城 + 山茶半島 + 越南菜文化深度",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email Four Seasons Hotels & Resorts (連 8 年 Forbes 5*) + Nam Hai Cooking Academy 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.fourseasons.com/hoian/services-and-amenities/fam 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.fourseasons.com/hoian/services-and-amenities/family/",
+      "https://press.fourseasons.com/hoian/trending-now/family-experiences/",
+      "https://www.fourseasons.com/hoian/",
+      "https://press.fourseasons.com/hoian/hotel-news/2026/forbes-five-star-hotel/"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f6_seasia",
+    "p7b_confidence": "verified",
+    "p7b_verified_url": "https://www.fourseasons.com/hoian/services-and-amenities/family/"
+  },
+  {
+    "id": "siemreap-anantara-angkor",
+    "tier": 3,
+    "rank": 136,
+    "city": "Siem Reap",
+    "country": "柬埔寨",
+    "flag": "🌍",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Anantara Angkor Resort 39-suite…",
+    "hook_tags": [],
+    "pitch": "Anantara Angkor Resort 39-suite 精品 — Kids Club (incense making / palm leaf weaving / lotus art) + Family Pool Suite 兩房 + Spa 房，吳哥窟世界遺產動線 + 新國家擴充清單",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "Anantara Angkor Kids Club + Enriching Family Experiences",
+      "age": "全齡，孩童 5-11 歲 chargeable 50% 大人 rate；Kids Club 無嚴格年齡 lower bound",
+      "dates": "全年常駐，daily (時段需 e-mail 確認)",
+      "cost": 0,
+      "lang": "英文 + 高棉語 + 部分中文",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 83333,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 20374,
+      "buffer": 13583,
+      "total": 0,
+      "realTotal": 169790,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "https://www.anantara.com/en/angkor-siem-reap/experiences/enriching-family-experiences",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想擴增新國家清單 (柬埔寨之前不在 35 內)、吳哥窟是少數 5-6 歲也適合的 UNESCO 世界遺產 (車程 + 步行 + 故事化)、媽媽要 spa (Anantara Spa 強項) + 文化沉浸 (Apsara 舞 + 高棉菜)、預算中等 NT$25-48 萬",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email Anantara Hotels (Minor Group, 跟普吉 Anantara Mai Khao 同集團) 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網 https://www.anantara.com/en/angkor-siem-reap/experiences/enr 看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "https://www.anantara.com/en/angkor-siem-reap/experiences/enriching-family-experiences",
+      "https://www.anantara.com/en/angkor-siem-reap/rooms/family-pool-suite",
+      "https://www.anantara.com/en/angkor-siem-reap/rooms/family-suite",
+      "https://www.bemytravelmuse.com/anantara-angkor-resort-review/"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f6_seasia",
+    "p7b_confidence": "operator_verified",
+    "p7b_verified_url": "https://www.anantara.com/en/angkor-siem-reap/experiences/enriching-family-experiences"
+  },
+  {
+    "id": "yokohama_saint_maur",
+    "tier": 3,
+    "rank": 137,
+    "city": "横濱",
+    "country": "日本",
+    "flag": "🇯🇵",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "1872 創校日本最老國際學校（154 年）+ Montess…",
+    "hook_tags": [],
+    "pitch": "1872 創校日本最老國際學校（154 年）+ Montessori 蒙特梭利 preschool 真正接 5-6 歲 + 山手洋館區步行可達中華街 +¥145k/3週低於同質歐美 1/3，3 直飛 4 小時。",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "Saint Maur 2026 Summer School 官方頁: https://www.stmaur.ac.jp/learning/summer-school (T3 verified 2026-05-15)",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "想要 Montessori 5-6 歲體驗的家庭、預算 NT$24-29 萬中段 family、怕東京太擠，喜歡 Yokohama 港邊洋館氛圍的家庭、希望走路就能到 camp，downtown 度假村+教育並重",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "Saint Maur 2026 Summer School 官方頁: https://www.stmaur.ac.jp/learning/summer-school (T3 verified 2026-05-15)",
+      "Metropolis Japan 2026 國際 summer school 列表: https://metropolisjapan.com/international-summer-schools-in-japan/ (T1)",
+      "Wikipedia Saint Maur: https://en.wikipedia.org/wiki/Saint_Maur_International_School",
+      "ELT review: https://www.eltschool.jp/en/column/saint-maur-international-review"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f7_japan_korea",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "karuizawa_etonhouse",
+    "tier": 3,
+    "rank": 138,
+    "city": "輕井澤",
+    "country": "日本",
+    "flag": "🇯🇵",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "輕井澤海拔 1000m 避暑勝地 + 新加坡 EtonHous…",
+    "hook_tags": [],
+    "pitch": "輕井澤海拔 1000m 避暑勝地 + 新加坡 EtonHouse 國際品牌 (1995 創 / 全球 100+ campus) + 4 週連續 8/14 收尾 + ¥132k/週確認 + 教 3-5 歲含 5-6，跟 Niseko 北海道對比較有都會配套 (outlet shopping / hot springs / Hoshino Resorts)",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "EtonHouse Karuizawa 2026 官方頁: https://www.etonhouse.co.jp/holiday-programs-japan/karuizawa-summer-school-at-learning-hub/ (T3 verified 2026-05-15)",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "怕東京/橫濱熱的家庭 (輕井澤夏季 24°C 避暑)、想結合 outlet shopping + 溫泉 + 度假村度假感、EtonHouse Reggio 教育法粉絲 (新加坡品牌粉)、預算 NT$36-43 萬 willing to pay 為避暑 + 品牌",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "EtonHouse Karuizawa 2026 官方頁: https://www.etonhouse.co.jp/holiday-programs-japan/karuizawa-summer-school-at-learning-hub/ (T3 verified 2026-05-15)",
+      "EtonHouse Rising Field Day Camp 4-12: https://www.etonhouse.co.jp/holiday-programs-japan/8894-2/",
+      "Karuizawa 旅遊推薦: https://hoshinoresorts.com/en/guide/area/chubu/nagano/karuizawa/kidz/"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f7_japan_korea",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "yokohama_horizon",
+    "tier": 3,
+    "rank": 139,
+    "city": "横濱",
+    "country": "日本",
+    "flag": "🇯🇵",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "土耳其資本 IB 系 IB-MYP 學校 + Preschoo…",
+    "hook_tags": [],
+    "pitch": "土耳其資本 IB 系 IB-MYP 學校 + Preschool Reggio + Kinder STEAM 兩程設計 5-6 歲剛好涵蓋 + 6/22-7/26 5 連續週可組 3 週 + 非 HJIS 學生 open，3 直飛 4 小時。Saint Maur 之外的另一個 Yokohama 選項",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "HJIS 2026 Summer School 官方頁: https://www.horizon.ac.jp/events/summer-school (T3 verified 2026-05-15)",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "Saint Maur 沒位的 backup Yokohama 選擇、想 STEAM 比 Montessori 多的 5-6 歲家庭、IB 教育法粉絲 + IB World School 標籤重要",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "HJIS 2026 Summer School 官方頁: https://www.horizon.ac.jp/events/summer-school (T3 verified 2026-05-15)",
+      "HJIS Tuition 頁: https://www.horizon.ac.jp/tuition-and-fees",
+      "World-Schools fee review: https://world-schools.com/schools/horizon-japan-international-school/"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f7_japan_korea",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "seoul_camp_sfs",
+    "tier": 3,
+    "rank": 140,
+    "city": "首爾",
+    "country": "韓國",
+    "flag": "🇰🇷",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "1912 創校亞洲最老美式 IB+UK National Cu…",
+    "hook_tags": [],
+    "pitch": "1912 創校亞洲最老美式 IB+UK National Curriculum + ACA 美國 Camp Association 會員（韓國唯一）+ 6 連週 schedule + Pre-K 3-4 與 K-G1 兩程涵蓋 5-6 歲 + ₩720k/週確認可訂。比 KIS Pangyo（既有 candidate）更老校齡 + ACA 標籤強。",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "Camp SFS Elementary 官方頁: https://www.seoulforeign.org/camp-sfs/elementary-school-programs (T3 verified 2026-05-15)",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "預算 NT$22-27 萬 family，最便宜 + 最近 + ACA verified 三全、想 ACA Camp Association 標籤確保安全 SOP 的家庭、醫療優先 (Severance 步行 5 分鐘到 camp)、想 SFS 校齡老 (1912) 的傳統校光環",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [
+      "Camp SFS Elementary 官方頁: https://www.seoulforeign.org/camp-sfs/elementary-school-programs (T3 verified 2026-05-15)",
+      "Camp SFS 主頁 + ACA 會員聲明: https://www.seoulforeign.org/camp-sfs (T3 verified)",
+      "Camp SFS Before/After Classes: https://www.seoulforeign.org/camp-sfs/before-after-classes"
+    ],
+    "phase_7b_lite": true,
+    "fork_source": "f7_japan_korea",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "madrid_asm",
+    "tier": 3,
+    "rank": 141,
+    "city": "馬德里",
+    "country": "西班牙",
+    "flag": "🇪🇸",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "純美式英語沉浸 4 週滿月可配 21 天, 7/1-31 全月…",
+    "hook_tags": [],
+    "pitch": "純美式英語沉浸 4 週滿月可配 21 天, 7/1-31 全月開, 3 週 €670 (NT$24,000) 全歐最佳 CP. 3-12 歲全收 + ASM 是美國海外經營 60 年老牌學校, 但 7 月馬德里 35-40°C 熱浪 + 巴拉哈斯機場無台北直飛 (需法蘭克福/伊斯坦堡轉 18-22h)",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "一般家庭",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [],
+    "phase_7b_lite": true,
+    "fork_source": "f8_europe",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "sotogrande",
+    "tier": 3,
+    "rank": 142,
+    "city": "Sotogrande",
+    "country": "西班牙",
+    "flag": "🇪🇸",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Inspired Education Group 高端寄宿學校…",
+    "hook_tags": [],
+    "pitch": "Inspired Education Group 高端寄宿學校的 4-5 歲 Nano Camp + 游泳每天 + 海邊度假村式 campus, 7/26-8/8 兩週 + 自配 1 週串接 = 21 天, 但偏遠 (馬拉加機場 1.5h 車) + 預算 NT$50-70 萬高",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "一般家庭",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [],
+    "phase_7b_lite": true,
+    "fork_source": "f8_europe",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "berlin_kca_kreuzberg",
+    "tier": 3,
+    "rank": 143,
+    "city": "Berlin",
+    "country": "德國",
+    "flag": "🇩🇪",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "Kids Camp America 在德國 11 城經營 + …",
+    "hook_tags": [],
+    "pitch": "Kids Camp America 在德國 11 城經營 + Berlin 3 點 (Kreuzberg/Tiergarten/Prenzlauer Berg), 5-12 歲純英語沉浸 + Native English 教練, 7/13-8/21 共 6 週可任選 3 週 = 21 天完美配, 柏林博物館島 + Mitte 文化頂",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "一般家庭",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [],
+    "phase_7b_lite": true,
+    "fork_source": "f8_europe",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
+  },
+  {
+    "id": "hague_basker",
+    "tier": 3,
+    "rank": 144,
+    "city": "The Hague",
+    "country": "荷蘭",
+    "flag": "🇳🇱",
+    "photo": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=900&auto=format&fit=crop",
+    "photoAlt": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&auto=format&fit=crop",
+    "hook": "荷蘭最大 international childcare 老牌…",
+    "hook_tags": [],
+    "pitch": "荷蘭最大 international childcare 老牌 25+ 年 (剛從 Zein 改名 Basker), 6 點 + Amsterdam 1 點, 4-7 歲 Young Explorers + 7-12 歲 Great Adventurers, 6/30-8/29 整夏可滾動配 3 週, 大週日小時 08:00-18:30 全包 + Dutch 兒童照護法規最嚴 + 7 月 21°C 體感最舒服歐洲",
+    "totalScore": 0,
+    "scores": {
+      "飛行便利": 0,
+      "簽證友善": 0,
+      "夏令營品質": 0,
+      "中文支援": 0,
+      "在地設施": 0,
+      "安全醫療": 0,
+      "媽媽 me-time": 0,
+      "預算可負擔": 0
+    },
+    "extraScores": {
+      "政治穩定": 0,
+      "機構穩定": 0,
+      "飲食適應": 0,
+      "7 月天氣": 0,
+      "評價真實度": 0,
+      "教育深度": 0
+    },
+    "flight": {
+      "hours": 0,
+      "direct": false,
+      "airline": "",
+      "price": 0,
+      "frequency": "每日數班"
+    },
+    "visa": {
+      "type": "—",
+      "deposit": "不需特別文件"
+    },
+    "camp": {
+      "name": "",
+      "age": "",
+      "dates": "",
+      "cost": 0,
+      "lang": "",
+      "highlights": []
+    },
+    "stays": [],
+    "metime": [
+      "Phase 7B 待補：依候選城市自行規劃"
+    ],
+    "classes": [],
+    "itinerary": null,
+    "budget": {
+      "flight": 0,
+      "camp": 0,
+      "stay": 0,
+      "food": 52500,
+      "activity": 0,
+      "transport": 0,
+      "misc": 7875,
+      "buffer": 5250,
+      "total": 0,
+      "realTotal": 65625,
+      "vsCram": 240000
+    },
+    "medical": {
+      "mandarin": "—",
+      "emergency": "—"
+    },
+    "emergency": null,
+    "support": {
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
+      "family_relay_friendly": false
+    },
+    "confidence": {
+      "camp": "ai_guess",
+      "overall": "ai_guess",
+      "deadline_source_url": "",
+      "verified_date": "待核實",
+      "warning": "本頁資料 AI 整理為主，營隊名額/官網日期需出發前自行 email 確認"
+    },
+    "goodFor": "一般家庭",
+    "notFor": "一般家庭",
+    "risks": [],
+    "p0": [
+      {
+        "deadline": "2026-06-01",
+        "task": "Email 營運單位 確認 2026 暑假 5-6 歲名額 + 真實 dates + final cost",
+        "priority": "P0"
+      },
+      {
+        "deadline": "2026-06-01",
+        "task": "WebFetch 官網  看最新 booking 狀態",
+        "priority": "P0"
+      }
+    ],
+    "voices": [],
+    "picks": {
+      "food": [],
+      "spa": []
+    },
+    "sources": [],
+    "phase_7b_lite": true,
+    "fork_source": "f8_europe",
+    "p7b_confidence": "ai_guess",
+    "p7b_verified_url": ""
   }
 ];
 
