@@ -111,41 +111,33 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "Airbnb 月租",
-        "area": "Tanjung Bungah Airbnb 月租（Jazz Suites）",
-        "price": 1666,
-        "note": "泳池、gym、海景、自助 check-in"
+        "type": "serviced_apartment",
+        "area": "By The Sea Penang (Tanjung Bungah)",
+        "price": 3190,
+        "note": "公寓式廚房、洗衣機、雙臥、海景"
       },
       {
-        "type": "Airbnb 海邊公寓",
-        "area": "Landmark by Comfy（Tanjung Tokong）",
-        "price": 2142,
-        "note": "1500 sqft 大坪數、2 個海景陽台、Gurney coastline 視野、2 房"
+        "type": "resort",
+        "area": "Hard Rock Hotel Penang (Batu Ferringhi)",
+        "price": 4523,
+        "note": "親子設施頂 / 但離 camp 15min 車程"
       },
       {
-        "type": "度假村",
-        "area": "PARKROYAL Penang Resort",
-        "price": 4047,
-        "note": "Amazonia Kids Club 5-12 歲、Amazonia Splash 水樂園、tandem 雙人腳踏車、海灘直通"
+        "type": "hotel",
+        "area": "DoubleTree Resort by Hilton Penang",
+        "price": 3714,
+        "note": "海灘正面 + Hilton 親子早餐"
       }
     ],
     "metime": [
-      "Spa Village @ Rasa Sayang（RM 380-650 / 1 場，全球頂 5 之一）",
-      "Hammam 土耳其浴體驗",
-      "Georgetown 老城 UNESCO 世界遺產（步行 4-6 小時可走完）",
-      "Ernest Zacharevic 街頭壁畫藝術巡禮",
-      "蘭卡威 1 小時飛機 day trip（紅樹林 + 天空之橋）",
-      "Cameron Highlands 4 小時車程（茶園 + 草莓 + 18-25°C 涼爽避暑）"
+      "Danai Spa Tanjung Bungah（spa）",
+      "The Thai Odyssey Gurney Paragon（spa）",
+      "China House Café (Georgetown)（cafe）",
+      "Common Ground Coworking Penang（coworking）"
     ],
     "classes": [
-      "languages: Hokkien Conversation @ Penang Hokkien Language Association",
-      "cooking: Penang Hokkien Mee Cooking @ Nazlina Spice Station",
-      "fitness_wellness: Yoga 3-Week Pass @ Yoga Loft Penang",
-      "arts: Batik Painting Workshop @ Craft Batik Penang",
-      "culture: Peranakan Beadwork Workshop @ Pinang Peranakan Mansion",
-      "business: AI Tools for Mompreneurs @ Penang Skills Development Centre",
-      "social: Penang International Women's Association (PIWA) Weekly Meetup",
-      "volunteer: Sea Turtle Conservation @ Pantai Kerachut"
+      "cooking: Penang Cooking Class (Nazlina Spice Station)",
+      "art: George Town Heritage Walk Photography"
     ],
     "itinerary": [
       {
@@ -331,54 +323,39 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "Island Hospital Penang: Yes - 福建話 + 普通話 + 廣東話",
-      "emergency": "+60 4 226 6911"
+      "mandarin": "Island Hospital (308 Macalister Rd) — international wing, 兒科 dengue 專科 / Loh Guan Lye Specialist Centre",
+      "emergency": "999 (全 Malaysia) / 救護車 999"
     },
     "emergency": {
       "hospitals": [
         {
-          "name": "Island Hospital Penang",
-          "addr": "308 Macalister Road, 10450 George Town, Penang",
-          "phone": "+60 4 238 3388",
-          "chinese": "Yes - 福建話 + 普通話 + 廣東話",
-          "note": "全檳城最受 expat 信賴, 從 Tanjung Bungah 車程 25 min"
-        },
-        {
-          "name": "Gleneagles Penang",
-          "addr": "1 Jalan Pangkor, 10050 George Town",
-          "phone": "+60 4 222 9111",
-          "chinese": "Yes",
-          "note": "Parkway Pantai 集團, 新加坡品質"
-        },
-        {
-          "name": "Penang Adventist Hospital",
-          "addr": "",
-          "phone": "+60 4 222 7200",
+          "name": "Gleneagles Penang (1 Jalan Pangkor, Georgetown, 9km · 車程 18min) +60 4-222 9111",
+          "addr": "Gleneagles Penang (1 Jalan Pangkor, Georgetown, 9km · 車程 18min) +60 4-222 9111",
+          "phone": "999 (全 Malaysia) / 救護車 999",
           "chinese": "—",
-          "note": "美式宗教醫院, 24h 兒科"
+          "note": "最近醫院"
+        },
+        {
+          "name": "Island Hospital (308 Macalister Rd) — international wing, 兒科 dengue 專科",
+          "addr": "Loh Guan Lye Specialist Centre",
+          "phone": "999 (全 Malaysia) / 救護車 999",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
         }
       ],
       "pharmacy": [
         {
-          "name": "Watson 24h Gurney Plaza",
-          "addr": "Gurney Plaza Mall G floor"
-        },
-        {
-          "name": "Guardian Pharmacy Tanjung Bungah",
-          "addr": "Sunshine Square TB"
-        },
-        {
-          "name": "Caring Pharmacy Pulau Tikus",
-          "addr": "+60 4 228 1855"
+          "name": "常用藥來源",
+          "addr": "Watsons / Guardian 連鎖到處有, 退燒 (Panadol) 止痛 腸胃 (Smecta) 都能買"
         }
       ],
-      "insurance_sop": "出發前確認旅平險海外醫療上限 ≥ NT$500 萬 + 海外急難救助 24h 中文專線。優先 Allianz、AXA、AIA 受理之機構。",
+      "insurance_sop": "國泰 / 富邦旅平險 + 醫療 NT$300 萬 + 海外急難救助 + 包含 dengue",
       "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無 (沿海)"
     },
     "support": {
       "chinese_community": "台商會 + 慈濟分會（積極）",
-      "taiwan_families_known": "可能（透過台商會詢問）",
+      "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
     "confidence": {
@@ -434,37 +411,10 @@ const CANDIDATES = [
         "priority": "P1"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"部分（Tenby 母校評價多，Camp Beaumont Penang 是新項目評價偏少）\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.0/5\""
-      },
-      {
-        "src": "ischooladvisor.com / Tenby Schools Penang",
-        "text": "\"Best school I've ever sent my kids to — kids amazing and welcoming, teachers really know how to get kids to study.\""
-      },
-      {
-        "src": "ischooladvisor.com / Tenby Schools Penang（混合評價）",
-        "text": "\"部分行政溝通不佳的負評（但教學主體評價高）。\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'China House', 'type': '甜點咖啡 + 餐酒', 'cost_ntd_per_visit': 400, 'location': 'Georgetown Beach Street', 'specialty': '全球前 50 蛋糕櫃 + 多廳古蹟氛圍'}",
-        "{'name': 'Mish Mash', 'type': '咖啡 + 工藝雞尾酒', 'cost_ntd_per_visit': 250, 'location': 'Muntri Street', 'specialty': '獨立咖啡 + 媽媽 me-time 安靜角落'}",
-        "{'name': 'Lebuh Kimberley Char Koay Teow (祖傳炒粿條)', 'type': '炒粿條路邊攤', 'cost_ntd': 80, 'location': 'Georgetown', 'queue_warning': '排 30-45 min, 7-9pm 黃金'}",
-        "{'name': 'Hameediyah Restaurant', 'type': '印度馬來 Nasi Kandar', 'cost_ntd': 120, 'location': 'Campbell Street', 'specialty': '全檳城最老 (1907)'}",
-        "{'name': 'Eastern & Oriental Hotel - Sarkies', 'type': '英式下午茶 + 自助晚餐', 'cost_ntd': 1500, 'location': 'Farquhar Street', 'specialty': '1885 殖民風 + 親子座位多'}"
-      ],
-      "spa": [
-        "{'name': 'Shangri-La CHI Spa @ Rasa Sayang', 'cost_ntd_per_treatment': 5500, 'signature': 'Balinese 90-min + 雙人房', 'booking_url': 'shangri-la.com/penang/rasasayangresort/chi-the-spa', 'advance_booking_days': 7, 'location': 'Batu Ferringhi'}",
-        "{'name': 'Mandara Spa @ PARKROYAL Penang Resort', 'cost_ntd_per_treatment': 2500, 'location': 'Batu Ferringhi', 'advance_booking_days': 2}",
-        "{'name': 'Healing Hands Reflexology', 'cost_ntd_per_treatment': 600, 'location': 'Gurney Plaza', 'note': '腳底 + 肩頸 60min'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://www.campbeaumont.asia/our-camps/tenby-school-penang', 'language': 'en', 'type': 'official_website', 'trust': 5, 'accessed': '2026-05-13'}",
@@ -532,41 +482,35 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "服務式公寓",
-        "area": "Ascott Orchard Singapore（新加坡 W1）",
-        "price": 0,
-        "note": "220 套房、親子設施、Orchard 採購方便、近 Stamford American 易通勤"
+        "type": "serviced_apartment",
+        "area": "Fraser Place Robertson Walk (W1-2) + Club Med Bintan (W3)",
+        "price": 10238,
+        "note": "全廚房、洗衣機、雙臥、兒童遊戲區"
       },
       {
-        "type": "服務式公寓",
-        "area": "Citadines Mount Sophia（新加坡）",
-        "price": 0,
-        "note": "4 星級、4 站到 Orchard、1 房型適合單親 + 1 child"
+        "type": "serviced_apartment",
+        "area": "Pan Pacific Serviced Suites Orchard",
+        "price": 11904,
+        "note": "正核心 + 20m 泳池兒童區 / 偏貴"
       },
       {
-        "type": "All-inclusive 度假村",
-        "area": "Club Med Bintan Superior Room（民丹島 W3）",
-        "price": 3285,
-        "note": "三餐 + 飲料全包、Mini Club Med+ 4-10 歲（每日 9am-5pm，含 supervised lunch）、300 m² 新 Amazing Family! Hub（2026/7 開幕，室內遊樂 + KTV）、Petit Chef 5-7 歲 cooking"
+        "type": "serviced_apartment",
+        "area": "Dao by Dorsett AMTD",
+        "price": 9523,
+        "note": "新開 + in-room 兒童 playtime"
       }
     ],
     "metime": [
-      "Aramsa Garden Spa（花園 spa 全球頂）",
-      "Auriga Spa @ Capella Sentosa",
-      "National Gallery Singapore（東南亞最大藝術館 + Children's Museum）",
-      "ArtScience Museum at Marina Bay Sands（Future World 沈浸體驗）",
-      "Sentosa Universal Studios + Adventure Cove",
-      "Pulau Ubin（傳統漁村 / 騎腳踏車逃離 SG 都會）"
+      "Yoga Movement Tanjong Pagar（yoga）",
+      "Hale Studio Orchard（yoga）",
+      "The Working Capitol Robertson Quay（coworking）",
+      "Tiong Bahru Bakery（cafe）",
+      "Singapore Botanic Gardens 散步（walking_route）"
     ],
     "classes": [
-      "languages: Mandarin Calligraphy @ Asian Civilisations Museum",
-      "cooking: Peranakan Nyonya Cooking @ Cookery Magic",
-      "fitness_wellness: Yoga 3-Week Unlimited @ Pure Yoga Singapore",
-      "arts: Watercolor Painting @ Visual Arts Centre Singapore",
-      "culture: Peranakan Beadwork Workshop @ Peranakan Museum",
-      "business: AI for Working Mums @ NUS Lifelong Learning",
-      "social: American Women's Association (AWA) Singapore",
-      "volunteer: Animal Concerns Research & Education Society (ACRES)"
+      "cooking: Cookery Magic Singapore (Asian Cuisine)",
+      "art: Singapore National Gallery 藝術導覽",
+      "language: Mandarin Conversation Class (Berlitz)"
     ],
     "itinerary": [
       {
@@ -752,54 +696,39 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "Mount Elizabeth Hospital (Orchard): Yes - 普通話 + 廣東話 + 福建話",
-      "emergency": "+65 6731 2218"
+      "mandarin": "KK Women's & Children's Hospital (兒童專科 100 Bukit Timah Rd) / Raffles Hospital 6311-1555 / 全島 GP clinic 英文都通",
+      "emergency": "995 (救護車 / 火警) / 999 (警察)"
     },
     "emergency": {
       "hospitals": [
         {
-          "name": "Mount Elizabeth Hospital (Orchard)",
-          "addr": "3 Mount Elizabeth, Singapore 228510",
-          "phone": "+65 6737 2666",
-          "chinese": "Yes - 普通話 + 廣東話 + 福建話",
-          "note": "Parkway Pantai 旗艦, 亞洲頂級"
-        },
-        {
-          "name": "KK Women's and Children's Hospital",
-          "addr": "100 Bukit Timah Road, Singapore 229899",
-          "phone": "+65 6225 5554",
-          "chinese": "Yes",
-          "note": "公立兒童專科, 急診比 Mt Elizabeth 便宜 70%"
-        },
-        {
-          "name": "Raffles Hospital",
-          "addr": "",
-          "phone": "+65 6311 1111",
+          "name": "Mount Elizabeth Hospital Orchard, 3 Mount Elizabeth, +65 6731-2218 (24h A&E)",
+          "addr": "Mount Elizabeth Hospital Orchard, 3 Mount Elizabeth, +65 6731-2218 (24h A&E)",
+          "phone": "995 (救護車 / 火警) / 999 (警察)",
           "chinese": "—",
-          "note": "市中心 24h ER, 國際病人服務佳"
+          "note": "最近醫院"
+        },
+        {
+          "name": "KK Women's & Children's Hospital (兒童專科 100 Bukit Timah Rd)",
+          "addr": "Raffles Hospital 6311-1555 / 全島 GP clinic 英文都通",
+          "phone": "995 (救護車 / 火警) / 999 (警察)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
         }
       ],
       "pharmacy": [
         {
-          "name": "Guardian Pharmacy Marina Bay Sands",
-          "addr": "MBS B2"
-        },
-        {
-          "name": "Watson 24h Plaza Singapura",
-          "addr": ""
-        },
-        {
-          "name": "Unity Pharmacy NTUC FairPrice (多分店)",
-          "addr": ""
+          "name": "常用藥來源",
+          "addr": "Watsons / Guardian / Unity 連鎖到處, 處方箋寬鬆, 兒童藥齊全"
         }
       ],
-      "insurance_sop": "出發前確認旅平險海外醫療上限 ≥ NT$500 萬 + 海外急難救助 24h 中文專線。優先 Allianz、AXA、AIA 受理之機構。",
+      "insurance_sop": "國泰旅平險 NT$500 萬 + 海外急難 / Singlife / 新加坡公立醫療外籍偏貴, 一定要保",
       "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無"
     },
     "support": {
-      "chinese_community": "中文支援指數 5/5（普通話可通）",
-      "taiwan_families_known": "可能（透過台商會詢問）",
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
     "confidence": {
@@ -855,41 +784,10 @@ const CANDIDATES = [
         "priority": "P1"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"充實（新加坡媽媽 FB 群活躍 + Sassy Mama SG / Little Day Out 大量公開 review）\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.3/5\""
-      },
-      {
-        "src": "littledayout.com / Camp Asia 2026 review",
-        "text": "\"Multi-Activity 不純 ESL（含 sports / drama / STEM / cooking）→ 不太像補習班 / 私校環境舒服 / 媽媽接送 30+ bus stops 覆蓋全新加坡\""
-      },
-      {
-        "src": "bykido.com / Club Med Bintan 2026 review",
-        "text": "\"Bintan reimagined：phased renovation + 新 Amazing Family! Hub 2026/7 開幕 + 既有 Panorama Coffee Shop + Terrace Gourmet Club 持續營運\""
-      },
-      {
-        "src": "sassymamasg.com / 27 Summer Camps 2026 ranking",
-        "text": "\"CIS Bilingual Mandarin-English 是隱藏好牌——不像補習也不丟中文，獨特優勢。Camp Asia Multi-Activity 不純 ESL，5-6 歲完美。\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'Tiong Bahru Bakery', 'type': '法式麵包 + 咖啡', 'cost_ntd_per_visit': 350, 'location': 'Tiong Bahru (多分店)', 'specialty': 'Kouign-amann 全城第一'}",
-        "{'name': 'PS.Cafe Dempsey', 'type': 'Brunch 全天', 'cost_ntd_per_visit': 800, 'location': 'Dempsey Hill', 'specialty': '綠意花園 + 親子座位'}",
-        "{'name': 'Tian Tian Hainanese Chicken Rice', 'type': '海南雞飯', 'cost_ntd': 150, 'location': 'Maxwell Food Centre', 'queue_warning': '排 20-30 min'}",
-        "{'name': '328 Katong Laksa', 'type': 'Katong Laksa', 'cost_ntd': 120, 'location': 'East Coast Road', 'specialty': '湯頭椰漿濃厚'}",
-        "{'name': 'Burnt Ends', 'type': 'Modern BBQ (米其林一星)', 'cost_ntd': 5500, 'location': 'Dempsey Hill', 'specialty': '8-course tasting, 必訂 3 個月前'}"
-      ],
-      "spa": [
-        "{'name': 'Banyan Tree Spa @ Marina Bay Sands', 'cost_ntd_per_treatment': 6500, 'signature': 'Singaporean Indulgence 120-min', 'booking_url': 'banyantreespa.com', 'advance_booking_days': 7, 'location': 'MBS Tower 1'}",
-        "{'name': 'Spa Esprit', 'cost_ntd_per_treatment': 3200, 'location': 'House @ Dempsey + Holland Village + Wheelock', 'advance_booking_days': 3}",
-        "{'name': 'Kenko Wellness Spa', 'cost_ntd_per_treatment': 1500, 'location': 'Orchard + Marina Square', 'note': '連鎖 reflexology + body massage'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://www.littledayout.com/camp-asia-golden-summer-holiday-camps-june-july-2026/', 'language': 'en', 'type': 'parent_media', 'trust': 4, 'accessed': '2026-05-14'}",
@@ -958,41 +856,34 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "服務式公寓",
-        "area": "Ascott Mont Kiara",
-        "price": 3400,
-        "note": "含廚房、泳池、健身房、Mont Kiara 心臟"
+        "type": "serviced_apartment",
+        "area": "Somerset Ampang Kuala Lumpur",
+        "price": 3714,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
       },
       {
-        "type": "Airbnb 月租",
-        "area": "Verve Suites Mont Kiara（Airbnb 月租）",
-        "price": 2666,
-        "note": "2 房、高樓景觀、泳池、近 Mont Kiara TTDI farmers market"
+        "type": "airbnb",
+        "area": "Mont Kiara 三房家庭公寓 (Verve Suites)",
+        "price": 2476,
+        "note": "Mont Kiara 是台灣家庭密集區，月租 30% off，但離 Bukit Petaling 校區 20min"
       },
       {
-        "type": "服務式公寓",
-        "area": "Fraser Place Setia Walk Pavilion KL",
-        "price": 3950,
-        "note": "KLCC 雙峰塔旁、Pavilion 商場樓上、都會生活密度頂"
+        "type": "hotel",
+        "area": "Traders Hotel Kuala Lumpur",
+        "price": 5476,
+        "note": "Shangri-La 集團，雙子塔對面，無敵景觀泳池"
       }
     ],
     "metime": [
-      "Bangsar 瑜伽 studio（Pure Yoga 等）",
-      "Mont Kiara spa（Mandara Spa / Six Senses Spa 等）",
-      "Batu Caves 黑風洞（印度教神像 + 272 階彩虹梯）",
-      "茨厰街 Chinatown（華人歷史）",
-      "Cameron Highlands 茶園 3.5 小時車程（避暑 18-25°C）",
-      "Genting Highlands 1.5 小時車程（賭場 + 高地主題樂園）"
+      "Yoga Mala Bangsar（yoga）",
+      "Spa Village @ Ritz-Carlton KL（spa）",
+      "Common Ground Bangsar South（coworking）",
+      "KLCC Park 步道（walking_route）",
+      "VCR Cafe Pudu（cafe）"
     ],
     "classes": [
-      "languages: Bahasa Malay for Expats @ ICLS Mont Kiara",
-      "cooking: Malay Heritage Cooking @ LaZat Malaysian Cooking School",
-      "fitness_wellness: Yoga 3-Week Unlimited @ Yoga Hub Mont Kiara",
-      "arts: Batik Painting Workshop @ Kompleks Kraf KL",
-      "culture: Songket Weaving @ Karyaneka Craft Complex",
-      "business: AI for Mompreneurs @ Sunway Education Group",
-      "social: Mont Kiara Expat Mums FB Group + Weekly Brunch",
-      "volunteer: Animal Shelter @ SPCA Selangor"
+      "cooking: LaZat Malaysian Cooking Class",
+      "language: ICLS Bahasa Malaysia 馬來語基礎班"
     ],
     "itinerary": [
       {
@@ -1178,50 +1069,35 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "Sunway Medical Centre: Yes - 普通話 + 廣東話 + 福建話",
-      "emergency": "+60 3 7491 9191"
+      "mandarin": "ParkCity Medical Centre Family Clinic / Beacon Hospital, +60 3-2161 8888，兒科英語",
+      "emergency": "999 (警/消/救護) / 112 (mobile)"
     },
     "emergency": {
       "hospitals": [
         {
-          "name": "Sunway Medical Centre",
-          "addr": "5 Jalan Lagoon Selatan, 47500 Subang Jaya, Selangor",
-          "phone": "+60 3 7491 9191",
-          "chinese": "Yes - 普通話 + 廣東話 + 福建話",
-          "note": "馬國頂級, JCI 認證, 從 Mont Kiara 車程 30 min"
-        },
-        {
-          "name": "Gleneagles Kuala Lumpur",
-          "addr": "286 & 288 Jalan Ampang, 50450 Kuala Lumpur",
-          "phone": "+60 3 4141 3000",
-          "chinese": "Yes",
-          "note": "市中心 KLCC 附近, 從 Alice Smith 校 / Mont Kiara 都近"
-        },
-        {
-          "name": "Pantai Hospital Kuala Lumpur",
-          "addr": "",
-          "phone": "+60 3 2296 0888",
+          "name": "Prince Court Medical Centre, 39 Jalan Kia Peng, 50450 KL — JCI 認證國際標準，急診 24h",
+          "addr": "Prince Court Medical Centre, 39 Jalan Kia Peng, 50450 KL — JCI 認證國際標準，急診 24h",
+          "phone": "999 (警/消/救護) / 112 (mobile)",
           "chinese": "—",
-          "note": "Bangsar 區, Parkway Pantai 集團"
+          "note": "最近醫院"
+        },
+        {
+          "name": "ParkCity Medical Centre Family Clinic",
+          "addr": "Beacon Hospital, +60 3-2161 8888，兒科英語",
+          "phone": "999 (警/消/救護) / 112 (mobile)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
         }
       ],
       "pharmacy": [
         {
-          "name": "Watson 24h Pavilion KL",
-          "addr": "Pavilion B1"
-        },
-        {
-          "name": "Guardian Pharmacy Plaza Mont Kiara",
-          "addr": ""
-        },
-        {
-          "name": "Caring Pharmacy Bangsar Village",
-          "addr": ""
+          "name": "常用藥來源",
+          "addr": "Watsons / Guardian 屈臣氏 KLCC/Pavilion 都有，退燒藥 Panadol / 腸胃藥皆 OTC 直購"
         }
       ],
-      "insurance_sop": "出發前確認旅平險海外醫療上限 ≥ NT$500 萬 + 海外急難救助 24h 中文專線。優先 Allianz、AXA、AIA 受理之機構。",
+      "insurance_sop": "國泰產險 / 富邦旅平險，保 500 萬醫療 + 100 萬意外，加保登革熱與蚊媒疾病",
       "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無 (海平面)"
     },
     "support": {
       "chinese_community": "在地 expat / 華人社群（活躍）",
@@ -1281,41 +1157,10 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"充實（Alice Smith 80 年累積大量公開家長 review + Marlieke Kemp-Janssen 具名 5 歲女兒 Magic 體驗長 review）\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.5/5\""
-      },
-      {
-        "src": "Alice Smith School Magic 5-7 程式 review / Marlieke Kemp-Janssen 公開 blog",
-        "text": "\"By day two she came home telling me she wanted to go back in summer.\""
-      },
-      {
-        "src": "Expat Exchange / Mont Kiara expat forum",
-        "text": "\"I cannot recommend this school enough. 8 years here, both kids thrived.\""
-      },
-      {
-        "src": "Camp Beaumont 官方 review",
-        "text": "\"1:8 ratio 公開官方 / Password drop-off 系統 + Telegram daily updates 給家長\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'VCR (Pudu)', 'type': 'Specialty coffee + brunch', 'cost_ntd_per_visit': 350, 'location': 'Jalan Galloway', 'specialty': 'KL Top 3 咖啡店'}",
-        "{'name': 'Feeka Coffee Roasters', 'type': '工業風 specialty', 'cost_ntd_per_visit': 280, 'location': 'Bukit Bintang', 'specialty': '自家烘焙'}",
-        "{'name': 'Jalan Alor Food Street', 'type': '夜市 50 攤', 'cost_ntd': 200, 'location': 'Bukit Bintang', 'specialty': '海南雞飯 / 沙嗲 / 福建炒'}",
-        "{'name': 'Restoran Yut Kee (1928)', 'type': '海南老咖啡店', 'cost_ntd': 150, 'location': 'Jalan Kamunting', 'specialty': '豬扒飯 + Roti Babi'}",
-        "{'name': 'Dewakan', 'type': 'Modern Malaysian (米其林一星)', 'cost_ntd': 5500, 'location': 'The Linc KL', 'specialty': \"Asia's 50 Best No.27, 在地食材\"}"
-      ],
-      "spa": [
-        "{'name': 'Mandarin Oriental Spa KL', 'cost_ntd_per_treatment': 5500, 'signature': 'Heritage 90-min + 雙人房', 'booking_url': 'mandarinoriental.com/kuala-lumpur/spa', 'advance_booking_days': 5, 'location': 'KLCC'}",
-        "{'name': 'Hammam Spa Bangsar', 'cost_ntd_per_treatment': 2200, 'location': 'Bangsar Telawi', 'advance_booking_days': 2, 'note': '土耳其浴文化'}",
-        "{'name': 'Healing Hands Reflexology Mont Kiara', 'cost_ntd_per_treatment': 600, 'location': 'Plaza Mont Kiara', 'note': '在地價, 走路 5 min 從 Ascott'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://www.campbeaumont.asia/our-camps/the-alice-smith-school', 'language': 'en', 'type': 'official_website', 'trust': 5, 'accessed': '2026-05-13'}",
@@ -1384,41 +1229,34 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "Airbnb 月租 (主推)",
-        "area": "Discovery Bay 愉景灣 2-bed family Airbnb 月租",
-        "price": 4714,
-        "note": "游泳池、海景、禁私家車安全、環島巴士+渡輪 25 min 到中環"
+        "type": "serviced_apartment",
+        "area": "Auberge Discovery Bay Hong Kong",
+        "price": 11190,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
       },
       {
-        "type": "服務式公寓 (媽媽通勤最便)",
-        "area": "跑馬地 / 銅鑼灣 / 中環 公寓酒店 (Citadines / Ovolo / The Murray)",
-        "price": 8333,
-        "note": "走路範圍內就學、機能頂、媽媽生活密度爆表"
+        "type": "serviced_apartment",
+        "area": "One Parkvale (Short Stay Discovery Bay)",
+        "price": 9285,
+        "note": "兩房一廳近 DB Plaza，25 分鐘 ferry 到中環"
       },
       {
-        "type": "度假村 5-7 天搭配",
-        "area": "Macau 氹仔 / Cotai 度假村連住 (Galaxy / Venetian / MGM)",
-        "price": 4761,
-        "note": "套房連 7 天、Galaxy Kids Club 免費 + Edutainment 工作坊"
+        "type": "hotel",
+        "area": "Hyatt Regency Hong Kong, Tsim Sha Tsui",
+        "price": 13333,
+        "note": "若選 ESF Kowloon Junior 改住 TST 較近，地鐵 MTR 便利"
       }
     ],
     "metime": [
-      "半島 Peninsula Spa NT$8,000-15,000",
-      "文華東方 Mandarin Oriental Spa",
-      "M+ 博物館 (西九, 全球 top 5 contemporary)",
-      "HKMoA 香港藝術館",
-      "南丫島 ferry 30 min",
-      "長洲 ferry 1h"
+      "EMBODY Discovery Bay（yoga）",
+      "PURE Yoga Starstreet Precinct (Wanchai)（yoga）",
+      "The Sanctuary Spa - Auberge（spa）",
+      "DB Plaza waterfront walking route（walking_route）",
+      "The Hive Central (coworking)（coworking）"
     ],
     "classes": [
-      "languages: Cantonese Conversation @ Q Language",
-      "cooking: Dim Sum Cooking @ Martha Sherpa Cooking School",
-      "fitness_wellness: Yoga 3-Week Pass @ Pure Yoga Hong Kong",
-      "arts: Watercolor Painting @ HK Visual Arts Centre",
-      "culture: Tea Ceremony @ Hong Kong Tea House MingCha",
-      "business: AI Tools for Professionals @ HKU SPACE",
-      "social: American Women's Association HK",
-      "volunteer: SPCA HK Animal Shelter"
+      "cooking: Hong Kong Cookery Academy 廣東菜短期班",
+      "language: Q Language Cantonese 粵語短期班"
     ],
     "itinerary": null,
     "budget": {
@@ -1435,43 +1273,39 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "Hong Kong Sanatorium & Hospital (養和醫院): Yes - 粵語 + 普通話",
-      "emergency": "+852 2835 8688"
+      "mandarin": "Central Health Medical Practice - Discovery Bay Clinic, Shop 109A DB Plaza, +852 2987 7575 (兒科)",
+      "emergency": "999 (警/消/救護車三合一)"
     },
     "emergency": {
       "hospitals": [
         {
-          "name": "Hong Kong Sanatorium & Hospital (養和醫院)",
-          "addr": "2 Village Road, Happy Valley, Hong Kong",
-          "phone": "+852 2572 0211",
-          "chinese": "Yes - 粵語 + 普通話",
-          "note": "HK 頂級私立, 從 Discovery Bay 渡輪 + 計程車 45 min"
+          "name": "Hong Kong Sanatorium & Hospital 養和醫院 (跑馬地 Happy Valley) — 國際標準私立醫院，急診 24h，英語普及",
+          "addr": "Hong Kong Sanatorium & Hospital 養和醫院 (跑馬地 Happy Valley) — 國際標準私立醫院，急診 24h，英語普及",
+          "phone": "999 (警/消/救護車三合一)",
+          "chinese": "—",
+          "note": "最近醫院"
         },
         {
-          "name": "Adventist Hospital (港安醫院)",
-          "addr": "Stubbs Road, Happy Valley",
-          "phone": "+852 3651 8888",
-          "chinese": "Yes",
-          "note": ""
+          "name": "Central Health Medical Practice - Discovery Bay Clinic, Shop 109A DB Plaza, +852",
+          "addr": "Central Health Medical Practice - Discovery Bay Clinic, Shop 109A DB Plaza, +852 2987 7575 (兒科)",
+          "phone": "999 (警/消/救護車三合一)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
         }
       ],
       "pharmacy": [
         {
-          "name": "Watson 24h Times Square",
-          "addr": ""
-        },
-        {
-          "name": "Mannings (萬寧) Discovery Bay Plaza",
-          "addr": ""
+          "name": "常用藥來源",
+          "addr": "Watsons 屈臣氏 / Mannings 萬寧 全 DB 都有，退燒藥 Panadol / 腸胃藥 Smecta 直接購買，無需處方"
         }
       ],
-      "insurance_sop": "出發前確認旅平險海外醫療上限 ≥ NT$500 萬 + 海外急難救助 24h 中文專線。優先 AXA、Bupa、Cigna 受理之機構。",
+      "insurance_sop": "國泰產險 / 富邦旅平險，保 500 萬醫療 + 100 萬意外，加保 COVID & 個人意外",
       "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無 (海平面)"
     },
     "support": {
-      "chinese_community": "中文支援指數 5/5（普通話可通）",
-      "taiwan_families_known": "可能（透過台商會詢問）",
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
     "confidence": {
@@ -1512,33 +1346,10 @@ const CANDIDATES = [
         "priority": "P1"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"部分 (ESF 校評論充足, 政治環境家長論壇討論多)\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.2/5 (ESF) / 政治友善 2.5/5\""
-      },
-      {
-        "src": "陸委會 國人赴陸港澳風險專區",
-        "text": "\"拒交手機 / 平板 / 電腦密碼即屬犯罪, 最高 1 年監禁 + 10 萬港幣罰款。建議出發前裝置先備份並刪除可能被搜查的內容。\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': '% Arabica (Star Ferry)', 'type': '京都品牌 specialty', 'cost_ntd_per_visit': 250, 'location': 'Tsim Sha Tsui Star Ferry', 'specialty': '海景 + insta-worthy'}",
-        "{'name': 'The Coffee Academïcs', 'type': 'Specialty + brunch', 'cost_ntd_per_visit': 400, 'location': 'Causeway Bay + Central', 'specialty': 'Q-grader 烘豆'}",
-        "{'name': 'Tim Ho Wan (添好運)', 'type': '米其林一星點心', 'cost_ntd': 400, 'location': '多分店 (Sham Shui Po 旗艦)', 'specialty': '全球最便宜米其林'}",
-        "{'name': 'Sing Heung Yuen 勝香園', 'type': '茶餐廳', 'cost_ntd': 200, 'location': 'Central Mei Lun Street', 'specialty': '蕃茄牛肉麵 + 凍奶茶'}",
-        "{'name': \"L'Atelier de Joël Robuchon\", 'type': '法式 (米其林三星)', 'cost_ntd': 12000, 'location': 'Landmark Central'}"
-      ],
-      "spa": [
-        "{'name': 'Mandarin Spa @ Mandarin Oriental HK', 'cost_ntd_per_treatment': 7500, 'signature': 'Pearl + 玉石 90-min', 'location': 'Central'}",
-        "{'name': 'Sense of Touch', 'cost_ntd_per_treatment': 2800, 'location': '多分店 Discovery Bay / Central / Repulse Bay', 'note': 'Discovery Bay 分店走路 8 min 從 Airbnb'}",
-        "{'name': 'Healthy Foot Reflexology', 'cost_ntd_per_treatment': 800, 'location': 'Causeway Bay + Mong Kok'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://www.esfexplore.org.hk/full-day-summer-camp/', 'language': 'en', 'type': 'official_website', 'trust': 5, 'accessed': '2026-05-13'}",
@@ -1607,41 +1418,35 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "Airbnb 月租",
-        "area": "Mosman 1-bed Airbnb (主推)",
-        "price": 6666,
-        "note": "北岸高級住宅區、全 Sydney 最安全最寧靜、走路/5min 車到 Taronga Zoo、渡輪 12 min 到 CBD"
+        "type": "serviced_apartment",
+        "area": "Adina Apartment Hotel Bondi Beach Sydney",
+        "price": 11666,
+        "note": "公寓式廚房、洗衣機+烘衣機、一房+客廳、免費 wifi"
       },
       {
-        "type": "服務式公寓 (海邊)",
-        "area": "Adina Apartment Hotel Bondi Beach",
-        "price": 7857,
-        "note": "走路到 Bondi 海邊、30 min 車到 Taronga、店+餐+市集密度頂"
+        "type": "serviced_apartment",
+        "area": "Bondi 38 Serviced Apartments",
+        "price": 10476,
+        "note": "兩房一廳家庭套房，Hall Street 上，海邊步行 8 分鐘"
       },
       {
-        "type": "服務式公寓 (海邊+渡輪)",
-        "area": "Manly Apartments + Manly Ocean Royale",
-        "price": 6666,
-        "note": "渡輪 25 min 到 Taronga、海+渡輪通勤頂"
+        "type": "airbnb",
+        "area": "North Bondi 家庭公寓 (Airbnb)",
+        "price": 8571,
+        "note": "本地戶月租折扣 25-30%，廚房+洗衣機+花園"
       }
     ],
     "metime": [
-      "Bondi Icebergs Pool day pass + sauna",
-      "The Spa at InterContinental Sydney",
-      "Art Gallery NSW 免費 + special",
-      "MCA Australian Modern Art",
-      "Blue Mountains 2h (Scenic World/Three Sisters/Featherdale)",
-      "Hunter Valley 葡萄酒區"
+      "Body Mind Life Bondi Junction（yoga）",
+      "Power Living Bondi Beach（yoga）",
+      "Bondi to Coogee Coastal Walk（walking_route）",
+      "Endota Spa Bondi（spa）",
+      "WeWork Bondi Junction（coworking）",
+      "Speedos Cafe (Bondi)（cafe）"
     ],
     "classes": [
-      "languages: Mandarin for Heritage Kids @ Sydney Language School",
-      "cooking: Modern Australian Cooking @ Sydney Cooking School",
-      "fitness_wellness: Yoga 3wk Pass @ Power Living Yoga Sydney",
-      "arts: Watercolor @ Brett Whiteley Studio Workshop",
-      "culture: Aboriginal Art Workshop @ Australian Museum",
-      "business: AI Tools @ General Assembly Sydney",
-      "social: North Shore Mums + Eastern Suburbs Mums FB Group",
-      "volunteer: RSPCA NSW Animal Shelter"
+      "cooking: Sydney Community College - Cooking Modern Australian",
+      "yoga_teacher: ICMS Surf Yoga teacher short course"
     ],
     "itinerary": null,
     "budget": {
@@ -1658,43 +1463,39 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "St Vincent's Private Hospital Sydney: 限定 (需 request 翻譯)",
-      "emergency": "+61 2 8382 7110"
+      "mandarin": "Bondi Junction Family Medical Centre - Level 4, 500 Oxford St, Bondi Junction (家庭 GP，可預約)",
+      "emergency": "000 (Triple Zero, 警察/救護/消防三合一)"
     },
     "emergency": {
       "hospitals": [
         {
-          "name": "St Vincent's Private Hospital Sydney",
-          "addr": "406 Victoria Street, Darlinghurst NSW 2010",
-          "phone": "+61 2 8382 7111",
-          "chinese": "限定 (需 request 翻譯)",
-          "note": ""
+          "name": "Sydney Children's Hospital Randwick - High Street, Randwick NSW 2031 (Bondi 開車 1",
+          "addr": "Sydney Children's Hospital Randwick - High Street, Randwick NSW 2031 (Bondi 開車 12min)",
+          "phone": "000 (Triple Zero, 警察/救護/消防三合一)",
+          "chinese": "—",
+          "note": "最近醫院"
         },
         {
-          "name": "Sydney Children's Hospital Randwick",
-          "addr": "",
-          "phone": "+61 2 9382 1111",
-          "chinese": "—",
-          "note": "兒童專科 24h ER, 公立但開放國際病人"
+          "name": "Bondi Junction Family Medical Centre - Level 4, 500 Oxford St, Bondi Junction (家",
+          "addr": "Bondi Junction Family Medical Centre - Level 4, 500 Oxford St, Bondi Junction (家庭 GP，可預約)",
+          "phone": "000 (Triple Zero, 警察/救護/消防三合一)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
         }
       ],
       "pharmacy": [
         {
-          "name": "Wall Street Pharmacy 24h",
-          "addr": "King St Wharf"
-        },
-        {
-          "name": "Blooms The Chemist (多分店)",
-          "addr": ""
+          "name": "常用藥來源",
+          "addr": "Chemist Warehouse / Priceline 全島連鎖，退燒 Panadol / 止痛 Nurofen / 腸胃 Gastrolyte 24h"
         }
       ],
-      "insurance_sop": "出發前確認旅平險海外醫療上限 ≥ NT$500 萬 + 海外急難救助 24h 中文專線。優先 AIG、Allianz、Bupa 受理之機構。",
+      "insurance_sop": "推薦國泰世紀產險海外旅平 + 海外突發疾病加倍版；Australia 醫療貴，急診 AUD $700 起",
       "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無 (Sydney 海平面)"
     },
     "support": {
-      "chinese_community": "中文支援指數 4/5（普通話可通）",
-      "taiwan_families_known": "可能（透過台商會詢問）",
+      "chinese_community": "在地 expat / 華人社群（活躍）",
+      "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
     "confidence": {
@@ -1735,29 +1536,10 @@ const CANDIDATES = [
         "priority": "P1"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"部分 (Taronga Zoo Adventures 評價多但 5-6 歲分齡細節缺)\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.5/5 (Taronga)\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'Single O Surry Hills', 'type': 'Specialty coffee 元祖', 'cost_ntd_per_visit': 250, 'location': 'Surry Hills', 'specialty': 'Sydney coffee scene 開山'}",
-        "{'name': 'Bourke Street Bakery', 'type': 'Artisan bakery + cafe', 'cost_ntd_per_visit': 300, 'location': 'Surry Hills + 多分店', 'specialty': 'Sausage roll 神級'}",
-        "{'name': 'Bourke Street Bakery', 'type': '肉派 + 麵包', 'cost_ntd': 200, 'location': 'Surry Hills'}",
-        "{'name': 'Spice I Am', 'type': 'Thai street food', 'cost_ntd': 600, 'location': 'Surry Hills'}",
-        "{'name': 'Quay', 'type': 'Modern Australian (3 hats)', 'cost_ntd': 8500, 'location': 'Circular Quay', 'specialty': 'Opera House 景'}"
-      ],
-      "spa": [
-        "{'name': 'Spa @ Park Hyatt Sydney', 'cost_ntd_per_treatment': 6500, 'signature': 'Indigenous Wellbeing 90-min', 'location': 'The Rocks'}",
-        "{'name': 'Body & Soul Spa Mosman', 'cost_ntd_per_treatment': 3000, 'location': 'Mosman'}",
-        "{'name': 'Massage Republic Bondi', 'cost_ntd_per_treatment': 1800, 'location': 'Bondi'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://taronga.org.au/sydney-zoo/special-experiences/zoo-adventures', 'language': 'en', 'type': 'official_website', 'trust': 5, 'accessed': '2026-05-13'}",
@@ -1826,41 +1608,33 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "5 星度假村 (camp 走路 5 min)",
-        "area": "RIMBA by AYANA Deluxe (主推, GUIDEPOST code 25% off)",
-        "price": 5833,
-        "note": "含早餐、14 池任選、Kubu Beach 私人海灘、AYANA tram 接駁全 estate"
+        "type": "resort",
+        "area": "AYANA Villas Bali (Jimbaran Bay)",
+        "price": 23809,
+        "note": "私人泳池、24h 管家、14 outdoor pools、Kids Club"
       },
       {
-        "type": "5 星度假村",
-        "area": "AYANA Resort Bali (升級)",
-        "price": 8333,
-        "note": "Suite 房型、海景升級"
+        "type": "villa",
+        "area": "Sanur 區 villa (近 Guidepost 校區)",
+        "price": 8571,
+        "note": "離 camp 近 + 預算腰斬 / 不如 AYANA 度假"
       },
       {
-        "type": "Airbnb 月租",
-        "area": "Jimbaran villa Airbnb 月租 (替代)",
-        "price": 3333,
-        "note": "獨立 villa、私人泳池、但需自行通勤到 AYANA estate"
+        "type": "resort",
+        "area": "RIMBA Jimbaran by AYANA",
+        "price": 13333,
+        "note": "AYANA 子品牌 / 共用設施 / 較親民"
       }
     ],
     "metime": [
-      "AYANA Spa (Asia 最大 wellness 之一)",
-      "Thalassotherapy pool 海水療法",
-      "SAKA Museum (TIME World's Greatest Places 2024)",
-      "Kampoeng Bali Kecak 火舞",
-      "Uluwatu Temple + Kecak fire dance 30 min",
-      "Jimbaran seafood beach"
+      "Spa on the Rocks AYANA（spa）",
+      "Yoga Barn Ubud (週末來回)（yoga）",
+      "Sundara Beach Club（cafe）",
+      "Rock Bar AYANA (黃昏 5-7pm 媽媽 sundowner)（cafe）"
     ],
     "classes": [
-      "languages: Bahasa Indonesia for Expats @ Cinta Bahasa Ubud",
-      "cooking: Balinese Cooking @ Paon Cooking Class Ubud",
-      "fitness_wellness: Yoga 3wk Pass @ Yoga Barn Ubud",
-      "arts: Batik Painting @ Threads of Life Ubud",
-      "culture: Hindu Ceremony Participation @ Pura Tirta Empul",
-      "business: Digital Nomad Bali Coworking + Workshops @ Hubud Ubud",
-      "social: Bali Expat Moms FB Group",
-      "volunteer: Sea Turtle Conservation @ Bali Sea Turtle Society Kuta"
+      "cooking: Bumbu Bali Cooking School (Tanjung Benoa)",
+      "art: Ubud Painting / Batik Workshop"
     ],
     "itinerary": null,
     "budget": {
@@ -1877,42 +1651,38 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "BIMC Hospital Nusa Dua: 限定 (translator available)",
-      "emergency": "+62 361 3000 911"
+      "mandarin": "BIMC Hospital Nusa Dua (車程 15min) +62 361 3000 911 / BIMC Kuta / Siloam Hospital",
+      "emergency": "112 (全境 emergency) / 救護車 118"
     },
     "emergency": {
       "hospitals": [
         {
-          "name": "BIMC Hospital Nusa Dua",
-          "addr": "Kawasan ITDC Blok D, Nusa Dua, Bali 80363",
-          "phone": "+62 361 3000 911",
-          "chinese": "限定 (translator available)",
-          "note": "離 AYANA Jimbaran 車程 20 min, expat 首選"
+          "name": "Bali Royal Hospital Jimbaran (Jl. Tantular X No. 22) +62 361 247 499",
+          "addr": "24h emergency",
+          "phone": "112 (全境 emergency) / 救護車 118",
+          "chinese": "—",
+          "note": "最近醫院"
         },
         {
-          "name": "Siloam Hospitals Bali Denpasar",
-          "addr": "Jl. Sunset Road No.818",
-          "phone": "+62 361 779 900",
-          "chinese": "Yes (普通話翻譯)",
-          "note": "印尼大型私立連鎖"
+          "name": "BIMC Hospital Nusa Dua (車程 15min) +62 361 3000 911",
+          "addr": "BIMC Kuta / Siloam Hospital",
+          "phone": "112 (全境 emergency) / 救護車 118",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
         }
       ],
       "pharmacy": [
         {
-          "name": "Apotek Kimia Farma (24h Kuta)",
-          "addr": ""
-        },
-        {
-          "name": "Guardian Pharmacy Seminyak",
-          "addr": ""
+          "name": "常用藥來源",
+          "addr": "Guardian / Apotek K-24 連鎖, 退燒/止痛/腸胃齊全, 處方藥 (抗生素) 寬鬆"
         }
       ],
-      "insurance_sop": "出發前確認旅平險海外醫療上限 ≥ NT$500 萬 + 海外急難救助 24h 中文專線。優先 Allianz、AIA、AXA 受理之機構。",
+      "insurance_sop": "國泰旅平 NT$500 萬 + 醫療轉送 (新加坡轉院 USD 50K+) / 必保 dengue / 摩托車意外",
       "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無 (Ubud 600m 偏中高 / 沿海安全)"
     },
     "support": {
-      "chinese_community": "中文支援指數 2/5（有限）",
+      "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
@@ -1954,33 +1724,10 @@ const CANDIDATES = [
         "priority": "P1"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"極稀少 (0-2 真實第三方家長 review, 全 sponsored content sassymamasg / balibuddies / honeycombers)\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"未驗證 (公司 owned media 主導)\""
-      },
-      {
-        "src": "guidepostmontessori.com/blog/guidepost-montessori-bankruptcy/",
-        "text": "\"None of GGE's schools or assets were included in HGE's Chapter 11 proceedings in the U.S. Bankruptcy Court for the Northern District of Texas.\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'Revolver Espresso', 'type': 'Specialty coffee', 'cost_ntd_per_visit': 350, 'location': 'Seminyak', 'specialty': 'Bali specialty 元祖'}",
-        "{'name': 'Crate Cafe', 'type': 'Industrial brunch', 'cost_ntd_per_visit': 400, 'location': 'Canggu', 'specialty': 'Bali Insta-famous'}",
-        "{'name': 'Warung Made', 'type': 'Babi Guling 烤豬', 'cost_ntd': 250, 'location': 'Seminyak / Kuta', 'specialty': '巴里傳統'}",
-        "{'name': 'Ibu Oka', 'type': 'Babi Guling 老字號', 'cost_ntd': 250, 'location': 'Ubud', 'specialty': 'Anthony Bourdain 推'}",
-        "{'name': 'Mozaic', 'type': 'Modern French', 'cost_ntd': 4500, 'location': 'Ubud', 'specialty': '8-course tasting'}"
-      ],
-      "spa": [
-        "{'name': 'AYANA Spa on the Rocks', 'cost_ntd_per_treatment': 6500, 'signature': 'Sunset Rocks suite 4h package', 'location': 'AYANA Resort'}",
-        "{'name': 'Bodyworks Bali', 'cost_ntd_per_treatment': 2500, 'location': 'Seminyak', 'note': '在地連鎖'}",
-        "{'name': 'Cosmo Spa', 'cost_ntd_per_treatment': 500, 'location': 'Seminyak', 'note': '60-min full body'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://guidepost.id/', 'language': 'en', 'type': 'official_website', 'trust': 4, 'accessed': '2026-05-13'}",
@@ -2049,35 +1796,33 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "All-inclusive 度假村",
-        "area": "Club Med Bali Superior 房 (含全包)",
-        "price": 24047,
-        "note": "三餐 + open bar 全天、32 項日活動、Mini Club 免費、多座泳池"
+        "type": "resort",
+        "area": "Club Med Bali (All-Inclusive)",
+        "price": 12857,
+        "note": "全包式 (房+三餐+open bar+酒類)、Mini Club Med 4-10 全日免費、32 項陸海活動、私人沙灘"
       },
       {
-        "type": "All-inclusive 度假村",
-        "area": "Deluxe 升級",
-        "price": 29761,
-        "note": "房間升級避負評 (2024 房間老舊抱怨)"
+        "type": "villa",
+        "area": "Mulia Villas Nusa Dua (2BR with private pool)",
+        "price": 15238,
+        "note": "Conde Nast 世界最佳，每 villa 私人泳池+管家+kids club，但 camp 須另外找"
+      },
+      {
+        "type": "resort",
+        "area": "Grand Hyatt Bali",
+        "price": 8571,
+        "note": "Camp Hyatt 4-12 歲半日營，比 Club Med 便宜但須另點餐"
       }
     ],
     "metime": [
-      "Sothys SPA (獨立計費, 半身按摩 USD 80-150 / 全身 USD 120-250)",
-      "成人靜池",
-      "半日 excursion Uluwatu sunset / Ubud day trip (加購 USD 40-150)",
-      "Nusa Dua 商圈 walking 10 min",
-      "Bali Collection",
-      "主餐廳"
+      "Club Med Bali Spa by Mandara（spa）",
+      "Club Med 瑜珈晨課 (含於套餐)（yoga）",
+      "Bali Collection Shopping & Cafe（cafe）",
+      "Sundara Beach Club at Four Seasons Jimbaran（spa）"
     ],
     "classes": [
-      "languages: Bahasa Indonesia Beginner @ Club Med Nusa Dua",
-      "cooking: Balinese Cooking Class @ Club Med Bali",
-      "fitness_wellness: Yoga + Pilates @ Club Med Bali Wellness",
-      "arts: Batik Painting Workshop @ Club Med Bali Cultural",
-      "culture: Balinese Dance Show + Workshop @ Club Med",
-      "business: Bali Digital Nomad Day Pass @ Outpost Coworking",
-      "social: Club Med G.O Welcome Cocktail + Daily Mingle",
-      "volunteer: Bali Sea Turtle Conservation Day Trip"
+      "cooking: Bali Cooking Class (Paon Bali Ubud)",
+      "yoga: Ubud Yoga Centre - 多日 retreat"
     ],
     "itinerary": null,
     "budget": {
@@ -2094,38 +1839,38 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "BIMC Hospital Nusa Dua: 限定",
-      "emergency": "+62 361 3000 911"
+      "mandarin": "BIMC Nusa Dua (ACHSI 國際認證, 24h ER, 英文流利)",
+      "emergency": "118 (急救) / 110 (警察) / 112 (旅遊熱線)"
     },
     "emergency": {
       "hospitals": [
         {
-          "name": "BIMC Hospital Nusa Dua",
-          "addr": "Kawasan ITDC Blok D, Nusa Dua, Bali 80363",
-          "phone": "+62 361 3000 911",
-          "chinese": "限定",
-          "note": "離 Club Med Bali 車程 5 min, expat 首選"
+          "name": "BIMC Siloam Nusa Dua, Kawasan ITDC Blok D, Nusa Dua, Bali (距 Club Med 2 km · 5 m",
+          "addr": "BIMC Siloam Nusa Dua, Kawasan ITDC Blok D, Nusa Dua, Bali (距 Club Med 2 km · 5 min)",
+          "phone": "118 (急救) / 110 (警察) / 112 (旅遊熱線)",
+          "chinese": "—",
+          "note": "最近醫院"
         },
         {
-          "name": "Siloam Hospitals Bali Denpasar",
-          "addr": "",
-          "phone": "+62 361 779 900",
-          "chinese": "Yes",
-          "note": "車程 30 min"
+          "name": "BIMC Nusa Dua (ACHSI 國際認證, 24h ER, 英文流利)",
+          "addr": "BIMC Nusa Dua (ACHSI 國際認證, 24h ER, 英文流利)",
+          "phone": "118 (急救) / 110 (警察) / 112 (旅遊熱線)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
         }
       ],
       "pharmacy": [
         {
-          "name": "Apotek Kimia Farma Nusa Dua",
-          "addr": ""
+          "name": "常用藥來源",
+          "addr": "Apotek (藥局) 整個 Nusa Dua 都有，BIMC 大廳也有藥房；台灣常用退燒藥 (Tylenol/普拿疼) 可買"
         }
       ],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "insurance_sop": "國泰世紀產險海外旅平 (含 Bali 醫療轉送), 主約 NTD $1500 萬 + 醫療 NTD $500 萬",
       "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無 (海平面)"
     },
     "support": {
-      "chinese_community": "中文支援指數 3/5（有限）",
+      "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
@@ -2162,33 +1907,10 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"充足 (Tripadvisor 多年累積)\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.0/5 (2024 出現過度擁擠 + 房間老舊負評集中)\""
-      },
-      {
-        "src": "Tripadvisor solo mom 評論",
-        "text": "\"孩子 8:30-17:00 進 Mini Club, 我做 SPA、躺 pool、不用煩惱接送\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'Club Med 內 Indigo Cafe', 'type': 'All-inclusive 含咖啡', 'cost_ntd_per_visit': 0, 'location': 'Club Med Bali Nusa Dua', 'specialty': '度假村內全包'}",
-        "{'name': 'Bali Buddha Cafe', 'type': 'Organic vegan', 'cost_ntd_per_visit': 350, 'location': 'Seminyak / Ubud', 'specialty': '出度假村小遠足'}",
-        "{'name': 'Warung Bu Mi', 'type': 'Nasi Campur', 'cost_ntd': 150, 'location': 'Nusa Dua 出度假村', 'specialty': '在地午餐'}",
-        "{'name': 'Bumbu Bali', 'type': '巴里傳統 fine', 'cost_ntd': 1500, 'location': 'Tanjung Benoa'}",
-        "{'name': 'Nusantara by Locavore @ The Apurva Kempinski', 'type': 'Modern Indonesian', 'cost_ntd': 4000, 'location': 'Nusa Dua'}"
-      ],
-      "spa": [
-        "{'name': 'Club Med Spa (內建)', 'cost_ntd_per_treatment': 3500, 'signature': 'Balinese 60-min', 'location': 'Club Med Bali', 'note': '走路 2 min 度假村內'}",
-        "{'name': 'Bali Garden Spa', 'cost_ntd_per_treatment': 1800, 'location': 'Nusa Dua'}",
-        "{'name': 'Cozy Bali Spa', 'cost_ntd_per_treatment': 500, 'location': 'Nusa Dua 出口'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://www.clubmed.com.tw/r/bali/y', 'language': 'zh-TW', 'type': 'official_website', 'trust': 5, 'accessed': '2026-05-13'}",
@@ -2257,41 +1979,34 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "5 星度假村 + Camp Hyatt drop-off",
-        "area": "Hyatt Regency Seragaki Island (恩納, 主推)",
-        "price": 8976,
-        "note": "Camp Hyatt 4+ 每日 drop-off、SPA、海邊、中文 staff"
+        "type": "serviced_apartment",
+        "area": "Mr.KINJO in 那霸 OMOROMACHI (公寓式)",
+        "price": 2976,
+        "note": "公寓式廚房、洗衣機、一房一廳一廁、免費 wifi"
       },
       {
-        "type": "Airbnb 月租",
-        "area": "那霸 City Condo Joint Home (廚房洗衣機 69-83㎡)",
-        "price": 4285,
-        "note": "國際通購物步行可達、OIS 即在那霸、媽媽 walkable"
+        "type": "resort",
+        "area": "Hyatt Regency Seragaki Island (恩納)",
+        "price": 18095,
+        "note": "若選 Camp Hyatt 改住恩納海岸 resort，含 Kids Club"
       },
       {
-        "type": "5 星度假村",
-        "area": "Halekulani Okinawa Beach Front (奢華)",
-        "price": 13095,
-        "note": "Halekulani Kids Club 全日 drop-off、海邊、SPA 頂"
+        "type": "airbnb",
+        "area": "那霸 國際通 3 房戶長住公寓",
+        "price": 4047,
+        "note": "本地戶 Airbnb 月租 30% off，含廚房+免費 parking"
       }
     ],
     "metime": [
-      "Halekulani SpaHalekulani",
-      "Hyatt Seragaki SPA",
-      "首里城公園",
-      "識名園",
-      "美麗海水族館 churaumi (海洋博公園) 1 day",
-      "古宇利島 ハートロック"
+      "Yoga Studio Aile 那霸店（yoga）",
+      "Spa Halekulani Okinawa（spa）",
+      "Starbucks Reserve 那霸新都心 + 美術館（cafe）",
+      "Sueyoshi Park 末吉公園 walking route（walking_route）",
+      "Howlive 新都心 coworking（coworking）"
     ],
     "classes": [
-      "languages: Japanese Beginner @ OIST Language Programme",
-      "cooking: Okinawan Cuisine Workshop @ Yui-Yui Kunigami",
-      "fitness_wellness: Yoga at Beach Resort @ Halekulani Okinawa",
-      "arts: Bingata Dyeing Workshop @ Shuri Ryusen",
-      "culture: Shuri Castle Heritage Walking Tour",
-      "business: Okinawa Coworking Day Pass @ Howlive Naha",
-      "social: Okinawa Expat Mums FB Group",
-      "volunteer: Okinawa Beach Cleanup Coalition"
+      "cooking: 沖繩料理體驗 Taste of Okinawa",
+      "language: Genki 日語短期班 那霸校"
     ],
     "itinerary": null,
     "budget": {
@@ -2308,43 +2023,39 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "Okinawa Chubu Hospital (沖縄県立中部病院): 限定 (translator 預約)",
-      "emergency": "+81 98 973 4111"
+      "mandarin": "Naha International Clinic by Experts, Graviton 3F, 1-9-19 Izumizaki, Naha 900-0021, 098-963-5601, 週一四+六 9-18 點",
+      "emergency": "119 (救護車/消防) / 110 (警察)"
     },
     "emergency": {
       "hospitals": [
         {
-          "name": "Okinawa Chubu Hospital (沖縄県立中部病院)",
-          "addr": "281 Miyazato, Uruma 904-2293",
-          "phone": "+81 98 973 4111",
-          "chinese": "限定 (translator 預約)",
-          "note": "縣立, 全縣最大 ER"
+          "name": "Nanbu Tokushukai Hospital 南部德州會病院 (Kitanakagusuku 北中城村 801) — 兒科 + 急診 24h，部分英語",
+          "addr": "Nanbu Tokushukai Hospital 南部德州會病院 (Kitanakagusuku 北中城村 801) — 兒科 + 急診 24h，部分英語",
+          "phone": "119 (救護車/消防) / 110 (警察)",
+          "chinese": "—",
+          "note": "最近醫院"
         },
         {
-          "name": "Naha City Hospital",
-          "addr": "",
-          "phone": "+81 98 884 5111",
-          "chinese": "—",
-          "note": "那霸市區 24h"
+          "name": "Naha International Clinic by Experts, Graviton 3F, 1-9-19 Izumizaki, Naha 900-00",
+          "addr": "Naha International Clinic by Experts, Graviton 3F, 1-9-19 Izumizaki, Naha 900-0021, 098-963-5601, 週一四+六 9-18 點",
+          "phone": "119 (救護車/消防) / 110 (警察)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
         }
       ],
       "pharmacy": [
         {
-          "name": "Cosmos Pharmacy (24h 多分店)",
-          "addr": ""
-        },
-        {
-          "name": "Daiichi Sankyo Healthcare Naha",
-          "addr": ""
+          "name": "常用藥來源",
+          "addr": "Matsumoto Kiyoshi マツモトキヨシ 全那霸都有，退燒藥 (子供 Bufferin) / 腸胃藥 (Seirogan 正露丸) 直接購買"
         }
       ],
-      "insurance_sop": "出發前購買旅平險海外醫療上限 ≥ NT$500 萬。",
+      "insurance_sop": "國泰產險 / 富邦旅平險，保 500 萬醫療 + 海外刷卡墊付，日本必備",
       "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無"
     },
     "support": {
-      "chinese_community": "中文支援指數 4/5（普通話可通）",
-      "taiwan_families_known": "可能（透過台商會詢問）",
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
     "confidence": {
@@ -2385,29 +2096,10 @@ const CANDIDATES = [
         "priority": "P1"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"中等 (台灣親子部落格 OIS 多 / 度假村 Kids Club 少)\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.3/5 (Hyatt Seragaki) / 3.8/5 (OIS)\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'Vongo & Anchor', 'type': 'Specialty coffee + 海景', 'cost_ntd_per_visit': 350, 'location': 'American Village 北谷', 'specialty': 'Insta-famous 海景'}",
-        "{'name': 'Yui Coffee', 'type': '在地手沖', 'cost_ntd_per_visit': 280, 'location': '那霸國際通', 'specialty': 'Okinawan 烘焙'}",
-        "{'name': 'Goya Champuru (古宇利島)', 'type': '苦瓜炒蛋琉球菜', 'cost_ntd': 350, 'location': '古宇利島'}",
-        "{'name': 'Ryukyu Soba (琉球麵)', 'type': '豬骨湯麵', 'cost_ntd': 250, 'location': '那霸 + 多分店'}",
-        "{'name': 'Hyatt Regency Naha Restaurant', 'type': '琉球創意', 'cost_ntd': 3000, 'location': '那霸'}"
-      ],
-      "spa": [
-        "{'name': 'Ritz-Carlton Spa Okinawa', 'cost_ntd_per_treatment': 6500, 'signature': 'Ryukyu massage 90-min', 'location': '名護'}",
-        "{'name': 'ANA Intercontinental Spa', 'cost_ntd_per_treatment': 3500, 'location': 'Manza'}",
-        "{'name': 'Tida Spa', 'cost_ntd_per_treatment': 1500, 'location': '那霸國際通'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://ois.ac.jp/en/summerprogram2026/', 'language': 'en', 'type': 'school_official', 'trust': 5, 'accessed': '2026-05-13'}",
@@ -2476,41 +2168,33 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "Pool villa 度假村",
-        "area": "Anantara Mai Khao Villas (主推)",
-        "price": 12380,
-        "note": "Turtle Kids Club drop-off、Pool villa 私密、Anantara Spa、海邊"
+        "type": "resort",
+        "area": "Anantara Mai Khao Phuket Villas (Two-Bedroom Family Pool Villa)",
+        "price": 13809,
+        "note": "私人泳池、兩臥、Kids Club (4-12)、babysitter THB 350/hr"
       },
       {
-        "type": "5 星度假村",
-        "area": "JW Marriott Phuket Resort & Spa Mai Khao",
-        "price": 10714,
-        "note": "Quan Spa、6 餐廳、Mai Khao Marine Turtle Foundation 駐村"
+        "type": "resort",
+        "area": "JW Marriott Phuket Mai Khao (Turtle Warriors)",
+        "price": 11904,
+        "note": "海龜保育主力 + Marriott 親子 (Family Wing)"
       },
       {
-        "type": "度假村",
-        "area": "SAii Laguna Phuket",
-        "price": 8095,
-        "note": "Banyan Tree 集團、lagoon 雨季相對平靜"
+        "type": "resort",
+        "area": "Renaissance Phuket Mai Khao",
+        "price": 9523,
+        "note": "Marriott 系 + 親民 / 同海灘"
       }
     ],
     "metime": [
-      "Anantara Spa villa 私密",
-      "JW Quan Spa",
-      "Phuket Old Town walk (Sino-Portuguese)",
-      "Big Buddha",
-      "Phang Nga Bay 半日 (James Bond Island)",
-      "Khao Lak 國家公園"
+      "Anantara Spa Mai Khao（spa）",
+      "Mai Khao Beach 散步 (10km 長灘)（walking_route）",
+      "Café Coralina Mai Khao（cafe）",
+      "Yoga at JW Marriott Spa Pavilion（yoga）"
     ],
     "classes": [
-      "languages: Survival Thai @ Phuket Thai Language School",
-      "cooking: Thai Cooking @ Pum Thai Cooking School",
-      "fitness_wellness: Muay Thai Class @ Tiger Muay Thai (Beginner)",
-      "arts: Thai Silk Weaving @ Naga Pearl Farm",
-      "culture: Thai Massage Course (Beginner Cert) @ Tropical Spa Academy Phuket",
-      "business: Digital Nomad Day Pass @ Mantra Coworking Phuket",
-      "social: Phuket Expat Mums FB Group + Monthly Brunch",
-      "volunteer: Sea Turtle Conservation @ Mai Khao Marine Turtle Foundation"
+      "cooking: Thai Cooking Class @ Anantara",
+      "yoga_teacher: Muay Thai Group Class"
     ],
     "itinerary": null,
     "budget": {
@@ -2527,42 +2211,38 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "Bangkok Hospital Phuket: Yes - 普通話 + 廣東話 + 福建話",
-      "emergency": "+66 76 254 425"
+      "mandarin": "Bangkok Hospital Siriroj / Phuket Internat Hospital / Mission Hospital Phuket / 度假村內 Anantara doctor on-call",
+      "emergency": "1669 (救護車) / 191 (警察) / 199 (火警)"
     },
     "emergency": {
       "hospitals": [
         {
-          "name": "Bangkok Hospital Phuket",
-          "addr": "2/1 Hongyok Utis Road, Phuket 83000",
-          "phone": "+66 76 254 425",
-          "chinese": "Yes - 普通話 + 廣東話 + 福建話",
-          "note": "JCI 認證, 從各度假村車程 30-60 min"
+          "name": "Bangkok Hospital Phuket (2",
+          "addr": "1 Hongyok Utis Rd, Phuket Town, 30km/35min) +66 76 254 421 / JCI 認證 24h",
+          "phone": "1669 (救護車) / 191 (警察) / 199 (火警)",
+          "chinese": "—",
+          "note": "最近醫院"
         },
         {
-          "name": "Phuket International Hospital",
-          "addr": "",
-          "phone": "+66 76 249 400",
-          "chinese": "Yes",
-          "note": ""
+          "name": "Bangkok Hospital Siriroj",
+          "addr": "Phuket Internat Hospital / Mission Hospital Phuket / 度假村內 Anantara doctor on-call",
+          "phone": "1669 (救護車) / 191 (警察) / 199 (火警)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
         }
       ],
       "pharmacy": [
         {
-          "name": "Boots Pharmacy Patong",
-          "addr": ""
-        },
-        {
-          "name": "Watsons Phuket Town",
-          "addr": ""
+          "name": "常用藥來源",
+          "addr": "Watsons / Boots / Fascino 連鎖, 退燒/止痛/腸胃齊全, 處方藥需處方"
         }
       ],
-      "insurance_sop": "出發前確認旅平險海外醫療上限 ≥ NT$500 萬 + 海外急難救助 24h 中文專線。優先 Allianz、AXA、AIA 受理之機構。",
+      "insurance_sop": "國泰旅平 NT$500 萬 + 摩托車險 + dengue + 海外急難 (Phuket 機車意外率高)",
       "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無"
     },
     "support": {
-      "chinese_community": "中文支援指數 3/5（有限）",
+      "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
@@ -2599,33 +2279,10 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"充足 (Tripadvisor 多年累積)\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.4/5 (Anantara villa)\""
-      },
-      {
-        "src": "Anantara Sea Turtle Conservation 官網",
-        "text": "\"Complete educational programme → IUCN 認證 Turtle Warrior 證書\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'The Coffee Club (多分店)', 'type': 'Australian-style cafe', 'cost_ntd_per_visit': 350, 'location': '全島', 'specialty': '5-6 歲女兒 kid menu'}",
-        "{'name': 'Boost Cafe Patong', 'type': 'Vegan + smoothies', 'cost_ntd_per_visit': 300, 'location': 'Patong'}",
-        "{'name': 'Mor Mu Dong', 'type': '南泰料理', 'cost_ntd': 400, 'location': 'Phuket Town', 'specialty': '在地家族料理'}",
-        "{'name': 'Raya Restaurant', 'type': 'Phuket Old Town fine', 'cost_ntd': 800, 'location': 'Phuket Town', 'specialty': '蟹肉咖哩麵'}",
-        "{'name': 'Pru @ Trisara', 'type': 'Modern Thai (米其林一星)', 'cost_ntd': 6500, 'location': 'Trisara Resort Mai Khao'}"
-      ],
-      "spa": [
-        "{'name': 'Banyan Tree Spa Phuket', 'cost_ntd_per_treatment': 6500, 'signature': 'Royal Banyan 120-min', 'location': 'Laguna Phuket'}",
-        "{'name': \"Let's Relax Spa (多分店)\", 'cost_ntd_per_treatment': 1800, 'location': 'Patong + Kata + Phuket Town'}",
-        "{'name': 'Mr Tree Massage', 'cost_ntd_per_treatment': 700, 'location': 'Patong'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://www.anantara.com/en/sustainability/sea-turtle-conservation-thailand', 'language': 'en', 'type': 'official_website', 'trust': 5, 'accessed': '2026-05-13'}",
@@ -2693,35 +2350,34 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "Airbnb 月租",
-        "area": "Kitsilano 1-2bd Airbnb 月租 (避 FIFA)",
-        "price": 8809,
-        "note": "Kits Beach 步行、Granville Island 渡輪 5 min、STR Act 限制: 房東 principal residence + STR licence"
+        "type": "airbnb",
+        "area": "Kitsilano 2-Bedroom Furnished Apartment (Airbnb monthly)",
+        "price": 7142,
+        "note": "2 房 1 衛、完整廚房 + 洗衣機、Kitsilano Beach 步行 5 min、公車站走 2 min"
       },
       {
-        "type": "服務式公寓",
-        "area": "Furnished Finder / Sandman Suites",
-        "price": 10238,
-        "note": "月租型、學區內、免 STR Act 限制"
+        "type": "serviced_apartment",
+        "area": "Sandman Suites Vancouver Davie",
+        "price": 5238,
+        "note": "市中心服務式公寓 CP 值，但要公車去 Kitsilano camp"
+      },
+      {
+        "type": "hotel",
+        "area": "The Listel Hotel (Robson St)",
+        "price": 9523,
+        "note": "藝術精品酒店，步行 Stanley Park，但無廚房"
       }
     ],
     "metime": [
-      "YYoga Kitsilano (含 infrared sauna + tea lounge)",
-      "Modo Yoga Vancouver (熱瑜伽)",
-      "Vancouver Art Gallery",
-      "Museum of Anthropology at UBC (世界級原住民藝術)",
-      "Whistler 車 2h",
-      "Squamish + Sea-to-Sky Gondola"
+      "YYOGA Kitsilano（yoga）",
+      "Casa Copal Yoga & Wellness（yoga）",
+      "Kitsilano Beach 海灘步道（walking_route）",
+      "JJ Bean Coffee (W 4th)（cafe）",
+      "WeWork 555 Burrard / Spaces Yaletown（coworking）"
     ],
     "classes": [
-      "languages: French Conversation @ Alliance Française Vancouver",
-      "cooking: West Coast Salmon Cooking @ Edible Canada",
-      "fitness_wellness: Yoga 3wk Pass @ YYoga Vancouver",
-      "arts: Watercolor @ Vancouver Art Gallery Workshop",
-      "culture: First Nations Cedar Weaving Workshop @ Museum of Anthropology UBC",
-      "business: AI for Mompreneurs @ BCIT Continuing Education",
-      "social: North Shore Moms FB Group + Eastside Moms",
-      "volunteer: Vancouver Aquarium Marine Conservation Volunteer"
+      "language: UBC Continuing Studies 短期語言/文化班",
+      "art: Vancouver Folk School 一日陶藝/烘焙工作坊"
     ],
     "itinerary": null,
     "budget": {
@@ -2738,43 +2394,39 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "Vancouver General Hospital (BC 公立): Yes - 普通話 + 廣東話 (大華人區)",
-      "emergency": "911"
+      "mandarin": "BC Children's Hospital ER (16 歲以下), Vancouver General Hospital (920 W 10th Ave, 17+) — 完全英文",
+      "emergency": "911 (急救+警察+消防)"
     },
     "emergency": {
       "hospitals": [
         {
-          "name": "Vancouver General Hospital (BC 公立)",
-          "addr": "899 W 12th Ave, Vancouver, BC V5Z 1M9",
-          "phone": "+1 604 875 4111",
-          "chinese": "Yes - 普通話 + 廣東話 (大華人區)",
-          "note": ""
+          "name": "BC Children's Hospital, 4480 Oak St, Vancouver BC (距 Kits 5 km · 12 min)",
+          "addr": "BC Children's Hospital, 4480 Oak St, Vancouver BC (距 Kits 5 km · 12 min)",
+          "phone": "911 (急救+警察+消防)",
+          "chinese": "—",
+          "note": "最近醫院"
         },
         {
-          "name": "BC Children's Hospital",
-          "addr": "4480 Oak Street, Vancouver",
-          "phone": "+1 604 875 2345",
-          "chinese": "Yes",
-          "note": "西加最大兒童專科, 公立"
+          "name": "BC Children's Hospital ER (16 歲以下), Vancouver General Hospital (920 W 10th Ave, ",
+          "addr": "BC Children's Hospital ER (16 歲以下), Vancouver General Hospital (920 W 10th Ave, 17+) — 完全英文",
+          "phone": "911 (急救+警察+消防)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
         }
       ],
       "pharmacy": [
         {
-          "name": "Shoppers Drug Mart 24h Davie Street",
-          "addr": ""
-        },
-        {
-          "name": "London Drugs (多分店, 22-24h)",
-          "addr": ""
+          "name": "常用藥來源",
+          "addr": "Shoppers Drug Mart 整個溫哥華都是，London Drugs 也是；退燒/止痛非處方藥隨買"
         }
       ],
-      "insurance_sop": "出發前確認旅平險海外醫療上限 ≥ NT$500 萬 + 海外急難救助 24h 中文專線。優先 AIG、Allianz、Bupa 受理之機構。",
+      "insurance_sop": "國泰世紀產險旅平 NTD $1500 萬 + 加保 BC 公立醫院自付 (BC 對外國人收 CAD $1000+/急診)",
       "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無 (海平面)"
     },
     "support": {
-      "chinese_community": "中文支援指數 5/5（普通話可通）",
-      "taiwan_families_known": "可能（透過台商會詢問）",
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
@@ -2820,29 +2472,10 @@ const CANDIDATES = [
         "priority": "P1"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"充足 (BC 親子部落格 + Pear Tree 學校評論)\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.4/5\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'Revolver Coffee', 'type': 'Specialty roaster', 'cost_ntd_per_visit': 300, 'location': 'Gastown'}",
-        "{'name': 'Matchstick Coffee Roasters', 'type': 'Industrial specialty', 'cost_ntd_per_visit': 280, 'location': 'Mount Pleasant'}",
-        "{'name': 'Japadog Robson', 'type': 'Japanese hot dog street', 'cost_ntd': 250, 'location': 'Robson Street', 'specialty': 'Vancouver street food 標誌'}",
-        "{'name': 'Granville Island Public Market', 'type': 'Market food court', 'cost_ntd': 400, 'location': 'Granville Island', 'specialty': '30+ 攤'}",
-        "{'name': 'Hawksworth', 'type': 'Modern Canadian', 'cost_ntd': 6500, 'location': 'Rosewood Hotel Georgia'}"
-      ],
-      "spa": [
-        "{'name': 'Willow Stream Spa @ Fairmont Pacific Rim', 'cost_ntd_per_treatment': 5800, 'signature': 'Pacific Northwest 90-min', 'location': 'Coal Harbour'}",
-        "{'name': 'Vida Spa Sutton Place', 'cost_ntd_per_treatment': 3000, 'location': 'Downtown'}",
-        "{'name': 'Massage Addict Kitsilano', 'cost_ntd_per_treatment': 1800, 'location': 'Kitsilano'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://www.pear-tree.ca/our-camps/summer-camps-vancouver/', 'language': 'en', 'type': 'school_official', 'trust': 5, 'accessed': '2026-05-13'}",
@@ -2907,41 +2540,34 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "Airbnb 月租",
-        "area": "Vondelpark / Oud-Zuid 1-bed Airbnb monthly (主推)",
-        "price": 11904,
-        "note": "camp 走路 5-15 min、博物館全在步行圈、兒童遊樂步行可達、媽媽 me-time 密度最高"
+        "type": "airbnb",
+        "area": "Vondelpark 2-Bed Family Apartment (Oud-Zuid)",
+        "price": 8476,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
       },
       {
-        "type": "Airbnb 月租",
-        "area": "De Pijp 文青區",
-        "price": 16666,
-        "note": "文青 + 餐廳 + Albert Cuyp 市集、騎車 15 min"
+        "type": "serviced_apartment",
+        "area": "The Ascott Amsterdam Holland House",
+        "price": 11666,
+        "note": "Ascott 集團服務式公寓，含廚房 + 洗衣，中央地段"
       },
       {
-        "type": "Airbnb 月租",
-        "area": "Amstelveen 南郊家庭區",
-        "price": 10714,
-        "note": "家庭區 + 國際學校多 + 性價比、騎車 25-30 min / 地鐵 15 min"
+        "type": "hotel",
+        "area": "Conservatorium Hotel (Museumplein)",
+        "price": 18095,
+        "note": "頂級五星，博物館廣場旁，但無廚房"
       }
     ],
     "metime": [
-      "Spa Zuiver Wellness Resort (森林湖邊全天 spa 套票 EUR 65-150)",
-      "Sauna Deco",
-      "Rijksmuseum (林布蘭《夜巡》維梅爾《倒牛奶女僕》)",
-      "Van Gogh Museum (全球最大)",
-      "Zaanse Schans 風車村 30 min train",
-      "Marken / Volendam 漁村"
+      "Delight Yoga Vondelstraat（yoga）",
+      "Akasha Holistic Wellbeing @ Conservatorium（spa）",
+      "TQ Coworking (Singel)（coworking）",
+      "Vondelpark 環湖騎車路線（walking_route）",
+      "Coffee & Coconuts De Pijp（cafe）"
     ],
     "classes": [
-      "languages: Dutch Beginner @ Volksuniversiteit Amsterdam",
-      "cooking: Dutch Cooking @ Kookboutique Amsterdam",
-      "fitness_wellness: Yoga 3wk Pass @ Delight Yoga Amsterdam",
-      "arts: Watercolor @ Rijksakademie Public Workshops",
-      "culture: Anne Frank House + Resistance Museum Tour",
-      "business: AI for Working Mums @ Amsterdam Business School Continuing Ed",
-      "social: Amsterdam Mamas FB Group + Weekly Coffee",
-      "volunteer: Amsterdam Bos Forest Volunteer"
+      "cooking: The Dutch Cooking Class Amsterdam",
+      "language: Direct Dutch Institute 荷蘭語入門"
     ],
     "itinerary": null,
     "budget": {
@@ -2958,42 +2584,38 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "OLVG Hospital (公立): 限定 (英文為主)",
-      "emergency": "112"
+      "mandarin": "Centrum Familiezorg Amsterdam-Zuid / Doctors-2-Go Amsterdam (+31 20 427 5011)",
+      "emergency": "112 (歐盟通用)"
     },
     "emergency": {
       "hospitals": [
         {
-          "name": "OLVG Hospital (公立)",
-          "addr": "Oosterpark 9, 1091 AC Amsterdam",
-          "phone": "+31 20 599 9111",
-          "chinese": "限定 (英文為主)",
-          "note": ""
+          "name": "OLVG Hospital West, Jan Tooropstraat 164, 1061 AE Amsterdam — 阿姆主要醫院，急診 24h",
+          "addr": "OLVG Hospital West, Jan Tooropstraat 164, 1061 AE Amsterdam — 阿姆主要醫院，急診 24h",
+          "phone": "112 (歐盟通用)",
+          "chinese": "—",
+          "note": "最近醫院"
         },
         {
-          "name": "Emma Children's Hospital @ AMC",
-          "addr": "",
-          "phone": "+31 20 566 9111",
-          "chinese": "—",
-          "note": "兒童專科"
+          "name": "Centrum Familiezorg Amsterdam-Zuid",
+          "addr": "Doctors-2-Go Amsterdam (+31 20 427 5011)",
+          "phone": "112 (歐盟通用)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
         }
       ],
       "pharmacy": [
         {
-          "name": "BENU Apotheek de Dijk",
-          "addr": ""
-        },
-        {
-          "name": "Service Apotheek (週末值班輪替)",
-          "addr": ""
+          "name": "常用藥來源",
+          "addr": "Etos / Kruidvat 藥妝店全市，退燒/止痛 Paracetamol 直購，處方藥 Apotheek"
         }
       ],
-      "insurance_sop": "出發前確認旅平險海外醫療上限 ≥ NT$500 萬 + 海外急難救助 24h 中文專線。優先 Allianz、AXA 受理之機構。",
+      "insurance_sop": "歐遊險必備 Schengen 30,000 EUR 醫療標準，富邦旅平 / Allianz Travel",
       "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
-      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）"
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無 (海平面以下 -2m)"
     },
     "support": {
-      "chinese_community": "中文支援指數 3/5（有限）",
+      "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
@@ -3035,29 +2657,10 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"稀少 (Little Makers 5 歲 case-by-case 評價缺)\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"未驗證\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'Toki Cafe', 'type': 'Japanese-influenced specialty', 'cost_ntd_per_visit': 250, 'location': 'Jordaan'}",
-        "{'name': 'Lot Sixty One', 'type': 'Specialty roaster', 'cost_ntd_per_visit': 220, 'location': 'De Pijp'}",
-        "{'name': 'Vleminckx de Sausmeester', 'type': 'Belgian fries (1887)', 'cost_ntd': 150, 'location': 'Voetboogstraat', 'queue_warning': '排 20 min'}",
-        "{'name': 'FEBO (自動販售機餐)', 'type': 'Dutch snacks', 'cost_ntd': 100, 'location': '全市'}",
-        "{'name': 'De Kas', 'type': 'Farm-to-table', 'cost_ntd': 4500, 'location': 'Frankendael Park'}"
-      ],
-      "spa": [
-        "{'name': 'Spa Zuiver', 'cost_ntd_per_treatment': 4500, 'signature': 'Day spa pass + outdoor pool', 'location': 'Sloterpark'}",
-        "{'name': 'Sauna Deco', 'cost_ntd_per_treatment': 2500, 'location': 'Herengracht'}",
-        "{'name': 'Massage Place Amsterdam', 'cost_ntd_per_treatment': 1500, 'location': 'Centrum'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://www.littlemakers.nl/3in1camp', 'language': 'en', 'type': 'official_website', 'trust': 5, 'accessed': '2026-05-13'}",
@@ -3125,33 +2728,34 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "Airbnb 月租",
-        "area": "North York 華人 Airbnb",
-        "price": 2523,
-        "note": "中文房東、接機、米飯廚具齊、地鐵 1 號線"
+        "type": "airbnb",
+        "area": "Bloor West Village 2BR Furnished House (Airbnb monthly)",
+        "price": 6904,
+        "note": "2 房 + 後院、完整廚房+洗衣機、TTC 地鐵走 5 min、High Park 步行 8 min"
       },
       {
-        "type": "公寓酒店",
-        "area": "Yorkville Townhouse",
-        "price": 4047,
-        "note": "ROM 步行 5 分、Hazelton Lanes 名店、Ramsden Park 視野"
+        "type": "serviced_apartment",
+        "area": "DelSuites Bloor",
+        "price": 6428,
+        "note": "服務式公寓 + 每週清潔"
+      },
+      {
+        "type": "airbnb",
+        "area": "Roncesvalles 2BR",
+        "price": 6666,
+        "note": "鄰區，波蘭社區，咖啡店密度高"
       }
     ],
     "metime": [
-      "Hammam Spa by Céla (北非式蒸汽 CAD$150-300)",
-      "Body Blitz Spa (女性專屬熱水/冷水/泥水療程)",
-      "Art Gallery of Ontario (Frank Gehry 設計, 永久展免費)",
-      "Aga Khan Museum (伊斯蘭藝術全球頂)",
-      "Niagara Falls 1 小時 GO Train (5-6 歲 12 以下免費 + 大人 CAD$18-32)",
-      "Algonquin Park 3 小時 (小木屋 + 賞鹿 + 獨木舟)"
+      "Active Yoga (Bikram High Park/Roncesvalles)（yoga）",
+      "The Base Toronto (Roncesvalles)（yoga）",
+      "Kondition Athletic Roncesvalles（yoga）",
+      "High Park 步道（walking_route）",
+      "Sam James Coffee Bar（cafe）"
     ],
     "classes": [
-      "languages: French Conversation @ Alliance Française Toronto",
-      "cooking: Modern Canadian Cooking @ Calphalon Culinary Center",
-      "fitness_wellness: Yoga 3wk Pass @ Modo Yoga Toronto",
-      "arts: Watercolor @ AGO Workshop",
-      "culture: ROM Curator Walk + Workshop",
-      "social: Toronto Moms FB Groups + Brunch"
+      "business / language: U of T School of Continuing Studies",
+      "cooking: Le Dolci Baking Studio"
     ],
     "itinerary": null,
     "budget": {
@@ -3168,13 +2772,13 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "Toronto General Hospital: Yes - 大華人區普通話 + 廣東話",
-      "emergency": "911"
+      "mandarin": "SickKids Pediatric ER 24h 全英文 / 416-813-1500",
+      "emergency": "911 (急救+警察+消防)"
     },
     "emergency": null,
     "support": {
-      "chinese_community": "中文支援指數 4/5（普通話可通）",
-      "taiwan_families_known": "可能（透過台商會詢問）",
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
     "confidence": {
@@ -3205,27 +2809,10 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"部分\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"正面 (TCAT 同鄉會聚會反饋)\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'Pilot Coffee Roasters', 'type': 'Specialty roaster', 'cost_ntd_per_visit': 250, 'location': 'Te Aro + Queen East'}",
-        "{'name': 'Boxcar Social', 'type': 'Coffee + craft beer', 'cost_ntd_per_visit': 300, 'location': '多分店'}",
-        "{'name': \"Schwartz's Deli (Toronto branch)\", 'type': 'Montreal-style smoked meat', 'cost_ntd': 600, 'location': 'Yonge Street'}",
-        "{'name': 'St. Lawrence Market Peameal Bacon Sandwich', 'type': '在地經典', 'cost_ntd': 350, 'location': 'St. Lawrence Market'}",
-        "False"
-      ],
-      "spa": [
-        "{'name': 'Spa My Blend @ Ritz-Carlton Toronto', 'cost_ntd_per_treatment': 6500, 'location': 'Wellington Street'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://www.rom.on.ca/whats-on/special-programs/summer-club', 'language': 'en', 'type': 'official_website', 'trust': 5, 'accessed': '2026-05-14'}",
@@ -3290,39 +2877,34 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "Airbnb 月租",
-        "area": "Sunnybank Little Taipei Airbnb",
-        "price": 4047,
-        "note": "台灣食材、中文社群、Asian grocers 多家"
+        "type": "serviced_apartment",
+        "area": "Quest on Story Bridge (or Quest Sunnybank Hills)",
+        "price": 9761,
+        "note": "公寓式廚房、洗衣機+烘衣機、兩房、免費 wifi"
       },
       {
-        "type": "公寓 2BR self-contained",
-        "area": "Kangaroo Point Dockside",
-        "price": 4523,
-        "note": "Story Bridge 對岸河景、self-contained 廚房"
+        "type": "airbnb",
+        "area": "Sunnybank 家庭獨棟 (Airbnb monthly)",
+        "price": 7857,
+        "note": "Sunnybank 心臟全澳最大台灣社群，便宜獨棟，廚房洗衣全套，但離 Currumbin camp 100km"
       },
       {
-        "type": "海岸度假村",
-        "area": "Mooloolaba Dockside / Caribbean Resort",
-        "price": 5000,
-        "note": "海灘走路、兒童池、Australia Zoo 15min drive"
+        "type": "resort",
+        "area": "Mantra Coolangatta Beach (Gold Coast)",
+        "price": 10714,
+        "note": "Currumbin camp 開車 8min，海邊度假村適合 W1-2"
       }
     ],
     "metime": [
-      "Endota Spa 4 分店 (Fortitude Valley / Rosalie / Chermside / Carindale)",
-      "Sunnybank 韓式 spa + 按摩",
-      "GOMA / QAGOMA (免費入場 + Vipoo Rivilasa 展)",
-      "QPAC 演藝中心",
-      "Tangalooma Moreton Island 1h15m ferry (沙板滑沙 + 海豚餵食 AUD$99)",
-      "Glasshouse Mountains 1h drive"
+      "Power Living Yoga Brisbane (Fortitude Valley)（yoga）",
+      "Sunnybank Plaza walking + Asian groceries（walking_route）",
+      "Endota Spa New Farm（spa）",
+      "South Bank Parklands + GoMA art gallery（walking_route）",
+      "WOTSO Coworking Toowong（coworking）"
     ],
     "classes": [
-      "languages: Mandarin @ Confucius Institute @ QUT",
-      "cooking: Modern Australian @ James St Cooking School",
-      "fitness_wellness: Yoga 3wk Pass @ BodyMindLife Yoga Brisbane",
-      "arts: Watercolor @ GOMA Workshop",
-      "culture: Indigenous Walking Tour South Bank",
-      "social: Sunnybank Taiwanese Mums FB + Weekly Meet"
+      "cooking: Brisbane Cooking School",
+      "art: Queensland Conservatorium short music workshop"
     ],
     "itinerary": null,
     "budget": {
@@ -3339,13 +2921,13 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "St Andrew's War Memorial Hospital: Sunnybank 區普通話 + 廣東話",
-      "emergency": "000"
+      "mandarin": "Sunnybank Family Medical Centre - 348 McCullough Street, Sunnybank QLD (含中文翻譯)",
+      "emergency": "000 (Triple Zero)"
     },
     "emergency": null,
     "support": {
-      "chinese_community": "中文支援指數 5/5（普通話可通）",
-      "taiwan_families_known": "可能（透過台商會詢問）",
+      "chinese_community": "無在地華人社群（純英語環境）",
+      "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
     "confidence": {
@@ -3376,27 +2958,10 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"部分 (Sunnybank 台灣社群口碑強)\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"正面\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'John Mills Himself', 'type': 'Specialty espresso', 'cost_ntd_per_visit': 250, 'location': 'Charlotte St'}",
-        "{'name': 'King Arthur Cafe', 'type': 'Brunch', 'cost_ntd_per_visit': 400, 'location': 'Fortitude Valley'}",
-        "{'name': 'Eat Street Northshore', 'type': 'Container market 80+ stalls', 'cost_ntd': 300, 'location': 'Hamilton (週末)'}",
-        "{'name': 'Hellenika', 'type': 'Greek + Sunnybank', 'cost_ntd': 800, 'location': 'Sunnybank'}",
-        "True"
-      ],
-      "spa": [
-        "{'name': 'Spa Anise @ Spicers Balfour Hotel', 'cost_ntd_per_treatment': 4500, 'location': 'New Farm'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://currumbinsanctuary.com.au/learn/holiday-programs/wild-adventures-5-8yrs/', 'language': 'en', 'type': 'official_website', 'trust': 5, 'accessed': '2026-05-14'}",
@@ -3461,33 +3026,35 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "Airbnb / 短租 monthly",
-        "area": "江南區 Gangnam Blueground",
-        "price": 4285,
-        "note": "地鐵 2/3 號線、高級購物、短租友善"
+        "type": "serviced_apartment",
+        "area": "Fraser Place Central Seoul (光化門)",
+        "price": 7238,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
       },
       {
-        "type": "度假村",
-        "area": "濟州中文觀光區",
-        "price": 3095,
-        "note": "樂天 / Shilla Stay / Hyatt、玻璃博物館、海邊"
+        "type": "serviced_apartment",
+        "area": "Pangyo Avalon Residence (盆唐近 KIS)",
+        "price": 6428,
+        "note": "5km 到 KIS Pangyo，平日方便接送，週末進市區 30min"
+      },
+      {
+        "type": "airbnb",
+        "area": "盆唐家庭三房公寓",
+        "price": 5238,
+        "note": "Airbnb 月租，廚房+washer，當地戶長住"
       }
     ],
     "metime": [
-      "汗蒸幕 (Dragon Hill Spa / Itaewon Land / Sulwhasoo Flagship) ₩30k-200k",
-      "江南 K-beauty 醫美",
-      "National Museum of Korea",
-      "DDP 東大門設計廣場",
-      "江華島 1h (巨石文化)",
-      "Suwon Hwaseong 水原華城 (世界遺產 1h)"
+      "PURE Yoga Seoul Gangnam（yoga）",
+      "Sulwhasoo Spa 旗艦店 (狎鷗亭)（spa）",
+      "Anthracite Coffee 漢南店（cafe）",
+      "Cheonggyecheon 清溪川 walking（walking_route）",
+      "WeWork 江南（coworking）"
     ],
     "classes": [
-      "languages: Korean Beginner @ Yonsei KLI",
-      "cooking: Korean Royal Cuisine @ O'ngo Food Communications",
-      "fitness_wellness: Yoga @ Magic Pond Yoga Seoul",
-      "arts: Hanji 韓紙工藝 @ Insadong Workshop",
-      "culture: Tea Ceremony @ O'sulloc Tea House",
-      "social: Seoul Expat Mums FB Group"
+      "cooking: K-cooking class @ O'ngo Food Communications",
+      "language: Yonsei KLI 韓語短期班",
+      "art: Korean Beauty class (K-beauty masterclass)"
     ],
     "itinerary": null,
     "budget": {
@@ -3504,12 +3071,12 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "Severance Hospital (延世大學醫院): Yes - 國際病房 普通話",
-      "emergency": "119"
+      "mandarin": "Severance Hospital International Health Care Center (新村 Yonsei), +82-2-2228-5810; SNUBH International Healthcare Service (盆唐 KIS 附近) +82-31-787-1004",
+      "emergency": "119 (救護車/消防) / 112 (警察)"
     },
     "emergency": null,
     "support": {
-      "chinese_community": "中文支援指數 3/5（有限）",
+      "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
@@ -3541,28 +3108,10 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"部分\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"正面 (KIS / SFS 國際家庭 review 多)\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'Anthracite Coffee', 'type': 'Specialty 元祖', 'cost_ntd_per_visit': 200, 'location': 'Hapjeong / Hannam'}",
-        "{'name': 'Fritz Coffee Company', 'type': 'Roaster', 'cost_ntd_per_visit': 220, 'location': 'Mapo + 多分店'}",
-        "{'name': 'Tosokchon Samgyetang (土俗村蔘雞湯)', 'type': '蔘雞湯', 'cost_ntd': 450, 'location': '景福宮', 'queue_warning': '排 60 min'}",
-        "{'name': 'Gwangjang Market', 'type': '傳統市場 + 食街', 'cost_ntd': 200, 'location': '鍾路', 'specialty': '綠豆煎餅 + 麻藥紫菜飯捲'}",
-        "{'name': 'Mingles', 'stars': 2, 'note': 'Modern Korean Cheongdam'}"
-      ],
-      "spa": [
-        "{'name': 'Spa Lei @ Lotte Hotel', 'cost_ntd_per_treatment': 4500, 'signature': 'Korean Royal Court', 'location': 'Sogong'}",
-        "{'name': 'Dragon Hill Spa (汗蒸幕)', 'cost_ntd_per_treatment': 800, 'location': 'Yongsan', 'note': '5 樓汗蒸幕 + 大眾池, 24h'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://www.kis.or.kr/experience/summer-programs', 'language': 'en', 'type': 'official_website', 'trust': 5, 'accessed': '2026-05-14'}",
@@ -3626,33 +3175,35 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "Airbnb 月租",
-        "area": "Kelburn Airbnb 2-bed",
-        "price": 3238,
-        "note": "安靜住宅區、Zealandia 10min drive、Botanic Garden 5min 步行"
+        "type": "serviced_apartment",
+        "area": "Adina CityLife Wellington",
+        "price": 5238,
+        "note": "公寓式廚房、洗衣機、一房 +客廳、免費 wifi"
       },
       {
-        "type": "Heritage 2-bed 2-bath",
-        "area": "Thorndon Heritage Villa",
-        "price": 3619,
-        "note": "19 世紀木屋、Tinakori Rd 餐廳、步行 15min 市中心"
+        "type": "serviced_apartment",
+        "area": "Sojourn Apartment Hotels Wellington",
+        "price": 4523,
+        "note": "7+ 晚 15% / 14+ 晚 20% 折，公寓品質高"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Gilmer Apartment Hotel Wellington",
+        "price": 4857,
+        "note": "走 Lambton Quay 2min，廚房+洗衣，5 歲女兒友善"
       }
     ],
     "metime": [
-      "Bodhi Yoga Studio / Hot Yoga Wellington",
-      "Onsen Hot Pools Queenstown (短遊用, NZD$97.5 私人池)",
-      "Wētā Workshop Experience 90min Tour (LotR / Avatar 工作室 NZD$54)",
-      "Wellington City Gallery (免費)",
-      "Wairarapa wine country 1.5h drive",
-      "Cape Palliser 燈塔 + 海狗群"
+      "Yoga in Daily Life Wellington（yoga）",
+      "Studio Z Wellington（yoga）",
+      "Wellington Waterfront walking route (Oriental Bay)（walking_route）",
+      "East Day Spa Wellington（spa）",
+      "BizDojo Wellington (coworking)（coworking）",
+      "Te Papa Museum cafe + StoryPlace（museum）"
     ],
     "classes": [
-      "languages: Mandarin @ Confucius Institute Victoria University",
-      "cooking: Modern NZ Cooking @ Ruth Pretty Cooking School",
-      "fitness_wellness: Yoga @ Hot Yoga Wellington",
-      "arts: Watercolor @ Te Papa Workshop",
-      "culture: Maori Cultural Performance + Workshop @ Te Papa",
-      "social: Wellington Mums FB Group + Brunch"
+      "language: Whitireia NZ - Te Reo Māori 入門",
+      "cooking: The Cooking Workshop Wellington"
     ],
     "itinerary": null,
     "budget": {
@@ -3669,12 +3220,12 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "Wellington Regional Hospital: 限定 (預約翻譯)",
-      "emergency": "111"
+      "mandarin": "Wellington Accident & Urgent Medical Centre - 17 Adelaide Road, Newtown (家庭走入急診 7am-11pm)",
+      "emergency": "111 (警/救護/消防三合一)"
     },
     "emergency": null,
     "support": {
-      "chinese_community": "中文支援指數 3/5（有限）",
+      "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
@@ -3706,27 +3257,10 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"部分\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"正面 (LotR 粉絲家庭 + 自然控)\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'Customs Coffee by Coffee Supreme', 'type': 'Specialty roaster', 'cost_ntd_per_visit': 220, 'location': 'Ghuznee Street'}",
-        "{'name': 'Flight Coffee Hangar', 'type': 'Roaster + brunch', 'cost_ntd_per_visit': 350, 'location': 'Hannahs Laneway'}",
-        "{'name': 'Mt Vic Chippery', 'type': 'Fish & chips', 'cost_ntd': 400, 'location': 'Majoribanks St'}",
-        "False",
-        "Aunty Mena's Vege Cafe"
-      ],
-      "spa": [
-        "{'name': 'East Day Spa', 'cost_ntd_per_treatment': 3500, 'location': 'Cuba Street'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://wellingtonzoo.com/visit/plan-your-day/things-to-do/holiday-programmes/', 'language': 'en', 'type': 'official_website', 'trust': 5, 'accessed': '2026-05-14'}",
@@ -3792,27 +3326,35 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "Villa",
-        "area": "Ubud villa 月租",
-        "price": 4285,
-        "note": "私人泳池、稻田景觀、瑜伽墊 + 廚房"
+        "type": "villa",
+        "area": "Villa near Green School Ubud (3BR private pool)",
+        "price": 6190,
+        "note": "私人泳池、三臥、稻田景、廚房"
+      },
+      {
+        "type": "hotel",
+        "area": "Mandapa Ritz-Carlton Reserve Ubud",
+        "price": 22857,
+        "note": "Ubud 頂級 + 河谷 villa / 大幅超預算"
+      },
+      {
+        "type": "resort",
+        "area": "Four Seasons Sayan",
+        "price": 20000,
+        "note": "5* Ubud 河谷 + Pici Pici 雙幣"
       }
     ],
     "metime": [
-      "Ubud 全球瑜伽聖地 (Yoga Barn / Radiantly Alive)",
-      "傳統 Balinese massage NT$500-1500/h",
-      "Ubud Royal Palace 烏布皇宮",
-      "Tegallalang 梯田",
-      "Mount Batur 火山日出 (4am 出發)",
-      "Tirta Empul 神泉廟"
+      "Yoga Barn Ubud（yoga）",
+      "Radiantly Alive Ubud（yoga）",
+      "Karsa Spa Ubud（spa）",
+      "Tropical Nomad Coworking Ubud（coworking）",
+      "Seniman Coffee Studio（cafe）"
     ],
     "classes": [
-      "languages: Bahasa Indonesia @ Cinta Bahasa Ubud",
-      "cooking: Paon Bali Cooking Class",
-      "fitness_wellness: Yoga 3wk Pass @ Yoga Barn Ubud",
-      "arts: Batik @ Threads of Life Ubud",
-      "culture: Hindu Ceremony @ Pura Tirta Empul",
-      "social: Bali Expat Moms FB Group"
+      "yoga_teacher: Yoga Barn Teacher Training (mini intensive)",
+      "cooking: Paon Bali Cooking School",
+      "art: Bali Silver Jewelry Workshop"
     ],
     "itinerary": null,
     "budget": {
@@ -3829,12 +3371,12 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "BIMC Hospital Ubud: 限定",
-      "emergency": "+62 361 2003 911"
+      "mandarin": "BIMC Ubud / Ubud Care Clinic / 度假村醫生 on-call",
+      "emergency": "112 (全境) / 救護車 118"
     },
     "emergency": null,
     "support": {
-      "chinese_community": "中文支援指數 2/5（有限）",
+      "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
@@ -3866,27 +3408,10 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"強 (Green School Bali 全球家長社群活躍)\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.5/5\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'Revolver Espresso Seminyak', 'type': '(車程 1.5h, 不適 Ubud 常去)', 'cost_ntd_per_visit': 350, 'location': 'Seminyak'}",
-        "{'name': 'Seniman Coffee Studio', 'type': 'Specialty in Ubud', 'cost_ntd_per_visit': 250, 'location': 'Ubud Centre'}",
-        "{'name': 'Warung Biah Biah', 'type': 'Traditional Balinese', 'cost_ntd': 200, 'location': 'Ubud Jl. Goutama'}",
-        "{'name': 'Ibu Oka Babi Guling', 'type': 'Bali 烤豬', 'cost_ntd': 250, 'location': 'Ubud Centre'}",
-        "False"
-      ],
-      "spa": [
-        "{'name': 'Four Seasons Sayan Spa', 'cost_ntd_per_treatment': 5500, 'location': 'Ubud Sayan'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://www.greenschool.org/', 'language': 'en', 'type': 'official_website', 'trust': 5, 'accessed': '2026-05-14'}",
@@ -3951,33 +3476,33 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "度假村 family room",
-        "area": "Mövenpick Jimbaran 度假村",
-        "price": 5000,
-        "note": "海灘 5 分、Kids Club 內建、全包早餐 / 部分晚餐"
+        "type": "resort",
+        "area": "Mövenpick Resort & Spa Jimbaran Bali",
+        "price": 8095,
+        "note": "親子設施、Meera 4-12 全日 Kids Club、免費 ice cream daily、泳池"
       },
       {
-        "type": "度假村",
+        "type": "resort",
         "area": "Padma Resort Legian",
-        "price": 5476,
-        "note": "Legian 海灘、10 餐廳、兒童池"
+        "price": 9523,
+        "note": "Wolly Kids Club + Legian 海灘 + 預算可控"
+      },
+      {
+        "type": "resort",
+        "area": "InterContinental Bali Resort Jimbaran",
+        "price": 10952,
+        "note": "Planet Trekkers + 海灘正面"
       }
     ],
     "metime": [
-      "度假村內 spa (Mövenpick / Padma)",
-      "印尼傳統 massage NT$500-1500/h",
-      "Uluwatu Temple 烏魯瓦圖斷崖神廟 (Jimbaran 30 min)",
-      "Jimbaran 海鮮夜市",
-      "Ubud 文化區 1h drive",
-      "Tanah Lot 海上神廟"
+      "Mövenpick Spa（spa）",
+      "Samasta Village (隔壁) cafe + 散步（cafe）",
+      "Sundara Beach Club Four Seasons（cafe）",
+      "Jimbaran Bay 散步 + Muaya Beach 海鮮 cafe（walking_route）"
     ],
     "classes": [
-      "languages: Bahasa Indonesia @ Cinta Bahasa Bali",
-      "cooking: Paon Bali Cooking (from resort)",
-      "fitness_wellness: Yoga + Spa @ Mövenpick Jimbaran",
-      "arts: Batik @ Jimbaran Beach Workshop",
-      "culture: Uluwatu Temple Sunset Tour",
-      "social: Bali Expat Moms FB Group"
+      "cooking: Bumbu Bali Cooking School Tanjung Benoa",
+      "art: Bali Painting Workshop @ Mövenpick"
     ],
     "itinerary": null,
     "budget": {
@@ -3994,12 +3519,12 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "+62 361 3000 911"
+      "mandarin": "BIMC Hospital Nusa Dua (車程 10min) / Siloam Hospital / 度假村醫生 on-call",
+      "emergency": "112 (全境) / 救護車 118"
     },
     "emergency": null,
     "support": {
-      "chinese_community": "中文支援指數 3/5（有限）",
+      "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
@@ -4026,27 +3551,10 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"弱 (資料偏少)\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"正面 (TripAdvisor 4/5)\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'Mövenpick 內 Pepper Cafe', 'type': 'Resort breakfast + buffet', 'cost_ntd_per_visit': 600, 'location': 'Mövenpick Resort Jimbaran'}",
-        "{'name': 'Cafe Wanderlust', 'type': 'Bali brunch', 'cost_ntd_per_visit': 350, 'location': 'Jimbaran'}",
-        "{'name': 'Menega Cafe Jimbaran Beach BBQ', 'type': '海邊烤魚', 'cost_ntd': 500, 'location': 'Jimbaran'}",
-        "{'name': 'Warung Bambu Pemaron', 'type': 'Traditional Balinese', 'cost_ntd': 200, 'location': 'Jimbaran'}",
-        "True"
-      ],
-      "spa": [
-        "{'name': 'Mövenpick 內 Spa', 'cost_ntd_per_treatment': 2800, 'location': 'Mövenpick Resort'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://movenpick.accor.com/en/asia/indonesia/bali/jimbaran-resort.html', 'language': 'en', 'type': 'official_website', 'trust': 5, 'accessed': '2026-05-14'}",
@@ -4112,33 +3620,35 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "Airbnb 月租",
-        "area": "South Yarra / Toorak Airbnb",
-        "price": 5000,
-        "note": "walkable、Tram 1 號線、Botanic Garden 近"
+        "type": "serviced_apartment",
+        "area": "Clarion Suites Gateway Melbourne",
+        "price": 10238,
+        "note": "公寓式廚房、洗衣機、一房+客廳、免費 wifi"
       },
       {
-        "type": "Airbnb",
-        "area": "Box Hill 華人區",
-        "price": 3809,
-        "note": "澳洲 Chinatown、華人超市、Tram + Train"
+        "type": "serviced_apartment",
+        "area": "Adina Apartment Hotel Pentridge Melbourne",
+        "price": 8809,
+        "note": "Coburg 歷史監獄改造文青區，比 CBD 便宜 15%"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Nesuto Docklands",
+        "price": 9285,
+        "note": "Docklands 港邊家庭區，1-2 房"
       }
     ],
     "metime": [
-      "Endota Spa 多家分店",
-      "Yoga 213 / Power Living 健身房",
-      "NGV (National Gallery of Victoria) 免費",
-      "ACMI (Australian Centre for Moving Image) 移動影像中心",
-      "Great Ocean Road 1.5h (12 門徒岩石)",
-      "Phillip Island 企鵝歸巢 (2h drive)"
+      "Power Living Melbourne (Prahran)（yoga）",
+      "Melbourne 全球咖啡之都 cafe hopping（cafe）",
+      "NGV International + Federation Square（museum）",
+      "Endota Spa Melbourne Central（spa）",
+      "WeWork Bourke Street（coworking）",
+      "Royal Botanic Gardens walking route（walking_route）"
     ],
     "classes": [
-      "languages: Mandarin @ Confucius Institute Melbourne",
-      "cooking: Modern Australian @ Otao Kitchen Melbourne",
-      "fitness_wellness: Yoga @ Humming Puppy Melbourne",
-      "arts: Watercolor @ NGV Workshop",
-      "culture: Indigenous Walking Tour Melbourne",
-      "social: Melbourne Mums FB Group + Brunch"
+      "cooking: The Essential Ingredient Cooking School",
+      "art: Slow Living Melbourne - barista 短期"
     ],
     "itinerary": null,
     "budget": {
@@ -4155,13 +3665,13 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "The Royal Melbourne Hospital: Yes (Box Hill 大華人區)",
-      "emergency": "000"
+      "mandarin": "CBD Medical (Bourke Street) - Level 5, 100 Collins Street (家庭 GP，預約友善)",
+      "emergency": "000 (Triple Zero)"
     },
     "emergency": null,
     "support": {
-      "chinese_community": "中文支援指數 4/5（普通話可通）",
-      "taiwan_families_known": "可能（透過台商會詢問）",
+      "chinese_community": "在地 expat / 華人社群（活躍）",
+      "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
     "confidence": {
@@ -4192,27 +3702,10 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"弱 (資料偏少, 未做 deep dive fork)\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"未確認\""
-      }
-    ],
+    "voices": [],
     "picks": {
-      "food": [
-        "{'name': 'Patricia Coffee Brewers', 'type': 'Specialty espresso', 'cost_ntd_per_visit': 220, 'location': 'Little Bourke Street'}",
-        "{'name': 'Seven Seeds', 'type': 'Roaster + cafe', 'cost_ntd_per_visit': 250, 'location': 'Carlton'}",
-        "{'name': 'Queen Victoria Market', 'type': 'Market food + American Doughnut Kitchen', 'cost_ntd': 300, 'location': 'QVM'}",
-        "False",
-        "Smith & Daughters"
-      ],
-      "spa": [
-        "{'name': 'Crown Spa Melbourne', 'cost_ntd_per_treatment': 5500, 'location': 'Southbank Crown'}"
-      ]
+      "food": [],
+      "spa": []
     },
     "sources": [
       "{'url': 'https://www.education.vic.gov.au/school/parents/calendar/Pages/term-dates.aspx', 'language': 'en', 'type': 'government_official', 'trust': 5, 'accessed': '2026-05-14'}",
@@ -4280,27 +3773,35 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "公寓酒店",
-        "area": "La Jolla Cove Suites",
-        "price": 11428,
-        "note": "廚房、海景"
+        "type": "airbnb",
+        "area": "La Jolla Shores 2BR Beach Apartment (Vacasa or Airbnb)",
+        "price": 10238,
+        "note": "2 房 + 全廚房、La Jolla Shores 海灘步行 5 min、停車位、洗衣機"
       },
       {
-        "type": "海邊度假酒店",
-        "area": "Hilton La Jolla Torrey Pines",
-        "price": 16190,
-        "note": "泳池、spa、近 Birch Aquarium"
+        "type": "resort",
+        "area": "Estancia La Jolla Hotel & Spa",
+        "price": 18095,
+        "note": "西班牙風五星級 + Estancia Fit 健身 spa"
+      },
+      {
+        "type": "hotel",
+        "area": "Hyatt Regency Mission Bay",
+        "price": 11904,
+        "note": "Mission Bay 平靜水域+SeaWorld 旁，比 La Jolla 便宜"
       }
     ],
     "metime": [
-      "The Spa at Estancia La Jolla",
-      "瑜伽 by the Sea Torrey Pines",
-      "Museum of Contemporary Art San Diego",
-      "Old Town State Park 西班牙殖民歷史",
-      "Tijuana 墨西哥跨境 day trip",
-      "Joshua Tree National Park 3h"
+      "Trilogy Sanctuary (La Jolla Cove rooftop)（yoga+spa+cafe）",
+      "Riffs Yoga & Wellness（yoga+spa）",
+      "La Jolla Yoga Center（yoga）",
+      "La Jolla Cove 步道 + Coast Walk Trail（walking_route）",
+      "Bird Rock Coffee Roasters（cafe）"
     ],
-    "classes": [],
+    "classes": [
+      "business / coding: UCSD Extension 短期課程",
+      "sport: Surf Diva 衝浪課 (La Jolla Shores)"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 60000,
@@ -4316,12 +3817,12 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Rady Children's Emergency Care Center 24/7, 858-966-8005 / Scripps La Jolla Hospital (近 La Jolla)",
+      "emergency": "911 (急救+警察+消防)"
     },
     "emergency": null,
     "support": {
-      "chinese_community": "中文支援指數 3/5（有限）",
+      "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
@@ -4358,16 +3859,7 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"部分\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.3/5\""
-      }
-    ],
+    "voices": [],
     "picks": {
       "food": [],
       "spa": []
@@ -4439,27 +3931,35 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "Airbnb / 度假村",
-        "area": "Niseko HiraFu 月租公寓",
-        "price": 6428,
-        "note": "森林景、溫泉、廚房"
+        "type": "resort",
+        "area": "MnK Niseko - The Orchards Niseko (含 EdVenture 套裝)",
+        "price": 12380,
+        "note": "三房獨棟 villa、全配廚房、洗衣機、免費 wifi"
       },
       {
-        "type": "度假村",
-        "area": "Hilton Niseko Village",
-        "price": 9523,
-        "note": "kids club、溫泉、高爾夫"
+        "type": "serviced_apartment",
+        "area": "Akazora Niseko (Hirafu village)",
+        "price": 9285,
+        "note": "Hirafu 村內小公寓，步行到便利商店 + 餐廳，便宜選項"
+      },
+      {
+        "type": "airbnb",
+        "area": "Hirafu 三房獨棟 chalet (Airbnb)",
+        "price": 10476,
+        "note": "本地戶長住，含廚房 + 暖爐"
       }
     ],
     "metime": [
-      "Niseko Hanazono Onsen 溫泉",
-      "Hilton spa",
-      "小樽 1.5h",
-      "登別溫泉 1.5h",
-      "羊蹄山 hiking",
-      "Niseko summer festival"
+      "Niseko Yoga (Hirafu)（yoga）",
+      "The Vale Niseko Spa（spa）",
+      "Annupuri 天然 onsen + walking（walking_route）",
+      "Niseko Hirafu cafe 巡禮 (Green Farm Cafe)（cafe）",
+      "Hirafu Walking Tour（walking_route）"
     ],
-    "classes": [],
+    "classes": [
+      "cooking: Niseko Cheese & Dairy 北海道乳製品體驗",
+      "art: EdVenture Adult Hiking & Survival Skills"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 15000,
@@ -4475,12 +3975,12 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Niseko Internationl Family Clinic 倶知安國際醫療診所 (Hirafu)，0136-21-2273，英語兒科 (滑雪季+夏季 open)，Nagano 多語言客服中心 0120-691-792 (全 Nagano/Hokkaido)",
+      "emergency": "119 (救護車/消防) / 110 (警察)"
     },
     "emergency": null,
     "support": {
-      "chinese_community": "中文支援指數 2/5（有限）",
+      "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
@@ -4522,16 +4022,7 @@ const CANDIDATES = [
         "priority": "P1"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"中等\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.6/5 (TripAdvisor)\""
-      }
-    ],
+    "voices": [],
     "picks": {
       "food": [],
       "spa": []
@@ -4601,27 +4092,35 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "公寓酒店",
-        "area": "Oxford serviced apartment (Headington / Summertown)",
-        "price": 7142,
-        "note": "廚房、近 camp"
+        "type": "serviced_apartment",
+        "area": "Cheval Three Quays (London Tower Bridge) 或 Oxford Cottages Townhouse",
+        "price": 18095,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
       },
       {
-        "type": "Airbnb",
-        "area": "London Zone 2 Airbnb (Chiswick / Hampstead)",
-        "price": 9523,
-        "note": "地鐵便利、家庭"
+        "type": "airbnb",
+        "area": "Regent's Park 2-Bed Apartment",
+        "price": 13333,
+        "note": "離 SKOLA / Camp Beaumont Pimlico/Hampstead 多選"
+      },
+      {
+        "type": "hotel",
+        "area": "The Resident Kensington",
+        "price": 15238,
+        "note": "Kensington 親子博物館區，4 星 CP 高"
       }
     ],
     "metime": [
-      "**Discovery Summer Adult course** (媽媽也讀英文 / Business / Creative)",
-      "Oxford 大學 short course",
-      "The Spa at Mandarin Oriental London",
-      "Cotswolds spa retreat",
-      "British Museum",
-      "V&A"
+      "Triyoga Camden（yoga）",
+      "Cowshed Spa @ Soho House（spa）",
+      "Discovery Summer Adult English Course（language）",
+      "Hyde Park 環湖步道（walking_route）",
+      "WeWork Liverpool Street（coworking）"
     ],
-    "classes": [],
+    "classes": [
+      "language: Discovery Summer Adult English Programme",
+      "cooking: Leiths School of Food and Wine 短期"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 40000,
@@ -4637,12 +4136,12 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "London Doctors Clinic (多分點 +44 20 7660 6175) / The London General Practice (Harley St)",
+      "emergency": "999 (警/消/救護) / 111 (NHS non-emergency)"
     },
     "emergency": null,
     "support": {
-      "chinese_community": "中文支援指數 3/5（有限）",
+      "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
@@ -4689,20 +4188,7 @@ const CANDIDATES = [
         "priority": "P1"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"強\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.7/5 (Discovery Summer Trustpilot)\""
-      },
-      {
-        "src": "discoverysummer.com testimonials",
-        "text": "\"Best summer my daughter ever had — she came back fluent and confident\""
-      }
-    ],
+    "voices": [],
     "picks": {
       "food": [],
       "spa": []
@@ -4776,27 +4262,34 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "海景別墅",
-        "area": "Four Seasons Jimbaran Premier Ocean Villa",
-        "price": 23809,
-        "note": "私人泳池、海景、管家"
+        "type": "resort",
+        "area": "Four Seasons Resort Bali at Jimbaran Bay (1BR Family Villa)",
+        "price": 21428,
+        "note": "私人泳池 villa、Umah Rare 5-12 daily 9am-7pm、5 歲半免費、15+ 免費活動"
       },
       {
-        "type": "叢林別墅",
-        "area": "Four Seasons Sayan One-Bedroom Villa",
-        "price": 20238,
-        "note": "梯田景、Ayung 河"
+        "type": "resort",
+        "area": "Four Seasons Sayan (Ubud)",
+        "price": 20000,
+        "note": "雙度假村可分 W1-2 Jimbaran + W3 Sayan / Pici Pici 叢林版"
+      },
+      {
+        "type": "resort",
+        "area": "Mandapa Ritz-Carlton Reserve Ubud",
+        "price": 22857,
+        "note": "Reserve 系最頂級 / Ubud 河谷"
       }
     ],
     "metime": [
-      "Four Seasons Spa Sayan (米其林級)",
-      "Sound healing yoga",
-      "Ubud Royal Palace 王宮",
-      "Tegallalang Rice Terrace",
-      "Mount Batur 日出徒步 (媽媽自由日)",
-      "Tanah Lot 海神廟"
+      "Healing Village Spa Jimbaran (Four Seasons)（spa）",
+      "Sundara Beach Club（cafe）",
+      "Pre-class yoga Jimbaran Bay (晨間)（yoga）",
+      "Sacred Garden Cafe (Four Seasons Sayan)（cafe）"
     ],
-    "classes": [],
+    "classes": [
+      "cooking: Jala Cooking School Four Seasons",
+      "art: Bali Lounge Painting Workshop (Sayan)"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 15000,
@@ -4812,12 +4305,12 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "BIMC Hospital Nusa Dua / Siloam / Four Seasons doctor on-call 24h",
+      "emergency": "112 (全境) / 救護車 118"
     },
     "emergency": null,
     "support": {
-      "chinese_community": "中文支援指數 3/5（有限）",
+      "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
@@ -4844,16 +4337,7 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"部分\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.6/5\""
-      }
-    ],
+    "voices": [],
     "picks": {
       "food": [],
       "spa": []
@@ -4924,27 +4408,35 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "Airbnb 月租",
-        "area": "Sliema Seafront Apartment",
-        "price": 3809,
-        "note": "海邊、走路到 inlingua"
+        "type": "hotel",
+        "area": "Plaza Regency Hotels Sliema (inlingua partner)",
+        "price": 5619,
+        "note": "aparthotel 套房、Sliema 海濱 5min、泳池 + lido、免費 wifi + 早餐"
       },
       {
-        "type": "酒店",
-        "area": "St. Julian's 度假酒店",
-        "price": 6190,
-        "note": "泳池、spa"
+        "type": "hotel",
+        "area": "Preluna Hotel Sliema",
+        "price": 6904,
+        "note": "Sliema 海濱 4 星家庭飯店 (familyvacationspace 8.2 expert)"
+      },
+      {
+        "type": "hotel",
+        "area": "Novotel Malta Sliema",
+        "price": 7857,
+        "note": "Accor 4 星，293 房 + 泳池"
       }
     ],
     "metime": [
-      "**inlingua Parent course 20 lessons/wk 媽媽英文**",
-      "Valletta 文化巡禮",
-      "Phoenicia Malta spa",
-      "海邊瑜伽",
-      "Valletta UNESCO 古城",
-      "Mdina 靜城"
+      "inlingua Malta Parent English Course（language）",
+      "Yoga Spaces Malta（yoga）",
+      "Sliema Seafront Promenade（walking_route）",
+      "Valletta Old Town 漫步（walking_route）",
+      "Café Cuba Sliema（cafe）"
     ],
-    "classes": [],
+    "classes": [
+      "language: inlingua Malta Adult General English 20",
+      "cooking: Malta Cooking School"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 40000,
@@ -4960,8 +4452,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "St James Hospital Sliema (私立，英文) / Da Vinci Hospital",
+      "emergency": "112 (歐盟)"
     },
     "emergency": null,
     "support": {
@@ -5002,20 +4494,7 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"中等\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.3/5 (inlingua / EC reviews)\""
-      },
-      {
-        "src": "languagecourse.net",
-        "text": "\"Malta is the perfect family ESL destination - sun, history, English, safety, all in one small island\""
-      }
-    ],
+    "voices": [],
     "picks": {
       "food": [],
       "spa": []
@@ -5089,33 +4568,34 @@ const CANDIDATES = [
     },
     "stays": [
       {
-        "type": "全套房度假村",
-        "area": "InterContinental Phu Quoc Sky Lagoon Suite",
-        "price": 9285,
-        "note": "4 泳池、Kids Eat Free、club lounge"
+        "type": "resort",
+        "area": "InterContinental Phu Quoc Long Beach Resort (Family Suite) + Hyatt Regency Danang (split W3)",
+        "price": 10000,
+        "note": "Planet Trekkers 250 sqm、Splash 家庭泳池水滑梯、Hyatt Regency 4 主題遊樂區、海灘正面"
       },
       {
-        "type": "海景套房",
-        "area": "Hyatt Regency Danang Ocean Suite",
-        "price": 7619,
-        "note": "18 洞高爾夫、金沙灘、親子 4 區"
+        "type": "resort",
+        "area": "InterContinental Danang Sun Peninsula",
+        "price": 13333,
+        "note": "Bill Bensley 設計 + Planet Trekkers / 較貴"
       },
       {
-        "type": "all-spa-inclusive 度假村",
+        "type": "resort",
         "area": "Fusion Resort Phu Quoc",
         "price": 10952,
-        "note": "免費 spa 每日、Mini Maia 每小時主題"
+        "note": "免費 spa 含 / Mini Maia 主題每小時"
       }
     ],
     "metime": [
-      "Fusion 全包 spa 每日免費",
-      "InterCon HARNN Heritage Spa",
-      "Hoi An 古城 1h day trip (Danang 起)",
-      "Phu Quoc 漁村",
-      "Hon Thom 跨海纜車 (世界最長)",
-      "Sun World 主題樂園"
+      "HARNN Heritage Spa InterCon Phu Quoc（spa）",
+      "Yoga Pavilion InterCon (晨間)（yoga）",
+      "Phu Quoc Long Beach 散步 (3km 海灘)（walking_route）",
+      "Hoi An Old Town day trip (Danang 30min)（walking_route）"
     ],
-    "classes": [],
+    "classes": [
+      "cooking: Vietnamese Cooking Class Hoi An (Red Bridge)",
+      "art: Lantern Making Workshop Hoi An"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 8000,
@@ -5131,12 +4611,12 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Family Medical Practice Danang (50-52 Nguyen Van Linh) +84-236 3582-699 / Vinmec 兩地皆英文流利",
+      "emergency": "115 (救護車) / 113 (警察) / 114 (火警)"
     },
     "emergency": null,
     "support": {
-      "chinese_community": "中文支援指數 3/5（有限）",
+      "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": true
     },
@@ -5163,16 +4643,7 @@ const CANDIDATES = [
         "priority": "P0"
       }
     ],
-    "voices": [
-      {
-        "src": "真實家長心聲",
-        "text": "\"部分\""
-      },
-      {
-        "src": "整體情感",
-        "text": "\"4.3/5\""
-      }
-    ],
+    "voices": [],
     "picks": {
       "food": [],
       "spa": []
@@ -6432,9 +5903,37 @@ const CANDIDATES = [
       "lang": "英文 + 中文（雙語）",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "serviced_apartment",
+        "area": "Somerset Grand Shanghai (近 SCIS 虹橋)",
+        "price": 3857,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Primus Residence Shanghai Hongqiao",
+        "price": 3428,
+        "note": "離虹橋機場 + 虹橋 SCIS 校區 5km，全配廚房"
+      },
+      {
+        "type": "airbnb",
+        "area": "虹橋古北家庭三房 (Airbnb)",
+        "price": 2761,
+        "note": "古北區韓國/台灣人聚落，5min 到 SCIS 虹橋"
+      }
+    ],
+    "metime": [
+      "PURE Yoga Shanghai IAPM (淮海中路)（yoga）",
+      "Banyan Tree Spa Shanghai (外灘)（spa）",
+      "Seesaw Coffee 武康路（cafe）",
+      "Xiangyang Park 襄陽公園 walking（walking_route）",
+      "Naked Hub coworking（coworking）"
+    ],
+    "classes": [
+      "cooking: The Kitchen at Fumin (中菜料理課)",
+      "language: Hutong School 中文短期班"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -6452,10 +5951,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Jiahui International Hospital 嘉會醫療 (徐匯)，+86-21-2226-3666; Shanghai International Medical Center (SIMC) 浦東 +86-21-6045-9999",
+      "emergency": "120 (救護車) / 110 (警察) / 119 (消防)"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "Shanghai United Family Hospital (UFH) 上海和睦家 — 普陀院區",
+          "addr": "浦東院區 4 院區，急診 24h，JCI 認證",
+          "phone": "120 (救護車) / 110 (警察) / 119 (消防)",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "Jiahui International Hospital 嘉會醫療 (徐匯)，+86-21-2226-3666; Shanghai International",
+          "addr": "Jiahui International Hospital 嘉會醫療 (徐匯)，+86-21-2226-3666; Shanghai International Medical Center (SIMC) 浦東 +86-21-6045-9999",
+          "phone": "120 (救護車) / 110 (警察) / 119 (消防)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "上海益豐藥房連鎖 + 京東健康，OTC 退燒/腸胃藥即購"
+        }
+      ],
+      "insurance_sop": "國泰產險 / 安達 / Cigna，保 500 萬醫療，中國加保處方藥 + 留意 GFW (購藥 App 限制)",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無 (海平面)"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -6493,6 +6018,7 @@ const CANDIDATES = [
       "https://www.smartshanghai.com/event/scis-summer-camp-2026"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f1_china",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://www.smartshanghai.com/event/scis-summer-camp-2026",
@@ -6550,9 +6076,37 @@ const CANDIDATES = [
       "lang": "英文 + 中文（耀中傳統雙語）",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "serviced_apartment",
+        "area": "Ascott Huaihai Road Shanghai (淮海中路)",
+        "price": 4380,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Lujiazui More Residence (浦東 YCIS 浦東)",
+        "price": 3714,
+        "note": "若選 YCIS 浦東校 (花木區)，住浦東更近"
+      },
+      {
+        "type": "airbnb",
+        "area": "古北家庭三房 (近虹橋 YCIS)",
+        "price": 2666,
+        "note": "古北社區台灣/韓國家庭多，5min 到 YCIS 虹橋"
+      }
+    ],
+    "metime": [
+      "PURE Yoga IAPM (淮海中路)（yoga）",
+      "Dragonfly Therapeutic Retreat 武康路店（spa）",
+      "% Arabica 武康路（cafe）",
+      "復興公園 walking + 法租界梧桐（walking_route）",
+      "WeWork Xintiandi 新天地（coworking）"
+    ],
+    "classes": [
+      "cooking: The Kitchen at Fumin 烹飪課",
+      "language: Mandarin House 中文短期"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -6570,10 +6124,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Jiahui International Hospital 嘉會 (徐匯) +86-21-2226-3666; SIMC 浦東 +86-21-6045-9999; Parkway Health (淮海/瑞金) +86-400-819-6622",
+      "emergency": "120 / 110 / 119"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "Shanghai United Family Hospital (UFH) 上海和睦家 普陀",
+          "addr": "浦東/虹橋，急診 24h，JCI 認證",
+          "phone": "120 / 110 / 119",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "Jiahui International Hospital 嘉會 (徐匯) +86-21-2226-3666; SIMC 浦東 +86-21-6045-9999",
+          "addr": "瑞金) +86-400-819-6622",
+          "phone": "120 / 110 / 119",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "益豐藥房 + 京東健康 OTC 即購"
+        }
+      ],
+      "insurance_sop": "國泰產險 / Cigna 海外醫療，保 500 萬",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -6611,6 +6191,7 @@ const CANDIDATES = [
       "https://www.ycis-sh.com/en"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f1_china",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://www.smartshanghai.com/event/ycis-shanghai-2026-summer-camps-now-open-for-registration",
@@ -6668,9 +6249,37 @@ const CANDIDATES = [
       "lang": "英文為主（部分如劍道採中文）",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "serviced_apartment",
+        "area": "Green Court Diamond Shanghai (浦東碧雲社區)",
+        "price": 3714,
+        "note": "公寓式廚房、洗衣機、三房、免費 wifi"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Lujiazui More Residence (浦東陸家嘴)",
+        "price": 4523,
+        "note": "Lujiazui IFC 旁，但通勤 Dulwich Sanlin 較遠"
+      },
+      {
+        "type": "airbnb",
+        "area": "浦東碧雲三房家庭 (Airbnb)",
+        "price": 2619,
+        "note": "本地戶長住 30% off，碧雲社區內"
+      }
+    ],
+    "metime": [
+      "PURE Yoga Kerry Centre Pudong（yoga）",
+      "Banyan Tree Spa Lujiazui（spa）",
+      "% Arabica Lujiazui 中銀大廈（cafe）",
+      "Century Park 世紀公園 walking（walking_route）",
+      "Naked Hub 浦東（coworking）"
+    ],
+    "classes": [
+      "cooking: The Kitchen at Fumin",
+      "language: That's Mandarin 浦東店"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -6688,10 +6297,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "SIMC 上海國際醫療中心 (浦東) +86-21-6045-9999; Jiahui Health (徐匯) +86-21-2226-3666",
+      "emergency": "120 / 110 / 119"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "Shanghai United Family Hospital Pudong UFH 浦東院區 (近 Dulwich) — JCI，急診 24h",
+          "addr": "Shanghai United Family Hospital Pudong UFH 浦東院區 (近 Dulwich) — JCI，急診 24h",
+          "phone": "120 / 110 / 119",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "SIMC 上海國際醫療中心 (浦東) +86-21-6045-9999; Jiahui Health (徐匯) +86-21-2226-3666",
+          "addr": "SIMC 上海國際醫療中心 (浦東) +86-21-6045-9999; Jiahui Health (徐匯) +86-21-2226-3666",
+          "phone": "120 / 110 / 119",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "益豐 + 京東健康"
+        }
+      ],
+      "insurance_sop": "國泰產險 / Cigna，保 500 萬",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -6728,6 +6363,7 @@ const CANDIDATES = [
       "https://shanghai-pudong.dulwich.org/lp/summer-camps"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f1_china",
     "p7b_confidence": "operator_verified",
     "p7b_verified_url": "https://shanghai-pudong.dulwich.org/lp/summer-camps",
@@ -6785,9 +6421,37 @@ const CANDIDATES = [
       "lang": "英文為主",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "serviced_apartment",
+        "area": "Yanlord Riverside Garden 仁恆濱江園 (近 Concordia)",
+        "price": 3952,
+        "note": "公寓式廚房、洗衣機、三房、免費 wifi"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Green Court Diamond Pudong",
+        "price": 3714,
+        "note": "碧雲社區同質選項"
+      },
+      {
+        "type": "airbnb",
+        "area": "金橋家庭三房",
+        "price": 2476,
+        "note": "金橋 Concordia 校區外籍家庭聚落"
+      }
+    ],
+    "metime": [
+      "PURE Yoga Kerry Centre Pudong（yoga）",
+      "Dragonfly 浦東店（spa）",
+      "% Arabica 浦東（cafe）",
+      "Century Park walking（walking_route）",
+      "Naked Hub 浦東 coworking（coworking）"
+    ],
+    "classes": [
+      "cooking: The Kitchen at Fumin",
+      "language: That's Mandarin 中文"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -6805,10 +6469,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "SIMC (浦東) +86-21-6045-9999; Jiahui Health (徐匯) +86-21-2226-3666; Parkway Health +86-400-819-6622",
+      "emergency": "120 / 110 / 119"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "Shanghai United Family Hospital Pudong (UFH 浦東) — JCI，急診 24h",
+          "addr": "Shanghai United Family Hospital Pudong (UFH 浦東) — JCI，急診 24h",
+          "phone": "120 / 110 / 119",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "SIMC (浦東) +86-21-6045-9999; Jiahui Health (徐匯) +86-21-2226-3666; Parkway Health ",
+          "addr": "SIMC (浦東) +86-21-6045-9999; Jiahui Health (徐匯) +86-21-2226-3666; Parkway Health +86-400-819-6622",
+          "phone": "120 / 110 / 119",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "益豐藥房 + 京東健康"
+        }
+      ],
+      "insurance_sop": "國泰產險 / Cigna 海外醫療，500 萬",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -6846,6 +6536,7 @@ const CANDIDATES = [
       "https://www.concordiashanghai.org/"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f1_china",
     "p7b_confidence": "operator_verified",
     "p7b_verified_url": "https://www.smartshanghai.com/event/75784",
@@ -6903,9 +6594,37 @@ const CANDIDATES = [
       "lang": "英文 + 中文（雙語）",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "serviced_apartment",
+        "area": "Ascott Beijing CBD (建外大街)",
+        "price": 3523,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Sanlitun SOHO 三里屯公寓",
+        "price": 2952,
+        "note": "三里屯國際區，YCIS Beijing 近"
+      },
+      {
+        "type": "hotel",
+        "area": "Beijing Marriott Hotel City Wall",
+        "price": 4523,
+        "note": "酒店長住備案"
+      }
+    ],
+    "metime": [
+      "Pure Yoga Beijing Sanlitun Taikoo Li（yoga）",
+      "Banyan Tree Spa Beijing（spa）",
+      "Voyage Coffee 鼓樓店（cafe）",
+      "朝陽公園 walking（walking_route）",
+      "WeWork Sanlitun（coworking）"
+    ],
+    "classes": [
+      "cooking: The Hutong (北京胡同烹飪課)",
+      "language: Hutong School Beijing 中文"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -6923,10 +6642,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Beijing United Family Tianzhu Clinic (順義) +86-10-5927-7120 (24h Emergency); Parkway Health Beijing +86-400-819-6622",
+      "emergency": "120 / 110 / 119"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "Beijing United Family Hospital (BJU) 北京和睦家 — JCI 認證，急診 24h，+86-10-5927-7000",
+          "addr": "24h 英語熱線 4008-919-191",
+          "phone": "120 / 110 / 119",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "Beijing United Family Tianzhu Clinic (順義) +86-10-5927-7120 (24h Emergency); Park",
+          "addr": "Beijing United Family Tianzhu Clinic (順義) +86-10-5927-7120 (24h Emergency); Parkway Health Beijing +86-400-819-6622",
+          "phone": "120 / 110 / 119",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "京東健康 + Wangfujing 大藥房 OTC 即購"
+        }
+      ],
+      "insurance_sop": "國泰產險 / Cigna，500 萬，北京醫療 BJU 自費高昂必保險",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無 (海拔 44m)"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -6964,6 +6709,7 @@ const CANDIDATES = [
       "https://www.ycyw-edu.com/en/article/events/ycyw-summer-camps-2026-register-now"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f1_china",
     "p7b_confidence": "operator_verified",
     "p7b_verified_url": "https://www.ycyw-edu.com/en/summer-programme-2026",
@@ -7021,9 +6767,37 @@ const CANDIDATES = [
       "lang": "英文 track 或 中文 track（兩線可選）",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "serviced_apartment",
+        "area": "Pinnacle Plaza Shunyi 順義國際區公寓",
+        "price": 3238,
+        "note": "villa 三房、全配廚房、洗衣機、免費 wifi"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Yosemite 優山美地 順義 villa",
+        "price": 4190,
+        "note": "順義高端 villa 社區，國際家庭聚落"
+      },
+      {
+        "type": "hotel",
+        "area": "Sheraton Beijing Dongcheng (CBD)",
+        "price": 3571,
+        "note": "市中心酒店，週末方便進城但通勤 BSB 1h"
+      }
+    ],
+    "metime": [
+      "Yoga Yard 瑜珈園 (CBD 進城)（yoga）",
+      "順義 Pinnacle Spa（spa）",
+      "Pinnacle Plaza cafes (TRB Hutong / Voyage)（cafe）",
+      "順義公園 walking（walking_route）",
+      "WeWork Beijing CBD (週末進城)（coworking）"
+    ],
+    "classes": [
+      "cooking: The Hutong 北京烹飪課",
+      "language: Hutong School 中文 (順義分校)"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -7041,10 +6815,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Beijing United Family Hospital (BJU) 主院區 +86-10-5927-7000 (重症送 BJU 主院區，車程 30min 進城)",
+      "emergency": "120 / 110 / 119"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "United Family Tianzhu Clinic Shunyi 北京和睦家順義天竺診所 (Pinnacle Plaza 內!), +86-10-5927",
+          "addr": "United Family Tianzhu Clinic Shunyi 北京和睦家順義天竺診所 (Pinnacle Plaza 內!), +86-10-5927-7120 (24h Emergency), 8:30-19:30 急診 + Pediatric Life Support 認證",
+          "phone": "120 / 110 / 119",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "Beijing United Family Hospital (BJU) 主院區 +86-10-5927-7000 (重症送 BJU 主院區，車程 30min ",
+          "addr": "Beijing United Family Hospital (BJU) 主院區 +86-10-5927-7000 (重症送 BJU 主院區，車程 30min 進城)",
+          "phone": "120 / 110 / 119",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "Pinnacle Plaza 內 ParkSon + 京東健康 OTC"
+        }
+      ],
+      "insurance_sop": "國泰產險 / Cigna，500 萬，BJU 自費高昂必保險",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無 (海拔 44m)"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -7082,6 +6882,7 @@ const CANDIDATES = [
       "https://www.nordangliaeducation.com/bsb-shunyi"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f1_china",
     "p7b_confidence": "operator_verified",
     "p7b_verified_url": "https://www.nordangliaeducation.com/bsb-shunyi/news/2019/05/02/bsb-early-years-summer-camp-2019",
@@ -7139,9 +6940,37 @@ const CANDIDATES = [
       "lang": "純英語（British Council 認證）",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Regent's Park 2-Bed Apartment (St John's Wood)",
+        "price": 15238,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Cheval Phoenix House Sloane Square",
+        "price": 18095,
+        "note": "頂級服務式公寓 Chelsea，但離 Gloucester Gate 較遠地鐵 20min"
+      },
+      {
+        "type": "hotel",
+        "area": "The Landmark London Marylebone",
+        "price": 22857,
+        "note": "Marylebone 五星親子飯店，步行 SKOLA"
+      }
+    ],
+    "metime": [
+      "TopUp Camden Adult English Course（language）",
+      "Triyoga Camden（yoga）",
+      "Regent's Park 環湖跑步（walking_route）",
+      "Cowshed Spa Primrose Hill（spa）",
+      "Marylebone Library + Daunt Books（library）"
+    ],
+    "classes": [
+      "language: TopUp Camden Adult English General Course",
+      "cooking: Leiths School of Food 短期 cooking"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -7159,10 +6988,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "London Doctors Clinic Marylebone / The London General Practice (Harley St) +44 20 7935 1000",
+      "emergency": "999 / 111 (NHS non-emergency)"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "University College Hospital UCLH, 235 Euston Road, NW1 2BU (走路 10min 即達)",
+          "addr": "University College Hospital UCLH, 235 Euston Road, NW1 2BU (走路 10min 即達)",
+          "phone": "999 / 111 (NHS non-emergency)",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "London Doctors Clinic Marylebone",
+          "addr": "The London General Practice (Harley St) +44 20 7935 1000",
+          "phone": "999 / 111 (NHS non-emergency)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "Boots Marylebone High St / Superdrug，Calpol 兒童退燒直購"
+        }
+      ],
+      "insurance_sop": "Allianz Travel / 富邦旅平，500 萬醫療 + GP 私診可加保",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -7202,6 +7057,7 @@ const CANDIDATES = [
       "https://www.bestparents.com/courses/skola-english-day-camp-juniors-london"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f2_uk",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://www.skola.co.uk/gloucester-gate-summer-school-london",
@@ -7259,9 +7115,36 @@ const CANDIDATES = [
       "lang": "純英語（British Council & EAQUALS 認證）",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "homestay",
+        "area": "St Giles Cambridge Family Homestay (school-arranged)",
+        "price": 4190,
+        "note": "早晚餐 half-board、police-checked 主人、10+ 年合作家庭、全英語環境"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Cambridge Apartments by Edge",
+        "price": 8571,
+        "note": "若不想 homestay，自炊公寓，但失去英文浸潤"
+      },
+      {
+        "type": "hotel",
+        "area": "University Arms Cambridge",
+        "price": 13333,
+        "note": "市中心五星，Parker's Piece 旁"
+      }
+    ],
+    "metime": [
+      "St Giles Cambridge Adult English Course（language）",
+      "Cambridge Yoga Centre（yoga）",
+      "River Cam Punting (撐船)（walking_route）",
+      "King's Parade + Trinity Quad 漫步（walking_route）",
+      "Fitzbillies Cafe (Chelsea Bun)（cafe）"
+    ],
+    "classes": [
+      "language: St Giles International English Family Course (Adult)"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -7279,10 +7162,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Cambridge GP Clinics 全英語 / Trumpington Street Medical Practice",
+      "emergency": "999 / 111 NHS"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "Addenbrooke's Hospital, Hills Road, Cambridge CB2 0QQ — 劍橋大學附屬醫院，急診 24h",
+          "addr": "Addenbrooke's Hospital, Hills Road, Cambridge CB2 0QQ — 劍橋大學附屬醫院，急診 24h",
+          "phone": "999 / 111 NHS",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "Cambridge GP Clinics 全英語",
+          "addr": "Trumpington Street Medical Practice",
+          "phone": "999 / 111 NHS",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "Boots Lion Yard / Superdrug，Calpol 兒童退燒直購"
+        }
+      ],
+      "insurance_sop": "Allianz / 富邦旅平 500 萬醫療",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -7322,6 +7231,7 @@ const CANDIDATES = [
       "https://www.stgiles-international.com/course-type/family-courses/"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f2_uk",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://www.stgiles-international.com/wp-content/uploads/2025/11/Family-Courses_2026-v3.pdf",
@@ -7379,9 +7289,37 @@ const CANDIDATES = [
       "lang": "純英語（活動營非語言課，孩童自然吸收）",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Summertown / Jericho Family Townhouse 3-Bed",
+        "price": 10476,
+        "note": "公寓式廚房、洗衣機、三臥房、免費 wifi"
+      },
+      {
+        "type": "hotel",
+        "area": "Old Parsonage Hotel Oxford",
+        "price": 15238,
+        "note": "市中心五星精品，但無廚房"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Easyhotel / Premier Inn Oxford Long-stay",
+        "price": 6904,
+        "note": "預算選項，但無公寓設施"
+      }
+    ],
+    "metime": [
+      "Yoga Venue Jericho Oxford（yoga）",
+      "Punting River Cherwell（walking_route）",
+      "Bodleian Library Reading Room 開放（library）",
+      "G&D's Ice Cream Cafe（cafe）",
+      "University Parks 環園步道（walking_route）"
+    ],
+    "classes": [
+      "language: Oxford Royale Academy Adult Programme",
+      "art: Ashmolean Museum Art Workshop"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -7399,10 +7337,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Summertown Health Centre / 28 Beaumont Street Practice",
+      "emergency": "999 / 111 NHS"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "John Radcliffe Hospital, Headley Way, Oxford OX3 9DU — 牛津大學附屬，急診 24h",
+          "addr": "John Radcliffe Hospital, Headley Way, Oxford OX3 9DU — 牛津大學附屬，急診 24h",
+          "phone": "999 / 111 NHS",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "Summertown Health Centre",
+          "addr": "28 Beaumont Street Practice",
+          "phone": "999 / 111 NHS",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "Boots Cornmarket / Lloyd's，Calpol 兒童退燒直購"
+        }
+      ],
+      "insurance_sop": "Allianz / 富邦 500 萬醫療",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -7441,6 +7405,7 @@ const CANDIDATES = [
       "https://www.supercamps.co.uk/all-kids-holiday-club-camps"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f2_uk",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://www.supercamps.co.uk/venue/oxford-high-school",
@@ -7498,9 +7463,37 @@ const CANDIDATES = [
       "lang": "純英語（運動為主）",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Cambridge Family Townhouse 2-Bed (Newnham / Trumpington)",
+        "price": 9523,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
+      },
+      {
+        "type": "hotel",
+        "area": "University Arms Cambridge",
+        "price": 13333,
+        "note": "市中心五星精品"
+      },
+      {
+        "type": "homestay",
+        "area": "Cambridge Homestay (各家庭)",
+        "price": 4190,
+        "note": "Cambridge 在地家庭 + 英文浸潤"
+      }
+    ],
+    "metime": [
+      "Cambridge Yoga Centre（yoga）",
+      "River Cam Punting（walking_route）",
+      "Botanical Garden Cambridge（walking_route）",
+      "Fitzbillies Cafe（cafe）",
+      "Cambridge University Library Reading（library）"
+    ],
+    "classes": [
+      "language: St Giles Cambridge Adult General English",
+      "cooking: Cambridge Cookery School"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -7518,10 +7511,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Trumpington Street Medical Practice / Newnham Walk Surgery",
+      "emergency": "999 / 111 NHS"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "Addenbrooke's Hospital, Hills Road CB2 0QQ — 劍橋大學附屬，急診 24h",
+          "addr": "Addenbrooke's Hospital, Hills Road CB2 0QQ — 劍橋大學附屬，急診 24h",
+          "phone": "999 / 111 NHS",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "Trumpington Street Medical Practice",
+          "addr": "Newnham Walk Surgery",
+          "phone": "999 / 111 NHS",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "Boots / Lloyd's，Calpol 兒童退燒直購"
+        }
+      ],
+      "insurance_sop": "Allianz / 富邦 500 萬",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -7560,6 +7579,7 @@ const CANDIDATES = [
       "https://www.kingsactive.org/kings-camps/"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f2_uk",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://www.kingscamps.org/venue/cambridge-kings-college-school/",
@@ -7617,9 +7637,37 @@ const CANDIDATES = [
       "lang": "純英語（活動為主）",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Pimlico / Westminster 2-Bed Apartment",
+        "price": 14285,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Cheval Three Quays Tower Bridge",
+        "price": 18095,
+        "note": "頂級服務式公寓河景"
+      },
+      {
+        "type": "airbnb",
+        "area": "Wimbledon / Putney Family Home",
+        "price": 11666,
+        "note": "若選 Wimbledon Camp Beaumont 校區，離家走路"
+      }
+    ],
+    "metime": [
+      "Triyoga Chelsea / Soho（yoga）",
+      "Cowshed Spa Soho House（spa）",
+      "Hyde Park / Battersea Park 步道（walking_route）",
+      "WeWork Liverpool Street / Victoria（coworking）",
+      "Tate Britain / Tate Modern（museum）"
+    ],
+    "classes": [
+      "cooking: Leiths School of Food and Wine 短期",
+      "language: Central School of English Adult"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -7637,10 +7685,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "London Doctors Clinic Victoria / Pimlico Doctors",
+      "emergency": "999 / 111 NHS"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "St Thomas' Hospital, Westminster Bridge Road SE1 7EH (河對岸走路 15min)",
+          "addr": "St Thomas' Hospital, Westminster Bridge Road SE1 7EH (河對岸走路 15min)",
+          "phone": "999 / 111 NHS",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "London Doctors Clinic Victoria",
+          "addr": "Pimlico Doctors",
+          "phone": "999 / 111 NHS",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "Boots Tate Britain / Lloyds Victoria，Calpol 直購"
+        }
+      ],
+      "insurance_sop": "Allianz / 富邦 500 萬",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -7681,6 +7755,7 @@ const CANDIDATES = [
       "https://www.campbeaumont.co.uk/"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f2_uk",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://www.campbeaumont.co.uk/programmes/magic",
@@ -7738,9 +7813,37 @@ const CANDIDATES = [
       "lang": "純英語（British Council & EAQUALS 認證）",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "serviced_apartment",
+        "area": "Staybridge Suites Brighton",
+        "price": 10476,
+        "note": "公寓式廚房、洗衣機、studio + 套房、免費 wifi + breakfast"
+      },
+      {
+        "type": "homestay",
+        "area": "St Giles Brighton Homestay",
+        "price": 4190,
+        "note": "校方安排家庭，英文浸潤最深"
+      },
+      {
+        "type": "hotel",
+        "area": "Hotel du Vin Brighton",
+        "price": 13333,
+        "note": "Brighton 老牌精品飯店"
+      }
+    ],
+    "metime": [
+      "St Giles Brighton Adult English (Platinum Business)（language）",
+      "Yoga Point Brighton（yoga）",
+      "Brighton Beach + Pier 步道（walking_route）",
+      "Jubilee Library（library）",
+      "Small Batch Coffee（cafe）"
+    ],
+    "classes": [
+      "language: St Giles Brighton Adult General English / Platinum Business",
+      "cooking: Brighton Cookery School"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -7758,10 +7861,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Brighton Health & Wellbeing Centre / Pavilion Surgery",
+      "emergency": "999 / 111 NHS"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "Royal Sussex County Hospital, Eastern Road BN2 5BE — Brighton 主醫院，急診 24h",
+          "addr": "Royal Sussex County Hospital, Eastern Road BN2 5BE — Brighton 主醫院，急診 24h",
+          "phone": "999 / 111 NHS",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "Brighton Health & Wellbeing Centre",
+          "addr": "Pavilion Surgery",
+          "phone": "999 / 111 NHS",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "Boots Western Road / Superdrug，Calpol 直購"
+        }
+      ],
+      "insurance_sop": "Allianz / 富邦 500 萬",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -7801,6 +7930,7 @@ const CANDIDATES = [
       "https://studybritishenglish.co.uk/english-courses-for-children-in-the-uk/family-programme/st-giles-international-brighton-2/"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f2_uk",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://www.stgiles-international.com/wp-content/uploads/2025/11/Family-Courses_2026-v3.pdf",
@@ -7877,9 +8007,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "serviced_apartment",
+        "area": "1871 House (UES Extended Stay)",
+        "price": 16666,
+        "note": "歷史建築 + 隱私、完整廚房、Central Park 走 8 min、5 Av/59 St 地鐵 5 min"
+      },
+      {
+        "type": "airbnb",
+        "area": "UES 1BR Airbnb",
+        "price": 10476,
+        "note": "比 1871 House 便宜 35%, June Homes 平台選擇多"
+      },
+      {
+        "type": "hotel",
+        "area": "The Mark Hotel UES",
+        "price": 38095,
+        "note": "六星級終極選項"
+      }
+    ],
+    "metime": [
+      "Pure Yoga East 86th（yoga）",
+      "Sky Ting Yoga（yoga）",
+      "Central Park 散步 + Reservoir 跑道（walking_route）",
+      "Tatte Bakery & Cafe (Madison Ave)（cafe）",
+      "WeWork (Madison Ave)（coworking）"
+    ],
+    "classes": [
+      "art / writing / business: 92Y Adult Programs (UES)",
+      "business: NYU School of Professional Studies"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -7897,8 +8055,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Mount Sinai Pediatric ER 24h / 212-241-5437 / NewYork-Presbyterian Komansky Children's Hospital UES",
+      "emergency": "911 (急救+警察+消防)"
     },
     "emergency": null,
     "support": {
@@ -7960,6 +8118,7 @@ const CANDIDATES = [
       "{'url': 'https://steveandkatescamp.com/fees/', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -8032,9 +8191,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Palo Alto / Mountain View 2BR Townhouse",
+        "price": 9285,
+        "note": "2 房 + 全廚房、停車位、近 Stanford 校園、Caltrain 步行 10 min"
+      },
+      {
+        "type": "airbnb",
+        "area": "San Francisco Noe Valley 2BR",
+        "price": 10476,
+        "note": "選 SF Noe Valley Galileo 校區 + 市區體驗"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Oakwood Mountain View",
+        "price": 8571,
+        "note": "服務式公寓 + 每週清潔"
+      }
+    ],
+    "metime": [
+      "Yoga Source Palo Alto（yoga）",
+      "Stanford Dish Trail 步道（walking_route）",
+      "Philz Coffee (Palo Alto)（cafe）",
+      "WeWork Palo Alto（coworking）",
+      "Stanford Shopping Center（cafe / 逛街）"
+    ],
+    "classes": [
+      "business / coding / writing: Stanford Continuing Studies",
+      "coding / business: Coursera 線上 (in coworking)"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -8052,8 +8239,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Lucile Packard ER 24h / 650-497-8000 / Stanford 兒科專科",
+      "emergency": "911"
     },
     "emergency": null,
     "support": {
@@ -8115,6 +8302,7 @@ const CANDIDATES = [
       "{'url': 'https://www.berkeleyparentsnetwork.org/recommend/summer/galileo', 'language': 'en', 'type': 'parent_forum', 'trust': 4, 'accessed': '2026-05-15'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -8187,9 +8375,36 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Lafayette / Walnut Creek 2BR Suite",
+        "price": 8333,
+        "note": "2 房 + 全廚房、Mt. Diablo 山景、BART 步行 10 min、停車位"
+      },
+      {
+        "type": "airbnb",
+        "area": "Walnut Creek 2BR guesthouse",
+        "price": 7857,
+        "note": "Walnut Creek 鄰區，餐廳街更熱鬧"
+      },
+      {
+        "type": "hotel",
+        "area": "Lafayette Park Hotel & Spa",
+        "price": 15238,
+        "note": "在地精品 + spa 但無廚房"
+      }
+    ],
+    "metime": [
+      "CorePower Yoga Walnut Creek（yoga）",
+      "Lafayette Reservoir 步道（walking_route）",
+      "Highwire Coffee Roasters (Rockridge)（cafe）",
+      "Broadway Plaza Walnut Creek（cafe / 逛街）"
+    ],
+    "classes": [
+      "business / coding: UC Berkeley Extension",
+      "art / language: Diablo Valley College Continuing Ed"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -8207,8 +8422,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "John Muir ER 24h / 925-939-3000",
+      "emergency": "911"
     },
     "emergency": null,
     "support": {
@@ -8266,6 +8481,7 @@ const CANDIDATES = [
       "{'url': 'https://www.berkeleyparentsnetwork.org/recommend/summer/roughingit', 'language': 'en', 'type': 'parent_forum', 'trust': 4, 'accessed': '2026-05-15'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -8338,9 +8554,36 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Pasadena Old Town 2BR House (Airbnb monthly)",
+        "price": 8809,
+        "note": "2 房 + 廚房、Metro Gold Line 走 10 min、Old Town 餐廳、華人區 San Marino 近"
+      },
+      {
+        "type": "hotel",
+        "area": "The Langham Pasadena",
+        "price": 21428,
+        "note": "百年五星級 + 含 spa"
+      },
+      {
+        "type": "airbnb",
+        "area": "San Marino 2BR",
+        "price": 9523,
+        "note": "Pasadena 旁華人富裕區，治安頂級"
+      }
+    ],
+    "metime": [
+      "YogaWorks Pasadena（yoga）",
+      "Eaton Canyon 步道（walking_route）",
+      "Republic of Pie Pasadena（cafe）",
+      "Huntington Library & Gardens（museum / 散步）"
+    ],
+    "classes": [
+      "art / language: Pasadena City College Continuing Ed",
+      "academic: Caltech Public Lectures"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -8358,8 +8601,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Huntington Hospital ER 24h / 626-397-5000 / CHLA Pediatric ER 24h",
+      "emergency": "911"
     },
     "emergency": null,
     "support": {
@@ -8421,6 +8664,7 @@ const CANDIDATES = [
       "{'url': 'https://www.pasadenaweekly.com/feature_stories/local-summer-camps-programs-that-help-younger-generation-excel/article_ba2b42f4-3a35-4a52-b750-1e0f810680d5.html', 'language': 'en', 'type': 'local_press', 'trust': 4, 'accessed': '2026-05-15'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -8493,9 +8737,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Upper West Side 2BR Airbnb (near West Side YMCA)",
+        "price": 13571,
+        "note": "2 房 + 廚房、Central Park 走 5 min、地鐵 1/2/3 線、AMNH 走 15 min"
+      },
+      {
+        "type": "airbnb",
+        "area": "Vanderbilt YMCA Midtown 鄰區 1BR",
+        "price": 10476,
+        "note": "選 Vanderbilt YMCA 校區更便宜"
+      },
+      {
+        "type": "airbnb",
+        "area": "Park Slope Brooklyn 2BR",
+        "price": 9523,
+        "note": "選 Brooklyn YMCA 校區，Prospect Park"
+      }
+    ],
+    "metime": [
+      "Pure Yoga West (UWS)（yoga）",
+      "Central Park 散步 + Reservoir 跑道（walking_route）",
+      "Levain Bakery (UWS)（cafe）",
+      "WeWork (3 Columbus Cir)（coworking）",
+      "American Museum of Natural History member（museum）"
+    ],
+    "classes": [
+      "business: Columbia Continuing Studies",
+      "art: Y Adult Programs"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -8513,8 +8785,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "NYP Pediatric ER 24h / 212-305-2500",
+      "emergency": "911"
     },
     "emergency": null,
     "support": {
@@ -8575,6 +8847,7 @@ const CANDIDATES = [
       "{'url': 'https://ymcanyc.org/locations/west-side-ymca/programs-and-classes/camps', 'language': 'en', 'type': 'official_camp', 'trust': 5, 'accessed': '2026-05-15'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -8647,9 +8920,36 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Washington DC U Street Corridor 2BR Airbnb",
+        "price": 7857,
+        "note": "2 房 + 廚房、U Street Metro 步行、Smithsonian 地鐵 15 min"
+      },
+      {
+        "type": "airbnb",
+        "area": "Arlington VA 2BR",
+        "price": 6904,
+        "note": "Arlington YMCA 校區 + Virginia 治安更好"
+      },
+      {
+        "type": "hotel",
+        "area": "Hyatt Place Washington DC/National Mall",
+        "price": 10476,
+        "note": "近 National Mall + 含早餐"
+      }
+    ],
+    "metime": [
+      "Yoga District (multiple DC locations)（yoga）",
+      "National Mall 步道（walking_route）",
+      "Compass Coffee (multiple)（cafe）",
+      "Smithsonian Museums (全免費)（museum）"
+    ],
+    "classes": [
+      "art / history: Smithsonian Associates Programs",
+      "business / policy: George Washington University Continuing Ed"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -8667,8 +8967,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Children's National ER 24h / 202-476-5000",
+      "emergency": "911"
     },
     "emergency": null,
     "support": {
@@ -8736,6 +9036,7 @@ const CANDIDATES = [
       "{'url': 'https://dcmoms.com/in-around-dc/guides/summer-camps-in-the-washington-dc-area/', 'language': 'en', 'type': 'directory', 'trust': 4, 'accessed': '2026-05-15'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -8808,9 +9109,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Bellevue Downtown / Wilburton 2BR Airbnb",
+        "price": 9523,
+        "note": "2 房 + 全廚房、Bellevue Square 走 5 min、Microsoft 校園近、停車位"
+      },
+      {
+        "type": "airbnb",
+        "area": "Kirkland 2BR Lakeshore",
+        "price": 9285,
+        "note": "Lake Washington 湖畔小鎮"
+      },
+      {
+        "type": "hotel",
+        "area": "Hyatt Regency Bellevue",
+        "price": 12380,
+        "note": "Bellevue Square 旁五星級"
+      }
+    ],
+    "metime": [
+      "YogaSix Bellevue（yoga）",
+      "Bellevue Botanical Garden（walking_route）",
+      "Caffe Ladro Bellevue（cafe）",
+      "WeWork Bellevue（coworking）",
+      "The Bellevue Collection 逛街（cafe / 逛街）"
+    ],
+    "classes": [
+      "art / business: Bellevue College Continuing Ed",
+      "coding: Coursera + WeWork"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -8828,8 +9157,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Overlake ER 24h / 425-688-5000 / Seattle Children's ER (兒科專科)",
+      "emergency": "911"
     },
     "emergency": null,
     "support": {
@@ -8891,6 +9220,7 @@ const CANDIDATES = [
       "{'url': 'https://www.seattlemet.com/news-and-city-life/2024/01/best-seattle-summer-camps', 'language': 'en', 'type': 'local_press', 'trust': 4, 'accessed': '2026-05-15'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -8963,9 +9293,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Niu Valley / Kahala 2BR Family House",
+        "price": 10952,
+        "note": "2 房 + 廚房、近 Hanauma Bay、Kahala Mall 走 10 min、停車位"
+      },
+      {
+        "type": "resort",
+        "area": "The Kahala Hotel & Resort",
+        "price": 22857,
+        "note": "Kahala 五星級 + 海豚池"
+      },
+      {
+        "type": "hotel",
+        "area": "Hilton Hawaiian Village Waikiki",
+        "price": 16666,
+        "note": "Waikiki 海灘 + 大型 family resort"
+      }
+    ],
+    "metime": [
+      "Power Yoga Hawaii（yoga）",
+      "Diamond Head 登山（walking_route）",
+      "Kahala Mall + Whole Foods（cafe / 逛街）",
+      "Lanikai Pillbox Hike（walking_route）",
+      "Morning Brew (Kailua)（cafe）"
+    ],
+    "classes": [
+      "language / culture: Hawaii Pacific University Outreach",
+      "culture / dance: Hula 課 (Hālau Hula)"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -8983,8 +9341,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Kapi'olani ER 24h / 808-983-6000",
+      "emergency": "911"
     },
     "emergency": null,
     "support": {
@@ -9051,6 +9409,7 @@ const CANDIDATES = [
       "{'url': 'https://www.ymcahonolulu.org/programs/kids-teens-young-adults-families/kids/summer-programs', 'language': 'en', 'type': 'directory', 'trust': 4, 'accessed': '2026-05-15'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f3_usa",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -9121,9 +9480,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "resort",
+        "area": "Gstaad Palace Hotel",
+        "price": 57142,
+        "note": "五星城堡式 1913 創立、Sammy's World Kids Club、10,000m² Alpine spa、戶外泳池"
+      },
+      {
+        "type": "hotel",
+        "area": "HUUS Gstaad (4 星)",
+        "price": 15238,
+        "note": "Family-friendly 4 星 + 兒童遊樂室 + 4 折價"
+      },
+      {
+        "type": "hotel",
+        "area": "Ultima Gstaad",
+        "price": 40476,
+        "note": "Ultima 集團頂級 chalet 住宿"
+      }
+    ],
+    "metime": [
+      "Gstaad Palace Spa (10,000m²)（spa）",
+      "Saanen Country Walks（walking_route）",
+      "Promenade Gstaad 名牌街（walking_route）",
+      "Saanenland Yoga Studio（yoga）",
+      "Hammetschwand Lift + Alpine 健行（walking_route）"
+    ],
+    "classes": [
+      "language / culture: Le Rosey Gstaad Summer (parent 探索選項)",
+      "cooking: Gstaad Culinary Workshops"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -9141,8 +9528,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Dr. Studer Gstaad Family Practice (英德雙語)",
+      "emergency": "112 / 144 (救護車) / 117 (警)"
     },
     "emergency": null,
     "support": {
@@ -9199,6 +9586,7 @@ const CANDIDATES = [
       "{'url': 'https://worldwide-kids.com/resort/switzerland-gstaad/', 'language': 'en', 'type': 'certification_body', 'trust': 5, 'accessed': '2026-05-15'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f4_swiss_dubai",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -9265,9 +9653,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "resort",
+        "area": "Bürgenstock Hotel & Alpine Spa",
+        "price": 40476,
+        "note": "五星 60 公頃綜合度假村、Kids Club 3-12、10,000m² Alpine Spa、Hammetschwand 觀景電梯"
+      },
+      {
+        "type": "hotel",
+        "area": "Waldhotel Bürgenstock",
+        "price": 29523,
+        "note": "同 resort 集團精品療養飯店"
+      },
+      {
+        "type": "hotel",
+        "area": "Royal Park Villa Bürgenstock",
+        "price": 71428,
+        "note": "頂級 villa，私人 splurge"
+      }
+    ],
+    "metime": [
+      "Bürgenstock Alpine Spa (10,000m²)（spa）",
+      "Hammetschwand Lift + Felsenweg 步道（walking_route）",
+      "Lake Lucerne 遊船（walking_route）",
+      "Lucerne Old Town walk（walking_route）",
+      "Mount Pilatus 健行（walking_route）"
+    ],
+    "classes": [
+      "cooking: Lucerne Cooking Class",
+      "wellness: Bürgenstock Wellness Workshops"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -9285,8 +9701,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Waldhotel Bürgenstock Medical Centre (resort 內) / Lucerne Praxis Dr. Müller",
+      "emergency": "112 / 144 (救護) / 117 (警)"
     },
     "emergency": null,
     "support": {
@@ -9343,6 +9759,7 @@ const CANDIDATES = [
       "{'url': 'https://en.wikipedia.org/wiki/B%C3%BCrgenstock_Resort', 'language': 'en', 'type': 'encyclopedia', 'trust': 4, 'accessed': '2026-05-15'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f4_swiss_dubai",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -9409,9 +9826,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "hotel",
+        "area": "Beau-Rivage Palace Lausanne",
+        "price": 35714,
+        "note": "1861 城堡式 5 星、Lake Geneva 湖景、Le Comptoir 米其林 3 星、Bori Kids Club (6/27-8/16 開放)"
+      },
+      {
+        "type": "hotel",
+        "area": "Hôtel Royal Savoy Lausanne",
+        "price": 21428,
+        "note": "鄰近五星級 + Spa du Royal"
+      },
+      {
+        "type": "hotel",
+        "area": "Lausanne Palace",
+        "price": 23809,
+        "note": "市中心五星級 + Wellness center"
+      }
+    ],
+    "metime": [
+      "Cinq Mondes Spa @ Beau-Rivage Palace（spa）",
+      "Lausanne 湖畔散步 (Ouchy Quay)（walking_route）",
+      "Bali Bali Yoga Studio Lausanne（yoga）",
+      "Holy Cow! Cafe Lausanne（cafe）",
+      "Olympic Museum 旁 Quai Esplanade（walking_route）"
+    ],
+    "classes": [
+      "language (法文): Alliance Française Lausanne",
+      "art / culture: Lavaux Wine Tasting Workshop"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -9429,8 +9874,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "CHUV 兒童急診 24h / +41 21 314 11 11 / 英文流利",
+      "emergency": "144 (急救) / 117 (警察) / 118 (消防) / 112 (歐洲通用)"
     },
     "emergency": null,
     "support": {
@@ -9487,6 +9932,7 @@ const CANDIDATES = [
       "{'url': 'https://www.tripadvisor.com/Hotel_Review-g188107-d231860-Reviews-Beau_Rivage_Palace-Lausanne_Canton_of_Vaud.html', 'language': 'en', 'type': 'review_aggregator', 'trust': 4, 'accessed': '2026-05-15'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f4_swiss_dubai",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -9555,9 +10001,38 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "resort",
+        "area": "Atlantis, The Palm Dubai",
+        "price": 19523,
+        "note": "五星級度假村、Lost Chambers 水族館免費、Aquaventure 水樂園免費、Explorers Club 4-12 歲房客免費"
+      },
+      {
+        "type": "hotel",
+        "area": "Atlantis The Royal (奢華升級)",
+        "price": 45238,
+        "note": "2023 新開姊妹館，更豪華但 Kids Club 不一樣"
+      },
+      {
+        "type": "resort",
+        "area": "Anantara The Palm Dubai Resort",
+        "price": 13571,
+        "note": "Palm 上替代選擇，泰式風格，Kids Club 較小"
+      }
+    ],
+    "metime": [
+      "ShuiQi Spa at Atlantis The Palm（spa）",
+      "Talise Spa at Madinat Jumeirah (taxi 10min)（spa）",
+      "Pure Yoga Dubai (Mall of Emirates)（yoga）",
+      "Atlantis Beach + private pool laps（spa）",
+      "WeWork Hub71 Abu Dhabi (若 remote work)（coworking）",
+      "The Lost Chambers Aquarium (resort 內)（museum）"
+    ],
+    "classes": [
+      "art: Atlantis Marine & Waterpark Conservation 體驗",
+      "cooking: Arabian Cooking Class - Top Chef Dubai"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -9575,8 +10050,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "American Hospital Dubai - 19th Street, Oud Metha, Dubai (兒童急診 24h，全英文)",
+      "emergency": "999 (警察) / 998 (救護車) / 997 (消防)"
     },
     "emergency": null,
     "support": {
@@ -9638,6 +10113,7 @@ const CANDIDATES = [
       "{'url': 'https://www.skidxb.com/en-ae/ski-dubai/day-camp', 'language': 'en', 'type': 'official_attraction', 'trust': 5, 'accessed': '2026-05-15'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f4_swiss_dubai",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -9706,9 +10182,38 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "resort",
+        "area": "Jumeirah Al Qasr (Madinat Jumeirah)",
+        "price": 22857,
+        "note": "五星級 Arabian palace 主題、Sinbad's Kids Club 1000m² 房客免費、Wild Wadi Waterpark 房客免費、私人海灘"
+      },
+      {
+        "type": "resort",
+        "area": "Jumeirah Mina A'Salam (姊妹館，較親民)",
+        "price": 18095,
+        "note": "Madinat 集團入門館，Sinbad's 同享"
+      },
+      {
+        "type": "resort",
+        "area": "Jumeirah Al Naseem (新代館)",
+        "price": 20238,
+        "note": "2016 新開現代風，海灘前線"
+      }
+    ],
+    "metime": [
+      "Talise Spa Madinat Jumeirah（spa）",
+      "Talise Fitness Yoga & Pilates（yoga）",
+      "Madinat Souk traditional shopping（cafe）",
+      "Private Beach yoga session（yoga）",
+      "Pure Yoga DIFC（yoga）",
+      "Abra ride along Madinat canals（walking_route）"
+    ],
+    "classes": [
+      "cooking: Top Chef Dubai - Arabian / Lebanese cooking",
+      "art: Madinat Theatre cultural workshops"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -9726,8 +10231,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "American Hospital Dubai 分院 Jumeirah - Beach Road / Aster Clinic Jumeirah",
+      "emergency": "999 (警察) / 998 (救護車)"
     },
     "emergency": null,
     "support": {
@@ -9784,6 +10289,7 @@ const CANDIDATES = [
       "{'url': 'https://www.lwcholidays.com/inspiration/jumeirah-madinat-a-holiday-paradise-for-children/', 'language': 'en', 'type': 'travel_agency', 'trust': 3, 'accessed': '2026-05-15'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f4_swiss_dubai",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -9852,9 +10358,38 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Constantia 高安全社區 Airbnb 家庭獨棟 (Alphen Trail 周邊)",
+        "price": 3714,
+        "note": "獨棟附院子、全套廚房+洗衣機、三房、免費 wifi"
+      },
+      {
+        "type": "airbnb",
+        "area": "Vredehoek 山下公寓 (Deer Park 校區)",
+        "price": 3095,
+        "note": "Vredehoek 平均 4.8/5，Table Mountain 山下，Nature Plays Deer Park 校區 walk 可達"
+      },
+      {
+        "type": "hotel",
+        "area": "The Cellars-Hohenort Hotel (Constantia)",
+        "price": 8571,
+        "note": "Constantia 5 星 historic hotel，家庭套房，spa+泳池"
+      }
+    ],
+    "metime": [
+      "Yoga Spirit Studios (Constantia)（yoga）",
+      "Hot Yoga Co. Cape Town（yoga）",
+      "Constantia Glen Wine Estate 散步（walking_route）",
+      "Sorbet Day Spa Constantia（spa）",
+      "Sotano Coffee (Cavendish Square)（cafe）",
+      "Kirstenbosch Botanical Garden（walking_route）"
+    ],
+    "classes": [
+      "cooking: Cape Town Cookery Studio - South African cuisine",
+      "art: African Drumming Workshop Cape Town"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -9872,8 +10407,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Constantia Family Practice (Constantia Village Mall 內) / Mediclinic Constantiaberg Emergency Centre (24h)",
+      "emergency": "10111 (警察) / 10177 (救護車) / 112 (手機通用)"
     },
     "emergency": null,
     "support": {
@@ -9915,6 +10450,7 @@ const CANDIDATES = [
       "{'url': 'https://travel.state.gov/en/international-travel/travel-advisories/south-africa.html', 'verified': '2026-05-15', 'method': 'WebSearch (USDOS 旅遊警示)'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f5_india_safrica",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -9983,9 +10519,39 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Plumstead / Rondebosch 家庭 Airbnb 公寓",
+        "price": 3095,
+        "note": "公寓 / 獨棟、全套廚房+洗衣機、兩房、免費 wifi"
+      },
+      {
+        "type": "hotel",
+        "area": "The Rondebosch Hotel",
+        "price": 3571,
+        "note": "Rondebosch 中端 boutique，靠 UCT 大學區"
+      },
+      {
+        "type": "airbnb",
+        "area": "Constantia Airbnb (升級安全)",
+        "price": 4047,
+        "note": "Constantia 更安全更貴 30%，車程 10min 到 Club Engage"
+      }
+    ],
+    "metime": [
+      "Yoga at Cavendish Square Health Club（yoga）",
+      "Cavendish Square shopping + Sotano coffee（cafe）",
+      "UCT (University of Cape Town) walking trail（walking_route）",
+      "Sorbet Day Spa Claremont（spa）",
+      "Liberty Promenade Mitchells Plain (or Long St cafes)（coworking）",
+      "Kirstenbosch Botanical Garden（walking_route）"
+    ],
+    "classes": [
+      "cooking: Cape Town Cookery Studio - SA cuisine",
+      "language: UCT Summer Programs (短期 audit course)",
+      "art: Photography Workshop Cape Town"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -10003,8 +10569,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Mediclinic Constantiaberg Emergency Centre (24h) / Plumstead Medical Centre (家庭 GP)",
+      "emergency": "10111 (警察) / 10177 (救護車) / 112 (手機通用)"
     },
     "emergency": null,
     "support": {
@@ -10046,6 +10612,7 @@ const CANDIDATES = [
       "{'url': 'https://clubengage.co.za/2026-school-calendars/', 'verified': '2026-05-15', 'method': 'WebSearch (Term 2 dates)'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f5_india_safrica",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -10116,9 +10683,39 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "hotel",
+        "area": "Crowne Plaza New Delhi Rohini (IHG)",
+        "price": 3571,
+        "note": "五星級 IHG 連鎖、兒童 baby bathtub / 急救包、游泳池 + spa、免費 wifi"
+      },
+      {
+        "type": "hotel",
+        "area": "Welcomhotel by ITC Hotels, Dwarka",
+        "price": 4523,
+        "note": "Dwarka 區 5 星 ITC 集團，若選 Dwarka 校區"
+      },
+      {
+        "type": "hotel",
+        "area": "Radisson Blu Plaza Delhi Airport",
+        "price": 5238,
+        "note": "機場附近 5 星，若想方便機場+IGI 區"
+      }
+    ],
+    "metime": [
+      "Crowne Plaza Hotel Spa & Pool（spa）",
+      "The Yoga Institute (Mumbai 起源，Delhi 分校)（yoga）",
+      "Sivananda Yoga Vedanta Centre Delhi（yoga）",
+      "Lodhi Garden walking + India Gate（walking_route）",
+      "Khan Market shopping + cafes（cafe）",
+      "The Imperial Spa Delhi（spa）"
+    ],
+    "classes": [
+      "cooking: Delhi Cookery School - Indian Vegetarian",
+      "yoga_teacher: Sivananda Yoga Vedanta - Yoga Teacher 短期",
+      "language: Hindi 入門短期班 (Hindi Online Centre Delhi)"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -10136,8 +10733,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Apollo International Patient Unit / Fortis International Patient Unit (24/7，全英文，含中文翻譯需問)",
+      "emergency": "112 (統一急救) / 100 (警察) / 102 (救護車) / 101 (消防)"
     },
     "emergency": null,
     "support": {
@@ -10179,6 +10776,7 @@ const CANDIDATES = [
       "{'url': 'https://travel.state.gov/en/international-travel/travel-advisories/india.html', 'verified': '2026-05-15', 'method': 'WebSearch (Delhi 旅遊警示)'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f5_india_safrica",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -10245,9 +10843,39 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "hotel",
+        "area": "The Westin Mumbai Garden City (Goregaon East)",
+        "price": 4523,
+        "note": "五星級 Marriott 集團、兒童俱樂部、游泳池+spa、免費 wifi"
+      },
+      {
+        "type": "hotel",
+        "area": "JW Marriott Mumbai Juhu",
+        "price": 7857,
+        "note": "Juhu 海邊 5 星，沙灘對面，更觀光"
+      },
+      {
+        "type": "hotel",
+        "area": "The Taj Mahal Palace Mumbai (Colaba)",
+        "price": 13333,
+        "note": "Mumbai 歷史地標 5 星，殖民風格"
+      }
+    ],
+    "metime": [
+      "The Yoga Institute Santacruz (Mumbai 起源)（yoga）",
+      "Mumbai Marine Drive walking（walking_route）",
+      "Phoenix Palladium Mall (Lower Parel)（cafe）",
+      "Westin Heavenly Spa（spa）",
+      "Quaker Bandra (coworking)（coworking）",
+      "Sivananda Yoga Vedanta Mumbai（yoga）"
+    ],
+    "classes": [
+      "cooking: Mumbai Cookery Studio - Indian Vegetarian",
+      "art: Bollywood Dance Workshop Mumbai",
+      "yoga_teacher: Kerala Ayurveda Mumbai"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -10265,8 +10893,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Fortis International Patient Unit Mulund (24/7) / Apollo Hospital Navi Mumbai International (含翻譯需問)",
+      "emergency": "112 (統一急救) / 100 (警察) / 102 (救護車)"
     },
     "emergency": null,
     "support": {
@@ -10306,6 +10934,7 @@ const CANDIDATES = [
       "{'url': 'https://www.playtolabs.com/blog/summer-camps/india/mumbai/', 'verified': '2026-05-15', 'method': 'Tavily'}"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f5_india_safrica",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -10363,9 +10992,36 @@ const CANDIDATES = [
       "lang": "英文為主，馬來語/普通話助教（Tenby 校系一致雙語慣例）",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "serviced_apartment",
+        "area": "PM Octagon Ipoh Suites & Apartment (Meru Raya 區)",
+        "price": 2190,
+        "note": "公寓式廚房、洗衣機、兩臥、免費 wifi"
+      },
+      {
+        "type": "villa",
+        "area": "Projector+BBQ+Tenby Ipoh Homestay (Meru Mutiara)",
+        "price": 1809,
+        "note": "四房 villa 家庭包棟 / 私人泳池 BBQ"
+      },
+      {
+        "type": "hotel",
+        "area": "Weil Hotel Ipoh",
+        "price": 2619,
+        "note": "Ipoh 老城 5* / 但離 Tenby 20min"
+      }
+    ],
+    "metime": [
+      "Lost World of Tambun Hot Springs Spa（spa）",
+      "Plan B Ipoh Cafe (老城)（cafe）",
+      "Concubine Lane 散步（walking_route）",
+      "Banjaran Hotsprings Spa（spa）"
+    ],
+    "classes": [
+      "art: Ipoh Old Town Heritage Tour",
+      "cooking: Cooking @ Lawak Café Ipoh White Coffee Workshop"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -10383,12 +11039,38 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Pantai Premier / KPJ / Columbia Asia Ipoh — 多語 staff",
+      "emergency": "999 (全 Malaysia) / 救護車 999"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "Hospital Pantai Premier Ipoh (Jalan Tambun) +60 5-548 8888 24h",
+          "addr": "KPJ Specialist Hospital Ipoh",
+          "phone": "999 (全 Malaysia) / 救護車 999",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "Pantai Premier",
+          "addr": "KPJ / Columbia Asia Ipoh — 多語 staff",
+          "phone": "999 (全 Malaysia) / 救護車 999",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "Watsons / Guardian 連鎖 + AEON Mall Klebang"
+        }
+      ],
+      "insurance_sop": "國泰 / 富邦旅平 NT$300 萬 + dengue + 海外急難",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無 (Cameron Highlands 1500m 上山注意)"
+    },
     "support": {
-      "chinese_community": "無在地華人社群（純英語環境）",
+      "chinese_community": "在地 expat / 華人社群（活躍）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
@@ -10425,6 +11107,7 @@ const CANDIDATES = [
       "https://www.instagram.com/p/DVfz8mEj0J3/"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://www.teemsglobal.com/ispactivate",
@@ -10482,9 +11165,36 @@ const CANDIDATES = [
       "lang": "英文為主，多國 staff",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "resort",
+        "area": "Shangri-La Rasa Ria Kota Kinabalu (Deluxe Family Room Garden Wing)",
+        "price": 8095,
+        "note": "64 英畝叢林、Cool Zone Kids Club 4-12、Junior Resident Naturalist、紅毛猩猩復育中心鄰"
+      },
+      {
+        "type": "resort",
+        "area": "Sutera Harbour Resort Pacific Sutera",
+        "price": 6190,
+        "note": "KK 市區 + 親子 / 較城市風"
+      },
+      {
+        "type": "resort",
+        "area": "Shangri-La Tanjung Aru Resort",
+        "price": 8571,
+        "note": "KK 市區海灘 + Cool Zone / 較城"
+      }
+    ],
+    "metime": [
+      "Chi The Spa at Shangri-La（spa）",
+      "Coastline Walk Pantai Dalit (3km)（walking_route）",
+      "Naturalist Walk Rasa Ria 64-acre（walking_route）",
+      "Borneo Coffee Roastery KK（cafe）"
+    ],
+    "classes": [
+      "cooking: Bornean Cooking Class @ Rasa Ria",
+      "art: Batik Painting Workshop KK"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -10502,10 +11212,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Gleneagles KK / KPJ Sabah / 度假村醫生 on-call",
+      "emergency": "999 (全 Malaysia) / 救護車 999"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "Gleneagles Kota Kinabalu Hospital (Lorong Bersatu Off Damai Road) +60 88-518 888",
+          "addr": "KPJ Sabah Specialist Hospital",
+          "phone": "999 (全 Malaysia) / 救護車 999",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "Gleneagles KK",
+          "addr": "KPJ Sabah / 度假村醫生 on-call",
+          "phone": "999 (全 Malaysia) / 救護車 999",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "Watsons / Guardian KK 市區齊全, 度假村 mini pharmacy"
+        }
+      ],
+      "insurance_sop": "國泰 NT$300 萬 + dengue + 叢林意外 (蛇/蜜蜂) + 海外急難",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: Mount Kinabalu 4095m 高山 (上山活動才需注意, Rasa Ria 海邊安全)"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -10545,6 +11281,7 @@ const CANDIDATES = [
       "https://www.sassymamasg.com/travel-borneo-kids-shangri-la-rasa-ria-resort-nature-reserve-adventure-playground/"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://www.shangri-la.com/kotakinabalu/rasariaresort/for-kids/",
@@ -10602,9 +11339,36 @@ const CANDIDATES = [
       "lang": "英文為主 + 馬來/福建/普通話助教",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "serviced_apartment",
+        "area": "Somerset Medini Iskandar Puteri",
+        "price": 3333,
+        "note": "全廚房、洗衣機、1-2 BR、Legoland 5min"
+      },
+      {
+        "type": "hotel",
+        "area": "Sheraton Iskandar Puteri",
+        "price": 4047,
+        "note": "Marriott 系 + 親子早餐 + Puteri Harbour"
+      },
+      {
+        "type": "resort",
+        "area": "Legoland Hotel Malaysia",
+        "price": 4523,
+        "note": "主題房 + Legoland 含 / 較貴可選 W2"
+      }
+    ],
+    "metime": [
+      "JPark Spa Puteri Harbour（spa）",
+      "Singapore day trip (30min 過關) Cafe（cafe）",
+      "Mall of Medini（walking_route）",
+      "Puteri Harbour Marina 散步（walking_route）"
+    ],
+    "classes": [
+      "cooking: Singapore Cookery Magic (週末過關)",
+      "art: Johor Heritage Tour (Old Johor Bahru)"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -10622,10 +11386,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Gleneagles Medini / KPJ Puteri Specialist (Old JB) / Singapore Mount Elizabeth 過關 30min 重症轉送",
+      "emergency": "999 (Malaysia) / 995 (Singapore 過關時)"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "Gleneagles Medini Hospital Iskandar Puteri (Medini Iskandar Malaysia) +60 7-560 ",
+          "addr": "24h",
+          "phone": "999 (Malaysia) / 995 (Singapore 過關時)",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "Gleneagles Medini",
+          "addr": "KPJ Puteri Specialist (Old JB) / Singapore Mount Elizabeth 過關 30min 重症轉送",
+          "phone": "999 (Malaysia) / 995 (Singapore 過關時)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "Watsons / Guardian Mall of Medini + 過關 Singapore Unity 隨便買"
+        }
+      ],
+      "insurance_sop": "國泰 NT$500 萬 + 跨境保 (含新加坡轉送) + dengue",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -10665,6 +11455,7 @@ const CANDIDATES = [
       "https://www.facebook.com/marlboroughcollegemalaysia/posts/713778864347715/"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://booknow.campbeaumont.asia/",
@@ -10722,9 +11513,36 @@ const CANDIDATES = [
       "lang": "英文，少量普通話 (Nord Anglia 系統)",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "resort",
+        "area": "Centara Mirage Beach Resort Pattaya (Family Resort)",
+        "price": 2571,
+        "note": "親子主題度假村、Lost World 4D 水樂園、Adventureland、Kids Club"
+      },
+      {
+        "type": "resort",
+        "area": "Holiday Inn Pattaya",
+        "price": 3333,
+        "note": "IHG 親子 + Naklua 安靜端"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Wyndham Grand Pattaya",
+        "price": 2857,
+        "note": "公寓式 + 海景"
+      }
+    ],
+    "metime": [
+      "Centara Spa（spa）",
+      "Pattaya Beach 散步 (Jomtien 端)（walking_route）",
+      "Sanctuary of Truth 木雕廟（museum）",
+      "Mocking Tales Cafe Pattaya（cafe）"
+    ],
+    "classes": [
+      "cooking: Thai Cooking Class Sweet Basil Pattaya",
+      "yoga_teacher: Muay Thai @ Fairtex Pattaya"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -10742,10 +11560,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Bangkok Hospital Pattaya / Pattaya International Hospital / Jomtien Hospital",
+      "emergency": "1669 (救護車) / 191 (警察) / 199 (火警)"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "Bangkok Hospital Pattaya (301 Sukhumvit Rd, Naklua) +66 38 259 999",
+          "addr": "JCI 認證 24h",
+          "phone": "1669 (救護車) / 191 (警察) / 199 (火警)",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "Bangkok Hospital Pattaya",
+          "addr": "Pattaya International Hospital / Jomtien Hospital",
+          "phone": "1669 (救護車) / 191 (警察) / 199 (火警)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "Watsons / Boots / Fascino 連鎖 + 度假村內 mini pharmacy"
+        }
+      ],
+      "insurance_sop": "國泰 NT$500 萬 + dengue + 摩托車險 + 海外急難",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -10785,6 +11629,7 @@ const CANDIDATES = [
       "https://world-schools.com/schools/regents-international-school-pattaya/"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://www.nordangliaeducation.com/risp-pattaya/news/2026/02/16/why-summer-camp-is-the-perfect-opportunity-for-children-to-explore-learn-and-grow",
@@ -10842,9 +11687,38 @@ const CANDIDATES = [
       "lang": "英文 (沉浸式)",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "serviced_apartment",
+        "area": "137 Pillars House Chiang Mai (or Hang Dong serviced apartment)",
+        "price": 2571,
+        "note": "全廚房、洗衣機、1-2 BR、泳池"
+      },
+      {
+        "type": "hotel",
+        "area": "Anantara Chiang Mai Resort",
+        "price": 8571,
+        "note": "Ping River 河畔 5* + 親子"
+      },
+      {
+        "type": "resort",
+        "area": "Four Seasons Chiang Mai (Mae Rim)",
+        "price": 16666,
+        "note": "Mae Rim 稻田 villa 頂級 / 遠 Lanna"
+      }
+    ],
+    "metime": [
+      "Wat Pho Traditional Thai Massage Chiang Mai（spa）",
+      "Wild Rose Yoga Chiang Mai（yoga）",
+      "Punspace Coworking Nimman（coworking）",
+      "Ristr8to Coffee Nimman（cafe）",
+      "Old City 寺廟散步 + 月光夜市（walking_route）"
+    ],
+    "classes": [
+      "cooking: Asia Scenic Thai Cooking School",
+      "yoga_teacher: Thai Massage 5-day Course Wat Pho",
+      "art: Mahout for a Day Elephant Nature Park"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -10862,10 +11736,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Bangkok Hospital Chiang Mai / Chiangmai Ram (8 Bunruangrit Rd) / Lanna Hospital",
+      "emergency": "1669 (救護車) / 191 (警察)"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "Bangkok Hospital Chiang Mai (88",
+          "addr": "8 Moo 6, Nong Pa Khrang) +66 52 089 888 / Chiangmai Ram Hospital",
+          "phone": "1669 (救護車) / 191 (警察)",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "Bangkok Hospital Chiang Mai",
+          "addr": "Chiangmai Ram (8 Bunruangrit Rd) / Lanna Hospital",
+          "phone": "1669 (救護車) / 191 (警察)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "Boots / Watsons 全市 + 度假村 mini pharmacy"
+        }
+      ],
+      "insurance_sop": "國泰 NT$500 萬 + dengue + 摩托車險 (Chiang Mai 機車意外率高)",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: Doi Inthanon 2565m 上山注意 / Chiang Mai 市區 300m 無問題"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -10905,6 +11805,7 @@ const CANDIDATES = [
       "https://www.international-schools-database.com/in/chiang-mai/lanna-international-school-thailand-chiang-mai"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://www.lannaist.ac.th/international-summer-school/",
@@ -10962,9 +11863,36 @@ const CANDIDATES = [
       "lang": "英文 + 泰語 + 部分中文 staff",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "resort",
+        "area": "Centara Grand Beach Resort & Villas Hua Hin (Family Suite)",
+        "price": 5571,
+        "note": "殖民風 5*、4 泳池、42 villa、Camp Safari 4-9"
+      },
+      {
+        "type": "resort",
+        "area": "Anantara Hua Hin Resort",
+        "price": 7142,
+        "note": "Anantara 親子 + spa 頂"
+      },
+      {
+        "type": "resort",
+        "area": "Marriott Hua Hin Resort",
+        "price": 6666,
+        "note": "Marriott 系 + 親子 Splash"
+      }
+    ],
+    "metime": [
+      "Centara Spa Cenvaree（spa）",
+      "Hua Hin Beach 散步 (5km 灣)（walking_route）",
+      "Cicada Market (週末文創市集)（walking_route）",
+      "Coffee Brewer Hua Hin (Niche cafe)（cafe）"
+    ],
+    "classes": [
+      "cooking: Thai Cooking Class @ Hyatt Regency Hua Hin",
+      "yoga_teacher: Muay Thai Class @ Hua Hin Muay Thai Gym"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -10982,8 +11910,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Bangkok Hospital Hua Hin / San Paulo Hospital / Hua Hin Hospital",
+      "emergency": "1669 (救護車) / 191 (警察)"
     },
     "emergency": null,
     "support": {
@@ -11025,6 +11953,7 @@ const CANDIDATES = [
       "https://www.tripadvisor.com/Hotel_Feature-g297922-d577067-zft12121-Centara_Grand_Beach_Resort_Villas_Hua_Hin.html"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://www.centarahotelsresorts.com/centaragrand/chbr",
@@ -11082,9 +12011,37 @@ const CANDIDATES = [
       "lang": "英文 + 越南語 + 部分中文 staff",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "resort",
+        "area": "Four Seasons Resort The Nam Hai Hoi An (1BR Villa)",
+        "price": 30952,
+        "note": "全 villa 設計、Chuon Chuon 4-12 免費、15+ 免費活動、三層 infinity 泳池"
+      },
+      {
+        "type": "resort",
+        "area": "Anantara Hoi An Resort",
+        "price": 13333,
+        "note": "Hoi An 古城 walking distance / 較親民"
+      },
+      {
+        "type": "resort",
+        "area": "Salinda Resort Phu Quoc",
+        "price": 10476,
+        "note": "預算腰斬 / 不過位置不同"
+      }
+    ],
+    "metime": [
+      "The Spa at Nam Hai (lotus pond villa)（spa）",
+      "Beach Yoga Pavilion 晨間（yoga）",
+      "Hoi An Old Town walking + cafe（walking_route）",
+      "Mango Mango (Hoi An 河畔)（cafe）"
+    ],
+    "classes": [
+      "cooking: Nam Hai Cooking Academy (Junior + Adult)",
+      "cooking: Red Bridge Cooking School Hoi An",
+      "art: Hoi An Lantern Making Workshop"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -11102,10 +12059,36 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Family Medical Practice Danang +84-236 3582-699 (50-52 Nguyen Van Linh) / Pacific Hospital Hoi An / Nam Hai doctor on-call 24h",
+      "emergency": "115 (救護車) / 113 (警察) / 114 (火警)"
     },
-    "emergency": null,
+    "emergency": {
+      "hospitals": [
+        {
+          "name": "Vinmec Danang Hospital +84 236 711 5546",
+          "addr": "24h 國際醫院 (Hoi An 開車 35min)",
+          "phone": "115 (救護車) / 113 (警察) / 114 (火警)",
+          "chinese": "—",
+          "note": "最近醫院"
+        },
+        {
+          "name": "Family Medical Practice Danang +84-236 3582-699 (50-52 Nguyen Van Linh)",
+          "addr": "Pacific Hospital Hoi An / Nam Hai doctor on-call 24h",
+          "phone": "115 (救護車) / 113 (警察) / 114 (火警)",
+          "chinese": "英文可",
+          "note": "英文 / 親子診所"
+        }
+      ],
+      "pharmacy": [
+        {
+          "name": "常用藥來源",
+          "addr": "Pharmacity Danang + 度假村 mini pharmacy"
+        }
+      ],
+      "insurance_sop": "國泰 NT$500 萬 + 海外急難 + dengue + 食物中毒",
+      "taiwan_contact_placeholder": "【待填】台灣 24h 緊急聯絡人 1：____ / 聯絡人 2：____",
+      "camp_notify_sop": "第一時間: 1) 通知夏令營主任 + 班導師（拍照單據 + GPS 座標）2) email 台灣 24h 聯絡人 3) 拍醫院帳單/處方 4) 24h 內聯絡保險公司開案 5) 微信/LINE 同步女兒父親（依公證書條款）　海拔風險: 無 (沿海)"
+    },
     "support": {
       "chinese_community": "無在地華人社群（純英語環境）",
       "taiwan_families_known": "無已知 — 需自行串連",
@@ -11145,6 +12128,7 @@ const CANDIDATES = [
       "https://press.fourseasons.com/hoian/hotel-news/2026/forbes-five-star-hotel/"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "verified",
     "p7b_verified_url": "https://www.fourseasons.com/hoian/services-and-amenities/family/",
@@ -11202,9 +12186,37 @@ const CANDIDATES = [
       "lang": "英文 + 高棉語 + 部分中文",
       "highlights": []
     },
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "resort",
+        "area": "Anantara Angkor Resort (Family Pool Suite)",
+        "price": 13571,
+        "note": "39-suite 精品、Family Pool Suite 兩房、incense / palm leaf / lotus art、spa room + Jacuzzi"
+      },
+      {
+        "type": "resort",
+        "area": "Raffles Grand Hotel d'Angkor",
+        "price": 15238,
+        "note": "1932 殖民風老牌 + 親子 pool"
+      },
+      {
+        "type": "hotel",
+        "area": "Sofitel Angkor Phokeethra",
+        "price": 11428,
+        "note": "Accor 系大規模 + 預算可控"
+      }
+    ],
+    "metime": [
+      "Anantara Spa（spa）",
+      "Phare Cambodian Circus（art）",
+      "Old Market + Pub Street（walking_route）",
+      "Brown Coffee (Cambodia 連鎖)（cafe）"
+    ],
+    "classes": [
+      "cooking: Khmer Cooking Class @ Anantara",
+      "art: Pottery Workshop Siem Reap",
+      "art: Lotus Art Workshop @ Anantara Kids Club (媽媽同), incense + palm leaf weaving"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -11222,8 +12234,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Royal Angkor International (英/日/中/法/泰 多語) / Angkor Hospital for Children (Tep Vong Rd) 24h 兒童專科 / 度假村醫生 on-call",
+      "emergency": "119 (救護車) / 117 (警察) / 118 (火警)"
     },
     "emergency": null,
     "support": {
@@ -11265,6 +12277,7 @@ const CANDIDATES = [
       "https://www.bemytravelmuse.com/anantara-angkor-resort-review/"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f6_seasia",
     "p7b_confidence": "operator_verified",
     "p7b_verified_url": "https://www.anantara.com/en/angkor-siem-reap/experiences/enriching-family-experiences",
@@ -11331,9 +12344,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Yamate Bluff 山手洋館區家庭 Airbnb (近 Saint Maur)",
+        "price": 3000,
+        "note": "公寓式廚房、洗衣機、雙臥、免費 wifi"
+      },
+      {
+        "type": "hotel",
+        "area": "Hotel New Grand Yokohama (山下公園旁)",
+        "price": 9285,
+        "note": "1927 古典酒店，山手 + 中華街 + 元町步行可達"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Yamate Homes (PLAZA HOMES)",
+        "price": 7142,
+        "note": "山手豪華公寓長住，但較貴"
+      }
+    ],
+    "metime": [
+      "PURE Yoga Yokohama Sky Building（yoga）",
+      "Spa EAS Yokohama 横濱 EAS（spa）",
+      "Café Elliot 元町店（cafe）",
+      "Yamashita Park 山下公園 walking（walking_route）",
+      "Yokohama Museum of Art（museum）"
+    ],
+    "classes": [
+      "cooking: 横濱中華街 中華料理體驗",
+      "language: Genki 日語短期 横濱校"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -11351,8 +12392,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "The Bluff Medical & Dental Clinic, 82 Yamate-cho, Naka-ku, Yokohama (步行 5min 到 Saint Maur), +81-45-641-6961, reception@bluffclinic.com (1863 創 + 70% 外籍患者 + 兒科 bilingual)",
+      "emergency": "119 (救護車/消防) / 110 (警察)"
     },
     "emergency": null,
     "support": {
@@ -11394,6 +12435,7 @@ const CANDIDATES = [
       "ELT review: https://www.eltschool.jp/en/column/saint-maur-international-review"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f7_japan_korea",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -11460,9 +12502,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "resort",
+        "area": "Hoshino Resorts Risonare Karuizawa (家庭 villa 套裝)",
+        "price": 5428,
+        "note": "family villa 雙臥、簡易廚房、免費 wifi、Tombo-no-Yu 露天溫泉 access"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Karuizawa Prince Hotel West (家庭 cottage)",
+        "price": 4047,
+        "note": "舊輕井澤車站旁，shopping outlet + 高爾夫"
+      },
+      {
+        "type": "airbnb",
+        "area": "輕井澤舊輕井澤 forest villa",
+        "price": 4523,
+        "note": "本地戶 villa 長住，森林環境"
+      }
+    ],
+    "metime": [
+      "Tombo-no-Yu 蜻蜓之湯 (Hoshino 露天溫泉)（spa）",
+      "Karuizawa Yoga at HOSHINOYA（yoga）",
+      "Maruyama Coffee 旧軽井澤店（cafe）",
+      "雲場池 Kumoba Pond walking（walking_route）",
+      "Karuizawa Prince Outlet shopping（shopping）"
+    ],
+    "classes": [
+      "cooking: Karuizawa cheese & jam workshop (Hoshino)",
+      "art: Karuizawa Picchio 自然觀察 adult class"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -11480,12 +12550,12 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Nagano Multi-Lingual Call Centre 0120-691-792 (24/7 免費翻譯)；輕井澤無常駐英語兒科診所，重症送 Saku 或東京 (新幹線 70min 到聖路加國際醫院)",
+      "emergency": "119 (救護車/消防) / 110 (警察)"
     },
     "emergency": null,
     "support": {
-      "chinese_community": "無在地華人社群（純英語環境）",
+      "chinese_community": "在地 expat / 華人社群（活躍）",
       "taiwan_families_known": "無已知 — 需自行串連",
       "family_relay_friendly": false
     },
@@ -11522,6 +12592,7 @@ const CANDIDATES = [
       "Karuizawa 旅遊推薦: https://hoshinoresorts.com/en/guide/area/chubu/nagano/karuizawa/kidz/"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f7_japan_korea",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -11588,9 +12659,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "横濱 Kanagawa-ku 神奈川區家庭 Airbnb (近 HJIS)",
+        "price": 2714,
+        "note": "公寓式廚房、洗衣機、雙臥、免費 wifi"
+      },
+      {
+        "type": "hotel",
+        "area": "Hotel New Grand (山手)",
+        "price": 9285,
+        "note": "古典酒店，山手 + 中華街，電車 15min 到 HJIS"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "MIMARU Yokohama Sakuragicho",
+        "price": 6428,
+        "note": "親子設計連鎖，含廚房 + 兒童設施"
+      }
+    ],
+    "metime": [
+      "PURE Yoga Yokohama Sky Building（yoga）",
+      "Spa EAS Yokohama（spa）",
+      "Blue Bottle Coffee 横濱港未來（cafe）",
+      "港未來 Minato Mirai walking（walking_route）",
+      "Cup Noodles Museum + 麵包博物館（museum）"
+    ],
+    "classes": [
+      "cooking: 横濱中華街料理體驗",
+      "language: Genki 日語短期 横濱校"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -11608,8 +12707,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "The Bluff Medical & Dental Clinic, 82 Yamate-cho, Naka-ku, +81-45-641-6961 (1863 創 + bilingual 兒科 + 70% 外籍患者)",
+      "emergency": "119 / 110"
     },
     "emergency": null,
     "support": {
@@ -11650,6 +12749,7 @@ const CANDIDATES = [
       "World-Schools fee review: https://world-schools.com/schools/horizon-japan-international-school/"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f7_japan_korea",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -11718,9 +12818,38 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "serviced_apartment",
+        "area": "Somerset Palace Seoul (光化門/景福宮旁)",
+        "price": 8333,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "延禧洞 家庭公寓 (近 SFS)",
+        "price": 5238,
+        "note": "延禧洞本地社區，步行/單車 5min 到 SFS"
+      },
+      {
+        "type": "airbnb",
+        "area": "新村/弘大家庭 Airbnb",
+        "price": 4523,
+        "note": "大學商圈，地鐵 10min 到 SFS"
+      }
+    ],
+    "metime": [
+      "PURE Yoga Seoul Gangnam（yoga）",
+      "Sulwhasoo Flagship Spa 狎鷗亭（spa）",
+      "Anthracite Coffee 漢南店（cafe）",
+      "Cheonggyecheon 清溪川 walking（walking_route）",
+      "Dragon Hill Spa 龍山汗蒸幕（spa）"
+    ],
+    "classes": [
+      "cooking: O'ngo K-Cooking Class",
+      "language: Yonsei KLI 韓語短期班",
+      "art: Korean Beauty masterclass"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -11738,8 +12867,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Severance International (新村，SFS 步行 5min!) +82-2-2228-5810; SNUH International Healthcare Service (光化門 main campus); 영동세브란스병원 Gangnam Severance (江南)",
+      "emergency": "119 / 112"
     },
     "emergency": null,
     "support": {
@@ -11780,6 +12909,7 @@ const CANDIDATES = [
       "Camp SFS Before/After Classes: https://www.seoulforeign.org/camp-sfs/before-after-classes"
     ],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f7_japan_korea",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -11848,9 +12978,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Pozuelo de Alarcón Family Apartment 2-Bed",
+        "price": 5952,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
+      },
+      {
+        "type": "hotel",
+        "area": "Eurostars Mirasierra Hotel",
+        "price": 8571,
+        "note": "北 Madrid 商務飯店，10min 車到 ASM"
+      },
+      {
+        "type": "airbnb",
+        "area": "Madrid Centro Apartment 3-Bed",
+        "price": 4523,
+        "note": "市中心 Salamanca / Retiro 區，週末逛街便利但通勤 30min"
+      }
+    ],
+    "metime": [
+      "Zentro Urban Yoga Madrid（yoga）",
+      "El Retiro Park 環園步道（walking_route）",
+      "Prado / Reina Sofía / Thyssen 黃金三角（museum）",
+      "The Hat Madrid Rooftop（cafe）",
+      "Spaces Madrid (coworking)（coworking）"
+    ],
+    "classes": [
+      "language: Don Quijote Spanish School Adult Intensive",
+      "cooking: Apunto Centro Cultural Cooking"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -11868,8 +13026,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Sanitas Pozuelo / Unidad Médica Anglo-Americana, Conde de Aranda 1, +34 91 435 1823",
+      "emergency": "112 (歐盟通用)"
     },
     "emergency": null,
     "support": {
@@ -11906,6 +13064,7 @@ const CANDIDATES = [
     },
     "sources": [],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f8_europe",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -11972,9 +13131,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "resort",
+        "area": "SO/ Sotogrande Spa & Golf Resort",
+        "price": 20000,
+        "note": "五星 Accor、3 戶外+1 室內泳池、thalassotherapy spa 3,500m²、4 餐廳"
+      },
+      {
+        "type": "villa",
+        "area": "Sotogrande Villa Rental 3-Bed (海邊)",
+        "price": 13333,
+        "note": "私人 villa 含廚房 + 泳池，家庭體驗"
+      },
+      {
+        "type": "hotel",
+        "area": "NH Sotogrande",
+        "price": 7857,
+        "note": "Sotogrande 中價位 4 星，CP 高"
+      }
+    ],
+    "metime": [
+      "SO/ Sotogrande Spa Thalassotherapy（spa）",
+      "La Reserva Club Beach（walking_route）",
+      "SIS Yoga Pavilion (校內成人開放)（yoga）",
+      "Gibraltar 30min day trip（walking_route）",
+      "La Cala Beach Walk（walking_route）"
+    ],
+    "classes": [
+      "language: Sotogrande Adult Spanish Course",
+      "sport: Sotogrande Golf Academy Beginner"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -11992,8 +13179,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "Sotogrande Health Centre (英語可) / Hospiten Estepona",
+      "emergency": "112 (歐盟)"
     },
     "emergency": null,
     "support": {
@@ -12030,6 +13217,7 @@ const CANDIDATES = [
     },
     "sources": [],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f8_europe",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -12096,9 +13284,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Kreuzberg Graefekiez Family Apartment 2-Bed",
+        "price": 5238,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "Adina Apartment Hotel Berlin Mitte",
+        "price": 7857,
+        "note": "服務式公寓 + 健身 + 廚房"
+      },
+      {
+        "type": "hotel",
+        "area": "Hotel Zoo Berlin (Ku'damm)",
+        "price": 10476,
+        "note": "西柏林精品飯店"
+      }
+    ],
+    "metime": [
+      "Spirit Yoga Berlin Kreuzberg（yoga）",
+      "Tiergarten 環園步道（walking_route）",
+      "Museumsinsel 博物館島（museum）",
+      "Mindspace Berlin (coworking)（coworking）",
+      "The Barn Coffee Roasters（cafe）"
+    ],
+    "classes": [
+      "language: GLS Sprachenzentrum German Course",
+      "cooking: Goldhahn und Sampson Cooking School"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -12116,8 +13332,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "MEDICUS Praxisklinik (英文 GP) / Charité International Patient Services",
+      "emergency": "112 (歐盟)"
     },
     "emergency": null,
     "support": {
@@ -12154,6 +13370,7 @@ const CANDIDATES = [
     },
     "sources": [],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f8_europe",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
@@ -12220,9 +13437,37 @@ const CANDIDATES = [
       }
     },
     "camp": null,
-    "stays": [],
-    "metime": [],
-    "classes": [],
+    "stays": [
+      {
+        "type": "airbnb",
+        "area": "Scheveningen / Benoordenhout Family Apartment 2-Bed",
+        "price": 7523,
+        "note": "公寓式廚房、洗衣機、雙臥房、免費 wifi"
+      },
+      {
+        "type": "hotel",
+        "area": "Steigenberger Kurhaus Scheveningen",
+        "price": 13333,
+        "note": "海邊 130 年五星老牌飯店"
+      },
+      {
+        "type": "serviced_apartment",
+        "area": "The Hague Apartments by Stay-bridge",
+        "price": 9285,
+        "note": "服務式公寓 + 含早餐"
+      }
+    ],
+    "metime": [
+      "Yoga Garden The Hague（yoga）",
+      "Scheveningen Beach 海灘步道（walking_route）",
+      "Mauritshuis (Vermeer 故鄉)（museum）",
+      "B.outdoor Coworking（coworking）",
+      "Paagman Bookshop Cafe（cafe）"
+    ],
+    "classes": [
+      "language: Direct Dutch Institute Den Haag",
+      "cooking: Kookstudio Den Haag"
+    ],
     "itinerary": null,
     "budget": {
       "flight": 0,
@@ -12240,8 +13485,8 @@ const CANDIDATES = [
       "vsCram": 240000
     },
     "medical": {
-      "mandarin": "—",
-      "emergency": "—"
+      "mandarin": "English Medical Practice Den Haag / Centrum Familiezorg",
+      "emergency": "112 (歐盟)"
     },
     "emergency": null,
     "support": {
@@ -12278,6 +13523,7 @@ const CANDIDATES = [
     },
     "sources": [],
     "phase_7b_lite": true,
+    "phase_8_enriched": true,
     "fork_source": "f8_europe",
     "p7b_confidence": "ai_guess",
     "p7b_verified_url": "",
