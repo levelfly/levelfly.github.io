@@ -12,7 +12,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 const state = {
   route: 'home',
   detailId: null,
-  filters: { tier: 'all', flight: 'all', budget: 'all', region: 'all' },
+  filters: { tier: 'all', flight: 'all', budget: 'all', region: 'all', zh: 'all', conf: 'all', sort: 'none' },
   compareSet: new Set(),
   tweaks: { ...TWEAK_DEFAULTS },
 };
@@ -98,8 +98,8 @@ function closeOverlay() {
 function updateFilterCount() {
   const el = document.getElementById('filterCount');
   if (!el) return;
-  const matched = applyFilters(CANDIDATES, state.filters).length;
-  el.innerHTML = `<span>共 ${matched} 個候選 ✦</span>`;
+  const matched = applyFilters(CANDIDATES.filter(c => c.tier !== 0), state.filters).length;
+  el.innerHTML = `<span>${matched} 個符合 · 你自己篩 ✦</span>`;
 }
 
 function refreshCork() {

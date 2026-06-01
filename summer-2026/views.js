@@ -9,6 +9,10 @@ const tierTone   = (t) => ['t0','t1','t2','t3'][t] || 't3';
 const tierName   = (t) => ['排除','首選','亮銀','備援'][t] || '備援';
 const tierClassChip = (t) => `tier${t}`;
 const ntd        = (n) => '$' + (n||0).toLocaleString('zh-TW');
+// 2026-06-01 防禦：href 只取第一個乾淨 http URL（資料可能含多 URL/中文註記，點了會錯）
+const cleanUrl   = (s) => { const m = String(s||'').match(/https?:\/\/[^\s；;，,（）()"'、]+/); return m ? m[0] : ''; };
+// 預算用「萬」不用 k（台灣慣例）：100000 → 10 萬、175000 → 17.5 萬
+const wan        = (n) => (Math.round((n||0) / 1000) / 10) + ' 萬';
 // Phase 7C-fix-2 helpers
 const isLite     = (c) => !!(c && c.phase_7b_lite === true);
 const hasNum     = (n) => n !== null && n !== undefined && Number(n) > 0;
@@ -122,8 +126,8 @@ function viewHome(state) {
             <div class="hero-meta-item"><div class="num">3</div><div class="lbl">months research</div></div>
           </div>
           <div class="hero-actions">
-            <a class="btn primary" href="#/wizard" data-route="wizard">開始決策助手 →</a>
-            <a class="btn" href="#board">先看候選牆</a>
+            <a class="btn primary" href="#board">自己挑 · 開始比較 →</a>
+            <a class="btn" href="#/wizard" data-route="wizard">想要提示？決策助手</a>
           </div>
           <div class="hero-stamp"><div class="stamp navy">媽媽研究室<br><span>2026 · 04 月版</span></div></div>
         </div>
@@ -133,14 +137,14 @@ function viewHome(state) {
 
           <figure class="polaroid pol pol-1">
             <span class="pol-washi pw-gold"></span><span class="pin"></span>
-            <img class="polaroid-img" src="${PHOTO.penang}" alt="Penang">
-            <figcaption class="polaroid-caption">檳城 · 殖民老街</figcaption>
+            <img class="polaroid-img" src="img/penang_tenby/penang-hero-v1.webp" alt="Penang">
+            <figcaption class="polaroid-caption">檳城 · 海邊老城</figcaption>
           </figure>
 
           <figure class="polaroid pol pol-2">
             <span class="pol-washi pw-coral"></span><span class="pin gold"></span>
-            <img class="polaroid-img" src="${PHOTO.singapore}" alt="Singapore">
-            <figcaption class="polaroid-caption">新加坡 · 國際校</figcaption>
+            <img class="polaroid-img" src="img/okinawa/okinawa-hero-v1.webp" alt="Okinawa">
+            <figcaption class="polaroid-caption">沖繩 · 最短直飛</figcaption>
           </figure>
 
           <div class="scrap scrap-1">
@@ -149,14 +153,14 @@ function viewHome(state) {
 
           <figure class="polaroid pol pol-3">
             <span class="pol-washi pw-sage"></span><span class="pin sage"></span>
-            <img class="polaroid-img" src="${PHOTO.girl}" alt="daughter">
-            <figcaption class="polaroid-caption">小米 · 5 歲 11 個月</figcaption>
+            <img class="polaroid-img" src="img/penang_tenby/penang-morning-dropoff-v1.webp" alt="mother and daughter">
+            <figcaption class="polaroid-caption">和女兒的那 21 天</figcaption>
           </figure>
 
           <figure class="polaroid pol pol-4">
             <span class="pol-washi pw-navy"></span><span class="pin navy"></span>
-            <img class="polaroid-img" src="${PHOTO.bali}" alt="Bali">
-            <figcaption class="polaroid-caption">峇里 · Green School</figcaption>
+            <img class="polaroid-img" src="img/bali_ayana/bali_ayana-hero-v1.webp" alt="Bali">
+            <figcaption class="polaroid-caption">峇里 · 海島度假</figcaption>
           </figure>
         </div>
       </div>
@@ -167,7 +171,7 @@ function viewHome(state) {
         <div>
           <div class="mag-eyebrow">field index · ${candCount} candidates</div>
           <h2><span class="em">${candCount} 個</span>夏天的可能</h2>
-          <p class="lede">圖釘在世界地圖上的這些地方，是 3 個月研究後留下的。從 Tier 1 首選到 Tier 0 已排除——我都列在這裡，因為「為什麼排除」也是答案的一部分。</p>
+          <p class="lede">這些是查證過、值得自己比的選項。用上面的條件篩成你在意的樣子——飛多遠、多少錢、要不要中文——挑你想深看的，點進去看那 21 天會怎麼過。要不要去、選哪個，你自己決定。</p>
         </div>
         <div class="right">
           <div class="stamp gold">field<br><span>2026 · 4</span></div>
@@ -188,14 +192,6 @@ function renderFilterBar(state) {
   return `
     <div class="filterbar">
       <div class="filter-group">
-        <label>Tier</label>
-        <div class="ops" data-filter="tier">
-          ${['all','1','2','3','0'].map(v => `
-            <button data-val="${v}" aria-pressed="${f.tier === v}">${v === 'all' ? '全部' : `Tier ${v}`}</button>
-          `).join('')}
-        </div>
-      </div>
-      <div class="filter-group">
         <label>飛行時數</label>
         <div class="ops" data-filter="flight">
           ${[['all','全部'],['short','≤5h'],['mid','5–8h'],['long','>8h']].map(([v,t]) => `
@@ -206,8 +202,24 @@ function renderFilterBar(state) {
       <div class="filter-group">
         <label>3 週預算</label>
         <div class="ops" data-filter="budget">
-          ${[['all','全部'],['lo','<150k'],['mid','150–200k'],['hi','>200k']].map(([v,t]) => `
+          ${[['all','全部'],['lo','<15萬'],['mid','15–20萬'],['hi','>20萬']].map(([v,t]) => `
             <button data-val="${v}" aria-pressed="${f.budget === v}">${t}</button>
+          `).join('')}
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>中文支援</label>
+        <div class="ops" data-filter="zh">
+          ${[['all','全部'],['yes','要中文']].map(([v,t]) => `
+            <button data-val="${v}" aria-pressed="${f.zh === v}">${t}</button>
+          `).join('')}
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>資料可信</label>
+        <div class="ops" data-filter="conf">
+          ${[['all','全部'],['verified','只看已查證']].map(([v,t]) => `
+            <button data-val="${v}" aria-pressed="${f.conf === v}">${t}</button>
           `).join('')}
         </div>
       </div>
@@ -216,6 +228,14 @@ function renderFilterBar(state) {
         <div class="ops" data-filter="region">
           ${[['all','全部'],['sea','東南亞'],['ea','東北亞'],['anz','大洋洲'],['west','歐美']].map(([v,t]) => `
             <button data-val="${v}" aria-pressed="${f.region === v}">${t}</button>
+          `).join('')}
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>排序</label>
+        <div class="ops" data-filter="sort">
+          ${[['none','預設'],['flight','飛行最短'],['cost','最便宜']].map(([v,t]) => `
+            <button data-val="${v}" aria-pressed="${f.sort === v}">${t}</button>
           `).join('')}
         </div>
       </div>
@@ -237,7 +257,6 @@ function regionOf(c) {
 
 function applyFilters(cards, f) {
   return cards.filter(c => {
-    if (f.tier !== 'all' && String(c.tier) !== f.tier) return false;
     if (f.flight !== 'all') {
       const h = c.flight?.hours ?? 99;
       if (f.flight === 'short' && h > 5) return false;
@@ -250,82 +269,202 @@ function applyFilters(cards, f) {
       if (f.budget === 'mid' && (b < 150000 || b > 200000)) return false;
       if (f.budget === 'hi'  && b <= 200000) return false;
     }
+    if (f.zh === 'yes' && !(c.chooser && c.chooser.zh)) return false;
+    if (f.conf === 'verified' && !['verified', 'third'].includes(c.confidence?.camp)) return false;
     if (f.region !== 'all' && regionOf(c) !== f.region) return false;
     return true;
   });
 }
 
 function renderCards(state) {
-  const cards = applyFilters(CANDIDATES, state.filters);
+  // 比較台：客觀排除已淘汰（tier 0 = 查無/矛盾/年齡不符），其餘全留給使用者自己篩
+  let cards = applyFilters(CANDIDATES.filter(c => c.tier !== 0), state.filters);
+  const s = state.filters.sort;
+  if (s === 'flight') cards = [...cards].sort((a, b) => (a.flight?.hours ?? 99) - (b.flight?.hours ?? 99));
+  else if (s === 'cost') cards = [...cards].sort((a, b) => (a.chooser?.cost_wk ?? 9e9) - (b.chooser?.cost_wk ?? 9e9));
   if (!cards.length) {
     return `<div style="grid-column: 1 / -1; text-align:center; padding: 80px 20px; color: var(--ink-muted); font-family: var(--f-hand-cn); font-size: 20px;">這個組合沒有符合的候選 — 試試放寬一個篩選 ✦</div>`;
   }
   return cards.map((c, i) => renderCard(c, i, state)).join('');
 }
 
+const CARD_CONF = {
+  verified:     ['✓ 已查證',      'var(--sage-deep)'],
+  third:        ['🔵 第三方',      '#3a6a96'],
+  stale:        ['⚠ 2026 待確認',  'var(--gold-deep)'],
+  contradicted: ['🔴 與官網矛盾',  '#b03020'],
+  not_found:    ['🔴 查無此營',    '#b03020'],
+  ai_guess:     ['⚠ 待核實',       'var(--coral-deep)'],
+};
+
 function renderCard(c, i, state) {
   const tilt = tilts[i % tilts.length];
   const tape = tapeClasses[i % tapeClasses.length];
-  const pin  = pinClasses[i % pinClasses.length];
   const inCompare = state.compareSet.has(c.id);
-  const lite = isLite(c);
-  // Phase 7C-fix-2 A: lite chip 左上 (跟 hook_tags 同位)
-  const liteChip = lite
-    ? `<span class="chip chip-new" style="font-size: 11px; padding: 2px 6px;">✨ 新發現 · 待詳查</span>`
-    : '';
-  const tagChips = (lite || (c.hook_tags && c.hook_tags.length))
-    ? `<div class="hook-tags" style="position: absolute; top: 8px; left: 8px; display: flex; flex-direction: column; gap: 3px; z-index: 5;">${
-        liteChip +
-        ((c.hook_tags || []).map(t => {
-          const info = HOOK_TAG_LABELS[t] || { label: t, cls: 'chip-new' };
-          return `<span class="chip ${info.cls}" data-tag="${t}" style="font-size: 11px; padding: 2px 6px;">${info.label}</span>`;
-        }).join(''))
-      }</div>` : '';
-  // Phase 7C-fix-2 A: flight / budget 缺值改顯「資料待補」
-  const flightHours = hasNum(c.flight?.hours);
-  const budgetTotal = hasNum(c.budget?.total);
-  const flightCell = flightHours
-    ? `<strong>${c.flight.hours}h</strong> 飛行 · <span class="muted">${c.flight.direct ? '直飛' : '轉機'}</span>`
-    : `<span class="muted" style="font-family: var(--f-hand-cn);">飛行資料待補</span>`;
-  const budgetCell = budgetTotal
-    ? `<strong>${Math.round(c.budget.total/1000)}k</strong> 三週預算`
-    : `<span class="muted" style="font-family: var(--f-hand-cn);">預算資料待補</span>`;
-  // Phase 7C-fix-2 A: score 0 改顯「分數待補」
-  const showScore = hasNum(c.totalScore);
-  const scoreBlock = showScore
-    ? `<div class="score">${c.totalScore}<span style="font-size:11px;opacity:.5;">/40</span></div>`
-    : (lite
-        ? `<div class="score" style="font-size: 13px; font-family: var(--f-hand-cn); color: var(--ink-muted); text-align: right; line-height: 1.2;">分數<br>待補</div>`
-        : '');
-  // Phase 7C-fix-2 A: hook 完整顯示（cleanPlaceholder + 不截斷）
-  const hookText = cleanPlaceholder(c.hook);
+  const ch = c.chooser || {};
+  const cc = CARD_CONF[c.confidence?.camp] || CARD_CONF.ai_guess;
+  const fh = hasNum(c.flight?.hours)
+    ? `${c.flight.hours}h ${c.flight.direct ? '直飛' : '轉機'}`
+    : '飛行待補';
+  const b2 = c.budget2;
+  const cw = (b2 && b2.camp_per_week)
+    ? `營 ${wan(b2.camp_per_week)}/週`
+    : (b2 && b2.total)
+    ? `約 ${wan(b2.total)}/${b2.weeks}週`
+    : (hasNum(ch.cost_wk) ? `營 ${wan(ch.cost_wk)}/週` : '費用待詢');
+  const zh = ch.zh ? '中文 ✓' : '英語為主';
+  const photo = (c.expImg && c.expImg.hero) || c.photo;
   return `
-    <article class="candcard ${tilt} ${c.tier === 0 ? 't0' : ''} ${inCompare ? 'in-compare' : ''}" data-id="${c.id}">
+    <article class="candcard ${tilt} ${inCompare ? 'in-compare' : ''}" data-id="${c.id}">
       <div class="tape-corner ${tape}"></div>
-      ${tagChips}
-      ${c.tier === 1 ? `<div class="card-stamp"><div class="stamp gold round">TIER<br>ONE</div></div>` : ''}
-      ${c.tier === 0 ? `<div class="card-stamp"><div class="stamp">REJECTED</div></div>` : ''}
       <div class="card-frame">
-        <img class="card-photo" src="${c.photo}" alt="${escapeHtml(c.city)}" loading="lazy">
+        <img class="card-photo" src="${photo}" alt="${escapeHtml(c.city)}" loading="lazy">
       </div>
       <div class="card-body">
-        <div class="card-tier ${c.tier === 2 ? 't2' : c.tier === 3 ? 't3' : c.tier === 0 ? 't0' : ''}">
-          ${c.tier === 0 ? '✕' : c.tier}
-        </div>
         <div class="card-country"><span class="card-flag">${c.flag}</span> ${escapeHtml(c.country)}</div>
         <h3 class="card-place">${escapeHtml(c.city)}</h3>
-        <p class="card-hook card-hook-full">${escapeHtml(hookText)}</p>
-        <div class="card-meta">
-          <div>
-            ${flightCell}<br>
-            ${budgetCell}
-          </div>
-          ${scoreBlock}
+        <div style="margin: 2px 0 8px;">
+          <span class="chip" style="font-size: 11px; padding: 1px 7px; color: ${cc[1]}; border-color: ${cc[1]}; background: transparent;">${cc[0]}</span>
         </div>
+        <div style="font-size: 12.5px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 9px;">
+          ${fh} &nbsp;·&nbsp; ${cw} &nbsp;·&nbsp; ${zh}
+        </div>
+        ${ch.feel ? `<div style="font-size: 13px; color: var(--ink); line-height: 1.55; margin-bottom: 5px;"><span style="color: var(--sage-deep); font-family: var(--f-hand-cn);">夏天感</span> ${escapeHtml(ch.feel)}</div>` : ''}
+        ${ch.friction ? `<div style="font-size: 12.5px; color: var(--coral-deep); line-height: 1.5;"><span style="opacity: .7; font-family: var(--f-hand-cn);">要忍</span> ${escapeHtml(ch.friction)}</div>` : ''}
       </div>
       <button class="compare-btn ${inCompare ? 'active' : ''}" data-compare="${c.id}" title="加入比較">${inCompare ? '✓' : '+'}</button>
     </article>
   `;
+}
+
+// =========================================================
+// BLOGGER — 部落客式、真相標記、照片優先（2026-06-01 改版）
+// 讀 c.rich2（workflow 重寫）；無則回 null，viewDetail fallback 舊 rich
+// =========================================================
+const TRUST_UI = {
+  '官方查證':       ['#2f7d5b', 'rgba(47,125,91,0.10)', '✓ 官方查證'],
+  '第三方':         ['#8a6d1f', 'rgba(138,109,31,0.12)', '◐ 第三方來源'],
+  '未查到官方確認': ['#b06a30', 'rgba(176,106,48,0.10)', '⚠ 未查到官方確認'],
+  '存疑':           ['#b03020', 'rgba(176,48,32,0.10)', '✕ 存疑'],
+};
+function renderBudget2(c) {
+  const b = c.budget2;
+  if (!b || !b.total) return '';
+  const cc = b.camp_confidence === 'verified'
+    ? '<span style="font-size:11px; color:#2f7d5b; background:rgba(47,125,91,0.12); border-radius:10px; padding:1px 7px;">✓ 查證</span>'
+    : b.camp_confidence === 'unknown'
+    ? '<span style="font-size:11px; color:var(--coral-deep); background:rgba(197,107,90,0.12); border-radius:10px; padding:1px 7px;">待詢價</span>'
+    : '<span style="font-size:11px; color:var(--ink-muted); background:rgba(60,40,30,0.06); border-radius:10px; padding:1px 7px;">估算</span>';
+  const est = '<span style="font-size:10.5px; color:var(--ink-muted);">估</span>';
+  const row = (lbl, val, tag, calc) => `
+    <div style="display:flex; align-items:baseline; gap:8px; padding:5px 0; border-bottom:1px dotted var(--paper-edge);">
+      <span style="flex:1; font-size:13.5px; color:var(--ink-soft);">${lbl}${calc ? ` <span style="font-size:11.5px; color:var(--ink-muted);">${calc}</span>` : ''}</span>
+      <span style="font-size:14px; color:var(--ink);">${wan(val)}</span>
+      <span style="width:42px; text-align:right;">${tag}</span>
+    </div>`;
+  const campCalc = b.camp_per_week ? `${wan(b.camp_per_week)}/週 × ${b.weeks} 週` : '';
+  return `
+    <section style="margin: 4px 0 22px; padding: 16px 18px; background: var(--paper); border: 1px solid var(--paper-edge); border-radius: 8px;">
+      <div style="font-family: var(--f-hand-cn); font-weight: 700; font-size: 16px; color: var(--ink); margin-bottom: 4px;">💰 這趟大概多少錢（21 天）</div>
+      <div style="font-size: 11.5px; color: var(--ink-muted); margin-bottom: 10px;">營費以查證為準，其餘是合理估值。母女 2 人、住宿與餐食按 21 天行程計、女兒上 ${b.weeks} 週營。</div>
+      ${b.camp_per_week ? row('夏令營', b.camp_total, cc, campCalc) : `<div style="padding:5px 0; border-bottom:1px dotted var(--paper-edge); font-size:13.5px; color:var(--coral-deep);">夏令營 — ${escapeHtml(b.cost_notes ? '套裝/按日計，需詢價' : '待詢價')} ${cc}</div>`}
+      ${row('機票（2 人來回）', b.flight, est)}
+      ${row('住宿', b.accommodation, est, b.accommodation_per_night ? `${wan(b.accommodation_per_night)}/晚 × 21` : '')}
+      ${row('餐食', b.food, est, b.food_per_day ? `${wan(b.food_per_day)}/天 × 21` : '')}
+      ${row('當地交通', b.local_transport, est)}
+      ${row('簽證 / 保險 / 雜支', b.misc, est)}
+      <div style="display:flex; align-items:baseline; gap:8px; padding:9px 0 2px; margin-top:2px; border-top:2px solid var(--ink);">
+        <span style="flex:1; font-family:var(--f-hand-cn); font-weight:700; font-size:15px; color:var(--ink);">總計</span>
+        <span style="font-family:var(--f-display); font-size:22px; color:var(--gold-deep);">${wan(b.total)}</span>
+        <span style="width:42px;"></span>
+      </div>
+      ${b.fx_note ? `<div style="margin-top:8px; font-size:11px; color:var(--ink-muted);">匯率：${escapeHtml(b.fx_note)}</div>` : ''}
+      ${b.cost_notes ? `<details style="margin-top:6px;"><summary style="cursor:pointer; font-size:11.5px; color:var(--ink-muted); font-family:var(--f-hand-cn);">費用細節與提醒 ▾</summary><div style="margin-top:6px; font-size:12px; line-height:1.7; color:var(--ink-soft);">${escapeHtml(b.cost_notes)}</div></details>` : ''}
+    </section>`;
+}
+
+function renderBlogger(c) {
+  const r = c.rich2;
+  if (!r || !r.hook) return null;
+  const vf = r.verified_facts || {};
+  const tl = vf.trust_label || '未查到官方確認';
+  const tc = TRUST_UI[tl] || TRUST_UI['未查到官方確認'];
+  const sceneImg = (i) => `img/${c.id}/b${i}-v1.webp`;
+  const tagChip = (tag) => tag === 'verified'
+    ? `<span style="font-size:11px; font-family:var(--f-hand-cn); color:#2f7d5b; background:rgba(47,125,91,0.12); border-radius:10px; padding:1px 8px; margin-left:6px; vertical-align:middle;">✓ 查證</span>`
+    : `<span style="font-size:11px; font-family:var(--f-hand-cn); color:var(--ink-muted); background:rgba(60,40,30,0.06); border-radius:10px; padding:1px 8px; margin-left:6px; vertical-align:middle;">印象</span>`;
+  const vfRow = (lbl, val) => val ? `<div style="display:flex; gap:10px; margin:3px 0;"><span style="min-width:46px; color:var(--ink-muted); font-size:13px;">${lbl}</span><span style="font-size:14px; color:var(--ink);">${escapeHtml(val)}</span></div>` : '';
+  const scenes = (r.scenes || []).slice(0, 6);
+  const g = r.grounded;
+  const groundedHtml = (t) => escapeHtml(t || '')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/^\s*\*\s+/gm, '· ')
+    .replace(/\n/g, '<br>');
+  return `
+    <section style="margin: 10px 0 4px;">
+      <div style="font-family: var(--f-display); font-size: 26px; line-height: 1.35; color: var(--ink); margin-bottom: 10px;">${escapeHtml(r.hook)}</div>
+      <p style="font-family: var(--f-serif); font-size: 16px; line-height: 1.95; color: var(--ink-soft); margin: 0 0 18px;">${escapeHtml(r.intro)}</p>
+
+      <!-- 查得到的事實（帶可信徽章 + 可點官方連結） -->
+      <div style="border-left: 4px solid ${tc[0]}; background: ${tc[1]}; border-radius: 6px; padding: 13px 16px; margin-bottom: 22px;">
+        <div style="font-family: var(--f-hand-cn); font-weight: 700; font-size: 13px; color: ${tc[0]}; margin-bottom: 8px;">${tc[2]}</div>
+        ${vf.camp_name ? `<div style="font-family: var(--f-display); font-size: 17px; color: var(--ink); margin-bottom: 8px;">${escapeHtml(vf.camp_name)}</div>` : ''}
+        ${vfRow('年齡', vf.age)}
+        ${vfRow('日期', vf.dates)}
+        ${vfRow('費用', vf.cost)}
+        ${vf.status ? `<div style="margin-top:8px; font-size:13.5px; font-family:var(--f-hand-cn); color:${tc[0]};">📍 ${escapeHtml(vf.status)}</div>` : ''}
+        <div style="margin-top:10px;">
+          ${cleanUrl(vf.source_url) ? `<a href="${escapeHtml(cleanUrl(vf.source_url))}" target="_blank" rel="noopener" style="font-size:13px; color:${tc[0]}; text-decoration:underline; overflow-wrap:anywhere;">官方頁面 ↗</a>` : `<span style="font-size:12.5px; color:var(--ink-muted); font-family:var(--f-hand-cn);">（沒查到官方連結，報名前請自己跟校方確認）</span>`}
+        </div>
+      </div>
+
+      ${g && g.answer ? `
+      <details style="margin: -8px 0 22px; border: 1px solid rgba(47,125,91,0.25); border-radius: 6px; background: rgba(47,125,91,0.04);">
+        <summary style="cursor: pointer; list-style: none; padding: 11px 15px; font-family: var(--f-hand-cn); font-size: 13.5px; color: #2f7d5b; font-weight: 700; user-select: none;">📖 NotebookLM 從官方頁面逐項查證${g.n_refs ? ` · ${g.n_refs} 處出處` : ''}（展開看原文佐證）▾</summary>
+        <div style="padding: 2px 16px 14px; font-size: 13.5px; line-height: 1.85; color: var(--ink);">
+          ${groundedHtml(g.answer)}
+          ${cleanUrl(g.url) ? `<div style="margin-top: 10px;"><a href="${escapeHtml(cleanUrl(g.url))}" target="_blank" rel="noopener" style="font-size: 12.5px; color: #2f7d5b; text-decoration: underline; overflow-wrap: anywhere;">官方頁面原文 ↗</a></div>` : ''}
+          <div style="margin-top: 8px; font-size: 11.5px; color: var(--ink-muted); font-family: var(--f-hand-cn);">[數字] 是 NotebookLM 對應官方頁面的原文出處標記。AI 查證、非人工核對，報名前仍請自行向校方確認。</div>
+        </div>
+      </details>` : ''}
+
+      <!-- 部落客式照片段落 -->
+      ${scenes.map((s, i) => `
+        <figure class="bscene" style="margin: 0 0 24px;">
+          <img src="${sceneImg(i)}" alt="" loading="lazy"
+               onerror="this.style.display='none'"
+               style="width:100%; aspect-ratio: 3/2; object-fit: cover; border-radius: 8px; border: 6px solid #fff; box-shadow: 0 5px 18px rgba(0,0,0,0.13);">
+          <figcaption style="margin-top: 10px;">
+            <div style="font-family: var(--f-hand-cn); font-weight: 700; font-size: 16px; color: var(--ink); margin-bottom: 3px;">${escapeHtml(s.title || '')}${tagChip(s.tag)}</div>
+            <div style="font-family: var(--f-serif); font-size: 15px; line-height: 1.85; color: var(--ink-soft);">${escapeHtml(s.blurb || '')}</div>
+          </figcaption>
+        </figure>`).join('')}
+
+      ${renderBudget2(c)}
+
+      ${r.mom_time ? `<div style="background: rgba(217,164,65,0.10); border-radius: 6px; padding: 12px 15px; margin-bottom: 16px;">
+        <span style="font-family: var(--f-hand-cn); font-weight:700; color: var(--gold-deep);">💆 你的白天</span>
+        <span style="font-size:14px; color:var(--ink-soft); line-height:1.8;"> ${escapeHtml(r.mom_time)}</span>
+        <span style="font-size:11px; font-family:var(--f-hand-cn); color:var(--ink-muted); background:rgba(60,40,30,0.06); border-radius:10px; padding:1px 8px; margin-left:4px;">印象</span>
+      </div>` : ''}
+
+      ${(r.honest_notes && r.honest_notes.length) ? `<div style="border-left: 3px solid var(--coral-deep); background: rgba(197,107,90,0.06); border-radius: 4px; padding: 12px 15px; margin-bottom: 16px;">
+        <div style="font-family: var(--f-hand-cn); font-weight: 700; color: var(--coral-deep); margin-bottom: 6px;">誠實說，要注意：</div>
+        <ul style="margin:0; padding-left:18px; font-size:13.5px; line-height:1.8; color:var(--ink-soft);">
+          ${r.honest_notes.map(n => `<li style="margin-bottom:3px;">${escapeHtml(n)}</li>`).join('')}
+        </ul>
+      </div>` : ''}
+
+      ${((c.budget2 && c.budget2.age_note) || (r.caveats && r.caveats.length)) ? `<div style="border-left: 3px solid var(--gold-deep); background: rgba(217,164,65,0.08); border-radius: 4px; padding: 12px 15px; margin-bottom: 16px;">
+        <div style="font-family: var(--f-hand-cn); font-weight: 700; color: var(--gold-deep); margin-bottom: 6px;">🔎 報名前要確認（取決於你的情況）</div>
+        <ul style="margin:0; padding-left:18px; font-size:13px; line-height:1.8; color:var(--ink-soft);">
+          ${c.budget2 && c.budget2.age_note ? `<li style="margin-bottom:3px;">${escapeHtml(c.budget2.age_note)}</li>` : ''}
+          ${(r.caveats || []).map(n => `<li style="margin-bottom:3px;">${escapeHtml(n)}</li>`).join('')}
+        </ul>
+      </div>` : ''}
+
+      <div style="font-family: var(--f-hand-cn); font-size: 12.5px; color: var(--ink-muted); border-top: 1px dashed var(--paper-edge); padding-top: 12px;">— 標「✓ 查證」的是查得到出處的事實，標「印象」的是一般認識。本頁經多輪交叉比對清理過原本的編造與矛盾。去不去、選哪個，你自己決定。</div>
+    </section>`;
 }
 
 // =========================================================
@@ -343,18 +482,24 @@ function viewDetail(c) {
   const flightHasHours = hasNum(c.flight?.hours);
   const flightHasPrice = hasNum(c.flight?.price);
   const tbd = (v) => hasNum(v) ? null : '<span class="muted" style="font-family: var(--f-hand-cn);">待補 · 詳見官網</span>';
-  // 信心等級 chip
+  // 信心等級 chip（2026-05-31 Workflow 對抗查證 6 級）
   const confCamp = c.confidence?.camp || null;
-  const confChip = confCamp ? (
-    confCamp === 'verified' ? '<span class="chip" style="background:rgba(122,142,102,0.18); border-color: var(--sage-deep); color: var(--sage-deep);">✓ 已驗證</span>' :
-    confCamp === 'third'    ? '<span class="chip" style="background:rgba(217,164,65,0.18); border-color: var(--gold-deep); color: var(--gold-deep);">⚠ 第三方資料</span>' :
-                              '<span class="chip" style="background:rgba(197,107,90,0.18); border-color: var(--coral-deep); color: var(--coral-deep);">⚠ AI 推測，請自行核實</span>'
-  ) : '';
+  const CONF_STYLE = {
+    verified:     ['rgba(122,142,102,0.18)', 'var(--sage-deep)', '✓ 官網已驗證'],
+    third:        ['rgba(74,124,168,0.18)',  '#3a6a96',          '🔵 第三方查證'],
+    stale:        ['rgba(217,164,65,0.18)',  'var(--gold-deep)', '⚠ 機構真實 · 2026 細節待確認'],
+    contradicted: ['rgba(197,60,50,0.20)',   '#b03020',          '🔴 與官網矛盾 · 見下方差異'],
+    not_found:    ['rgba(197,60,50,0.20)',   '#b03020',          '🔴 查無此營 · 疑誤植'],
+    ai_guess:     ['rgba(197,107,90,0.18)',  'var(--coral-deep)','⚠ AI 推測，請自行核實'],
+  };
+  const cs = CONF_STYLE[confCamp] || CONF_STYLE.ai_guess;
+  const confChip = confCamp ? `<span class="chip" style="background:${cs[0]}; border-color:${cs[1]}; color:${cs[1]};">${cs[2]}</span>` : '';
   // polaroid photo + city caption
-  const polaroidHead = c.photo ? `
+  const heroImg = (c.expImg && c.expImg.hero) || c.photo;
+  const polaroidHead = heroImg ? `
     <figure class="polaroid pol pol-detail spread-head-photo tilt-1">
       <span class="pol-washi pw-gold"></span>
-      <img class="polaroid-img" src="${c.photo}" alt="${escapeHtml(c.city)}">
+      <img class="polaroid-img" src="${heroImg}" alt="${escapeHtml(c.city)}">
       <figcaption class="polaroid-caption">${escapeHtml(c.city)} · ${escapeHtml(c.country)}</figcaption>
     </figure>
   ` : '';
@@ -366,32 +511,106 @@ function viewDetail(c) {
         <header class="spread-head spread-head-flex">
           ${polaroidHead}
           <div class="spread-head-body">
-            <div class="spread-eyebrow">field ${c.rank.toString().padStart(2,'0')} · ${c.country} · ${c.flag}</div>
+            <div class="spread-eyebrow">${c.flag} ${escapeHtml(c.country || '')}</div>
             <h1 class="spread-place">${escapeHtml(c.city)}</h1>
-            <p class="spread-hook">${escapeHtml(c.hook)}</p>
             <div class="flex wrap mt-16">
-              <span class="chip ${tierClassChip(c.tier)}">Tier ${c.tier === 0 ? '排除' : c.tier} · ${tierName(c.tier)}</span>
-              ${lite ? '<span class="chip chip-new">✨ 新發現 · 待詳查</span>' : ''}
               <span class="chip">${flightHasHours ? `飛行 ${c.flight.hours}h ${c.flight.direct ? '· 直飛' : '· 轉機'}` : '飛行 · 待補'}</span>
               <span class="chip">${c.visa?.type && c.visa.type !== '—' ? c.visa.type : '簽證 · 待補'}</span>
-              <span class="chip warn">3 週預算 ${hasNum(c.budget?.total) ? Math.round(c.budget.total/1000)+'k' : '待補'}</span>
+              <span class="chip warn">${c.budget2?.total ? `21 天約 ${wan(c.budget2.total)}` : (hasNum(c.budget?.total) ? '約 ' + wan(c.budget.total) : '預算待補')}</span>
               ${confChip}
             </div>
-            ${c.confidence?.deadline_source_url ? `
+            ${cleanUrl(c.confidence?.deadline_source_url) ? `
               <div style="margin-top: 10px; font-family: var(--f-hand-en); font-size: 12px; color: var(--ink-muted); overflow-wrap: anywhere;">
-                source · <a href="${escapeHtml(c.confidence.deadline_source_url)}" target="_blank" rel="noopener" style="color: var(--ink-soft); text-decoration: underline;">${escapeHtml(c.confidence.deadline_source_url)}</a>
+                source · <a href="${escapeHtml(cleanUrl(c.confidence.deadline_source_url))}" target="_blank" rel="noopener" style="color: var(--ink-soft); text-decoration: underline;">${escapeHtml(cleanUrl(c.confidence.deadline_source_url))}</a>
                 ${c.confidence.verified_date ? `<span style="margin-left: 8px;">· verified ${escapeHtml(c.confidence.verified_date)}</span>` : ''}
               </div>
             ` : ''}
           </div>
           ${isExcluded
             ? `<div class="stamp large" style="background: var(--ink); color: var(--paper);">EXCLUDED</div>`
-            : (lite && scoresMissing)
-              ? `<div class="stamp large" style="background: var(--paper-deep); color: var(--ink-soft); border-style: dashed;">LITE<br><span style="font-size: 11px;">待詳查</span></div>`
-              : `<div class="stamp large gold">${score}<br><span>/ 40</span></div>`}
+            : ''}
         </header>
 
-        <div class="spread-body">
+        ${(() => {
+          const blog = renderBlogger(c);
+          if (blog) return blog;
+          const r = c.rich;
+          const para = (t) => (t || '').split(/\n\n+/).map(p => `<p style="margin: 0 0 13px;">${escapeHtml(p.trim())}</p>`).join('');
+          const scenes = (c.expImg && c.expImg.scenes && c.expImg.scenes.length) ? c.expImg.scenes : [];
+          // 單張「分隔帶圖」——插在段落之間斷開文字牆，水彩手帳調
+          const band = (i, cap) => scenes[i] ? `
+            <figure style="margin: 20px -2px 22px; transform: rotate(${i % 2 ? 0.5 : -0.5}deg);">
+              <img src="${scenes[i]}" alt="" loading="lazy" style="width: 100%; aspect-ratio: 16/7; object-fit: cover; border-radius: 6px; border: 6px solid #fff; box-shadow: 0 5px 18px rgba(0,0,0,0.13);">
+              ${cap ? `<figcaption style="font-family: var(--f-hand-cn); font-size: 12px; color: var(--ink-muted); text-align: right; margin: 6px 6px 0;">${escapeHtml(cap)}</figcaption>` : ''}
+            </figure>` : '';
+          // 後備：仍有圖但沒走分段時（fallback 體驗區用），擠一排
+          const scenesHtml = scenes.length ? `
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin: 6px 0 20px;">
+              ${scenes.map((src, i) => `
+                <figure style="margin: 0; transform: rotate(${(i % 2 ? 1 : -1) * (0.6 + (i % 3) * 0.4)}deg);">
+                  <img src="${src}" alt="" loading="lazy" style="width: 100%; aspect-ratio: 3/2; object-fit: cover; border-radius: 4px; border: 5px solid #fff; box-shadow: 0 3px 12px rgba(0,0,0,0.12);">
+                </figure>`).join('')}
+            </div>` : '';
+          const rh = (t) => `<div style="font-family: var(--f-hand-cn); font-size: 16px; font-weight: 700; color: var(--ink); margin: 22px 0 10px;">${t}</div>`;
+          const listCol = (emo, title, items, clr, bg) => `
+            <div style="background: ${bg}; border-radius: 6px; padding: 13px 15px;">
+              <div style="font-family: var(--f-hand-cn); font-weight: 700; color: ${clr}; margin-bottom: 8px;">${emo} ${title}</div>
+              <ul style="margin: 0; padding-left: 16px; font-size: 13px; line-height: 1.75; color: var(--ink-soft);">
+                ${(items || []).map(x => `<li style="margin-bottom: 4px;">${escapeHtml(x)}</li>`).join('')}
+              </ul>
+            </div>`;
+          if (r && r.story) {
+            // story 分段，第一段後嵌 band(0)，讓圖坐在閱讀流裡而非堆一排
+            const sp = (r.story || '').split(/\n\n+/).map(p => p.trim()).filter(Boolean);
+            const storyHtml = sp.map((p, idx) =>
+              `<p style="margin: 0 0 13px;">${escapeHtml(p)}</p>` + (idx === 0 && sp.length > 1 ? band(0) : '')
+            ).join('') || para(r.story);
+            const storyTrailBand = sp.length <= 1 ? band(0) : '';
+            return `
+            <section style="margin: 8px 0 4px; padding: 20px 22px; background: var(--paper); border: 1px solid var(--paper-edge); border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.04);">
+              ${r.thesis ? `<div style="font-family: var(--f-serif); font-size: 18px; font-style: italic; line-height: 1.85; color: var(--ink); border-left: 3px solid var(--gold-deep); padding-left: 16px; margin-bottom: 20px;">${escapeHtml(r.thesis)}</div>` : ''}
+              <div style="font-family: var(--f-serif); font-size: 16.5px; line-height: 2.05; color: var(--ink); margin-bottom: 18px;">${storyHtml}</div>
+              ${storyTrailBand}
+              ${r.weekday_rhythm ? `${band(1)}${rh('🕘 平日的一天')}<div style="font-size: 14px; line-height: 1.95; color: var(--ink-soft);">${para(r.weekday_rhythm)}</div>` : ''}
+              ${(r.weekend_plays && r.weekend_plays.length) ? `${band(2)}${rh('🌅 週末這樣玩')}<div style="display: grid; gap: 12px;">${r.weekend_plays.map(w => `
+                <div style="background: rgba(74,124,168,0.07); border-radius: 6px; padding: 12px 14px;">
+                  <div style="font-weight: 700; color: #3a6a96; margin-bottom: 4px;">${escapeHtml(w.title || '')}</div>
+                  <div style="font-size: 13px; line-height: 1.7; color: var(--ink-soft);">${escapeHtml(w.detail || '')}</div>
+                </div>`).join('')}</div>` : ''}
+              ${rh('這趟對你們各自是什麼')}
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+                ${listCol('👧', '女兒會記得', r.kid_joys, 'var(--sage-deep)', 'rgba(122,142,102,0.10)')}
+                ${listCol('💆', '你會喘口氣', r.mom_joys, 'var(--gold-deep)', 'rgba(217,164,65,0.10)')}
+                ${listCol('😮‍💨', '要忍的', r.friction, 'var(--coral-deep)', 'rgba(197,107,90,0.08)')}
+              </div>
+              ${(r.fit || r.not_fit) ? `${rh('適合你們嗎')}<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+                ${r.fit ? `<div style="border-left: 3px solid var(--sage-deep); padding-left: 12px;"><div style="font-weight: 700; color: var(--sage-deep); margin-bottom: 4px;">✓ 適合</div><div style="font-size: 13.5px; line-height: 1.75; color: var(--ink-soft);">${escapeHtml(r.fit)}</div></div>` : ''}
+                ${r.not_fit ? `<div style="border-left: 3px solid var(--coral-deep); padding-left: 12px;"><div style="font-weight: 700; color: var(--coral-deep); margin-bottom: 4px;">✕ 不適合</div><div style="font-size: 13.5px; line-height: 1.75; color: var(--ink-soft);">${escapeHtml(r.not_fit)}</div></div>` : ''}
+              </div>` : ''}
+              <div style="margin-top: 18px; font-family: var(--f-hand-cn); font-size: 12px; color: var(--ink-muted);">— 好處壞處都寫了。去不去、選哪個，你自己決定。</div>
+            </section>`;
+          }
+          // fallback：無 rich 時用舊的三桶體驗
+          const ex = c.experience || {};
+          const cols = [
+            ['👧', '女兒會記得', ex.kid, 'rgba(122,142,102,0.10)', 'var(--sage-deep)'],
+            ['💆', '你會喘口氣', ex.mom, 'rgba(217,164,65,0.10)', 'var(--gold-deep)'],
+            ['🌅', '你們一起', ex.together, 'rgba(74,124,168,0.10)', '#3a6a96'],
+          ].filter(col => col[2] && col[2].length);
+          if (!cols.length) return '';
+          return `
+          <section style="margin: 8px 0 4px; padding: 18px 20px; background: var(--paper); border: 1px solid var(--paper-edge); border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.04);">
+            <div style="font-family: var(--f-hand-cn); font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 14px;">✨ 這個夏天會這樣</div>
+            ${scenesHtml}
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px;">
+              ${cols.map(([emo, title, items, bg, clr]) => listCol(emo, title, (items || []).slice(0, 4), clr, bg)).join('')}
+            </div>
+          </section>`;
+        })()}
+
+        <details class="dossier-fold" style="margin-top: 8px;">
+          <summary style="cursor: pointer; list-style: none; font-family: var(--f-hand-cn); font-size: 14px; color: var(--ink-soft); padding: 12px 16px; background: rgba(60,40,30,0.04); border: 1px dashed var(--paper-edge); border-radius: 8px; user-select: none;">📋 詳細資料 · 預算 · 飛行簽證 · 住宿 · 醫療 · 查證來源 —— 想認真比較某個地方再展開 ▾</summary>
+        <div class="spread-body" style="margin-top: 18px;">
 
           <!-- LEFT COLUMN -->
           <div class="spread-col">
@@ -411,6 +630,16 @@ function viewDetail(c) {
               </dl>
               ${(c.camp.highlights && c.camp.highlights.length) ? `<div class="flex wrap mt-8">${c.camp.highlights.map(h => `<span class="chip">${escapeHtml(h)}</span>`).join('')}</div>` : ''}
             ` : '<p class="muted">營隊資訊待補。</p>'}
+            ${(c.confidence?.discrepancies && c.confidence.discrepancies.length) ? `
+              <div style="margin-top: 12px; padding: 10px 12px; border-left: 3px solid var(--coral-deep); background: rgba(197,107,90,0.07); border-radius: 4px;">
+                <div style="font-family: var(--f-hand-cn); font-weight: 600; color: var(--coral-deep); margin-bottom: 6px;">🔍 查證差異（2026-05-31）· 報名前確認</div>
+                ${c.confidence.verified_dates_2026 ? `<div style="font-size: 12px; margin-bottom: 3px;"><strong>實際日期：</strong>${escapeHtml(c.confidence.verified_dates_2026)}</div>` : ''}
+                ${c.confidence.verified_cost ? `<div style="font-size: 12px; margin-bottom: 6px;"><strong>實際費用：</strong>${escapeHtml(c.confidence.verified_cost)}</div>` : ''}
+                <ul style="margin: 0; padding-left: 18px; font-size: 12px; line-height: 1.6; color: var(--ink-soft);">
+                  ${c.confidence.discrepancies.slice(0,5).map(d => `<li>${escapeHtml(d)}</li>`).join('')}
+                </ul>
+              </div>
+            ` : ''}
 
             <h3><span class="num">ii.</span>飛行 + 簽證</h3>
             <dl class="kv">
@@ -625,12 +854,13 @@ function viewDetail(c) {
             ${c.sources?.length ? `
               <h3><span class="num">xiii.</span>主要來源</h3>
               <ul style="padding-left: 18px; font-size: 13px; color: var(--ink-muted); line-height: 1.8;">
-                ${c.sources.map(s => `<li><a href="${escapeHtml(s)}" target="_blank" rel="noopener" style="color: var(--ink-soft);">${escapeHtml(s)}</a></li>`).join('')}
+                ${c.sources.map(s => cleanUrl(s)).filter(Boolean).map(u => `<li><a href="${escapeHtml(u)}" target="_blank" rel="noopener" style="color: var(--ink-soft);">${escapeHtml(u)}</a></li>`).join('')}
               </ul>
             ` : ''}
 
           </div>
         </div>
+        </details>
 
         ${c.tier === 0 && !isExcluded ? `
           <div style="margin-top: 48px; padding: 24px 32px; background: rgba(60,40,30,0.05); border-left: 4px solid var(--ink-muted);">
