@@ -11,31 +11,31 @@ export const AREAS = [
   {
     key: 'marsh', name: '螢火沼澤', voice: 'area_marsh',
     motif: 'firefly', holder: 'lantern', tint: '#FFE3A3',
-    modes: ['count'], range: [1, 5], questions: 4,
+    modes: ['count', 'listen'], range: [1, 5], questions: 5,
     lampAt: { x: .21, y: .63 }, band: { y0: .06, y1: .52 },
   },
   {
     key: 'cove', name: '貝殼海灘', voice: 'area_cove',
     motif: 'shell', holder: 'shell', tint: '#FFC46B',
-    modes: ['listen'], range: [1, 5], questions: 4,
+    modes: ['listen', 'count'], range: [1, 5], questions: 5,
     lampAt: { x: .63, y: .80 }, band: { y0: .30, y1: .72 },
   },
   {
     key: 'grove', name: '果實樹林', voice: 'area_grove',
     motif: 'berry', holder: 'leaf', tint: '#FF8B7A',
-    modes: ['count'], range: [3, 8], questions: 4,
+    modes: ['count', 'listen'], range: [3, 8], questions: 5,
     lampAt: { x: .80, y: .44 }, band: { y0: .06, y1: .46 },
   },
   {
     key: 'cliff', name: '星星懸崖', voice: 'area_cliff',
     motif: 'star', holder: 'star', tint: '#FFE3A3',
-    modes: ['listen'], range: [4, 10], questions: 4,
+    modes: ['listen', 'count'], range: [4, 10], questions: 5,
     lampAt: { x: .25, y: .24 }, band: { y0: .08, y1: .54 },
   },
   {
     key: 'light', name: '燈塔', voice: 'area_light',
     motif: 'firefly', holder: 'bubble', tint: '#6FE3C4',
-    modes: ['listen', 'count', 'quantity'], range: [2, 10], questions: 5,
+    modes: ['listen', 'count', 'quantity'], range: [2, 10], questions: 6,
     lampAt: { x: .60, y: .13 }, band: { y0: .10, y1: .58 }, final: true,
   },
 ];
@@ -50,7 +50,7 @@ export const areaByKey = k => AREAS.find(a => a.key === k);
  * @param rand   亂數
  */
 export function makeQuestion(area, i, skill, rand) {
-  const mode = area.modes[i % area.modes.length];
+  const mode = area.modes[Math.floor(rand() * area.modes.length)];
 
   // 選項數量跟著表現走：連錯就變簡單，連對就變難，永遠夾在 2~4 之間
   let opts = 3;
@@ -71,16 +71,18 @@ export function makeQuestion(area, i, skill, rand) {
   return { mode, answer, options: pickOptions(answer, opts, lo, hiFull, rand), area };
 }
 
-/** 誘答項：靠近正確答案（差 1~2），這樣才是真的在辨識，不是靠排除 */
+/** 誘答項：先放鄰近數字，再補一些較遠的，避免每次題型都長得一樣 */
 function pickOptions(answer, n, lo, hi, rand) {
   const set = new Set([answer]);
-  const near = [answer - 1, answer + 1, answer - 2, answer + 2, answer + 3, answer - 3];
+  const near = [answer - 1, answer + 1, answer - 2, answer + 2, answer - 3, answer + 3];
   for (const v of near) {
     if (set.size >= n) break;
     if (v >= Math.max(1, lo - 1) && v <= Math.min(10, hi + 1)) set.add(v);
   }
-  while (set.size < n) {
-    const v = 1 + Math.floor(rand() * 10);
+  // 若選項還不夠，補上離答案較遠的數字，讓小朋友無法只靠「差一」猜
+  let guard = 0;
+  while (set.size < n && guard++ < 50) {
+    const v = lo + Math.floor(rand() * (hi - lo + 1));
     set.add(v);
   }
   const arr = [...set].slice(0, n);

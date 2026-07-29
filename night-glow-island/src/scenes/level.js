@@ -6,7 +6,7 @@
 
 import {
   app, setScenery, placeLumi, hudMode, go, fx, fy, fs, el, PAL, A,
-  paperCard, makeProgressLamps, refreshHud, makeGlyph,
+  paperCard, makeProgressLamps, refreshHud, makeGlyph, updateChallengeHud,
 } from '../game.js';
 import { areaByKey, makeQuestion, recordAnswer } from '../data/world.js';
 import { makeNumberToken, makeCountable, makeQuantityToken, Prop } from '../art/props.js';
@@ -25,6 +25,12 @@ let rapidTaps = [], guidedRapidAt = 0;   // 亂點偵測用
 let areaWrongs = 0, areaHadRapidTap = false, areaSkippedCount = false, areaUsedHint = false; // 專心挑戰用
 
 const alive = e => e === epoch;
+
+const refreshChallengeHud = () => {
+  const perfect = areaWrongs === 0 && !areaHadRapidTap && !areaSkippedCount && !areaUsedHint;
+  const focus = areaWrongs <= 2 && !areaHadRapidTap && !areaSkippedCount;
+  updateChallengeHud({ perfect, focus });
+};
 
 export const level = {
   async enter({ areaKey }) {
@@ -45,6 +51,7 @@ export const level = {
     if (area.key === 'cove') plantSecretRock();
 
     qi = 0; wrongs = 0; areaWrongs = 0; areaHadRapidTap = false; areaSkippedCount = false; areaUsedHint = false;
+    updateChallengeHud({ perfect: true, focus: true });
     offIdle = onTick(dt => {
       if (!alive(me) || answering || !q) return;
       idleT += dt;
@@ -180,9 +187,9 @@ function tapCountable(c, me) {
 
 /** 數字牌/選項解鎖前留一點「想一想」的空白，抑制衝動亂點 */
 async function unlockTokensWithThinkDelay(me) {
-  await sleep(0.7);
+  await sleep(0.32);
   if (!alive(me)) return;
-  tokens.forEach(t => t.lock(false));
+  tokens.forEach(t => { t.lock(false); t.bounce(); });
 }
 
 /** 偵測連續亂點：短時間內戳太多不同選項，Lumi 會輕輕擋一下並引導 */
@@ -192,6 +199,7 @@ function checkRapidTapping(me) {
   rapidTaps = rapidTaps.filter(t => now - t < 2500);
   if (rapidTaps.length < 4) return;
   areaHadRapidTap = true;
+  refreshChallengeHud();
   if (now - guidedRapidAt < 6000) return;   // 不要一直念
   guidedRapidAt = now;
   app.lumi.tilt();
@@ -213,12 +221,14 @@ async function answer(tok, me) {
     recordAnswer(app.run.skill, false);
     wrongs++; areaWrongs++;
     tok.shy();
+    refreshChallengeHud();
     // 錯誤回饋不要太熱鬧，避免亂點反而變成多巴胺來源
     if (wrongs <= 2) A.nudge();
     checkRapidTapping(me);
     A.say(wrongs === 1 ? 'miss1' : wrongs === 2 ? 'miss3' : 'miss4');
     if (wrongs >= 2) {
       areaUsedHint = true;
+      refreshChallengeHud();
       const right = tokens.find(t => t.value === q.answer);
       right?.hint(true);
       if (wrongs >= 3 && q.mode !== 'count') setTimeout(() => A.sayFind(q.answer, false), 900);
@@ -227,7 +237,7 @@ async function answer(tok, me) {
   }
 
   // 對了
-  if (q.mode === 'count' && counted < countables.length) areaSkippedCount = true;
+  if (q.mode === 'count' && counted < countables.length) { areaSkippedCount = true; refreshChallengeHud(); }
   answering = true;
   lockTaps(1.2);
   tokens.forEach(t => t.lock(true));

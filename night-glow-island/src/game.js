@@ -203,9 +203,21 @@ function buildHud() {
   mute.classList.toggle('is-muted', A.isMuted());
   h.appendChild(mute);
 
-  app.hud = { lant, back, mute, count: lant.querySelector('.hud-count') };
+  // 本關挑戰狀態（完美 / 專心）
+  const challenge = document.createElement('div');
+  challenge.className = 'hud-challenge';
+  challenge.innerHTML = `<span class="hc-icon hc-perfect" title="完美挑戰：零錯誤、不亂點、不跳過、不用提示">★</span><span class="hc-icon hc-focus" title="專心挑戰：少錯、不亂點、不跳過">✦</span>`;
+  h.appendChild(challenge);
+
+  app.hud = { lant, back, mute, count: lant.querySelector('.hud-count'), challenge };
   refreshHud();
   layoutHud();
+}
+
+export function updateChallengeHud({ perfect = true, focus = true } = {}) {
+  if (!app.hud?.challenge) return;
+  app.hud.challenge.querySelector('.hc-perfect').classList.toggle('lost', !perfect);
+  app.hud.challenge.querySelector('.hc-focus').classList.toggle('lost', !focus);
 }
 
 export function refreshHud() {

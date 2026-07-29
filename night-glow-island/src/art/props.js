@@ -40,7 +40,15 @@ export class Prop {
     });
     return this;
   }
-  lock(v = true) { this.node.dataset.locked = v ? '1' : '0'; }
+  lock(v = true) {
+    this.node.dataset.locked = v ? '1' : '0';
+    this.node.classList.toggle('locked', v);
+  }
+  /** 解鎖時的小彈跳，讓小朋友知道「現在可以按了」 */
+  bounce() {
+    this.sc.set(this.baseScale * 0.82).to(this.baseScale);
+    this.rot.kick((Math.random() - .5) * 10);
+  }
 
   setPos(x, y) { this.x = x; this.y = y; return this; }
 
