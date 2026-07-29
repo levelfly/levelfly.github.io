@@ -8,6 +8,7 @@ const blank = () => ({
   goldenBugs: {},  // { bugId: 金色隻數 }
   platinumBugs: {}, // { bugId: 彩虹/白金隻數 }
   runs: 0,         // 完成過的冒險輪數
+  cycles: {},      // { areaKey: 該地點已通關幾次 }
   secrets: {},     // { sneeze:true, crab:true, whale:true, song:true }
   best: 0,         // 單輪最高連對
   muted: false,
@@ -54,6 +55,8 @@ export const store = {
   totalPlatinumBugs() { return Object.values(data.platinumBugs).reduce((a, b) => a + b, 0); },
 
   finishRun() { data.runs++; save(); },
+  cycle(key) { return data.cycles[key] || 0; },
+  cycleUp(key) { data.cycles[key] = (data.cycles[key] || 0) + 1; save(); return data.cycles[key]; },
   unlock(k) { const first = !data.secrets[k]; data.secrets[k] = true; save(); return first; },
   found(k) { return !!data.secrets[k]; },
   setBest(n) { if (n > data.best) { data.best = n; save(); } },

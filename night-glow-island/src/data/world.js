@@ -49,17 +49,22 @@ export const areaByKey = k => AREAS.find(a => a.key === k);
  * @param skill  { streakRight, streakWrong, seen:Set }
  * @param rand   亂數
  */
-export function makeQuestion(area, i, skill, rand) {
+export function makeQuestion(area, i, skill, rand, cycle = 0) {
   const mode = area.modes[Math.floor(rand() * area.modes.length)];
 
-  // 選項數量跟著表現走：連錯就變簡單，連對就變難，永遠夾在 2~4 之間
+  // 週目影響：二週目範圍擴大、選項變多；三週目再更難一點
+  const [baseLo, baseHi] = area.range;
+  const lo = baseLo;
+  const hiFull = Math.min(10, baseHi + cycle * 2);
+
+  // 選項數量跟著表現與週目走：連錯變簡單，連對 / 高週目變難
   let opts = 3;
   if (skill.streakWrong >= 2) opts = 2;
-  else if (skill.streakRight >= 3) opts = 4;
-  else if (skill.streakRight >= 1) opts = 3;
+  else if (skill.streakRight >= 3 || cycle >= 2) opts = Math.min(5, 4 + cycle - 1);
+  else if (skill.streakRight >= 1 || cycle >= 1) opts = Math.min(4, 3 + cycle);
+  opts = Math.min(5, Math.max(2, opts));
 
   // 範圍：前兩題偏小，後面才放大
-  const [lo, hiFull] = area.range;
   const hi = i < 2 ? Math.max(lo + 1, Math.round(lo + (hiFull - lo) * 0.6)) : hiFull;
 
   // 盡量不要連續出同一個數字

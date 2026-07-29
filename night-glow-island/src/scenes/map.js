@@ -8,6 +8,7 @@ import {
   app, setScenery, placeLumi, hudMode, go, fx, fy, fs, el, PAL, A, paperCard, refreshHud,
 } from '../game.js';
 import { AREAS } from '../data/world.js';
+import { store } from '../core/store.js';
 import { Prop } from '../art/props.js';
 import { setAmbientMotes, burst } from '../art/particles.js';
 import { onTick } from '../core/ticker.js';
@@ -37,6 +38,13 @@ export const map = {
     app.lumi.setLantern(0.15 + lit.size * 0.17);
 
     drawIsland(lit);
+
+    // 顯示當前週目：以全島最低通關次數為準
+    const cycle = Math.min(...AREAS.map(a => store.cycle(a.key)));
+    const cycleName = ['第一輪', '第二輪', '第三輪', '第四輪'][Math.min(cycle, 3)] || `第 ${cycle + 1} 輪`;
+    paperCard(app.layers.overlay,
+      `<div class="pc-line">夜光島</div><div class="pc-cycle">${cycleName}</div>`,
+      { dur: 2.2, cls: 'pc-cycle-card' });
 
     nodes = []; offs = [];
     const allBase = AREAS.filter(a => !a.final).every(a => lit.has(a.key));
