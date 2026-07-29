@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>2026 夏令營精選｜峇里島親子冒險與 Empathy School 夏日探索</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        display: ['"ZCOOL KuaiLe"', 'cursive'],
+                    },
+                    colors: {
+                        bali: {
+                            sky: '#7EB8DA',
+                            ocean: '#4A90A4',
+                            sand: '#F5D5A5',
+                            leaf: '#88B04B',
+                            coral: '#E89B7D',
+                        },
+                        empathy: {
+                            green: '#7CB342',
+                            lime: '#C5D86D',
+                            teal: '#4DB6AC',
+                            sky: '#81D4FA',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #4A90A4 0%, #88B04B 50%, #E89B7D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .schedule-card {
+            transition: all 0.3s ease;
+        }
+        .schedule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .image-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+        }
+        .image-frame img {
+            transition: transform 0.5s ease;
+        }
+        .image-frame:hover img {
+            transform: scale(1.05);
+        }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #7EB8DA, #88B04B, #E89B7D);
+        }
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-card shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-sun text-yellow-400 text-2xl animate-spin-slow"></i>
+                    <span class="font-display text-2xl text-slate-700">2026 夏令營精選</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#guidepost" class="text-slate-600 hover:text-bali-ocean font-medium transition">Guidepost 峇里島冒險營</a>
+                    <a href="#empathy" class="text-slate-600 hover:text-empathy-green font-medium transition">Empathy School 夏令營</a>
+                    <a href="#summary" class="text-slate-600 hover:text-bali-coral font-medium transition">重點整理</a>
+                </div>
+                <button class="md:hidden text-slate-600" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="#guidepost" class="block py-2 text-slate-600 hover:text-bali-ocean">Guidepost 峇里島冒險營</a>
+                <a href="#empathy" class="block py-2 text-slate-600 hover:text-empathy-green">Empathy School 夏令營</a>
+                <a href="#summary" class="block py-2 text-slate-600 hover:text-bali-coral">重點整理</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-bali-sky/30 via-bali-sand/20 to-empathy-lime/30"></div>
+            <div class="absolute top-20 left-10 w-72 h-72 bg-bali-sky/40 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-empathy-lime/40 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-bali-coral/20 rounded-full blur-3xl animate-float" style="animation-delay: 4s;"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+            <div class="inline-block mb-6 px-6 py-2 rounded-full bg-white/70 backdrop-blur shadow-lg border border-white/50">
+                <span class="text-bali-ocean font-medium"><i class="fa-solid fa-palm-tree mr-2"></i>為孩子規劃一個難忘的夏天</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                <span class="gradient-text">探索．學習．成長</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+                兩場精心策劃的夏令營體驗：在峇里島 AYANA 莊園展開 Montessori 自然冒險，或在 Empathy School 透過主題式課程探索世界、釋放創意。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#guidepost" class="px-8 py-4 rounded-full bg-gradient-to-r from-bali-ocean to-bali-sky text-white font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition transform">
+                    <i class="fa-solid fa-umbrella-beach mr-2"></i>峇里島冒險營
+                </a>
+                <a href="#empathy" class="px-8 py-4 rounded-full bg-gradient-to-r from-empathy-green to-empathy-teal text-white font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition transform">
+                    <i class="fa-solid fa-seedling mr-2"></i>Empathy School 夏令營
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-slate-400">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Guidepost Section -->
+    <section id="guidepost" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-bali-coral font-bold tracking-wider uppercase text-sm">Bali Adventure Camp</span>
+                <h2 class="text-4xl md:text-5xl font-black mt-2 mb-4 text-slate-800">Guidepost Montessori 峇里島冒險營</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+                    專為 <span class="font-bold text-bali-ocean">3 至 6 歲</span> 孩子設計，在峇里島 AYANA 廣闊莊園中，結合自然探索與蒙特梭利學習的獨特冒險體驗。
+                </p>
+            </div>
+
+            <!-- Overview Cards -->
+            <div class="grid md:grid-cols-3 gap-6 mb-16">
+                <div class="glass-card rounded-3xl p-8 text-center shadow-lg schedule-card">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-bali-sky/20 flex items-center justify-center">
+                        <i class="fa-solid fa-calendar-days text-2xl text-bali-ocean"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">營隊時間</h3>
+                    <p class="text-slate-600">週二至週五開放<br><span class="text-sm text-slate-500">（國定假日休息）</span></p>
+                </div>
+                <div class="glass-card rounded-3xl p-8 text-center shadow-lg schedule-card">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-bali-leaf/20 flex items-center justify-center">
+                        <i class="fa-solid fa-child-reaching text-2xl text-bali-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">適合年齡</h3>
+                    <p class="text-slate-600">3 至 6 歲幼兒<br><span class="text-sm text-slate-500">蒙特梭利啟發式學習</span></p>
+                </div>
+                <div class="glass-card rounded-3xl p-8 text-center shadow-lg schedule-card">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-bali-coral/20 flex items-center justify-center">
+                        <i class="fa-solid fa-location-dot text-2xl text-bali-coral"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">營隊地點</h3>
+                    <p class="text-slate-600">峇里島 AYANA 莊園<br><span class="text-sm text-slate-500">自然與文化交融的環境</span></p>
+                </div>
+            </div>
+
+            <!-- Camp Options -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white rounded-3xl p-8 shadow-xl border-t-4 border-bali-sky hover:shadow-2xl transition">
+                    <div class="text-4xl font-black text-bali-sky mb-2">1 天</div>
+                    <h3 class="text-xl font-bold mb-3">一日冒險</h3>
+                    <p class="text-slate-600 mb-4">週二至週五任選一天，讓孩子體驗招牌活動與蒙特梭利啟發學習，適合短暫停留的家庭。</p>
+                    <div class="text-sm text-slate-500"><i class="fa-regular fa-clock mr-1"></i> 8:30 - 15:30</div>
+                </div>
+                <div class="bg-white rounded-3xl p-8 shadow-xl border-t-4 border-bali-ocean hover:shadow-2xl transition">
+                    <div class="text-4xl font-black text-bali-ocean mb-2">2 天</div>
+                    <h3 class="text-xl font-bold mb-3">兩日冒險</h3>
+                    <p class="text-slate-600 mb-4">連續兩天參與部分四日營活動，在維持旅遊行程彈性的同時，獲得更深入的體驗。</p>
+                    <div class="text-sm text-slate-500"><i class="fa-regular fa-clock mr-1"></i> 週二至週五連續兩天</div>
+                </div>
+                <div class="bg-white rounded-3xl p-8 shadow-xl border-t-4 border-bali-leaf hover:shadow-2xl transition relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-24 h-24 bg-bali-leaf/20 rounded-full"></div>
+                    <div class="text-4xl font-black text-bali-leaf mb-2">4 天</div>
+                    <h3 class="text-xl font-bold mb-3">四日完整冒險</h3>
+                    <p class="text-slate-600 mb-4">週二至週五完整探索 AYANA 莊園，最後一天更有「難忘時刻」家庭學習活動，為這週畫下完美句點。</p>
+                    <div class="text-sm text-slate-500"><i class="fa-regular fa-clock mr-1"></i> 最豐富的體驗</div>
+                </div>
+            </div>
+
+            <!-- Images -->
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div class="image-frame shadow-2xl">
+                    <img src="images/guidepost-overview.jpg" alt="Guidepost 峇里島冒險營介紹" class="w-full h-auto">
+                </div>
+                <div class="image-frame shadow-2xl">
+                    <img src="images/guidepost-pricing.jpg" alt="Guidepost 峇里島冒險營價格" class="w-full h-auto">
+                </div>
+            </div>
+
+            <!-- Pricing Table -->
+            <div class="bg-gradient-to-r from-bali-ocean to-bali-sky rounded-3xl p-8 md:p-12 text-white shadow-2xl mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-center"><i class="fa-solid fa-tags mr-2"></i>營隊費用</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white/20 backdrop-blur rounded-2xl p-6 text-center">
+                        <div class="text-sm opacity-90 mb-2">一日冒險</div>
+                        <div class="text-3xl font-black">IDR 1,950,000++</div>
+                        <div class="text-base font-bold mt-2 text-bali-sand">約 NT$ 3,460</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-2xl p-6 text-center">
+                        <div class="text-sm opacity-90 mb-2">兩日冒險</div>
+                        <div class="text-3xl font-black">IDR 3,900,000++</div>
+                        <div class="text-base font-bold mt-2 text-bali-sand">約 NT$ 6,930</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-2xl p-6 text-center">
+                        <div class="text-sm opacity-90 mb-2">四日冒險</div>
+                        <div class="text-3xl font-black">IDR 7,500,000++</div>
+                        <div class="text-base font-bold mt-2 text-bali-sand">約 NT$ 13,320</div>
+                    </div>
+                </div>
+                <p class="text-center mt-6 text-sm opacity-90">++ 表示需另加稅金與服務費。台幣為約略換算（2026/6/22 匯率，1 TWD ≈ 563 IDR），實際金額以付款當下為準。更多詳情請聯繫招生團隊。</p>
+            </div>
+
+            <!-- Daily Itinerary -->
+            <div class="mb-8">
+                <h3 class="text-3xl font-bold text-center mb-8"><i class="fa-solid fa-clock-rotate-left mr-2 text-bali-ocean"></i>四日行程亮點</h3>
+                <div class="image-frame shadow-2xl mb-8">
+                    <img src="images/guidepost-itinerary.jpg" alt="Guidepost 峇里島冒險營行程表" class="w-full h-auto">
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-bali-sky">
+                        <div class="font-bold text-bali-ocean mb-2">週二</div>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            <li>• AYANA 自然農場體驗</li>
+                            <li>• 峇里島扇子手工藝</li>
+                            <li>• 生態拓印捶染</li>
+                            <li>• 科學實驗</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-bali-leaf">
+                        <div class="font-bold text-bali-leaf mb-2">週三</div>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            <li>• 戶外粗大動作活動</li>
+                            <li>• 自然風鈴製作</li>
+                            <li>• 風乾陶藝</li>
+                            <li>• 從農場到餐桌</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-bali-coral">
+                        <div class="font-bold text-bali-coral mb-2">週四</div>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            <li>• 戶外自然沙坑遊戲</li>
+                            <li>• 蠟染拼布</li>
+                            <li>• 太陽捕手手工</li>
+                            <li>• 製作雞蛋花芳香劑</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-purple-400">
+                        <div class="font-bold text-purple-500 mb-2">週五</div>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            <li>• 戶外粗大動作活動</li>
+                            <li>• 貝殼項鍊製作</li>
+                            <li>• 壁虎手工藝</li>
+                            <li>• 印尼音樂：安格隆</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="bg-white rounded-3xl p-8 shadow-lg text-center">
+                <h4 class="text-2xl font-bold mb-4">聯絡我們</h4>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                    <a href="https://wa.me/6281524881234" class="flex items-center gap-3 text-slate-700 hover:text-bali-ocean transition">
+                        <i class="fa-brands fa-whatsapp text-2xl text-green-500"></i>
+                        <span class="font-medium">+62 815 2488 1234</span>
+                    </a>
+                    <a href="mailto:admissions@guidepost.id" class="flex items-center gap-3 text-slate-700 hover:text-bali-ocean transition">
+                        <i class="fa-regular fa-envelope text-2xl text-bali-sky"></i>
+                        <span class="font-medium">admissions@guidepost.id</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="py-12 relative">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+        </div>
+    </div>
+
+    <!-- Empathy School Section -->
+    <section id="empathy" class="py-24 relative bg-gradient-to-b from-white to-empathy-lime/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-empathy-green font-bold tracking-wider uppercase text-sm">Summer 2026 Camp</span>
+                <h2 class="text-4xl md:text-5xl font-black mt-2 mb-4 text-slate-800">Empathy School 2026 夏日夏令營</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+                    2026 年 7 月舉辦的兩週主題式夏令營，分為 <span class="font-bold text-empathy-green">Lower & Upper School</span> 與 <span class="font-bold text-empathy-green">Kindergarten</span> 兩個班群，讓孩子在探索中學習、在遊戲中成長。
+                </p>
+            </div>
+
+            <!-- Camp Info Cards -->
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div class="bg-white rounded-3xl p-8 shadow-xl border-l-8 border-empathy-green">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-2xl bg-empathy-green/20 flex items-center justify-center">
+                            <i class="fa-solid fa-book-open text-2xl text-empathy-green"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Lower & Upper School</h3>
+                            <p class="text-slate-500">小學與高年級班</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600">課程設計更富挑戰性，包含專案式學習、科學實驗、戶外冒險與文化體驗，培養獨立思考與團隊合作能力。</p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 shadow-xl border-l-8 border-empathy-lime">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-2xl bg-empathy-lime/30 flex items-center justify-center">
+                            <i class="fa-solid fa-shapes text-2xl text-empathy-green"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Kindergarten</h3>
+                            <p class="text-slate-500">幼兒園班</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600">透過感官遊戲、自然素材創作、音樂律動與故事時間，讓幼兒在充滿關懷的環境中快樂學習。</p>
+                </div>
+            </div>
+
+            <!-- Schedule Timeline -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold text-center mb-12"><i class="fa-regular fa-calendar-check mr-2 text-empathy-green"></i>兩週主題行程</h3>
+                
+                <div class="relative">
+                    <div class="timeline-line hidden md:block"></div>
+                    
+                    <!-- Week 3 -->
+                    <div class="relative mb-16">
+                        <div class="md:flex items-center justify-between">
+                            <div class="md:w-5/12 mb-6 md:mb-0 md:text-right">
+                                <div class="bg-white rounded-3xl p-6 shadow-xl schedule-card inline-block w-full">
+                                    <div class="text-sm text-empathy-green font-bold mb-1">第三週</div>
+                                    <h4 class="text-2xl font-bold mb-2">7 月 6 日 — 10 日</h4>
+                                    <p class="text-slate-600 text-sm">主題涵蓋叢林探索、自然材質、色彩與工藝。</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-empathy-green rounded-full border-4 border-white shadow-lg hidden md:flex items-center justify-center z-10">
+                                <span class="text-white font-bold">3</span>
+                            </div>
+                            <div class="md:w-5/12">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <div class="text-center text-sm font-bold text-empathy-green mb-2">姊姊<span class="block text-xs font-medium text-slate-400">中大班 Lower &amp; Upper</span></div>
+                                        <div class="image-frame shadow-lg">
+                                            <img src="images/upper_week3.jpg" alt="中大班 第三週課表" class="w-full h-auto">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="text-center text-sm font-bold text-empathy-teal mb-2">弟弟<span class="block text-xs font-medium text-slate-400">幼兒園 Kindergarten</span></div>
+                                        <div class="image-frame shadow-lg">
+                                            <img src="images/kinder_week3.jpg" alt="幼兒園 第三週課表" class="w-full h-auto">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Week 4 -->
+                    <div class="relative">
+                        <div class="md:flex items-center justify-between">
+                            <div class="md:w-5/12 order-1 md:order-3 mb-6 md:mb-0">
+                                <div class="bg-white rounded-3xl p-6 shadow-xl schedule-card inline-block w-full">
+                                    <div class="text-sm text-empathy-teal font-bold mb-1">第四週</div>
+                                    <h4 class="text-2xl font-bold mb-2">7 月 13 日 — 17 日</h4>
+                                    <p class="text-slate-600 text-sm">主題圍繞河流、火山、水神廟與峇里島文化。</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-empathy-teal rounded-full border-4 border-white shadow-lg hidden md:flex items-center justify-center z-10">
+                                <span class="text-white font-bold">4</span>
+                            </div>
+                            <div class="md:w-5/12 order-1 md:order-1">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <div class="text-center text-sm font-bold text-empathy-green mb-2">姊姊<span class="block text-xs font-medium text-slate-400">中大班 Lower &amp; Upper</span></div>
+                                        <div class="image-frame shadow-lg">
+                                            <img src="images/upper_week4.jpg" alt="中大班 第四週課表" class="w-full h-auto">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="text-center text-sm font-bold text-empathy-teal mb-2">弟弟<span class="block text-xs font-medium text-slate-400">幼兒園 Kindergarten</span></div>
+                                        <div class="image-frame shadow-lg">
+                                            <img src="images/kinder_week4.jpg" alt="幼兒園 第四週課表" class="w-full h-auto">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daily Schedule Comparison -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-16">
+                <!-- Lower & Upper School Week 3 -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl">
+                    <h4 class="text-xl font-bold mb-4 text-empathy-green"><i class="fa-solid fa-user-graduate mr-2"></i>姊姊｜Lower & Upper School｜第三週</h4>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-green/5">
+                            <span class="font-bold text-empathy-green w-20 shrink-0">週一 7/6</span>
+                            <span class="text-slate-600">開營／活力遊戲、高塔挑戰、七彩茶、迷失叢林（一）、Being Human 反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-green/5">
+                            <span class="font-bold text-empathy-green w-20 shrink-0">週二 7/7</span>
+                            <span class="text-slate-600">活力遊戲、陶土創作、太陽能行動電源、專案式學習：Topi Rimba、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-green/5">
+                            <span class="font-bold text-empathy-green w-20 shrink-0">週三 7/8</span>
+                            <span class="text-slate-600">活力遊戲、再生紙、迷失叢林（二）、竹製品設計挑戰、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-green/5">
+                            <span class="font-bold text-empathy-green w-20 shrink-0">週四 7/9</span>
+                            <span class="text-slate-600">活力遊戲、書籍裝幀、划船競賽、冶金術、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-green/5">
+                            <span class="font-bold text-empathy-green w-20 shrink-0">週五 7/10</span>
+                            <span class="text-slate-600">活力遊戲、曼陀羅創作、木雕、披薩製作、反思</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kindergarten Week 3 -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl">
+                    <h4 class="text-xl font-bold mb-4 text-empathy-lime"><i class="fa-solid fa-shapes mr-2"></i>弟弟｜Kindergarten｜第三週</h4>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-lime/10">
+                            <span class="font-bold text-empathy-green w-20 shrink-0">週一 7/6</span>
+                            <span class="text-slate-600">晨圈、我們在哪裡？、防蚊液製作、生態拓印／紙、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-lime/10">
+                            <span class="font-bold text-empathy-green w-20 shrink-0">週二 7/7</span>
+                            <span class="text-slate-600">活力遊戲、迷你叢林、七彩茶、陶土工藝、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-lime/10">
+                            <span class="font-bold text-empathy-green w-20 shrink-0">週三 7/8</span>
+                            <span class="text-slate-600">活力遊戲、美勞、彩虹實驗、天然染、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-lime/10">
+                            <span class="font-bold text-empathy-green w-20 shrink-0">週四 7/9</span>
+                            <span class="text-slate-600">活力遊戲、手印明信片、乾燥葉動物藝術、Es Kul-Kul、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-lime/10">
+                            <span class="font-bold text-empathy-green w-20 shrink-0">週五 7/10</span>
+                            <span class="text-slate-600">活力遊戲、曼陀羅製作、Tamas 製作、小小主廚：炒飯、反思</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lower & Upper School Week 4 -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl">
+                    <h4 class="text-xl font-bold mb-4 text-empathy-teal"><i class="fa-solid fa-user-graduate mr-2"></i>姊姊｜Lower & Upper School｜第四週</h4>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-teal/5">
+                            <span class="font-bold text-empathy-teal w-20 shrink-0">週一 7/13</span>
+                            <span class="text-slate-600">活力遊戲、與 Dewi 老師園藝、有機巧克力製作、火山模型：熔岩測試、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-teal/5">
+                            <span class="font-bold text-empathy-teal w-20 shrink-0">週二 7/14</span>
+                            <span class="text-slate-600">活力遊戲、求生包、椰葉編織 Ketupat、爬椰子樹、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-teal/5">
+                            <span class="font-bold text-empathy-teal w-20 shrink-0">週三 7/15</span>
+                            <span class="text-slate-600">活力遊戲、生態瓶、木雕、巴杜爾山料理：峇里島沙拉、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-teal/5">
+                            <span class="font-bold text-empathy-teal w-20 shrink-0">週四 7/16</span>
+                            <span class="text-slate-600">活力遊戲、陶土創作、可食用熔岩岩、峇里島之旅、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-teal/5">
+                            <span class="font-bold text-empathy-teal w-20 shrink-0">週五 7/17</span>
+                            <span class="text-slate-600">活力遊戲、水神廟校外教學、反思</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kindergarten Week 4 -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl">
+                    <h4 class="text-xl font-bold mb-4 text-empathy-sky"><i class="fa-solid fa-shapes mr-2"></i>弟弟｜Kindergarten｜第四週</h4>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-sky/10">
+                            <span class="font-bold text-empathy-teal w-20 shrink-0">週一 7/13</span>
+                            <span class="text-slate-600">晨圈、Tukad 藍色拼貼、Tukad 故事偶戲、藍絲帶河流舞、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-sky/10">
+                            <span class="font-bold text-empathy-teal w-20 shrink-0">週二 7/14</span>
+                            <span class="text-slate-600">活力遊戲、樹葉小船、戲水時光、黏土：河魚、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-sky/10">
+                            <span class="font-bold text-empathy-teal w-20 shrink-0">週三 7/15</span>
+                            <span class="text-slate-600">活力遊戲、大魚貼紙藝術、河川動物配對、Kul-kul 雨韻律、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-sky/10">
+                            <span class="font-bold text-empathy-teal w-20 shrink-0">週四 7/16</span>
+                            <span class="text-slate-600">活力遊戲、Subak 水杯遊戲、水滴律動、撈魚碗遊戲、反思</span>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded-xl bg-empathy-sky/10">
+                            <span class="font-bold text-empathy-teal w-20 shrink-0">週五 7/17</span>
+                            <span class="text-slate-600">活力遊戲、水神廟校外教學、反思</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Common Info -->
+            <div class="bg-gradient-to-r from-empathy-green to-empathy-teal rounded-3xl p-8 md:p-12 text-white shadow-2xl">
+                <h3 class="text-3xl font-bold mb-6 text-center"><i class="fa-solid fa-circle-info mr-2"></i>每日作息</h3>
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div class="bg-white/20 backdrop-blur rounded-2xl p-6">
+                        <div class="text-3xl font-black mb-2">8:45 — 9:00</div>
+                        <p>報到 / 抵校</p>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-2xl p-6">
+                        <div class="text-3xl font-black mb-2">9:00 — 15:00</div>
+                        <p>主題活動與課程</p>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-2xl p-6">
+                        <div class="text-3xl font-black mb-2">15:00</div>
+                        <p>放學 / 離校</p>
+                    </div>
+                </div>
+                <p class="text-center mt-6 text-sm opacity-90">* 課表中的休息時間未個別列出。請以 empathy.school 官方公告為準。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary Section -->
+    <section id="summary" class="py-24 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">重點整理</h2>
+                <p class="text-lg text-slate-600">快速比較兩個夏令營，找到最適合孩子的選擇</p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-slate-100">
+                                <th class="px-6 py-5 text-left text-slate-700 font-bold">項目</th>
+                                <th class="px-6 py-5 text-left text-bali-ocean font-bold">Guidepost Bali Adventure</th>
+                                <th class="px-6 py-5 text-left text-empathy-green font-bold">Empathy School Summer Camp</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-medium">適合年齡</td>
+                                <td class="px-6 py-4 text-slate-600">3 — 6 歲</td>
+                                <td class="px-6 py-4 text-slate-600">Kindergarten / Lower & Upper School</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-medium">舉辦時間</td>
+                                <td class="px-6 py-4 text-slate-600">週二至週五（國定假日休息）</td>
+                                <td class="px-6 py-4 text-slate-600">2026 / 7 / 6 — 10 與 7 / 13 — 17</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-medium">天數選擇</td>
+                                <td class="px-6 py-4 text-slate-600">1 / 2 / 4 天</td>
+                                <td class="px-6 py-4 text-slate-600">按週報名（5 天）</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-medium">核心特色</td>
+                                <td class="px-6 py-4 text-slate-600">蒙特梭利 + AYANA 自然農場 + 峇里文化</td>
+                                <td class="px-6 py-4 text-slate-600">主題式專案、STEAM、戶外冒險、文化探索</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-medium">代表活動</td>
+                                <td class="px-6 py-4 text-slate-600">農場體驗、蠟染、陶藝、安格隆音樂</td>
+                                <td class="px-6 py-4 text-slate-600">高塔挑戰、水神廟校外教學、披薩製作、木雕</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-medium">費用參考</td>
+                                <td class="px-6 py-4 text-slate-600">IDR 1,950,000++ 起（約 NT$3,460）</td>
+                                <td class="px-6 py-4 text-slate-600">請洽 empathy.school</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <h4 class="text-2xl font-bold mb-4">2026 夏令營精選</h4>
+                    <p class="text-slate-400 leading-relaxed">
+                        本頁面根據您提供的夏令營資料整理製作，彙整 Guidepost Montessori Bali Adventure Camp 與 Empathy School Summer 2026 Camp 的課程資訊，方便您一目瞭然地比較與規劃。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">快速連結</h4>
+                    <div class="space-y-2">
+                        <a href="#guidepost" class="block text-slate-400 hover:text-white transition">Guidepost 峇里島冒險營</a>
+                        <a href="#empathy" class="block text-slate-400 hover:text-white transition">Empathy School 夏令營</a>
+                        <a href="#summary" class="block text-slate-400 hover:text-white transition">重點整理</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-sm">
+                <p>製作日期：2026 年 6 月｜資料來源：Guidepost Montessori & Empathy School</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.add('shadow-sm');
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.schedule-card, .image-frame, .glass-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
