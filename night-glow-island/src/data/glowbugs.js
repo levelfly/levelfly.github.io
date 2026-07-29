@@ -101,9 +101,9 @@ export function drawGlowbug(bug, { golden = false, seed = 7 } = {}) {
 }
 
 /** 這一輪要送出的光靈：優先給還沒收過的，全收齊了才隨機重複 */
-export function pickReward(collected, rand = Math.random) {
+export function pickReward(collected, rand = Math.random, forceGolden = false) {
   const fresh = GLOWBUGS.filter(b => !collected[b.id]);
   const pool = fresh.length ? fresh : GLOWBUGS;
   const bug = pool[Math.floor(rand() * pool.length)];
-  return { bug, golden: rand() < 0.09 };
+  return { bug, golden: forceGolden || rand() < 0.09 };
 }

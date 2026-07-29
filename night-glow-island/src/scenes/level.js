@@ -11,7 +11,7 @@ import {
 import { areaByKey, makeQuestion, recordAnswer } from '../data/world.js';
 import { makeNumberToken, makeCountable, makeQuantityToken, Prop } from '../art/props.js';
 import { drawGlowbug, pickReward } from '../data/glowbugs.js';
-import { burst, puff, flyLight, setAmbientMotes } from '../art/particles.js';
+import { burst, flyLight, setAmbientMotes } from '../art/particles.js';
 import { lockTaps, buzz } from '../core/pointer.js';
 import { store } from '../core/store.js';
 import { onTick } from '../core/ticker.js';
@@ -21,6 +21,8 @@ let area, epoch = 0, lamps = null, qi = 0, q = null;
 let tokens = [], countables = [], counted = 0, wrongs = 0;
 let idleT = 0, offIdle = null, secretRock = null, rockTaps = 0;
 let answering = false;
+let rapidTaps = [], guidedRapidAt = 0;   // 亂點偵測用
+let areaWrongs = 0, areaHadRapidTap = false, areaSkippedCount = false; // 專心挑戰用
 
 const alive = e => e === epoch;
 
@@ -42,7 +44,7 @@ export const level = {
 
     if (area.key === 'cove') plantSecretRock();
 
-    qi = 0; wrongs = 0;
+    qi = 0; wrongs = 0; areaWrongs = 0; areaHadRapidTap = false; areaSkippedCount = false;
     offIdle = onTick(dt => {
       if (!alive(me) || answering || !q) return;
       idleT += dt;
@@ -68,7 +70,7 @@ export const level = {
     tokens.forEach(t => t.destroy()); tokens = [];
     countables.forEach(c => c.destroy()); countables = [];
     secretRock?.destroy(); secretRock = null;
-    q = null; answering = false;
+    q = null; answering = false; rapidTaps = []; guidedRapidAt = 0;
   },
 };
 
@@ -85,7 +87,7 @@ const FIELD_TOP = () => (stage.portrait ? { y0: .04, y1: .50 } : { y0: .04, y1: 
 async function nextQuestion(me) {
   if (!alive(me)) return;
   clearBoard();
-  wrongs = 0; counted = 0; idleT = 0;
+  wrongs = 0; counted = 0; idleT = 0; rapidTaps = [];
 
   q = makeQuestion(area, qi, app.run.skill, Math.random);
   app.q = q;                 // 給除錯／自動化測試看的當前題目
@@ -100,13 +102,13 @@ async function nextQuestion(me) {
       });
       c.fieldPos = p;
       c.appear(0.05 + i * 0.07);
-      c.interactive(() => tapCountable(c));
+      c.interactive(() => tapCountable(c, me));
       return c;
     });
-    // 下面一排數字牌
+    // 下面一排數字牌：先鎖住，數完才解鎖
     tokens = layoutRow(q.options, (v, x, y, size) =>
       makeNumberToken(app.layers.scene, v, { holder: area.holder, size, x, y, seed: Math.random() }));
-    tokens.forEach((t, i) => { t.appear(0.35 + i * 0.09); t.interactive(() => answer(t, me)); });
+    tokens.forEach((t, i) => { t.appear(0.35 + i * 0.09); t.lock(true); t.interactive(() => answer(t, me)); });
     await sleep(1.0);
     if (!alive(me)) return;
     A.sayOneOf(['ask1', 'ask2', 'ask3']);
@@ -122,21 +124,26 @@ async function nextQuestion(me) {
       });
       t.fieldPos = pts[i];
       t.appear(0.1 + i * 0.1);
+      t.lock(true);
       t.interactive(() => answer(t, me));
       return t;
     });
     await sleep(0.9);
     if (!alive(me)) return;
-    A.sayFind(n, qi % 2 === 1);
+    await A.sayFind(n, qi % 2 === 1);
+    if (!alive(me)) return;
+    await unlockTokensWithThinkDelay(me);
 
   } else {
     // quantity：聽到數字，選出「那麼多」的一群
     tokens = layoutRow(q.options, (v, x, y, size) =>
       makeQuantityToken(app.layers.scene, v, area.motif, { size: size * 1.05, x, y, seed: Math.random(), tint: area.tint }));
-    tokens.forEach((t, i) => { t.appear(0.15 + i * 0.1); t.interactive(() => answer(t, me)); });
+    tokens.forEach((t, i) => { t.appear(0.15 + i * 0.1); t.lock(true); t.interactive(() => answer(t, me)); });
     await sleep(0.9);
     if (!alive(me)) return;
-    A.sayFind(n, true);
+    await A.sayFind(n, true);
+    if (!alive(me)) return;
+    await unlockTokensWithThinkDelay(me);
   }
 }
 
@@ -149,8 +156,8 @@ function repeatPrompt() {
 }
 
 /* ── 數數：戳一個亮一個，木琴音一階一階往上 ── */
-function tapCountable(c) {
-  if (c.tagged || answering) return;
+function tapCountable(c, me) {
+  if (c.tagged || answering || !alive(me)) return;
   c.tagged = true;
   counted++;
   c.celebrate();
@@ -164,8 +171,35 @@ function tapCountable(c) {
   burst(b.left + b.width / 2, b.top + b.height / 2, { count: 8, col: area.tint, power: .5 });
   idleT = 0;
   if (counted === countables.length) {
-    setTimeout(() => { A.chime(1046, { gain: .3, decay: 1.4 }); app.lumi.hop(.7); }, 260);
+    setTimeout(() => {
+      A.chime(1046, { gain: .3, decay: 1.4 }); app.lumi.hop(.7);
+      unlockTokensWithThinkDelay(me);
+    }, 260);
   }
+}
+
+/** 數字牌/選項解鎖前留一點「想一想」的空白，抑制衝動亂點 */
+async function unlockTokensWithThinkDelay(me) {
+  await sleep(0.7);
+  if (!alive(me)) return;
+  tokens.forEach(t => t.lock(false));
+}
+
+/** 偵測連續亂點：短時間內戳太多不同選項，Lumi 會輕輕擋一下並引導 */
+function checkRapidTapping(me) {
+  const now = performance.now();
+  rapidTaps.push(now);
+  rapidTaps = rapidTaps.filter(t => now - t < 2500);
+  if (rapidTaps.length < 4) return;
+  areaHadRapidTap = true;
+  if (now - guidedRapidAt < 6000) return;   // 不要一直念
+  guidedRapidAt = now;
+  app.lumi.tilt();
+  tokens.forEach(t => t.lock(true));
+  setTimeout(() => {
+    if (!alive(me) || answering) return;
+    tokens.forEach(t => t.lock(false));
+  }, 1200);
 }
 
 /* ───────────────────────── 判定 ───────────────────────── */
@@ -177,12 +211,11 @@ async function answer(tok, me) {
   if (tok.value !== q.answer) {
     // 溫柔的不對
     recordAnswer(app.run.skill, false);
-    wrongs++;
+    wrongs++; areaWrongs++;
     tok.shy();
-    A.nudge();
-    const b = tok.node.getBoundingClientRect();
-    puff(b.left + b.width / 2, b.top + b.height * .3);
-    app.lumi.tilt(Math.random() < .5 ? 1 : -1);
+    // 錯誤回饋不要太熱鬧，避免亂點反而變成多巴胺來源
+    if (wrongs <= 2) A.nudge();
+    checkRapidTapping(me);
     A.say(wrongs === 1 ? 'miss1' : wrongs === 2 ? 'miss3' : 'miss4');
     if (wrongs >= 2) {
       const right = tokens.find(t => t.value === q.answer);
@@ -193,6 +226,7 @@ async function answer(tok, me) {
   }
 
   // 對了
+  if (q.mode === 'count' && counted < countables.length) areaSkippedCount = true;
   answering = true;
   lockTaps(1.2);
   tokens.forEach(t => t.lock(true));
@@ -281,9 +315,13 @@ async function finishArea(me) {
   await sleep(2.0);
   if (!alive(me)) return;
 
-  // 光靈報酬
-  const { bug, golden } = pickReward(store.bugs, Math.random);
-  store.addBug(bug.id);
+  // 光靈報酬：專心完成可拿到金色光靈
+  const focusCompleted = areaWrongs <= 2 && !areaHadRapidTap && !areaSkippedCount;
+  const collected = { ...store.bugs };
+  Object.keys(store.goldenBugs).forEach(id => collected[id] = (collected[id] || 0) + store.goldenBugs[id]);
+  const { bug, golden } = pickReward(collected, Math.random, focusCompleted);
+  if (golden) store.addGoldenBug(bug.id);
+  else store.addBug(bug.id);
   if (golden) store.unlock('golden');
   refreshHud();
 
