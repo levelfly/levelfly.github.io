@@ -25,16 +25,18 @@ export const GLOWBUGS = [
 export const byId = id => GLOWBUGS.find(b => b.id === id);
 
 /**
- * 畫一隻光靈。golden=true 是稀有變體（全身鍍金 + 額外光暈）。
+ * 畫一隻光靈。variant 可以是 'normal'、'golden'、'platinum'。
  * @returns <g>
  */
-export function drawGlowbug(bug, { golden = false, seed = 7 } = {}) {
+export function drawGlowbug(bug, { variant = 'normal', seed = 7 } = {}) {
+  const golden = variant === 'golden';
+  const platinum = variant === 'platinum';
   const R = makeRng(seed + bug.id.length * 31);
   const g = el('g', { class: 'glowbug', 'data-id': bug.id });
-  const body = golden ? '#FFD873' : bug.body;
-  const wing = golden ? '#FFF0C0' : bug.wing;
+  const body = platinum ? '#E6E6FF' : golden ? '#FFD873' : bug.body;
+  const wing = platinum ? '#FFFFFF' : golden ? '#FFF0C0' : bug.wing;
 
-  el('circle', { cx: 0, cy: 6, r: golden ? 96 : 74, fill: 'url(#g-warm)', opacity: golden ? .55 : .3, style: 'mix-blend-mode:screen' }, g);
+  el('circle', { cx: 0, cy: 6, r: platinum ? 108 : golden ? 96 : 74, fill: 'url(#g-warm)', opacity: platinum ? .6 : golden ? .55 : .3, style: 'mix-blend-mode:screen' }, g);
 
   // 翅膀
   const wg = el('g', { class: 'gb-wings' }, g);
@@ -97,13 +99,27 @@ export function drawGlowbug(bug, { golden = false, seed = 7 } = {}) {
   if (golden) {
     el('circle', { cx: 0, cy: 0, r: 60, fill: 'none', stroke: '#FFF0C0', 'stroke-width': 2, opacity: .5, filter: 'url(#glow-m)' }, g);
   }
+  if (platinum) {
+    // 彩虹環：紅橙黃綠藍紫
+    const rainbow = ['#FF6B6B', '#FFB347', '#FFD873', '#6FE3C4', '#7FC7FF', '#B9A6FF'];
+    rainbow.forEach((col, i) => {
+      const r = 56 + i * 4;
+      el('circle', { cx: 0, cy: 0, r, fill: 'none', stroke: col, 'stroke-width': 3.2, opacity: .42, filter: 'url(#glow-m)' }, g);
+    });
+    el('circle', { cx: 0, cy: 0, r: 18, fill: '#FFFFFF', opacity: .35, filter: 'url(#glow-m)' }, g);
+  }
   return g;
 }
 
 /** 這一輪要送出的光靈：優先給還沒收過的，全收齊了才隨機重複 */
-export function pickReward(collected, rand = Math.random, forceGolden = false) {
+export function pickReward(collected, rand = Math.random, forceVariant = null) {
   const fresh = GLOWBUGS.filter(b => !collected[b.id]);
   const pool = fresh.length ? fresh : GLOWBUGS;
   const bug = pool[Math.floor(rand() * pool.length)];
-  return { bug, golden: forceGolden || rand() < 0.09 };
+  if (forceVariant === 'platinum') return { bug, variant: 'platinum' };
+  if (forceVariant === 'golden') return { bug, variant: 'golden' };
+  const r = rand();
+  if (r < 0.03) return { bug, variant: 'platinum' };
+  if (r < 0.09) return { bug, variant: 'golden' };
+  return { bug, variant: 'normal' };
 }

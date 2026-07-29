@@ -42,27 +42,33 @@ export const lantern = {
       const gy = fy(.50) + (r - (rows - 1) / 2) * size * 1.12;
       const have = store.hasBug(bug.id);
       const goldenHave = store.hasGoldenBug(bug.id);
-      const owned = have || goldenHave;
+      const platinumHave = store.hasPlatinumBug(bug.id);
+      const owned = have || goldenHave || platinumHave;
+      const variant = platinumHave ? 'platinum' : goldenHave ? 'golden' : 'normal';
       const p = new Prop(app.layers.scene, { x: gx, y: gy, size, drift: owned ? .9 : .25 });
 
       if (owned) {
-        p.art.appendChild(drawGlowbug(bug, { golden: goldenHave, seed: 5 + i }));
+        p.art.appendChild(drawGlowbug(bug, { variant, seed: 5 + i }));
         const cnt = store.bugs[bug.id] || 0;
         const gCnt = store.goldenBugs[bug.id] || 0;
-        if (gCnt > 0 || cnt > 1) {
+        const pCnt = store.platinumBugs[bug.id] || 0;
+        if (pCnt > 0 || gCnt > 0 || cnt > 1) {
           const badge = el('g', { transform: 'translate(46,46)' }, p.art);
           el('circle', { r: 20, fill: '#0F1A33', opacity: .85 }, badge);
-          el('circle', { r: 20, fill: 'none', stroke: goldenHave ? '#FFD873' : PAL.honey, 'stroke-width': 2.6, opacity: .7 }, badge);
+          const badgeCol = platinumHave ? '#E6E6FF' : goldenHave ? '#FFD873' : PAL.honey;
+          const badgeText = pCnt > 0 ? '✦' : gCnt > 0 ? '★' : '×' + cnt;
+          el('circle', { r: 20, fill: 'none', stroke: badgeCol, 'stroke-width': 2.6, opacity: .7 }, badge);
           el('text', {
-            text: gCnt > 0 ? '★' : '×' + cnt, y: 7, 'text-anchor': 'middle',
-            fill: goldenHave ? '#FFD873' : PAL.honey, 'font-size': 20, 'font-family': 'inherit', 'font-weight': 700,
+            text: badgeText, y: 7, 'text-anchor': 'middle',
+            fill: badgeCol, 'font-size': 18, 'font-family': 'inherit', 'font-weight': 700,
           }, badge);
         }
         p.interactive(() => {
           p.celebrate();
           A.pluck(NOTES[i], { gain: .45, decay: 1.1 });
           const b = p.node.getBoundingClientRect();
-          burst(b.left + b.width / 2, b.top + b.height / 2, { count: 10, col: goldenHave ? '#FFD873' : bug.body, power: .6 });
+          const burstCol = platinumHave ? '#E6E6FF' : goldenHave ? '#FFD873' : bug.body;
+          burst(b.left + b.width / 2, b.top + b.height / 2, { count: 10, col: burstCol, power: .6 });
           noteSeq(i);
         });
       } else {
@@ -110,7 +116,7 @@ const stage_h = () => app.layers.stage.clientHeight;
 function noteSeq(i) {
   tapSeq.push(i);
   if (tapSeq.length > 12) tapSeq.shift();
-  const owned = GLOWBUGS.map((b, k) => (store.hasBug(b.id) || store.hasGoldenBug(b.id) ? k : -1)).filter(k => k >= 0);
+  const owned = GLOWBUGS.map((b, k) => (store.hasBug(b.id) || store.hasGoldenBug(b.id) || store.hasPlatinumBug(b.id) ? k : -1)).filter(k => k >= 0);
   if (owned.length < 4) return;
   const tail = tapSeq.slice(-owned.length);
   if (tail.length === owned.length && tail.every((v, k) => v === owned[k])) {
@@ -118,7 +124,7 @@ function noteSeq(i) {
     const first = store.unlock('song');
     owned.forEach((k, n) => setTimeout(() => A.chime(NOTES[k] * 2, { gain: .3, decay: 1.4, pan: (n / owned.length) * 1.6 - .8 }), n * 130));
     setTimeout(() => {
-      items.forEach((p, n) => setTimeout(() => { if (store.hasBug(GLOWBUGS[n].id) || store.hasGoldenBug(GLOWBUGS[n].id)) p.celebrate(); }, n * 60));
+      items.forEach((p, n) => setTimeout(() => { if (store.hasBug(GLOWBUGS[n].id) || store.hasGoldenBug(GLOWBUGS[n].id) || store.hasPlatinumBug(GLOWBUGS[n].id)) p.celebrate(); }, n * 60));
       const b = app.layers.stage.getBoundingClientRect();
       burst(b.width / 2, b.height / 2, { count: 44, col: PAL.honey, col2: PAL.mint, power: 1.3 });
       if (first) A.say('giggle');

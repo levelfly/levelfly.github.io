@@ -22,7 +22,7 @@ let tokens = [], countables = [], counted = 0, wrongs = 0;
 let idleT = 0, offIdle = null, secretRock = null, rockTaps = 0;
 let answering = false;
 let rapidTaps = [], guidedRapidAt = 0;   // 亂點偵測用
-let areaWrongs = 0, areaHadRapidTap = false, areaSkippedCount = false; // 專心挑戰用
+let areaWrongs = 0, areaHadRapidTap = false, areaSkippedCount = false, areaUsedHint = false; // 專心挑戰用
 
 const alive = e => e === epoch;
 
@@ -44,7 +44,7 @@ export const level = {
 
     if (area.key === 'cove') plantSecretRock();
 
-    qi = 0; wrongs = 0; areaWrongs = 0; areaHadRapidTap = false; areaSkippedCount = false;
+    qi = 0; wrongs = 0; areaWrongs = 0; areaHadRapidTap = false; areaSkippedCount = false; areaUsedHint = false;
     offIdle = onTick(dt => {
       if (!alive(me) || answering || !q) return;
       idleT += dt;
@@ -70,7 +70,7 @@ export const level = {
     tokens.forEach(t => t.destroy()); tokens = [];
     countables.forEach(c => c.destroy()); countables = [];
     secretRock?.destroy(); secretRock = null;
-    q = null; answering = false; rapidTaps = []; guidedRapidAt = 0;
+    q = null; answering = false; rapidTaps = []; guidedRapidAt = 0; areaUsedHint = false;
   },
 };
 
@@ -218,6 +218,7 @@ async function answer(tok, me) {
     checkRapidTapping(me);
     A.say(wrongs === 1 ? 'miss1' : wrongs === 2 ? 'miss3' : 'miss4');
     if (wrongs >= 2) {
+      areaUsedHint = true;
       const right = tokens.find(t => t.value === q.answer);
       right?.hint(true);
       if (wrongs >= 3 && q.mode !== 'count') setTimeout(() => A.sayFind(q.answer, false), 900);
@@ -315,27 +316,38 @@ async function finishArea(me) {
   await sleep(2.0);
   if (!alive(me)) return;
 
-  // 光靈報酬：專心完成可拿到金色光靈
+  // 光靈報酬：完美完成 → 彩虹，專心完成 → 金色，否則一般
+  const perfect = areaWrongs === 0 && !areaHadRapidTap && !areaSkippedCount && !areaUsedHint;
   const focusCompleted = areaWrongs <= 2 && !areaHadRapidTap && !areaSkippedCount;
+  const forceVariant = perfect ? 'platinum' : focusCompleted ? 'golden' : null;
   const collected = { ...store.bugs };
   Object.keys(store.goldenBugs).forEach(id => collected[id] = (collected[id] || 0) + store.goldenBugs[id]);
-  const { bug, golden } = pickReward(collected, Math.random, focusCompleted);
-  if (golden) store.addGoldenBug(bug.id);
+  Object.keys(store.platinumBugs).forEach(id => collected[id] = (collected[id] || 0) + store.platinumBugs[id]);
+  const { bug, variant } = pickReward(collected, Math.random, forceVariant);
+  if (variant === 'platinum') store.addPlatinumBug(bug.id);
+  else if (variant === 'golden') store.addGoldenBug(bug.id);
   else store.addBug(bug.id);
-  if (golden) store.unlock('golden');
+  if (variant === 'platinum') store.unlock('platinum');
+  if (variant === 'golden') store.unlock('golden');
   refreshHud();
 
   const p = new Prop(app.layers.scene, { x: fx(.5), y: fy(.42), size: fs(.42), drift: 1.2 });
-  p.art.appendChild(drawGlowbug(bug, { golden, seed: 3 }));
+  p.art.appendChild(drawGlowbug(bug, { variant, seed: 3 }));
   p.appear(0.1);
   p.interactive(() => { p.celebrate(); A.chime(880 + Math.random() * 400, { gain: .35 }); });
 
-  A.chime(golden ? 1568 : 1046, { gain: .45, decay: 2.4 });
-  burst(fx(.5), fy(.42), { count: golden ? 46 : 28, col: golden ? '#FFD873' : bug.body, power: 1.2 });
-  A.say(golden ? 'rare' : 'collect');
+  const rewardChime = variant === 'platinum' ? 2093 : variant === 'golden' ? 1568 : 1046;
+  const rewardCount = variant === 'platinum' ? 56 : variant === 'golden' ? 46 : 28;
+  const rewardCol = variant === 'platinum' ? '#E6E6FF' : variant === 'golden' ? '#FFD873' : bug.body;
+  A.chime(rewardChime, { gain: .45, decay: 2.4 });
+  burst(fx(.5), fy(.42), { count: rewardCount, col: rewardCol, power: 1.2 });
+  A.say(variant === 'platinum' ? 'rare' : variant === 'golden' ? 'rare' : 'collect');
 
+  const badge = variant === 'platinum' ? '<i class="pc-gold">彩虹光靈！</i>'
+              : variant === 'golden' ? '<i class="pc-gold">金色的！</i>'
+              : '';
   paperCard(app.layers.overlay,
-    `<div class="pc-bug"><b>${bug.name}</b>${golden ? '<i class="pc-gold">金色的！</i>' : ''}</div>`,
+    `<div class="pc-bug"><b>${bug.name}</b>${badge}</div>`,
     { dur: 2.8 });
 
   await sleep(2.6);
