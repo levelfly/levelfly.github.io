@@ -32,6 +32,8 @@ function save() { clearTimeout(saveTimer); saveTimer = setTimeout(flush, 250); }
 export const store = {
   get all() { return data; },
   get bugs() { return data.bugs; },
+  get goldenBugs() { return data.goldenBugs; },
+  get platinumBugs() { return data.platinumBugs; },
   get runs() { return data.runs; },
   get secrets() { return data.secrets; },
   get muted() { return data.muted; },

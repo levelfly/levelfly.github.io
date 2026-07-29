@@ -31,18 +31,22 @@ export function tappable(el, onTap, opts = {}) {
   };
 
   const down = e => {
+    // 先把瀏覽器預設行為擋掉，避免 iPad 上快速點擊觸發縮放或捲動
+    e.preventDefault();
+    e.stopPropagation();
     if (el.dataset.locked === '1') return;
     if (performance.now() < lockedUntil) return;
     if (id !== null) return;
     id = e.pointerId; sx = e.clientX; sy = e.clientY;
     globalPointer.active = true;
-    el.setPointerCapture?.(e.pointerId);
+    try { el.setPointerCapture?.(e.pointerId); } catch {}
     onPress?.(e.clientX, e.clientY, el);
     // 保險：如果 2 秒內沒收到 pointerup/cancel/lostcapture，強制歸零，避免 iPad 上偶發狀態卡住
     stuckTimer = setTimeout(() => clear(false), 2000);
-    e.stopPropagation();
   };
   const up = e => {
+    e.preventDefault();
+    e.stopPropagation();
     if (e.pointerId !== id) return;
     clear(true);
     const moved = Math.hypot(e.clientX - sx, e.clientY - sy);
@@ -50,7 +54,6 @@ export function tappable(el, onTap, opts = {}) {
       lockedUntil = performance.now() + cooldown * 1000;
       onTap?.(e.clientX, e.clientY, el);
     }
-    e.stopPropagation();
   };
   const cancel = e => { if (e.pointerId === id) clear(true); };
 
@@ -58,7 +61,7 @@ export function tappable(el, onTap, opts = {}) {
   el.addEventListener('pointerup', up);
   el.addEventListener('pointercancel', cancel);
   el.addEventListener('lostpointercapture', cancel);
-  el.style.touchAction = 'manipulation';
+  el.style.touchAction = 'none';
 
   return () => {
     clear();
