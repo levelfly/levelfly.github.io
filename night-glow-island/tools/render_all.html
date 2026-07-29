@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>夜光島 — 元件渲染測試</title>
+<style>
+  body { margin:0; background:#0B1026; color:#FFE3A3; font-family:system-ui,sans-serif; padding:20px; }
+  h2 { margin:30px 0 10px; font-size:18px; border-bottom:1px solid rgba(255,227,163,.2); padding-bottom:6px; }
+  .row { display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; margin:16px 0; }
+  .cell { text-align:center; }
+  .cell p { margin:6px 0 0; font-size:12px; color:#9FD9C6; }
+  .cell svg, .cell > div { background:rgba(255,255,255,.04); border-radius:8px; }
+</style>
+</head>
+<body>
+<h1>夜光島元件渲染測試</h1>
+
+<h2>數字（預設，無 torn）</h2>
+<div class="row" id="nums"></div>
+
+<h2>光靈（各種翅膀 / 造型）</h2>
+<div class="row" id="bugs"></div>
+
+<h2>數字容器（五種地點）</h2>
+<div class="row" id="holders"></div>
+
+<h2>嚕米</h2>
+<div class="row" id="lumi"></div>
+
+<h2>標題光種子</h2>
+<div class="row" id="seed"></div>
+
+<script type="module">
+import { injectPaperDefs, el, PAL } from '../src/art/paper.js';
+import { makeGlyph } from '../src/art/glyphs.js';
+import { drawGlowbug, GLOWBUGS } from '../src/data/glowbugs.js';
+import { makeNumberToken, Prop } from '../src/art/props.js';
+import { Lumi } from '../src/art/lumi.js';
+
+injectPaperDefs();
+
+// 數字
+const nums = document.getElementById('nums');
+for (let i = 1; i <= 10; i++) {
+  const cell = document.createElement('div'); cell.className='cell';
+  const svg = el('svg', { width: 80, height: 100, viewBox: '-80 -100 160 200' }, cell);
+  svg.appendChild(makeGlyph(i));
+  cell.innerHTML += '<p>' + i + '</p>';
+  nums.appendChild(cell);
+}
+
+// 光靈
+const bugs = document.getElementById('bugs');
+['moth','fairy','beetle'].forEach((wings, idx) => {
+  const bug = GLOWBUGS.find(b => b.wings === wings);
+  const cell = document.createElement('div'); cell.className='cell';
+  const svg = el('svg', { width: 120, height: 120, viewBox: '-80 -80 160 160' }, cell);
+  svg.appendChild(drawGlowbug(bug, { seed: idx + 1 }));
+  cell.innerHTML += `<p>${bug.id}<br>${wings}</p>`;
+  bugs.appendChild(cell);
+});
+
+// 容器
+const holders = document.getElementById('holders');
+['lantern','shell','star','bubble','leaf'].forEach(holder => {
+  const cell = document.createElement('div'); cell.className='cell';
+  const wrap = document.createElement('div'); wrap.style.cssText='width:120px;height:120px;position:relative;';
+  cell.appendChild(wrap);
+  const p = makeNumberToken(wrap, 5, { holder, size: 110, x: 60, y: 60, seed: 1 });
+  p.node.style.position = 'absolute'; p.node.style.left = '0'; p.node.style.top = '0';
+  cell.innerHTML += `<p>${holder}</p>`;
+  holders.appendChild(cell);
+});
+
+// 嚕米
+const lumiCell = document.getElementById('lumi');
+const lumiWrap = document.createElement('div'); lumiWrap.className='cell';
+const lumi = new Lumi(lumiWrap, { scale: .8 });
+lumiCell.appendChild(lumiWrap);
+
+// 光種子
+const seedCell = document.getElementById('seed');
+const seedWrap = document.createElement('div'); seedWrap.className='cell'; seedWrap.style.cssText='width:160px;height:160px;position:relative;';
+const p = new Prop(seedWrap, { x: 80, y: 80, size: 140, drift: 0 });
+const g = p.art;
+el('circle', { cx: 0, cy: 0, r: 96, fill: 'url(#g-warm)', opacity: .6, style: 'mix-blend-mode:screen' }, g);
+el('circle', { cx: 0, cy: 0, r: 46, fill: PAL.honey, filter: 'url(#glow-l)' }, g);
+el('circle', { cx: 0, cy: 0, r: 30, fill: '#FFFDF4' }, g);
+el('path', {
+  d: 'M0,-70 L11,-24 L58,-16 L20,10 L30,58 L0,32 L-30,58 L-20,10 L-58,-16 L-11,-24 Z',
+  fill: PAL.honey, opacity: .55, filter: 'url(#torn-s)',
+}, g);
+seedCell.appendChild(seedWrap);
+</script>
+</body>
+</html>

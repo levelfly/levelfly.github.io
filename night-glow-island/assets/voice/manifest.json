@@ -1,0 +1,297 @@
+{
+ "voice": "zh-TW-HsiaoChenNeural",
+ "lines": {
+  "n1": {
+   "text": "一",
+   "file": "n1.mp3"
+  },
+  "n2": {
+   "text": "二",
+   "file": "n2.mp3"
+  },
+  "n3": {
+   "text": "三",
+   "file": "n3.mp3"
+  },
+  "n4": {
+   "text": "四",
+   "file": "n4.mp3"
+  },
+  "n5": {
+   "text": "五",
+   "file": "n5.mp3"
+  },
+  "n6": {
+   "text": "六",
+   "file": "n6.mp3"
+  },
+  "n7": {
+   "text": "七",
+   "file": "n7.mp3"
+  },
+  "n8": {
+   "text": "八",
+   "file": "n8.mp3"
+  },
+  "n9": {
+   "text": "九",
+   "file": "n9.mp3"
+  },
+  "n10": {
+   "text": "十",
+   "file": "n10.mp3"
+  },
+  "find_1": {
+   "text": "找找看，一，在哪裡呢？",
+   "file": "find_1.mp3"
+  },
+  "findb_1": {
+   "text": "一！一躲在哪裡呀？",
+   "file": "findb_1.mp3"
+  },
+  "find_2": {
+   "text": "找找看，二，在哪裡呢？",
+   "file": "find_2.mp3"
+  },
+  "findb_2": {
+   "text": "二！二躲在哪裡呀？",
+   "file": "findb_2.mp3"
+  },
+  "find_3": {
+   "text": "找找看，三，在哪裡呢？",
+   "file": "find_3.mp3"
+  },
+  "findb_3": {
+   "text": "三！三躲在哪裡呀？",
+   "file": "findb_3.mp3"
+  },
+  "find_4": {
+   "text": "找找看，四，在哪裡呢？",
+   "file": "find_4.mp3"
+  },
+  "findb_4": {
+   "text": "四！四躲在哪裡呀？",
+   "file": "findb_4.mp3"
+  },
+  "find_5": {
+   "text": "找找看，五，在哪裡呢？",
+   "file": "find_5.mp3"
+  },
+  "findb_5": {
+   "text": "五！五躲在哪裡呀？",
+   "file": "findb_5.mp3"
+  },
+  "find_6": {
+   "text": "找找看，六，在哪裡呢？",
+   "file": "find_6.mp3"
+  },
+  "findb_6": {
+   "text": "六！六躲在哪裡呀？",
+   "file": "findb_6.mp3"
+  },
+  "find_7": {
+   "text": "找找看，七，在哪裡呢？",
+   "file": "find_7.mp3"
+  },
+  "findb_7": {
+   "text": "七！七躲在哪裡呀？",
+   "file": "findb_7.mp3"
+  },
+  "find_8": {
+   "text": "找找看，八，在哪裡呢？",
+   "file": "find_8.mp3"
+  },
+  "findb_8": {
+   "text": "八！八躲在哪裡呀？",
+   "file": "findb_8.mp3"
+  },
+  "find_9": {
+   "text": "找找看，九，在哪裡呢？",
+   "file": "find_9.mp3"
+  },
+  "findb_9": {
+   "text": "九！九躲在哪裡呀？",
+   "file": "findb_9.mp3"
+  },
+  "find_10": {
+   "text": "找找看，十，在哪裡呢？",
+   "file": "find_10.mp3"
+  },
+  "findb_10": {
+   "text": "十！十躲在哪裡呀？",
+   "file": "findb_10.mp3"
+  },
+  "ask1": {
+   "text": "數數看，有幾個呀？",
+   "file": "ask1.mp3"
+  },
+  "ask2": {
+   "text": "這裡有多少個呢？",
+   "file": "ask2.mp3"
+  },
+  "ask3": {
+   "text": "我們一起數數看！",
+   "file": "ask3.mp3"
+  },
+  "is_1": {
+   "text": "是一個！",
+   "file": "is_1.mp3"
+  },
+  "is_2": {
+   "text": "是二個！",
+   "file": "is_2.mp3"
+  },
+  "is_3": {
+   "text": "是三個！",
+   "file": "is_3.mp3"
+  },
+  "is_4": {
+   "text": "是四個！",
+   "file": "is_4.mp3"
+  },
+  "is_5": {
+   "text": "是五個！",
+   "file": "is_5.mp3"
+  },
+  "is_6": {
+   "text": "是六個！",
+   "file": "is_6.mp3"
+  },
+  "is_7": {
+   "text": "是七個！",
+   "file": "is_7.mp3"
+  },
+  "is_8": {
+   "text": "是八個！",
+   "file": "is_8.mp3"
+  },
+  "is_9": {
+   "text": "是九個！",
+   "file": "is_9.mp3"
+  },
+  "is_10": {
+   "text": "是十個！",
+   "file": "is_10.mp3"
+  },
+  "good1": {
+   "text": "找到了！",
+   "file": "good1.mp3"
+  },
+  "good2": {
+   "text": "太棒了！",
+   "file": "good2.mp3"
+  },
+  "good3": {
+   "text": "就是它！",
+   "file": "good3.mp3"
+  },
+  "good4": {
+   "text": "哇，好厲害！",
+   "file": "good4.mp3"
+  },
+  "good5": {
+   "text": "你好棒喔！",
+   "file": "good5.mp3"
+  },
+  "good6": {
+   "text": "答對了！",
+   "file": "good6.mp3"
+  },
+  "miss1": {
+   "text": "嗯……再看看？",
+   "file": "miss1.mp3"
+  },
+  "miss2": {
+   "text": "不是這個喔，再找找。",
+   "file": "miss2.mp3"
+  },
+  "miss3": {
+   "text": "差一點點，再試一次！",
+   "file": "miss3.mp3"
+  },
+  "miss4": {
+   "text": "沒關係，我們慢慢來。",
+   "file": "miss4.mp3"
+  },
+  "intro1": {
+   "text": "哎呀……夜光島的光，全都不見了。",
+   "file": "intro1.mp3"
+  },
+  "intro2": {
+   "text": "我是嚕米。你可以幫我把光找回來嗎？",
+   "file": "intro2.mp3"
+  },
+  "tap_start": {
+   "text": "點一下，我們出發囉！",
+   "file": "tap_start.mp3"
+  },
+  "pick_place": {
+   "text": "想先去哪裡呢？",
+   "file": "pick_place.mp3"
+  },
+  "area_marsh": {
+   "text": "螢火沼澤到了！",
+   "file": "area_marsh.mp3"
+  },
+  "area_cove": {
+   "text": "貝殼海灘，好涼快！",
+   "file": "area_cove.mp3"
+  },
+  "area_grove": {
+   "text": "果實樹林，好香喔。",
+   "file": "area_grove.mp3"
+  },
+  "area_cliff": {
+   "text": "星星懸崖，好高好高！",
+   "file": "area_cliff.mp3"
+  },
+  "area_light": {
+   "text": "最後……是燈塔。",
+   "file": "area_light.mp3"
+  },
+  "area_clear": {
+   "text": "哇，這裡亮起來了！",
+   "file": "area_clear.mp3"
+  },
+  "collect": {
+   "text": "你收到一隻光靈！",
+   "file": "collect.mp3"
+  },
+  "rare": {
+   "text": "金色的光靈！好稀有喔！",
+   "file": "rare.mp3"
+  },
+  "finale1": {
+   "text": "哇——整座島，都亮起來了！",
+   "file": "finale1.mp3"
+  },
+  "finale2": {
+   "text": "謝謝你。我們明天，再一起玩好不好？",
+   "file": "finale2.mp3"
+  },
+  "sneeze": {
+   "text": "哈啾！",
+   "file": "sneeze.mp3"
+  },
+  "giggle": {
+   "text": "嘻嘻，好癢喔！",
+   "file": "giggle.mp3"
+  },
+  "lantern": {
+   "text": "這些，都是你找回來的光。",
+   "file": "lantern.mp3"
+  },
+  "again": {
+   "text": "再玩一次！",
+   "file": "again.mp3"
+  },
+  "crab": {
+   "text": "咦？有小螃蟹！",
+   "file": "crab.mp3"
+  },
+  "whale": {
+   "text": "看……是光鯨魚。",
+   "file": "whale.mp3"
+  }
+ }
+}

@@ -1,0 +1,151 @@
+/* 《嚕米的夜光島》— 基礎層：重置、舞台、安全區、紙紋 */
+
+:root{
+  /* 夜光島調色盤 */
+  --night:      #0B1026;
+  --night-2:    #16203F;
+  --teal:       #0E2B2B;
+  --violet:     #241B4A;
+  --amber:      #FFC46B;
+  --honey:      #FFE3A3;
+  --mint:       #6FE3C4;
+  --coral:      #FF8B7A;
+  --cream:      #FDF6E3;
+
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+
+  /* 由 stage.js 寫入 */
+  --vh: 100vh;
+  --ui: 16px;          /* UI 基準尺寸，隨螢幕縮放 */
+}
+
+*,*::before,*::after{ box-sizing:border-box; touch-action:manipulation; }
+
+html,body{
+  margin:0; padding:0;
+  width:100%; height:100%;
+  background:var(--night);
+  overflow:hidden;
+  overscroll-behavior:none;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-touch-callout:none;
+  user-select:none; -webkit-user-select:none;
+  font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  color:var(--cream);
+}
+
+body{ position:fixed; inset:0; }
+
+img,svg{ display:block; }
+button{ font:inherit; color:inherit; background:none; border:0; padding:0; cursor:pointer; }
+
+/* ───────── 舞台 ───────── */
+.stage{
+  position:absolute; inset:0;
+  overflow:hidden;
+  background:
+    radial-gradient(120% 90% at 50% 12%, #1b2447 0%, #0B1026 62%, #06091a 100%);
+  isolation:isolate;
+}
+
+.bg-layer{
+  position:absolute; inset:-2.5%;
+  background-size:cover; background-position:center 42%;
+  opacity:0;
+  transform:scale(1.04);
+  transition:opacity .9s ease;
+  will-change:transform,opacity;
+}
+.bg-layer.on{ opacity:1; }
+.bg-layer::after{  /* 讓插畫底部壓深，前景剪影更立體 */
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(11,16,38,.30) 0%, rgba(11,16,38,0) 24%, rgba(11,16,38,0) 58%, rgba(6,9,26,.62) 100%);
+}
+
+.fx-layer{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  pointer-events:none;
+  z-index:2;
+}
+
+.scene-layer{
+  position:absolute; inset:0;
+  z-index:3;
+}
+
+.char-layer{
+  position:absolute; inset:0;
+  z-index:4;
+  pointer-events:none;
+}
+.char-layer > *{ pointer-events:auto; }
+
+.grain-layer{
+  position:absolute; inset:0; z-index:6; pointer-events:none;
+  opacity:.5; mix-blend-mode:overlay;
+  background-image:var(--grain-url);
+  background-size:180px 180px;
+}
+.vignette-layer{
+  position:absolute; inset:0; z-index:6; pointer-events:none;
+  background:radial-gradient(120% 84% at 50% 46%, rgba(0,0,0,0) 42%, rgba(4,6,18,.55) 100%);
+}
+
+.hud{ position:absolute; inset:0; z-index:7; pointer-events:none; }
+.hud > *{ pointer-events:auto; }
+
+.overlay-layer{ position:absolute; inset:0; z-index:8; pointer-events:none; }
+.overlay-layer > *{ pointer-events:auto; }
+
+/* ───────── 載入畫面 ───────── */
+.loader{
+  position:fixed; inset:0; z-index:50;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:calc(var(--ui) * 1.1);
+  background:radial-gradient(120% 90% at 50% 40%, #18224a 0%, #0B1026 60%, #05081a 100%);
+  transition:opacity .7s ease, visibility .7s;
+}
+.loader.gone{ opacity:0; visibility:hidden; }
+.loader-lamp{ filter:drop-shadow(0 0 28px rgba(255,196,107,.45)); animation:lampSway 3.6s ease-in-out infinite; }
+.loader-lamp .ld-core{ animation:lampPulse 2.4s ease-in-out infinite; transform-origin:60px 80px; }
+@keyframes lampSway{ 0%,100%{transform:rotate(-4deg)} 50%{transform:rotate(4deg)} }
+@keyframes lampPulse{ 0%,100%{opacity:.75; transform:scale(.94)} 50%{opacity:1; transform:scale(1.06)} }
+.loader-title{
+  font-size:calc(var(--ui) * 1.5); letter-spacing:.34em; text-indent:.34em;
+  color:var(--honey); opacity:.9; font-weight:600;
+  text-shadow:0 0 24px rgba(255,196,107,.35);
+}
+.loader-bar{
+  width:min(46vw,220px); height:6px; border-radius:99px;
+  background:rgba(255,227,163,.14); overflow:hidden;
+}
+.loader-status{
+  font-size:13px; letter-spacing:.12em;
+  color:var(--honey); opacity:.55;
+  text-align:center; margin-top:2px;
+}
+.loader-bar i{
+  display:block; height:100%; width:0%; border-radius:99px;
+  background:linear-gradient(90deg,var(--mint),var(--honey));
+  box-shadow:0 0 14px rgba(255,227,163,.6);
+  transition:width .35s ease;
+}
+
+/* ───────── 旋轉提示 ───────── */
+.rotate-hint{
+  position:fixed; inset:0; z-index:60;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px;
+  background:rgba(8,12,30,.94); color:var(--honey);
+  font-size:15px; letter-spacing:.1em;
+}
+.rotate-hint[hidden]{ display:none; }
+
+/* 減少動態偏好 */
+@media (prefers-reduced-motion:reduce){
+  .loader-lamp,.loader-lamp .ld-core{ animation:none; }
+}

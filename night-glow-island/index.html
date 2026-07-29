@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no,viewport-fit=cover">
+<meta name="theme-color" content="#0B1026">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="嚕米的夜光島 — 給 3～6 歲小朋友的數字冒險">
+<title>嚕米的夜光島</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1026'/%3E%3Ccircle cx='32' cy='34' r='16' fill='%23FFC46B' opacity='.35'/%3E%3Ccircle cx='32' cy='34' r='9' fill='%23FFE3A3'/%3E%3Cpath d='M22 20h20l4 5H18z' fill='%23C9A26A'/%3E%3Cpath d='M32 12v8' stroke='%23C9A26A' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles/base.css?v=20260728a">
+<link rel="stylesheet" href="styles/game.css?v=20260728a">
+</head>
+<body>
+
+<!-- 舞台：所有場景都掛在這裡 -->
+<div id="stage" class="stage">
+
+  <!-- 背景層（插畫 + 慢速呼吸） -->
+  <div id="bgLayer" class="bg-layer"></div>
+
+  <!-- 粒子層（canvas：光點、火花、霧） -->
+  <canvas id="fx" class="fx-layer"></canvas>
+
+  <!-- 場景層（SVG / DOM 互動物件） -->
+  <div id="scene" class="scene-layer"></div>
+
+  <!-- 角色層（嚕米永遠在最上面偏下） -->
+  <div id="charLayer" class="char-layer"></div>
+
+  <!-- 前景層（暗角、紙紋、光暈） -->
+  <div class="grain-layer" aria-hidden="true"></div>
+  <div class="vignette-layer" aria-hidden="true"></div>
+
+  <!-- HUD：燈籠（收藏）＋ 回地圖 -->
+  <div id="hud" class="hud"></div>
+
+  <!-- 覆蓋層（收藏冊 / 過場） -->
+  <div id="overlay" class="overlay-layer"></div>
+
+</div>
+
+<!-- 載入畫面 -->
+<div id="loader" class="loader">
+  <div class="loader-lamp">
+    <svg viewBox="0 0 120 160" width="120" height="160" aria-hidden="true">
+      <defs>
+        <radialGradient id="ldG" cx="50%" cy="52%" r="50%">
+          <stop offset="0%" stop-color="#FFE3A3" stop-opacity="1"/>
+          <stop offset="55%" stop-color="#FFC46B" stop-opacity=".55"/>
+          <stop offset="100%" stop-color="#FFC46B" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <path d="M60 12 v14" stroke="#8b7a5a" stroke-width="4" stroke-linecap="round"/>
+      <path d="M38 30 h44 l8 12 h-60 z" fill="#c9a26a"/>
+      <path d="M32 42 h56 v70 a28 28 0 0 1 -56 0 z" fill="#1a2a4a" opacity=".55"/>
+      <circle class="ld-core" cx="60" cy="80" r="34" fill="url(#ldG)"/>
+      <path d="M32 42 h56 v70 a28 28 0 0 1 -56 0 z" fill="none" stroke="#e6c894" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M30 112 h60" stroke="#c9a26a" stroke-width="6" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="loader-title">嚕米的夜光島</div>
+  <div class="loader-bar"><i id="loaderFill"></i></div>
+</div>
+
+<!-- 旋轉提示（極端窄橫向時） -->
+<div id="rotate" class="rotate-hint" hidden>
+  <svg viewBox="0 0 100 100" width="72" height="72"><path d="M28 22h30a14 14 0 0 1 14 14v34" fill="none" stroke="#FFE3A3" stroke-width="6" stroke-linecap="round"/><path d="M18 32l10-12 12 10" fill="none" stroke="#FFE3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <p>把手機轉直一點點就好囉</p>
+</div>
+
+<script type="module" src="src/main.js?v=20260728a"></script>
+</body>
+</html>
