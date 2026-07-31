@@ -8,7 +8,8 @@ import {
   app, setScenery, placeLumi, hudMode, go, fx, fy, fs, el, PAL, A,
   paperCard, makeProgressLamps, refreshHud, makeGlyph,
 } from '../game.js';
-import { areaByKey, makeQuestion, recordAnswer } from '../data/world.js';
+import { makeQuestion, recordAnswer } from '../data/world.js';
+import { areaByKey } from '../profiles.js';
 import { makeNumberToken, makeCountable, makeQuantityToken, Prop } from '../art/props.js';
 import { drawGlowbug, pickReward } from '../data/glowbugs.js';
 import { burst, flyLight, setAmbientMotes } from '../art/particles.js';

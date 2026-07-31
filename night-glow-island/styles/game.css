@@ -104,8 +104,11 @@
   text-shadow:0 0 40px rgba(255,196,107,.55), 0 4px 0 rgba(90,60,20,.35), 0 10px 30px rgba(0,0,0,.5);
 }
 .title-main span{ display:inline-block; animation:titleFloat 4.6s ease-in-out infinite; }
+/* 島名長度不固定（夜光島 3 字、晨風群島 4 字），所以每個字都要有自己的相位 */
 .title-main span:nth-child(2){ animation-delay:.35s; }
 .title-main span:nth-child(3){ animation-delay:.7s; }
+.title-main span:nth-child(4){ animation-delay:1.05s; }
+.title-main span:nth-child(5){ animation-delay:1.4s; }
 @keyframes titleFloat{ 0%,100%{ transform:translateY(0) rotate(-1deg);} 50%{ transform:translateY(-7px) rotate(1.5deg);} }
 .title-swash{ width:calc(var(--ui) * 13); max-width:64vw; height:auto; margin:calc(var(--ui) * .2) auto 0; display:block; }
 .title-sub{
@@ -113,6 +116,25 @@
   font-size:calc(var(--ui) * .84); letter-spacing:.42em; text-indent:.42em;
   color:#9FD9C6; opacity:.85;
 }
+
+/* ───────── 兩扇門（選島） ───────── */
+/* 一定要放得下一行。折行會撞到背景的月亮，而且問句斷成兩截很難讀。 */
+.pick-ask{
+  font-size:min(calc(var(--ui) * 1.05), 7.2vw); font-weight:700; letter-spacing:.1em;
+  white-space:nowrap;
+  color:#FFE3A3; opacity:.92;
+  text-shadow:0 0 30px rgba(255,196,107,.45), 0 6px 20px rgba(0,0,0,.5);
+}
+.pick-cap{
+  position:absolute; transform:translate(-50%,0);
+  font-size:calc(var(--ui) * .82); letter-spacing:.2em; text-indent:.2em;
+  color:#FDF6E3; opacity:0; pointer-events:none; white-space:nowrap;
+  text-shadow:0 2px 12px rgba(0,0,0,.7);
+  animation:capIn .7s ease .9s forwards;
+}
+.pick-cap.out{ animation:capOut .4s ease forwards; }
+@keyframes capIn{ from{ opacity:0; transform:translate(-50%,8px);} to{ opacity:.9; transform:translate(-50%,0);} }
+@keyframes capOut{ to{ opacity:0; } }
 
 /* ───────── 載入 / 開場閘門 ───────── */
 .loader.ready .loader-lamp{ animation:lampSway 3.6s ease-in-out infinite, readyPop .9s cubic-bezier(.34,1.56,.64,1); }

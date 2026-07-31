@@ -7,6 +7,9 @@ import { initStage } from './core/stage.js';
 import { bootShell, registerScene, go, app } from './game.js';
 import { loadVoices, unlockAudio, stopVoice, chime, sparkle, initAudio, audioCtx } from './core/audio.js';
 import { newSkill } from './data/world.js';
+import { setActiveProfile, hasChoice } from './profiles.js';
+import { store } from './core/store.js';
+import { agepick } from './scenes/agepick.js';
 import { title } from './scenes/title.js';
 import { map } from './scenes/map.js';
 import { level } from './scenes/level.js';
@@ -30,11 +33,18 @@ async function boot() {
   initStage(stageEl, canvas);
   bootShell();
 
+  registerScene('agepick', agepick);
   registerScene('title', title);
   registerScene('map', map);
   registerScene('level', level);
   registerScene('lantern', lantern);
   registerScene('finale', finale);
+
+  // 先決定在哪個年齡檔，store 的所有 getter 才知道要回哪一份進度。
+  // ?profile=age4|age6 是開發捷徑，正常走的是上次她自己選的那個。
+  const forced = new URLSearchParams(location.search).get('profile');
+  app.profile = setActiveProfile(forced || store.profileId);
+  store.setProfile(app.profile.id);
 
   app.run = { lit: new Set(), skill: newSkill(), seed: (Math.random() * 1e6) | 0 };
 
@@ -75,9 +85,10 @@ async function boot() {
 
     try {
       app.run.lit = new Set(new URLSearchParams(location.search).get('lit')?.split(',').filter(Boolean) || []);
-      if (!jump) await go('title');
-      else if (['map', 'lantern', 'finale', 'title'].includes(jump)) await go(jump);
-      else await go('level', { areaKey: jump });
+      // 有兩座島可以去的時候才問她想去哪；只有一座就別多按一下。
+      if (!jump) await go(hasChoice() ? 'agepick' : 'title');
+      else if (['agepick', 'map', 'lantern', 'finale', 'title'].includes(jump)) await go(jump);
+      else await go(app.profile.levelScene, { areaKey: jump });
     } catch (e) { fail(e); }
   };
   // pointerdown 為主，click / touchend 兜底：舊 WebView 與少數瀏覽器不一定送 pointer events

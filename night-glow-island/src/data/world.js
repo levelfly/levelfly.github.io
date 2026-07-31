@@ -40,7 +40,8 @@ export const AREAS = [
   },
 ];
 
-export const areaByKey = k => AREAS.find(a => a.key === k);
+// 依 key 找地點請用 profiles.js 的 areaByKey ——
+// 那個會看「現在在哪個年齡檔」，這裡的 AREAS 只是夜光島（age4）自己的清單。
 
 /**
  * 出一題。

@@ -17,7 +17,8 @@ let seed = null, hintT = 0, offHint = null;
 
 export const title = {
   async enter() {
-    setScenery('title');
+    const prof = app.profile;
+    setScenery(prof.titleScenery);
     setAmbientMotes(.5, '#FFE3A3');
     hudMode('title');
     // 橫向時畫面很扁，嚕米、光種子、燈塔全部會擠在正中間互相蓋住 ——
@@ -28,13 +29,14 @@ export const title = {
     // 標題：手繪風的字 + 一道撕紙筆刷
     const t = document.createElement('div');
     t.className = 'title-block';
+    const chars = [...prof.islandName].map(c => `<span>${c}</span>`).join('');
     t.innerHTML = `
-      <div class="title-main"><span>夜</span><span>光</span><span>島</span></div>
+      <div class="title-main">${chars}</div>
       <svg class="title-swash" viewBox="0 0 320 26" aria-hidden="true">
         <path d="M6,17 C60,6 120,22 176,12 C224,4 276,16 314,9" fill="none"
               stroke="#FFC46B" stroke-width="5" stroke-linecap="round" filter="url(#torn-s)" opacity=".85"/>
       </svg>
-      <div class="title-sub">嚕米的數字冒險</div>`;
+      <div class="title-sub">${prof.sub}</div>`;
     app.layers.scene.appendChild(t);
     requestAnimationFrame(() => t.classList.add('in'));
 

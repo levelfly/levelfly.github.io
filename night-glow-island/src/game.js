@@ -17,6 +17,7 @@ import { initParticles, setAmbientMotes, burst, clearParticles } from './art/par
 export const app = {
   layers: {}, lumi: null, scenery: null, scene: null, sceneName: '',
   run: null, hud: {},
+  profile: null,   // 現在在哪個年齡檔（見 profiles.js），開機時由 main.js 決定
 };
 
 /* ───────────────────────── 啟動 ───────────────────────── */

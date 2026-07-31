@@ -7,7 +7,7 @@
 import {
   app, setScenery, placeLumi, hudMode, go, fx, fy, fs, el, PAL, A, paperCard, refreshHud,
 } from '../game.js';
-import { AREAS } from '../data/world.js';
+import { areas, activeProfile } from '../profiles.js';
 import { store } from '../core/store.js';
 import { Prop } from '../art/props.js';
 import { setAmbientMotes, burst } from '../art/particles.js';
@@ -28,7 +28,9 @@ const SHORE = [
 
 export const map = {
   async enter({ first = false, justLit = null } = {}) {
-    setScenery('map');
+    const prof = activeProfile();
+    const AREAS = areas();
+    setScenery(prof.mapScenery);
     setAmbientMotes(.5, '#6FE3C4');
     hudMode('map');
     placeLumi(stage.portrait ? { x: .14, y: 1.02, s: .66 } : { x: .09, y: 1.02, s: .60 });
@@ -43,7 +45,7 @@ export const map = {
     const cycle = Math.min(...AREAS.map(a => store.cycle(a.key)));
     const cycleName = ['第一輪', '第二輪', '第三輪', '第四輪'][Math.min(cycle, 3)] || `第 ${cycle + 1} 輪`;
     paperCard(app.layers.overlay,
-      `<div class="pc-line">夜光島</div><div class="pc-cycle">${cycleName}</div>`,
+      `<div class="pc-line">${prof.islandName}</div><div class="pc-cycle">${cycleName}</div>`,
       { dur: 2.2, cls: 'pc-cycle-card' });
 
     nodes = []; offs = [];
@@ -63,7 +65,7 @@ export const map = {
           n.celebrate();
           const b = n.node.getBoundingClientRect();
           burst(b.left + b.width / 2, b.top + b.height / 2, { count: 16, col: area.tint, power: .8 });
-          setTimeout(() => go('level', { areaKey: area.key }), 620);
+          setTimeout(() => go(prof.levelScene, { areaKey: area.key }), 620);
         });
       } else {
         n.interactive(() => { A.thud({ gain: .25 }); n.shy(); app.lumi.tilt(); });
@@ -102,7 +104,10 @@ export const map = {
 
 /* ───────────────────────── 島本體 ───────────────────────── */
 
+// 夜光島專用的地圖畫法：小徑順序、五處地形裝飾的座標都是照這座島的長相寫死的。
+// 晨風群島（age6）不共用這一段 —— 它是一串會漂的浮島，會有自己的地圖場景。
 function drawIsland(lit) {
+  const AREAS = areas();
   const F = stage.field;
   const H = 1000 * F.h / Math.max(1, F.w);
   const X = f => f * 1000, Y = f => f * H;
