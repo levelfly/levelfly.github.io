@@ -25,23 +25,21 @@ def check(name, ok, detail=""):
         fails.append(name)
 
 
+# 🔴 不要用 index.html 當測試載體。
+# 那一頁一載入就會啟動遊戲，main.js 會呼叫 store.setProfile() 寫出一份空的 v2；
+# 之後再塞 v1 就永遠不會被讀到（v2 優先），案例一會莫名其妙全空。
+# 這裡改用 /tools/ 的目錄列表：同一個 origin（localStorage 通用）但完全不跑遊戲。
+NEUTRAL = f"{BASE}/tools/"
+
+
 async def fresh_page(browser, seed_storage=None):
     """每個案例都用全新的 context，避免上一個案例的 localStorage 殘留。"""
     ctx = await browser.new_context(base_url=BASE)
     page = await ctx.new_page()
+    await page.goto(NEUTRAL)
     if seed_storage:
-        await page.goto(f"{BASE}/index.html")
         await page.evaluate("([k, v]) => localStorage.setItem(k, v)", seed_storage)
     return ctx, page
-
-
-async def load_store(page):
-    """乾淨地重新載入頁面再 import store，確保 store 的 load() 是這一次才跑的。"""
-    await page.goto(f"{BASE}/index.html")
-    return await page.evaluate("""async () => {
-      const m = await import('/src/core/store.js?t=' + Math.random());
-      return m.store;
-    }""")
 
 
 V1 = json.dumps({
@@ -63,7 +61,7 @@ async def main():
         # ── 好樣本：有 v1 舊檔，要整包搬進 age4，秘密與靜音搬到共用區 ──
         print("案例 1：v1 舊檔 → v2 的 age4")
         ctx, page = await fresh_page(browser, ("glowisle.v1", V1))
-        await page.goto(f"{BASE}/index.html")
+        await page.goto(NEUTRAL)
         r = await page.evaluate("""async () => {
           const { store } = await import('/src/core/store.js?t=' + Math.random());
           return {
@@ -87,7 +85,7 @@ async def main():
         # ── 壞樣本一：什麼都沒有，不能爆 ──
         print("案例 2：全新裝置，沒有任何舊檔")
         ctx, page = await fresh_page(browser)
-        await page.goto(f"{BASE}/index.html")
+        await page.goto(NEUTRAL)
         r = await page.evaluate("""async () => {
           const { store } = await import('/src/core/store.js?t=' + Math.random());
           return { id: store.profileId, bugs: store.bugs, runs: store.runs, muted: store.muted,
@@ -102,7 +100,7 @@ async def main():
         print("案例 3：v1 和 v2 同時存在 → 以 v2 為準")
         ctx = await browser.new_context(base_url=BASE)
         page = await ctx.new_page()
-        await page.goto(f"{BASE}/index.html")
+        await page.goto(NEUTRAL)
         await page.evaluate("""([v1]) => {
           localStorage.setItem('glowisle.v1', v1);
           localStorage.setItem('glowisle.v2', JSON.stringify({
@@ -123,7 +121,7 @@ async def main():
         # ── 兩個檔不准互相污染，但共用的東西要真的共用 ──
         print("案例 4：age4 / age6 進度隔離，靜音與秘密共用")
         ctx, page = await fresh_page(browser)
-        await page.goto(f"{BASE}/index.html")
+        await page.goto(NEUTRAL)
         r = await page.evaluate("""async () => {
           const { store } = await import('/src/core/store.js?t=' + Math.random());
           store.setProfile('age4');

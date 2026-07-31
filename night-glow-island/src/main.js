@@ -13,6 +13,7 @@ import { agepick } from './scenes/agepick.js';
 import { title } from './scenes/title.js';
 import { map } from './scenes/map.js';
 import { skymap } from './scenes/skymap.js';
+import { repair } from './scenes/repair.js';
 import { level } from './scenes/level.js';
 import { lantern } from './scenes/lantern.js';
 import { finale } from './scenes/finale.js';
@@ -38,6 +39,7 @@ async function boot() {
   registerScene('title', title);
   registerScene('map', map);
   registerScene('skymap', skymap);
+  registerScene('repair', repair);
   registerScene('level', level);
   registerScene('lantern', lantern);
   registerScene('finale', finale);

@@ -68,8 +68,21 @@ export async function go(name, params = {}) {
   app.layers.scene.innerHTML = '';
   app.layers.overlay.innerHTML = '';
   clearParticles();
+
+  // 沒註冊的場景不可以就這樣炸掉。
+  // 直接 SCENES[name].enter() 會丟 TypeError，畫面停在一片空白，
+  // 而小孩手上沒有任何可以回去的東西 —— 對她來說遊戲就是壞了。
+  // 寧可退回地圖，至少路還在。
+  let mod = SCENES[name];
+  if (!mod) {
+    console.error(`場景 "${name}" 還沒註冊，退回地圖`);
+    name = SCENES[mapScene()] ? mapScene() : 'title';
+    mod = SCENES[name];
+    params = {};
+  }
+
   app.sceneName = name;
-  app.scene = SCENES[name];
+  app.scene = mod;
   document.body.dataset.scene = name;
   await app.scene.enter(params);
 }
