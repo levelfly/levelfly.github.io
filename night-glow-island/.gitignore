@@ -1,0 +1,6 @@
+# 單檔發行版是 build 產物（1.8MB，每次 build 都整包不一樣）。
+# 進 git 會讓 repo 每次膨脹一份，要分享就現場跑 tools/build_single.py。
+dist/
+
+# 自動走查的截圖
+tools/render_check/

@@ -35,6 +35,29 @@ php -S 127.0.0.1:8777
 ?go=map&lit=marsh,cove               順便指定哪些地方已經點亮
 ```
 
+### 打成一個 HTML 檔
+
+```bash
+python tools/build_single.py     # → dist/夜光島.html，約 1.8 MB
+python tools/test_single_file.py # 冒煙測試：真的開 file:// 玩完一關
+```
+
+雙擊就能玩、可以直接 AirDrop／LINE 傳給別人、沒網路也能跑。做法是 `bun` 把 22 個模組
+打成一顆 IIFE、CSS inline、`assets/` 每個檔轉成 data URI，再裝一個十行的 `fetch`
+攔截器把相對路徑導過去——**`src/` 一行都不用改**，程式碼不知道自己被打包了。
+
+那個攔截器是必要的：`file://` 底下 fetch 相對檔案一定失敗（瀏覽器把它當 opaque
+origin），語音會整組載不到、默默退回瀏覽器語音合成。
+
+兩種發行版並存，各有各的用途：
+
+| | 用途 | 存檔 |
+|---|---|---|
+| `index.html`（模組版） | GitHub Pages，加到主畫面全螢幕玩 | 可靠 |
+| `dist/夜光島.html`（單檔） | 送人、離線、沒網路 | `file://` 下 iOS Safari 可能擋 localStorage，攔截器會退到記憶體版（能玩完，關掉就忘） |
+
+`dist/` 不進 git（1.8MB 而且每次 build 都整包不同），要分享就現場 build。
+
 ---
 
 ## 玩什麼
