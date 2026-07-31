@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>🌲 數字森林探險 🌲</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html, body { height: 100%; overflow: hidden; }
+
+  body {
+    font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    background: linear-gradient(180deg, #aee9ff 0%, #d6f5d6 55%, #b8e6a0 100%);
+    user-select: none;
+    touch-action: manipulation;
+  }
+
+  /* ---------- 背景裝飾 ---------- */
+  .cloud {
+    position: fixed;
+    font-size: 60px;
+    opacity: .8;
+    animation: drift linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes drift {
+    from { transform: translateX(-15vw); }
+    to   { transform: translateX(115vw); }
+  }
+  .tree {
+    position: fixed;
+    bottom: -10px;
+    font-size: 90px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: .9;
+    animation: sway 4s ease-in-out infinite alternate;
+    transform-origin: bottom center;
+  }
+  @keyframes sway {
+    from { transform: rotate(-2deg); }
+    to   { transform: rotate(2deg); }
+  }
+  .butterfly {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1;
+    font-size: 28px;
+    animation: flutter 9s ease-in-out infinite;
+  }
+  @keyframes flutter {
+    0%   { transform: translate(0,0) rotate(0deg); }
+    25%  { transform: translate(8vw,-6vh) rotate(15deg); }
+    50%  { transform: translate(15vw,2vh) rotate(-10deg); }
+    75%  { transform: translate(6vw,6vh) rotate(10deg); }
+    100% { transform: translate(0,0) rotate(0deg); }
+  }
+
+  /* ---------- 通用 ---------- */
+  .screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    padding: 16px;
+  }
+  .hidden { display: none !important; }
+
+  .btn {
+    border: none;
+    cursor: pointer;
+    border-radius: 999px;
+    font-family: inherit;
+    font-weight: 800;
+    color: #fff;
+    box-shadow: 0 6px 0 rgba(0,0,0,.15);
+    transition: transform .1s, box-shadow .1s;
+  }
+  .btn:active {
+    transform: translateY(5px) scale(.97);
+    box-shadow: 0 1px 0 rgba(0,0,0,.15);
+  }
+
+  /* ---------- 開始畫面 ---------- */
+  #startScreen h1 {
+    font-size: clamp(34px, 8vw, 64px);
+    color: #2e7d32;
+    text-shadow: 3px 3px 0 #fff;
+    margin-bottom: 8px;
+    animation: bounceTitle 2s ease-in-out infinite;
+  }
+  @keyframes bounceTitle {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-10px); }
+  }
+  #startScreen .subtitle {
+    font-size: clamp(16px, 4vw, 24px);
+    color: #558b2f;
+    margin-bottom: 28px;
+    font-weight: 700;
+  }
+  .mascot {
+    font-size: clamp(90px, 22vw, 150px);
+    animation: mascotDance 1.6s ease-in-out infinite;
+    filter: drop-shadow(0 8px 8px rgba(0,0,0,.15));
+    margin-bottom: 24px;
+  }
+  @keyframes mascotDance {
+    0%,100% { transform: rotate(-6deg) scale(1); }
+    50%     { transform: rotate(6deg) scale(1.08); }
+  }
+  .mode-btn {
+    font-size: clamp(24px, 5.5vw, 36px);
+    padding: 18px 48px;
+    margin: 10px;
+    min-width: 280px;
+  }
+  .mode-listen { background: linear-gradient(180deg, #ffb74d, #ff9800); }
+  .mode-count  { background: linear-gradient(180deg, #4fc3f7, #039be5); }
+
+  /* ---------- 遊戲畫面頂部 ---------- */
+  .top-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    z-index: 5;
+  }
+  #homeBtn {
+    background: linear-gradient(180deg, #ef9a9a, #e57373);
+    font-size: 22px;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+  }
+  .star-bar {
+    background: rgba(255,255,255,.75);
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 24px;
+    letter-spacing: 4px;
+    box-shadow: 0 3px 8px rgba(0,0,0,.1);
+  }
+  .star-bar .got { color: #ffb300; }
+  .star-bar .not { color: #d7d7d7; }
+
+  /* ---------- 題目區 ---------- */
+  .prompt-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 42vh;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #speakerBtn {
+    font-size: clamp(70px, 16vw, 110px);
+    width: clamp(140px, 30vw, 190px);
+    height: clamp(140px, 30vw, 190px);
+    border-radius: 50%;
+    background: linear-gradient(180deg, #ffd54f, #ffb300);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 6px 0 rgba(0,0,0,.15), 0 0 0 0 rgba(255,179,0,.5); }
+    50%     { box-shadow: 0 6px 0 rgba(0,0,0,.15), 0 0 0 26px rgba(255,179,0,0); }
+  }
+  .speaker-hint {
+    margin-top: 14px;
+    font-size: clamp(18px, 4vw, 26px);
+    color: #6d4c41;
+    font-weight: 700;
+  }
+
+  /* 數一數的物品 */
+  .objects-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+    max-width: 640px;
+    min-height: 120px;
+  }
+  .count-obj {
+    font-size: clamp(52px, 12vw, 84px);
+    opacity: 0;
+    transform: scale(0);
+    animation: popIn .45s cubic-bezier(.34,1.56,.64,1) forwards;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,.15));
+  }
+  @keyframes popIn {
+    to { opacity: 1; transform: scale(1); }
+  }
+  .count-hint {
+    font-size: clamp(20px, 4.5vw, 30px);
+    color: #33691e;
+    font-weight: 800;
+    margin-bottom: 16px;
+    background: rgba(255,255,255,.7);
+    padding: 8px 24px;
+    border-radius: 999px;
+  }
+
+  /* ---------- 選項卡 ---------- */
+  .choices {
+    display: flex;
+    gap: clamp(14px, 4vw, 36px);
+    margin-top: 26px;
+    justify-content: center;
+  }
+  .choice-card {
+    width: clamp(90px, 24vw, 150px);
+    height: clamp(110px, 28vw, 180px);
+    border-radius: 24px;
+    border: 6px solid #fff;
+    font-size: clamp(52px, 13vw, 88px);
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 2px 3px 0 rgba(0,0,0,.2);
+    cursor: pointer;
+    box-shadow: 0 8px 0 rgba(0,0,0,.18);
+    transition: transform .12s;
+    animation: cardWobble 3s ease-in-out infinite;
+    font-family: inherit;
+  }
+  .choice-card:nth-child(2) { animation-delay: .4s; }
+  .choice-card:nth-child(3) { animation-delay: .8s; }
+  @keyframes cardWobble {
+    0%,100% { transform: rotate(-1.5deg); }
+    50%     { transform: rotate(1.5deg) translateY(-4px); }
+  }
+  .choice-card:active { transform: scale(.92); }
+  .choice-card.c0 { background: linear-gradient(180deg, #ff8a80, #ef5350); }
+  .choice-card.c1 { background: linear-gradient(180deg, #81c784, #43a047); }
+  .choice-card.c2 { background: linear-gradient(180deg, #b39ddb, #7e57c2); }
+  .choice-card.shake { animation: shake .4s ease; }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25%     { transform: translateX(-12px) rotate(-4deg); }
+    50%     { transform: translateX(12px) rotate(4deg); }
+    75%     { transform: translateX(-8px); }
+  }
+
+  /* ---------- 吉祥物對話 ---------- */
+  .mascot-corner {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    font-size: clamp(50px, 11vw, 80px);
+    z-index: 4;
+    pointer-events: none;
+    transition: transform .3s;
+  }
+  .mascot-corner.happy { animation: mascotDance .8s ease-in-out; }
+  .speech-bubble {
+    position: fixed;
+    left: clamp(70px, 16vw, 100px);
+    bottom: 40px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px 18px;
+    font-size: clamp(18px, 4vw, 26px);
+    font-weight: 800;
+    color: #e65100;
+    box-shadow: 0 4px 10px rgba(0,0,0,.15);
+    z-index: 4;
+    opacity: 0;
+    transform: scale(.5);
+    transition: all .25s cubic-bezier(.34,1.56,.64,1);
+    pointer-events: none;
+  }
+  .speech-bubble.show { opacity: 1; transform: scale(1); }
+
+  /* ---------- 彩帶 ---------- */
+  .confetti {
+    position: fixed;
+    width: 12px; height: 18px;
+    z-index: 50;
+    pointer-events: none;
+    border-radius: 3px;
+  }
+
+  /* ---------- 慶祝畫面 ---------- */
+  #celebration {
+    background: rgba(255,255,255,.55);
+    backdrop-filter: blur(4px);
+    z-index: 40;
+  }
+  #celebration .big-mascot {
+    font-size: clamp(120px, 30vw, 220px);
+    animation: bigJump .7s ease-in-out infinite;
+  }
+  @keyframes bigJump {
+    0%,100% { transform: translateY(0) rotate(-8deg) scale(1); }
+    50%     { transform: translateY(-30px) rotate(8deg) scale(1.1); }
+  }
+  #celebration h2 {
+    font-size: clamp(36px, 9vw, 70px);
+    color: #ff6f00;
+    text-shadow: 3px 3px 0 #fff;
+    margin: 12px 0 30px;
+  }
+  #celebration .btn {
+    background: linear-gradient(180deg, #aed581, #7cb342);
+    font-size: clamp(22px, 5vw, 32px);
+    padding: 16px 44px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 背景裝飾由 JS 生成 -->
+
+  <!-- ===== 開始畫面 ===== -->
+  <div id="startScreen" class="screen">
+    <h1>🌲 數字森林探險 🌲</h1>
+    <p class="subtitle">和小熊一起學數字！</p>
+    <div class="mascot">🐻</div>
+    <button class="btn mode-btn mode-listen" onclick="startGame('listen')">👂 聽一聽</button>
+    <button class="btn mode-btn mode-count" onclick="startGame('count')">🍎 數一數</button>
+  </div>
+
+  <!-- ===== 遊戲畫面 ===== -->
+  <div id="gameScreen" class="screen hidden">
+    <div class="top-bar">
+      <button id="homeBtn" class="btn" onclick="goHome()">🏠</button>
+      <div class="star-bar" id="starBar"></div>
+      <div style="width:52px"></div>
+    </div>
+
+    <div class="prompt-area" id="promptArea"></div>
+
+    <div class="choices" id="choices"></div>
+
+    <div class="mascot-corner" id="mascotCorner">🐻</div>
+    <div class="speech-bubble" id="bubble"></div>
+  </div>
+
+  <!-- ===== 慶祝畫面 ===== -->
+  <div id="celebration" class="screen hidden">
+    <div class="big-mascot">🐻</div>
+    <h2>集滿星星！超級棒！🎉</h2>
+    <button class="btn" onclick="closeCelebration()">繼續玩 ➜</button>
+  </div>
+
+<script>
+/* ================= 常數 ================= */
+const NUM_WORDS = ['零','一','二','三','四','五','六','七','八','九','十'];
+const OBJECT_POOL = ['🍎','🍐','🍊','🍓','🍇','🍉','🍑','🥕','🌸','🌼','🍄','🎈','🐤','🦋','🐝','🐞','🐟','🍪'];
+const PRAISES = ['你好棒！','太厲害了！','答對了！','好聰明！','哇！真棒！','你做得好！'];
+const TRY_AGAIN = ['再試試看～','差一點點，再想想！','沒關係，再來一次！','你可以的！'];
+
+const MIN_N = 1, MAX_N = 10;      // 5-6 歲難度
+const STAR_GOAL = 5;
+
+/* ================= 狀態 ================= */
+let mode = 'listen';     // 'listen' | 'count'
+let answer = 0;
+let lastAnswer = -1;
+let stars = 0;
+let locked = false;      // 答對後鎖定輸入
+
+/* ================= 語音 ================= */
+function speak(text, rate = 0.85) {
+  try {
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'zh-TW';
+    u.rate = rate;
+    u.pitch = 1.3;
+    const voices = speechSynthesis.getVoices();
+    const zh = voices.find(v => /zh[-_](TW|HK)/i.test(v.lang)) || voices.find(v => /^zh/i.test(v.lang));
+    if (zh) u.voice = zh;
+    speechSynthesis.speak(u);
+  } catch (e) { /* 瀏覽器不支援就靜音 */ }
+}
+
+/* ================= 音效（Web Audio 合成） ================= */
+let audioCtx = null;
+function ac() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+function tone(freq, t0, dur, type = 'sine', vol = 0.25) {
+  const ctx = ac();
+  const o = ctx.createOscillator();
+  const g = ctx.createGain();
+  o.type = type; o.frequency.value = freq;
+  g.gain.setValueAtTime(vol, ctx.currentTime + t0);
+  g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t0 + dur);
+  o.connect(g); g.connect(ctx.destination);
+  o.start(ctx.currentTime + t0);
+  o.stop(ctx.currentTime + t0 + dur);
+}
+const sfxPop    = () => { tone(600, 0, .08, 'triangle', .2); tone(900, .05, .1, 'triangle', .15); };
+const sfxDing   = () => { tone(523, 0, .15); tone(659, .12, .15); tone(784, .24, .3); };
+const sfxWrong  = () => { tone(330, 0, .2, 'sine', .15); tone(294, .18, .3, 'sine', .12); };
+const sfxFanfare= () => { [523,659,784,1047,784,1047].forEach((f,i)=>tone(f, i*.13, .25, 'triangle', .22)); };
+
+/* ================= 背景裝飾 ================= */
+(function decorate() {
+  const cloudEmojis = ['☁️','☁️','⛅','☁️'];
+  for (let i = 0; i < 4; i++) {
+    const c = document.createElement('div');
+    c.className = 'cloud';
+    c.textContent = cloudEmojis[i % cloudEmojis.length];
+    c.style.top = (3 + i * 9) + 'vh';
+    c.style.animationDuration = (40 + i * 15) + 's';
+    c.style.animationDelay = (-i * 12) + 's';
+    c.style.fontSize = (44 + i * 12) + 'px';
+    document.body.appendChild(c);
+  }
+  const trees = ['🌲','🌳','🌲','🌴','🌳','🌲'];
+  trees.forEach((t, i) => {
+    const el = document.createElement('div');
+    el.className = 'tree';
+    el.textContent = t;
+    el.style.left = (i * 18 + (i % 2) * 4) + 'vw';
+    el.style.animationDelay = (i * .5) + 's';
+    document.body.appendChild(el);
+  });
+  const bf = document.createElement('div');
+  bf.className = 'butterfly';
+  bf.textContent = '🦋';
+  bf.style.left = '12vw';
+  bf.style.top = '30vh';
+  document.body.appendChild(bf);
+})();
+
+/* ================= 星星 ================= */
+function renderStars() {
+  const bar = document.getElementById('starBar');
+  bar.innerHTML = '';
+  for (let i = 0; i < STAR_GOAL; i++) {
+    const s = document.createElement('span');
+    s.className = i < stars ? 'got' : 'not';
+    s.textContent = i < stars ? '★' : '☆';
+    bar.appendChild(s);
+  }
+}
+
+/* ================= 遊戲流程 ================= */
+function startGame(m) {
+  mode = m;
+  stars = 0;
+  lastAnswer = -1;
+  document.getElementById('startScreen').classList.add('hidden');
+  document.getElementById('gameScreen').classList.remove('hidden');
+  renderStars();
+  nextQuestion();
+}
+
+function goHome() {
+  speechSynthesis.cancel();
+  document.getElementById('gameScreen').classList.add('hidden');
+  document.getElementById('startScreen').classList.remove('hidden');
+}
+
+function pickAnswer() {
+  let n;
+  do { n = MIN_N + Math.floor(Math.random() * (MAX_N - MIN_N + 1)); }
+  while (n === lastAnswer);
+  lastAnswer = n;
+  return n;
+}
+
+function makeChoices(ans) {
+  const set = new Set([ans]);
+  // 優先挑附近的數字當干擾項
+  const near = [];
+  for (let d = 1; d <= 3; d++) {
+    if (ans - d >= MIN_N) near.push(ans - d);
+    if (ans + d <= MAX_N) near.push(ans + d);
+  }
+  // 洗牌附近的數
+  near.sort(() => Math.random() - .5);
+  for (const n of near) {
+    if (set.size >= 3) break;
+    set.add(n);
+  }
+  while (set.size < 3) {
+    set.add(MIN_N + Math.floor(Math.random() * (MAX_N - MIN_N + 1)));
+  }
+  return [...set].sort(() => Math.random() - .5);
+}
+
+function nextQuestion() {
+  locked = false;
+  answer = pickAnswer();
+  renderPrompt();
+  renderChoices();
+  if (mode === 'listen') {
+    // 等一下再播，讓畫面先出來
+    setTimeout(playQuestion, 600);
+  } else {
+    setTimeout(() => speak('數一數，有幾個？'), 400);
+  }
+}
+
+function playQuestion() {
+  speak('數字 ' + NUM_WORDS[answer]);
+}
+
+function renderPrompt() {
+  const area = document.getElementById('promptArea');
+  area.innerHTML = '';
+  if (mode === 'listen') {
+    const btn = document.createElement('button');
+    btn.id = 'speakerBtn';
+    btn.className = 'btn';
+    btn.textContent = '🔊';
+    btn.onclick = () => { sfxPop(); playQuestion(); };
+    area.appendChild(btn);
+    const hint = document.createElement('div');
+    hint.className = 'speaker-hint';
+    hint.textContent = '👆 按一下，聽聽看是什麼數字？';
+    area.appendChild(hint);
+  } else {
+    const hint = document.createElement('div');
+    hint.className = 'count-hint';
+    hint.textContent = '數一數，有幾個？🤔';
+    area.appendChild(hint);
+    const box = document.createElement('div');
+    box.className = 'objects-area';
+    const emoji = OBJECT_POOL[Math.floor(Math.random() * OBJECT_POOL.length)];
+    for (let i = 0; i < answer; i++) {
+      const o = document.createElement('span');
+      o.className = 'count-obj';
+      o.textContent = emoji;
+      o.style.animationDelay = (0.4 + i * 0.45) + 's';
+      box.appendChild(o);
+      // 每跳出一個就播一個上升的音，引導跟著數
+      setTimeout(() => tone(400 + i * 60, 0, .12, 'triangle', .15), (0.4 + i * 0.45) * 1000);
+    }
+    area.appendChild(box);
+  }
+}
+
+function renderChoices() {
+  const wrap = document.getElementById('choices');
+  wrap.innerHTML = '';
+  makeChoices(answer).forEach((n, i) => {
+    const card = document.createElement('button');
+    card.className = 'choice-card c' + i;
+    card.textContent = n;
+    card.onclick = (e) => onChoice(n, card, e);
+    wrap.appendChild(card);
+  });
+}
+
+function onChoice(n, card, e) {
+  if (locked) return;
+  if (n === answer) {
+    locked = true;
+    sfxDing();
+    const p = PRAISES[Math.floor(Math.random() * PRAISES.length)];
+    showBubble(p);
+    speak(p);
+    mascotHappy();
+    confettiBurst(e.clientX || innerWidth / 2, e.clientY || innerHeight / 2);
+    stars++;
+    renderStars();
+    if (stars >= STAR_GOAL) {
+      setTimeout(showCelebration, 1200);
+    } else {
+      setTimeout(nextQuestion, 1600);
+    }
+  } else {
+    sfxWrong();
+    card.classList.remove('shake');
+    void card.offsetWidth; // 重啟動畫
+    card.classList.add('shake');
+    const t = TRY_AGAIN[Math.floor(Math.random() * TRY_AGAIN.length)];
+    showBubble(t);
+    speak(t);
+  }
+}
+
+/* ================= 回饋 ================= */
+const bubble = document.getElementById('bubble');
+const mascotCorner = document.getElementById('mascotCorner');
+let bubbleTimer = null;
+function showBubble(text) {
+  bubble.textContent = text;
+  bubble.classList.add('show');
+  clearTimeout(bubbleTimer);
+  bubbleTimer = setTimeout(() => bubble.classList.remove('show'), 1800);
+}
+function mascotHappy() {
+  mascotCorner.classList.remove('happy');
+  void mascotCorner.offsetWidth;
+  mascotCorner.classList.add('happy');
+}
+
+const CONFETTI_COLORS = ['#ff5252','#ffb300','#66bb6a','#42a5f5','#ab47bc','#ffee58','#26c6da'];
+function confettiBurst(x, y, count = 40) {
+  for (let i = 0; i < count; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = x + 'px';
+    c.style.top = y + 'px';
+    c.style.background = CONFETTI_COLORS[i % CONFETTI_COLORS.length];
+    document.body.appendChild(c);
+    const angle = Math.random() * Math.PI * 2;
+    const speed = 3 + Math.random() * 7;
+    let vx = Math.cos(angle) * speed;
+    let vy = Math.sin(angle) * speed - 4;
+    let rot = Math.random() * 360;
+    let vr = (Math.random() - .5) * 20;
+    let life = 0;
+    (function fall() {
+      life++;
+      vy += 0.25;
+      x += vx; y += vy; rot += vr;
+      c.style.transform = `rotate(${rot}deg)`;
+      c.style.left = x + 'px';
+      c.style.top = y + 'px';
+      c.style.opacity = Math.max(0, 1 - life / 70);
+      if (life < 70 && y < innerHeight + 30) requestAnimationFrame(fall);
+      else c.remove();
+    })();
+  }
+}
+
+/* ================= 慶祝 ================= */
+function showCelebration() {
+  document.getElementById('celebration').classList.remove('hidden');
+  sfxFanfare();
+  speak('哇！你集滿五顆星星了！超級棒！');
+  // 連續煙火
+  let n = 0;
+  const fw = setInterval(() => {
+    confettiBurst(100 + Math.random() * (innerWidth - 200),
+                  80 + Math.random() * innerHeight * .5, 35);
+    if (++n >= 5) clearInterval(fw);
+  }, 450);
+}
+function closeCelebration() {
+  stars = 0;
+  renderStars();
+  document.getElementById('celebration').classList.add('hidden');
+  nextQuestion();
+}
+
+/* 部分瀏覽器需要互動後才載入語音清單 */
+speechSynthesis.onvoiceschanged = () => {};
+</script>
+</body>
+</html>
