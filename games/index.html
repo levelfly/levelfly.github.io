@@ -75,6 +75,8 @@
       font-weight: 700;
       align-self: flex-start;
     }
+    /* 走 GitHub Pages 的永久網址，跟臨時隧道分開標色 —— 隧道會死，這個不會。 */
+    .badge.perm { background: #0f9d58; }
     footer {
       margin-top: 3rem;
       color: #8080a0;
@@ -89,8 +91,8 @@
 <body>
   <h1>🎮 這幾天的遊戲目錄</h1>
   <p class="subtitle">
-    點下方卡片即可透過 Cloudflare Quick Tunnel 直接遊玩。<br>
-    隧道為臨時網址，關閉後連結會失效。
+    紫色徽章的卡片走 Cloudflare Quick Tunnel（臨時網址，隧道關掉就失效）。<br>
+    綠色「永久網址」的卡片走 GitHub Pages，隨時都能開。
   </p>
 
   <div class="games">
@@ -115,11 +117,11 @@
       <span class="badge">開始遊玩 →</span>
     </a>
 
-    <a class="card" href="https://suffering-lat-agreement-villa.trycloudflare.com" target="_blank" rel="noopener">
+    <a class="card" href="https://levelfly.github.io/night-glow-island/" target="_blank" rel="noopener">
       <div class="emoji">🌙</div>
       <h2>嚕米的夜光島</h2>
-      <p>給 3～6 歲小朋友的數字冒險，和嚕米一起探索夜光島。</p>
-      <span class="badge">開始遊玩 →</span>
+      <p>給小朋友的數字冒險。兩座島自己選：夜光島（找數字）、晨風群島（把光分成幾群）。</p>
+      <span class="badge perm">永久網址 · 開始遊玩 →</span>
     </a>
   </div>
 
