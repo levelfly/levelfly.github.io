@@ -12,6 +12,7 @@ import { store } from './core/store.js';
 import { agepick } from './scenes/agepick.js';
 import { title } from './scenes/title.js';
 import { map } from './scenes/map.js';
+import { skymap } from './scenes/skymap.js';
 import { level } from './scenes/level.js';
 import { lantern } from './scenes/lantern.js';
 import { finale } from './scenes/finale.js';
@@ -36,6 +37,7 @@ async function boot() {
   registerScene('agepick', agepick);
   registerScene('title', title);
   registerScene('map', map);
+  registerScene('skymap', skymap);
   registerScene('level', level);
   registerScene('lantern', lantern);
   registerScene('finale', finale);
@@ -43,8 +45,11 @@ async function boot() {
   // 先決定在哪個年齡檔，store 的所有 getter 才知道要回哪一份進度。
   // ?profile=age4|age6 是開發捷徑，正常走的是上次她自己選的那個。
   const forced = new URLSearchParams(location.search).get('profile');
-  app.profile = setActiveProfile(forced || store.profileId);
+  app.profile = setActiveProfile(forced || store.profileId, !!forced);
   store.setProfile(app.profile.id);
+  // 場景與 HUD 的文字顏色要看島：夜光島是深藍夜色、晨風群島是亮天空，
+  // 同一組奶油色字在亮背景上會完全讀不到。
+  document.body.dataset.island = app.profile.id;
 
   app.run = { lit: new Set(), skill: newSkill(), seed: (Math.random() * 1e6) | 0 };
 
@@ -87,7 +92,10 @@ async function boot() {
       app.run.lit = new Set(new URLSearchParams(location.search).get('lit')?.split(',').filter(Boolean) || []);
       // 有兩座島可以去的時候才問她想去哪；只有一座就別多按一下。
       if (!jump) await go(hasChoice() ? 'agepick' : 'title');
-      else if (['agepick', 'map', 'lantern', 'finale', 'title'].includes(jump)) await go(jump);
+      // ?go=map 是「回地圖」不是「回 map 這個場景」：兩座島的地圖是兩支不同的場景，
+      // 直接跳 'map' 會把晨風群島的地點餵給夜光島的地圖畫法，當場炸掉。
+      else if (jump === 'map') await go(app.profile.mapScene, { first: true });
+      else if (['agepick', 'lantern', 'finale', 'title'].includes(jump)) await go(jump);
       else await go(app.profile.levelScene, { areaKey: jump });
     } catch (e) { fail(e); }
   };

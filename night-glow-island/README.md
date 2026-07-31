@@ -2,6 +2,24 @@
 
 給 3～6 歲小朋友的數字冒險。手機／平板優先，桌機也能玩。
 
+## 兩座島
+
+同一顆引擎（舞台、彈簧、粒子、程序生成美術、語音），兩套完全不同的島與玩法：
+
+| 檔 | 島 | 動詞 | 學什麼 |
+|---|---|---|---|
+| `age4` 小小找光 | **夜光島**（深藍的夜、海、星星） | **找** | 聽數字找數字、數數量選數字 |
+| `age6` 島嶼修復師 | **晨風群島**（日出、雲、風） | **分** | 把光分成幾群送出去 —— 8 可以是 5+3 也可以是 4+4 |
+
+分開的理由不是難度調高。4 歲在「認」，6 歲在「分配」，那是兩個遊戲。
+
+進場時兩扇門讓她自己選（左邊一盞提燈、右邊一張迎風的帆），畫面上不寫「4 歲 / 6 歲」——
+那是大人的分類，而且被歸類成「小的那個」不會讓人想按。
+
+> 🚧 晨風群島還在蓋（`src/profiles.js` 的 `age6.ready` 是 `false`）。
+> ready 是假的時候兩扇門不會出現，開場流程跟以前一模一樣 —— 不出貨「按了沒反應」的門。
+> 開發時用 `?profile=age6` 進去看。
+
 ---
 
 ## 怎麼跑
@@ -30,10 +48,24 @@ php -S 127.0.0.1:8777
 ### 開發捷徑
 
 ```
-?go=marsh|cove|grove|cliff|light     直接跳進某個地點
-?go=map|lantern|finale|title         直接跳場景
+?go=marsh|cove|grove|cliff|light     直接跳進某個地點（夜光島）
+?go=garden|mill|falls|market|beacon  直接跳進某座島（晨風群島）
+?go=map|lantern|finale|title|agepick 直接跳場景（map 會自動去對應那個檔的地圖）
 ?go=map&lit=marsh,cove               順便指定哪些地方已經點亮
+?profile=age4|age6                   強制切年齡檔（可以進還沒 ready 的島）
 ```
+
+### 走查
+
+```bash
+python tools/test_profiles.py     # 存檔分檔與 v1→v2 遷移（雙向）
+python tools/test_skyisle.py      # 晨風群島：開場＋航線圖、fps、節點可點、配色
+python tools/test_single_file.py  # 單檔版 file:// 真的玩完一關（--http 切模組版對照）
+python tools/test_level1.py       # 夜光島 marsh 一整輪
+python tools/test_cycle.py        # 週目與難度變化
+```
+
+`tools/render_sky.html` 會把晨風群島的每個場景各生一張、直橫向都排出來，右上角顯示所有場景一起跑的 fps。
 
 ### 打成一個 HTML 檔
 

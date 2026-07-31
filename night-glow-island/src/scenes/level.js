@@ -6,7 +6,7 @@
 
 import {
   app, setScenery, placeLumi, hudMode, go, fx, fy, fs, el, PAL, A,
-  paperCard, makeProgressLamps, refreshHud, makeGlyph,
+  paperCard, makeProgressLamps, refreshHud, makeGlyph, mapScene
 } from '../game.js';
 import { makeQuestion, recordAnswer } from '../data/world.js';
 import { areaByKey } from '../profiles.js';
@@ -357,7 +357,7 @@ async function finishArea(me) {
   p.vanish(0);
   await sleep(0.5);
   if (!alive(me)) return;
-  go('map', { justLit: area.key });
+  go(mapScene(), { justLit: area.key });
 }
 
 /* ───────────────────────── 版面 ───────────────────────── */

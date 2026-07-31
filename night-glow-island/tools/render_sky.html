@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>晨風浮空群島 — 場景渲染測試</title>
+<style>
+  body { margin:0; background:#20303c; color:#DCEFF3; font-family:system-ui,sans-serif; padding:18px; }
+  h1 { font-size:19px; margin:0 0 4px; }
+  .hint { font-size:12px; opacity:.7; margin:0 0 16px; }
+  #fps { position:fixed; right:14px; top:14px; background:rgba(0,0,0,.55); padding:8px 12px;
+         border-radius:10px; font:600 14px/1.4 ui-monospace,monospace; z-index:9; }
+  .row { display:flex; flex-wrap:wrap; gap:16px; }
+  .cell p { margin:6px 0 0; font-size:12px; text-align:center; opacity:.85; }
+  .frame { position:relative; border-radius:12px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,.35); }
+  .frame > div { position:absolute; inset:0; }
+</style>
+</head>
+<body>
+<h1>晨風浮空群島 — 場景渲染測試</h1>
+<p class="hint">每格都是一次獨立的程序生成。重新整理會換一批種子。右上角是所有場景一起跑的 fps。</p>
+<div id="fps">fps —</div>
+<div class="row" id="portrait"></div>
+<h1 style="margin-top:26px">橫握</h1>
+<div class="row" id="landscape"></div>
+
+<script type="module">
+import { injectPaperDefs } from '../src/art/paper.js';
+import { buildScenery } from '../src/art/scenery.js';
+import { SKY_STOPS } from '../src/art/sky.js';
+
+injectPaperDefs();
+
+const KEYS = Object.keys(SKY_STOPS);
+const scenes = [];
+
+function addCell(host, key, vw, vh, seed) {
+  const cell = document.createElement('div');
+  cell.className = 'cell';
+  const frame = document.createElement('div');
+  frame.className = 'frame';
+  frame.style.width = vw + 'px';
+  frame.style.height = vh + 'px';
+  const inner = document.createElement('div');
+  frame.appendChild(inner);
+  cell.appendChild(frame);
+  const cap = document.createElement('p');
+  cap.textContent = key;
+  cell.appendChild(cap);
+  host.appendChild(cell);
+
+  const w = 1000, h = Math.round(1000 * vh / vw);
+  scenes.push(buildScenery(inner, key, { w, h, seed }));
+}
+
+const seedBase = Number(new URLSearchParams(location.search).get('seed') || 7);
+KEYS.forEach((k, i) => addCell(document.getElementById('portrait'), k, 190, 412, seedBase + i));
+KEYS.forEach((k, i) => addCell(document.getElementById('landscape'), k, 380, 176, seedBase + 100 + i));
+
+// 所有場景共用一個 rAF —— 遊戲裡也是這樣（core/ticker.js 單一迴圈）
+let frames = 0, last = performance.now();
+const fpsEl = document.getElementById('fps');
+window.__fps = 0;
+window.__frames = 0;
+(function loop(now) {
+  const t = now / 1000;
+  for (const s of scenes) s.tick(t);
+  frames++; window.__frames++;
+  if (now - last >= 1000) {
+    window.__fps = frames * 1000 / (now - last);
+    fpsEl.textContent = `fps ${window.__fps.toFixed(1)}　場景 ${scenes.length}`;
+    frames = 0; last = now;
+  }
+  requestAnimationFrame(loop);
+})(performance.now());
+</script>
+</body>
+</html>

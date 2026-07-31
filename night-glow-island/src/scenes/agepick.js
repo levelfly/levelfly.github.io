@@ -134,6 +134,7 @@ async function pick(d) {
   setActiveProfile(d.prof.id);
   store.setProfile(d.prof.id);
   app.profile = d.prof;
+  document.body.dataset.island = d.prof.id;   // 亮島／暗島的文字配色靠這個切
   app.run.lit = new Set();          // 換島就是換一趟旅程，上一座島點亮到哪不算數
 
   document.querySelector('.pick-block')?.classList.remove('in');

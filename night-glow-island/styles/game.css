@@ -117,6 +117,41 @@
   color:#9FD9C6; opacity:.85;
 }
 
+/* ───────── 晨風群島：亮天空的配色覆寫 ─────────
+   整套 UI 原本是為深藍夜色設計的：奶油色的字、暖色光暈、深色暗角。
+   把它原封不動放到日出的天空上，字會直接消失、暗角會像髒掉的邊框。
+   所以亮島把「發光的淺色字」翻成「有厚度的深色字」，暗角翻成淡淡的暖影。 */
+body[data-island="age6"] .title-main{
+  color:#2E5468;
+  text-shadow:0 2px 0 rgba(255,255,255,.75), 0 8px 22px rgba(62,90,110,.28);
+}
+body[data-island="age6"] .title-sub{ color:#4B7C84; opacity:.9; }
+/* 🔴 最容易漏掉的一層：.bg-layer::after 疊著一層深藍漸層（底部 rgba(6,9,26,.62)），
+   那是夜光島用來把畫面底部壓深、讓前景剪影浮起來的。
+   照搬到日出的天空 = 整個下半張變成濁灰色，而且關掉暗角、紙紋、粒子都查不出來
+   （量到的是 (165,157,150)，看起來像場景自己畫錯）。亮島要換成暖色的壓深。 */
+body[data-island="age6"]{ background:#DDEFF4; }
+body[data-island="age6"] .bg-layer::after{
+  background:linear-gradient(to bottom,
+    rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 26%,
+    rgba(214,150,96,0) 58%, rgba(198,138,86,.20) 100%);
+}
+
+/* 暗角與紙紋原本是壓在夜色上的，照搬到日出天空會讓整張圖發濁、像蒙塵。
+   亮島只留一點點暖影收邊。 */
+body[data-island="age6"] .vignette-layer{
+  background:radial-gradient(126% 88% at 50% 42%, rgba(0,0,0,0) 62%, rgba(150,118,84,.13) 100%);
+}
+body[data-island="age6"] .grain-layer{ opacity:.16; mix-blend-mode:multiply; }
+body[data-island="age6"] .hud-btn{
+  background:radial-gradient(circle at 40% 32%, rgba(255,255,255,.72), rgba(190,214,222,.62));
+  border-color:rgba(70,110,126,.35);
+  box-shadow:0 6px 18px rgba(62,90,110,.22), inset 0 1px 0 rgba(255,255,255,.9);
+}
+body[data-island="age6"] .hud-btn > svg{ color:#2E5468; }
+/* 亮底上的進度燈：暗的那幾盞要看得出來是「還沒亮」，不是「不存在」 */
+body[data-island="age6"] .progress-lamps i{ filter:drop-shadow(0 1px 2px rgba(62,90,110,.35)); }
+
 /* ───────── 兩扇門（選島） ───────── */
 /* 一定要放得下一行。折行會撞到背景的月亮，而且問句斷成兩截很難讀。 */
 .pick-ask{

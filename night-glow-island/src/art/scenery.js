@@ -6,6 +6,7 @@
 
 import { el, blob, tornEdge, PAL } from './paper.js';
 import { makeRng } from '../core/rng.js';
+import { SKY_STOPS, SKY_BUILDERS, SKY_KEYS } from './sky.js';
 
 const SKY = {
   title:  [['0%', '#1B2450'], ['42%', '#131C3E'], ['100%', '#080C22']],
@@ -29,7 +30,7 @@ export function buildScenery(container, key, { w, h, seed = 1 }) {
 
   const defs = el('defs', {}, svg);
   const sky = el('linearGradient', { id: `sky-${key}-${seed}`, x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
-  (SKY[key] || SKY.map).forEach(([o, c]) => el('stop', { offset: o, 'stop-color': c }, sky));
+  (SKY_STOPS[key] || SKY[key] || SKY.map).forEach(([o, c]) => el('stop', { offset: o, 'stop-color': c }, sky));
   el('rect', { x: 0, y: 0, width: w, height: h, fill: `url(#sky-${key}-${seed})` }, svg);
 
   const anim = [];   // { node, fn }
@@ -48,8 +49,11 @@ export function buildScenery(container, key, { w, h, seed = 1 }) {
   const U = Math.min(w, h * 1.45);
 
   const ctx = { svg, defs, w, h, U, R, anim, key };
-  (BUILDERS[key] || BUILDERS.map)(ctx);
-  addFog(ctx);
+  const build = SKY_BUILDERS[key] || BUILDERS[key] || BUILDERS.map;
+  build(ctx);
+  // 晨風群島不套這層霧：它是青白色、走 screen 混色，疊在亮天空上等於把整張圖洗白。
+  // 那座島用雲層做層次。
+  if (!SKY_KEYS.has(key)) addFog(ctx);
   return api;
 }
 

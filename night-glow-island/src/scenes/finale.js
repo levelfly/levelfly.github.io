@@ -5,7 +5,7 @@
 // 它不做任何事，不能收集，也沒有分數。它只是出現，然後游走。
 
 import {
-  app, setScenery, placeLumi, hudMode, go, fx, fy, fs, el, PAL, A, paperCard,
+  app, setScenery, placeLumi, hudMode, go, fx, fy, fs, el, PAL, A, paperCard, mapScene
 } from '../game.js';
 import { Prop } from '../art/props.js';
 import { burst, flyLight, setAmbientMotes } from '../art/particles.js';
@@ -73,7 +73,7 @@ export const finale = {
       seed.vanish(.1);
       app.run.lit.clear();
       app.run.skill.streakRight = 0; app.run.skill.streakWrong = 0;
-      setTimeout(() => go('map', { first: true }), 900);
+      setTimeout(() => go(mapScene(), { first: true }), 900);
     });
     A.say('again');
   },

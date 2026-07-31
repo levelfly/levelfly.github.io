@@ -5,7 +5,7 @@
 // 第一次互動就是整個遊戲的核心動詞，不需要任何說明文字。
 
 import {
-  app, setScenery, placeLumi, hudMode, go, fx, fy, fs, el, PAL, A, paperCard,
+  app, setScenery, placeLumi, hudMode, go, fx, fy, fs, el, PAL, A, paperCard, mapScene
 } from '../game.js';
 import { Prop } from '../art/props.js';
 import { flyLight, burst, setAmbientMotes } from '../art/particles.js';
@@ -61,8 +61,10 @@ export const title = {
     const pulse = () => { seed.hint(true); };
     setTimeout(pulse, 2400);
 
-    A.say('intro1');
-    setTimeout(() => A.say('intro2'), 2600);
+    // 開場白跟著島走：夜光島是「光不見了」，晨風群島是「風把雲橋吹開了」
+    const [in1, in2] = prof.intro || ['intro1', 'intro2'];
+    A.say(in1);
+    setTimeout(() => A.say(in2), 2600);
     setTimeout(() => { if (seed?.alive) A.say('tap_start'); }, 6400);
 
     if (store.runs > 0) {
@@ -106,5 +108,5 @@ async function start() {
     } });
 
   document.querySelector('.title-block')?.classList.remove('in');
-  setTimeout(() => go('map', { first: true }), 1500);
+  setTimeout(() => go(mapScene(), { first: true }), 1500);
 }

@@ -292,6 +292,46 @@
   "whale": {
    "text": "看……是光鯨魚。",
    "file": "whale.mp3"
+  },
+  "sky_intro1": {
+   "text": "早安！風把雲橋吹開了。",
+   "file": "sky_intro1.mp3"
+  },
+  "sky_intro2": {
+   "text": "我們一起把光，送回它們該去的地方吧！",
+   "file": "sky_intro2.mp3"
+  },
+  "sky_pick": {
+   "text": "今天想先去哪一座島呢？",
+   "file": "sky_pick.mp3"
+  },
+  "sky_garden": {
+   "text": "雲上花園，好香喔！",
+   "file": "sky_garden.mp3"
+  },
+  "sky_mill": {
+   "text": "風車島，風好大！",
+   "file": "sky_mill.mp3"
+  },
+  "sky_falls": {
+   "text": "水瀑島，水一直往下掉。",
+   "file": "sky_falls.mp3"
+  },
+  "sky_market": {
+   "text": "晨風市集，好熱鬧！",
+   "file": "sky_market.mp3"
+  },
+  "sky_beacon": {
+   "text": "最高的地方……晨鐘塔。",
+   "file": "sky_beacon.mp3"
+  },
+  "sky_clear": {
+   "text": "哇，這座島的光回來了！",
+   "file": "sky_clear.mp3"
+  },
+  "sky_sunrise": {
+   "text": "天亮了。我們今天走到這裡。",
+   "file": "sky_sunrise.mp3"
   }
  }
 }

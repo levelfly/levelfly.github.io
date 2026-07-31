@@ -10,6 +10,7 @@
 // 這一層只講「哪個檔用哪座島、哪個關卡場景」。出題規則各自住在自己的 data/ 檔裡。
 
 import { AREAS as GLOWISLE_AREAS } from './data/world.js';
+import { SKYISLES } from './data/skyworld.js';
 
 export const PROFILES = {
   age4: {
@@ -20,6 +21,8 @@ export const PROFILES = {
     ready: true,
     areas: GLOWISLE_AREAS,
     levelScene: 'level',
+    mapScene: 'map',
+    intro: ['intro1', 'intro2'],
     titleScenery: 'title',
     mapScenery: 'map',
   },
@@ -32,8 +35,10 @@ export const PROFILES = {
     // 階段 3～5 才會把這座島蓋起來。ready 是假的時候，兩扇門的畫面不會出現，
     // 開場流程跟以前一模一樣 —— 不做「按了沒反應」的門。
     ready: false,
-    areas: [],
+    areas: SKYISLES,
     levelScene: 'repair',
+    mapScene: 'skymap',
+    intro: ['sky_intro1', 'sky_intro2'],
     titleScenery: 'skytitle',
     mapScenery: 'skymap',
   },
@@ -45,8 +50,15 @@ let active = PROFILES.age4;
 export const hasChoice = () => Object.values(PROFILES).filter(p => p.ready).length > 1;
 
 export const activeProfile = () => active;
-export function setActiveProfile(id) {
-  active = (PROFILES[id] && PROFILES[id].ready) ? PROFILES[id] : PROFILES.age4;
+
+/**
+ * 切到某個檔。
+ * @param force 開發用：允許進還沒 ready 的檔（`?profile=age6`）。
+ *              正式流程一律不 force —— 沒蓋好的島不該從遊戲裡走得進去。
+ */
+export function setActiveProfile(id, force = false) {
+  const p = PROFILES[id];
+  active = (p && (p.ready || force)) ? p : PROFILES.age4;
   return active;
 }
 

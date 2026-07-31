@@ -65,6 +65,23 @@ STORY = {
 }
 LINES.update(STORY)
 
+# ── 晨風群島（6 歲檔）──
+# 這座島的動詞是「分」不是「找」，所以講法也不一樣：
+# 不問「這是幾」，問「這些光要怎麼分過去」。
+SKY = {
+    "sky_intro1": "早安！風把雲橋吹開了。",
+    "sky_intro2": "我們一起把光，送回它們該去的地方吧！",
+    "sky_pick": "今天想先去哪一座島呢？",
+    "sky_garden": "雲上花園，好香喔！",
+    "sky_mill": "風車島，風好大！",
+    "sky_falls": "水瀑島，水一直往下掉。",
+    "sky_market": "晨風市集，好熱鬧！",
+    "sky_beacon": "最高的地方……晨鐘塔。",
+    "sky_clear": "哇，這座島的光回來了！",
+    "sky_sunrise": "天亮了。我們今天走到這裡。",
+}
+LINES.update(SKY)
+
 
 async def one(sem, key, text):
     async with sem:

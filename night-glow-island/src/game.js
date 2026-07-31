@@ -56,6 +56,13 @@ export function bootShell() {
 const SCENES = {};
 export function registerScene(name, mod) { SCENES[name] = mod; }
 
+/**
+ * 「回地圖」要回哪張地圖。
+ * 夜光島是 map，晨風群島是 skymap —— 兩座島的地圖是兩個場景，
+ * 所以任何地方都不要再寫死 go('map')。
+ */
+export const mapScene = () => app.profile?.mapScene || 'map';
+
 export async function go(name, params = {}) {
   if (app.scene?.exit) { try { await app.scene.exit(); } catch (e) { console.error(e); } }
   app.layers.scene.innerHTML = '';
@@ -182,7 +189,7 @@ function buildHud() {
       <path d="M-4,-36 L-4,24 M20,-26 L20,34" stroke="#E6C894" stroke-width="2.6" opacity=".55"/>
       <circle cx="8" cy="-4" r="6" fill="#FFC46B"/>
     </svg>`;
-  tappable(back, () => { A.whoosh({ up: false }); go('map'); });
+  tappable(back, () => { A.whoosh({ up: false }); go(mapScene()); });
   h.appendChild(back);
 
   // 靜音
