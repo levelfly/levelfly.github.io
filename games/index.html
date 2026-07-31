@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎮 這幾天的遊戲目錄</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .subtitle {
+      color: #a0a0c0;
+      margin-bottom: 2rem;
+      text-align: center;
+      max-width: 640px;
+      line-height: 1.6;
+    }
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 960px;
+    }
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      transition: transform 0.15s ease, background 0.15s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.1);
+    }
+    .card .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .card h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      color: #b0b0d0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: #7c3aed;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      align-self: flex-start;
+    }
+    footer {
+      margin-top: 3rem;
+      color: #8080a0;
+      font-size: 0.85rem;
+      text-align: center;
+      max-width: 640px;
+      line-height: 1.6;
+    }
+    footer a { color: #a0a0ff; }
+  </style>
+</head>
+<body>
+  <h1>🎮 這幾天的遊戲目錄</h1>
+  <p class="subtitle">
+    點下方卡片即可透過 Cloudflare Quick Tunnel 直接遊玩。<br>
+    隧道為臨時網址，關閉後連結會失效。
+  </p>
+
+  <div class="games">
+    <a class="card" href="https://carolina-works-movie-black.trycloudflare.com" target="_blank" rel="noopener">
+      <div class="emoji">🏝️</div>
+      <h2>數字島大冒險</h2>
+      <p>在數字島上展開冒險，挑戰數學關卡。</p>
+      <span class="badge">開始遊玩 →</span>
+    </a>
+
+    <a class="card" href="https://acer-innovative-elliott-observed.trycloudflare.com" target="_blank" rel="noopener">
+      <div class="emoji">⭐</div>
+      <h2>數字島大冒險（獨立版）</h2>
+      <p>獨立優化版本，專注流暢的行動裝置體驗。</p>
+      <span class="badge">開始遊玩 →</span>
+    </a>
+
+    <a class="card" href="https://one-happening-nine-italiano.trycloudflare.com" target="_blank" rel="noopener">
+      <div class="emoji">🌲</div>
+      <h2>數字森林探險</h2>
+      <p>走進數字森林，在輕鬆的氛圍中探索數字謎題。</p>
+      <span class="badge">開始遊玩 →</span>
+    </a>
+  </div>
+
+  <footer>
+    公開目錄頁位於
+    <a href="https://github.com/levelfly/levelfly.github.io/tree/master/games" target="_blank" rel="noopener">levelfly.github.io/games</a>。<br>
+    若隧道關閉，可回到
+    <a href="https://github.com/levelfly/life-management/tree/feat/%E7%AE%A1%E5%AE%B6/ClaudeCode/%E5%9C%98%E9%9A%8A%E6%A8%A1%E5%BC%8F_%E7%AC%AC%E4%BA%8C%E4%BB%A3/games_portal" target="_blank" rel="noopener">原始開發倉庫</a>
+    查看原始檔。
+  </footer>
+</body>
+</html>
