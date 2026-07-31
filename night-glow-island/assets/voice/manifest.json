@@ -41,6 +41,46 @@
    "text": "十",
    "file": "n10.mp3"
   },
+  "n11": {
+   "text": "十一",
+   "file": "n11.mp3"
+  },
+  "n12": {
+   "text": "十二",
+   "file": "n12.mp3"
+  },
+  "n13": {
+   "text": "十三",
+   "file": "n13.mp3"
+  },
+  "n14": {
+   "text": "十四",
+   "file": "n14.mp3"
+  },
+  "n15": {
+   "text": "十五",
+   "file": "n15.mp3"
+  },
+  "n16": {
+   "text": "十六",
+   "file": "n16.mp3"
+  },
+  "n17": {
+   "text": "十七",
+   "file": "n17.mp3"
+  },
+  "n18": {
+   "text": "十八",
+   "file": "n18.mp3"
+  },
+  "n19": {
+   "text": "十九",
+   "file": "n19.mp3"
+  },
+  "n20": {
+   "text": "二十",
+   "file": "n20.mp3"
+  },
   "find_1": {
    "text": "找找看，一，在哪裡呢？",
    "file": "find_1.mp3"
@@ -332,6 +372,106 @@
   "sky_sunrise": {
    "text": "天亮了。我們今天走到這裡。",
    "file": "sky_sunrise.mp3"
+  },
+  "sky_task_free": {
+   "text": "這兩邊都要有光喔，你想怎麼分呢？",
+   "file": "sky_task_free.mp3"
+  },
+  "sky_task_free3": {
+   "text": "三個地方都要有光，你想怎麼分？",
+   "file": "sky_task_free3.mp3"
+  },
+  "sky_task_fill": {
+   "text": "把光放進空空的位子吧。",
+   "file": "sky_task_fill.mp3"
+  },
+  "sky_task_rest": {
+   "text": "先放好這一邊，剩下的全部送過去。",
+   "file": "sky_task_rest.mp3"
+  },
+  "sky_task_same": {
+   "text": "這一邊，要跟旁邊一樣多喔。",
+   "file": "sky_task_same.mp3"
+  },
+  "sky_task_more": {
+   "text": "把空的位子補滿，就會比旁邊多囉。",
+   "file": "sky_task_more.mp3"
+  },
+  "sky_task_ten": {
+   "text": "幫我把十個位子填滿。",
+   "file": "sky_task_ten.mp3"
+  },
+  "sky_task_price": {
+   "text": "要付剛剛好的光幣，才買得到喔。",
+   "file": "sky_task_price.mp3"
+  },
+  "sky_retry": {
+   "text": "沒關係，我們換一種分法看看。",
+   "file": "sky_retry.mp3"
+  },
+  "sky_newway": {
+   "text": "哇！這是一種新的分法！",
+   "file": "sky_newway.mp3"
+  },
+  "sky_oldway": {
+   "text": "這個分法我們記過了，還有別的嗎？",
+   "file": "sky_oldway.mp3"
+  },
+  "sky_can": {
+   "text": "可以分成",
+   "file": "sky_can.mp3"
+  },
+  "sky_and": {
+   "text": "跟",
+   "file": "sky_and.mp3"
+  },
+  "sky_take": {
+   "text": "拿走",
+   "file": "sky_take.mp3"
+  },
+  "sky_left": {
+   "text": "剩下",
+   "file": "sky_left.mp3"
+  },
+  "sky_wind": {
+   "text": "風要吹了，我們去哪一邊？",
+   "file": "sky_wind.mp3"
+  },
+  "sky_last": {
+   "text": "最後一段風了，我們往晨鐘塔去。",
+   "file": "sky_last.mp3"
+  },
+  "sky_node_repair": {
+   "text": "這裡有光要分。",
+   "file": "sky_node_repair.mp3"
+  },
+  "sky_node_spirit": {
+   "text": "咦，好像有誰在那裡。",
+   "file": "sky_node_spirit.mp3"
+  },
+  "sky_chest": {
+   "text": "咦？這裡有東西！",
+   "file": "sky_chest.mp3"
+  },
+  "sky_tool_get": {
+   "text": "挑一個帶著走吧。",
+   "file": "sky_tool_get.mp3"
+  },
+  "sky_spirit_join": {
+   "text": "牠要跟我們一起走。",
+   "file": "sky_spirit_join.mp3"
+  },
+  "sky_rest": {
+   "text": "休息一下，看看風景。",
+   "file": "sky_rest.mp3"
+  },
+  "sky_diary": {
+   "text": "這是我們今天走過的路。",
+   "file": "sky_diary.mp3"
+  },
+  "sky_nest": {
+   "text": "這些，都是你發現的。",
+   "file": "sky_nest.mp3"
   }
  }
 }

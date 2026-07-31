@@ -14,6 +14,9 @@ import { title } from './scenes/title.js';
 import { map } from './scenes/map.js';
 import { skymap } from './scenes/skymap.js';
 import { repair } from './scenes/repair.js';
+import { event } from './scenes/event.js';
+import { dawn } from './scenes/dawn.js';
+import { nest } from './scenes/nest.js';
 import { level } from './scenes/level.js';
 import { lantern } from './scenes/lantern.js';
 import { finale } from './scenes/finale.js';
@@ -40,6 +43,9 @@ async function boot() {
   registerScene('map', map);
   registerScene('skymap', skymap);
   registerScene('repair', repair);
+  registerScene('event', event);
+  registerScene('dawn', dawn);
+  registerScene('nest', nest);
   registerScene('level', level);
   registerScene('lantern', lantern);
   registerScene('finale', finale);
@@ -93,11 +99,12 @@ async function boot() {
     try {
       app.run.lit = new Set(new URLSearchParams(location.search).get('lit')?.split(',').filter(Boolean) || []);
       // 有兩座島可以去的時候才問她想去哪；只有一座就別多按一下。
-      if (!jump) await go(hasChoice() ? 'agepick' : 'title');
+      // ?profile=age6 是開發／走查捷徑，指定了就別再問一次要去哪座島。
+      if (!jump) await go(hasChoice() && !forced ? 'agepick' : 'title');
       // ?go=map 是「回地圖」不是「回 map 這個場景」：兩座島的地圖是兩支不同的場景，
       // 直接跳 'map' 會把晨風群島的地點餵給夜光島的地圖畫法，當場炸掉。
       else if (jump === 'map') await go(app.profile.mapScene, { first: true });
-      else if (['agepick', 'lantern', 'finale', 'title'].includes(jump)) await go(jump);
+      else if (['agepick', 'lantern', 'nest', 'dawn', 'finale', 'title'].includes(jump)) await go(jump);
       else await go(app.profile.levelScene, { areaKey: jump });
     } catch (e) { fail(e); }
   };

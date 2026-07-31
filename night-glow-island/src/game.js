@@ -190,7 +190,12 @@ function buildHud() {
       <path d="M-29,-29 h58 v52 a29 25 0 0 1 -58 0 z" fill="none" stroke="#E6C894" stroke-width="4" stroke-linejoin="round"/>
       <path d="M-33,48 h66" stroke="#C9A26A" stroke-width="7" stroke-linecap="round"/>
     </svg><i class="hud-count"></i>`;
-  tappable(lant, () => { A.chime(880, { gain: .3 }); go('lantern', { from: app.sceneName }); });
+  // 燈籠打開的是「她累積下來的東西」，但兩座島累積的東西不一樣：
+  // 夜光島是收藏冊（第幾隻光靈），晨風群島是配方／光靈／日記三頁。
+  tappable(lant, () => {
+    A.chime(880, { gain: .3 });
+    go(app.profile?.nestScene || 'lantern', { from: app.sceneName });
+  });
   h.appendChild(lant);
 
   // 回島（只有在關卡裡出現）

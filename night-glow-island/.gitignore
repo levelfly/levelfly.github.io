@@ -2,5 +2,6 @@
 # 進 git 會讓 repo 每次膨脹一份，要分享就現場跑 tools/build_single.py。
 dist/
 
-# 自動走查的截圖
+# 自動走查的截圖與日誌
 tools/render_check/
+render_check/

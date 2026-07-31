@@ -250,3 +250,305 @@ body[data-orient="landscape"] .paper-card{ top:17%; }
   .prop.hinting, .title-main span, .loader-tap span,
   .progress-lamps i.lit .pl-core, .hud-lantern .hl-core{ animation:none !important; }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   晨風群島（age6）
+   ══════════════════════════════════════════════════════════════════
+   這一整段的共同前提：**背景是日出的天空，不是深藍的夜。**
+   夜光島那套「奶油色發光字」在這裡會直接消失，所以所有文字都改成
+   「深墨色 + 白色描邊」——有厚度、在亮底上讀得到，而且還是紙的感覺。
+   新增任何 UI 都要順手想一下亮島版本。 */
+
+/* ───────── 天色（航程進度條） ─────────
+   風吹過幾段，天就亮幾分。可預期、可視覺化的進度提示會降低焦慮；
+   突然逼近的倒數則會誘發數學焦慮 —— 所以這裡有天色，沒有計時器。 */
+:root{ --dawn:0; }
+.dawn-layer{
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  opacity:0; transition:opacity 1.4s ease;
+}
+body[data-island="age6"] .dawn-layer{
+  opacity:calc(var(--dawn) * .5);
+  background:linear-gradient(to bottom,
+    rgba(255,247,226,.62) 0%, rgba(255,232,196,.34) 44%, rgba(255,206,155,.46) 100%);
+}
+
+/* ───────── 光池與托盤 ───────── */
+.light-pool{ position:absolute; z-index:0; pointer-events:none; }
+
+.tray{ z-index:1; }
+.tray svg{ overflow:visible; }
+/* 拖著光珠的時候，還收得下的托盤微微浮起來 —— 不用文字說「可以放這裡」 */
+.tray.tray-open{ filter:drop-shadow(0 6px 14px rgba(120,150,170,.35)); }
+.tray.tray-pulse .tr-socket{ animation:socketBreathe 1.9s ease-in-out infinite; }
+.tray.tray-mid::after{
+  content:''; position:absolute; left:50%; top:8%; bottom:8%; width:3px; margin-left:-1.5px;
+  background:repeating-linear-gradient(to bottom, rgba(62,90,110,.55) 0 8px, transparent 8px 16px);
+}
+.tray.tray-shimmer{ animation:trayShimmer 1.4s ease-in-out; }
+.tray.tray-star::before{
+  content:'*'; position:absolute; right:-2px; top:-10px;
+  font-size:calc(var(--ui) * 1.4); line-height:1; color:#FFC46B;
+  text-shadow:0 1px 0 rgba(255,255,255,.9);
+}
+@keyframes socketBreathe{ 0%,100%{ opacity:.45 } 50%{ opacity:1 } }
+@keyframes trayShimmer{ 0%,100%{ filter:none } 50%{ filter:brightness(1.16) } }
+
+/* 被拿起來的光珠要在所有東西上面，不然會鑽進托盤底下 */
+.prop.orb{ cursor:grab; }
+.prop.dragging{ z-index:9; cursor:grabbing; }
+
+/* ───────── 道具列 ─────────
+   放左邊中段：右下是回航線圖、右上是燈籠、正下方是光池、左下是嚕米，
+   只有這一條是空的。四個為上限 —— 六歲不該管理背包。 */
+.tool-bar{
+  position:absolute; left:calc(var(--safe-l) + 8px); top:50%;
+  transform:translateY(-50%);
+  display:flex; flex-direction:column; gap:calc(var(--ui) * .38);
+  z-index:2;
+}
+.tool-btn{
+  --tool:clamp(46px, calc(var(--ui) * 2.7), 58px);
+  width:var(--tool); height:var(--tool);
+  border-radius:38% 38% 42% 42%/40%;
+  background:radial-gradient(circle at 38% 30%, rgba(255,255,255,.92), rgba(214,232,238,.72));
+  border:1.5px solid rgba(70,110,126,.34);
+  box-shadow:0 4px 12px rgba(62,90,110,.22), inset 0 1px 0 rgba(255,255,255,.9);
+  position:relative;
+  transition:transform .16s cubic-bezier(.34,1.56,.64,1), opacity .25s ease;
+}
+.tool-btn > svg{ position:absolute; left:16%; top:16%; width:68%; height:68%; color:#2E5468; }
+.tool-btn:active{ transform:scale(.9); }
+/* 用不到的道具是「暗下去」不是「不見了」：它還是她的，只是這裡派不上用場 */
+.tool-btn.off{ opacity:.42; }
+.tool-btn.nope{ animation:toolNope .38s ease; }
+.tool-btn.used{ animation:toolUsed .5s ease; }
+/* 升級過的道具變得更漂亮、介入更少。這一圈金邊就是「它長大了」 */
+.tool-btn[data-level="1"]{ border-color:rgba(201,162,106,.7); }
+.tool-btn[data-level="2"]{
+  border-color:rgba(255,196,107,.9);
+  box-shadow:0 4px 14px rgba(201,162,106,.34), inset 0 1px 0 rgba(255,255,255,.95);
+}
+@keyframes toolNope{ 0%,100%{ transform:translateX(0) } 25%{ transform:translateX(-5px) } 75%{ transform:translateX(5px) } }
+@keyframes toolUsed{ 0%{ transform:scale(1) } 40%{ transform:scale(1.22) } 100%{ transform:scale(1) } }
+
+/* ───────── 風帆進度（一晚有幾段風） ───────── */
+.sail-bar{
+  position:absolute; left:50%; transform:translateX(-50%);
+  top:calc(var(--safe-t) + 12px);
+  display:flex; gap:calc(var(--ui) * .34);
+  pointer-events:none;
+}
+.sail-bar i{
+  width:calc(var(--ui) * 1.5); height:calc(var(--ui) * 1.1);
+  color:rgba(62,90,110,.30);
+  transition:color .5s ease, transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.sail-bar i.on{ color:#E9A24E; transform:scale(1.12); }
+
+/* ───────── 亮島版的紙卡 ───────── */
+.paper-card.pc-light{
+  background:linear-gradient(180deg, rgba(255,252,244,.96), rgba(255,244,224,.92));
+  border-color:rgba(160,130,92,.42);
+  box-shadow:0 10px 28px rgba(120,96,64,.24);
+  color:#4A3A24;
+}
+.paper-card.pc-light .pc-line{ color:#3E5A6E; text-shadow:0 1px 0 rgba(255,255,255,.8); }
+.paper-card.pc-light .pc-sub,
+.paper-card.pc-light .pc-cycle{ color:#7A6242; }
+.paper-card.pc-tip{ top:auto; bottom:14%; }
+
+/* 配方卡：一個數字，兩堆點。畫面上永遠不出現算式符號 —— 六歲先要具體物。 */
+.rc-row{
+  display:flex; align-items:center; justify-content:center; flex-wrap:wrap;
+  gap:calc(var(--ui) * .5); margin-top:calc(var(--ui) * .4);
+}
+.rc-row > span{
+  font-size:calc(var(--ui) * 1.8); font-weight:700; color:#B07B2E;
+  text-shadow:0 1px 0 rgba(255,255,255,.9);
+}
+/* 一堆點。用 flex-wrap 不用固定五欄的 grid ——
+   grid 就算只有一顆點也會撐出五欄的寬度，一群 1 跟一群 5 看起來就一樣寬，
+   「這邊比較少」那個一眼可見的差別會整個消失。 */
+.rc-dots{
+  display:flex; flex-wrap:wrap; gap:3px;
+  max-width:calc(var(--ui) * .48 * 5 + 12px);
+  padding:calc(var(--ui) * .3); border-radius:calc(var(--ui) * .5);
+  background:rgba(255,227,163,.32); border:1.5px dashed rgba(160,130,92,.45);
+}
+.rc-dots b{
+  display:block; flex:0 0 auto;
+  width:calc(var(--ui) * .48); height:calc(var(--ui) * .48);
+  border-radius:50%; background:radial-gradient(circle at 36% 32%, #FFFDF4, #FFC46B);
+}
+.rc-row em{ font-style:normal; color:#9A7A52; font-size:calc(var(--ui) * 1.1); }
+
+/* ───────── 選一件（寶箱／花紋） ───────── */
+.pick-row{
+  position:absolute; left:0; right:0; bottom:14%;
+  display:flex; justify-content:center; align-items:flex-end;
+  gap:calc(var(--ui) * 1.0);
+  pointer-events:none;
+}
+.pick-card{
+  pointer-events:auto;
+  width:clamp(96px, 26vmin, 168px); height:clamp(112px, 30vmin, 194px);
+  border-radius:calc(var(--ui) * .9);
+  background:linear-gradient(180deg, rgba(255,252,244,.97), rgba(252,240,220,.94));
+  border:2px solid rgba(160,130,92,.45);
+  box-shadow:0 10px 26px rgba(120,96,64,.28);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:calc(var(--ui) * .2);
+  opacity:0; transform:translateY(18px) scale(.94);
+  transition:opacity .4s ease, transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.pick-card.in{ opacity:1; transform:none; }
+.pick-card svg{ width:64%; height:56%; }
+.pick-card span{
+  font-size:calc(var(--ui) * .8); color:#5A4A32; letter-spacing:.04em;
+}
+.pick-card:active{ transform:scale(.94); }
+.pick-card.taken{ transform:scale(1.06); border-color:#E9A24E; box-shadow:0 12px 30px rgba(201,140,60,.4); }
+.pick-card.fade{ opacity:.25; transform:scale(.9); }
+.pat-card{ height:clamp(96px, 26vmin, 168px); }
+.pat-card svg{ width:88%; height:88%; }
+
+/* ───────── 島嶼日記 ───────── */
+.diary-sheet{
+  position:absolute; z-index:2;
+  opacity:0; transform:translateY(16px) rotate(-1.2deg);
+  transition:opacity .6s ease, transform .6s cubic-bezier(.34,1.56,.64,1);
+  filter:drop-shadow(0 12px 26px rgba(120,96,64,.3));
+}
+.diary-sheet.in{ opacity:1; transform:rotate(-1.2deg); }
+.diary-fig{ width:100%; height:auto; display:block; }
+
+/* ───────── 光靈的窩（配方／光靈／日記） ───────── */
+.nest{
+  position:absolute; inset:0; z-index:9;
+  display:flex; flex-direction:column;
+  background:linear-gradient(180deg, rgba(226,242,246,.97) 0%, rgba(255,240,216,.97) 100%);
+  opacity:0; transition:opacity .35s ease;
+  padding:calc(var(--safe-t) + 10px) calc(var(--safe-r) + 10px) calc(var(--safe-b) + 10px) calc(var(--safe-l) + 10px);
+}
+.nest.in{ opacity:1; }
+.nest-tabs{
+  display:flex; gap:calc(var(--ui) * .4); justify-content:center;
+  padding-right:calc(var(--ui) * 3.6);
+}
+.nest-tab{
+  min-width:calc(var(--ui) * 4.2); min-height:44px;
+  padding:calc(var(--ui) * .35) calc(var(--ui) * .9);
+  border-radius:999px;
+  font-size:calc(var(--ui) * .92); color:#4B6A78;
+  background:rgba(255,255,255,.55);
+  border:1.5px solid rgba(70,110,126,.28);
+  transition:transform .15s ease, background .2s ease;
+}
+.nest-tab.on{
+  background:linear-gradient(180deg,#FFF6E6,#FFE6BE);
+  border-color:rgba(201,162,106,.75); color:#3E5A6E; font-weight:700;
+}
+.nest-tab:active{ transform:scale(.94); }
+.nest-body{
+  flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch;
+  margin-top:calc(var(--ui) * .6);
+  padding:calc(var(--ui) * .3) calc(var(--ui) * .2) calc(var(--ui) * 2);
+}
+.nest-close{
+  position:absolute; top:calc(var(--safe-t) + 10px); right:calc(var(--safe-r) + 10px);
+  width:clamp(46px, calc(var(--ui) * 2.6), 60px); height:clamp(46px, calc(var(--ui) * 2.6), 60px);
+  border-radius:50%; color:#3E5A6E;
+  background:rgba(255,255,255,.7); border:1.5px solid rgba(70,110,126,.3);
+  box-shadow:0 4px 12px rgba(62,90,110,.2);
+}
+.nest-close:active{ transform:scale(.9); }
+.nest-close svg{ position:absolute; left:26%; top:26%; width:48%; height:48%; }
+
+.nest-empty{
+  display:flex; flex-direction:column; align-items:center; gap:calc(var(--ui) * .6);
+  padding:calc(var(--ui) * 3) calc(var(--ui) * 1);
+  color:#7A6242; text-align:center;
+}
+.nest-empty p{ font-size:calc(var(--ui) * .95); max-width:22em; line-height:1.6; }
+
+.rec-row{ display:flex; align-items:center; gap:calc(var(--ui) * .6); margin-bottom:calc(var(--ui) * .8); }
+.rec-total{
+  flex:0 0 auto; width:calc(var(--ui) * 2.1); height:calc(var(--ui) * 2.1);
+  display:grid; place-items:center; border-radius:50%;
+  font-style:normal; font-weight:700; font-size:calc(var(--ui) * 1.1); color:#B07B2E;
+  background:rgba(255,227,163,.5); border:2px solid rgba(201,162,106,.55);
+}
+.rec-list{ display:flex; gap:calc(var(--ui) * .45); overflow-x:auto; padding-bottom:4px; }
+.rec-card{
+  flex:0 0 auto;
+  display:flex; align-items:center; gap:calc(var(--ui) * .25);
+  padding:calc(var(--ui) * .35) calc(var(--ui) * .45);
+  border-radius:calc(var(--ui) * .6);
+  background:rgba(255,252,244,.9); border:1.5px solid rgba(160,130,92,.35);
+  transition:transform .18s cubic-bezier(.34,1.56,.64,1);
+}
+.rec-card.pop{ transform:scale(1.08); }
+/* 圖鑑裡的一堆點。`b` 預設是 inline，只給寬高不會有任何效果 ——
+   卡片會變成空白的一格，看起來像資料沒進去。 */
+.rec-dots{
+  display:flex; flex-wrap:wrap; gap:3px;
+  max-width:calc(var(--ui) * .40 * 5 + 12px);
+}
+.rec-dots b{
+  display:block; flex:0 0 auto;
+  width:calc(var(--ui) * .40); height:calc(var(--ui) * .40);
+  border-radius:50%; background:radial-gradient(circle at 36% 32%, #FFFDF4, #FFC46B);
+}
+/* 邀請，不是待辦事項：這一張永遠在最後，永遠不會變成「還缺幾個」 */
+.rec-more{
+  color:#9A8564; font-size:calc(var(--ui) * .8);
+  background:none; border:1.5px dashed rgba(160,130,92,.45);
+}
+
+.sp-grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(clamp(88px, 22vmin, 140px), 1fr));
+  gap:calc(var(--ui) * .7);
+}
+.sp-cell{
+  position:relative; aspect-ratio:1/1.16;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  border-radius:calc(var(--ui) * .8);
+  background:rgba(255,252,244,.86); border:1.5px solid rgba(160,130,92,.32);
+  transition:transform .2s cubic-bezier(.34,1.56,.64,1);
+}
+.sp-cell.pop{ transform:scale(1.07); }
+.sp-cell svg{ width:74%; height:74%; }
+.sp-cell span{ font-size:calc(var(--ui) * .78); color:#5A4A32; }
+.sp-note{
+  position:absolute; left:6%; right:6%; bottom:6%;
+  padding:calc(var(--ui) * .3);
+  border-radius:calc(var(--ui) * .45);
+  background:rgba(62,90,110,.9); color:#FFF6E6;
+  font-size:calc(var(--ui) * .66); line-height:1.35; text-align:center;
+  opacity:0; transform:translateY(6px); transition:opacity .25s ease, transform .25s ease;
+}
+.sp-note.in{ opacity:1; transform:none; }
+
+.diary-card{
+  background:rgba(255,255,255,.55);
+  border-radius:calc(var(--ui) * .8);
+  padding:calc(var(--ui) * .4);
+  margin-bottom:calc(var(--ui) * .8);
+}
+.diary-card .diary-fig{ width:100%; height:auto; }
+
+/* ───────── 橫向：畫面很扁，道具與選卡都要瘦一號 ───────── */
+body[data-orient="landscape"] .tool-btn{ --tool:clamp(42px, calc(var(--ui) * 2.2), 50px); }
+body[data-orient="landscape"] .pick-row{ bottom:10%; gap:calc(var(--ui) * .8); }
+body[data-orient="landscape"] .pick-card{ width:clamp(88px, 20vmin, 140px); height:clamp(96px, 24vmin, 160px); }
+body[data-orient="landscape"] .sail-bar{ top:calc(var(--safe-t) + 6px); }
+
+@media (prefers-reduced-motion:reduce){
+  .tray.tray-pulse .tr-socket, .tool-btn.nope, .tool-btn.used{ animation:none !important; }
+}
+
+/* 亮底上的進度小燈：夜光島那組奶油色描邊在日出天空上等於沒有。
+   還沒亮的要看得出是「還沒亮」，不是「不存在」。 */
+body[data-island="age6"] .progress-lamps i circle[stroke]{ stroke:#5E7F90; opacity:.55; }
+body[data-island="age6"] .progress-lamps i.lit circle[stroke]{ stroke:#C9862E; opacity:.85; }

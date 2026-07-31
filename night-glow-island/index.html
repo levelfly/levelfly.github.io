@@ -10,8 +10,8 @@
 <meta name="description" content="嚕米的夜光島 — 給 3～6 歲小朋友的數字冒險">
 <title>嚕米的夜光島</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1026'/%3E%3Ccircle cx='32' cy='34' r='16' fill='%23FFC46B' opacity='.35'/%3E%3Ccircle cx='32' cy='34' r='9' fill='%23FFE3A3'/%3E%3Cpath d='M22 20h20l4 5H18z' fill='%23C9A26A'/%3E%3Cpath d='M32 12v8' stroke='%23C9A26A' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles/base.css?v=20260729a">
-<link rel="stylesheet" href="styles/game.css?v=20260729a">
+<link rel="stylesheet" href="styles/base.css?v=20260731c">
+<link rel="stylesheet" href="styles/game.css?v=20260731c">
 </head>
 <body>
 
@@ -20,6 +20,10 @@
 
   <!-- 背景層（插畫 + 慢速呼吸） -->
   <div id="bgLayer" class="bg-layer"></div>
+
+  <!-- 天色層：晨風群島的進度條。風吹過幾段，天就亮幾分（--dawn 由航程驅動）。
+       只對亮島生效，夜光島永遠是 0 —— 那座島的夜色不能被烘暖。 -->
+  <div class="dawn-layer" aria-hidden="true"></div>
 
   <!-- 粒子層（canvas：光點、火花、霧） -->
   <canvas id="fx" class="fx-layer"></canvas>
@@ -71,6 +75,6 @@
   <p>把手機轉直一點點就好囉</p>
 </div>
 
-<script type="module" src="src/main.js?v=20260729a"></script>
+<script type="module" src="src/main.js?v=20260731c"></script>
 </body>
 </html>

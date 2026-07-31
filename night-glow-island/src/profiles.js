@@ -22,6 +22,7 @@ export const PROFILES = {
     areas: GLOWISLE_AREAS,
     levelScene: 'level',
     mapScene: 'map',
+    nestScene: 'lantern',
     intro: ['intro1', 'intro2'],
     titleScenery: 'title',
     mapScenery: 'map',
@@ -32,12 +33,14 @@ export const PROFILES = {
     label: '島嶼修復師',
     islandName: '晨風群島',
     sub: '把光分回去',
-    // 階段 3～5 才會把這座島蓋起來。ready 是假的時候，兩扇門的畫面不會出現，
-    // 開場流程跟以前一模一樣 —— 不做「按了沒反應」的門。
-    ready: false,
+    // 玩法（分光）、航程（風與天色）、meta 層（配方／光靈／日記）都做完了才翻成 true。
+    // 在那之前 ready 是假的：兩扇門的畫面不會出現，開場流程跟以前一模一樣 ——
+    // 不做「按了沒反應」的門。
+    ready: true,
     areas: SKYISLES,
     levelScene: 'repair',
     mapScene: 'skymap',
+    nestScene: 'nest',
     intro: ['sky_intro1', 'sky_intro2'],
     titleScenery: 'skytitle',
     mapScenery: 'skymap',
