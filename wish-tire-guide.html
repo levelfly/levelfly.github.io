@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Toyota Wish 換輪胎完全指南 — 不懂車也看得懂</title>
 <meta name="description" content="Toyota Wish 換四條輪胎：205/55R16 全 77 款實際價格比較、四種預算的建議、到店怎麼講、費用怎麼算。寫給完全不懂車的人。">
-<meta name="theme-color" content="#FAF7F2">
+<meta name="theme-color" content="#FAF7F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161B20" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="wish-tire-guide/app.webmanifest">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Toyota Wish 換輪胎完全指南 — 不懂車也看得懂">
 <meta property="og:description" content="77 款實際價格比較、四種預算的具體建議、到店話術腳本。價格已含安裝，看完就能去換。">
@@ -33,9 +37,9 @@
 }
 *{box-sizing:border-box}
 body{
-  margin:0; background:var(--cream); color:var(--ink);
+  margin:0; background:var(--cream); color:var(--ink); font-size:var(--fs,17px);
   font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;
-  line-height:1.85; font-size:17px; letter-spacing:.01em; -webkit-text-size-adjust:100%;
+  line-height:1.85; letter-spacing:.01em; -webkit-text-size-adjust:100%;
 }
 .wrap{max-width:820px; margin:0 auto; padding:0 20px 80px}
 img{max-width:100%; height:auto; display:block; border-radius:14px}
@@ -66,8 +70,8 @@ h1{font-size:clamp(26px,5.8vw,38px); line-height:1.3; margin:0 0 14px; letter-sp
 section{margin-top:52px}
 h2{font-size:clamp(21px,4.4vw,27px); line-height:1.4; margin:0 0 6px; letter-spacing:-.01em}
 h2 .num{color:var(--terra-text); font-size:.72em; font-weight:800; margin-right:.5em; letter-spacing:.05em}
-.lede{color:var(--ink-soft); margin:0 0 22px; font-size:16px}
-h3{font-size:19px; margin:30px 0 10px}
+.lede{color:var(--ink-soft); margin:0 0 22px; font-size:.95em}
+h3{font-size:1.12em; margin:30px 0 10px}
 p{margin:0 0 16px}
 a{color:var(--indigo); text-underline-offset:3px}
 
@@ -84,7 +88,7 @@ a{color:var(--indigo); text-underline-offset:3px}
 .price{font-size:31px; font-weight:800; letter-spacing:-.02em; line-height:1.15}
 .price small{font-size:14px; font-weight:600; color:var(--ink-soft); margin-left:6px; letter-spacing:0}
 .per{font-size:13px; color:var(--ink-soft); margin-top:2px}
-.pick ul{margin:14px 0 0; padding-left:0; list-style:none; font-size:14.6px}
+.pick ul{margin:14px 0 0; padding-left:0; list-style:none; font-size:.87em}
 .pick li{position:relative; padding-left:22px; margin-bottom:7px; line-height:1.7}
 .pick li::before{position:absolute; left:0; top:0}
 .pick li.y::before{content:"✓"; color:#2F7D5F; font-weight:800}
@@ -97,7 +101,7 @@ a{color:var(--indigo); text-underline-offset:3px}
 .warn{background:var(--terra-soft); border-left:4px solid var(--terra-text); border-radius:0 12px 12px 0; padding:16px 18px 4px; margin:20px 0}
 
 .tablewrap{overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:14px; background:var(--paper)}
-table{border-collapse:collapse; width:100%; min-width:560px; font-size:14.6px}
+table{border-collapse:collapse; width:100%; min-width:560px; font-size:.87em}
 th,td{padding:11px 13px; text-align:left; border-bottom:1px solid var(--line); white-space:nowrap}
 th{background:var(--indigo-soft); font-weight:700; font-size:13.5px; color:var(--ink)}
 tbody tr:last-child td{border-bottom:none}
@@ -107,7 +111,7 @@ td.rem{white-space:normal; font-size:13px; color:var(--terra-text); min-width:8e
 .mini{font-size:12.5px; color:var(--ink-soft); margin-top:-8px}
 
 .check{list-style:none; padding:0; margin:18px 0}
-.check li{position:relative; padding-left:34px; margin-bottom:12px; font-size:16px}
+.check li{position:relative; padding-left:34px; margin-bottom:12px; font-size:.95em}
 .check li::before{content:""; position:absolute; left:0; top:6px; width:19px; height:19px;
   border:2px solid var(--indigo); border-radius:5px}
 
@@ -115,7 +119,7 @@ td.rem{white-space:normal; font-size:13px; color:var(--terra-text); min-width:8e
 .decode .row{display:grid; grid-template-columns:74px 1fr; gap:14px; align-items:start;
   background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:12px 15px}
 .decode .big{font-size:21px; font-weight:800; color:var(--terra-text); text-align:center; letter-spacing:-.02em}
-.decode .txt{font-size:14.8px; line-height:1.65}
+.decode .txt{font-size:.88em; line-height:1.65}
 .decode .txt b{display:block; margin-bottom:2px}
 
 ol.steps{counter-reset:s; list-style:none; padding:0; margin:18px 0}
@@ -123,17 +127,17 @@ ol.steps li{counter-increment:s; position:relative; padding-left:46px; margin-bo
 ol.steps li::before{content:counter(s); position:absolute; left:0; top:1px; width:30px; height:30px; border-radius:50%;
   background:var(--indigo); color:#fff; font-weight:800; font-size:15px; display:flex; align-items:center; justify-content:center}
 .script{background:var(--indigo-soft); border-radius:12px; padding:14px 16px; margin:10px 0 0;
-  font-size:15px; line-height:1.75; border:1px dashed var(--indigo)}
+  font-size:.9em; line-height:1.75; border:1px dashed var(--indigo)}
 .script::before{content:"照著念："; display:block; font-size:12px; font-weight:800; letter-spacing:.1em; color:var(--indigo); margin-bottom:6px}
-.after{font-size:14.6px; margin-top:8px; color:var(--ink-soft)}
+.after{font-size:.87em; margin-top:8px; color:var(--ink-soft)}
 
 details{background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin-bottom:10px}
 details[open]{border-color:var(--sage)}
-summary{cursor:pointer; font-weight:700; font-size:16px; list-style:none}
+summary{cursor:pointer; font-weight:700; font-size:.95em; list-style:none}
 summary::-webkit-details-marker{display:none}
 summary::before{content:"＋ "; color:var(--terra-text); font-weight:800}
 details[open] summary::before{content:"− "}
-details p, details li{margin:12px 0 2px; font-size:15.4px; color:var(--ink-soft)}
+details p, details li{margin:12px 0 2px; font-size:.91em; color:var(--ink-soft)}
 
 .evi{border:1px dashed var(--line); border-radius:12px; padding:14px 16px 4px; margin:16px 0}
 .evi .h{font-size:12px; font-weight:800; letter-spacing:.14em; color:var(--ink-soft); margin-bottom:8px}
@@ -186,18 +190,74 @@ hr{border:none; border-top:1px solid var(--line); margin:34px 0}
   padding:11px 20px; border-radius:999px; font-size:14.5px; z-index:20; opacity:0; transition:opacity .25s;
   pointer-events:none; max-width:90vw; text-align:center}
 .toast.on{opacity:.96}
+/* 接續上次閱讀：這條要能點，不能沿用 .toast（那個是 pointer-events:none 的純提示） */
+.resume{position:fixed; left:50%; bottom:78px; transform:translateX(-50%); z-index:21;
+  display:flex; align-items:center; gap:12px; background:#21303D; color:#fff;
+  padding:10px 12px 10px 18px; border-radius:999px; font-size:14.5px; max-width:92vw;
+  box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.resume button{background:#FFD9A8; color:#2E4763; border:none; border-radius:999px;
+  min-height:40px; padding:0 18px; font:800 14.5px/1 inherit; font-family:inherit; cursor:pointer}
+.resume .x{background:transparent; color:#fff; min-width:40px; padding:0; font-weight:400; font-size:18px}
 .more{display:block; width:100%; margin:4px 0 0; padding:13px; border:1px dashed var(--indigo);
   background:transparent; color:var(--indigo); border-radius:12px; font:700 15px/1 inherit;
   font-family:inherit; cursor:pointer; min-height:46px}
 section{scroll-margin-top:14px}
 @media (max-width:620px){ .after{font-size:15px} }
 
+/* ── 長頁閱讀：讓瀏覽器跳過畫面外的區塊，低階手機捲動才順 ── */
+section{content-visibility:auto; contain-intrinsic-size:auto 1200px}
+h1,h2,h3,h4{text-wrap:balance}
+p,li,figcaption{text-wrap:pretty}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .fab,.toast,.prog,dialog{transition:none !important}
+}
+
+/* 閱讀進度條 */
+.prog{position:fixed; inset:0 auto auto 0; height:3px; width:0; z-index:40;
+  background:var(--terra-text); transition:width .1s linear}
+
+/* 底部工具列：目錄 + 字級 */
+dialog.sheet{border:none; padding:0; background:transparent; max-width:100%; width:100%;
+  margin:auto auto 0; max-height:82vh}
+dialog.sheet::backdrop{background:rgba(20,26,32,.55)}
+.sheet-in{background:var(--paper); color:var(--ink); border-radius:20px 20px 0 0;
+  padding:14px 18px calc(18px + env(safe-area-inset-bottom)); max-height:82vh; overflow:auto}
+.grab{width:42px; height:5px; border-radius:99px; background:var(--line); margin:2px auto 12px}
+.sheet h5{margin:0 0 10px; font-size:13px; letter-spacing:.14em; color:var(--ink-soft); font-weight:800}
+.fsrow{display:flex; gap:10px; align-items:center; margin-bottom:18px}
+.fsrow button{flex:1; min-height:46px; border:1px solid var(--line); background:var(--cream);
+  color:var(--ink); border-radius:12px; font:800 17px/1 inherit; font-family:inherit; cursor:pointer}
+.fsrow button:active{background:var(--indigo-soft)}
+.fsrow .now{flex:0 0 auto; font-size:13.5px; color:var(--ink-soft); min-width:4.5em; text-align:center}
+.toclist{list-style:none; margin:0; padding:0}
+.toclist a{display:flex; gap:10px; align-items:baseline; padding:12px 6px; min-height:46px;
+  text-decoration:none; color:var(--ink); border-bottom:1px solid var(--line); font-size:15.5px}
+.toclist a .n{color:var(--terra-text); font-weight:800; font-size:13px; min-width:2em}
+.toclist a[aria-current="true"]{color:var(--terra-text); font-weight:800}
+.toclist li:last-child a{border-bottom:none}
+
+/* 圖片點開放大：圖裡有字，手機要能看清楚 */
+dialog.lb{border:none; padding:0; background:transparent; max-width:100vw; max-height:100vh;
+  width:100vw; height:100vh; margin:0}
+dialog.lb::backdrop{background:rgba(12,16,20,.92)}
+.lb-in{width:100%; height:100%; display:flex; align-items:center; justify-content:center; padding:12px}
+.lb-in img{max-width:100%; max-height:100%; width:auto; border-radius:10px; object-fit:contain}
+.lb-close{position:fixed; top:calc(10px + env(safe-area-inset-top)); right:12px; z-index:2;
+  background:rgba(255,255,255,.92); color:#21303D; border:none; border-radius:999px;
+  min-width:44px; min-height:44px; font:800 17px/1 inherit; font-family:inherit; cursor:pointer}
+figure{position:relative}
+figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,61,.82); color:#fff;
+  border-radius:999px; font-size:12.5px; padding:7px 12px; pointer-events:none}
+@media (min-width:821px){ figure .zoom{display:none} }
+
 @media print{
   body{background:#fff; color:#000; font-size:12pt}
   .decide{background:#eee !important; color:#000 !important; border-radius:0}
   .decide .ans b{color:#000}
   figure, .hero{display:none}
-  .copy, .share, .fab, .toast, .more{display:none !important}
+  .copy, .share, .fab, .toast, .resume, .more, .prog, dialog, figure .zoom{display:none !important}
   details{page-break-inside:avoid} details[open] summary::before{content:"■ "}
   details p{display:block}
   .tablewrap{overflow:visible; border:1px solid #999}
@@ -220,7 +280,7 @@ section{scroll-margin-top:14px}
   <h1>換四條輪胎，<br>不用懂車也能買得對</h1>
   <p class="sub">這份報告把 77 款可以裝在你車上的輪胎全部查了一遍，挑出四條值得考慮的，告訴你為什麼、多少錢、到店怎麼說。</p>
   <div class="meta">尺寸 <b>205/55R16</b>　·　價格查詢日 <b>2026 年 8 月 2 日</b>　·　資料來源：小李輪胎官網</div>
-  <img class="hero" src="wish-tire-guide/hero.jpg" alt="一台銀色七人座休旅車停在雨後街道，媽媽和兩個小孩準備上車" width="1400" height="800" fetchpriority="high">
+  <img class="hero" src="wish-tire-guide/hero.jpg" srcset="wish-tire-guide/hero_640.jpg 640w, wish-tire-guide/hero_900.jpg 900w, wish-tire-guide/hero.jpg 1400w" sizes="(max-width:820px) 100vw, 780px" width="1400" height="800" fetchpriority="high" alt="一台銀色七人座休旅車停在雨後街道，媽媽和兩個小孩準備上車">
 </header>
 
 <!-- 0 ─────────────────────────────── -->
@@ -238,7 +298,7 @@ section{scroll-margin-top:14px}
 
 
   <figure>
-    <img src="wish-tire-guide/sidewall.jpg" alt="輪胎胎壁特寫，壓印 205/55R16 91V，四個標籤分別指向寬度、扁平比、輪圈吋數、載重與速度" loading="lazy" decoding="async">
+    <img src="wish-tire-guide/sidewall.jpg" srcset="wish-tire-guide/sidewall_640.jpg 640w, wish-tire-guide/sidewall_900.jpg 900w, wish-tire-guide/sidewall.jpg 1200w" sizes="(max-width:820px) 100vw, 780px" width="1200" height="658" loading="lazy" decoding="async" alt="輪胎胎壁特寫，壓印 205/55R16 91V，四個標籤分別指向寬度、扁平比、輪圈吋數、載重與速度">
     <figcaption>胎壁上這一串就是尺寸。四條胎都要一樣。</figcaption>
   </figure>
 
@@ -255,7 +315,7 @@ section{scroll-margin-top:14px}
   <p class="lede">下面的價格都是<strong>四條的總價，而且已經含安裝、平衡、氮氣、新氣嘴</strong>——不是「一條的價錢」，也不用另外付工錢。換四條還附送 3D 定位健診（基本調整，不等於完整四輪定位）。<strong>標示是現金價</strong>，要刷卡或分期記得先問會不會加價。</p>
 
   <figure>
-    <img src="wish-tire-guide/four.jpg" alt="四條輪胎並排，標示最省 11,600、最推薦 12,000、雨天最強 13,200、最耐用 14,000" loading="lazy" decoding="async">
+    <img src="wish-tire-guide/four.jpg" srcset="wish-tire-guide/four_640.jpg 640w, wish-tire-guide/four_900.jpg 900w, wish-tire-guide/four.jpg 1200w" sizes="(max-width:820px) 100vw, 780px" width="1200" height="600" loading="lazy" decoding="async" alt="四條輪胎並排，標示最省 11,600、最推薦 12,000、雨天最強 13,200、最耐用 14,000">
     <figcaption>由左到右價格從低到高，數字是四條的總價（已含安裝）。橘色那條是我的建議，下面四張卡片從它開始講。</figcaption>
   </figure>
 
@@ -326,7 +386,7 @@ section{scroll-margin-top:14px}
   <p>Wish 是七人座、車身比一般轎車高、車重依車型約 1,415～1,550 公斤。<strong>載滿人和行李的時候，重量壓在四條胎上，而且車身高、轉彎時晃得比轎車明顯。</strong>所以挑胎的第一順位不是「跑得快」，而是<strong>撐得住</strong>和<strong>停得住</strong>。</p>
 
   <figure>
-    <img src="wish-tire-guide/load.jpg" alt="兩條輪胎承重對照：一般胎胎壁被壓得凸出變形，加強胎維持挺立" loading="lazy" decoding="async">
+    <img src="wish-tire-guide/load.jpg" srcset="wish-tire-guide/load_640.jpg 640w, wish-tire-guide/load_900.jpg 900w, wish-tire-guide/load.jpg 1100w" sizes="(max-width:820px) 100vw, 780px" width="1100" height="733" loading="lazy" decoding="async" alt="兩條輪胎承重對照：一般胎胎壁被壓得凸出變形，加強胎維持挺立">
     <figcaption>左邊是一般胎，滿載時胎壁會被壓得往外凸；右邊是加強版（XL），胎壁做得更厚，同樣重量下形狀不變。</figcaption>
   </figure>
 
@@ -374,12 +434,12 @@ section{scroll-margin-top:14px}
 
 
   <figure>
-    <img src="wish-tire-guide/dot.jpg" alt="胎壁上橢圓框內的四位數字 3225，標示為第 32 週、2025 年，也就是這條胎的生產日期" loading="lazy" decoding="async">
+    <img src="wish-tire-guide/dot.jpg" srcset="wish-tire-guide/dot_640.jpg 640w, wish-tire-guide/dot_900.jpg 900w, wish-tire-guide/dot.jpg 1200w" sizes="(max-width:820px) 100vw, 780px" width="1200" height="658" loading="lazy" decoding="async" alt="胎壁上橢圓框內的四位數字 3225，標示為第 32 週、2025 年，也就是這條胎的生產日期">
     <figcaption>看到 3225 就是 2025 年第 32 週出廠。一年內都算新鮮。</figcaption>
   </figure>
 
   <figure>
-    <img src="wish-tire-guide/aging.jpg" alt="一條胎面還很厚但胎壁出現細紋的輪胎，旁邊有太陽、落葉與空白日曆" loading="lazy" decoding="async">
+    <img src="wish-tire-guide/aging.jpg" srcset="wish-tire-guide/aging_640.jpg 640w, wish-tire-guide/aging_900.jpg 900w, wish-tire-guide/aging.jpg 1100w" sizes="(max-width:820px) 100vw, 780px" width="1100" height="733" loading="lazy" decoding="async" alt="一條胎面還很厚但胎壁出現細紋的輪胎，旁邊有太陽、落葉與空白日曆">
     <figcaption>輪胎有兩種壽命：磨完的，和放老的。跑得少的車通常是後者先到。</figcaption>
   </figure>
 </section>
@@ -464,7 +524,7 @@ section{scroll-margin-top:14px}
   <p class="lede">不是它們不好，是裝在 Wish 上你付了錢卻拿不到對應的好處。</p>
 
   <figure>
-    <img src="wish-tire-guide/avoid.jpg" alt="三種打叉的輪胎圖示：運動胎、續跑胎、電動車胎" loading="lazy" decoding="async">
+    <img src="wish-tire-guide/avoid.jpg" srcset="wish-tire-guide/avoid_640.jpg 640w, wish-tire-guide/avoid_900.jpg 900w, wish-tire-guide/avoid.jpg 1200w" sizes="(max-width:820px) 100vw, 780px" width="1200" height="568" loading="lazy" decoding="async" alt="三種打叉的輪胎圖示：運動胎、續跑胎、電動車胎">
   </figure>
 
   <div class="card">
@@ -493,7 +553,7 @@ section{scroll-margin-top:14px}
   <p class="lede">輪胎的價差，八成花在你希望永遠用不到的那一刻。</p>
 
   <figure>
-    <img src="wish-tire-guide/wet.jpg" alt="雨天兩車道俯視圖，左車煞車距離短，右車滑行距離明顯較長" loading="lazy" decoding="async">
+    <img src="wish-tire-guide/wet.jpg" srcset="wish-tire-guide/wet_640.jpg 640w, wish-tire-guide/wet.jpg 900w" sizes="(max-width:820px) 100vw, 780px" width="900" height="1350" loading="lazy" decoding="async" alt="雨天兩車道俯視圖，左車煞車距離短，右車滑行距離明顯較長">
     <figcaption>同樣的速度、同樣的雨天，煞車距離的差別來自輪胎。</figcaption>
   </figure>
 
@@ -508,7 +568,7 @@ section{scroll-margin-top:14px}
   <p class="lede">帶著這份報告去，照著下面講就好。重點是把該問的問完，還有——<strong>被推銷時知道怎麼擋</strong>。</p>
 
   <figure>
-    <img src="wish-tire-guide/steps.jpg" alt="到店五步驟流程：打電話、問現貨、看日期、對價錢、打胎壓" loading="lazy" decoding="async">
+    <img src="wish-tire-guide/steps.jpg" srcset="wish-tire-guide/steps_640.jpg 640w, wish-tire-guide/steps_900.jpg 900w, wish-tire-guide/steps.jpg 1200w" sizes="(max-width:820px) 100vw, 780px" width="1200" height="510" loading="lazy" decoding="async" alt="到店五步驟流程：打電話、問現貨、看日期、對價錢、打胎壓">
   </figure>
 
   <ol class="steps">
@@ -539,12 +599,12 @@ section{scroll-margin-top:14px}
   </ol>
 
   <figure>
-    <img src="wish-tire-guide/placard.jpg" alt="駕駛座車門打開，門邊柱子上的貼紙放大，標示原廠胎壓看這裡" loading="lazy" decoding="async">
+    <img src="wish-tire-guide/placard.jpg" srcset="wish-tire-guide/placard_640.jpg 640w, wish-tire-guide/placard_900.jpg 900w, wish-tire-guide/placard.jpg 1200w" sizes="(max-width:820px) 100vw, 780px" width="1200" height="658" loading="lazy" decoding="async" alt="駕駛座車門打開，門邊柱子上的貼紙放大，標示原廠胎壓看這裡">
     <figcaption>胎壓貼紙就在駕駛座門邊的柱子上，換完照這個數字打。</figcaption>
   </figure>
 
   <figure>
-    <img src="wish-tire-guide/shop.jpg" alt="輪胎行內部：休旅車在舉升機上，四條新胎堆在旁邊，技師正在向女車主說明" loading="lazy" decoding="async">
+    <img src="wish-tire-guide/shop.jpg" srcset="wish-tire-guide/shop_640.jpg 640w, wish-tire-guide/shop_900.jpg 900w, wish-tire-guide/shop.jpg 1400w" sizes="(max-width:820px) 100vw, 780px" width="1400" height="933" loading="lazy" decoding="async" alt="輪胎行內部：休旅車在舉升機上，四條新胎堆在旁邊，技師正在向女車主說明">
   </figure>
 
 </section>
@@ -555,7 +615,7 @@ section{scroll-margin-top:14px}
   <p class="lede">同樣一句「一條三千」，在不同店家可能差到兩千八，因為含不含工錢差很多。</p>
 
   <figure>
-    <img src="wish-tire-guide/cost.jpg" alt="兩根柱狀對比：含安裝一次付清 12,000，裸胎再加工錢 13,600" loading="lazy" decoding="async">
+    <img src="wish-tire-guide/cost.jpg" srcset="wish-tire-guide/cost_640.jpg 640w, wish-tire-guide/cost_900.jpg 900w, wish-tire-guide/cost.jpg 1200w" sizes="(max-width:820px) 100vw, 780px" width="1200" height="658" loading="lazy" decoding="async" alt="兩根柱狀對比：含安裝一次付清 12,000，裸胎再加工錢 13,600">
   </figure>
 
   <div class="tablewrap">
@@ -594,13 +654,13 @@ section{scroll-margin-top:14px}
   <details><summary>一定要四條一起換嗎？</summary>
   <p>最理想是四條一起換，抓地力一致，雨天最穩。如果預算有限，至少<strong>同一軸（左右兩條）一起換</strong>，而且新胎裝後輪——這是安全通則，避免後輪先失去抓地力導致車尾滑出去。</p></details>而且新胎裝後輪——這是安全通則，避免後輪先失去抓地力導致車尾滑出去。</p>
   <figure>
-    <img src="wish-tire-guide/rear.jpg" alt="車輛俯視圖，兩條新胎裝在後輪並標示新胎裝後輪" loading="lazy" decoding="async">
+    <img src="wish-tire-guide/rear.jpg" srcset="wish-tire-guide/rear_640.jpg 640w, wish-tire-guide/rear_900.jpg 900w, wish-tire-guide/rear.jpg 1200w" sizes="(max-width:820px) 100vw, 780px" width="1200" height="686" loading="lazy" decoding="async" alt="車輛俯視圖，兩條新胎裝在後輪並標示新胎裝後輪">
   </figure></details>
 
   <details><summary>怎麼知道該換了？</summary>
   <p>三個指標，任一到了就該換：① 胎紋溝槽裡有小凸起（磨耗指示塊），磨到跟胎面一樣平就是到期；② 胎壁出現細裂紋；③ 生產日期超過五、六年，就算胎紋還很厚也建議換掉，橡膠已經硬化。</p>
   <figure>
-    <img src="wish-tire-guide/twi.jpg" alt="兩個輪胎溝槽剖面對照：左邊溝槽深、標示還能用；右邊磨到與凸塊齊平、標示該換了" loading="lazy" decoding="async">
+    <img src="wish-tire-guide/twi.jpg" srcset="wish-tire-guide/twi_640.jpg 640w, wish-tire-guide/twi_900.jpg 900w, wish-tire-guide/twi.jpg 1200w" sizes="(max-width:820px) 100vw, 780px" width="1200" height="658" loading="lazy" decoding="async" alt="兩個輪胎溝槽剖面對照：左邊溝槽深、標示還能用；右邊磨到與凸塊齊平、標示該換了">
     <figcaption>溝槽底部那個小凸起就是磨耗指示塊。磨到跟胎面一樣平就該換。</figcaption>
   </figure>
   </details>
@@ -720,19 +780,129 @@ section{scroll-margin-top:14px}
     bar.appendChild(sb);
   }
 
-  /* 3. 浮動鈕：捲過一段距離後出現，一鍵跳回四個選擇 */
-  var fab = document.createElement('a');
-  fab.className = 'fab'; fab.href = '#s1'; fab.textContent = '↑ 看選擇';
+  /* 3. 閱讀進度條 + 浮動目錄鈕（一個 rAF 迴圈處理所有捲動事） */
+  var prog = document.createElement('div');
+  prog.className = 'prog';
+  document.body.appendChild(prog);
+
+  var fab = document.createElement('button');
+  fab.className = 'fab'; fab.type = 'button'; fab.textContent = '☰ 目錄';
+  fab.setAttribute('aria-label', '開啟目錄與字級設定');
   document.body.appendChild(fab);
+
   var ticking = false;
-  addEventListener('scroll', function () {
+  function onScroll() {
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(function () {
-      fab.classList.toggle('on', scrollY > 900);
+      var max = document.documentElement.scrollHeight - innerHeight;
+      prog.style.width = (max > 0 ? Math.min(100, scrollY / max * 100) : 0) + '%';
+      fab.classList.toggle('on', scrollY > 700);
       ticking = false;
     });
+  }
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* 4. 底部工具表：字級 A-／A+ 與章節跳轉 */
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+  var sheet = document.createElement('dialog');
+  sheet.className = 'sheet';
+  var items = sections.map(function (sec) {
+    var h = sec.querySelector('h2');
+    var num = h.querySelector('.num') ? h.querySelector('.num').textContent.trim() : '';
+    var title = h.textContent.replace(num, '').trim();
+    return '<li><a href="#' + sec.id + '"><span class="n">' + num + '</span>' + title + '</a></li>';
+  }).join('');
+  sheet.innerHTML =
+    '<div class="sheet-in"><div class="grab"></div>' +
+    '<h5>字級</h5><div class="fsrow">' +
+      '<button type="button" data-fs="-1" aria-label="縮小字級">A −</button>' +
+      '<span class="now">17 px</span>' +
+      '<button type="button" data-fs="1" aria-label="放大字級">A ＋</button>' +
+    '</div>' +
+    '<h5>跳到章節</h5><ul class="toclist">' + items + '</ul></div>';
+  document.body.appendChild(sheet);
+
+  var FS_KEY = 'wish_fs', MIN = 15, MAX = 23;
+  var fs = parseInt(localStorage.getItem(FS_KEY) || '17', 10);
+  function applyFs() {
+    fs = Math.max(MIN, Math.min(MAX, fs));
+    document.body.style.setProperty('--fs', fs + 'px');
+    sheet.querySelector('.now').textContent = fs + ' px';
+    try { localStorage.setItem(FS_KEY, fs); } catch (e) {}
+  }
+  applyFs();
+  sheet.querySelectorAll('[data-fs]').forEach(function (btn) {
+    btn.addEventListener('click', function () { fs += parseInt(btn.dataset.fs, 10); applyFs(); });
+  });
+
+  fab.addEventListener('click', function () { sheet.showModal(); });
+  sheet.addEventListener('click', function (e) {           // 點背景關閉
+    if (e.target === sheet) sheet.close();
+  });
+  sheet.querySelectorAll('.toclist a').forEach(function (a) {
+    a.addEventListener('click', function () { sheet.close(); });
+  });
+
+  /* 目前讀到哪一節 → 目錄裡標起來 */
+  if ('IntersectionObserver' in window) {
+    var links = {};
+    sheet.querySelectorAll('.toclist a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+    var io2 = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var a = links[en.target.id];
+        if (a) a.setAttribute('aria-current', en.isIntersecting ? 'true' : 'false');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function (sec) { io2.observe(sec); });
+  }
+
+  /* 5. 點圖放大：圖裡有中文標註，390px 螢幕上要能看清楚 */
+  var lb = document.createElement('dialog');
+  lb.className = 'lb';
+  lb.innerHTML = '<button class="lb-close" type="button" aria-label="關閉">✕</button>' +
+                 '<div class="lb-in"><img alt=""></div>';
+  document.body.appendChild(lb);
+  var lbImg = lb.querySelector('img');
+  lb.querySelector('.lb-close').addEventListener('click', function () { lb.close(); });
+  lb.addEventListener('click', function (e) { if (e.target !== lbImg) lb.close(); });
+  document.querySelectorAll('figure img').forEach(function (im) {
+    var hint = document.createElement('span');
+    hint.className = 'zoom'; hint.textContent = '點圖放大';
+    im.parentNode.appendChild(hint);
+    im.style.cursor = 'zoom-in';
+    im.addEventListener('click', function () {
+      lbImg.src = im.currentSrc || im.src;      // 放大時抓大圖那份
+      lbImg.alt = im.alt;
+      lb.showModal();
+    });
+  });
+
+  /* 6. 記住讀到哪裡：下次打開問要不要接著看 */
+  var POS_KEY = 'wish_pos';
+  addEventListener('scroll', function () {
+    clearTimeout(window._posT);
+    window._posT = setTimeout(function () {
+      try { localStorage.setItem(POS_KEY, String(Math.round(scrollY))); } catch (e) {}
+    }, 600);
   }, { passive: true });
+
+  var saved = parseInt(localStorage.getItem(POS_KEY) || '0', 10);
+  if (saved > 1600 && !location.hash) {
+    var bar = document.createElement('div');
+    bar.className = 'resume';
+    bar.innerHTML = '<span>接著上次讀？</span>' +
+                    '<button type="button" data-go>好</button>' +
+                    '<button type="button" class="x" data-close aria-label="不用了">✕</button>';
+    document.body.appendChild(bar);
+    bar.querySelector('[data-go]').addEventListener('click', function () {
+      scrollTo({ top: saved, behavior: 'smooth' });
+      bar.remove();
+    });
+    bar.querySelector('[data-close]').addEventListener('click', function () { bar.remove(); });
+    setTimeout(function () { if (bar.isConnected) bar.remove(); }, 9000);
+  }
 
   /* 4. 手機上價目表 15 列太長：先給 7 列，其餘按鈕展開 */
   var tbl = document.getElementById('pricetable');
@@ -753,6 +923,11 @@ section{scroll-margin-top:14px}
     }
   }
 })();
+</script>
+<script>
+if ('serviceWorker' in navigator) {           // 離線可讀：輪胎行常常沒訊號
+  addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function(){}); });
+}
 </script>
 </body>
 </html>
