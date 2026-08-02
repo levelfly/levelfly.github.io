@@ -146,11 +146,58 @@ footer{margin-top:60px; padding-top:26px; border-top:1px solid var(--line); font
 footer a{word-break:break-all}
 hr{border:none; border-top:1px solid var(--line); margin:34px 0}
 
+/* ── 手機：表格轉卡片（不用左右捲） ── */
+@media (max-width:620px){
+  .tablewrap{overflow-x:visible; border:none; background:transparent; border-radius:0}
+  table{min-width:0; font-size:15px}
+  thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+  table, tbody, tr, td{display:block; width:100%}
+  tbody tr{background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:14px 16px; margin-bottom:12px}
+  tbody tr.hi{border-color:var(--terra-text); border-width:2px}
+  td{border:none; padding:4px 0; white-space:normal; display:flex; justify-content:space-between;
+    align-items:baseline; gap:14px; text-align:right}
+  td::before{content:attr(data-label); color:var(--ink-soft); font-size:13.5px; font-weight:600;
+    text-align:left; flex:0 0 auto}
+  td:first-child{display:block; font-weight:800; font-size:16.5px; text-align:left;
+    margin:0 0 8px; padding-bottom:8px; border-bottom:1px dashed var(--line)}
+  td:first-child::before{display:none}
+  td.rem:empty{display:none}
+  td.rem{color:var(--terra-text)}
+}
+
+/* ── 複製鈕／分享鈕／浮動鈕 ── */
+.script{position:relative}
+.copy{position:absolute; top:8px; right:8px; border:1px solid var(--indigo); background:var(--paper);
+  color:var(--indigo); font:600 12.5px/1 inherit; padding:8px 12px; border-radius:999px; cursor:pointer;
+  font-family:inherit; min-height:34px}
+.copy:active{background:var(--indigo); color:#fff}
+.copy.done{background:#2F7D5F; border-color:#2F7D5F; color:#fff}
+.share{display:inline-block; margin-top:12px; background:#FFD9A8; color:#2E4763; border:none;
+  border-radius:999px; padding:11px 22px; font:800 15px/1 inherit; font-family:inherit; cursor:pointer;
+  min-height:44px}
+.share:active{transform:translateY(1px)}
+.fab{position:fixed; right:16px; bottom:16px; z-index:9; background:#2E4763; color:#fff;
+  border-radius:999px; padding:12px 18px; font-size:14.5px; font-weight:700; text-decoration:none;
+  box-shadow:0 6px 20px rgba(0,0,0,.28); opacity:0; pointer-events:none; transition:opacity .2s;
+  min-height:44px; display:flex; align-items:center}
+.fab.on{opacity:.96; pointer-events:auto}
+.toast{position:fixed; left:50%; bottom:78px; transform:translateX(-50%); background:#21303D; color:#fff;
+  padding:11px 20px; border-radius:999px; font-size:14.5px; z-index:20; opacity:0; transition:opacity .25s;
+  pointer-events:none; max-width:90vw; text-align:center}
+.toast.on{opacity:.96}
+.more{display:block; width:100%; margin:4px 0 0; padding:13px; border:1px dashed var(--indigo);
+  background:transparent; color:var(--indigo); border-radius:12px; font:700 15px/1 inherit;
+  font-family:inherit; cursor:pointer; min-height:46px}
+section{scroll-margin-top:14px}
+@media (max-width:620px){ .after{font-size:15px} }
+
 @media print{
   body{background:#fff; color:#000; font-size:12pt}
   .decide{background:#eee !important; color:#000 !important; border-radius:0}
   .decide .ans b{color:#000}
   figure, .hero{display:none}
+  .copy, .share, .fab, .toast, .more{display:none !important}
   details{page-break-inside:avoid} details[open] summary::before{content:"■ "}
   details p{display:block}
   .tablewrap{overflow:visible; border:1px solid #999}
@@ -188,6 +235,12 @@ hr{border:none; border-top:1px solid var(--line); margin:34px 0}
     <li>或打開駕駛座車門，看<strong>門邊柱子上的貼紙</strong>（同時也寫著建議胎壓）</li>
     <li>四條的尺寸要一樣；如果不一樣，先問輪胎行為什麼</li>
   </ul>
+
+
+  <figure>
+    <img src="wish-tire-guide/sidewall.jpg" alt="輪胎胎壁特寫，壓印 205/55R16 91V，四個標籤分別指向寬度、扁平比、輪圈吋數、載重與速度" loading="lazy" decoding="async">
+    <figcaption>胎壁上這一串就是尺寸。四條胎都要一樣。</figcaption>
+  </figure>
 
   <div class="note">
     <p><strong>看到的是 205/55R16 → 這份報告全部適用，繼續往下看。</strong><br>
@@ -314,6 +367,12 @@ hr{border:none; border-top:1px solid var(--line); margin:34px 0}
     <p><strong>還有一個一定要問的：輪胎的「生日」。</strong>胎壁上有一組四位數字（例如 <b>3225</b>），前兩位是第幾週、後兩位是年份，3225 就是 2025 年第 32 週生產。橡膠會隨時間變硬，<strong>就算沒開也會老</strong>。買到放兩年的庫存胎，等於少用兩年。到店直接問：「這批胎是哪一年的？」——問得出口，店家就不會拿老庫存給你。</p>
   </div>
 
+
+  <figure>
+    <img src="wish-tire-guide/dot.jpg" alt="胎壁上橢圓框內的四位數字 3225，標示為第 32 週、2025 年，也就是這條胎的生產日期" loading="lazy" decoding="async">
+    <figcaption>看到 3225 就是 2025 年第 32 週出廠。一年內都算新鮮。</figcaption>
+  </figure>
+
   <figure>
     <img src="wish-tire-guide/aging.jpg" alt="一條胎面還很厚但胎壁出現細紋的輪胎，旁邊有太陽、落葉與空白日曆" loading="lazy" decoding="async">
     <figcaption>輪胎有兩種壽命：磨完的，和放老的。跑得少的車通常是後者先到。</figcaption>
@@ -353,11 +412,11 @@ hr{border:none; border-top:1px solid var(--line); margin:34px 0}
     <table>
       <thead><tr><th>款式</th><th class="num">四條總價</th><th class="num">評分</th><th class="num">濕地</th><th class="num">預估壽命</th><th class="num">每公里</th></tr></thead>
       <tbody>
-        <tr><td>Michelin PRIMACY 5</td><td class="num">14,000</td><td class="num">9.1</td><td class="num">87</td><td class="num">53,000 km</td><td class="num">0.26 元</td></tr>
-        <tr><td>Falken ZE310</td><td class="num">11,600</td><td class="num">8.6</td><td class="num">83</td><td class="num">39,800 km</td><td class="num">0.29 元</td></tr>
-        <tr class="hi"><td>Hankook Ventus Prime4</td><td class="num">12,000</td><td class="num">8.8</td><td class="num">83</td><td class="num">40,500 km</td><td class="num">0.30 元</td></tr>
-        <tr><td>Continental PC7</td><td class="num">13,200</td><td class="num">9.9</td><td class="num">93</td><td class="num">40,900 km</td><td class="num">0.32 元</td></tr>
-        <tr><td>Bridgestone TURANZA 6</td><td class="num">14,000</td><td class="num">8.7</td><td class="num">86</td><td class="num">38,500 km</td><td class="num">0.36 元</td></tr>
+        <tr><td>Michelin PRIMACY 5</td><td class="num" data-label="四條總價">14,000</td><td class="num" data-label="評分">9.1</td><td class="num" data-label="濕地">87</td><td class="num" data-label="預估壽命">53,000 km</td><td class="num" data-label="每公里">0.26 元</td></tr>
+        <tr><td>Falken ZE310</td><td class="num" data-label="四條總價">11,600</td><td class="num" data-label="評分">8.6</td><td class="num" data-label="濕地">83</td><td class="num" data-label="預估壽命">39,800 km</td><td class="num" data-label="每公里">0.29 元</td></tr>
+        <tr class="hi"><td>Hankook Ventus Prime4</td><td class="num" data-label="四條總價">12,000</td><td class="num" data-label="評分">8.8</td><td class="num" data-label="濕地">83</td><td class="num" data-label="預估壽命">40,500 km</td><td class="num" data-label="每公里">0.30 元</td></tr>
+        <tr><td>Continental PC7</td><td class="num" data-label="四條總價">13,200</td><td class="num" data-label="評分">9.9</td><td class="num" data-label="濕地">93</td><td class="num" data-label="預估壽命">40,900 km</td><td class="num" data-label="每公里">0.32 元</td></tr>
+        <tr><td>Bridgestone TURANZA 6</td><td class="num" data-label="四條總價">14,000</td><td class="num" data-label="評分">8.7</td><td class="num" data-label="濕地">86</td><td class="num" data-label="預估壽命">38,500 km</td><td class="num" data-label="每公里">0.36 元</td></tr>
       </tbody>
     </table>
   </div>
@@ -370,24 +429,24 @@ hr{border:none; border-top:1px solid var(--line); margin:34px 0}
   <p class="lede">從 77 款裡挑出 15 款值得考慮的（已排除速度等級低於原廠、以及用途不對的款式）。價格皆為<strong>單條含安裝</strong>，備註是店家自己標的。</p>
 
   <div class="tablewrap">
-    <table>
-      <thead><tr><th>品牌／型號</th><th>規格</th><th>產地</th><th class="num">單條</th><th class="num">四條</th><th>店家備註</th></tr></thead>
+    <table id="pricetable">
+      <thead id="pricehead"><tr><th>品牌／型號</th><th>規格</th><th>產地</th><th class="num">單條</th><th class="num">四條</th><th>店家備註</th></tr></thead>
       <tbody>
-        <tr><td>Maxxis 瑪吉斯 HP6</td><td>94W XL</td><td>中國</td><td class="num">2,700</td><td class="num">10,800</td><td class="rem"></td></tr>
-        <tr><td>NANKANG 南港 AS-3</td><td>91V</td><td>台灣</td><td class="num">2,700</td><td class="num">10,800</td><td class="rem"></td></tr>
-        <tr><td>NANKANG 南港 AS-2+</td><td>94V</td><td>台灣</td><td class="num">2,700</td><td class="num">10,800</td><td class="rem"></td></tr>
-        <tr><td>Falken 飛隼 ZE310</td><td>94W XL</td><td>泰國</td><td class="num">2,900</td><td class="num">11,600</td><td class="rem"></td></tr>
-        <tr class="hi"><td>Hankook 韓泰 Ventus Prime4</td><td>94V XL</td><td>韓國</td><td class="num">3,000</td><td class="num">12,000</td><td class="rem"></td></tr>
-        <tr><td>KUMHO 錦湖 KH27</td><td>94V XL</td><td>東南亞</td><td class="num">3,000</td><td class="num">12,000</td><td class="rem">耐磨指數 420（偏耐磨）</td></tr>
-        <tr><td>Goodyear 固特異 MaxGuard</td><td>91V</td><td>中國</td><td class="num">3,000</td><td class="num">12,000</td><td class="rem"></td></tr>
-        <tr><td>Toyo 東洋 PXCM</td><td>94V XL</td><td>日本</td><td class="num">3,100</td><td class="num">12,400</td><td class="rem">查不到國際評測資料</td></tr>
-        <tr><td>Bridgestone 普利司通 EP300</td><td>91V</td><td>泰國</td><td class="num">3,100</td><td class="num">12,400</td><td class="rem"></td></tr>
-        <tr><td>Continental 馬牌 PC7</td><td>91V</td><td>歐洲</td><td class="num">3,300</td><td class="num">13,200</td><td class="rem">24 年胎特價出清，先問庫存</td></tr>
-        <tr><td>Toyo 東洋 CR1</td><td>94V XL</td><td>馬來西亞</td><td class="num">3,300</td><td class="num">13,200</td><td class="rem"></td></tr>
-        <tr><td>Bridgestone 普利司通 T005A</td><td>91V</td><td>台灣</td><td class="num">3,400</td><td class="num">13,600</td><td class="rem"></td></tr>
-        <tr><td>Michelin 米其林 PRIMACY 5</td><td>標 91W XL</td><td>—</td><td class="num">3,500</td><td class="num">14,000</td><td class="rem">規格標示需到店確認</td></tr>
-        <tr><td>Bridgestone 普利司通 TURANZA 6</td><td>94W XL</td><td>台灣</td><td class="num">3,500</td><td class="num">14,000</td><td class="rem"></td></tr>
-        <tr><td>Yokohama 橫濱 AE51</td><td>94V</td><td>日本</td><td class="num">3,700</td><td class="num">14,800</td><td class="rem"></td></tr>
+        <tr><td>Maxxis 瑪吉斯 HP6</td><td data-label="規格">94W XL</td><td data-label="產地">中國</td><td class="num" data-label="單條">2,700</td><td class="num" data-label="四條">10,800</td><td class="rem" data-label="店家備註"></td></tr>
+        <tr><td>NANKANG 南港 AS-3</td><td data-label="規格">91V</td><td data-label="產地">台灣</td><td class="num" data-label="單條">2,700</td><td class="num" data-label="四條">10,800</td><td class="rem" data-label="店家備註"></td></tr>
+        <tr><td>NANKANG 南港 AS-2+</td><td data-label="規格">94V</td><td data-label="產地">台灣</td><td class="num" data-label="單條">2,700</td><td class="num" data-label="四條">10,800</td><td class="rem" data-label="店家備註"></td></tr>
+        <tr><td>Falken 飛隼 ZE310</td><td data-label="規格">94W XL</td><td data-label="產地">泰國</td><td class="num" data-label="單條">2,900</td><td class="num" data-label="四條">11,600</td><td class="rem" data-label="店家備註"></td></tr>
+        <tr class="hi"><td>Hankook 韓泰 Ventus Prime4</td><td data-label="規格">94V XL</td><td data-label="產地">韓國</td><td class="num" data-label="單條">3,000</td><td class="num" data-label="四條">12,000</td><td class="rem" data-label="店家備註"></td></tr>
+        <tr><td>KUMHO 錦湖 KH27</td><td data-label="規格">94V XL</td><td data-label="產地">東南亞</td><td class="num" data-label="單條">3,000</td><td class="num" data-label="四條">12,000</td><td class="rem" data-label="店家備註">耐磨指數 420（偏耐磨）</td></tr>
+        <tr><td>Goodyear 固特異 MaxGuard</td><td data-label="規格">91V</td><td data-label="產地">中國</td><td class="num" data-label="單條">3,000</td><td class="num" data-label="四條">12,000</td><td class="rem" data-label="店家備註"></td></tr>
+        <tr><td>Toyo 東洋 PXCM</td><td data-label="規格">94V XL</td><td data-label="產地">日本</td><td class="num" data-label="單條">3,100</td><td class="num" data-label="四條">12,400</td><td class="rem" data-label="店家備註">查不到國際評測資料</td></tr>
+        <tr><td>Bridgestone 普利司通 EP300</td><td data-label="規格">91V</td><td data-label="產地">泰國</td><td class="num" data-label="單條">3,100</td><td class="num" data-label="四條">12,400</td><td class="rem" data-label="店家備註"></td></tr>
+        <tr><td>Continental 馬牌 PC7</td><td data-label="規格">91V</td><td data-label="產地">歐洲</td><td class="num" data-label="單條">3,300</td><td class="num" data-label="四條">13,200</td><td class="rem" data-label="店家備註">24 年胎特價出清，先問庫存</td></tr>
+        <tr><td>Toyo 東洋 CR1</td><td data-label="規格">94V XL</td><td data-label="產地">馬來西亞</td><td class="num" data-label="單條">3,300</td><td class="num" data-label="四條">13,200</td><td class="rem" data-label="店家備註"></td></tr>
+        <tr><td>Bridgestone 普利司通 T005A</td><td data-label="規格">91V</td><td data-label="產地">台灣</td><td class="num" data-label="單條">3,400</td><td class="num" data-label="四條">13,600</td><td class="rem" data-label="店家備註"></td></tr>
+        <tr><td>Michelin 米其林 PRIMACY 5</td><td data-label="規格">標 91W XL</td><td data-label="產地">—</td><td class="num" data-label="單條">3,500</td><td class="num" data-label="四條">14,000</td><td class="rem" data-label="店家備註">規格標示需到店確認</td></tr>
+        <tr><td>Bridgestone 普利司通 TURANZA 6</td><td data-label="規格">94W XL</td><td data-label="產地">台灣</td><td class="num" data-label="單條">3,500</td><td class="num" data-label="四條">14,000</td><td class="rem" data-label="店家備註"></td></tr>
+        <tr><td>Yokohama 橫濱 AE51</td><td data-label="規格">94V</td><td data-label="產地">日本</td><td class="num" data-label="單條">3,700</td><td class="num" data-label="四條">14,800</td><td class="rem" data-label="店家備註"></td></tr>
       </tbody>
     </table>
   </div>
@@ -480,12 +539,12 @@ hr{border:none; border-top:1px solid var(--line); margin:34px 0}
     <table>
       <thead><tr><th>項目</th><th class="num">小李輪胎（含裝價）</th><th class="num">網購裸胎＋在地輪胎行</th></tr></thead>
       <tbody>
-        <tr><td>四條輪胎</td><td class="num">12,000</td><td class="num">約 10,800（網購常見價）</td></tr>
-        <tr><td>安裝工資（16 吋 350／條）</td><td class="num">已含</td><td class="num">1,400</td></tr>
-        <tr><td>輪胎平衡（100／顆）</td><td class="num">已含</td><td class="num">400</td></tr>
-        <tr><td>新氣嘴、充氮氣</td><td class="num">已含</td><td class="num">視店家</td></tr>
-        <tr><td>四輪定位</td><td class="num">送健診＋基本調整</td><td class="num">1,000（日系車，完整定位）</td></tr>
-        <tr class="hi"><td><strong>實際付出</strong></td><td class="num"><strong>12,000</strong></td><td class="num"><strong>約 13,600</strong></td></tr>
+        <tr><td>四條輪胎</td><td class="num" data-label="小李輪胎（含裝價）">12,000</td><td class="num" data-label="網購裸胎＋在地輪胎行">約 10,800（網購常見價）</td></tr>
+        <tr><td>安裝工資（16 吋 350／條）</td><td class="num" data-label="小李輪胎（含裝價）">已含</td><td class="num" data-label="網購裸胎＋在地輪胎行">1,400</td></tr>
+        <tr><td>輪胎平衡（100／顆）</td><td class="num" data-label="小李輪胎（含裝價）">已含</td><td class="num" data-label="網購裸胎＋在地輪胎行">400</td></tr>
+        <tr><td>新氣嘴、充氮氣</td><td class="num" data-label="小李輪胎（含裝價）">已含</td><td class="num" data-label="網購裸胎＋在地輪胎行">視店家</td></tr>
+        <tr><td>四輪定位</td><td class="num" data-label="小李輪胎（含裝價）">送健診＋基本調整</td><td class="num" data-label="網購裸胎＋在地輪胎行">1,000（日系車，完整定位）</td></tr>
+        <tr class="hi"><td><strong>實際付出</strong></td><td class="num" data-label="小李輪胎（含裝價）"><strong>12,000</strong></td><td class="num" data-label="網購裸胎＋在地輪胎行"><strong>約 13,600</strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -513,7 +572,12 @@ hr{border:none; border-top:1px solid var(--line); margin:34px 0}
   <p>最理想是四條一起換，抓地力一致，雨天最穩。如果預算有限，至少<strong>同一軸（左右兩條）一起換</strong>，而且新胎裝後輪——這是安全通則，避免後輪先失去抓地力導致車尾滑出去。</p></details>
 
   <details><summary>怎麼知道該換了？</summary>
-  <p>三個指標，任一到了就該換：① 胎紋溝槽裡有小凸起（磨耗指示塊），磨到跟胎面一樣平就是到期；② 胎壁出現細裂紋；③ 生產日期超過五、六年，就算胎紋還很厚也建議換掉，橡膠已經硬化。</p></details>
+  <p>三個指標，任一到了就該換：① 胎紋溝槽裡有小凸起（磨耗指示塊），磨到跟胎面一樣平就是到期；② 胎壁出現細裂紋；③ 生產日期超過五、六年，就算胎紋還很厚也建議換掉，橡膠已經硬化。</p>
+  <figure>
+    <img src="wish-tire-guide/twi.jpg" alt="兩個輪胎溝槽剖面對照：左邊溝槽深、標示還能用；右邊磨到與凸塊齊平、標示該換了" loading="lazy" decoding="async">
+    <figcaption>溝槽底部那個小凸起就是磨耗指示塊。磨到跟胎面一樣平就該換。</figcaption>
+  </figure>
+  </details>
 
   <details><summary>「XL 加強版」會不會比較硬、比較不舒服？</summary>
   <p>胎壁確實比較厚，但差異在日常路面上很小，換來的是滿載時更穩。胎壓照原廠貼紙打就好，<strong>不需要因為是 XL 就打更高</strong>。</p></details>
@@ -543,10 +607,10 @@ hr{border:none; border-top:1px solid var(--line); margin:34px 0}
     <table>
       <thead><tr><th>定位</th><th>款式</th><th>規格／產地</th><th class="num">四條含工</th></tr></thead>
       <tbody>
-        <tr><td>最省</td><td>Dunlop 登祿普 BLUE RESPONSE TG</td><td>91V／中國</td><td class="num">8,800</td></tr>
-        <tr class="hi"><td>最推薦</td><td>Falken 飛隼 ZE310</td><td>91V／泰國</td><td class="num">10,000</td></tr>
-        <tr><td>最安靜</td><td>Bridgestone 普利司通 TURANZA 6</td><td>95V XL／印尼</td><td class="num">11,600</td></tr>
-        <tr><td>想買大牌</td><td>Michelin 米其林 PRIMACY 4</td><td>91V</td><td class="num">12,400</td></tr>
+        <tr><td>最省</td><td data-label="款式">Dunlop 登祿普 BLUE RESPONSE TG</td><td data-label="規格／產地">91V／中國</td><td class="num" data-label="四條含工">8,800</td></tr>
+        <tr class="hi"><td>最推薦</td><td data-label="款式">Falken 飛隼 ZE310</td><td data-label="規格／產地">91V／泰國</td><td class="num" data-label="四條含工">10,000</td></tr>
+        <tr><td>最安靜</td><td data-label="款式">Bridgestone 普利司通 TURANZA 6</td><td data-label="規格／產地">95V XL／印尼</td><td class="num" data-label="四條含工">11,600</td></tr>
+        <tr><td>想買大牌</td><td data-label="款式">Michelin 米其林 PRIMACY 4</td><td data-label="規格／產地">91V</td><td class="num" data-label="四條含工">12,400</td></tr>
       </tbody>
     </table>
   </div>
@@ -575,5 +639,94 @@ hr{border:none; border-top:1px solid var(--line); margin:34px 0}
 </footer>
 
 </div>
+
+<script>
+/* 手機互動層：全部由 JS 注入。關掉 JS 時，報告內容一字不少、表格也完整顯示。 */
+(function () {
+  var toastEl;
+  function toast(msg) {
+    if (!toastEl) {
+      toastEl = document.createElement('div');
+      toastEl.className = 'toast';
+      document.body.appendChild(toastEl);
+    }
+    toastEl.textContent = msg;
+    toastEl.classList.add('on');
+    clearTimeout(toastEl._t);
+    toastEl._t = setTimeout(function () { toastEl.classList.remove('on'); }, 1900);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function (res, rej) {           // http 或舊瀏覽器的退路
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); res(); } catch (e) { rej(e); }
+      document.body.removeChild(ta);
+    });
+  }
+
+  /* 1. 到店話術：一鍵複製，店裡直接貼給店員或照著念 */
+  document.querySelectorAll('.script').forEach(function (box) {
+    var btn = document.createElement('button');
+    btn.className = 'copy'; btn.type = 'button'; btn.textContent = '複製';
+    btn.setAttribute('aria-label', '複製這段話');
+    btn.addEventListener('click', function () {
+      copyText(box.innerText.replace(/^照著念：\s*/, '').trim()).then(function () {
+        btn.textContent = '已複製'; btn.classList.add('done');
+        setTimeout(function () { btn.textContent = '複製'; btn.classList.remove('done'); }, 2000);
+      }).catch(function () { toast('複製失敗，長按選取文字即可'); });
+    });
+    box.appendChild(btn);
+  });
+
+  /* 2. 分享：手機叫原生分享（LINE 在裡面），桌機退成複製網址 */
+  var bar = document.querySelector('.decide');
+  if (bar) {
+    var sb = document.createElement('button');
+    sb.className = 'share'; sb.type = 'button'; sb.textContent = '分享這份報告';
+    sb.addEventListener('click', function () {
+      var data = { title: document.title, text: '換輪胎前先看這份，含價格與到店話術', url: location.href };
+      if (navigator.share) { navigator.share(data).catch(function () {}); }
+      else { copyText(location.href).then(function () { toast('網址已複製'); }); }
+    });
+    bar.appendChild(sb);
+  }
+
+  /* 3. 浮動鈕：捲過一段距離後出現，一鍵跳回四個選擇 */
+  var fab = document.createElement('a');
+  fab.className = 'fab'; fab.href = '#s1'; fab.textContent = '↑ 看選擇';
+  document.body.appendChild(fab);
+  var ticking = false;
+  addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      fab.classList.toggle('on', scrollY > 900);
+      ticking = false;
+    });
+  }, { passive: true });
+
+  /* 4. 手機上價目表 15 列太長：先給 7 列，其餘按鈕展開 */
+  var tbl = document.getElementById('pricetable');
+  if (tbl && matchMedia('(max-width:620px)').matches) {
+    var rows = Array.prototype.slice.call(tbl.querySelectorAll('tbody tr'));
+    var KEEP = 7;
+    if (rows.length > KEEP + 2) {
+      var hidden = rows.slice(KEEP);
+      hidden.forEach(function (r) { r.style.display = 'none'; });
+      var more = document.createElement('button');
+      more.className = 'more'; more.type = 'button';
+      more.textContent = '顯示其餘 ' + hidden.length + ' 款 ▾';
+      more.addEventListener('click', function () {
+        hidden.forEach(function (r) { r.style.display = ''; });
+        more.remove();
+      });
+      tbl.parentNode.appendChild(more);
+    }
+  }
+})();
+</script>
 </body>
 </html>
