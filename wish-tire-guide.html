@@ -409,6 +409,43 @@ details[open] summary{margin-bottom:2px}
   .pick.best .tag{color:#16202A}
 }
 
+/* ═══ 實際看過手機畫面之後的四項修正 ═══ */
+
+/* ① 手機卡片式表格：四個欄位一樣大，看不出重點。
+      「四條」才是決策數字 → 放大、加粗、上色；「單條」次之。 */
+@media (max-width:620px){
+  td[data-label^="四條"]{font-size:1.28em; font-weight:800; padding-top:8px;
+    font-variant-numeric:tabular-nums}
+  td[data-label^="四條"]::before{font-size:.62em; font-weight:700; align-self:center}
+  td[data-label="單條"]{font-weight:700}
+  /* ② 長值（例如「Dunlop 登祿普 BLUE RESPONSE TG」）跟欄位名擠在同一行
+        → 允許換行，欄位名固定不折 */
+  td{flex-wrap:wrap; row-gap:2px; word-break:break-word}
+  td::before{white-space:nowrap; flex:0 0 auto}
+  tbody tr{padding:16px 16px 14px}
+}
+
+/* ③ 深色模式下 14 張插圖全是米白底，在暗色頁面上像一排燈箱、很刺眼
+      → 稍微降亮度與飽和，放大檢視時還原原色 */
+@media (prefers-color-scheme:dark){
+  figure img, .hero{filter:brightness(.84) saturate(.94); transition:filter .2s ease-out}
+  .lb-in img{filter:none}
+}
+
+/* ④ 快速捲動時延遲載入的圖片會露出一塊純色空白（深色模式尤其明顯）
+      → 給圖片一個載入中的底色，銜接比較柔和 */
+img{background:var(--paper)}
+
+/* ⑤ 浮動鈕在閱讀時會一直蓋住右下角的字（實拍到它壓掉「耐磨指數 420」）。
+      捲動中收成 44px 小圓鈕，手一停再展開成「☰ 目錄」。 */
+.fab{gap:6px; padding:12px 18px; overflow:hidden; white-space:nowrap;
+  transition:opacity .2s ease-out, transform .16s ease-out, padding .2s ease-out}
+.fab .lbl2{display:inline-block; max-width:5em; opacity:1;
+  transition:max-width .22s ease-out, opacity .18s ease-out, margin .22s ease-out}
+.fab.mini{padding:12px; opacity:.62; min-width:46px; justify-content:center}  /* 收合時仍維持 46px 觸控目標 */
+.fab.mini .lbl2{max-width:0; opacity:0; margin-left:-6px}
+@media (prefers-reduced-motion:reduce){ .fab, .fab .lbl2{transition:none} }
+
 @media print{
   body{background:#fff; color:#000; font-size:12pt}
   .decide{background:#eee !important; color:#000 !important; border-radius:0}
@@ -949,7 +986,8 @@ details[open] summary{margin-bottom:2px}
   document.body.appendChild(prog);
 
   var fab = document.createElement('button');
-  fab.className = 'fab'; fab.type = 'button'; fab.textContent = '☰ 目錄';
+  fab.className = 'fab mini'; fab.type = 'button';
+  fab.innerHTML = '☰<span class="lbl2">目錄</span>';
   fab.setAttribute('aria-label', '開啟目錄與字級設定');
   document.body.appendChild(fab);
 
@@ -961,6 +999,9 @@ details[open] summary{margin-bottom:2px}
       var max = document.documentElement.scrollHeight - innerHeight;
       prog.style.width = (max > 0 ? Math.min(100, scrollY / max * 100) : 0) + '%';
       fab.classList.toggle('on', scrollY > 700);
+      fab.classList.add('mini');                    // 捲動中縮起來，不擋字
+      clearTimeout(fab._t);
+      fab._t = setTimeout(function () { fab.classList.remove('mini'); }, 600);
       ticking = false;
     });
   }
@@ -1044,11 +1085,17 @@ details[open] summary{margin-bottom:2px}
   lb.querySelector('.lb-close').addEventListener('click', function () { lb.close(); });
   lb.addEventListener('click', function (e) { if (e.target !== lbImg) lb.close(); });
   document.querySelectorAll('figure img').forEach(function (im) {
-    var hint = document.createElement('span');
-    hint.className = 'zoom'; hint.textContent = '點圖放大';
-    im.parentNode.appendChild(hint);
+    var seen = false;
+    try { seen = localStorage.getItem('wish_zoom_seen') === '1'; } catch (e) {}
+    if (!seen) {                                    // 學會了就不用一直提示
+      var hint = document.createElement('span');
+      hint.className = 'zoom'; hint.textContent = '點圖放大';
+      im.parentNode.appendChild(hint);
+    }
     im.style.cursor = 'zoom-in';
     im.addEventListener('click', function () {
+      try { localStorage.setItem('wish_zoom_seen', '1'); } catch (e) {}
+      document.querySelectorAll('figure .zoom').forEach(function (z) { z.remove(); });
       lbImg.src = im.currentSrc || im.src;      // 放大時抓大圖那份
       lbImg.alt = im.alt;
       lb.showModal();
