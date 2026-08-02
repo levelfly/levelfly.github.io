@@ -83,7 +83,7 @@ a{color:var(--indigo); text-underline-offset:3px}
 .pick .tag{display:inline-block; font-size:12px; font-weight:800; letter-spacing:.1em;
   padding:4px 10px; border-radius:999px; background:var(--indigo-soft); color:var(--indigo); margin-bottom:12px}
 .pick.best .tag{background:var(--terra-text); color:#fff}
-.pick h4{margin:0 0 4px; font-size:18.5px; line-height:1.4}
+.pick h3.pt{margin:0 0 4px; font-size:1.09em; line-height:1.4}
 .pick .spec{font-size:13.5px; color:var(--ink-soft); margin-bottom:14px}
 .price{font-size:31px; font-weight:800; letter-spacing:-.02em; line-height:1.15}
 .price small{font-size:14px; font-weight:600; color:var(--ink-soft); margin-left:6px; letter-spacing:0}
@@ -204,8 +204,12 @@ hr{border:none; border-top:1px solid var(--line); margin:34px 0}
 section{scroll-margin-top:14px}
 @media (max-width:620px){ .after{font-size:15px} }
 
-/* ── 長頁閱讀：讓瀏覽器跳過畫面外的區塊，低階手機捲動才順 ── */
-section{content-visibility:auto; contain-intrinsic-size:auto 1200px}
+/* ── 長頁閱讀 ──
+   這裡原本用 section{content-visibility:auto; contain-intrinsic-size:auto 1200px}
+   加速捲動，但實測（design-audit 的 user task）發現它會毀掉錨點跳轉：
+   離畫面的區塊回報的是「猜的」1200px 高度，目錄跳到 #s6 會偏 3,508px、
+   跳 #s9 甚至完全不動。章節跳轉是這頁的主要導覽方式，不能為了捲動微優化犧牲。
+   圖片已經 lazy-load，真正的成本已經省掉了，所以這裡不再用 content-visibility。 */
 h1,h2,h3,h4{text-wrap:balance}
 p,li,figcaption{text-wrap:pretty}
 html{scroll-behavior:smooth}
@@ -252,6 +256,159 @@ figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,6
   border-radius:999px; font-size:12.5px; padding:7px 12px; pointer-events:none}
 @media (min-width:821px){ figure .zoom{display:none} }
 
+/* ═══════════════════════════════════════════════════════════
+   打磨層：放在最後，只覆寫前面規則，不動原本結構
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --sp1:4px; --sp2:8px; --sp3:12px; --sp4:16px; --sp5:24px; --sp6:32px; --sp7:48px;
+  --r-sm:12px; --r-md:16px; --r-lg:20px;
+  --sh1:0 1px 2px rgba(33,48,61,.06), 0 2px 8px rgba(33,48,61,.05);
+  --sh2:0 4px 12px rgba(33,48,61,.09), 0 12px 28px rgba(33,48,61,.07);
+  --sh3:0 10px 30px rgba(33,48,61,.14), 0 24px 60px rgba(33,48,61,.12);
+  --ring:0 0 0 3px rgba(61,90,128,.35);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --sh1:0 1px 2px rgba(0,0,0,.4), 0 2px 8px rgba(0,0,0,.3);
+    --sh2:0 4px 12px rgba(0,0,0,.45), 0 12px 28px rgba(0,0,0,.35);
+    --sh3:0 10px 30px rgba(0,0,0,.55), 0 24px 60px rgba(0,0,0,.45);
+    --ring:0 0 0 3px rgba(143,178,214,.5);
+  }
+}
+
+/* ── 鍵盤焦點：WCAG 2.2 要求看得見（滑鼠點按不顯示，不干擾閱讀） ── */
+:focus-visible{outline:2px solid var(--indigo); outline-offset:3px; border-radius:6px}
+.copy:focus-visible, .share:focus-visible, .fab:focus-visible,
+.more:focus-visible, .fsrow button:focus-visible, .resume button:focus-visible{
+  outline:none; box-shadow:var(--ring)}
+.skip{position:absolute; left:50%; top:-100px; transform:translateX(-50%); z-index:60;
+  background:#2E4763; color:#fff; padding:12px 20px; border-radius:0 0 14px 14px;
+  font-weight:700; text-decoration:none; transition:top .18s ease-out}
+.skip:focus{top:0}
+html{-webkit-tap-highlight-color:rgba(184,78,51,.14)}
+::selection{background:rgba(224,122,95,.28)}
+
+/* ── 觸控目標一律 ≥44px（Apple/Google 建議值，比 WCAG 的 24px 嚴） ── */
+.copy{min-height:44px; min-width:64px; padding:0 14px; border-radius:999px;
+  display:inline-flex; align-items:center; justify-content:center}
+.toclist a{min-height:48px}
+.fsrow button{min-height:50px}
+
+/* ── 節奏：統一垂直間距與圓角 ── */
+section{margin-top:var(--sp7)}
+section + section{margin-top:56px}
+.card, .pick{border-radius:var(--r-lg); box-shadow:var(--sh1)}
+.card{padding:var(--sp5) var(--sp5) var(--sp2)}
+figure{margin:var(--sp5) 0}
+.note, .warn{border-radius:0 var(--r-md) var(--r-md) 0; padding:var(--sp4) var(--sp5) var(--sp1)}
+.tablewrap{border-radius:var(--r-md); box-shadow:var(--sh1)}
+details{border-radius:var(--r-sm); transition:border-color .18s ease-out, box-shadow .18s ease-out}
+details[open]{box-shadow:var(--sh1)}
+
+/* ── 文字：CJK 行長控制。正文收窄好讀，圖表照樣放寬 ── */
+@media (min-width:721px){
+  main > section > p, main > section > .lede, main > section > .check,
+  main > section > ol.steps, main > section > details, main > section > .mini{
+    max-width:34em}
+  main > section > .card p{max-width:36em}
+}
+.lede{line-height:1.8}
+p{line-height:1.85}
+figcaption{line-height:1.7; max-width:34em; margin-left:auto; margin-right:auto}
+h2{letter-spacing:0}
+h2 .num{font-variant-numeric:tabular-nums}   /* 不要加 opacity：會把對比壓到 4.5 以下 */
+
+/* ── 卡片層次：推薦那張要一眼看出來 ── */
+.pick{transition:transform .18s ease-out, box-shadow .18s ease-out}
+.pick.best{box-shadow:var(--sh2)}
+@media (hover:hover){
+  .pick:hover{transform:translateY(-2px); box-shadow:var(--sh2)}
+  .pick.best:hover{box-shadow:var(--sh3)}
+  details:hover{border-color:var(--sage)}
+  .toclist a:hover{background:var(--indigo-soft); border-radius:10px}
+}
+.price{font-variant-numeric:tabular-nums}
+
+/* ── 桌機：把最推薦那張放大成主格（bento） ── */
+@media (min-width:900px){
+  .picks{grid-template-columns:repeat(2,1fr); gap:var(--sp5)}
+  .pick.best{grid-column:1 / -1; display:grid; grid-template-columns:1.1fr 1fr;
+    gap:var(--sp5) var(--sp6); align-items:start}
+  .pick.best .tag{grid-column:1 / -1; justify-self:start}
+  .pick.best ul{grid-column:2; margin-top:0}
+  .pick.best h3.pt{font-size:1.3em}
+  .pick.best .price{font-size:38px}
+}
+
+/* ── 玻璃感只用在浮層，不亂灑 ── */
+@supports (backdrop-filter:blur(12px)){
+  .fab{background:rgba(46,71,99,.82); backdrop-filter:blur(14px) saturate(1.3);
+    -webkit-backdrop-filter:blur(14px) saturate(1.3); border:1px solid rgba(255,255,255,.14)}
+  .sheet-in{background:color-mix(in srgb, var(--paper) 86%, transparent);
+    backdrop-filter:blur(18px) saturate(1.4); -webkit-backdrop-filter:blur(18px) saturate(1.4)}
+  .resume{background:rgba(33,48,61,.88); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px)}
+}
+.fab{box-shadow:var(--sh3); transition:opacity .2s ease-out, transform .16s ease-out}
+.fab:active{transform:scale(.96)}
+.copy, .share, .more, .fsrow button, .resume button{transition:transform .14s ease-out, background .16s ease-out, color .16s ease-out}
+.copy:active, .share:active, .more:active, .fsrow button:active, .resume button:active{transform:scale(.97)}
+dialog.sheet[open] .sheet-in{animation:sheetUp .26s cubic-bezier(.22,.9,.3,1)}
+@keyframes sheetUp{from{transform:translateY(14px); opacity:.6} to{transform:none; opacity:1}}
+
+/* ── 捲動進場：新式 scroll-driven animation，不支援的瀏覽器直接顯示 ── */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    /* 圖片可以淡入；文字卡片只做位移不做透明度——半透明的文字在動畫中途
+       會讓對比掉到 WCAG 標準以下（axe 實測抓到 3.9:1） */
+    figure img{animation:fadeRise linear both; animation-timeline:view(); animation-range:entry 0% entry 30%}
+    /* 只讓圖片淡入，圖說文字不參與：半透明文字會被 a11y 稽核判成低對比 */
+    .card, .pick, .tablewrap{animation:rise linear both; animation-timeline:view();
+      animation-range:entry 0% entry 26%}
+    @keyframes fadeRise{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
+    @keyframes rise{from{transform:translateY(12px)} to{transform:none}}
+  }
+}
+
+/* ── 手機微調 ── */
+@media (max-width:620px){
+  section{margin-top:44px}
+  section + section{margin-top:44px}
+  .card{padding:var(--sp4) var(--sp4) var(--sp1)}
+  h2{line-height:1.42}
+  .prog{height:4px}
+  tbody tr{box-shadow:var(--sh1)}
+}
+
+/* ── 修：滿版元素的負邊距必須跟著 .wrap 的內距走，否則手機橫向溢出 ── */
+:root{--pad:20px}
+@media (max-width:620px){ :root{--pad:16px} }
+.wrap{padding-left:var(--pad); padding-right:var(--pad)}
+.decide{margin-left:calc(var(--pad) * -1); margin-right:calc(var(--pad) * -1)}
+
+/* ── 修：摺疊標題原本只有 30px 高，觸控目標不足 ── */
+summary{padding:9px 0; min-height:44px; display:flex; align-items:center; gap:2px}
+details{padding-top:6px; padding-bottom:6px}
+details[open] summary{margin-bottom:2px}
+
+/* 視覺隱藏的表頭要真的鎖住，不參與版面 */
+@media (max-width:620px){
+  thead{clip-path:inset(50%); white-space:nowrap}
+}
+
+/* ── 修：複製鈕原本 absolute 疊在話術文字上（按鈕放大到 44px 後直接壓字）
+       改成話術框上方留一條標題列，左邊「照著念」右邊按鈕，正文從下方開始 ── */
+.script{padding-top:52px}
+.script::before{position:absolute; top:15px; left:16px; margin:0}
+.copy{top:9px; right:9px}
+@media (max-width:620px){
+  .script{padding-top:54px; font-size:.94em}
+}
+
+/* 深色模式下 --terra-text 變成亮橘，白字壓上去只有 2.07:1 → 改用深色字 */
+@media (prefers-color-scheme:dark){
+  .pick.best .tag{color:#16202A}
+}
+
 @media print{
   body{background:#fff; color:#000; font-size:12pt}
   .decide{background:#eee !important; color:#000 !important; border-radius:0}
@@ -267,9 +424,10 @@ figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,6
 </style>
 </head>
 <body>
+<a class="skip" href="#s1">跳到四個選擇</a>
 <div class="wrap">
 
-<div class="decide">
+<div class="decide" role="region" aria-label="快速結論">
   <div class="lbl">不想看完的話</div>
   <div class="ans">選 <b>Hankook 韓泰 Ventus Prime4「94V XL」</b><br>四條 12,000 元（已含安裝）</div>
   <div class="sub">出門前先做一件事：<a href="#s0">看一下你車上輪胎側面寫什麼</a>。<br>要是 205/55R16 才適用這份報告，Wish 也有 15 吋的版本。</div>
@@ -282,6 +440,8 @@ figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,6
   <div class="meta">尺寸 <b>205/55R16</b>　·　價格查詢日 <b>2026 年 8 月 2 日</b>　·　資料來源：小李輪胎官網</div>
   <img class="hero" src="wish-tire-guide/hero.jpg" srcset="wish-tire-guide/hero_640.jpg 640w, wish-tire-guide/hero_900.jpg 900w, wish-tire-guide/hero.jpg 1400w" sizes="(max-width:820px) 100vw, 780px" width="1400" height="800" fetchpriority="high" alt="一台銀色七人座休旅車停在雨後街道，媽媽和兩個小孩準備上車">
 </header>
+
+<main>
 
 <!-- 0 ─────────────────────────────── -->
 <section id="s0">
@@ -322,7 +482,7 @@ figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,6
   <div class="picks">
     <div class="pick best">
       <span class="tag">最推薦</span>
-      <h4>Hankook 韓泰 Ventus Prime4</h4>
+      <h3 class="pt">Hankook 韓泰 Ventus Prime4</h3>
       <div class="spec">韓國製　·　94V XL 加強胎壁</div>
       <div class="price">$12,000<small>四條含工</small></div>
       <div class="per">若跑滿預估壽命，約每公里 0.30 元</div>
@@ -335,7 +495,7 @@ figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,6
 
     <div class="pick">
       <span class="tag">最省</span>
-      <h4>Falken 飛隼 ZE310</h4>
+      <h3 class="pt">Falken 飛隼 ZE310</h3>
       <div class="spec">泰國製　·　94W XL 加強胎壁</div>
       <div class="price">$11,600<small>四條含工</small></div>
       <div class="per">約每公里 0.29 元</div>
@@ -348,7 +508,7 @@ figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,6
 
     <div class="pick">
       <span class="tag">雨天最強，但有條件</span>
-      <h4>Continental 馬牌 PremiumContact 7</h4>
+      <h3 class="pt">Continental 馬牌 PremiumContact 7</h3>
       <div class="spec">歐洲製　·　91V　·　特價出清品</div>
       <div class="price">$13,200<small>四條含工</small></div>
       <div class="per">原價 3,700／條，出清價 3,300</div>
@@ -361,7 +521,7 @@ figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,6
 
     <div class="pick">
       <span class="tag">最耐用</span>
-      <h4>Michelin 米其林 PRIMACY 5</h4>
+      <h3 class="pt">Michelin 米其林 PRIMACY 5</h3>
       <div class="spec">站方標示 91W XL（需到店確認）</div>
       <div class="price">$14,000<small>四條含工</small></div>
       <div class="per">跑滿壽命的話約每公里 0.26 元</div>
@@ -475,7 +635,7 @@ figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,6
 
   <div class="tablewrap">
     <table>
-      <thead><tr><th>款式</th><th class="num">四條總價</th><th class="num">評分</th><th class="num">濕地</th><th class="num">預估壽命</th><th class="num">每公里</th></tr></thead>
+      <thead><tr><th scope="col">款式</th><th scope="col" class="num">四條總價</th><th scope="col" class="num">評分</th><th scope="col" class="num">濕地</th><th scope="col" class="num">預估壽命</th><th scope="col" class="num">每公里</th></tr></thead>
       <tbody>
         <tr><td>Michelin PRIMACY 5</td><td class="num" data-label="四條總價">14,000</td><td class="num" data-label="評分">9.1</td><td class="num" data-label="濕地">87</td><td class="num" data-label="預估壽命">53,000 km</td><td class="num" data-label="每公里">0.26 元</td></tr>
         <tr><td>Falken ZE310</td><td class="num" data-label="四條總價">11,600</td><td class="num" data-label="評分">8.6</td><td class="num" data-label="濕地">83</td><td class="num" data-label="預估壽命">39,800 km</td><td class="num" data-label="每公里">0.29 元</td></tr>
@@ -495,7 +655,7 @@ figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,6
 
   <div class="tablewrap">
     <table id="pricetable">
-      <thead id="pricehead"><tr><th>品牌／型號</th><th>規格</th><th>產地</th><th class="num">單條</th><th class="num">四條</th><th>店家備註</th></tr></thead>
+      <thead id="pricehead"><tr><th scope="col">品牌／型號</th><th scope="col">規格</th><th scope="col">產地</th><th scope="col" class="num">單條</th><th scope="col" class="num">四條</th><th scope="col">店家備註</th></tr></thead>
       <tbody>
         <tr><td>Maxxis 瑪吉斯 HP6</td><td data-label="規格">94W XL</td><td data-label="產地">中國</td><td class="num" data-label="單條">2,700</td><td class="num" data-label="四條">10,800</td><td class="rem" data-label="店家備註"></td></tr>
         <tr><td>NANKANG 南港 AS-3</td><td data-label="規格">91V</td><td data-label="產地">台灣</td><td class="num" data-label="單條">2,700</td><td class="num" data-label="四條">10,800</td><td class="rem" data-label="店家備註"></td></tr>
@@ -620,7 +780,7 @@ figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,6
 
   <div class="tablewrap">
     <table>
-      <thead><tr><th>項目</th><th class="num">小李輪胎（含裝價）</th><th class="num">網購裸胎＋在地輪胎行</th></tr></thead>
+      <thead><tr><th scope="col">項目</th><th scope="col" class="num">小李輪胎（含裝價）</th><th scope="col" class="num">網購裸胎＋在地輪胎行</th></tr></thead>
       <tbody>
         <tr><td>四條輪胎</td><td class="num" data-label="小李輪胎（含裝價）">12,000</td><td class="num" data-label="網購裸胎＋在地輪胎行">約 10,800（網購常見價）</td></tr>
         <tr><td>安裝工資（16 吋 350／條）</td><td class="num" data-label="小李輪胎（含裝價）">已含</td><td class="num" data-label="網購裸胎＋在地輪胎行">1,400</td></tr>
@@ -691,7 +851,7 @@ figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,6
 
   <div class="tablewrap">
     <table>
-      <thead><tr><th>定位</th><th>款式</th><th>規格／產地</th><th class="num">四條含工</th></tr></thead>
+      <thead><tr><th scope="col">定位</th><th scope="col">款式</th><th scope="col">規格／產地</th><th scope="col" class="num">四條含工</th></tr></thead>
       <tbody>
         <tr><td>最省</td><td data-label="款式">Dunlop 登祿普 BLUE RESPONSE TG</td><td data-label="規格／產地">91V／中國</td><td class="num" data-label="四條含工">8,800</td></tr>
         <tr class="hi"><td>最推薦</td><td data-label="款式">Falken 飛隼 ZE310</td><td data-label="規格／產地">91V／泰國</td><td class="num" data-label="四條含工">10,000</td></tr>
@@ -705,6 +865,8 @@ figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,6
 
   <p class="mini">這個尺寸全站 47 款、單條 1,800～3,800 元、中位數 2,500 元。另外注意：尼克森 SU-1 店家標「售完停產」、馬牌 CC7 與瑪吉斯 HP5 標「數量有限」，這三款去之前要先問。</p>
 </section>
+
+</main>
 
 <hr>
 
@@ -783,6 +945,7 @@ figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,6
   /* 3. 閱讀進度條 + 浮動目錄鈕（一個 rAF 迴圈處理所有捲動事） */
   var prog = document.createElement('div');
   prog.className = 'prog';
+  prog.setAttribute('aria-hidden', 'true');
   document.body.appendChild(prog);
 
   var fab = document.createElement('button');
@@ -842,7 +1005,20 @@ figure .zoom{position:absolute; right:10px; bottom:44px; background:rgba(33,48,6
     if (e.target === sheet) sheet.close();
   });
   sheet.querySelectorAll('.toclist a').forEach(function (a) {
-    a.addEventListener('click', function () { sheet.close(); });
+    a.addEventListener('click', function (e) {
+      // 這頁兩萬像素長，平滑捲動跑完要好幾秒。目錄是「我要馬上到那裡」，直接瞬移。
+      var id = a.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      // 順序很重要：<dialog> 開著的時候瀏覽器會鎖住背景捲動，
+      // 先跳再關 = 完全跳不動（實測只走到一半就停）。先關、下一幀再跳。
+      sheet.close();
+      requestAnimationFrame(function () {
+        target.scrollIntoView({ behavior: 'instant', block: 'start' });  // 'auto' 會沿用 CSS 的 smooth，要 'instant' 才是瞬移
+        history.replaceState(null, '', '#' + id);
+      });
+    });
   });
 
   /* 目前讀到哪一節 → 目錄裡標起來 */
