@@ -1,6 +1,6 @@
 /* Wish 換胎指南 — 離線快取。輪胎行常常在地下室或鐵皮屋，訊號很差。
    只接管這份報告自己的資源，同站其他頁面一律放行不快取。 */
-const CACHE = 'wish-tire-v4';
+const CACHE = 'wish-tire-v5';
 const PAGE = '/wish-tire-guide.html';
 const ASSETS = [
   PAGE,
@@ -10,7 +10,9 @@ const ASSETS = [
   '/wish-tire-guide/avoid_900.jpg', '/wish-tire-guide/wet_900.jpg',
   '/wish-tire-guide/steps_900.jpg', '/wish-tire-guide/placard_900.jpg',
   '/wish-tire-guide/shop_900.jpg', '/wish-tire-guide/cost_900.jpg',
-  '/wish-tire-guide/rear_900.jpg', '/wish-tire-guide/twi_900.jpg'
+  '/wish-tire-guide/rear_900.jpg', '/wish-tire-guide/twi_900.jpg',
+  '/wish-tire-guide/NotoSansTC-400-subset.woff2',
+  '/wish-tire-guide/NotoSansTC-700-subset.woff2'
 ];
 
 self.addEventListener('install', (e) => {
@@ -40,7 +42,7 @@ self.addEventListener('fetch', (e) => {
     );
     return;
   }
-  // 圖片走快取優先：圖不會改，抓過就別再花流量。
+  // 字型與圖片走快取優先：圖不會改，抓過就別再花流量。
   // 離線時若要的尺寸沒快取（不同螢幕會挑不同檔位），退回同一張圖的 900px 版。
   e.respondWith(
     caches.match(e.request).then((hit) => hit || fetch(e.request)
@@ -50,6 +52,7 @@ self.addEventListener('fetch', (e) => {
         return res;
       })
       .catch(() => {
+        if (!/\.jpg$/.test(url.pathname)) return caches.match(url.pathname);
         const base = url.pathname.replace(/(_\d+)?\.jpg$/, '_900.jpg');
         return caches.match(base);
       })

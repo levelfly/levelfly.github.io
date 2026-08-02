@@ -10,6 +10,7 @@
 <meta name="color-scheme" content="light dark">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="manifest" href="wish-tire-guide/app.webmanifest">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="wish-tire-guide/NotoSansTC-400-subset.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="wish-tire-guide/NotoSansTC-700-subset.woff2"><style>@font-face{font-family:'Noto Sans TC';font-style:normal;font-weight:400;font-display:swap;src:url(wish-tire-guide/NotoSansTC-400-subset.woff2) format('woff2')}@font-face{font-family:'Noto Sans TC';font-style:normal;font-weight:700;font-display:swap;src:url(wish-tire-guide/NotoSansTC-700-subset.woff2) format('woff2')}</style>
 <meta property="og:type" content="article">
 <meta property="og:title" content="Toyota Wish 換輪胎完全指南 — 不懂車也看得懂">
 <meta property="og:description" content="77 款實際價格比較、四種預算的具體建議、到店話術腳本。價格已含安裝，看完就能去換。">
@@ -442,9 +443,44 @@ img{background:var(--paper)}
   transition:opacity .2s ease-out, transform .16s ease-out, padding .2s ease-out}
 .fab .lbl2{display:inline-block; max-width:5em; opacity:1;
   transition:max-width .22s ease-out, opacity .18s ease-out, margin .22s ease-out}
-.fab.mini{padding:12px; opacity:.62; min-width:46px; justify-content:center}  /* 收合時仍維持 46px 觸控目標 */
+.fab.mini{padding:12px; opacity:.5; min-width:46px; justify-content:center}  /* 收合時仍維持 46px 觸控目標 */
 .fab.mini .lbl2{max-width:0; opacity:0; margin-left:-6px}
 @media (prefers-reduced-motion:reduce){ .fab, .fab .lbl2{transition:none} }
+
+/* ═══ 中文排版層 ═══
+   在這之前只寫了 font stack、沒有真的載入字型 → 每支手機看到的字都不一樣
+   （iOS 蘋方、Android Noto、有些機型還會用合成粗體把筆畫糊掉）。
+   現在自帶子集化的 Noto Sans TC（400/700 各約 120KB，只含本頁用到的 878 字）。 */
+body{
+  /* 拉丁字母與數字交給系統字（SF Pro / Roboto 比 Noto 的拉丁部分好看且更清晰），
+     漢字才落到 Noto Sans TC。順序決定誰先接手。 */
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+              "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  letter-spacing:.015em;              /* 漢字微幅加字距，小字級下比較不擠 */
+  line-height:1.9;                    /* 中文行高要比西文寬 */
+  text-spacing-trim:space-first;      /* 全形標點在行首不留大洞（Chrome 123+） */
+  text-autospace:normal;              /* 中英數之間自動補空隙 */
+}
+p, li, dd, figcaption, .lede{
+  line-break:strict;                  /* 「、。」」不會掉到行首 */
+  overflow-wrap:break-word;           /* 長型號（BLUE RESPONSE TG）不撐破版面 */
+  hanging-punctuation:allow-end;      /* Safari：行尾標點可懸吊 */
+}
+p{margin:0 0 1.15em}                  /* 段距用相對單位，字級調大時一起放大 */
+h1{letter-spacing:0}                  /* 原本 -0.01em：負字距對漢字是災難，會黏在一起 */
+h2, h3, .pick h3.pt, summary{letter-spacing:.01em; line-height:1.5}
+h2{line-height:1.42}
+strong, b, th, .price, .decide .ans{font-weight:700}   /* 有真 700 了，不用合成粗體 */
+.price, td.num, .per, .meta{font-variant-numeric:tabular-nums}
+.script{line-height:1.95}             /* 到店話術是要念出來的，行距再寬一點 */
+.mini, .evi p, .evi li{line-height:1.75}
+
+@media (max-width:620px){
+  body{line-height:1.92}
+  .lede{line-height:1.85}
+  h1{line-height:1.35}
+  td{letter-spacing:.01em}
+}
 
 @media print{
   body{background:#fff; color:#000; font-size:12pt}
@@ -999,9 +1035,11 @@ img{background:var(--paper)}
       var max = document.documentElement.scrollHeight - innerHeight;
       prog.style.width = (max > 0 ? Math.min(100, scrollY / max * 100) : 0) + '%';
       fab.classList.toggle('on', scrollY > 700);
-      fab.classList.add('mini');                    // 捲動中縮起來，不擋字
+      // 邏輯要這樣才對：停著不動＝正在讀字，收成小圓鈕最不擋；
+      // 一開始捲＝在找路，展開成「☰ 目錄」讓人知道有導覽可用。
+      fab.classList.remove('mini');
       clearTimeout(fab._t);
-      fab._t = setTimeout(function () { fab.classList.remove('mini'); }, 600);
+      fab._t = setTimeout(function () { fab.classList.add('mini'); }, 1200);
       ticking = false;
     });
   }
